@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools", "setuptools-rust"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "patoka"
+version = "0.2.0"
+authors = [
+  { name="Hyeok Kim", email="hyeok.pacakge@sgmail.com" },
+  { name="Mingyoung J. Jeng" },
+  { name="Kaitlin N. Smith" },
+]
+description = "A collection of Jupyter Lab widgets for IBM Qiskit"
+readme = { file = "README.md", content-type = "text/markdown" }
+requires-python = ">=3.9"
+dependencies = [
+    "qiskit",
+    "qiskit-aer",
+    "qiskit_ibm_runtime",
+    "qiskit_algorithms",
+    "qiskit_machine_learning",
+    "numpy",
+    "pandas",
+    "altair",
+    "scipy",
+    "tqdm",
+    "jupyter",
+    "anywidget",
+]
+
+[project.urls]
+Homepage = "https://github.com/see-mike-out/patoka"
+Issues = "https://github.com/see-mike-out/patoka/issues"

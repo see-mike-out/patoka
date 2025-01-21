@@ -1,0 +1,18 @@
+{
+  "name": "patoka-widgets",
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev --port 5175",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@anywidget/vite": "^0.1.2",
+    "@sveltejs/vite-plugin-svelte": "^2.5.3",
+    "vite": "^4.5.3"
+  },
+  "dependencies": {
+    "d3": "^7.9.0",
+    "svelte": "^4.0.5"
+  }
+}
