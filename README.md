@@ -8,7 +8,7 @@ Patoka is a collection of Jupyter Lab widgets for IBM Qiskit
 
 ## Usage
 
-Refer to [this use case repo](https://url.to.come.unknown).
+Refer to notebooks in the `demos` directory.
 
 ## Developers
 
