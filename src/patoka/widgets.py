@@ -4,7 +4,7 @@ import pathlib
 from patoka.widget_classes import getCircuitViewerClass, getCircuitWriterClass, getMachineViewerClass, getResultViewerClass
 
 # path to bundled files
-_SS_ = pathlib.Path(__file__).parent.parent.parent / "widget_dist"
+_SS_ = pathlib.Path(__file__).parent / "widget_built"
 ESM = _SS_ / "index.js"
 CSS = _SS_ / "style.css"
 
