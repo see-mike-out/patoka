@@ -24,9 +24,15 @@ Run `source bin/activate`
 2. For Node:
  `npm i`
 
+### Running the dev version widget server
+
+Run: `npm run dev`
+
+Then, import the loader functions from `patoka.widgets_dev` (e.g., `from patoka.widgets_dev import getCircuitViewer`).
+
 ### Bug report
 
-Please use issues.
+Please use issues. Because the production version cannot attribute to Javascript source files, please run with the dev version.
 
 ## Citation
 

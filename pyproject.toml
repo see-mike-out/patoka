@@ -4,9 +4,9 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "patoka"
-version = "0.2.0"
+version = "0.2.1"
 authors = [
-  { name="Hyeok Kim", email="hyeok.pacakge@sgmail.com" },
+  { name="Hyeok Kim" },
   { name="Mingyoung J. Jeng" },
   { name="Kaitlin N. Smith" },
 ]
