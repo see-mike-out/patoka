@@ -16,8 +16,14 @@ class CircuitViewer(anywidget.AnyWidget):
     mode = traitlets.Unicode("view").tag(sync=True)
 
     def __init__(self, *args: object, **kwargs: object):
-        source = args[0]
-        self._esm = source + "index.js?anywidget"
+        source = kwargs["source"]
+        dev = True
+        if "dev" in source:
+            dev = source["dev"]
+        if "esm" in source:
+            self._esm = source["esm"] if dev else source["esm"].read_text()
+        if "css" in source:
+            self._css = source["css"] if dev else source["css"].read_text()
         super().__init__(*args, **kwargs)
 
 
@@ -33,8 +39,14 @@ class CircuitWriter(anywidget.AnyWidget):
     mode = traitlets.Unicode("write").tag(sync=True)
 
     def __init__(self, *args: object, **kwargs: object):
-        source = args[0]
-        self._esm = source + "index.js?anywidget"
+        source = kwargs["source"]
+        dev = True
+        if "dev" in source:
+            dev = source["dev"]
+        if "esm" in source:
+            self._esm = source["esm"] if dev else source["esm"].read_text()
+        if "css" in source:
+            self._css = source["css"] if dev else source["css"].read_text()
         super().__init__(*args, **kwargs)
 
 
@@ -53,8 +65,14 @@ class ResultViewer(anywidget.AnyWidget):
     data_update = traitlets.Unicode().tag(sync=True)
 
     def __init__(self, *args: object, **kwargs: object):
-        source = args[0]
-        self._esm = source + "index.js?anywidget"
+        source = kwargs["source"]
+        dev = True
+        if "dev" in source:
+            dev = source["dev"]
+        if "esm" in source:
+            self._esm = source["esm"] if dev else source["esm"].read_text()
+        if "css" in source:
+            self._css = source["css"] if dev else source["css"].read_text()
         super().__init__(*args, **kwargs)
 
 
@@ -70,8 +88,14 @@ class MachineViewer(anywidget.AnyWidget):
     mode = traitlets.Unicode("machine").tag(sync=True)
 
     def __init__(self, *args: object, **kwargs: object):
-        source = args[0]
-        self._esm = source + "index.js?anywidget"
+        source = kwargs["source"]
+        dev = True
+        if "dev" in source:
+            dev = source["dev"]
+        if "esm" in source:
+            self._esm = source["esm"] if dev else source["esm"].read_text()
+        if "css" in source:
+            self._css = source["css"] if dev else source["css"].read_text()
         super().__init__(*args, **kwargs)
 
 

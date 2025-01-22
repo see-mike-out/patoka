@@ -10,6 +10,7 @@
   import CircuitViewPanel from "./CircuitViewPanel.svelte";
   import MatrixPanel from "./MatrixPanel.svelte";
   import QubitFreqPanel from "./QubitFreqPanel.svelte";
+  import { onMount } from "svelte";
 
   export let data = writable();
   export let addToBasket = () => {};
@@ -23,6 +24,14 @@
   function toggleSection() {
     hide = !hide;
   }
+  onMount(() => {
+    if (
+      section_meta?.key === "properties" &&
+      section_meta?.title === "Overall"
+    ) {
+      hide = true;
+    }
+  });
 </script>
 
 {#if $data && section_meta}

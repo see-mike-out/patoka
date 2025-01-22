@@ -433,92 +433,102 @@
                 </button>
               {/if}
             </td>
-            <td
-              >{qubit.prob_meas0_prep1.value}<br /><span class="asof"
-                >({qubit.prob_meas0_prep1.asof})</span
-              >
-              {#if addToBasket}
-                <button
-                  class="basket"
-                  on:click={() => {
-                    addToBasket(
-                      `qubit_${key}_${qi}_prob_meas0_prep1 = ${code_header}${qi}, name="prob_meas0_prep1"${code_footer}`,
-                    );
-                  }}
-                >
-                  <Cart
-                    on={$basket.includes(
-                      `qubit_${key}_${qi}_prob_meas0_prep1 = ${code_header}${qi}, name="prob_meas0_prep1"${code_footer}`,
-                    )}
-                  ></Cart>
-                </button>
-              {/if}
-              {#if topLevelKey === "properties" && openTimeMachine}
-                <button
-                  class="basket"
-                  on:click={() => {
-                    openTimeMachine({
-                      datatype: "nudv-map",
-                      subtype: "qubit-property",
-                      key: `qubit_${qi}_prob_meas0_prep1`,
-                      title_key: `qubit[${qi}].prob_meas0_prep1`,
-                      qubit_index: qi,
-                      property: `prob_meas0_prep1`,
-                      parentKey,
-                      topLevelKey,
-                      data: qubit.prob_meas0_prep1,
-                      code_header: `${code_header}${qi}, name="prob_meas0_prep1"`,
-                      code_footer,
-                      code_key: "",
-                    });
-                  }}
-                >
-                  <Clock></Clock>
-                </button>
+            <td>
+              {#if qubit.prob_meas0_prep1?.value !== undefined}
+                {qubit.prob_meas0_prep1?.value}<br />
+                <span class="asof">({qubit.prob_meas0_prep1?.asof})</span>
+
+                {#if addToBasket}
+                  <button
+                    class="basket"
+                    on:click={() => {
+                      addToBasket(
+                        `qubit_${key}_${qi}_prob_meas0_prep1 = ${code_header}${qi}, name="prob_meas0_prep1"${code_footer}`,
+                      );
+                    }}
+                  >
+                    <Cart
+                      on={$basket.includes(
+                        `qubit_${key}_${qi}_prob_meas0_prep1 = ${code_header}${qi}, name="prob_meas0_prep1"${code_footer}`,
+                      )}
+                    ></Cart>
+                  </button>
+                {/if}
+                {#if topLevelKey === "properties" && openTimeMachine}
+                  <button
+                    class="basket"
+                    on:click={() => {
+                      openTimeMachine({
+                        datatype: "nudv-map",
+                        subtype: "qubit-property",
+                        key: `qubit_${qi}_prob_meas0_prep1`,
+                        title_key: `qubit[${qi}].prob_meas0_prep1`,
+                        qubit_index: qi,
+                        property: `prob_meas0_prep1`,
+                        parentKey,
+                        topLevelKey,
+                        data: qubit.prob_meas0_prep1,
+                        code_header: `${code_header}${qi}, name="prob_meas0_prep1"`,
+                        code_footer,
+                        code_key: "",
+                      });
+                    }}
+                  >
+                    <Clock></Clock>
+                  </button>
+                {/if}
+              {:else}
+                -<br />
+                <span class="asof">(-)</span>
               {/if}
             </td>
-            <td
-              >{qubit.prob_meas1_prep0.value}<br /><span class="asof"
-                >({qubit.prob_meas1_prep0.asof})</span
-              >
-              {#if addToBasket}
-                <button
-                  class="basket"
-                  on:click={() => {
-                    addToBasket(
-                      `qubit_${key}_${qi}_prob_meas1_prep0 = ${code_header}${qi}, name="prob_meas1_prep0"${code_footer}`,
-                    );
-                  }}
+            <td>
+              {#if qubit.prob_meas1_prep0?.value !== undefined}
+                {qubit.prob_meas1_prep0?.value}<br /><span class="asof"
+                  >({qubit.prob_meas1_prep0?.asof})</span
                 >
-                  <Cart
-                    on={$basket.includes(
-                      `qubit_${key}_${qi}_prob_meas1_prep0 = ${code_header}${qi}, name="prob_meas1_prep0"${code_footer}`,
-                    )}
-                  ></Cart>
-                </button>
-              {/if}
-              {#if topLevelKey === "properties" && openTimeMachine}
-                <button
-                  class="basket"
-                  on:click={() => {
-                    openTimeMachine({
-                      datatype: "nudv-map",
-                      subtype: "qubit-property",
-                      key: `qubit_${qi}_prob_meas1_prep0`,
-                      title_key: `qubit[${qi}].prob_meas1_prep0`,
-                      qubit_index: qi,
-                      property: `prob_meas1_prep0`,
-                      parentKey,
-                      topLevelKey,
-                      data: qubit.prob_meas1_prep0,
-                      code_header: `${code_header}${qi}, name="prob_meas1_prep0"`,
-                      code_footer,
-                      code_key: "",
-                    });
-                  }}
-                >
-                  <Clock></Clock>
-                </button>
+                {#if addToBasket}
+                  <button
+                    class="basket"
+                    on:click={() => {
+                      addToBasket(
+                        `qubit_${key}_${qi}_prob_meas1_prep0 = ${code_header}${qi}, name="prob_meas1_prep0"${code_footer}`,
+                      );
+                    }}
+                  >
+                    <Cart
+                      on={$basket.includes(
+                        `qubit_${key}_${qi}_prob_meas1_prep0 = ${code_header}${qi}, name="prob_meas1_prep0"${code_footer}`,
+                      )}
+                    ></Cart>
+                  </button>
+                {/if}
+                {#if topLevelKey === "properties" && openTimeMachine}
+                  <button
+                    class="basket"
+                    on:click={() => {
+                      openTimeMachine({
+                        datatype: "nudv-map",
+                        subtype: "qubit-property",
+                        key: `qubit_${qi}_prob_meas1_prep0`,
+                        title_key: `qubit[${qi}].prob_meas1_prep0`,
+                        qubit_index: qi,
+                        property: `prob_meas1_prep0`,
+                        parentKey,
+                        topLevelKey,
+                        data: qubit.prob_meas1_prep0,
+                        code_header: `${code_header}${qi}, name="prob_meas1_prep0"`,
+                        code_footer,
+                        code_key: "",
+                      });
+                    }}
+                  >
+                    <Clock></Clock>
+                  </button>
+                {/if}
+              {:else}
+                -<br />
+                <span class="asof">(-)</span>
               {/if}
             </td>
             <td

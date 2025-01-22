@@ -29,22 +29,24 @@
   <div class="value">
     {#if value !== undefined}
       {#each value as a_set, ai}
-        <strong>{a_set.name}</strong>
-        {#if addToBasket}
-          <button
-            class="basket x2"
-            on:click={() => {
-              addToBasket(`${key}_${ai} = ${code_header}${ai}${code_footer}`);
-            }}
-          >
-            <Cart
-              on={$basket.includes(
-                `${key}_${ai} = ${code_header}${ai}${code_footer}`,
-              )}
-            ></Cart>
-          </button>
-        {/if}<br />
-        {a_set.qubits.join(", ")}
+        <div class="value-row">
+          <strong>{a_set.name}</strong>
+          {#if addToBasket}
+            <button
+              class="basket x2"
+              on:click={() => {
+                addToBasket(`${key}_${ai} = ${code_header}${ai}${code_footer}`);
+              }}
+            >
+              <Cart
+                on={$basket.includes(
+                  `${key}_${ai} = ${code_header}${ai}${code_footer}`,
+                )}
+              ></Cart>
+            </button>
+          {/if}<br />
+          {a_set.qubits.join(", ")}
+        </div>
       {/each}
     {/if}
   </div>
@@ -94,8 +96,13 @@
     margin: 0 0 0.5rem 0;
   }
   .value {
+    max-height: 200px;
     font-family: var(--font-mono);
-    font-size: 1.1rem;
+    font-size: 0.9rem;
+    overflow: scroll;
+  }
+  .value-row {
+    margin-bottom: 0.5rem;
   }
   .desc {
     font-size: 0.85rem;

@@ -38,14 +38,16 @@
   let qubit_info_selected = writable(),
     edge_info_selected = writable();
   function get_sizing(qubit_nodes) {
-    n_rows = Math.max(...qubit_nodes.map((d) => d.y)) + 1;
-    n_cols = Math.max(...qubit_nodes.map((d) => d.x)) + 1;
+    n_rows = Math.max(...(qubit_nodes?.map((d) => d.y) ?? [0])) + 1;
+    n_cols = Math.max(...(qubit_nodes?.map((d) => d.x) ?? [0])) + 1;
     width = (n_cols - 1) * qubit_gap + padding * 2;
     height = n_rows * qubit_gap + padding * 2;
 
     node_map = {};
-    for (const node of qubit_nodes) {
-      node_map[node.index] = node;
+    if (qubit_nodes) {
+      for (const node of qubit_nodes) {
+        node_map[node.index] = node;
+      }
     }
     if (qubit_info) {
       qubit_info_list = Object.keys(qubit_info[0])

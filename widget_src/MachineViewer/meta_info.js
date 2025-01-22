@@ -18,37 +18,6 @@ export const sections = [
       "max_circuits"
     ]
   },
-  // {
-  //   "title": "Settings",
-  //   "subsections": [
-  //     {
-  //       "key": "options",
-  //       "order": [
-  //         "shots",
-  //         "memory", "memory_slots", "memory_slot_size",
-  //         "meas_level", "meas_return",
-  //         "rep_time", "rep_delay",
-  //         "init_qubits",
-  //         "use_measure_esp",
-  //         "noise_model",
-  //         "seed_simulator"
-  //       ]
-  //     },
-  //     {
-  //       "key": "properties",
-  //       "order": [
-  //         "last_update_date",
-  //         "general_qlists",
-  //         "general",
-  //         "gates",
-  //         "qubits",
-  //         "faulty_gates",
-  //         "faulty_qubits",
-  //       ]
-  //     }
-  //   ]
-  // },
-
   {
     "title": "Options",
     "subsections": [

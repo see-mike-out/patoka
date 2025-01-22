@@ -26,6 +26,7 @@ dependencies = [
     "tqdm",
     "jupyter",
     "anywidget",
+    "matplotlib"
 ]
 
 [project.urls]
