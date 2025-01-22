@@ -13,65 +13,69 @@
       <div class="input-form">
         <label>Qubits to measure</label>
         <div class="checkbox-group">
-          <QubitSelect
-            id={`measure-reset`}
-            checked={false}
-            oncheck={(new_state) => {
-              data.update((d) => {
-                d.measure_all = false;
-                d.measure = [];
-                return d;
-              });
-            }}
-            label="Reset"
-          ></QubitSelect>
-          <QubitSelect
-            id={"measure-all"}
-            checked={$data.measure_all}
-            deactive={!(
-              $data.num_qubits &&
-              $data.num_clbits &&
-              $data.num_clbits >= $data.num_qubits
-            )
-              ? "deactive"
-              : ""}
-            oncheck={(new_state) => {
-              data.update((d) => {
-                d.measure_all = new_state;
-                return d;
-              });
-            }}
-            label="All"
-          ></QubitSelect>
-
-          {#each $data.qubits || [] as item}
+          {#if $data.clbits === "auto"}
             <QubitSelect
-              id={"measure-" + item}
-              checked={$data.measure?.includes(item)}
+              id={`measure-reset`}
+              checked={false}
               oncheck={(new_state) => {
                 data.update((d) => {
-                  if (!d.measure) d.measure = [];
-                  measure_warning.set();
-                  if (new_state && !d.measure.includes(item)) {
-                    if (d.num_clbits <= d.measure?.length) {
-                      measure_warning.set(
-                        `More classical bits are needed to measure the qubit ${item}.`,
-                      );
-                      return d;
-                    }
-                    d.measure.push(item);
-                  } else if (!new_state && d.measure.includes(item)) {
-                    d.measure.splice(d.measure.indexOf(item), 1);
-                  }
-                  if (d.num_clbits >= d.measure?.length) {
-                    measure_warning.set();
-                  }
+                  d.measure_all = false;
+                  d.measure = [];
                   return d;
                 });
               }}
-              label={item}
+              label="Reset"
             ></QubitSelect>
-          {/each}
+            <QubitSelect
+              id={"measure-all"}
+              checked={$data.measure_all}
+              deactive={!(
+                $data.num_qubits &&
+                $data.num_clbits &&
+                $data.num_clbits >= $data.num_qubits
+              )
+                ? "deactive"
+                : ""}
+              oncheck={(new_state) => {
+                data.update((d) => {
+                  d.measure_all = new_state;
+                  return d;
+                });
+              }}
+              label="All"
+            ></QubitSelect>
+
+            {#each $data.qubits || [] as item}
+              <QubitSelect
+                id={"measure-" + item}
+                checked={$data.measure?.includes(item)}
+                oncheck={(new_state) => {
+                  data.update((d) => {
+                    if (!d.measure) d.measure = [];
+                    measure_warning.set();
+                    if (new_state && !d.measure.includes(item)) {
+                      if (d.num_clbits <= d.measure?.length) {
+                        measure_warning.set(
+                          `More classical bits are needed to measure the qubit ${item}.`,
+                        );
+                        return d;
+                      }
+                      d.measure.push(item);
+                    } else if (!new_state && d.measure.includes(item)) {
+                      d.measure.splice(d.measure.indexOf(item), 1);
+                    }
+                    if (d.num_clbits >= d.measure?.length) {
+                      measure_warning.set();
+                    }
+                    return d;
+                  });
+                }}
+                label={item}
+              ></QubitSelect>
+            {/each}
+          {:else}
+            <span class="auto-selected">Auto-selected</span>
+          {/if}
         </div>
       </div>
     </div>
@@ -158,6 +162,9 @@
   .checkbox-group.solo {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
+  }
+  .checkbox-group span {
+    padding: 0.5rem;
   }
   .checkbox-item {
     display: flex;

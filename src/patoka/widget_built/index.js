@@ -1,9 +1,9 @@
-var pg = Object.defineProperty;
-var mg = (t, e, l) => e in t ? pg(t, e, { enumerable: !0, configurable: !0, writable: !0, value: l }) : t[e] = l;
-var Wa = (t, e, l) => (mg(t, typeof e != "symbol" ? e + "" : e, l), l);
-function ae() {
+var p0 = Object.defineProperty;
+var m0 = (t, e, l) => e in t ? p0(t, e, { enumerable: !0, configurable: !0, writable: !0, value: l }) : t[e] = l;
+var Wa = (t, e, l) => (m0(t, typeof e != "symbol" ? e + "" : e, l), l);
+function ne() {
 }
-const gg = (t) => t;
+const g0 = (t) => t;
 function Xr(t, e) {
   for (const l in e)
     t[l] = e[l];
@@ -27,14 +27,14 @@ function im(t) {
 function Fe(t, e) {
   return t != t ? e == e : t !== e || t && typeof t == "object" || typeof t == "function";
 }
-function bg(t) {
+function b0(t) {
   return Object.keys(t).length === 0;
 }
 function st(t, ...e) {
   if (t == null) {
     for (const i of e)
       i(void 0);
-    return ae;
+    return ne;
   }
   const l = t.subscribe(...e);
   return l.unsubscribe ? () => l.unsubscribe() : l;
@@ -49,14 +49,14 @@ function Ta(t, e, l) {
   return t.set(l), e;
 }
 const nm = typeof window < "u";
-let kg = nm ? () => window.performance.now() : () => Date.now(), am = nm ? (t) => requestAnimationFrame(t) : ae;
+let k0 = nm ? () => window.performance.now() : () => Date.now(), am = nm ? (t) => requestAnimationFrame(t) : ne;
 const Oi = /* @__PURE__ */ new Set();
 function rm(t) {
   Oi.forEach((e) => {
     e.c(t) || (Oi.delete(e), e.f());
   }), Oi.size !== 0 && am(rm);
 }
-function vg(t) {
+function v0(t) {
   let e;
   return Oi.size === 0 && am(rm), {
     promise: new Promise((l) => {
@@ -70,10 +70,10 @@ function vg(t) {
 function f(t, e) {
   t.appendChild(e);
 }
-function M(t, e, l) {
+function S(t, e, l) {
   t.insertBefore(e, l || null);
 }
-function S(t) {
+function C(t) {
   t.parentNode && t.parentNode.removeChild(t);
 }
 function Ye(t, e) {
@@ -86,14 +86,14 @@ function m(t) {
 function Ge(t) {
   return document.createElementNS("http://www.w3.org/2000/svg", t);
 }
-function I(t) {
+function E(t) {
   return document.createTextNode(t);
 }
 function N() {
-  return I(" ");
+  return E(" ");
 }
 function Ae() {
-  return I("");
+  return E("");
 }
 function te(t, e, l, i) {
   return t.addEventListener(e, l, i), () => t.removeEventListener(e, l, i);
@@ -108,7 +108,7 @@ function xt(t, e, l) {
 function sm(t) {
   return t === "" ? null : +t;
 }
-function yg(t) {
+function y0(t) {
   return Array.from(t.childNodes);
 }
 function U(t, e) {
@@ -148,10 +148,10 @@ function ri(t) {
 }
 const Pi = [], Yr = [];
 let Ei = [];
-const Kr = [], wg = /* @__PURE__ */ Promise.resolve();
+const Kr = [], w0 = /* @__PURE__ */ Promise.resolve();
 let gr = !1;
-function $g() {
-  gr || (gr = !0, wg.then(um));
+function $0() {
+  gr || (gr = !0, w0.then(um));
 }
 function br(t) {
   Ei.push(t);
@@ -166,7 +166,7 @@ function um() {
     try {
       for (; si < Pi.length; ) {
         const e = Pi[si];
-        si++, pn(e), qg(e.$$);
+        si++, pn(e), q0(e.$$);
       }
     } catch (e) {
       throw Pi.length = 0, si = 0, e;
@@ -183,14 +183,14 @@ function um() {
     Kr.pop()();
   gr = !1, Ja.clear(), pn(t);
 }
-function qg(t) {
+function q0(t) {
   if (t.fragment !== null) {
     t.update(), wt(t.before_update);
     const e = t.dirty;
     t.dirty = [-1], t.fragment && t.fragment.p(t.ctx, e), t.after_update.forEach(br);
   }
 }
-function jg(t) {
+function j0(t) {
   const e = [], l = [];
   Ei.forEach((i) => t.indexOf(i) === -1 ? e.push(i) : l.push(i)), l.forEach((i) => i()), Ei = e;
 }
@@ -235,10 +235,10 @@ function de(t, e, l) {
 }
 function he(t, e) {
   const l = t.$$;
-  l.fragment !== null && (jg(l.after_update), wt(l.on_destroy), l.fragment && l.fragment.d(e), l.on_destroy = l.fragment = null, l.ctx = []);
+  l.fragment !== null && (j0(l.after_update), wt(l.on_destroy), l.fragment && l.fragment.d(e), l.on_destroy = l.fragment = null, l.ctx = []);
 }
-function Tg(t, e) {
-  t.$$.dirty[0] === -1 && (Pi.push(t), $g(), t.$$.dirty.fill(0)), t.$$.dirty[e / 31 | 0] |= 1 << e % 31;
+function T0(t, e) {
+  t.$$.dirty[0] === -1 && (Pi.push(t), $0(), t.$$.dirty.fill(0)), t.$$.dirty[e / 31 | 0] |= 1 << e % 31;
 }
 function Qe(t, e, l, i, n, a, r = null, s = [-1]) {
   const o = mn;
@@ -248,7 +248,7 @@ function Qe(t, e, l, i, n, a, r = null, s = [-1]) {
     ctx: [],
     // state
     props: a,
-    update: ae,
+    update: ne,
     not_equal: n,
     bound: Gr(),
     // lifecycle
@@ -267,12 +267,12 @@ function Qe(t, e, l, i, n, a, r = null, s = [-1]) {
   r && r(_.root);
   let c = !1;
   if (_.ctx = l ? l(t, e.props || {}, (d, h, ...p) => {
-    const b = p.length ? p[0] : h;
-    return _.ctx && n(_.ctx[d], _.ctx[d] = b) && (!_.skip_bound && _.bound[d] && _.bound[d](b), c && Tg(t, d)), h;
+    const g = p.length ? p[0] : h;
+    return _.ctx && n(_.ctx[d], _.ctx[d] = g) && (!_.skip_bound && _.bound[d] && _.bound[d](g), c && T0(t, d)), h;
   }) : [], _.update(), c = !0, wt(_.before_update), _.fragment = i ? i(_.ctx) : !1, e.target) {
     if (e.hydrate) {
-      const d = yg(e.target);
-      _.fragment && _.fragment.l(d), d.forEach(S);
+      const d = y0(e.target);
+      _.fragment && _.fragment.l(d), d.forEach(C);
     } else
       _.fragment && _.fragment.c();
     e.intro && T(t.$$.fragment), de(t, e.target, e.anchor), um();
@@ -300,7 +300,7 @@ class Ve {
   }
   /** @returns {void} */
   $destroy() {
-    he(this, 1), this.$destroy = ae;
+    he(this, 1), this.$destroy = ne;
   }
   /**
    * @template {Extract<keyof Events, string>} K
@@ -310,7 +310,7 @@ class Ve {
    */
   $on(e, l) {
     if (!im(l))
-      return ae;
+      return ne;
     const i = this.$$.callbacks[e] || (this.$$.callbacks[e] = []);
     return i.push(l), () => {
       const n = i.indexOf(l);
@@ -322,13 +322,13 @@ class Ve {
    * @returns {void}
    */
   $set(e) {
-    this.$$set && !bg(e) && (this.$$.skip_bound = !0, this.$$set(e), this.$$.skip_bound = !1);
+    this.$$set && !b0(e) && (this.$$.skip_bound = !0, this.$$set(e), this.$$.skip_bound = !1);
   }
 }
-const Cg = "4";
-typeof window < "u" && (window.__svelte || (window.__svelte = { v: /* @__PURE__ */ new Set() })).v.add(Cg);
+const C0 = "4";
+typeof window < "u" && (window.__svelte || (window.__svelte = { v: /* @__PURE__ */ new Set() })).v.add(C0);
 const oi = [];
-function Oe(t, e = ae) {
+function Oe(t, e = ne) {
   let l;
   const i = /* @__PURE__ */ new Set();
   function n(s) {
@@ -346,15 +346,15 @@ function Oe(t, e = ae) {
   function a(s) {
     n(s(t));
   }
-  function r(s, o = ae) {
+  function r(s, o = ne) {
     const _ = [s, o];
-    return i.add(_), i.size === 1 && (l = e(n, a) || ae), s(t), () => {
+    return i.add(_), i.size === 1 && (l = e(n, a) || ne), s(t), () => {
       i.delete(_), i.size === 0 && l && (l(), l = null);
     };
   }
   return { set: n, update: a, subscribe: r };
 }
-const qe = 24, Pt = 6, et = 6, Ur = 48, tt = 24, De = 10, ui = 12, Ui = 14, ml = 48, jl = 24, Ot = 70, Sg = 25, Bl = 16, Me = "#000000", it = "#ffffff", Wr = 70, Wi = 10, Wt = [
+const qe = 24, Pt = 6, et = 6, Ur = 48, tt = 24, De = 10, ui = 12, Ui = 14, ml = 48, jl = 24, Ot = 70, S0 = 25, Bl = 16, Me = "#000000", it = "#ffffff", Wr = 70, Wi = 10, Wt = [
   "#4285f4",
   "#db4437",
   "#f4b400",
@@ -375,10 +375,10 @@ const qe = 24, Pt = 6, et = 6, Ur = 48, tt = 24, De = 10, ui = 12, Ui = 14, ml =
   "#8d6e63",
   "#9e9e9e",
   "#607d8b"
-], Mg = [
+], M0 = [
   // no-target
   "cp"
-], zg = [
+], z0 = [
   // single-target
   "mcx",
   "cccx",
@@ -403,10 +403,10 @@ const qe = 24, Pt = 6, et = 6, Ur = 48, tt = 24, De = 10, ui = 12, Ui = 14, ml =
   "cu3",
   "rccx",
   "rcccx"
-], Ng = [
+], N0 = [
   // double-target
   "cswap"
-], Ag = [
+], A0 = [
   "cswap",
   "iswap",
   "swap"
@@ -613,7 +613,7 @@ let Il = tt, fi = "cx", Jr = {
     };
     return i.elem.push(o), i;
   }
-}, Bg = [2, 3, 4, 6, 8, 16, 32];
+}, B0 = [2, 3, 4, 6, 8, 16, 32];
 function St(t, e) {
   let l = t / Math.PI;
   if (l == 0)
@@ -624,7 +624,7 @@ function St(t, e) {
     return "-π";
   {
     let i = l < 0 ? "-" : "", n = Math.abs(l).toPrecision(8), a = [];
-    for (let r of Bg)
+    for (let r of B0)
       for (let s = 1; s < r; s++) {
         let o = (s / r).toPrecision(8);
         if (!a.includes(o)) {
@@ -636,7 +636,7 @@ function St(t, e) {
     return e ? t : Math.round(t * 100) / 100;
   }
 }
-function Pg(t) {
+function P0(t) {
   let e = t.length;
   if (e <= 1)
     return null;
@@ -647,7 +647,7 @@ function Pg(t) {
   }));
 }
 const Za = "http://www.w3.org/2000/svg";
-function Og(t, e) {
+function O0(t, e) {
   let l = document.querySelector(`#${t} defs`), i = document.querySelector(`#${t}`);
   l || (l = document.createElementNS(Za, "defs"));
   let n = document.createElementNS(Za, "linearGradient");
@@ -753,8 +753,8 @@ let qn = tt * 2.3, jn = "rz", ts = {
     };
     return i.elem.push(r), i;
   }
-}, xa = tt * 1.65, Eg = "custom", Ig = {
-  name: Eg,
+}, xa = tt * 1.65, E0 = "custom", I0 = {
+  name: E0,
   is_custom: !0,
   width: xa,
   plan: function(t, e, l, i) {
@@ -1554,7 +1554,7 @@ let qn = tt * 2.3, jn = "rz", ts = {
     };
     return i.elem.push(o), i;
   }
-}, Rl = tt, hi = "mcx", Dg = {
+}, Rl = tt, hi = "mcx", D0 = {
   name: hi,
   width: Rl,
   plan: function(t, e, l) {
@@ -1568,7 +1568,7 @@ let qn = tt * 2.3, jn = "rz", ts = {
       elem: []
     }, n = t.qubits.slice(0, -1), a = t.qubits.slice(-1)[0], r = nt(t, l);
     i.y = r.y, i.height = r.height;
-    let s = n.map((g) => $t(t, g, l)), o = $t(t, a, l), _ = Math.min(...s, o), c = Math.max(...s, o), d = {
+    let s = n.map((b) => $t(t, b, l)), o = $t(t, a, l), _ = Math.min(...s, o), c = Math.max(...s, o), d = {
       id: `layer-${e}--${hi}--connect`,
       type: "line",
       x1: Rl / 2 - 0.5,
@@ -1579,7 +1579,7 @@ let qn = tt * 2.3, jn = "rz", ts = {
     };
     i.elem.push(d);
     let h = 0;
-    for (let g in n) {
+    for (let b in n) {
       let k = {
         id: `layer-${e}--${hi}--control` + h,
         type: "rect",
@@ -1604,7 +1604,7 @@ let qn = tt * 2.3, jn = "rz", ts = {
       height: qe
     };
     i.elem.push(p);
-    let b = {
+    let g = {
       id: `layer-${e}--${hi}--target-marker`,
       type: "text",
       x: Rl / 2,
@@ -1613,7 +1613,7 @@ let qn = tt * 2.3, jn = "rz", ts = {
       "alignment-baseline": "middle",
       text: "X"
     };
-    return i.elem.push(b), i;
+    return i.elem.push(g), i;
   }
 }, Hl = tt, pi = "ch", $s = {
   name: pi,
@@ -2074,7 +2074,7 @@ let qn = tt * 2.3, jn = "rz", ts = {
         height: qe
       };
       i.elem.push(p);
-      let b = {
+      let g = {
         id: `layer-${e}--${gl}--1--target-marker`,
         type: "text",
         x: n / 2,
@@ -2083,7 +2083,7 @@ let qn = tt * 2.3, jn = "rz", ts = {
         "alignment-baseline": "middle",
         text: "X"
       };
-      i.elem.push(b);
+      i.elem.push(g);
     }
     let a = n + Pt;
     {
@@ -2122,7 +2122,7 @@ let qn = tt * 2.3, jn = "rz", ts = {
         height: qe
       };
       i.elem.push(p);
-      let b = {
+      let g = {
         id: `layer-${e}--${gl}--2--target-marker`,
         type: "text",
         x: a + n / 2,
@@ -2131,11 +2131,11 @@ let qn = tt * 2.3, jn = "rz", ts = {
         "alignment-baseline": "middle",
         text: "X"
       };
-      i.elem.push(b);
+      i.elem.push(g);
     }
     return i;
   }
-}, Xl = tt, vi = "mrcx", Rg = {
+}, Xl = tt, vi = "mrcx", R0 = {
   name: vi,
   width: Xl,
   plan: function(t, e, l) {
@@ -2149,7 +2149,7 @@ let qn = tt * 2.3, jn = "rz", ts = {
       elem: []
     }, n = t.qubits.slice(0, -1), a = t.qubits.slice(-1)[0], r = nt(t, l);
     i.y = r.y, i.height = r.height;
-    let s = n.map((g) => $t(t, g, l)), o = $t(t, a, l), _ = Math.min(...s, o), c = Math.max(...s, o), d = {
+    let s = n.map((b) => $t(t, b, l)), o = $t(t, a, l), _ = Math.min(...s, o), c = Math.max(...s, o), d = {
       id: `layer-${e}--${vi}--connect`,
       type: "line",
       x1: Xl / 2 - 0.5,
@@ -2160,7 +2160,7 @@ let qn = tt * 2.3, jn = "rz", ts = {
     };
     i.elem.push(d);
     let h = 0;
-    for (let g in n) {
+    for (let b in n) {
       let k = {
         id: `layer-${e}--${vi}--control` + h,
         type: "rect",
@@ -2185,7 +2185,7 @@ let qn = tt * 2.3, jn = "rz", ts = {
       height: qe
     };
     i.elem.push(p);
-    let b = {
+    let g = {
       id: `layer-${e}--${vi}--target-marker`,
       type: "text",
       x: Xl / 2,
@@ -2194,7 +2194,7 @@ let qn = tt * 2.3, jn = "rz", ts = {
       "alignment-baseline": "middle",
       text: "X"
     };
-    return i.elem.push(b), i;
+    return i.elem.push(g), i;
   }
 }, yi = tt, nn = "cswap", As = {
   name: nn,
@@ -2625,7 +2625,7 @@ let qn = tt * 2.3, jn = "rz", ts = {
     i.elem.push(c);
     let d = 0;
     for (let p in n) {
-      let b = {
+      let g = {
         id: `layer-${e}--${an}--control` + d,
         type: "rect",
         "stroke-width": 0,
@@ -2635,7 +2635,7 @@ let qn = tt * 2.3, jn = "rz", ts = {
         x: tt / 2 - 3,
         y: r[d] + qe / 2 - 3
       };
-      i.elem.push(b), d++;
+      i.elem.push(g), d++;
     }
     let h = {
       id: `layer-${e}--${an}--param-text` + d,
@@ -2678,7 +2678,7 @@ let qn = tt * 2.3, jn = "rz", ts = {
     i.elem.push(c);
     let d = 0;
     for (let p in n) {
-      let b = {
+      let g = {
         id: `layer-${e}--${rn}--control` + d,
         type: "rect",
         "stroke-width": 0,
@@ -2688,7 +2688,7 @@ let qn = tt * 2.3, jn = "rz", ts = {
         x: tt / 2 - 3,
         y: r[d] + qe / 2 - 3
       };
-      i.elem.push(b), d++;
+      i.elem.push(g), d++;
     }
     let h = {
       id: `layer-${e}--${rn}--param-text` + d,
@@ -2996,9 +2996,9 @@ let qn = tt * 2.3, jn = "rz", ts = {
     return i.elem.push(o), i;
   }
 };
-function Hg(t, e, l) {
+function H0(t, e, l) {
   let i;
-  return ["mcx", "cccx", "c3x", "ccccx", "c4x", "ccx"].includes(t.gate) ? i = Dg.plan(t, e, l) : t.gate === $s.name ? i = $s.plan(t, e, l) : t.gate === qs.name ? i = qs.plan(t, e, l) : t.gate === js.name ? i = js.plan(t, e, l) : t.gate === Ts.name ? i = Ts.plan(t, e, l) : t.gate === Jr.name ? i = Jr.plan(t, e, l) : t.gate === Cs.name ? i = Cs.plan(t, e, l) : t.gate === gs.name ? i = gs.plan(t, e, l) : t.gate === hs.name ? i = hs.plan(t, e, l) : t.gate === ps.name ? i = ps.plan(t, e, l) : t.gate === ms.name ? i = ms.plan(t, e, l) : t.gate === ts.name ? i = ts.plan(t, e, l) : t.gate === bs.name ? i = bs.plan(t, e, l) : t.gate === ks.name ? i = ks.plan(t, e, l) : t.gate === vs.name ? i = vs.plan(t, e, l) : t.gate === ys.name ? i = ys.plan(t, e, l) : t.gate === ns.name ? i = ns.plan(t, e, l) : t.gate === as.name ? i = as.plan(t, e, l) : t.gate === rs.name ? i = rs.plan(t, e, l) : t.gate === ss.name ? i = ss.plan(t, e, l) : t.gate === us.name ? i = us.plan(t, e, l) : t.gate === fs.name ? i = fs.plan(t, e, l) : t.gate === os.name ? i = os.plan(t, e, l) : t.gate === ls.name ? i = ls.plan(t, e, l) : t.gate === _s.name ? i = _s.plan(t, e, l) : t.gate === cs.name ? i = cs.plan(t, e, l) : t.gate === ds.name ? i = ds.plan(t, e, l) : t.gate === Ms.name ? i = Ms.plan(t, e, l) : t.gate === zs.name ? i = zs.plan(t, e, l) : t.gate === Ss.name ? i = Ss.plan(t, e, l) : t.gate === As.name ? i = As.plan(t, e, l) : t.gate === Zr.name ? i = Zr.plan(t, e, l) : t.gate === ws.name ? i = ws.plan(t, e, l) : t.gate === Ns.name ? i = Ns.plan(t, e, l) : t.gate === Bs.name ? i = Bs.plan(t, e, l) : t.gate === Ps.name ? i = Ps.plan(t, e, l) : t.gate === Os.name ? i = Os.plan(t, e, l) : t.gate === Es.name ? i = Es.plan(t, e, l) : t.gate === Is.name ? i = Is.plan(t, e, l) : t.gate === Ds.name ? i = Ds.plan(t, e, l) : t.gate === Rs.name ? i = Rs.plan(t, e, l) : t.gate === Hs.name ? i = Hs.plan(t, e, l) : t.gate === Ls.name ? i = Ls.plan(t, e, l) : t.gate === Fs.name ? i = Fs.plan(t, e, l) : t.gate === Qs.name ? i = Qs.plan(t, e, l) : t.gate === Vs.name ? i = Vs.plan(t, e, l) : t.gate === Xs.name ? i = Xs.plan(t, e, l) : ["rccx", "rcccx"].includes(t.gate) ? i = Rg.plan(t, e, l) : t.gate === is.name ? i = is.plan(t, e, l) : t.gate === xr.name ? i = xr.plan(t, e, l) : i = Ig.plan(t, t.gate, e, l), i && (i.role = "gate-group", i.data = {
+  return ["mcx", "cccx", "c3x", "ccccx", "c4x", "ccx"].includes(t.gate) ? i = D0.plan(t, e, l) : t.gate === $s.name ? i = $s.plan(t, e, l) : t.gate === qs.name ? i = qs.plan(t, e, l) : t.gate === js.name ? i = js.plan(t, e, l) : t.gate === Ts.name ? i = Ts.plan(t, e, l) : t.gate === Jr.name ? i = Jr.plan(t, e, l) : t.gate === Cs.name ? i = Cs.plan(t, e, l) : t.gate === gs.name ? i = gs.plan(t, e, l) : t.gate === hs.name ? i = hs.plan(t, e, l) : t.gate === ps.name ? i = ps.plan(t, e, l) : t.gate === ms.name ? i = ms.plan(t, e, l) : t.gate === ts.name ? i = ts.plan(t, e, l) : t.gate === bs.name ? i = bs.plan(t, e, l) : t.gate === ks.name ? i = ks.plan(t, e, l) : t.gate === vs.name ? i = vs.plan(t, e, l) : t.gate === ys.name ? i = ys.plan(t, e, l) : t.gate === ns.name ? i = ns.plan(t, e, l) : t.gate === as.name ? i = as.plan(t, e, l) : t.gate === rs.name ? i = rs.plan(t, e, l) : t.gate === ss.name ? i = ss.plan(t, e, l) : t.gate === us.name ? i = us.plan(t, e, l) : t.gate === fs.name ? i = fs.plan(t, e, l) : t.gate === os.name ? i = os.plan(t, e, l) : t.gate === ls.name ? i = ls.plan(t, e, l) : t.gate === _s.name ? i = _s.plan(t, e, l) : t.gate === cs.name ? i = cs.plan(t, e, l) : t.gate === ds.name ? i = ds.plan(t, e, l) : t.gate === Ms.name ? i = Ms.plan(t, e, l) : t.gate === zs.name ? i = zs.plan(t, e, l) : t.gate === Ss.name ? i = Ss.plan(t, e, l) : t.gate === As.name ? i = As.plan(t, e, l) : t.gate === Zr.name ? i = Zr.plan(t, e, l) : t.gate === ws.name ? i = ws.plan(t, e, l) : t.gate === Ns.name ? i = Ns.plan(t, e, l) : t.gate === Bs.name ? i = Bs.plan(t, e, l) : t.gate === Ps.name ? i = Ps.plan(t, e, l) : t.gate === Os.name ? i = Os.plan(t, e, l) : t.gate === Es.name ? i = Es.plan(t, e, l) : t.gate === Is.name ? i = Is.plan(t, e, l) : t.gate === Ds.name ? i = Ds.plan(t, e, l) : t.gate === Rs.name ? i = Rs.plan(t, e, l) : t.gate === Hs.name ? i = Hs.plan(t, e, l) : t.gate === Ls.name ? i = Ls.plan(t, e, l) : t.gate === Fs.name ? i = Fs.plan(t, e, l) : t.gate === Qs.name ? i = Qs.plan(t, e, l) : t.gate === Vs.name ? i = Vs.plan(t, e, l) : t.gate === Xs.name ? i = Xs.plan(t, e, l) : ["rccx", "rcccx"].includes(t.gate) ? i = R0.plan(t, e, l) : t.gate === is.name ? i = is.plan(t, e, l) : t.gate === xr.name ? i = xr.plan(t, e, l) : i = I0.plan(t, t.gate, e, l), i && (i.role = "gate-group", i.data = {
     operation: t,
     layer_index: e,
     tooltip_content: {
@@ -3008,7 +3008,7 @@ function Hg(t, e, l) {
     }
   }), i;
 }
-function Lg(t, e, l) {
+function L0(t, e, l) {
   let i = {
     id: "esp--group",
     type: "g",
@@ -3159,15 +3159,15 @@ function Lg(t, e, l) {
       "stroke-width": 0,
       fill: "orange"
     });
-    let b = c.esp_total * t.height;
+    let g = c.esp_total * t.height;
     h.elem.push({
       type: "rect",
       id: `esp-bar-${_}--bar-total`,
       role: "esp-bar--bar-total",
       x: d / 2,
-      y: t.height - b,
+      y: t.height - g,
       width: Wi,
-      height: b,
+      height: g,
       "stroke-width": 0,
       fill: "red"
     }), h.elem.push({
@@ -3190,20 +3190,20 @@ function Lg(t, e, l) {
   return i.elem.push(o), [n, i];
 }
 function kr(t, e) {
-  var z, H, B, R, P, E, F, L, X, V;
+  var z, H, B, R, P, O, F, L, X, V;
   if (!t)
     return null;
-  let l = 0, i = 0, n = 0, a = [], r = [], s = e == null ? void 0 : e.pagination, o = (e == null ? void 0 : e.first_layer_index) || 0, _ = !(e != null && e.is_original) && ((z = e == null ? void 0 : e.match) == null ? void 0 : z.bit_match), c = (H = e == null ? void 0 : e.match) == null ? void 0 : H.bit_match, d = (e == null ? void 0 : e.filter_unused_qubits) === void 0 ? !1 : e.filter_unused_qubits, h = Ur + (!(e != null && e.is_original) && ((B = e == null ? void 0 : e.match) != null && B.bit_match) ? Ur * 1.25 : 0), p = t.qubits.map((Q) => Q.index), b = p.length;
-  d && ((R = t.match) != null && R.bit_match) ? (p = t.match.bit_match.filter((Q) => !Q.is_ancilla).map((Q) => Q.to), b = p.length) : d && (d = !1);
-  let g;
-  t.global_phase && (g = {
+  let l = 0, i = 0, n = 0, a = [], r = [], s = e == null ? void 0 : e.pagination, o = (e == null ? void 0 : e.first_layer_index) || 0, _ = !(e != null && e.is_original) && ((z = e == null ? void 0 : e.match) == null ? void 0 : z.bit_match), c = (H = e == null ? void 0 : e.match) == null ? void 0 : H.bit_match, d = (e == null ? void 0 : e.filter_unused_qubits) === void 0 ? !1 : e.filter_unused_qubits, h = Ur + (!(e != null && e.is_original) && ((B = e == null ? void 0 : e.match) != null && B.bit_match) ? Ur * 1.25 : 0), p = t.qubits.map((Q) => Q.index), g = p.length;
+  d && ((R = t.match) != null && R.bit_match) ? (p = t.match.bit_match.filter((Q) => !Q.is_ancilla).map((Q) => Q.to), g = p.length) : d && (d = !1);
+  let b;
+  t.global_phase && (b = {
     type: "g",
     x: De,
     y: De,
     role: "global-phase",
     id: "global-phase",
     elem: []
-  }, g.elem.push({
+  }, b.elem.push({
     type: "text",
     x: h,
     y: ui,
@@ -3214,15 +3214,15 @@ function kr(t, e) {
     text: `Global phase: ${St(t.global_phase)}`
   }));
   let k = 0, y = {};
-  if (b > 0) {
-    l += h, n = qe * b + Pt * (b - 1), i += n;
+  if (g > 0) {
+    l += h, n = qe * g + Pt * (g - 1), i += n;
     for (let Q of t.qubits)
       if (!(d && !p.includes(Q.index))) {
         y[Q.index] = k;
-        let Z = "", ne;
-        !(e != null && e.no_match) && (e != null && e.is_original) ? ne = c.filter((Y) => Y.from == Q.index)[0] : e != null && e.no_match || (ne = c.filter((Y) => Y.to == Q.index)[0]);
-        let se = Wt[(ne == null ? void 0 : ne.from) || t.qubits.length];
-        _ && (ne && !ne.is_ancilla ? Z = Q.register.name + ne.from + " > " : ne && ne.is_ancilla && (Z = "ancilla/" + ne.to + " > "));
+        let Z = "", ae;
+        !(e != null && e.no_match) && (e != null && e.is_original) ? ae = c.filter((Y) => Y.from == Q.index)[0] : e != null && e.no_match || (ae = c.filter((Y) => Y.to == Q.index)[0]);
+        let se = Wt[(ae == null ? void 0 : ae.from) || t.qubits.length];
+        _ && (ae && !ae.is_ancilla ? Z = Q.register.name + ae.from + " > " : ae && ae.is_ancilla && (Z = "ancilla/" + ae.to + " > "));
         let K = {
           type: "g",
           x: 0,
@@ -3234,7 +3234,7 @@ function kr(t, e) {
           _class: `qubit-group qubit-${Q.index}` + (e != null && e.is_original ? " original" : " transpiled"),
           data: {
             qubit: Q,
-            bit_match: ne,
+            bit_match: ae,
             matched_circuit_id: e == null ? void 0 : e.matched_circuit_id,
             unit_id: e == null ? void 0 : e.unit_id,
             this_circuit_id: e == null ? void 0 : e.this_circuit_id,
@@ -3273,7 +3273,7 @@ function kr(t, e) {
           role: "qubit-group-click-wrap",
           data: {
             qubit: Q,
-            bit_match: ne,
+            bit_match: ae,
             matched_circuit_id: e == null ? void 0 : e.matched_circuit_id,
             unit_id: e == null ? void 0 : e.unit_id,
             this_circuit_id: e == null ? void 0 : e.this_circuit_id,
@@ -3313,11 +3313,11 @@ function kr(t, e) {
     y1: n + Pt + qe / 2 - 2,
     "stroke-width": 4
   }));
-  let v = 0, w = [], q = et, $ = (P = s == null ? void 0 : s.range) != null && P[0] ? Math.max((E = s == null ? void 0 : s.range) == null ? void 0 : E[0], 0) : 0, j = (F = s == null ? void 0 : s.range) != null && F[1] ? Math.min((L = s == null ? void 0 : s.range) == null ? void 0 : L[1], t.layers.length) : t.layers.length;
+  let v = 0, w = [], q = et, $ = (P = s == null ? void 0 : s.range) != null && P[0] ? Math.max((O = s == null ? void 0 : s.range) == null ? void 0 : O[0], 0) : 0, j = (F = s == null ? void 0 : s.range) != null && F[1] ? Math.min((L = s == null ? void 0 : s.range) == null ? void 0 : L[1], t.layers.length) : t.layers.length;
   for (let Q = 0; Q < t.layers.length; Q++) {
     if (Q < $ || Q >= j)
       continue;
-    let Z = t.layers[Q], ne = {
+    let Z = t.layers[Q], ae = {
       id: `layer-${o + Q}--group`,
       type: "g",
       role: "layer-group",
@@ -3339,7 +3339,7 @@ function kr(t, e) {
       }
     }, se = 0, K = [], Y = Z.operations.length;
     for (let W = 0; W < Z.operations.length; W++) {
-      let J = Z.operations[W], ee = Hg(J, o + Q, y), we, Re;
+      let J = Z.operations[W], ee = H0(J, o + Q, y), we, Re;
       !(e != null && e.no_match) && (e != null && e.is_original) ? (we = vr((X = e == null ? void 0 : e.match) == null ? void 0 : X.layer_match, "o-t", o + Q, W), Re = Wt[(o + Q + W * Y) % Wt.length]) : e != null && e.no_match || (we = vr((V = e == null ? void 0 : e.match) == null ? void 0 : V.layer_match, "t-o", o + Q, W), we && (Re = Wt[(we.layer + we.operation * Y) % Wt.length])), ee && (ee._class = `gate-wrap layer-${o + Q} gate-${W}` + (e != null && e.is_original ? " original" : " transpiled"), ee.data.operation_index = W, ee.data.layer_match = we, ee.data.match_color = Re, ee.data.matched_circuit_id = e == null ? void 0 : e.matched_circuit_id, ee.data.unit_id = e == null ? void 0 : e.unit_id, ee.data.this_circuit_id = e == null ? void 0 : e.this_circuit_id, ee.data.matched_machine_id = e == null ? void 0 : e.matched_machine_id, ee.elem.push({
         id: `layer-${o + Q}--${J.gate}--click-wrap`,
         _class: "gate-group-click-wrap",
@@ -3350,13 +3350,13 @@ function kr(t, e) {
         width: ee.width,
         height: ee.height,
         data: ee.data
-      })), ne.elem.push(ee), se = Math.max(se, (ee == null ? void 0 : ee.width) || 32), J.qubits.forEach((ve) => {
+      })), ae.elem.push(ee), se = Math.max(se, (ee == null ? void 0 : ee.width) || 32), J.qubits.forEach((ve) => {
         K.includes(ve.index) || K.push(ve.index);
       });
     }
-    ne.width = se, ne.data.tooltip_content.Qubits = "[" + K.join(", ") + "]", ne.elem.forEach((W) => {
+    ae.width = se, ae.data.tooltip_content.Qubits = "[" + K.join(", ") + "]", ae.elem.forEach((W) => {
       W && W.width < se && (W.x += (se - W.width) / 2);
-    }), ne.elem.unshift({
+    }), ae.elem.unshift({
       id: `layer-${o + Q}--interaction-wrap`,
       _class: "interation-wrap",
       type: "rect",
@@ -3366,13 +3366,13 @@ function kr(t, e) {
       height: e != null && e.show_moments ? i + ui + Pt + De * 2 : i,
       fill: "rgba(0, 0, 0, 0)",
       stroke: "transparent"
-    }), q = q + se + et, v = v + se + et, w.push(ne);
+    }), q = q + se + et, v = v + se + et, w.push(ae);
   }
   v = v + et, l += v + et, r.forEach((Q) => {
     Q.x2 = v, Q.y2 = Q.y1;
   });
-  let O, A;
-  t.esp !== void 0 && ([O, A] = Lg(
+  let I, A;
+  t.esp !== void 0 && ([I, A] = L0(
     {
       x: De + h + et,
       y: i + Pt * 4,
@@ -3382,7 +3382,7 @@ function kr(t, e) {
     t,
     w
   ), i += Wr + Pt * 4);
-  let C = {
+  let M = {
     type: "svg",
     width: l + De * 2,
     height: i + De * 2,
@@ -3425,9 +3425,9 @@ function kr(t, e) {
         role: "circuit_body",
         data: t.layers
       },
-      phase_marker: g,
+      phase_marker: b,
       esp_group: A,
-      esp_axis_group: O
+      esp_axis_group: I
     }
   };
   if (e != null && e.show_moments) {
@@ -3440,21 +3440,21 @@ function kr(t, e) {
       height: ui,
       elem: []
     };
-    Q.elem = w.map((ne, se) => ({
-      id: `moment-${ne.data.layer_index}--marker`,
+    Q.elem = w.map((ae, se) => ({
+      id: `moment-${ae.data.layer_index}--marker`,
       type: "text",
-      text: ne.data.layer_index,
-      x: ne.x + ne.width / 2,
+      text: ae.data.layer_index,
+      x: ae.x + ae.width / 2,
       y: ui / 2,
       "font-size": 10,
-      data: ne.data,
+      data: ae.data,
       "text-anchor": "middle",
       "alignment-baseline": "middle"
     }));
     let Z = ui + Pt;
-    C.height += Z, C.viewBox[3] += Z, C.groups.qubit_group.y += Z, C.groups.circuit_line_group.y += Z, C.groups.circuit_group.y += Z, C.groups.esp_group && (C.groups.esp_group.y += Z), C.groups.esp_axis_group && (C.groups.esp_axis_group.y += Z), C.groups.moment_group = Q;
+    M.height += Z, M.viewBox[3] += Z, M.groups.qubit_group.y += Z, M.groups.circuit_line_group.y += Z, M.groups.circuit_group.y += Z, M.groups.esp_group && (M.groups.esp_group.y += Z), M.groups.esp_axis_group && (M.groups.esp_axis_group.y += Z), M.groups.moment_group = Q;
   }
-  return C;
+  return M;
 }
 function vr(t, e, l, i) {
   var n, a;
@@ -3504,7 +3504,7 @@ function Gs(t) {
       t[0].y}`);
     },
     m(h, p) {
-      M(h, e, p);
+      S(h, e, p);
     },
     p(h, p) {
       p & /*data*/
@@ -3542,11 +3542,11 @@ function Gs(t) {
       h[0].y}`) && u(e, "transform-origin", d);
     },
     d(h) {
-      h && S(e);
+      h && C(e);
     }
   };
 }
-function Fg(t) {
+function F0(t) {
   let e, l = (
     /*data*/
     t[0] && Gs(t)
@@ -3556,28 +3556,28 @@ function Fg(t) {
       l && l.c(), e = Ae();
     },
     m(i, n) {
-      l && l.m(i, n), M(i, e, n);
+      l && l.m(i, n), S(i, e, n);
     },
     p(i, [n]) {
       /*data*/
       i[0] ? l ? l.p(i, n) : (l = Gs(i), l.c(), l.m(e.parentNode, e)) : l && (l.d(1), l = null);
     },
-    i: ae,
-    o: ae,
+    i: ne,
+    o: ne,
     d(i) {
-      i && S(e), l && l.d(i);
+      i && C(e), l && l.d(i);
     }
   };
 }
-function Qg(t, e, l) {
+function Q0(t, e, l) {
   let { data: i = {} } = e;
   return t.$$set = (n) => {
     "data" in n && l(0, i = n.data);
   }, [i];
 }
-class Vg extends Ve {
+class V0 extends Ve {
   constructor(e) {
-    super(), Qe(this, e, Qg, Fg, Fe, { data: 0 });
+    super(), Qe(this, e, Q0, F0, Fe, { data: 0 });
   }
 }
 function Ys(t) {
@@ -3603,7 +3603,7 @@ function Ys(t) {
       ) : 1);
     },
     m(h, p) {
-      M(h, e, p);
+      S(h, e, p);
     },
     p(h, p) {
       p & /*data*/
@@ -3635,11 +3635,11 @@ function Ys(t) {
       ) : 1) && u(e, "fill-opacity", d);
     },
     d(h) {
-      h && S(e);
+      h && C(e);
     }
   };
 }
-function Xg(t) {
+function X0(t) {
   let e, l = (
     /*data*/
     t[0] && Ys(t)
@@ -3649,28 +3649,28 @@ function Xg(t) {
       l && l.c(), e = Ae();
     },
     m(i, n) {
-      l && l.m(i, n), M(i, e, n);
+      l && l.m(i, n), S(i, e, n);
     },
     p(i, [n]) {
       /*data*/
       i[0] ? l ? l.p(i, n) : (l = Ys(i), l.c(), l.m(e.parentNode, e)) : l && (l.d(1), l = null);
     },
-    i: ae,
-    o: ae,
+    i: ne,
+    o: ne,
     d(i) {
-      i && S(e), l && l.d(i);
+      i && C(e), l && l.d(i);
     }
   };
 }
-function Gg(t, e, l) {
+function G0(t, e, l) {
   let { data: i = {} } = e;
   return t.$$set = (n) => {
     "data" in n && l(0, i = n.data);
   }, [i];
 }
-class Yg extends Ve {
+class Y0 extends Ve {
   constructor(e) {
-    super(), Qe(this, e, Gg, Xg, Fe, { data: 0 });
+    super(), Qe(this, e, G0, X0, Fe, { data: 0 });
   }
 }
 function Ks(t) {
@@ -3687,7 +3687,7 @@ function Ks(t) {
       t[0].height), u(e, "stroke", "transparent"), u(e, "stroke-width", "0"), u(e, "fill", "transparent");
     },
     m(d, h) {
-      M(d, e, h), _ || (c = te(
+      S(d, e, h), _ || (c = te(
         e,
         "dblclick",
         /*dblclick_handler*/
@@ -3712,11 +3712,11 @@ function Ks(t) {
       d[0].height) && u(e, "height", o);
     },
     d(d) {
-      d && S(e), _ = !1, c();
+      d && C(e), _ = !1, c();
     }
   };
 }
-function Kg(t) {
+function K0(t) {
   let e, l = (
     /*data*/
     t[0] && Ks(t)
@@ -3726,20 +3726,20 @@ function Kg(t) {
       l && l.c(), e = Ae();
     },
     m(i, n) {
-      l && l.m(i, n), M(i, e, n);
+      l && l.m(i, n), S(i, e, n);
     },
     p(i, [n]) {
       /*data*/
       i[0] ? l ? l.p(i, n) : (l = Ks(i), l.c(), l.m(e.parentNode, e)) : l && (l.d(1), l = null);
     },
-    i: ae,
-    o: ae,
+    i: ne,
+    o: ne,
     d(i) {
-      i && S(e), l && l.d(i);
+      i && C(e), l && l.d(i);
     }
   };
 }
-function Ug(t, e, l) {
+function U0(t, e, l) {
   let { data: i = {}, open_tool: n = () => {
   } } = e;
   const a = (r) => {
@@ -3756,13 +3756,13 @@ function Ug(t, e, l) {
     "data" in r && l(0, i = r.data), "open_tool" in r && l(1, n = r.open_tool);
   }, [i, n, a];
 }
-let Wg = class extends Ve {
+let W0 = class extends Ve {
   constructor(e) {
-    super(), Qe(this, e, Ug, Kg, Fe, { data: 0, open_tool: 1 });
+    super(), Qe(this, e, U0, K0, Fe, { data: 0, open_tool: 1 });
   }
 };
 function Us(t) {
-  let e, l, i, n, a, r, s, o, _, c, d, h, p, b, g, k, y, v, w;
+  let e, l, i, n, a, r, s, o, _, c, d, h, p, g, b, k, y, v, w;
   return {
     c() {
       e = Ge("line"), c = N(), d = Ge("line"), u(e, "id", l = /*data*/
@@ -3789,8 +3789,8 @@ function Us(t) {
       t[1] / 2), u(e, "stroke", _ = /*data*/
       t[0].stroke || Me), u(e, "stroke-width", 1), u(d, "id", h = /*data*/
       t[0].id + "--bottom"), u(d, "class", p = /*data*/
-      t[0]._class), u(d, "data-role", b = /*data*/
-      t[0].role), u(d, "x1", g = /*data*/
+      t[0]._class), u(d, "data-role", g = /*data*/
+      t[0].role), u(d, "x1", b = /*data*/
       t[0].x1), u(d, "y1", k = /*data*/
       t[0].y1 + /*gap*/
       t[1] / 2), u(d, "x2", y = /*data*/
@@ -3812,7 +3812,7 @@ function Us(t) {
       t[0].stroke || Me), u(d, "stroke-width", 1);
     },
     m(q, $) {
-      M(q, e, $), M(q, c, $), M(q, d, $);
+      S(q, e, $), S(q, c, $), S(q, d, $);
     },
     p(q, $) {
       $ & /*data*/
@@ -3850,10 +3850,10 @@ function Us(t) {
       q[0].id + "--bottom") && u(d, "id", h), $ & /*data*/
       1 && p !== (p = /*data*/
       q[0]._class) && u(d, "class", p), $ & /*data*/
-      1 && b !== (b = /*data*/
-      q[0].role) && u(d, "data-role", b), $ & /*data*/
       1 && g !== (g = /*data*/
-      q[0].x1) && u(d, "x1", g), $ & /*data, gap*/
+      q[0].role) && u(d, "data-role", g), $ & /*data*/
+      1 && b !== (b = /*data*/
+      q[0].x1) && u(d, "x1", b), $ & /*data, gap*/
       3 && k !== (k = /*data*/
       q[0].y1 + /*gap*/
       q[1] / 2) && u(d, "y1", k), $ & /*data*/
@@ -3878,11 +3878,11 @@ function Us(t) {
       q[0].stroke || Me) && u(d, "stroke", w);
     },
     d(q) {
-      q && (S(e), S(c), S(d));
+      q && (C(e), C(c), C(d));
     }
   };
 }
-function Jg(t) {
+function J0(t) {
   let e, l = (
     /*data*/
     t[0] && Us(t)
@@ -3892,20 +3892,20 @@ function Jg(t) {
       l && l.c(), e = Ae();
     },
     m(i, n) {
-      l && l.m(i, n), M(i, e, n);
+      l && l.m(i, n), S(i, e, n);
     },
     p(i, [n]) {
       /*data*/
       i[0] ? l ? l.p(i, n) : (l = Us(i), l.c(), l.m(e.parentNode, e)) : l && (l.d(1), l = null);
     },
-    i: ae,
-    o: ae,
+    i: ne,
+    o: ne,
     d(i) {
-      i && S(e), l && l.d(i);
+      i && C(e), l && l.d(i);
     }
   };
 }
-function Zg(t, e, l) {
+function Z0(t, e, l) {
   let { data: i = {} } = e, n = 0;
   return Tt(() => {
     l(1, n = i["stroke-width"] !== void 0 ? i["stroke-width"] : 1);
@@ -3913,9 +3913,9 @@ function Zg(t, e, l) {
     "data" in a && l(0, i = a.data);
   }, [i, n];
 }
-class xg extends Ve {
+class x0 extends Ve {
   constructor(e) {
-    super(), Qe(this, e, Zg, Jg, Fe, { data: 0 });
+    super(), Qe(this, e, Z0, J0, Fe, { data: 0 });
   }
 }
 function Ws(t, e, l) {
@@ -3927,16 +3927,16 @@ function Js(t) {
     /*data*/
     t[0].elem
   ), h = [];
-  for (let b = 0; b < d.length; b += 1)
-    h[b] = Zs(Ws(t, d, b));
-  const p = (b) => D(h[b], 1, 1, () => {
-    h[b] = null;
+  for (let g = 0; g < d.length; g += 1)
+    h[g] = Zs(Ws(t, d, g));
+  const p = (g) => D(h[g], 1, 1, () => {
+    h[g] = null;
   });
   return {
     c() {
       e = Ge("g");
-      for (let b = 0; b < h.length; b += 1)
-        h[b].c();
+      for (let g = 0; g < h.length; g += 1)
+        h[g].c();
       u(e, "id", l = /*data*/
       t[0].id), u(e, "class", i = /*data*/
       t[0]._class), u(e, "data-role", n = /*data*/
@@ -3946,8 +3946,8 @@ function Js(t) {
       t[0].x} ${/*data*/
       t[0].y})`);
     },
-    m(b, g) {
-      M(b, e, g);
+    m(g, b) {
+      S(g, e, b);
       for (let k = 0; k < h.length; k += 1)
         h[k] && h[k].m(e, null);
       o = !0, _ || (c = [
@@ -3989,52 +3989,52 @@ function Js(t) {
         )
       ], _ = !0);
     },
-    p(b, g) {
-      if (g & /*data, open_tool, openTooltip, closeTooltip, moveTooltip*/
+    p(g, b) {
+      if (b & /*data, open_tool, openTooltip, closeTooltip, moveTooltip*/
       31) {
         d = $e(
           /*data*/
-          b[0].elem
+          g[0].elem
         );
         let k;
         for (k = 0; k < d.length; k += 1) {
-          const y = Ws(b, d, k);
-          h[k] ? (h[k].p(y, g), T(h[k], 1)) : (h[k] = Zs(y), h[k].c(), T(h[k], 1), h[k].m(e, null));
+          const y = Ws(g, d, k);
+          h[k] ? (h[k].p(y, b), T(h[k], 1)) : (h[k] = Zs(y), h[k].c(), T(h[k], 1), h[k].m(e, null));
         }
         for (be(), k = d.length; k < h.length; k += 1)
           p(k);
         ke();
       }
-      (!o || g & /*data*/
+      (!o || b & /*data*/
       1 && l !== (l = /*data*/
-      b[0].id)) && u(e, "id", l), (!o || g & /*data*/
+      g[0].id)) && u(e, "id", l), (!o || b & /*data*/
       1 && i !== (i = /*data*/
-      b[0]._class)) && u(e, "class", i), (!o || g & /*data*/
+      g[0]._class)) && u(e, "class", i), (!o || b & /*data*/
       1 && n !== (n = /*data*/
-      b[0].role)) && u(e, "data-role", n), (!o || g & /*data*/
+      g[0].role)) && u(e, "data-role", n), (!o || b & /*data*/
       1 && a !== (a = /*data*/
-      b[0].height)) && u(e, "height", a), (!o || g & /*data*/
+      g[0].height)) && u(e, "height", a), (!o || b & /*data*/
       1 && r !== (r = /*data*/
-      b[0].width)) && u(e, "width", r), (!o || g & /*data*/
+      g[0].width)) && u(e, "width", r), (!o || b & /*data*/
       1 && s !== (s = `translate(${/*data*/
-      b[0].x} ${/*data*/
-      b[0].y})`)) && u(e, "transform", s);
+      g[0].x} ${/*data*/
+      g[0].y})`)) && u(e, "transform", s);
     },
-    i(b) {
+    i(g) {
       if (!o) {
-        for (let g = 0; g < d.length; g += 1)
-          T(h[g]);
+        for (let b = 0; b < d.length; b += 1)
+          T(h[b]);
         o = !0;
       }
     },
-    o(b) {
+    o(g) {
       h = h.filter(Boolean);
-      for (let g = 0; g < h.length; g += 1)
-        D(h[g]);
+      for (let b = 0; b < h.length; b += 1)
+        D(h[b]);
       o = !1;
     },
-    d(b) {
-      b && S(e), Ye(h, b), _ = !1, wt(c);
+    d(g) {
+      g && C(e), Ye(h, g), _ = !1, wt(c);
     }
   };
 }
@@ -4095,7 +4095,7 @@ function Zs(t) {
     }
   };
 }
-function e0(t) {
+function eg(t) {
   let e, l, i = (
     /*data*/
     t[0] && Js(t)
@@ -4105,7 +4105,7 @@ function e0(t) {
       i && i.c(), e = Ae();
     },
     m(n, a) {
-      i && i.m(n, a), M(n, e, a), l = !0;
+      i && i.m(n, a), S(n, e, a), l = !0;
     },
     p(n, [a]) {
       /*data*/
@@ -4121,7 +4121,7 @@ function e0(t) {
       D(i), l = !1;
     },
     d(n) {
-      n && S(e), i && i.d(n);
+      n && C(e), i && i.d(n);
     }
   };
 }
@@ -4155,12 +4155,12 @@ function xs(t) {
 function ha(t) {
   var i, n, a, r, s, o, _, c, d, h;
   let e = [], l = [];
-  return t._class.includes(" original") ? (e = t.data.layer_match.matches.map((p) => t.data.matched_circuit_id.map((b) => document.querySelector(`#circuit-viewer-${t.data.unit_id} #${b} #layer-${p[0]}--interaction-wrap`))).flat(), e.push(document.querySelector(`#circuit-viewer-${t.data.unit_id} #${t.data.this_circuit_id} #layer-${t.data.layer_match.layer}--interaction-wrap`)), l = t.data.layer_match.matches.map((p) => t.data.matched_circuit_id.map((b) => document.querySelector(`#circuit-viewer-${t.data.unit_id} #${b} .gate-wrap.layer-${p[0]}.gate-${p[1]}`))).flat(), l.push(document.querySelector(`#circuit-viewer-${t.data.unit_id} #${t.data.this_circuit_id} .gate-wrap.layer-${t.data.layer_index}.gate-${t.data.operation_index}`))) : t._class.includes(" transpiled") ? (e = ((a = (n = (i = t == null ? void 0 : t.data) == null ? void 0 : i.layer_match) == null ? void 0 : n.colleagues) == null ? void 0 : a.map((p) => document.querySelector(`#circuit-viewer-${t.data.unit_id} #${t.data.this_circuit_id} #layer-${p[0]}--interaction-wrap`))) || [], ((s = (r = t == null ? void 0 : t.data) == null ? void 0 : r.layer_match) == null ? void 0 : s.layer) !== void 0 && e.push(...t.data.matched_circuit_id.map((p) => {
-    var b;
-    return document.querySelector(`#circuit-viewer-${t.data.unit_id} #${p} #layer-${(b = t.data.layer_match) == null ? void 0 : b.layer}--interaction-wrap`);
+  return t._class.includes(" original") ? (e = t.data.layer_match.matches.map((p) => t.data.matched_circuit_id.map((g) => document.querySelector(`#circuit-viewer-${t.data.unit_id} #${g} #layer-${p[0]}--interaction-wrap`))).flat(), e.push(document.querySelector(`#circuit-viewer-${t.data.unit_id} #${t.data.this_circuit_id} #layer-${t.data.layer_match.layer}--interaction-wrap`)), l = t.data.layer_match.matches.map((p) => t.data.matched_circuit_id.map((g) => document.querySelector(`#circuit-viewer-${t.data.unit_id} #${g} .gate-wrap.layer-${p[0]}.gate-${p[1]}`))).flat(), l.push(document.querySelector(`#circuit-viewer-${t.data.unit_id} #${t.data.this_circuit_id} .gate-wrap.layer-${t.data.layer_index}.gate-${t.data.operation_index}`))) : t._class.includes(" transpiled") ? (e = ((a = (n = (i = t == null ? void 0 : t.data) == null ? void 0 : i.layer_match) == null ? void 0 : n.colleagues) == null ? void 0 : a.map((p) => document.querySelector(`#circuit-viewer-${t.data.unit_id} #${t.data.this_circuit_id} #layer-${p[0]}--interaction-wrap`))) || [], ((s = (r = t == null ? void 0 : t.data) == null ? void 0 : r.layer_match) == null ? void 0 : s.layer) !== void 0 && e.push(...t.data.matched_circuit_id.map((p) => {
+    var g;
+    return document.querySelector(`#circuit-viewer-${t.data.unit_id} #${p} #layer-${(g = t.data.layer_match) == null ? void 0 : g.layer}--interaction-wrap`);
   })), l = ((c = (_ = (o = t == null ? void 0 : t.data) == null ? void 0 : o.layer_match) == null ? void 0 : _.colleagues) == null ? void 0 : c.map((p) => document.querySelector(`#circuit-viewer-${t.data.unit_id} #${t.data.this_circuit_id} .gate-wrap.layer-${p[0]}.gate-${p[1]}`))) || [], ((h = (d = t == null ? void 0 : t.data) == null ? void 0 : d.layer_match) == null ? void 0 : h.layer) !== void 0 && l.push(...t.data.matched_circuit_id.map((p) => {
-    var b, g;
-    return document.querySelector(`#circuit-viewer-${t.data.unit_id} #${p} .gate-wrap.layer-${(b = t.data.layer_match) == null ? void 0 : b.layer}.gate-${(g = t.data.layer_match) == null ? void 0 : g.operation}`);
+    var g, b;
+    return document.querySelector(`#circuit-viewer-${t.data.unit_id} #${p} .gate-wrap.layer-${(g = t.data.layer_match) == null ? void 0 : g.layer}.gate-${(b = t.data.layer_match) == null ? void 0 : b.operation}`);
   }))) : t._class.includes(" on-machine") && (e = [], e.push(document.querySelector(`#circuit-viewer-${t.data.unit_id} #${t.data.original_circuit_id} .gate-wrap.layer-${t.data.original_layer_index}.gate-${t.data.original_operation_index}`)), l = [], l.push(document.querySelector(`#circuit-viewer-${t.data.unit_id} #${t.data.transpiled_circuit_id} .gate-wrap.layer-${t.data.layer_index}.gate-${t.data.operation_index}`))), [e, l];
 }
 function eo(t) {
@@ -4170,14 +4170,14 @@ function eo(t) {
 function sr(t) {
   return "<table>" + Object.keys(t).map((e) => e === "priority" ? "" : `<tr><th>${e}:</th><td>${t[e]}</td></tr>`).join(" ") + "</table>";
 }
-function t0(t, e, l) {
+function tg(t, e, l) {
   let { data: i = {}, open_tool: n = () => {
   }, openTooltip: a = () => {
   }, closeTooltip: r = () => {
   }, moveTooltip: s = () => {
   } } = e;
-  const o = (b) => {
-    var g;
+  const o = (g) => {
+    var b;
     if (i.role === "qubit-group" || i.role === "qubit-node--group") {
       let [k, y, v] = xs(i);
       k && (k.style.fill = i.data.match_color), y && (y.style.fill = i.data.match_color), v && (v.style.outline = `2px solid  ${i.data.match_color}`);
@@ -4200,14 +4200,14 @@ function t0(t, e, l) {
         w && (w.style.outline = `2px solid  ${i.data.match_color}`);
       });
     }
-    if ((g = i == null ? void 0 : i.data) != null && g.tooltip_content) {
+    if ((b = i == null ? void 0 : i.data) != null && b.tooltip_content) {
       let k = sr(i.data.tooltip_content);
-      a(b, k, !1, i.data.tooltip_content.priority);
+      a(g, k, !1, i.data.tooltip_content.priority);
     }
-  }, _ = (b) => {
-    s(b);
-  }, c = (b) => {
-    var g;
+  }, _ = (g) => {
+    s(g);
+  }, c = (g) => {
+    var b;
     if (i.role === "qubit-group" || i.role === "qubit-node--group") {
       let [k, y, v] = xs(i);
       k && (k.style.fill = "transparent"), y && (y.style.fill = "transparent"), v && (v.style.outline = null);
@@ -4230,24 +4230,24 @@ function t0(t, e, l) {
         w && (w.style.outline = null);
       });
     }
-    (g = i == null ? void 0 : i.data) != null && g.tooltip_content && r();
-  }, d = (b) => {
-    var g;
-    if (b.preventDefault(), (g = i == null ? void 0 : i.data) != null && g.tooltip_content) {
+    (b = i == null ? void 0 : i.data) != null && b.tooltip_content && r();
+  }, d = (g) => {
+    var b;
+    if (g.preventDefault(), (b = i == null ? void 0 : i.data) != null && b.tooltip_content) {
       let k = sr(i.data.tooltip_content);
-      a(b, k, !0, i.data.tooltip_content.priority);
+      a(g, k, !0, i.data.tooltip_content.priority);
     }
-  }, h = (b) => {
-    b.preventDefault(), r(!0);
-  }, p = (b) => {
-    var g;
-    if (b.preventDefault(), (g = i == null ? void 0 : i.data) != null && g.tooltip_content) {
+  }, h = (g) => {
+    g.preventDefault(), r(!0);
+  }, p = (g) => {
+    var b;
+    if (g.preventDefault(), (b = i == null ? void 0 : i.data) != null && b.tooltip_content) {
       let k = sr(i.data.tooltip_content);
-      a(b, k, !0, i.data.tooltip_content.priority);
+      a(g, k, !0, i.data.tooltip_content.priority);
     }
   };
-  return t.$$set = (b) => {
-    "data" in b && l(0, i = b.data), "open_tool" in b && l(1, n = b.open_tool), "openTooltip" in b && l(2, a = b.openTooltip), "closeTooltip" in b && l(3, r = b.closeTooltip), "moveTooltip" in b && l(4, s = b.moveTooltip);
+  return t.$$set = (g) => {
+    "data" in g && l(0, i = g.data), "open_tool" in g && l(1, n = g.open_tool), "openTooltip" in g && l(2, a = g.openTooltip), "closeTooltip" in g && l(3, r = g.closeTooltip), "moveTooltip" in g && l(4, s = g.moveTooltip);
   }, [
     i,
     n,
@@ -4262,9 +4262,9 @@ function t0(t, e, l) {
     p
   ];
 }
-class l0 extends Ve {
+class lg extends Ve {
   constructor(e) {
-    super(), Qe(this, e, t0, e0, Fe, {
+    super(), Qe(this, e, tg, eg, Fe, {
       data: 0,
       open_tool: 1,
       openTooltip: 2,
@@ -4308,7 +4308,7 @@ function to(t) {
       ) : 1);
     },
     m(h, p) {
-      M(h, e, p);
+      S(h, e, p);
     },
     p(h, p) {
       p & /*data*/
@@ -4352,11 +4352,11 @@ function to(t) {
       ) : 1) && u(e, "stroke-opacity", d);
     },
     d(h) {
-      h && S(e);
+      h && C(e);
     }
   };
 }
-function i0(t) {
+function ig(t) {
   let e, l = (
     /*data*/
     t[0] && to(t)
@@ -4366,20 +4366,20 @@ function i0(t) {
       l && l.c(), e = Ae();
     },
     m(i, n) {
-      l && l.m(i, n), M(i, e, n);
+      l && l.m(i, n), S(i, e, n);
     },
     p(i, [n]) {
       /*data*/
       i[0] ? l ? l.p(i, n) : (l = to(i), l.c(), l.m(e.parentNode, e)) : l && (l.d(1), l = null);
     },
-    i: ae,
-    o: ae,
+    i: ne,
+    o: ne,
     d(i) {
-      i && S(e), l && l.d(i);
+      i && C(e), l && l.d(i);
     }
   };
 }
-function n0(t, e, l) {
+function ng(t, e, l) {
   let { data: i = {} } = e;
   return t.$$set = (n) => {
     "data" in n && l(0, i = n.data);
@@ -4387,7 +4387,7 @@ function n0(t, e, l) {
 }
 class fm extends Ve {
   constructor(e) {
-    super(), Qe(this, e, n0, i0, Fe, { data: 0 });
+    super(), Qe(this, e, ng, ig, Fe, { data: 0 });
   }
 }
 function lo(t) {
@@ -4414,48 +4414,48 @@ function lo(t) {
       ) : 1), u(e, "transform", p = /*data*/
       t[0].transform);
     },
-    m(b, g) {
-      M(b, e, g);
+    m(g, b) {
+      S(g, e, b);
     },
-    p(b, g) {
-      g & /*data*/
+    p(g, b) {
+      b & /*data*/
       1 && l !== (l = /*data*/
-      b[0].id) && u(e, "id", l), g & /*data*/
+      g[0].id) && u(e, "id", l), b & /*data*/
       1 && i !== (i = /*data*/
-      b[0]._class) && u(e, "class", i), g & /*data*/
+      g[0]._class) && u(e, "class", i), b & /*data*/
       1 && n !== (n = /*data*/
-      b[0].role) && u(e, "data-role", n), g & /*data*/
+      g[0].role) && u(e, "data-role", n), b & /*data*/
       1 && a !== (a = /*data*/
-      b[0].x) && u(e, "x", a), g & /*data*/
+      g[0].x) && u(e, "x", a), b & /*data*/
       1 && r !== (r = /*data*/
-      b[0].y) && u(e, "y", r), g & /*data*/
+      g[0].y) && u(e, "y", r), b & /*data*/
       1 && s !== (s = /*data*/
-      b[0].width) && u(e, "width", s), g & /*data*/
+      g[0].width) && u(e, "width", s), b & /*data*/
       1 && o !== (o = /*data*/
-      b[0].height) && u(e, "height", o), g & /*data*/
+      g[0].height) && u(e, "height", o), b & /*data*/
       1 && _ !== (_ = /*data*/
-      b[0].stroke || Me) && u(e, "stroke", _), g & /*data*/
+      g[0].stroke || Me) && u(e, "stroke", _), b & /*data*/
       1 && c !== (c = /*data*/
-      b[0]["stroke-width"] !== void 0 ? (
+      g[0]["stroke-width"] !== void 0 ? (
         /*data*/
-        b[0]["stroke-width"]
-      ) : 1) && u(e, "stroke-width", c), g & /*data*/
+        g[0]["stroke-width"]
+      ) : 1) && u(e, "stroke-width", c), b & /*data*/
       1 && d !== (d = /*data*/
-      b[0].fill || it) && u(e, "fill", d), g & /*data*/
+      g[0].fill || it) && u(e, "fill", d), b & /*data*/
       1 && h !== (h = /*data*/
-      b[0]["fill-opacity"] !== void 0 ? (
+      g[0]["fill-opacity"] !== void 0 ? (
         /*data*/
-        b[0]["fill-opacity"]
-      ) : 1) && u(e, "fill-opacity", h), g & /*data*/
+        g[0]["fill-opacity"]
+      ) : 1) && u(e, "fill-opacity", h), b & /*data*/
       1 && p !== (p = /*data*/
-      b[0].transform) && u(e, "transform", p);
+      g[0].transform) && u(e, "transform", p);
     },
-    d(b) {
-      b && S(e);
+    d(g) {
+      g && C(e);
     }
   };
 }
-function a0(t) {
+function ag(t) {
   let e, l = (
     /*data*/
     t[0] && lo(t)
@@ -4465,38 +4465,38 @@ function a0(t) {
       l && l.c(), e = Ae();
     },
     m(i, n) {
-      l && l.m(i, n), M(i, e, n);
+      l && l.m(i, n), S(i, e, n);
     },
     p(i, [n]) {
       /*data*/
       i[0] ? l ? l.p(i, n) : (l = lo(i), l.c(), l.m(e.parentNode, e)) : l && (l.d(1), l = null);
     },
-    i: ae,
-    o: ae,
+    i: ne,
+    o: ne,
     d(i) {
-      i && S(e), l && l.d(i);
+      i && C(e), l && l.d(i);
     }
   };
 }
-function r0(t, e, l) {
+function rg(t, e, l) {
   let { data: i = {} } = e;
   return t.$$set = (n) => {
     "data" in n && l(0, i = n.data);
   }, [i];
 }
-class s0 extends Ve {
+class sg extends Ve {
   constructor(e) {
-    super(), Qe(this, e, r0, a0, Fe, { data: 0 });
+    super(), Qe(this, e, rg, ag, Fe, { data: 0 });
   }
 }
 function io(t) {
   let e, l = (
     /*data*/
     t[0].text + ""
-  ), i, n, a, r, s, o, _, c, d, h, p, b, g, k, y, v, w;
+  ), i, n, a, r, s, o, _, c, d, h, p, g, b, k, y, v, w;
   return {
     c() {
-      e = Ge("text"), i = I(l), u(e, "id", n = /*data*/
+      e = Ge("text"), i = E(l), u(e, "id", n = /*data*/
       t[0].id), u(e, "class", a = Yt(
         /*data*/
         t[0]._class
@@ -4508,8 +4508,8 @@ function io(t) {
       t[0].height), u(e, "text-anchor", d = /*data*/
       t[0]["text-anchor"]), u(e, "alignment-baseline", h = /*data*/
       t[0]["alignment-baseline"]), u(e, "font-size", p = /*data*/
-      t[0]["font-size"] || 12), u(e, "font-weight", b = /*data*/
-      t[0]["font-weight"]), u(e, "font-style", g = /*data*/
+      t[0]["font-size"] || 12), u(e, "font-weight", g = /*data*/
+      t[0]["font-weight"]), u(e, "font-style", b = /*data*/
       t[0]["font-style"]), u(e, "fill", k = /*data*/
       t[0].fill), u(e, "transform", y = /*data*/
       t[0].transform), u(e, "stroke", v = /*data*/
@@ -4517,7 +4517,7 @@ function io(t) {
       t[0]["stroke-width"] || 0);
     },
     m(q, $) {
-      M(q, e, $), f(e, i);
+      S(q, e, $), f(e, i);
     },
     p(q, $) {
       $ & /*data*/
@@ -4545,10 +4545,10 @@ function io(t) {
       q[0]["alignment-baseline"]) && u(e, "alignment-baseline", h), $ & /*data*/
       1 && p !== (p = /*data*/
       q[0]["font-size"] || 12) && u(e, "font-size", p), $ & /*data*/
-      1 && b !== (b = /*data*/
-      q[0]["font-weight"]) && u(e, "font-weight", b), $ & /*data*/
       1 && g !== (g = /*data*/
-      q[0]["font-style"]) && u(e, "font-style", g), $ & /*data*/
+      q[0]["font-weight"]) && u(e, "font-weight", g), $ & /*data*/
+      1 && b !== (b = /*data*/
+      q[0]["font-style"]) && u(e, "font-style", b), $ & /*data*/
       1 && k !== (k = /*data*/
       q[0].fill) && u(e, "fill", k), $ & /*data*/
       1 && y !== (y = /*data*/
@@ -4559,11 +4559,11 @@ function io(t) {
       q[0]["stroke-width"] || 0) && u(e, "stroke-width", w);
     },
     d(q) {
-      q && S(e);
+      q && C(e);
     }
   };
 }
-function o0(t) {
+function og(t) {
   let e, l = (
     /*data*/
     t[0] && io(t)
@@ -4573,20 +4573,20 @@ function o0(t) {
       l && l.c(), e = Ae();
     },
     m(i, n) {
-      l && l.m(i, n), M(i, e, n);
+      l && l.m(i, n), S(i, e, n);
     },
     p(i, [n]) {
       /*data*/
       i[0] ? l ? l.p(i, n) : (l = io(i), l.c(), l.m(e.parentNode, e)) : l && (l.d(1), l = null);
     },
-    i: ae,
-    o: ae,
+    i: ne,
+    o: ne,
     d(i) {
-      i && S(e), l && l.d(i);
+      i && C(e), l && l.d(i);
     }
   };
 }
-function u0(t, e, l) {
+function ug(t, e, l) {
   let { data: i = {} } = e;
   return t.$$set = (n) => {
     "data" in n && l(0, i = n.data);
@@ -4594,14 +4594,14 @@ function u0(t, e, l) {
 }
 class _m extends Ve {
   constructor(e) {
-    super(), Qe(this, e, u0, o0, Fe, { data: 0 });
+    super(), Qe(this, e, ug, og, Fe, { data: 0 });
   }
 }
 function no(t) {
-  let e, l, i, n, a, r, s, o, _, c, d, h, p, b, g, k, y, v, w, q, $, j, O, A, C, z, H, B, R;
+  let e, l, i, n, a, r, s, o, _, c, d, h, p, g, b, k, y, v, w, q, $, j, I, A, M, z, H, B, R;
   return {
     c() {
-      e = Ge("g"), l = Ge("line"), g = N(), k = Ge("g"), y = Ge("line"), u(l, "id", i = /*data*/
+      e = Ge("g"), l = Ge("line"), b = N(), k = Ge("g"), y = Ge("line"), u(l, "id", i = /*data*/
       t[0].id + "-0"), u(l, "x1", n = /*data*/
       t[0].cx), u(l, "y1", a = /*data*/
       t[0].cy), u(l, "x2", r = /*data*/
@@ -4621,7 +4621,7 @@ function no(t) {
       t[0].width / 2}, -${/*data*/
       t[0].height / 2})`), u(e, "id", h = /*data*/
       t[0].id), u(e, "class", p = /*data*/
-      t[0]._class), u(e, "data-role", b = /*data*/
+      t[0]._class), u(e, "data-role", g = /*data*/
       t[0].role), u(y, "id", v = /*data*/
       t[0].id + "-0"), u(y, "x1", w = /*data*/
       t[0].cx + /*data*/
@@ -4629,12 +4629,12 @@ function no(t) {
       t[0].cy), u(y, "x2", $ = /*data*/
       t[0].cx), u(y, "y2", j = /*data*/
       t[0].cy + /*data*/
-      t[0].height), u(y, "stroke", O = /*data*/
+      t[0].height), u(y, "stroke", I = /*data*/
       t[0].stroke || Me), u(y, "stroke-width", A = /*data*/
       t[0]["stroke-width"] !== void 0 ? (
         /*data*/
         t[0]["stroke-width"]
-      ) : 1), u(y, "stroke-opacity", C = /*data*/
+      ) : 1), u(y, "stroke-opacity", M = /*data*/
       t[0]["stroke-opacity"] !== void 0 ? (
         /*data*/
         t[0]["stroke-opacity"]
@@ -4645,84 +4645,84 @@ function no(t) {
       t[0]._class), u(k, "data-role", R = /*data*/
       t[0].role);
     },
-    m(P, E) {
-      M(P, e, E), f(e, l), M(P, g, E), M(P, k, E), f(k, y);
+    m(P, O) {
+      S(P, e, O), f(e, l), S(P, b, O), S(P, k, O), f(k, y);
     },
-    p(P, E) {
-      E & /*data*/
+    p(P, O) {
+      O & /*data*/
       1 && i !== (i = /*data*/
-      P[0].id + "-0") && u(l, "id", i), E & /*data*/
+      P[0].id + "-0") && u(l, "id", i), O & /*data*/
       1 && n !== (n = /*data*/
-      P[0].cx) && u(l, "x1", n), E & /*data*/
+      P[0].cx) && u(l, "x1", n), O & /*data*/
       1 && a !== (a = /*data*/
-      P[0].cy) && u(l, "y1", a), E & /*data*/
+      P[0].cy) && u(l, "y1", a), O & /*data*/
       1 && r !== (r = /*data*/
       P[0].cx + /*data*/
-      P[0].width) && u(l, "x2", r), E & /*data*/
+      P[0].width) && u(l, "x2", r), O & /*data*/
       1 && s !== (s = /*data*/
       P[0].cy + /*data*/
-      P[0].height) && u(l, "y2", s), E & /*data*/
+      P[0].height) && u(l, "y2", s), O & /*data*/
       1 && o !== (o = /*data*/
-      P[0].stroke || Me) && u(l, "stroke", o), E & /*data*/
+      P[0].stroke || Me) && u(l, "stroke", o), O & /*data*/
       1 && _ !== (_ = /*data*/
       P[0]["stroke-width"] !== void 0 ? (
         /*data*/
         P[0]["stroke-width"]
-      ) : 1) && u(l, "stroke-width", _), E & /*data*/
+      ) : 1) && u(l, "stroke-width", _), O & /*data*/
       1 && c !== (c = /*data*/
       P[0]["stroke-opacity"] !== void 0 ? (
         /*data*/
         P[0]["stroke-opacity"]
-      ) : 1) && u(l, "stroke-opacity", c), E & /*data*/
+      ) : 1) && u(l, "stroke-opacity", c), O & /*data*/
       1 && d !== (d = `translate(-${/*data*/
       P[0].width / 2}, -${/*data*/
-      P[0].height / 2})`) && u(l, "transform", d), E & /*data*/
+      P[0].height / 2})`) && u(l, "transform", d), O & /*data*/
       1 && h !== (h = /*data*/
-      P[0].id) && u(e, "id", h), E & /*data*/
+      P[0].id) && u(e, "id", h), O & /*data*/
       1 && p !== (p = /*data*/
-      P[0]._class) && u(e, "class", p), E & /*data*/
-      1 && b !== (b = /*data*/
-      P[0].role) && u(e, "data-role", b), E & /*data*/
+      P[0]._class) && u(e, "class", p), O & /*data*/
+      1 && g !== (g = /*data*/
+      P[0].role) && u(e, "data-role", g), O & /*data*/
       1 && v !== (v = /*data*/
-      P[0].id + "-0") && u(y, "id", v), E & /*data*/
+      P[0].id + "-0") && u(y, "id", v), O & /*data*/
       1 && w !== (w = /*data*/
       P[0].cx + /*data*/
-      P[0].width) && u(y, "x1", w), E & /*data*/
+      P[0].width) && u(y, "x1", w), O & /*data*/
       1 && q !== (q = /*data*/
-      P[0].cy) && u(y, "y1", q), E & /*data*/
+      P[0].cy) && u(y, "y1", q), O & /*data*/
       1 && $ !== ($ = /*data*/
-      P[0].cx) && u(y, "x2", $), E & /*data*/
+      P[0].cx) && u(y, "x2", $), O & /*data*/
       1 && j !== (j = /*data*/
       P[0].cy + /*data*/
-      P[0].height) && u(y, "y2", j), E & /*data*/
-      1 && O !== (O = /*data*/
-      P[0].stroke || Me) && u(y, "stroke", O), E & /*data*/
+      P[0].height) && u(y, "y2", j), O & /*data*/
+      1 && I !== (I = /*data*/
+      P[0].stroke || Me) && u(y, "stroke", I), O & /*data*/
       1 && A !== (A = /*data*/
       P[0]["stroke-width"] !== void 0 ? (
         /*data*/
         P[0]["stroke-width"]
-      ) : 1) && u(y, "stroke-width", A), E & /*data*/
-      1 && C !== (C = /*data*/
+      ) : 1) && u(y, "stroke-width", A), O & /*data*/
+      1 && M !== (M = /*data*/
       P[0]["stroke-opacity"] !== void 0 ? (
         /*data*/
         P[0]["stroke-opacity"]
-      ) : 1) && u(y, "stroke-opacity", C), E & /*data*/
+      ) : 1) && u(y, "stroke-opacity", M), O & /*data*/
       1 && z !== (z = `translate(-${/*data*/
       P[0].width / 2}, -${/*data*/
-      P[0].height / 2})`) && u(y, "transform", z), E & /*data*/
+      P[0].height / 2})`) && u(y, "transform", z), O & /*data*/
       1 && H !== (H = /*data*/
-      P[0].id) && u(k, "id", H), E & /*data*/
+      P[0].id) && u(k, "id", H), O & /*data*/
       1 && B !== (B = /*data*/
-      P[0]._class) && u(k, "class", B), E & /*data*/
+      P[0]._class) && u(k, "class", B), O & /*data*/
       1 && R !== (R = /*data*/
       P[0].role) && u(k, "data-role", R);
     },
     d(P) {
-      P && (S(e), S(g), S(k));
+      P && (C(e), C(b), C(k));
     }
   };
 }
-function f0(t) {
+function fg(t) {
   let e, l = (
     /*data*/
     t[0] && no(t)
@@ -4732,28 +4732,28 @@ function f0(t) {
       l && l.c(), e = Ae();
     },
     m(i, n) {
-      l && l.m(i, n), M(i, e, n);
+      l && l.m(i, n), S(i, e, n);
     },
     p(i, [n]) {
       /*data*/
       i[0] ? l ? l.p(i, n) : (l = no(i), l.c(), l.m(e.parentNode, e)) : l && (l.d(1), l = null);
     },
-    i: ae,
-    o: ae,
+    i: ne,
+    o: ne,
     d(i) {
-      i && S(e), l && l.d(i);
+      i && C(e), l && l.d(i);
     }
   };
 }
-function _0(t, e, l) {
+function _g(t, e, l) {
   let { data: i = {} } = e;
   return t.$$set = (n) => {
     "data" in n && l(0, i = n.data);
   }, [i];
 }
-class c0 extends Ve {
+class cg extends Ve {
   constructor(e) {
-    super(), Qe(this, e, _0, f0, Fe, { data: 0 });
+    super(), Qe(this, e, _g, fg, Fe, { data: 0 });
   }
 }
 function ao(t) {
@@ -4778,7 +4778,7 @@ function ao(t) {
       t[0].transform);
     },
     m(d, h) {
-      M(d, e, h);
+      S(d, e, h);
     },
     p(d, h) {
       h & /*data*/
@@ -4808,11 +4808,11 @@ function ao(t) {
       d[0].transform) && u(e, "transform", c);
     },
     d(d) {
-      d && S(e);
+      d && C(e);
     }
   };
 }
-function d0(t) {
+function dg(t) {
   let e, l = (
     /*data*/
     t[0] && ao(t)
@@ -4822,33 +4822,33 @@ function d0(t) {
       l && l.c(), e = Ae();
     },
     m(i, n) {
-      l && l.m(i, n), M(i, e, n);
+      l && l.m(i, n), S(i, e, n);
     },
     p(i, [n]) {
       /*data*/
       i[0] ? l ? l.p(i, n) : (l = ao(i), l.c(), l.m(e.parentNode, e)) : l && (l.d(1), l = null);
     },
-    i: ae,
-    o: ae,
+    i: ne,
+    o: ne,
     d(i) {
-      i && S(e), l && l.d(i);
+      i && C(e), l && l.d(i);
     }
   };
 }
-function h0(t, e, l) {
+function hg(t, e, l) {
   let { data: i = {} } = e;
   return t.$$set = (n) => {
     "data" in n && l(0, i = n.data);
   }, [i];
 }
-let p0 = class extends Ve {
+let pg = class extends Ve {
   constructor(e) {
-    super(), Qe(this, e, h0, d0, Fe, { data: 0 });
+    super(), Qe(this, e, hg, dg, Fe, { data: 0 });
   }
 };
-function m0(t) {
+function mg(t) {
   let e, l;
-  return e = new p0({ props: { data: (
+  return e = new pg({ props: { data: (
     /*data*/
     t[0]
   ) } }), {
@@ -4875,9 +4875,9 @@ function m0(t) {
     }
   };
 }
-function g0(t) {
+function gg(t) {
   let e, l;
-  return e = new c0({ props: { data: (
+  return e = new cg({ props: { data: (
     /*data*/
     t[0]
   ) } }), {
@@ -4904,7 +4904,7 @@ function g0(t) {
     }
   };
 }
-function b0(t) {
+function bg(t) {
   let e, l;
   return e = new _m({ props: { data: (
     /*data*/
@@ -4933,9 +4933,9 @@ function b0(t) {
     }
   };
 }
-function k0(t) {
+function kg(t) {
   let e, l;
-  return e = new Vg({ props: { data: (
+  return e = new V0({ props: { data: (
     /*data*/
     t[0]
   ) } }), {
@@ -4962,9 +4962,9 @@ function k0(t) {
     }
   };
 }
-function v0(t) {
+function vg(t) {
   let e, l;
-  return e = new Yg({ props: { data: (
+  return e = new Y0({ props: { data: (
     /*data*/
     t[0]
   ) } }), {
@@ -4991,9 +4991,9 @@ function v0(t) {
     }
   };
 }
-function y0(t) {
+function yg(t) {
   let e, l;
-  return e = new s0({ props: { data: (
+  return e = new sg({ props: { data: (
     /*data*/
     t[0]
   ) } }), {
@@ -5020,9 +5020,9 @@ function y0(t) {
     }
   };
 }
-function w0(t) {
+function wg(t) {
   let e, l;
-  return e = new xg({ props: { data: (
+  return e = new x0({ props: { data: (
     /*data*/
     t[0]
   ) } }), {
@@ -5049,7 +5049,7 @@ function w0(t) {
     }
   };
 }
-function $0(t) {
+function $g(t) {
   let e, l;
   return e = new fm({ props: { data: (
     /*data*/
@@ -5078,9 +5078,9 @@ function $0(t) {
     }
   };
 }
-function q0(t) {
+function qg(t) {
   let e, l;
-  return e = new Wg({
+  return e = new W0({
     props: {
       data: (
         /*data*/
@@ -5117,9 +5117,9 @@ function q0(t) {
     }
   };
 }
-function j0(t) {
+function jg(t) {
   let e, l;
-  return e = new l0({
+  return e = new lg({
     props: {
       data: (
         /*data*/
@@ -5174,22 +5174,22 @@ function j0(t) {
     }
   };
 }
-function T0(t) {
+function Tg(t) {
   let e, l, i, n;
   const a = [
-    j0,
-    q0,
-    $0,
-    w0,
-    y0,
-    v0,
-    k0,
-    b0,
-    g0,
-    m0
+    jg,
+    qg,
+    $g,
+    wg,
+    yg,
+    vg,
+    kg,
+    bg,
+    gg,
+    mg
   ], r = [];
   function s(o, _) {
-    var c, d, h, p, b, g, k, y, v, w;
+    var c, d, h, p, g, b, k, y, v, w;
     return (
       /*data*/
       ((c = o[0]) == null ? void 0 : c.type) === "g" ? 0 : (
@@ -5200,9 +5200,9 @@ function T0(t) {
             /*data*/
             ((p = o[0]) == null ? void 0 : p.type) === "double-line" ? 3 : (
               /*data*/
-              ((b = o[0]) == null ? void 0 : b.type) === "rect" ? 4 : (
+              ((g = o[0]) == null ? void 0 : g.type) === "rect" ? 4 : (
                 /*data*/
-                ((g = o[0]) == null ? void 0 : g.type) === "circle" ? 5 : (
+                ((b = o[0]) == null ? void 0 : b.type) === "circle" ? 5 : (
                   /*data*/
                   ((k = o[0]) == null ? void 0 : k.type) === "arrow-end" ? 6 : (
                     /*data*/
@@ -5227,7 +5227,7 @@ function T0(t) {
       l && l.c(), i = Ae();
     },
     m(o, _) {
-      ~e && r[e].m(o, _), M(o, i, _), n = !0;
+      ~e && r[e].m(o, _), S(o, i, _), n = !0;
     },
     p(o, [_]) {
       let c = e;
@@ -5242,11 +5242,11 @@ function T0(t) {
       D(l), n = !1;
     },
     d(o) {
-      o && S(i), ~e && r[e].d(o);
+      o && C(i), ~e && r[e].d(o);
     }
   };
 }
-function C0(t, e, l) {
+function Cg(t, e, l) {
   let { data: i = {}, open_tool: n = () => {
   }, openTooltip: a = () => {
   }, closeTooltip: r = () => {
@@ -5258,7 +5258,7 @@ function C0(t, e, l) {
 }
 class kt extends Ve {
   constructor(e) {
-    super(), Qe(this, e, C0, T0, Fe, {
+    super(), Qe(this, e, Cg, Tg, Fe, {
       data: 0,
       open_tool: 1,
       openTooltip: 2,
@@ -5268,13 +5268,13 @@ class kt extends Ve {
   }
 }
 function ro(t) {
-  let e, l, i, n, a, r, s, o, _, c, d, h, p, b, g, k, y, v, w, q, $, j, O, A, C, z, H, B, R = (
+  let e, l, i, n, a, r, s, o, _, c, d, h, p, g, b, k, y, v, w, q, $, j, I, A, M, z, H, B, R = (
     /*drawPlan*/
     t[4].groups.phase_marker && so(t)
   ), P = (
     /*drawPlan*/
     t[4].groups.qubit_group && oo(t)
-  ), E = (
+  ), O = (
     /*drawPlan*/
     t[4].groups.esp_axis_group && uo(t)
   ), F = (
@@ -5295,21 +5295,21 @@ function ro(t) {
   ), Z = (
     /*drawPlan*/
     t[4].groups.esp_axis_group && mo(t)
-  ), ne = (
+  ), ae = (
     /*drawPlan*/
     t[4].groups.esp_group && go(t)
   );
   return {
     c() {
-      e = m("div"), l = m("div"), i = Ge("svg"), n = Ge("style"), a = I(`g {
+      e = m("div"), l = m("div"), i = Ge("svg"), n = Ge("style"), a = E(`g {
             font-family: Iosevka;
             font-size: 14px;
           }
-        `), R && R.c(), r = Ae(), P && P.c(), s = Ae(), E && E.c(), p = N(), b = m("div"), g = Ge("svg"), k = Ge("style"), y = I(`g {
+        `), R && R.c(), r = Ae(), P && P.c(), s = Ae(), O && O.c(), p = N(), g = m("div"), b = Ge("svg"), k = Ge("style"), y = E(`g {
             font-family: Iosevka;
             font-size: 14px;
           }
-        `), F && F.c(), v = Ae(), L && L.c(), w = Ae(), X && X.c(), q = Ae(), V && V.c(), $ = Ae(), Q && Q.c(), j = Ae(), Z && Z.c(), O = Ae(), ne && ne.c(), u(i, "id", o = /*id*/
+        `), F && F.c(), v = Ae(), L && L.c(), w = Ae(), X && X.c(), q = Ae(), V && V.c(), $ = Ae(), Q && Q.c(), j = Ae(), Z && Z.c(), I = Ae(), ae && ae.c(), u(i, "id", o = /*id*/
       t[0] + "-sticky"), u(i, "width", _ = /*drawPlan*/
       t[4].groups.qubit_group.x + /*drawPlan*/
       t[4].groups.qubit_group.width), u(i, "height", c = /*drawPlan*/
@@ -5321,18 +5321,18 @@ function ro(t) {
       t[4].groups.qubit_group.x + /*drawPlan*/
       t[4].groups.qubit_group.width}px; height:${/*drawPlan*/
       t[4].height}px;`), u(
-        g,
+        b,
         "id",
         /*id*/
         t[0]
-      ), u(g, "width", A = /*drawPlan*/
-      t[4].width), u(g, "height", C = /*drawPlan*/
-      t[4].height), u(g, "viewBox", z = /*drawPlan*/
-      t[4].viewBox.join(" ")), u(b, "class", "circuit-main svelte-1011ir3"), u(e, "id", H = /*id*/
+      ), u(b, "width", A = /*drawPlan*/
+      t[4].width), u(b, "height", M = /*drawPlan*/
+      t[4].height), u(b, "viewBox", z = /*drawPlan*/
+      t[4].viewBox.join(" ")), u(g, "class", "circuit-main svelte-1011ir3"), u(e, "id", H = /*id*/
       t[0] + "-wrapper"), u(e, "class", "ciruit-view-wrapper svelte-1011ir3"), At(e, "position", "relative"), At(e, "width", "100%"), At(e, "overflow-x", "scroll"), At(e, "overflow-y", "hidden");
     },
     m(se, K) {
-      M(se, e, K), f(e, l), f(l, i), f(i, n), f(n, a), R && R.m(i, null), f(i, r), P && P.m(i, null), f(i, s), E && E.m(i, null), f(e, p), f(e, b), f(b, g), f(g, k), f(k, y), F && F.m(g, null), f(g, v), L && L.m(g, null), f(g, w), X && X.m(g, null), f(g, q), V && V.m(g, null), f(g, $), Q && Q.m(g, null), f(g, j), Z && Z.m(g, null), f(g, O), ne && ne.m(g, null), B = !0;
+      S(se, e, K), f(e, l), f(l, i), f(i, n), f(n, a), R && R.m(i, null), f(i, r), P && P.m(i, null), f(i, s), O && O.m(i, null), f(e, p), f(e, g), f(g, b), f(b, k), f(k, y), F && F.m(b, null), f(b, v), L && L.m(b, null), f(b, w), X && X.m(b, null), f(b, q), V && V.m(b, null), f(b, $), Q && Q.m(b, null), f(b, j), Z && Z.m(b, null), f(b, I), ae && ae.m(b, null), B = !0;
     },
     p(se, K) {
       /*drawPlan*/
@@ -5344,9 +5344,9 @@ function ro(t) {
       16 && T(P, 1)) : (P = oo(se), P.c(), T(P, 1), P.m(i, s)) : P && (be(), D(P, 1, 1, () => {
         P = null;
       }), ke()), /*drawPlan*/
-      se[4].groups.esp_axis_group ? E ? (E.p(se, K), K & /*drawPlan*/
-      16 && T(E, 1)) : (E = uo(se), E.c(), T(E, 1), E.m(i, null)) : E && (be(), D(E, 1, 1, () => {
-        E = null;
+      se[4].groups.esp_axis_group ? O ? (O.p(se, K), K & /*drawPlan*/
+      16 && T(O, 1)) : (O = uo(se), O.c(), T(O, 1), O.m(i, null)) : O && (be(), D(O, 1, 1, () => {
+        O = null;
       }), ke()), (!B || K & /*id*/
       1 && o !== (o = /*id*/
       se[0] + "-sticky")) && u(i, "id", o), (!B || K & /*drawPlan*/
@@ -5365,56 +5365,56 @@ function ro(t) {
       se[4].groups.qubit_group.width}px; height:${/*drawPlan*/
       se[4].height}px;`)) && u(l, "style", h), /*drawPlan*/
       se[4].groups.phase_marker ? F ? (F.p(se, K), K & /*drawPlan*/
-      16 && T(F, 1)) : (F = fo(se), F.c(), T(F, 1), F.m(g, v)) : F && (be(), D(F, 1, 1, () => {
+      16 && T(F, 1)) : (F = fo(se), F.c(), T(F, 1), F.m(b, v)) : F && (be(), D(F, 1, 1, () => {
         F = null;
       }), ke()), /*drawPlan*/
       se[4].groups.moment_group ? L ? (L.p(se, K), K & /*drawPlan*/
-      16 && T(L, 1)) : (L = _o(se), L.c(), T(L, 1), L.m(g, w)) : L && (be(), D(L, 1, 1, () => {
+      16 && T(L, 1)) : (L = _o(se), L.c(), T(L, 1), L.m(b, w)) : L && (be(), D(L, 1, 1, () => {
         L = null;
       }), ke()), /*drawPlan*/
       se[4].groups.qubit_group ? X ? (X.p(se, K), K & /*drawPlan*/
-      16 && T(X, 1)) : (X = co(se), X.c(), T(X, 1), X.m(g, q)) : X && (be(), D(X, 1, 1, () => {
+      16 && T(X, 1)) : (X = co(se), X.c(), T(X, 1), X.m(b, q)) : X && (be(), D(X, 1, 1, () => {
         X = null;
       }), ke()), /*drawPlan*/
       se[4].groups.circuit_line_group ? V ? (V.p(se, K), K & /*drawPlan*/
-      16 && T(V, 1)) : (V = ho(se), V.c(), T(V, 1), V.m(g, $)) : V && (be(), D(V, 1, 1, () => {
+      16 && T(V, 1)) : (V = ho(se), V.c(), T(V, 1), V.m(b, $)) : V && (be(), D(V, 1, 1, () => {
         V = null;
       }), ke()), /*drawPlan*/
       se[4].groups.circuit_group ? Q ? (Q.p(se, K), K & /*drawPlan*/
-      16 && T(Q, 1)) : (Q = po(se), Q.c(), T(Q, 1), Q.m(g, j)) : Q && (be(), D(Q, 1, 1, () => {
+      16 && T(Q, 1)) : (Q = po(se), Q.c(), T(Q, 1), Q.m(b, j)) : Q && (be(), D(Q, 1, 1, () => {
         Q = null;
       }), ke()), /*drawPlan*/
       se[4].groups.esp_axis_group ? Z ? (Z.p(se, K), K & /*drawPlan*/
-      16 && T(Z, 1)) : (Z = mo(se), Z.c(), T(Z, 1), Z.m(g, O)) : Z && (be(), D(Z, 1, 1, () => {
+      16 && T(Z, 1)) : (Z = mo(se), Z.c(), T(Z, 1), Z.m(b, I)) : Z && (be(), D(Z, 1, 1, () => {
         Z = null;
       }), ke()), /*drawPlan*/
-      se[4].groups.esp_group ? ne ? (ne.p(se, K), K & /*drawPlan*/
-      16 && T(ne, 1)) : (ne = go(se), ne.c(), T(ne, 1), ne.m(g, null)) : ne && (be(), D(ne, 1, 1, () => {
-        ne = null;
+      se[4].groups.esp_group ? ae ? (ae.p(se, K), K & /*drawPlan*/
+      16 && T(ae, 1)) : (ae = go(se), ae.c(), T(ae, 1), ae.m(b, null)) : ae && (be(), D(ae, 1, 1, () => {
+        ae = null;
       }), ke()), (!B || K & /*id*/
       1) && u(
-        g,
+        b,
         "id",
         /*id*/
         se[0]
       ), (!B || K & /*drawPlan*/
       16 && A !== (A = /*drawPlan*/
-      se[4].width)) && u(g, "width", A), (!B || K & /*drawPlan*/
-      16 && C !== (C = /*drawPlan*/
-      se[4].height)) && u(g, "height", C), (!B || K & /*drawPlan*/
+      se[4].width)) && u(b, "width", A), (!B || K & /*drawPlan*/
+      16 && M !== (M = /*drawPlan*/
+      se[4].height)) && u(b, "height", M), (!B || K & /*drawPlan*/
       16 && z !== (z = /*drawPlan*/
-      se[4].viewBox.join(" "))) && u(g, "viewBox", z), (!B || K & /*id*/
+      se[4].viewBox.join(" "))) && u(b, "viewBox", z), (!B || K & /*id*/
       1 && H !== (H = /*id*/
       se[0] + "-wrapper")) && u(e, "id", H);
     },
     i(se) {
-      B || (T(R), T(P), T(E), T(F), T(L), T(X), T(V), T(Q), T(Z), T(ne), B = !0);
+      B || (T(R), T(P), T(O), T(F), T(L), T(X), T(V), T(Q), T(Z), T(ae), B = !0);
     },
     o(se) {
-      D(R), D(P), D(E), D(F), D(L), D(X), D(V), D(Q), D(Z), D(ne), B = !1;
+      D(R), D(P), D(O), D(F), D(L), D(X), D(V), D(Q), D(Z), D(ae), B = !1;
     },
     d(se) {
-      se && S(e), R && R.d(), P && P.d(), E && E.d(), F && F.d(), L && L.d(), X && X.d(), V && V.d(), Q && Q.d(), Z && Z.d(), ne && ne.d();
+      se && C(e), R && R.d(), P && P.d(), O && O.d(), F && F.d(), L && L.d(), X && X.d(), V && V.d(), Q && Q.d(), Z && Z.d(), ae && ae.d();
     }
   };
 }
@@ -5916,29 +5916,29 @@ function go(t) {
     }
   };
 }
-function S0(t) {
+function Sg(t) {
   let e;
   return {
     c() {
       e = m("div"), e.textContent = "Click or hover to see details. Double-click for further details.", u(e, "class", "g-tooltip deactive svelte-1011ir3");
     },
     m(l, i) {
-      M(l, e, i);
+      S(l, e, i);
     },
-    p: ae,
+    p: ne,
     d(l) {
-      l && S(e);
+      l && C(e);
     }
   };
 }
-function M0(t) {
+function Mg(t) {
   let e;
   return {
     c() {
       e = m("div"), u(e, "class", "g-tooltip svelte-1011ir3");
     },
     m(l, i) {
-      M(l, e, i), e.innerHTML = /*tootlip_content*/
+      S(l, e, i), e.innerHTML = /*tootlip_content*/
       t[3];
     },
     p(l, i) {
@@ -5947,11 +5947,11 @@ function M0(t) {
       l[3]);
     },
     d(l) {
-      l && S(e);
+      l && C(e);
     }
   };
 }
-function z0(t) {
+function zg(t) {
   let e, l, i, n = (
     /*drawPlan*/
     t[4] && ro(t)
@@ -5959,7 +5959,7 @@ function z0(t) {
   function a(o, _) {
     return (
       /*showTooltip*/
-      o[2] ? M0 : S0
+      o[2] ? Mg : Sg
     );
   }
   let r = a(t), s = r(t);
@@ -5968,7 +5968,7 @@ function z0(t) {
       n && n.c(), e = N(), s.c(), l = Ae();
     },
     m(o, _) {
-      n && n.m(o, _), M(o, e, _), s.m(o, _), M(o, l, _), i = !0;
+      n && n.m(o, _), S(o, e, _), s.m(o, _), S(o, l, _), i = !0;
     },
     p(o, [_]) {
       /*drawPlan*/
@@ -5984,21 +5984,21 @@ function z0(t) {
       D(n), i = !1;
     },
     d(o) {
-      o && (S(e), S(l)), n && n.d(o), s.d(o);
+      o && (C(e), C(l)), n && n.d(o), s.d(o);
     }
   };
 }
-function N0(t, e, l) {
+function Ng(t, e, l) {
   let { circuit_data: i, is_original: n = !0, match: a, id: r, matched_circuit_id: s, matched_machine_id: o, machine_moment_at: _ = Oe(), open_tool: c = () => {
-  }, filter_unused_qubits: d = !0, unit_id: h } = e, p = !1, b, g = !1, k = 999;
-  function y(j, O, A, C) {
-    g && !A || k < C || (l(2, p = !0), j.clientX + 5, j.clientY + 5, l(3, b = O), g = A, k = C || 0);
+  }, filter_unused_qubits: d = !0, unit_id: h } = e, p = !1, g, b = !1, k = 999;
+  function y(j, I, A, M) {
+    b && !A || k < M || (l(2, p = !0), j.clientX + 5, j.clientY + 5, l(3, g = I), b = A, k = M || 0);
   }
   function v(j) {
     p && (j.clientX + 5, j.clientY + 5);
   }
   function w(j) {
-    g || l(2, p = !1), j && (l(2, p = !1), k = 999);
+    b || l(2, p = !1), j && (l(2, p = !1), k = 999);
   }
   let q;
   Tt(() => {
@@ -6012,10 +6012,10 @@ function N0(t, e, l) {
       filter_unused_qubits: d,
       unit_id: h
     })), _.subscribe((j) => {
-      var A, C, z, H, B;
-      let O = document.querySelector(`#${r} #layer-${j}--group`);
-      if (O) {
-        let R = document.querySelector("#" + r + "-wrapper"), P = document.querySelector("#" + r + "-sticky"), E = (A = R.getClientRects()[0]) == null ? void 0 : A.left, F = (C = R.getClientRects()[0]) == null ? void 0 : C.width, L = (z = P.getClientRects()[0]) == null ? void 0 : z.width, X = ((H = O.getClientRects()[0]) == null ? void 0 : H.left) - E - L, V = (B = O.getClientRects()[0]) == null ? void 0 : B.width;
+      var A, M, z, H, B;
+      let I = document.querySelector(`#${r} #layer-${j}--group`);
+      if (I) {
+        let R = document.querySelector("#" + r + "-wrapper"), P = document.querySelector("#" + r + "-sticky"), O = (A = R.getClientRects()[0]) == null ? void 0 : A.left, F = (M = R.getClientRects()[0]) == null ? void 0 : M.width, L = (z = P.getClientRects()[0]) == null ? void 0 : z.width, X = ((H = I.getClientRects()[0]) == null ? void 0 : H.left) - O - L, V = (B = I.getClientRects()[0]) == null ? void 0 : B.width;
         X < 0 ? R.scrollBy({
           top: 0,
           left: -F / 3,
@@ -6028,7 +6028,7 @@ function N0(t, e, l) {
       }
     });
   });
-  const $ = (j, O) => O == 2 ? q.groups.qubit_group.x + q.groups.qubit_group.width : j;
+  const $ = (j, I) => I == 2 ? q.groups.qubit_group.x + q.groups.qubit_group.width : j;
   return t.$$set = (j) => {
     "circuit_data" in j && l(8, i = j.circuit_data), "is_original" in j && l(9, n = j.is_original), "match" in j && l(10, a = j.match), "id" in j && l(0, r = j.id), "matched_circuit_id" in j && l(11, s = j.matched_circuit_id), "matched_machine_id" in j && l(12, o = j.matched_machine_id), "machine_moment_at" in j && l(13, _ = j.machine_moment_at), "open_tool" in j && l(1, c = j.open_tool), "filter_unused_qubits" in j && l(14, d = j.filter_unused_qubits), "unit_id" in j && l(15, h = j.unit_id);
   }, t.$$.update = () => {
@@ -6047,7 +6047,7 @@ function N0(t, e, l) {
     r,
     c,
     p,
-    b,
+    g,
     q,
     y,
     v,
@@ -6065,7 +6065,7 @@ function N0(t, e, l) {
 }
 class cm extends Ve {
   constructor(e) {
-    super(), Qe(this, e, N0, z0, Fe, {
+    super(), Qe(this, e, Ng, zg, Fe, {
       circuit_data: 8,
       is_original: 9,
       match: 10,
@@ -6090,13 +6090,13 @@ function ko(t) {
   ), a, r, s, o, _, c, d, h = (
     /*info*/
     t[0].layer_index + ""
-  ), p, b, g, k, y, v = (
+  ), p, g, b, k, y, v = (
     /*info*/
     t[0].esp_this + ""
-  ), w, q, $, j, O, A = (
+  ), w, q, $, j, I, A = (
     /*info*/
     t[0].esp_total + ""
-  ), C, z, H = $e(
+  ), M, z, H = $e(
     /*info*/
     t[0].operations
   ), B = [];
@@ -6104,15 +6104,15 @@ function ko(t) {
     B[R] = vo(bo(t, H, R));
   return {
     c() {
-      e = m("div"), l = m("h2"), i = I("ESP for Layer "), a = I(n), r = N(), s = m("div"), o = m("table"), _ = m("tr"), c = m("th"), c.textContent = "Layer (moment)", d = m("td"), p = I(h), b = N(), g = m("tr"), k = m("th"), k.textContent = "Current ESP", y = m("td"), w = I(v), q = N(), $ = m("tr"), j = m("th"), j.textContent = "Cumulative ESP", O = m("td"), C = I(A), z = N();
+      e = m("div"), l = m("h2"), i = E("ESP for Layer "), a = E(n), r = N(), s = m("div"), o = m("table"), _ = m("tr"), c = m("th"), c.textContent = "Layer (moment)", d = m("td"), p = E(h), g = N(), b = m("tr"), k = m("th"), k.textContent = "Current ESP", y = m("td"), w = E(v), q = N(), $ = m("tr"), j = m("th"), j.textContent = "Cumulative ESP", I = m("td"), M = E(A), z = N();
       for (let R = 0; R < B.length; R += 1)
         B[R].c();
-      u(l, "class", "svelte-1fh3lcn"), u(c, "class", "svelte-1fh3lcn"), u(d, "class", "svelte-1fh3lcn"), u(_, "class", "svelte-1fh3lcn"), u(k, "class", "svelte-1fh3lcn"), u(y, "class", "svelte-1fh3lcn"), u(g, "class", "svelte-1fh3lcn"), u(j, "class", "svelte-1fh3lcn"), u(O, "class", "svelte-1fh3lcn"), u($, "class", "svelte-1fh3lcn"), u(o, "class", "svelte-1fh3lcn"), u(s, "class", "info-section svelte-1fh3lcn"), u(e, "class", "svelte-1fh3lcn");
+      u(l, "class", "svelte-1fh3lcn"), u(c, "class", "svelte-1fh3lcn"), u(d, "class", "svelte-1fh3lcn"), u(_, "class", "svelte-1fh3lcn"), u(k, "class", "svelte-1fh3lcn"), u(y, "class", "svelte-1fh3lcn"), u(b, "class", "svelte-1fh3lcn"), u(j, "class", "svelte-1fh3lcn"), u(I, "class", "svelte-1fh3lcn"), u($, "class", "svelte-1fh3lcn"), u(o, "class", "svelte-1fh3lcn"), u(s, "class", "info-section svelte-1fh3lcn"), u(e, "class", "svelte-1fh3lcn");
     },
     m(R, P) {
-      M(R, e, P), f(e, l), f(l, i), f(l, a), f(e, r), f(e, s), f(s, o), f(o, _), f(_, c), f(_, d), f(d, p), f(o, b), f(o, g), f(g, k), f(g, y), f(y, w), f(o, q), f(o, $), f($, j), f($, O), f(O, C), f(o, z);
-      for (let E = 0; E < B.length; E += 1)
-        B[E] && B[E].m(o, null);
+      S(R, e, P), f(e, l), f(l, i), f(l, a), f(e, r), f(e, s), f(s, o), f(o, _), f(_, c), f(_, d), f(d, p), f(o, g), f(o, b), f(b, k), f(b, y), f(y, w), f(o, q), f(o, $), f($, j), f($, I), f(I, M), f(o, z);
+      for (let O = 0; O < B.length; O += 1)
+        B[O] && B[O].m(o, null);
     },
     p(R, P) {
       if (P & /*info*/
@@ -6123,24 +6123,24 @@ function ko(t) {
       1 && v !== (v = /*info*/
       R[0].esp_this + "") && U(w, v), P & /*info*/
       1 && A !== (A = /*info*/
-      R[0].esp_total + "") && U(C, A), P & /*info*/
+      R[0].esp_total + "") && U(M, A), P & /*info*/
       1) {
         H = $e(
           /*info*/
           R[0].operations
         );
-        let E;
-        for (E = 0; E < H.length; E += 1) {
-          const F = bo(R, H, E);
-          B[E] ? B[E].p(F, P) : (B[E] = vo(F), B[E].c(), B[E].m(o, null));
+        let O;
+        for (O = 0; O < H.length; O += 1) {
+          const F = bo(R, H, O);
+          B[O] ? B[O].p(F, P) : (B[O] = vo(F), B[O].c(), B[O].m(o, null));
         }
-        for (; E < B.length; E += 1)
-          B[E].d(1);
+        for (; O < B.length; O += 1)
+          B[O].d(1);
         B.length = H.length;
       }
     },
     d(R) {
-      R && S(e), Ye(B, R);
+      R && C(e), Ye(B, R);
     }
   };
 }
@@ -6152,7 +6152,7 @@ function vo(t) {
   ), a, r, s, o, _, c = (
     /*op*/
     t[1].qubits.map(yo).join(", ") + ""
-  ), d, h, p, b, g, k = (
+  ), d, h, p, g, b, k = (
     /*info*/
     ((w = t[0].detail[
       /*oi*/
@@ -6162,10 +6162,10 @@ function vo(t) {
   return {
     c() {
       e = m("tr"), l = m("th"), l.textContent = `Operation ${/*oi*/
-      t[3]}`, i = m("td"), a = I(n), r = N(), s = m("tr"), o = m("th"), o.textContent = "Qubits", _ = m("td"), d = I(c), h = N(), p = m("tr"), b = m("th"), b.textContent = "Gate_error", g = m("td"), y = I(k), v = N(), u(l, "class", "svelte-1fh3lcn"), u(i, "class", "svelte-1fh3lcn"), u(e, "class", "first svelte-1fh3lcn"), u(o, "class", "svelte-1fh3lcn"), u(_, "class", "svelte-1fh3lcn"), u(s, "class", "svelte-1fh3lcn"), u(b, "class", "svelte-1fh3lcn"), u(g, "class", "svelte-1fh3lcn"), u(p, "class", "svelte-1fh3lcn");
+      t[3]}`, i = m("td"), a = E(n), r = N(), s = m("tr"), o = m("th"), o.textContent = "Qubits", _ = m("td"), d = E(c), h = N(), p = m("tr"), g = m("th"), g.textContent = "Gate_error", b = m("td"), y = E(k), v = N(), u(l, "class", "svelte-1fh3lcn"), u(i, "class", "svelte-1fh3lcn"), u(e, "class", "first svelte-1fh3lcn"), u(o, "class", "svelte-1fh3lcn"), u(_, "class", "svelte-1fh3lcn"), u(s, "class", "svelte-1fh3lcn"), u(g, "class", "svelte-1fh3lcn"), u(b, "class", "svelte-1fh3lcn"), u(p, "class", "svelte-1fh3lcn");
     },
     m(q, $) {
-      M(q, e, $), f(e, l), f(e, i), f(i, a), M(q, r, $), M(q, s, $), f(s, o), f(s, _), f(_, d), M(q, h, $), M(q, p, $), f(p, b), f(p, g), f(g, y), f(p, v);
+      S(q, e, $), f(e, l), f(e, i), f(i, a), S(q, r, $), S(q, s, $), f(s, o), f(s, _), f(_, d), S(q, h, $), S(q, p, $), f(p, g), f(p, b), f(b, y), f(p, v);
     },
     p(q, $) {
       var j;
@@ -6181,11 +6181,11 @@ function vo(t) {
       ]) == null ? void 0 : j.gate_error) + "") && U(y, k);
     },
     d(q) {
-      q && (S(e), S(r), S(s), S(h), S(p));
+      q && (C(e), C(r), C(s), C(h), C(p));
     }
   };
 }
-function A0(t) {
+function Ag(t) {
   let e, l = (
     /*info*/
     t[0] && ko(t)
@@ -6195,48 +6195,48 @@ function A0(t) {
       l && l.c(), e = Ae();
     },
     m(i, n) {
-      l && l.m(i, n), M(i, e, n);
+      l && l.m(i, n), S(i, e, n);
     },
     p(i, [n]) {
       /*info*/
       i[0] ? l ? l.p(i, n) : (l = ko(i), l.c(), l.m(e.parentNode, e)) : l && (l.d(1), l = null);
     },
-    i: ae,
-    o: ae,
+    i: ne,
+    o: ne,
     d(i) {
-      i && S(e), l && l.d(i);
+      i && C(e), l && l.d(i);
     }
   };
 }
 const yo = (t) => t.index;
-function B0(t, e, l) {
+function Bg(t, e, l) {
   let { info: i } = e;
   return t.$$set = (n) => {
     "info" in n && l(0, i = n.info);
   }, [i];
 }
-class P0 extends Ve {
+class Pg extends Ve {
   constructor(e) {
-    super(), Qe(this, e, B0, A0, Fe, { info: 0 });
+    super(), Qe(this, e, Bg, Ag, Fe, { info: 0 });
   }
 }
 function wo(t) {
   let e, l, i, n, a, r, s, o, _, c = (
     /*info*/
     t[0].gate_error_info.layer + ""
-  ), d, h, p, b, g, k = (
+  ), d, h, p, g, b, k = (
     /*info*/
     t[0].gate_error_info.operation + ""
   ), y, v, w, q, $, j = (
     /*info*/
     t[0].gate_error_info.gate + ""
-  ), O, A, C, z, H, B = (
+  ), I, A, M, z, H, B = (
     /*info*/
     t[0].gate_error_info.qubits.join(",") + ""
-  ), R, P, E, F, L, X = (
+  ), R, P, O, F, L, X = (
     /*info*/
     t[0].gate_error_info.gate_error + ""
-  ), V, Q, Z, ne, se, K = (
+  ), V, Q, Z, ae, se, K = (
     /*info*/
     t[0].gate_error_info.gate_duration + ""
   ), Y, W, J = (
@@ -6245,10 +6245,10 @@ function wo(t) {
   );
   return {
     c() {
-      e = m("div"), l = m("h2"), l.textContent = "Gate Error Information", i = N(), n = m("div"), a = m("table"), r = m("tbody"), s = m("tr"), o = m("th"), o.textContent = "Layer", _ = m("td"), d = I(c), h = N(), p = m("tr"), b = m("th"), b.textContent = "Operation", g = m("td"), y = I(k), v = N(), w = m("tr"), q = m("th"), q.textContent = "Gate", $ = m("td"), O = I(j), A = N(), C = m("tr"), z = m("th"), z.textContent = "Qubits", H = m("td"), R = I(B), P = N(), E = m("tr"), F = m("th"), F.textContent = "Gate error", L = m("td"), V = I(X), Q = N(), Z = m("tr"), ne = m("th"), ne.textContent = "Gate duration", se = m("td"), Y = I(K), W = N(), J && J.c(), u(l, "class", "svelte-1h3inn9"), u(o, "class", "svelte-1h3inn9"), u(_, "class", "svelte-1h3inn9"), u(s, "class", "svelte-1h3inn9"), u(b, "class", "svelte-1h3inn9"), u(g, "class", "svelte-1h3inn9"), u(p, "class", "svelte-1h3inn9"), u(q, "class", "svelte-1h3inn9"), u($, "class", "svelte-1h3inn9"), u(w, "class", "svelte-1h3inn9"), u(z, "class", "svelte-1h3inn9"), u(H, "class", "svelte-1h3inn9"), u(C, "class", "svelte-1h3inn9"), u(F, "class", "svelte-1h3inn9"), u(L, "class", "svelte-1h3inn9"), u(E, "class", "svelte-1h3inn9"), u(ne, "class", "svelte-1h3inn9"), u(se, "class", "svelte-1h3inn9"), u(Z, "class", "svelte-1h3inn9"), u(r, "class", "svelte-1h3inn9"), u(a, "class", "svelte-1h3inn9"), u(n, "class", "info-section svelte-1h3inn9"), u(e, "class", "svelte-1h3inn9");
+      e = m("div"), l = m("h2"), l.textContent = "Gate Error Information", i = N(), n = m("div"), a = m("table"), r = m("tbody"), s = m("tr"), o = m("th"), o.textContent = "Layer", _ = m("td"), d = E(c), h = N(), p = m("tr"), g = m("th"), g.textContent = "Operation", b = m("td"), y = E(k), v = N(), w = m("tr"), q = m("th"), q.textContent = "Gate", $ = m("td"), I = E(j), A = N(), M = m("tr"), z = m("th"), z.textContent = "Qubits", H = m("td"), R = E(B), P = N(), O = m("tr"), F = m("th"), F.textContent = "Gate error", L = m("td"), V = E(X), Q = N(), Z = m("tr"), ae = m("th"), ae.textContent = "Gate duration", se = m("td"), Y = E(K), W = N(), J && J.c(), u(l, "class", "svelte-1h3inn9"), u(o, "class", "svelte-1h3inn9"), u(_, "class", "svelte-1h3inn9"), u(s, "class", "svelte-1h3inn9"), u(g, "class", "svelte-1h3inn9"), u(b, "class", "svelte-1h3inn9"), u(p, "class", "svelte-1h3inn9"), u(q, "class", "svelte-1h3inn9"), u($, "class", "svelte-1h3inn9"), u(w, "class", "svelte-1h3inn9"), u(z, "class", "svelte-1h3inn9"), u(H, "class", "svelte-1h3inn9"), u(M, "class", "svelte-1h3inn9"), u(F, "class", "svelte-1h3inn9"), u(L, "class", "svelte-1h3inn9"), u(O, "class", "svelte-1h3inn9"), u(ae, "class", "svelte-1h3inn9"), u(se, "class", "svelte-1h3inn9"), u(Z, "class", "svelte-1h3inn9"), u(r, "class", "svelte-1h3inn9"), u(a, "class", "svelte-1h3inn9"), u(n, "class", "info-section svelte-1h3inn9"), u(e, "class", "svelte-1h3inn9");
     },
     m(ee, we) {
-      M(ee, e, we), f(e, l), f(e, i), f(e, n), f(n, a), f(a, r), f(r, s), f(s, o), f(s, _), f(_, d), f(r, h), f(r, p), f(p, b), f(p, g), f(g, y), f(r, v), f(r, w), f(w, q), f(w, $), f($, O), f(r, A), f(r, C), f(C, z), f(C, H), f(H, R), f(r, P), f(r, E), f(E, F), f(E, L), f(L, V), f(r, Q), f(r, Z), f(Z, ne), f(Z, se), f(se, Y), f(se, W), J && J.m(se, null);
+      S(ee, e, we), f(e, l), f(e, i), f(e, n), f(n, a), f(a, r), f(r, s), f(s, o), f(s, _), f(_, d), f(r, h), f(r, p), f(p, g), f(p, b), f(b, y), f(r, v), f(r, w), f(w, q), f(w, $), f($, I), f(r, A), f(r, M), f(M, z), f(M, H), f(H, R), f(r, P), f(r, O), f(O, F), f(O, L), f(L, V), f(r, Q), f(r, Z), f(Z, ae), f(Z, se), f(se, Y), f(se, W), J && J.m(se, null);
     },
     p(ee, we) {
       we & /*info*/
@@ -6257,7 +6257,7 @@ function wo(t) {
       1 && k !== (k = /*info*/
       ee[0].gate_error_info.operation + "") && U(y, k), we & /*info*/
       1 && j !== (j = /*info*/
-      ee[0].gate_error_info.gate + "") && U(O, j), we & /*info*/
+      ee[0].gate_error_info.gate + "") && U(I, j), we & /*info*/
       1 && B !== (B = /*info*/
       ee[0].gate_error_info.qubits.join(",") + "") && U(R, B), we & /*info*/
       1 && X !== (X = /*info*/
@@ -6267,7 +6267,7 @@ function wo(t) {
       ee[0].gate_error_info.duration_unit ? J ? J.p(ee, we) : (J = $o(ee), J.c(), J.m(se, null)) : J && (J.d(1), J = null);
     },
     d(ee) {
-      ee && S(e), J && J.d();
+      ee && C(e), J && J.d();
     }
   };
 }
@@ -6278,10 +6278,10 @@ function $o(t) {
   ), i, n;
   return {
     c() {
-      e = I("("), i = I(l), n = I(")");
+      e = E("("), i = E(l), n = E(")");
     },
     m(a, r) {
-      M(a, e, r), M(a, i, r), M(a, n, r);
+      S(a, e, r), S(a, i, r), S(a, n, r);
     },
     p(a, r) {
       r & /*info*/
@@ -6289,11 +6289,11 @@ function $o(t) {
       a[0].gate_error_info.duration_unit + "") && U(i, l);
     },
     d(a) {
-      a && (S(e), S(i), S(n));
+      a && (C(e), C(i), C(n));
     }
   };
 }
-function O0(t) {
+function Og(t) {
   let e, l = (
     /*info*/
     t[0] && wo(t)
@@ -6303,28 +6303,28 @@ function O0(t) {
       l && l.c(), e = Ae();
     },
     m(i, n) {
-      l && l.m(i, n), M(i, e, n);
+      l && l.m(i, n), S(i, e, n);
     },
     p(i, [n]) {
       /*info*/
       i[0] ? l ? l.p(i, n) : (l = wo(i), l.c(), l.m(e.parentNode, e)) : l && (l.d(1), l = null);
     },
-    i: ae,
-    o: ae,
+    i: ne,
+    o: ne,
     d(i) {
-      i && S(e), l && l.d(i);
+      i && C(e), l && l.d(i);
     }
   };
 }
-function E0(t, e, l) {
+function Eg(t, e, l) {
   let { info: i } = e;
   return t.$$set = (n) => {
     "info" in n && l(0, i = n.info);
   }, [i];
 }
-class I0 extends Ve {
+class Ig extends Ve {
   constructor(e) {
-    super(), Qe(this, e, E0, O0, Fe, { info: 0 });
+    super(), Qe(this, e, Eg, Og, Fe, { info: 0 });
   }
 }
 function qo(t, e, l) {
@@ -6342,19 +6342,19 @@ function jo(t) {
   ), o, _, c = (
     /*info*/
     t[0].this_circuit_id === "transpiled-circuit" ? "(transpiled)" : ""
-  ), d, h, p, b, g, k, y, v = (
+  ), d, h, p, g, b, k, y, v = (
     /*info*/
     t[0].operation.gate + ""
-  ), w, q, $, j, O, A = (
+  ), w, q, $, j, I, A = (
     /*info*/
     t[0].layer_index + ""
-  ), C, z, H, B, R, P = (
+  ), M, z, H, B, R, P = (
     /*info*/
     t[0].operation_index + ""
-  ), E, F, L, X, V, Q = (
+  ), O, F, L, X, V, Q = (
     /*info*/
     t[0].operation.num_qubits + ""
-  ), Z, ne, se, K, Y, W, J = (
+  ), Z, ae, se, K, Y, W, J = (
     /*info*/
     t[0].operation.num_clbits + ""
   ), ee, we, Re, ve, me, fe = (
@@ -6377,10 +6377,10 @@ function jo(t) {
   );
   return {
     c() {
-      e = m("div"), l = m("h2"), i = I("Operation "), a = I(n), r = N(), o = I(s), _ = N(), d = I(c), h = N(), p = m("div"), b = m("table"), g = m("tr"), k = m("th"), k.textContent = "Gate name", y = m("td"), w = I(v), q = N(), $ = m("tr"), j = m("th"), j.textContent = "Layer (moment)", O = m("td"), C = I(A), z = N(), H = m("tr"), B = m("th"), B.textContent = "Operation index", R = m("td"), E = I(P), F = N(), L = m("tr"), X = m("th"), X.textContent = "# Qubits", V = m("td"), Z = I(Q), ne = N(), fe && fe.c(), se = N(), K = m("tr"), Y = m("th"), Y.textContent = "# bits", W = m("td"), ee = I(J), we = N(), G && G.c(), Re = N(), ye && ye.c(), ve = N(), ue && ue.c(), me = N(), le && le.c(), u(l, "class", "svelte-w2ec5n"), u(k, "class", "svelte-w2ec5n"), u(y, "class", "svelte-w2ec5n"), u(j, "class", "svelte-w2ec5n"), u(O, "class", "svelte-w2ec5n"), u(B, "class", "svelte-w2ec5n"), u(R, "class", "svelte-w2ec5n"), u(X, "class", "svelte-w2ec5n"), u(V, "class", "svelte-w2ec5n"), u(Y, "class", "svelte-w2ec5n"), u(W, "class", "svelte-w2ec5n"), u(b, "class", "svelte-w2ec5n"), u(p, "class", "info-section svelte-w2ec5n");
+      e = m("div"), l = m("h2"), i = E("Operation "), a = E(n), r = N(), o = E(s), _ = N(), d = E(c), h = N(), p = m("div"), g = m("table"), b = m("tr"), k = m("th"), k.textContent = "Gate name", y = m("td"), w = E(v), q = N(), $ = m("tr"), j = m("th"), j.textContent = "Layer (moment)", I = m("td"), M = E(A), z = N(), H = m("tr"), B = m("th"), B.textContent = "Operation index", R = m("td"), O = E(P), F = N(), L = m("tr"), X = m("th"), X.textContent = "# Qubits", V = m("td"), Z = E(Q), ae = N(), fe && fe.c(), se = N(), K = m("tr"), Y = m("th"), Y.textContent = "# bits", W = m("td"), ee = E(J), we = N(), G && G.c(), Re = N(), ye && ye.c(), ve = N(), ue && ue.c(), me = N(), le && le.c(), u(l, "class", "svelte-w2ec5n"), u(k, "class", "svelte-w2ec5n"), u(y, "class", "svelte-w2ec5n"), u(j, "class", "svelte-w2ec5n"), u(I, "class", "svelte-w2ec5n"), u(B, "class", "svelte-w2ec5n"), u(R, "class", "svelte-w2ec5n"), u(X, "class", "svelte-w2ec5n"), u(V, "class", "svelte-w2ec5n"), u(Y, "class", "svelte-w2ec5n"), u(W, "class", "svelte-w2ec5n"), u(g, "class", "svelte-w2ec5n"), u(p, "class", "info-section svelte-w2ec5n");
     },
     m(ge, re) {
-      M(ge, e, re), f(e, l), f(l, i), f(l, a), f(l, r), f(l, o), f(l, _), f(l, d), f(e, h), f(e, p), f(p, b), f(b, g), f(g, k), f(g, y), f(y, w), f(b, q), f(b, $), f($, j), f($, O), f(O, C), f(b, z), f(b, H), f(H, B), f(H, R), f(R, E), f(b, F), f(b, L), f(L, X), f(L, V), f(V, Z), f(b, ne), fe && fe.m(b, null), f(b, se), f(b, K), f(K, Y), f(K, W), f(W, ee), f(b, we), G && G.m(b, null), f(b, Re), ye && ye.m(b, null), f(b, ve), ue && ue.m(b, null), f(b, me), le && le.m(b, null);
+      S(ge, e, re), f(e, l), f(l, i), f(l, a), f(l, r), f(l, o), f(l, _), f(l, d), f(e, h), f(e, p), f(p, g), f(g, b), f(b, k), f(b, y), f(y, w), f(g, q), f(g, $), f($, j), f($, I), f(I, M), f(g, z), f(g, H), f(H, B), f(H, R), f(R, O), f(g, F), f(g, L), f(L, X), f(L, V), f(V, Z), f(g, ae), fe && fe.m(g, null), f(g, se), f(g, K), f(K, Y), f(K, W), f(W, ee), f(g, we), G && G.m(g, null), f(g, Re), ye && ye.m(g, null), f(g, ve), ue && ue.m(g, null), f(g, me), le && le.m(g, null);
     },
     p(ge, re) {
       var Ie, je;
@@ -6394,23 +6394,23 @@ function jo(t) {
       1 && v !== (v = /*info*/
       ge[0].operation.gate + "") && U(w, v), re & /*info*/
       1 && A !== (A = /*info*/
-      ge[0].layer_index + "") && U(C, A), re & /*info*/
+      ge[0].layer_index + "") && U(M, A), re & /*info*/
       1 && P !== (P = /*info*/
-      ge[0].operation_index + "") && U(E, P), re & /*info*/
+      ge[0].operation_index + "") && U(O, P), re & /*info*/
       1 && Q !== (Q = /*info*/
       ge[0].operation.num_qubits + "") && U(Z, Q), /*info*/
-      ge[0].operation.num_qubits > 0 ? fe ? fe.p(ge, re) : (fe = To(ge), fe.c(), fe.m(b, se)) : fe && (fe.d(1), fe = null), re & /*info*/
+      ge[0].operation.num_qubits > 0 ? fe ? fe.p(ge, re) : (fe = To(ge), fe.c(), fe.m(g, se)) : fe && (fe.d(1), fe = null), re & /*info*/
       1 && J !== (J = /*info*/
       ge[0].operation.num_clbits + "") && U(ee, J), /*info*/
-      ge[0].operation.num_clbits > 0 ? G ? G.p(ge, re) : (G = Co(ge), G.c(), G.m(b, Re)) : G && (G.d(1), G = null), /*info*/
-      ge[0].operation.params ? ye ? ye.p(ge, re) : (ye = So(ge), ye.c(), ye.m(b, ve)) : ye && (ye.d(1), ye = null), /*info*/
+      ge[0].operation.num_clbits > 0 ? G ? G.p(ge, re) : (G = Co(ge), G.c(), G.m(g, Re)) : G && (G.d(1), G = null), /*info*/
+      ge[0].operation.params ? ye ? ye.p(ge, re) : (ye = So(ge), ye.c(), ye.m(g, ve)) : ye && (ye.d(1), ye = null), /*info*/
       (Ie = ge[0].layer_match) != null && Ie.matches && /*info*/
-      ge[0].this_circuit_id === "original-circuit" ? ue ? ue.p(ge, re) : (ue = zo(ge), ue.c(), ue.m(b, me)) : ue && (ue.d(1), ue = null), /*info*/
+      ge[0].this_circuit_id === "original-circuit" ? ue ? ue.p(ge, re) : (ue = zo(ge), ue.c(), ue.m(g, me)) : ue && (ue.d(1), ue = null), /*info*/
       (je = ge[0].layer_match) != null && je.colleagues && /*info*/
-      ge[0].this_circuit_id === "transpiled-circuit" ? le ? le.p(ge, re) : (le = No(ge), le.c(), le.m(b, null)) : le && (le.d(1), le = null);
+      ge[0].this_circuit_id === "transpiled-circuit" ? le ? le.p(ge, re) : (le = No(ge), le.c(), le.m(g, null)) : le && (le.d(1), le = null);
     },
     d(ge) {
-      ge && S(e), fe && fe.d(), G && G.d(), ye && ye.d(), ue && ue.d(), le && le.d();
+      ge && C(e), fe && fe.d(), G && G.d(), ye && ye.d(), ue && ue.d(), le && le.d();
     }
   };
 }
@@ -6421,10 +6421,10 @@ function To(t) {
   ), a;
   return {
     c() {
-      e = m("tr"), l = m("th"), l.textContent = "Qubits", i = m("td"), a = I(n), u(l, "class", "svelte-w2ec5n"), u(i, "class", "svelte-w2ec5n");
+      e = m("tr"), l = m("th"), l.textContent = "Qubits", i = m("td"), a = E(n), u(l, "class", "svelte-w2ec5n"), u(i, "class", "svelte-w2ec5n");
     },
     m(r, s) {
-      M(r, e, s), f(e, l), f(e, i), f(i, a);
+      S(r, e, s), f(e, l), f(e, i), f(i, a);
     },
     p(r, s) {
       s & /*info*/
@@ -6432,7 +6432,7 @@ function To(t) {
       r[0].operation.qubits.map(Ao).join(", ") + "") && U(a, n);
     },
     d(r) {
-      r && S(e);
+      r && C(e);
     }
   };
 }
@@ -6443,10 +6443,10 @@ function Co(t) {
   ), a;
   return {
     c() {
-      e = m("tr"), l = m("th"), l.textContent = "Bits", i = m("td"), a = I(n), u(l, "class", "svelte-w2ec5n"), u(i, "class", "svelte-w2ec5n");
+      e = m("tr"), l = m("th"), l.textContent = "Bits", i = m("td"), a = E(n), u(l, "class", "svelte-w2ec5n"), u(i, "class", "svelte-w2ec5n");
     },
     m(r, s) {
-      M(r, e, s), f(e, l), f(e, i), f(i, a);
+      S(r, e, s), f(e, l), f(e, i), f(i, a);
     },
     p(r, s) {
       s & /*info*/
@@ -6454,7 +6454,7 @@ function Co(t) {
       r[0].operation.clbits.map(Bo).join(", ") + "") && U(a, n);
     },
     d(r) {
-      r && S(e);
+      r && C(e);
     }
   };
 }
@@ -6474,7 +6474,7 @@ function So(t) {
     m(n, a) {
       for (let r = 0; r < i.length; r += 1)
         i[r] && i[r].m(n, a);
-      M(n, e, a);
+      S(n, e, a);
     },
     p(n, a) {
       if (a & /*info*/
@@ -6494,7 +6494,7 @@ function So(t) {
       }
     },
     d(n) {
-      n && S(e), Ye(i, n);
+      n && C(e), Ye(i, n);
     }
   };
 }
@@ -6507,10 +6507,10 @@ function Mo(t) {
   return {
     c() {
       e = m("tr"), l = m("th"), l.textContent = `Parameter ${/*pi*/
-      t[3] + 1}`, i = m("td"), a = I(n), r = N(), u(l, "class", "svelte-w2ec5n"), u(i, "class", "svelte-w2ec5n");
+      t[3] + 1}`, i = m("td"), a = E(n), r = N(), u(l, "class", "svelte-w2ec5n"), u(i, "class", "svelte-w2ec5n");
     },
     m(s, o) {
-      M(s, e, o), f(e, l), f(e, i), f(i, a), f(e, r);
+      S(s, e, o), f(e, l), f(e, i), f(i, a), f(e, r);
     },
     p(s, o) {
       o & /*info*/
@@ -6521,7 +6521,7 @@ function Mo(t) {
       ) + "") && U(a, n);
     },
     d(s) {
-      s && S(e);
+      s && C(e);
     }
   };
 }
@@ -6535,10 +6535,10 @@ function zo(t) {
   ), d;
   return {
     c() {
-      e = m("tr"), l = m("th"), l.textContent = "Matches (layer-op)", i = m("td"), a = I(n), r = N(), s = m("tr"), o = m("th"), o.textContent = "Complete match?", _ = m("td"), d = I(c), u(l, "class", "svelte-w2ec5n"), u(i, "class", "svelte-w2ec5n"), u(o, "class", "svelte-w2ec5n"), u(_, "class", "svelte-w2ec5n");
+      e = m("tr"), l = m("th"), l.textContent = "Matches (layer-op)", i = m("td"), a = E(n), r = N(), s = m("tr"), o = m("th"), o.textContent = "Complete match?", _ = m("td"), d = E(c), u(l, "class", "svelte-w2ec5n"), u(i, "class", "svelte-w2ec5n"), u(o, "class", "svelte-w2ec5n"), u(_, "class", "svelte-w2ec5n");
     },
     m(h, p) {
-      M(h, e, p), f(e, l), f(e, i), f(i, a), M(h, r, p), M(h, s, p), f(s, o), f(s, _), f(_, d);
+      S(h, e, p), f(e, l), f(e, i), f(i, a), S(h, r, p), S(h, s, p), f(s, o), f(s, _), f(_, d);
     },
     p(h, p) {
       p & /*info*/
@@ -6548,7 +6548,7 @@ function zo(t) {
       h[0].layer_match.complete + "") && U(d, c);
     },
     d(h) {
-      h && (S(e), S(r), S(s));
+      h && (C(e), C(r), C(s));
     }
   };
 }
@@ -6562,16 +6562,16 @@ function No(t) {
   ), o, _, c, d, h, p = (
     /*info*/
     t[0].layer_match.colleagues.map(Oo).join(", ") + ""
-  ), b, g, k, y, v, w = (
+  ), g, b, k, y, v, w = (
     /*info*/
     t[0].layer_match.complete + ""
   ), q;
   return {
     c() {
-      e = m("tr"), l = m("th"), l.textContent = "Transpiled from", i = m("td"), a = I(n), r = I("-"), o = I(s), _ = N(), c = m("tr"), d = m("th"), d.textContent = "Other in-group ops", h = m("td"), b = I(p), g = N(), k = m("tr"), y = m("th"), y.textContent = "Complete match?", v = m("td"), q = I(w), u(l, "class", "svelte-w2ec5n"), u(i, "class", "svelte-w2ec5n"), u(d, "class", "svelte-w2ec5n"), u(h, "class", "svelte-w2ec5n"), u(y, "class", "svelte-w2ec5n"), u(v, "class", "svelte-w2ec5n");
+      e = m("tr"), l = m("th"), l.textContent = "Transpiled from", i = m("td"), a = E(n), r = E("-"), o = E(s), _ = N(), c = m("tr"), d = m("th"), d.textContent = "Other in-group ops", h = m("td"), g = E(p), b = N(), k = m("tr"), y = m("th"), y.textContent = "Complete match?", v = m("td"), q = E(w), u(l, "class", "svelte-w2ec5n"), u(i, "class", "svelte-w2ec5n"), u(d, "class", "svelte-w2ec5n"), u(h, "class", "svelte-w2ec5n"), u(y, "class", "svelte-w2ec5n"), u(v, "class", "svelte-w2ec5n");
     },
     m($, j) {
-      M($, e, j), f(e, l), f(e, i), f(i, a), f(i, r), f(i, o), M($, _, j), M($, c, j), f(c, d), f(c, h), f(h, b), M($, g, j), M($, k, j), f(k, y), f(k, v), f(v, q);
+      S($, e, j), f(e, l), f(e, i), f(i, a), f(i, r), f(i, o), S($, _, j), S($, c, j), f(c, d), f(c, h), f(h, g), S($, b, j), S($, k, j), f(k, y), f(k, v), f(v, q);
     },
     p($, j) {
       j & /*info*/
@@ -6580,16 +6580,16 @@ function No(t) {
       1 && s !== (s = /*info*/
       $[0].layer_match.operation + "") && U(o, s), j & /*info*/
       1 && p !== (p = /*info*/
-      $[0].layer_match.colleagues.map(Oo).join(", ") + "") && U(b, p), j & /*info*/
+      $[0].layer_match.colleagues.map(Oo).join(", ") + "") && U(g, p), j & /*info*/
       1 && w !== (w = /*info*/
       $[0].layer_match.complete + "") && U(q, w);
     },
     d($) {
-      $ && (S(e), S(_), S(c), S(g), S(k));
+      $ && (C(e), C(_), C(c), C(b), C(k));
     }
   };
 }
-function D0(t) {
+function Dg(t) {
   let e, l = (
     /*info*/
     t[0] && jo(t)
@@ -6599,29 +6599,29 @@ function D0(t) {
       l && l.c(), e = Ae();
     },
     m(i, n) {
-      l && l.m(i, n), M(i, e, n);
+      l && l.m(i, n), S(i, e, n);
     },
     p(i, [n]) {
       /*info*/
       i[0] ? l ? l.p(i, n) : (l = jo(i), l.c(), l.m(e.parentNode, e)) : l && (l.d(1), l = null);
     },
-    i: ae,
-    o: ae,
+    i: ne,
+    o: ne,
     d(i) {
-      i && S(e), l && l.d(i);
+      i && C(e), l && l.d(i);
     }
   };
 }
 const Ao = (t) => t.index, Bo = (t) => t.index, Po = (t) => `${t[0]}-${t[1]}`, Oo = (t) => `${t[0]}-${t[1]}`;
-function R0(t, e, l) {
+function Rg(t, e, l) {
   let { info: i } = e;
   return t.$$set = (n) => {
     "info" in n && l(0, i = n.info);
   }, [i];
 }
-class H0 extends Ve {
+class Hg extends Ve {
   constructor(e) {
-    super(), Qe(this, e, R0, D0, Fe, { info: 0 });
+    super(), Qe(this, e, Rg, Dg, Fe, { info: 0 });
   }
 }
 function Eo(t, e, l) {
@@ -6643,7 +6643,7 @@ function Io(t) {
       u(l, "class", "svelte-dn9fba"), u(e, "class", "svelte-dn9fba");
     },
     m(r, s) {
-      M(r, e, s), f(e, l), f(e, i);
+      S(r, e, s), f(e, l), f(e, i);
       for (let o = 0; o < a.length; o += 1)
         a[o] && a[o].m(e, null);
     },
@@ -6665,7 +6665,7 @@ function Io(t) {
       }
     },
     d(r) {
-      r && S(e), Ye(a, r);
+      r && C(e), Ye(a, r);
     }
   };
 }
@@ -6679,10 +6679,10 @@ function Do(t) {
   ), d;
   return {
     c() {
-      e = m("tr"), l = m("th"), l.textContent = "Gate error", i = m("td"), a = I(n), r = N(), s = m("tr"), o = m("th"), o.textContent = "As of", _ = m("td"), d = I(c), u(l, "class", "svelte-dn9fba"), u(i, "class", "svelte-dn9fba"), u(e, "class", "svelte-dn9fba"), u(o, "class", "svelte-dn9fba"), u(_, "class", "svelte-dn9fba"), u(s, "class", "svelte-dn9fba");
+      e = m("tr"), l = m("th"), l.textContent = "Gate error", i = m("td"), a = E(n), r = N(), s = m("tr"), o = m("th"), o.textContent = "As of", _ = m("td"), d = E(c), u(l, "class", "svelte-dn9fba"), u(i, "class", "svelte-dn9fba"), u(e, "class", "svelte-dn9fba"), u(o, "class", "svelte-dn9fba"), u(_, "class", "svelte-dn9fba"), u(s, "class", "svelte-dn9fba");
     },
     m(h, p) {
-      M(h, e, p), f(e, l), f(e, i), f(i, a), M(h, r, p), M(h, s, p), f(s, o), f(s, _), f(_, d);
+      S(h, e, p), f(e, l), f(e, i), f(i, a), S(h, r, p), S(h, s, p), f(s, o), f(s, _), f(_, d);
     },
     p(h, p) {
       p & /*info*/
@@ -6692,7 +6692,7 @@ function Do(t) {
       h[1].gate_error.asof + "") && U(d, c);
     },
     d(h) {
-      h && (S(e), S(r), S(s));
+      h && (C(e), C(r), C(s));
     }
   };
 }
@@ -6703,16 +6703,16 @@ function Ro(t) {
   ), a, r, s = (
     /*item*/
     t[1].gate_length.unit + ""
-  ), o, _, c, d, h, p, b = (
+  ), o, _, c, d, h, p, g = (
     /*item*/
     t[1].gate_length.asof + ""
-  ), g;
+  ), b;
   return {
     c() {
-      e = m("tr"), l = m("th"), l.textContent = "Gate length", i = m("td"), a = I(n), r = I(" ("), o = I(s), _ = I(")"), c = N(), d = m("tr"), h = m("th"), h.textContent = "As of", p = m("td"), g = I(b), u(l, "class", "svelte-dn9fba"), u(i, "class", "svelte-dn9fba"), u(e, "class", "svelte-dn9fba"), u(h, "class", "svelte-dn9fba"), u(p, "class", "svelte-dn9fba"), u(d, "class", "svelte-dn9fba");
+      e = m("tr"), l = m("th"), l.textContent = "Gate length", i = m("td"), a = E(n), r = E(" ("), o = E(s), _ = E(")"), c = N(), d = m("tr"), h = m("th"), h.textContent = "As of", p = m("td"), b = E(g), u(l, "class", "svelte-dn9fba"), u(i, "class", "svelte-dn9fba"), u(e, "class", "svelte-dn9fba"), u(h, "class", "svelte-dn9fba"), u(p, "class", "svelte-dn9fba"), u(d, "class", "svelte-dn9fba");
     },
     m(k, y) {
-      M(k, e, y), f(e, l), f(e, i), f(i, a), f(i, r), f(i, o), f(i, _), M(k, c, y), M(k, d, y), f(d, h), f(d, p), f(p, g);
+      S(k, e, y), f(e, l), f(e, i), f(i, a), f(i, r), f(i, o), f(i, _), S(k, c, y), S(k, d, y), f(d, h), f(d, p), f(p, b);
     },
     p(k, y) {
       y & /*info*/
@@ -6720,11 +6720,11 @@ function Ro(t) {
       k[1].gate_length.value + "") && U(a, n), y & /*info*/
       1 && s !== (s = /*item*/
       k[1].gate_length.unit + "") && U(o, s), y & /*info*/
-      1 && b !== (b = /*item*/
-      k[1].gate_length.asof + "") && U(g, b);
+      1 && g !== (g = /*item*/
+      k[1].gate_length.asof + "") && U(b, g);
     },
     d(k) {
-      k && (S(e), S(c), S(d));
+      k && (C(e), C(c), C(d));
     }
   };
 }
@@ -6732,10 +6732,10 @@ function Ho(t) {
   let e, l, i, n, a, r, s = (
     /*item*/
     t[1].gate + ""
-  ), o, _, c, d, h, p, b = (
+  ), o, _, c, d, h, p, g = (
     /*item*/
     t[1].qubits.join(", ") + ""
-  ), g, k, y, v, w = (
+  ), b, k, y, v, w = (
     /*item*/
     t[1].gate_error && Do(t)
   ), q = (
@@ -6744,26 +6744,26 @@ function Ho(t) {
   );
   return {
     c() {
-      e = m("div"), l = m("table"), i = m("thead"), n = m("tr"), a = m("th"), a.textContent = "Gate", r = m("th"), o = I(s), _ = N(), c = m("tbody"), d = m("tr"), h = m("th"), h.textContent = "Qubits", p = m("td"), g = I(b), k = N(), w && w.c(), y = N(), q && q.c(), v = N(), u(a, "class", "svelte-dn9fba"), u(r, "class", "svelte-dn9fba"), u(n, "class", "svelte-dn9fba"), u(i, "class", "svelte-dn9fba"), u(h, "class", "svelte-dn9fba"), u(p, "class", "svelte-dn9fba"), u(d, "class", "svelte-dn9fba"), u(c, "class", "svelte-dn9fba"), u(l, "class", "svelte-dn9fba"), u(e, "class", "info-section svelte-dn9fba");
+      e = m("div"), l = m("table"), i = m("thead"), n = m("tr"), a = m("th"), a.textContent = "Gate", r = m("th"), o = E(s), _ = N(), c = m("tbody"), d = m("tr"), h = m("th"), h.textContent = "Qubits", p = m("td"), b = E(g), k = N(), w && w.c(), y = N(), q && q.c(), v = N(), u(a, "class", "svelte-dn9fba"), u(r, "class", "svelte-dn9fba"), u(n, "class", "svelte-dn9fba"), u(i, "class", "svelte-dn9fba"), u(h, "class", "svelte-dn9fba"), u(p, "class", "svelte-dn9fba"), u(d, "class", "svelte-dn9fba"), u(c, "class", "svelte-dn9fba"), u(l, "class", "svelte-dn9fba"), u(e, "class", "info-section svelte-dn9fba");
     },
     m($, j) {
-      M($, e, j), f(e, l), f(l, i), f(i, n), f(n, a), f(n, r), f(r, o), f(l, _), f(l, c), f(c, d), f(d, h), f(d, p), f(p, g), f(c, k), w && w.m(c, null), f(c, y), q && q.m(c, null), f(e, v);
+      S($, e, j), f(e, l), f(l, i), f(i, n), f(n, a), f(n, r), f(r, o), f(l, _), f(l, c), f(c, d), f(d, h), f(d, p), f(p, b), f(c, k), w && w.m(c, null), f(c, y), q && q.m(c, null), f(e, v);
     },
     p($, j) {
       j & /*info*/
       1 && s !== (s = /*item*/
       $[1].gate + "") && U(o, s), j & /*info*/
-      1 && b !== (b = /*item*/
-      $[1].qubits.join(", ") + "") && U(g, b), /*item*/
+      1 && g !== (g = /*item*/
+      $[1].qubits.join(", ") + "") && U(b, g), /*item*/
       $[1].gate_error ? w ? w.p($, j) : (w = Do($), w.c(), w.m(c, y)) : w && (w.d(1), w = null), /*item*/
       $[1].gate_length ? q ? q.p($, j) : (q = Ro($), q.c(), q.m(c, null)) : q && (q.d(1), q = null);
     },
     d($) {
-      $ && S(e), w && w.d(), q && q.d();
+      $ && C(e), w && w.d(), q && q.d();
     }
   };
 }
-function L0(t) {
+function Lg(t) {
   let e, l = (
     /*info*/
     t[0] && Io(t)
@@ -6773,28 +6773,28 @@ function L0(t) {
       l && l.c(), e = Ae();
     },
     m(i, n) {
-      l && l.m(i, n), M(i, e, n);
+      l && l.m(i, n), S(i, e, n);
     },
     p(i, [n]) {
       /*info*/
       i[0] ? l ? l.p(i, n) : (l = Io(i), l.c(), l.m(e.parentNode, e)) : l && (l.d(1), l = null);
     },
-    i: ae,
-    o: ae,
+    i: ne,
+    o: ne,
     d(i) {
-      i && S(e), l && l.d(i);
+      i && C(e), l && l.d(i);
     }
   };
 }
-function F0(t, e, l) {
+function Fg(t, e, l) {
   let { info: i } = e;
   return t.$$set = (n) => {
     "info" in n && l(0, i = n.info);
   }, [i];
 }
-class Q0 extends Ve {
+class Qg extends Ve {
   constructor(e) {
-    super(), Qe(this, e, F0, L0, Fe, { info: 0 });
+    super(), Qe(this, e, Fg, Lg, Fe, { info: 0 });
   }
 }
 function Lo(t) {
@@ -6807,38 +6807,38 @@ function Lo(t) {
   ), o, _, c = (
     /*info*/
     t[0].this_circuit_id === "transpiled-circuit" ? "(transpiled)" : ""
-  ), d, h, p, b, g, k, y, v = (
+  ), d, h, p, g, b, k, y, v = (
     /*info*/
     t[0].qubit.index + ""
   ), w, q, $, j = (
     /*info*/
     t[0].qubit.register && Fo(t)
-  ), O = (
+  ), I = (
     /*info*/
     t[0].bit_match !== void 0 && Qo(t)
   );
   return {
     c() {
-      e = m("div"), l = m("h2"), i = I("Qubit "), a = I(n), r = N(), o = I(s), _ = N(), d = I(c), h = N(), p = m("div"), b = m("table"), g = m("tr"), k = m("th"), k.textContent = "Qubit index", y = m("td"), w = I(v), q = N(), j && j.c(), $ = N(), O && O.c(), u(l, "class", "svelte-rb4g2h"), u(k, "class", "svelte-rb4g2h"), u(y, "class", "svelte-rb4g2h"), u(g, "class", "svelte-rb4g2h"), u(b, "class", "svelte-rb4g2h"), u(p, "class", "info-section svelte-rb4g2h"), u(e, "class", "svelte-rb4g2h");
+      e = m("div"), l = m("h2"), i = E("Qubit "), a = E(n), r = N(), o = E(s), _ = N(), d = E(c), h = N(), p = m("div"), g = m("table"), b = m("tr"), k = m("th"), k.textContent = "Qubit index", y = m("td"), w = E(v), q = N(), j && j.c(), $ = N(), I && I.c(), u(l, "class", "svelte-rb4g2h"), u(k, "class", "svelte-rb4g2h"), u(y, "class", "svelte-rb4g2h"), u(b, "class", "svelte-rb4g2h"), u(g, "class", "svelte-rb4g2h"), u(p, "class", "info-section svelte-rb4g2h"), u(e, "class", "svelte-rb4g2h");
     },
-    m(A, C) {
-      M(A, e, C), f(e, l), f(l, i), f(l, a), f(l, r), f(l, o), f(l, _), f(l, d), f(e, h), f(e, p), f(p, b), f(b, g), f(g, k), f(g, y), f(y, w), f(b, q), j && j.m(b, null), f(b, $), O && O.m(b, null);
+    m(A, M) {
+      S(A, e, M), f(e, l), f(l, i), f(l, a), f(l, r), f(l, o), f(l, _), f(l, d), f(e, h), f(e, p), f(p, g), f(g, b), f(b, k), f(b, y), f(y, w), f(g, q), j && j.m(g, null), f(g, $), I && I.m(g, null);
     },
-    p(A, C) {
-      C & /*info*/
+    p(A, M) {
+      M & /*info*/
       1 && n !== (n = /*info*/
-      A[0].qubit.index + "") && U(a, n), C & /*info*/
+      A[0].qubit.index + "") && U(a, n), M & /*info*/
       1 && s !== (s = /*info*/
-      A[0].this_circuit_id === "original-circuit" ? "(original)" : "") && U(o, s), C & /*info*/
+      A[0].this_circuit_id === "original-circuit" ? "(original)" : "") && U(o, s), M & /*info*/
       1 && c !== (c = /*info*/
-      A[0].this_circuit_id === "transpiled-circuit" ? "(transpiled)" : "") && U(d, c), C & /*info*/
+      A[0].this_circuit_id === "transpiled-circuit" ? "(transpiled)" : "") && U(d, c), M & /*info*/
       1 && v !== (v = /*info*/
       A[0].qubit.index + "") && U(w, v), /*info*/
-      A[0].qubit.register ? j ? j.p(A, C) : (j = Fo(A), j.c(), j.m(b, $)) : j && (j.d(1), j = null), /*info*/
-      A[0].bit_match !== void 0 ? O ? O.p(A, C) : (O = Qo(A), O.c(), O.m(b, null)) : O && (O.d(1), O = null);
+      A[0].qubit.register ? j ? j.p(A, M) : (j = Fo(A), j.c(), j.m(g, $)) : j && (j.d(1), j = null), /*info*/
+      A[0].bit_match !== void 0 ? I ? I.p(A, M) : (I = Qo(A), I.c(), I.m(g, null)) : I && (I.d(1), I = null);
     },
     d(A) {
-      A && S(e), j && j.d(), O && O.d();
+      A && C(e), j && j.d(), I && I.d();
     }
   };
 }
@@ -6852,10 +6852,10 @@ function Fo(t) {
   ), o, _;
   return {
     c() {
-      e = m("tr"), l = m("th"), l.textContent = "Register", i = m("td"), a = I(n), r = I(" ("), o = I(s), _ = I(")"), u(l, "class", "svelte-rb4g2h"), u(i, "class", "svelte-rb4g2h"), u(e, "class", "svelte-rb4g2h");
+      e = m("tr"), l = m("th"), l.textContent = "Register", i = m("td"), a = E(n), r = E(" ("), o = E(s), _ = E(")"), u(l, "class", "svelte-rb4g2h"), u(i, "class", "svelte-rb4g2h"), u(e, "class", "svelte-rb4g2h");
     },
     m(c, d) {
-      M(c, e, d), f(e, l), f(e, i), f(i, a), f(i, r), f(i, o), f(i, _);
+      S(c, e, d), f(e, l), f(e, i), f(i, a), f(i, r), f(i, o), f(i, _);
     },
     p(c, d) {
       d & /*info*/
@@ -6865,7 +6865,7 @@ function Fo(t) {
       c[0].qubit.register.size + "") && U(o, s);
     },
     d(c) {
-      c && S(e);
+      c && C(e);
     }
   };
 }
@@ -6876,10 +6876,10 @@ function Qo(t) {
   ), a;
   return {
     c() {
-      e = m("tr"), l = m("th"), l.textContent = "Transpiled to", i = m("td"), a = I(n), u(l, "class", "svelte-rb4g2h"), u(i, "class", "svelte-rb4g2h"), u(e, "class", "svelte-rb4g2h");
+      e = m("tr"), l = m("th"), l.textContent = "Transpiled to", i = m("td"), a = E(n), u(l, "class", "svelte-rb4g2h"), u(i, "class", "svelte-rb4g2h"), u(e, "class", "svelte-rb4g2h");
     },
     m(r, s) {
-      M(r, e, s), f(e, l), f(e, i), f(i, a);
+      S(r, e, s), f(e, l), f(e, i), f(i, a);
     },
     p(r, s) {
       s & /*info*/
@@ -6887,11 +6887,11 @@ function Qo(t) {
       r[0].bit_match.to + "") && U(a, n);
     },
     d(r) {
-      r && S(e);
+      r && C(e);
     }
   };
 }
-function V0(t) {
+function Vg(t) {
   let e, l = (
     /*info*/
     t[0] && Lo(t)
@@ -6901,35 +6901,35 @@ function V0(t) {
       l && l.c(), e = Ae();
     },
     m(i, n) {
-      l && l.m(i, n), M(i, e, n);
+      l && l.m(i, n), S(i, e, n);
     },
     p(i, [n]) {
       /*info*/
       i[0] ? l ? l.p(i, n) : (l = Lo(i), l.c(), l.m(e.parentNode, e)) : l && (l.d(1), l = null);
     },
-    i: ae,
-    o: ae,
+    i: ne,
+    o: ne,
     d(i) {
-      i && S(e), l && l.d(i);
+      i && C(e), l && l.d(i);
     }
   };
 }
-function X0(t, e, l) {
+function Xg(t, e, l) {
   let { info: i } = e;
   return t.$$set = (n) => {
     "info" in n && l(0, i = n.info);
   }, [i];
 }
-class G0 extends Ve {
+class Gg extends Ve {
   constructor(e) {
-    super(), Qe(this, e, X0, V0, Fe, { info: 0 });
+    super(), Qe(this, e, Xg, Vg, Fe, { info: 0 });
   }
 }
 function Vo(t) {
   let e, l, i, n, a, r, s, o, _, c = (
     /*info*/
     t[0].original_qubit_id + ""
-  ), d, h, p, b, g, k = (
+  ), d, h, p, g, b, k = (
     /*info*/
     t[0].qubit_id + ""
   ), y, v, w, q, $ = (
@@ -6939,32 +6939,32 @@ function Vo(t) {
     /*info*/
     t[0].esp_value && /*$machine_moment_at*/
     t[2] !== void 0 && Go(t)
-  ), O = (
+  ), I = (
     /*info*/
     t[0].cummul_duration !== void 0 && /*$machine_moment_at*/
     t[2] !== void 0 && Yo(t)
   );
   return {
     c() {
-      e = m("div"), l = m("h2"), l.textContent = "Machine Qubit Information", i = N(), n = m("div"), a = m("table"), r = m("tbody"), s = m("tr"), o = m("th"), o.textContent = "From", _ = m("td"), d = I(c), h = N(), p = m("tr"), b = m("th"), b.textContent = "To", g = m("td"), y = I(k), v = N(), $ && $.c(), w = N(), j && j.c(), q = N(), O && O.c(), u(l, "class", "svelte-1u88l4o"), u(o, "class", "svelte-1u88l4o"), u(_, "class", "svelte-1u88l4o"), u(s, "class", "svelte-1u88l4o"), u(b, "class", "svelte-1u88l4o"), u(g, "class", "svelte-1u88l4o"), u(p, "class", "svelte-1u88l4o"), u(r, "class", "svelte-1u88l4o"), u(a, "class", "svelte-1u88l4o"), u(n, "class", "info-section svelte-1u88l4o"), u(e, "class", "svelte-1u88l4o");
+      e = m("div"), l = m("h2"), l.textContent = "Machine Qubit Information", i = N(), n = m("div"), a = m("table"), r = m("tbody"), s = m("tr"), o = m("th"), o.textContent = "From", _ = m("td"), d = E(c), h = N(), p = m("tr"), g = m("th"), g.textContent = "To", b = m("td"), y = E(k), v = N(), $ && $.c(), w = N(), j && j.c(), q = N(), I && I.c(), u(l, "class", "svelte-1u88l4o"), u(o, "class", "svelte-1u88l4o"), u(_, "class", "svelte-1u88l4o"), u(s, "class", "svelte-1u88l4o"), u(g, "class", "svelte-1u88l4o"), u(b, "class", "svelte-1u88l4o"), u(p, "class", "svelte-1u88l4o"), u(r, "class", "svelte-1u88l4o"), u(a, "class", "svelte-1u88l4o"), u(n, "class", "info-section svelte-1u88l4o"), u(e, "class", "svelte-1u88l4o");
     },
-    m(A, C) {
-      M(A, e, C), f(e, l), f(e, i), f(e, n), f(n, a), f(a, r), f(r, s), f(s, o), f(s, _), f(_, d), f(r, h), f(r, p), f(p, b), f(p, g), f(g, y), f(r, v), $ && $.m(r, null), f(r, w), j && j.m(r, null), f(r, q), O && O.m(r, null);
+    m(A, M) {
+      S(A, e, M), f(e, l), f(e, i), f(e, n), f(n, a), f(a, r), f(r, s), f(s, o), f(s, _), f(_, d), f(r, h), f(r, p), f(p, g), f(p, b), f(b, y), f(r, v), $ && $.m(r, null), f(r, w), j && j.m(r, null), f(r, q), I && I.m(r, null);
     },
-    p(A, C) {
-      C & /*info*/
+    p(A, M) {
+      M & /*info*/
       1 && c !== (c = /*info*/
-      A[0].original_qubit_id + "") && U(d, c), C & /*info*/
+      A[0].original_qubit_id + "") && U(d, c), M & /*info*/
       1 && k !== (k = /*info*/
       A[0].qubit_id + "") && U(y, k), /*info*/
-      A[0].readout_error ? $ ? $.p(A, C) : ($ = Xo(A), $.c(), $.m(r, w)) : $ && ($.d(1), $ = null), /*info*/
+      A[0].readout_error ? $ ? $.p(A, M) : ($ = Xo(A), $.c(), $.m(r, w)) : $ && ($.d(1), $ = null), /*info*/
       A[0].esp_value && /*$machine_moment_at*/
-      A[2] !== void 0 ? j ? j.p(A, C) : (j = Go(A), j.c(), j.m(r, q)) : j && (j.d(1), j = null), /*info*/
+      A[2] !== void 0 ? j ? j.p(A, M) : (j = Go(A), j.c(), j.m(r, q)) : j && (j.d(1), j = null), /*info*/
       A[0].cummul_duration !== void 0 && /*$machine_moment_at*/
-      A[2] !== void 0 ? O ? O.p(A, C) : (O = Yo(A), O.c(), O.m(r, null)) : O && (O.d(1), O = null);
+      A[2] !== void 0 ? I ? I.p(A, M) : (I = Yo(A), I.c(), I.m(r, null)) : I && (I.d(1), I = null);
     },
     d(A) {
-      A && S(e), $ && $.d(), j && j.d(), O && O.d();
+      A && C(e), $ && $.d(), j && j.d(), I && I.d();
     }
   };
 }
@@ -6975,10 +6975,10 @@ function Xo(t) {
   ), a;
   return {
     c() {
-      e = m("tr"), l = m("th"), l.textContent = "Readout error", i = m("td"), a = I(n), u(l, "class", "svelte-1u88l4o"), u(i, "class", "svelte-1u88l4o"), u(e, "class", "svelte-1u88l4o");
+      e = m("tr"), l = m("th"), l.textContent = "Readout error", i = m("td"), a = E(n), u(l, "class", "svelte-1u88l4o"), u(i, "class", "svelte-1u88l4o"), u(e, "class", "svelte-1u88l4o");
     },
     m(r, s) {
-      M(r, e, s), f(e, l), f(e, i), f(i, a);
+      S(r, e, s), f(e, l), f(e, i), f(i, a);
     },
     p(r, s) {
       s & /*info*/
@@ -6986,7 +6986,7 @@ function Xo(t) {
       r[0].readout_error.value + "") && U(a, n);
     },
     d(r) {
-      r && S(e);
+      r && C(e);
     }
   };
 }
@@ -7000,13 +7000,13 @@ function Go(t) {
   ), s;
   return {
     c() {
-      e = m("tr"), l = m("th"), i = I("ESP at "), n = I(
+      e = m("tr"), l = m("th"), i = E("ESP at "), n = E(
         /*$machine_moment_at*/
         t[2]
-      ), a = m("td"), s = I(r), u(l, "class", "svelte-1u88l4o"), u(a, "class", "svelte-1u88l4o"), u(e, "class", "svelte-1u88l4o");
+      ), a = m("td"), s = E(r), u(l, "class", "svelte-1u88l4o"), u(a, "class", "svelte-1u88l4o"), u(e, "class", "svelte-1u88l4o");
     },
     m(o, _) {
-      M(o, e, _), f(e, l), f(l, i), f(l, n), f(e, a), f(a, s);
+      S(o, e, _), f(e, l), f(l, i), f(l, n), f(e, a), f(a, s);
     },
     p(o, _) {
       _ & /*$machine_moment_at*/
@@ -7022,7 +7022,7 @@ function Go(t) {
       ] + "") && U(s, r);
     },
     d(o) {
-      o && S(e);
+      o && C(e);
     }
   };
 }
@@ -7033,13 +7033,13 @@ function Yo(t) {
   ), s;
   return {
     c() {
-      e = m("tr"), l = m("th"), i = I("Cummulative duration at "), n = I(
+      e = m("tr"), l = m("th"), i = E("Cummulative duration at "), n = E(
         /*$machine_moment_at*/
         t[2]
-      ), a = m("td"), s = I(r), u(l, "class", "svelte-1u88l4o"), u(a, "class", "svelte-1u88l4o"), u(e, "class", "svelte-1u88l4o");
+      ), a = m("td"), s = E(r), u(l, "class", "svelte-1u88l4o"), u(a, "class", "svelte-1u88l4o"), u(e, "class", "svelte-1u88l4o");
     },
     m(o, _) {
-      M(o, e, _), f(e, l), f(l, i), f(l, n), f(e, a), f(a, s);
+      S(o, e, _), f(e, l), f(l, i), f(l, n), f(e, a), f(a, s);
     },
     p(o, _) {
       _ & /*$machine_moment_at*/
@@ -7052,11 +7052,11 @@ function Yo(t) {
       o[0].cummul_duration + "") && U(s, r);
     },
     d(o) {
-      o && S(e);
+      o && C(e);
     }
   };
 }
-function Y0(t) {
+function Yg(t) {
   let e, l = (
     /*info*/
     t[0] && Vo(t)
@@ -7066,30 +7066,30 @@ function Y0(t) {
       l && l.c(), e = Ae();
     },
     m(i, n) {
-      l && l.m(i, n), M(i, e, n);
+      l && l.m(i, n), S(i, e, n);
     },
     p(i, [n]) {
       /*info*/
       i[0] ? l ? l.p(i, n) : (l = Vo(i), l.c(), l.m(e.parentNode, e)) : l && (l.d(1), l = null);
     },
-    i: ae,
-    o: ae,
+    i: ne,
+    o: ne,
     d(i) {
-      i && S(e), l && l.d(i);
+      i && C(e), l && l.d(i);
     }
   };
 }
-function K0(t, e, l) {
-  let i, n = ae, a = () => (n(), n = st(s, (o) => l(2, i = o)), s);
+function Kg(t, e, l) {
+  let i, n = ne, a = () => (n(), n = st(s, (o) => l(2, i = o)), s);
   t.$$.on_destroy.push(() => n());
   let { info: r, machine_moment_at: s = Oe() } = e;
   return a(), t.$$set = (o) => {
     "info" in o && l(0, r = o.info), "machine_moment_at" in o && a(l(1, s = o.machine_moment_at));
   }, [r, s, i];
 }
-class U0 extends Ve {
+class Ug extends Ve {
   constructor(e) {
-    super(), Qe(this, e, K0, Y0, Fe, { info: 0, machine_moment_at: 1 });
+    super(), Qe(this, e, Kg, Yg, Fe, { info: 0, machine_moment_at: 1 });
   }
 }
 function ei(t) {
@@ -7106,16 +7106,16 @@ function Ko(t) {
   ), a, r, s = (
     /*info*/
     t[0].title + ""
-  ), o, _, c, d, h, p, b = (
+  ), o, _, c, d, h, p, g = (
     /*info*/
     t[0].qasm + ""
-  ), g, k, y;
+  ), b, k, y;
   return {
     c() {
-      e = m("div"), l = m("h2"), i = I("QASM"), a = I(n), r = I(" for "), o = I(s), _ = N(), c = m("button"), c.textContent = "Copy", d = N(), h = m("div"), p = m("pre"), g = I(b), u(c, "class", "svelte-1c6sep5"), u(l, "class", "svelte-1c6sep5"), u(p, "class", "svelte-1c6sep5"), u(h, "class", "info-section svelte-1c6sep5"), u(e, "class", "svelte-1c6sep5");
+      e = m("div"), l = m("h2"), i = E("QASM"), a = E(n), r = E(" for "), o = E(s), _ = N(), c = m("button"), c.textContent = "Copy", d = N(), h = m("div"), p = m("pre"), b = E(g), u(c, "class", "svelte-1c6sep5"), u(l, "class", "svelte-1c6sep5"), u(p, "class", "svelte-1c6sep5"), u(h, "class", "info-section svelte-1c6sep5"), u(e, "class", "svelte-1c6sep5");
     },
     m(v, w) {
-      M(v, e, w), f(e, l), f(l, i), f(l, a), f(l, r), f(l, o), f(l, _), f(l, c), f(e, d), f(e, h), f(h, p), f(p, g), k || (y = te(
+      S(v, e, w), f(e, l), f(l, i), f(l, a), f(l, r), f(l, o), f(l, _), f(l, c), f(e, d), f(e, h), f(h, p), f(p, b), k || (y = te(
         c,
         "click",
         /*click_handler*/
@@ -7128,15 +7128,15 @@ function Ko(t) {
       v[0].qasm_version + "") && U(a, n), w & /*info*/
       1 && s !== (s = /*info*/
       v[0].title + "") && U(o, s), w & /*info*/
-      1 && b !== (b = /*info*/
-      v[0].qasm + "") && U(g, b);
+      1 && g !== (g = /*info*/
+      v[0].qasm + "") && U(b, g);
     },
     d(v) {
-      v && S(e), k = !1, y();
+      v && C(e), k = !1, y();
     }
   };
 }
-function W0(t) {
+function Wg(t) {
   let e, l = (
     /*info*/
     t[0] && Ko(t)
@@ -7146,20 +7146,20 @@ function W0(t) {
       l && l.c(), e = Ae();
     },
     m(i, n) {
-      l && l.m(i, n), M(i, e, n);
+      l && l.m(i, n), S(i, e, n);
     },
     p(i, [n]) {
       /*info*/
       i[0] ? l ? l.p(i, n) : (l = Ko(i), l.c(), l.m(e.parentNode, e)) : l && (l.d(1), l = null);
     },
-    i: ae,
-    o: ae,
+    i: ne,
+    o: ne,
     d(i) {
-      i && S(e), l && l.d(i);
+      i && C(e), l && l.d(i);
     }
   };
 }
-function J0(t, e, l) {
+function Jg(t, e, l) {
   let { info: i } = e;
   const n = (a) => {
     ei(i.qasm);
@@ -7168,20 +7168,20 @@ function J0(t, e, l) {
     "info" in a && l(0, i = a.info);
   }, [i, n];
 }
-class Z0 extends Ve {
+class Zg extends Ve {
   constructor(e) {
-    super(), Qe(this, e, J0, W0, Fe, { info: 0 });
+    super(), Qe(this, e, Jg, Wg, Fe, { info: 0 });
   }
 }
 function li(t, e) {
   return t == null || e == null ? NaN : t < e ? -1 : t > e ? 1 : t >= e ? 0 : NaN;
 }
-function x0(t, e) {
+function xg(t, e) {
   return t == null || e == null ? NaN : e < t ? -1 : e > t ? 1 : e >= t ? 0 : NaN;
 }
 function dm(t) {
   let e, l, i;
-  t.length !== 2 ? (e = li, l = (s, o) => li(t(s), o), i = (s, o) => t(s) - o) : (e = t === li || t === x0 ? t : eb, l = t, i = t);
+  t.length !== 2 ? (e = li, l = (s, o) => li(t(s), o), i = (s, o) => t(s) - o) : (e = t === li || t === xg ? t : eb, l = t, i = t);
   function n(s, o, _ = 0, c = s.length) {
     if (_ < c) {
       if (e(o, o) !== 0)
@@ -7374,28 +7374,28 @@ function kb() {
         } else
           p.pop();
     }
-    for (var b = p.length, g = 0, k = b; p[g] <= d; )
-      ++g;
+    for (var g = p.length, b = 0, k = g; p[b] <= d; )
+      ++b;
     for (; p[k - 1] > h; )
       --k;
-    (g || k < b) && (p = p.slice(g, k), b = k - g);
-    var y = new Array(b + 1), v;
-    for (a = 0; a <= b; ++a)
-      v = y[a] = [], v.x0 = a > 0 ? p[a - 1] : d, v.x1 = a < b ? p[a] : h;
+    (b || k < g) && (p = p.slice(b, k), g = k - b);
+    var y = new Array(g + 1), v;
+    for (a = 0; a <= g; ++a)
+      v = y[a] = [], v.x0 = a > 0 ? p[a - 1] : d, v.x1 = a < g ? p[a] : h;
     if (isFinite(o)) {
       if (o > 0)
         for (a = 0; a < r; ++a)
-          (s = _[a]) != null && d <= s && s <= h && y[Math.min(b, Math.floor((s - d) / o))].push(n[a]);
+          (s = _[a]) != null && d <= s && s <= h && y[Math.min(g, Math.floor((s - d) / o))].push(n[a]);
       else if (o < 0) {
         for (a = 0; a < r; ++a)
           if ((s = _[a]) != null && d <= s && s <= h) {
             const w = Math.floor((d - s) * o);
-            y[Math.min(b, w + (p[w] <= s))].push(n[a]);
+            y[Math.min(g, w + (p[w] <= s))].push(n[a]);
           }
       }
     } else
       for (a = 0; a < r; ++a)
-        (s = _[a]) != null && d <= s && s <= h && y[hm(p, s, 0, b)].push(n[a]);
+        (s = _[a]) != null && d <= s && s <= h && y[hm(p, s, 0, g)].push(n[a]);
     return y;
   }
   return i.value = function(n) {
@@ -7435,8 +7435,8 @@ function gm(t, e, l = 0, i = 1 / 0, n) {
     return t;
   for (n = n === void 0 ? pm : fb(n); i > l; ) {
     if (i - l > 600) {
-      const o = i - l + 1, _ = e - l + 1, c = Math.log(o), d = 0.5 * Math.exp(2 * c / 3), h = 0.5 * Math.sqrt(c * d * (o - d) / o) * (_ - o / 2 < 0 ? -1 : 1), p = Math.max(l, Math.floor(e - _ * d / o + h)), b = Math.min(i, Math.floor(e + (o - _) * d / o + h));
-      gm(t, e, p, b, n);
+      const o = i - l + 1, _ = e - l + 1, c = Math.log(o), d = 0.5 * Math.exp(2 * c / 3), h = 0.5 * Math.sqrt(c * d * (o - d) / o) * (_ - o / 2 < 0 ? -1 : 1), p = Math.max(l, Math.floor(e - _ * d / o + h)), g = Math.min(i, Math.floor(e + (o - _) * d / o + h));
+      gm(t, e, p, g, n);
     }
     const a = t[e];
     let r = l, s = i;
@@ -7502,15 +7502,15 @@ function Tb() {
 function La(t, e) {
   var l = [], i = null, n = null, a = 6, r = 6, s = 3, o = typeof window < "u" && window.devicePixelRatio > 1 ? 0 : 0.5, _ = t === ya || t === _n ? -1 : 1, c = t === _n || t === wa ? "x" : "y", d = t === ya || t === wr ? wb : $b;
   function h(p) {
-    var b = i ?? (e.ticks ? e.ticks.apply(e, l) : e.domain()), g = n ?? (e.tickFormat ? e.tickFormat.apply(e, l) : yb), k = Math.max(a, 0) + s, y = e.range(), v = +y[0] + o, w = +y[y.length - 1] + o, q = (e.bandwidth ? jb : qb)(e.copy(), o), $ = p.selection ? p.selection() : p, j = $.selectAll(".domain").data([null]), O = $.selectAll(".tick").data(b, e).order(), A = O.exit(), C = O.enter().append("g").attr("class", "tick"), z = O.select("line"), H = O.select("text");
-    j = j.merge(j.enter().insert("path", ".tick").attr("class", "domain").attr("stroke", "currentColor")), O = O.merge(C), z = z.merge(C.append("line").attr("stroke", "currentColor").attr(c + "2", _ * a)), H = H.merge(C.append("text").attr("fill", "currentColor").attr(c, _ * k).attr("dy", t === ya ? "0em" : t === wr ? "0.71em" : "0.32em")), p !== $ && (j = j.transition(p), O = O.transition(p), z = z.transition(p), H = H.transition(p), A = A.transition(p).attr("opacity", Zo).attr("transform", function(B) {
+    var g = i ?? (e.ticks ? e.ticks.apply(e, l) : e.domain()), b = n ?? (e.tickFormat ? e.tickFormat.apply(e, l) : yb), k = Math.max(a, 0) + s, y = e.range(), v = +y[0] + o, w = +y[y.length - 1] + o, q = (e.bandwidth ? jb : qb)(e.copy(), o), $ = p.selection ? p.selection() : p, j = $.selectAll(".domain").data([null]), I = $.selectAll(".tick").data(g, e).order(), A = I.exit(), M = I.enter().append("g").attr("class", "tick"), z = I.select("line"), H = I.select("text");
+    j = j.merge(j.enter().insert("path", ".tick").attr("class", "domain").attr("stroke", "currentColor")), I = I.merge(M), z = z.merge(M.append("line").attr("stroke", "currentColor").attr(c + "2", _ * a)), H = H.merge(M.append("text").attr("fill", "currentColor").attr(c, _ * k).attr("dy", t === ya ? "0em" : t === wr ? "0.71em" : "0.32em")), p !== $ && (j = j.transition(p), I = I.transition(p), z = z.transition(p), H = H.transition(p), A = A.transition(p).attr("opacity", Zo).attr("transform", function(B) {
       return isFinite(B = q(B)) ? d(B + o) : this.getAttribute("transform");
-    }), C.attr("opacity", Zo).attr("transform", function(B) {
+    }), M.attr("opacity", Zo).attr("transform", function(B) {
       var R = this.parentNode.__axis;
       return d((R && isFinite(R = R(B)) ? R : q(B)) + o);
-    })), A.remove(), j.attr("d", t === _n || t === wa ? r ? "M" + _ * r + "," + v + "H" + o + "V" + w + "H" + _ * r : "M" + o + "," + v + "V" + w : r ? "M" + v + "," + _ * r + "V" + o + "H" + w + "V" + _ * r : "M" + v + "," + o + "H" + w), O.attr("opacity", 1).attr("transform", function(B) {
+    })), A.remove(), j.attr("d", t === _n || t === wa ? r ? "M" + _ * r + "," + v + "H" + o + "V" + w + "H" + _ * r : "M" + o + "," + v + "V" + w : r ? "M" + v + "," + _ * r + "V" + o + "H" + w + "V" + _ * r : "M" + v + "," + o + "H" + w), I.attr("opacity", 1).attr("transform", function(B) {
       return d(q(B) + o);
-    }), z.attr(c + "2", _ * a), H.attr(c, _ * k).text(g), $.filter(Tb).attr("fill", "none").attr("font-size", 10).attr("font-family", "sans-serif").attr("text-anchor", t === wa ? "start" : t === _n ? "end" : "middle"), $.each(function() {
+    }), z.attr(c + "2", _ * a), H.attr(c, _ * k).text(b), $.filter(Tb).attr("fill", "none").attr("font-size", 10).attr("font-family", "sans-serif").attr("text-anchor", t === wa ? "start" : t === _n ? "end" : "middle"), $.each(function() {
       this.__axis = q;
     });
   }
@@ -7782,11 +7782,11 @@ function tk(t, e) {
   var l = e ? xb : Zb, i = this._parents, n = this._groups;
   typeof t != "function" && (t = Jb(t));
   for (var a = n.length, r = new Array(a), s = new Array(a), o = new Array(a), _ = 0; _ < a; ++_) {
-    var c = i[_], d = n[_], h = d.length, p = lk(t.call(c, c && c.__data__, _, i)), b = p.length, g = s[_] = new Array(b), k = r[_] = new Array(b), y = o[_] = new Array(h);
-    l(c, d, g, k, y, p, e);
-    for (var v = 0, w = 0, q, $; v < b; ++v)
-      if (q = g[v]) {
-        for (v >= w && (w = v + 1); !($ = k[w]) && ++w < b; )
+    var c = i[_], d = n[_], h = d.length, p = lk(t.call(c, c && c.__data__, _, i)), g = p.length, b = s[_] = new Array(g), k = r[_] = new Array(g), y = o[_] = new Array(h);
+    l(c, d, b, k, y, p, e);
+    for (var v = 0, w = 0, q, $; v < g; ++v)
+      if (q = b[v]) {
+        for (v >= w && (w = v + 1); !($ = k[w]) && ++w < g; )
           ;
         q._next = $ || null;
       }
@@ -7805,8 +7805,8 @@ function nk(t, e, l) {
 }
 function ak(t) {
   for (var e = t.selection ? t.selection() : t, l = this._groups, i = e._groups, n = l.length, a = i.length, r = Math.min(n, a), s = new Array(n), o = 0; o < r; ++o)
-    for (var _ = l[o], c = i[o], d = _.length, h = s[o] = new Array(d), p, b = 0; b < d; ++b)
-      (p = _[b] || c[b]) && (h[b] = p);
+    for (var _ = l[o], c = i[o], d = _.length, h = s[o] = new Array(d), p, g = 0; g < d; ++g)
+      (p = _[g] || c[g]) && (h[g] = p);
   for (; o < n; ++o)
     s[o] = l[o];
   return new el(s, this._parents);
@@ -8674,10 +8674,10 @@ function Im(t, e, l, i) {
   function n(_) {
     return _.length ? _.pop() + " " : "";
   }
-  function a(_, c, d, h, p, b) {
+  function a(_, c, d, h, p, g) {
     if (_ !== d || c !== h) {
-      var g = p.push("translate(", null, e, null, l);
-      b.push({ i: g - 4, x: dl(_, d) }, { i: g - 2, x: dl(c, h) });
+      var b = p.push("translate(", null, e, null, l);
+      g.push({ i: b - 4, x: dl(_, d) }, { i: b - 2, x: dl(c, h) });
     } else
       (d || h) && p.push("translate(" + d + e + h + l);
   }
@@ -8687,18 +8687,18 @@ function Im(t, e, l, i) {
   function s(_, c, d, h) {
     _ !== c ? h.push({ i: d.push(n(d) + "skewX(", null, i) - 2, x: dl(_, c) }) : c && d.push(n(d) + "skewX(" + c + i);
   }
-  function o(_, c, d, h, p, b) {
+  function o(_, c, d, h, p, g) {
     if (_ !== d || c !== h) {
-      var g = p.push(n(p) + "scale(", null, ",", null, ")");
-      b.push({ i: g - 4, x: dl(_, d) }, { i: g - 2, x: dl(c, h) });
+      var b = p.push(n(p) + "scale(", null, ",", null, ")");
+      g.push({ i: b - 4, x: dl(_, d) }, { i: b - 2, x: dl(c, h) });
     } else
       (d !== 1 || h !== 1) && p.push(n(p) + "scale(" + d + "," + h + ")");
   }
   return function(_, c) {
     var d = [], h = [];
     return _ = t(_), c = t(c), a(_.translateX, _.translateY, c.translateX, c.translateY, d, h), r(_.rotate, c.rotate, d, h), s(_.skewX, c.skewX, d, h), o(_.scaleX, _.scaleY, c.scaleX, c.scaleY, d, h), _ = c = null, function(p) {
-      for (var b = -1, g = h.length, k; ++b < g; )
-        d[(k = h[b]).i] = k.x(p);
+      for (var g = -1, b = h.length, k; ++g < b; )
+        d[(k = h[g]).i] = k.x(p);
       return d.join("");
     };
   };
@@ -9109,8 +9109,8 @@ function M2(t) {
   for (var i = this._groups, n = i.length, a = [], r = [], s = 0; s < n; ++s)
     for (var o = i[s], _ = o.length, c, d = 0; d < _; ++d)
       if (c = o[d]) {
-        for (var h = t.call(c, c.__data__, d, o), p, b = pl(c, l), g = 0, k = h.length; g < k; ++g)
-          (p = h[g]) && Xa(p, e, l, g, h, b);
+        for (var h = t.call(c, c.__data__, d, o), p, g = pl(c, l), b = 0, k = h.length; b < k; ++b)
+          (p = h[b]) && Xa(p, e, l, b, h, g);
         a.push(h), r.push(c);
       }
   return new zl(a, r, e, l);
@@ -9357,8 +9357,8 @@ class ty {
       if (!(Math.abs(d * o - _ * c) > Zl) || !a)
         this._append`L${this._x1 = e},${this._y1 = l}`;
       else {
-        let p = i - r, b = n - s, g = o * o + _ * _, k = p * p + b * b, y = Math.sqrt(g), v = Math.sqrt(h), w = a * Math.tan((Mr - Math.acos((g + h - k) / (2 * y * v))) / 2), q = w / v, $ = w / y;
-        Math.abs(q - 1) > Zl && this._append`L${e + q * c},${l + q * d}`, this._append`A${a},${a},0,0,${+(d * p > c * b)},${this._x1 = e + $ * o},${this._y1 = l + $ * _}`;
+        let p = i - r, g = n - s, b = o * o + _ * _, k = p * p + g * g, y = Math.sqrt(b), v = Math.sqrt(h), w = a * Math.tan((Mr - Math.acos((b + h - k) / (2 * y * v))) / 2), q = w / v, $ = w / y;
+        Math.abs(q - 1) > Zl && this._append`L${e + q * c},${l + q * d}`, this._append`A${a},${a},0,0,${+(d * p > c * g)},${this._x1 = e + $ * o},${this._y1 = l + $ * _}`;
       }
   }
   arc(e, l, i, n, a, r) {
@@ -9484,19 +9484,19 @@ function oy(t) {
   var e = t.grouping === void 0 || t.thousands === void 0 ? bu : iy(ku.call(t.grouping, Number), t.thousands + ""), l = t.currency === void 0 ? "" : t.currency[0] + "", i = t.currency === void 0 ? "" : t.currency[1] + "", n = t.decimal === void 0 ? "." : t.decimal + "", a = t.numerals === void 0 ? bu : ny(ku.call(t.numerals, String)), r = t.percent === void 0 ? "%" : t.percent + "", s = t.minus === void 0 ? "−" : t.minus + "", o = t.nan === void 0 ? "NaN" : t.nan + "";
   function _(d) {
     d = Ia(d);
-    var h = d.fill, p = d.align, b = d.sign, g = d.symbol, k = d.zero, y = d.width, v = d.comma, w = d.precision, q = d.trim, $ = d.type;
+    var h = d.fill, p = d.align, g = d.sign, b = d.symbol, k = d.zero, y = d.width, v = d.comma, w = d.precision, q = d.trim, $ = d.type;
     $ === "n" ? (v = !0, $ = "g") : gu[$] || (w === void 0 && (w = 12), q = !0, $ = "g"), (k || h === "0" && p === "=") && (k = !0, h = "0", p = "=");
-    var j = g === "$" ? l : g === "#" && /[boxX]/.test($) ? "0" + $.toLowerCase() : "", O = g === "$" ? i : /[%p]/.test($) ? r : "", A = gu[$], C = /[defgprs%]/.test($);
+    var j = b === "$" ? l : b === "#" && /[boxX]/.test($) ? "0" + $.toLowerCase() : "", I = b === "$" ? i : /[%p]/.test($) ? r : "", A = gu[$], M = /[defgprs%]/.test($);
     w = w === void 0 ? 6 : /[gprs]/.test($) ? Math.max(1, Math.min(21, w)) : Math.max(0, Math.min(20, w));
     function z(H) {
-      var B = j, R = O, P, E, F;
+      var B = j, R = I, P, O, F;
       if ($ === "c")
         R = A(H) + R, H = "";
       else {
         H = +H;
         var L = H < 0 || 1 / H < 0;
-        if (H = isNaN(H) ? o : A(Math.abs(H), w), q && (H = ry(H)), L && +H == 0 && b !== "+" && (L = !1), B = (L ? b === "(" ? b : s : b === "-" || b === "(" ? "" : b) + B, R = ($ === "s" ? vu[8 + Xm / 3] : "") + R + (L && b === "(" ? ")" : ""), C) {
-          for (P = -1, E = H.length; ++P < E; )
+        if (H = isNaN(H) ? o : A(Math.abs(H), w), q && (H = ry(H)), L && +H == 0 && g !== "+" && (L = !1), B = (L ? g === "(" ? g : s : g === "-" || g === "(" ? "" : g) + B, R = ($ === "s" ? vu[8 + Xm / 3] : "") + R + (L && g === "(" ? ")" : ""), M) {
+          for (P = -1, O = H.length; ++P < O; )
             if (F = H.charCodeAt(P), 48 > F || F > 57) {
               R = (F === 46 ? n + H.slice(P + 1) : H.slice(P)) + R, H = H.slice(0, P);
               break;
@@ -9526,9 +9526,9 @@ function oy(t) {
     }, z;
   }
   function c(d, h) {
-    var p = _((d = Ia(d), d.type = "f", d)), b = Math.max(-8, Math.min(8, Math.floor(Vi(h) / 3))) * 3, g = Math.pow(10, -b), k = vu[8 + b / 3];
+    var p = _((d = Ia(d), d.type = "f", d)), g = Math.max(-8, Math.min(8, Math.floor(Vi(h) / 3))) * 3, b = Math.pow(10, -g), k = vu[8 + g / 3];
     return function(y) {
-      return p(g * y) + k;
+      return p(b * y) + k;
     };
   }
   return {
@@ -9748,8 +9748,8 @@ function $y() {
   };
   function c(d) {
     return function(h) {
-      var p, b;
-      return arguments.length ? ([p, b] = h, r = d(p, b), _) : [r(0), r(1)];
+      var p, g;
+      return arguments.length ? ([p, g] = h, r = d(p, g), _) : [r(0), r(1)];
     };
   }
   return _.range = c(Qa), _.rangeRound = c(Om), _.unknown = function(d) {
@@ -9854,12 +9854,12 @@ function Zm(t) {
 function xm(t) {
   return t[0];
 }
-function eg(t) {
+function e0(t) {
   return t[1];
 }
 function Sy(t, e) {
   var l = Gt(!0), i = null, n = Zm, a = null, r = Um(s);
-  t = typeof t == "function" ? t : t === void 0 ? xm : Gt(t), e = typeof e == "function" ? e : e === void 0 ? eg : Gt(e);
+  t = typeof t == "function" ? t : t === void 0 ? xm : Gt(t), e = typeof e == "function" ? e : e === void 0 ? e0 : Gt(e);
   function s(o) {
     var _, c = (o = Wm(o)).length, d, h = !1, p;
     for (i == null && (a = n(p = r())), _ = 0; _ <= c; ++_)
@@ -9881,16 +9881,16 @@ function Sy(t, e) {
 }
 function My(t, e, l) {
   var i = null, n = Gt(!0), a = null, r = Zm, s = null, o = Um(_);
-  t = typeof t == "function" ? t : t === void 0 ? xm : Gt(+t), e = typeof e == "function" ? e : Gt(e === void 0 ? 0 : +e), l = typeof l == "function" ? l : l === void 0 ? eg : Gt(+l);
+  t = typeof t == "function" ? t : t === void 0 ? xm : Gt(+t), e = typeof e == "function" ? e : Gt(e === void 0 ? 0 : +e), l = typeof l == "function" ? l : l === void 0 ? e0 : Gt(+l);
   function _(d) {
-    var h, p, b, g = (d = Wm(d)).length, k, y = !1, v, w = new Array(g), q = new Array(g);
-    for (a == null && (s = r(v = o())), h = 0; h <= g; ++h) {
-      if (!(h < g && n(k = d[h], h, d)) === y)
+    var h, p, g, b = (d = Wm(d)).length, k, y = !1, v, w = new Array(b), q = new Array(b);
+    for (a == null && (s = r(v = o())), h = 0; h <= b; ++h) {
+      if (!(h < b && n(k = d[h], h, d)) === y)
         if (y = !y)
           p = h, s.areaStart(), s.lineStart();
         else {
-          for (s.lineEnd(), s.lineStart(), b = h - 1; b >= p; --b)
-            s.point(w[b], q[b]);
+          for (s.lineEnd(), s.lineStart(), g = h - 1; g >= p; --g)
+            s.point(w[g], q[g]);
           s.lineEnd(), s.areaEnd();
         }
       y && (w[h] = +t(k, h, d), q[h] = +e(k, h, d), s.point(i ? +i(k, h, d) : w[h], l ? +l(k, h, d) : q[h]));
@@ -10003,9 +10003,9 @@ hn.prototype = {
 };
 hn.prototype;
 let Ay = Jt(",d");
-const cr = 20, tg = 5;
+const cr = 20, t0 = 5;
 function dr(t, e, l = {}) {
-  let i = (l == null ? void 0 : l.unit_dt) || tg, n = (l == null ? void 0 : l.pulse_row_height) || Sg;
+  let i = (l == null ? void 0 : l.unit_dt) || t0, n = (l == null ? void 0 : l.pulse_row_height) || S0;
   if (!t || t.length == 0 || !e || Object.keys(e).length == 0)
     return;
   let a = 0, r = 0, s, o, _ = {}, c = 0, d = [];
@@ -10018,7 +10018,7 @@ function dr(t, e, l = {}) {
   let h = {}, p = d.map((k, y) => {
     let v = e[k];
     return h[k] = y, v;
-  }), b = El().domain([0, 0.5]).range([0, n]), g = (k) => k / i;
+  }), g = El().domain([0, 0.5]).range([0, n]), b = (k) => k / i;
   if (t.length > 0 && Object.keys(e).length > 0) {
     o = {
       type: "g",
@@ -10043,24 +10043,24 @@ function dr(t, e, l = {}) {
     };
     let k = n * p.length;
     o.height = k, s.height = k, r = o.height > r ? o.height : r;
-    let y = t.map((O) => O.time_at + O.duration), v = Math.max(...y), w = g(v);
+    let y = t.map((I) => I.time_at + I.duration), v = Math.max(...y), w = b(v);
     o.width = w + Ot + et, a += o.width, s.width = Ot;
     let q = 0;
-    for (const O of p) {
+    for (const I of p) {
       let A = {
         type: "g",
         role: "pulse-area-row-group",
-        id: "pulse-area-row-group-" + O.name,
+        id: "pulse-area-row-group-" + I.name,
         _class: "pulse-area-row-group",
         x: 0,
         y: n * q,
         width: 0,
         height: n,
         elem: []
-      }, C = {
+      }, M = {
         type: "g",
         role: "pulse-area-row-name-group",
-        id: "pulse-area-row-name-group-" + O.name,
+        id: "pulse-area-row-name-group-" + I.name,
         _class: "pulse-area-row-name-group",
         x: 0,
         y: 0,
@@ -10068,28 +10068,28 @@ function dr(t, e, l = {}) {
         height: 0,
         elem: []
       };
-      C.elem.push({
+      M.elem.push({
         type: "text",
         x: Ot,
         y: n / 2 - 6 + 4.5,
         "font-size": 12,
         "text-anchor": "end",
         "alignment-baseline": "center",
-        text: O.channel_type.replace(/Channel$/, ""),
+        text: I.channel_type.replace(/Channel$/, ""),
         "font-weight": 700,
         "line-height": 1
-      }), C.elem.push({
+      }), M.elem.push({
         type: "text",
         x: Ot,
         y: n / 2 + 6 + 4.5,
         "font-size": 12,
         "text-anchor": "end",
         "alignment-baseline": "center",
-        text: "(" + O.name + ")",
+        text: "(" + I.name + ")",
         "font-weight": 400,
         "line-height": 1
-      }), A.elem.push(C);
-      let z = JSON.parse(JSON.stringify(C));
+      }), A.elem.push(M);
+      let z = JSON.parse(JSON.stringify(M));
       z.y = n * q, z.elem.splice(0, 0, {
         type: "rect",
         x: 0,
@@ -10118,7 +10118,7 @@ function dr(t, e, l = {}) {
       let H = {
         type: "g",
         role: "pulse-area-vis-group",
-        id: "pulse-area-vis-group-" + O.name,
+        id: "pulse-area-vis-group-" + I.name,
         _class: "pulse-area-vis-group",
         x: Ot + et,
         y: 0,
@@ -10128,28 +10128,28 @@ function dr(t, e, l = {}) {
       };
       A.elem.push(H), o.elem.push(A), q++;
     }
-    for (const O of t) {
-      let A = g(O.time_at), C = g(O.time_at + O.duration);
-      if (O.component_type === "Play") {
-        let z = b(O.amplitude), H = o.elem[h[O.name]].elem.length - 1, B = lg(A, C, z, n);
-        o.elem[h[O.name]].elem[H].elem.push({
-          _class: `pulse-path--layer-${O.layer_index}--op-${O.op_index}`,
+    for (const I of t) {
+      let A = b(I.time_at), M = b(I.time_at + I.duration);
+      if (I.component_type === "Play") {
+        let z = g(I.amplitude), H = o.elem[h[I.name]].elem.length - 1, B = l0(A, M, z, n);
+        o.elem[h[I.name]].elem[H].elem.push({
+          _class: `pulse-path--layer-${I.layer_index}--op-${I.op_index}`,
           type: "path",
           path: B,
-          fill: _[O.channel_type].color,
+          fill: _[I.channel_type].color,
           "fill-opacity": 0.5,
           "stroke-width": 0
         });
-      } else if (O.component_type === "ShiftPhase") {
-        let z = o.elem[h[O.name]].elem.length - 1;
-        o.elem[h[O.name]].elem[z].elem.push({
-          _class: `pulse-path--layer-${O.layer_index}--op-${O.op_index}`,
+      } else if (I.component_type === "ShiftPhase") {
+        let z = o.elem[h[I.name]].elem.length - 1;
+        o.elem[h[I.name]].elem[z].elem.push({
+          _class: `pulse-path--layer-${I.layer_index}--op-${I.op_index}`,
           type: "rect",
           x: A - 1,
           y: n * 0.2,
           width: 2,
           height: n * 0.8,
-          fill: _[O.channel_type].color,
+          fill: _[I.channel_type].color,
           "fill-opacity": 0.7,
           "stroke-width": 0
         });
@@ -10167,12 +10167,12 @@ function dr(t, e, l = {}) {
       elem: []
     }, j = 0;
     for (; j < v; ) {
-      let O = {
+      let I = {
         type: "g",
         role: "pulse-data-x-axis-group",
         id: "pulse-data-x-axis-group-" + j,
         _class: "pulse-data-x-axis-group",
-        x: g(j),
+        x: b(j),
         y: 0,
         elem: [{
           type: "line",
@@ -10193,7 +10193,7 @@ function dr(t, e, l = {}) {
           "font-weight": 400
         }]
       };
-      $.elem.push(O), j += 500;
+      $.elem.push(I), j += 500;
     }
     o.elem.push($), o.height += Bl, r += Bl;
   }
@@ -10207,12 +10207,12 @@ function dr(t, e, l = {}) {
       area_group: o
     },
     scales: {
-      dt_scale: g,
-      amp_scale: b
+      dt_scale: b,
+      amp_scale: g
     }
   };
 }
-function lg(t, e, l, i) {
+function l0(t, e, l, i) {
   let n = [];
   return e - t < cr * 2 ? n.push({
     x: t,
@@ -10243,26 +10243,26 @@ function $u(t, e = {}) {
   if (!t)
     return;
   let l = {};
-  for (const g of t)
-    l[g.name] || (l[g.name] = {
-      channel_type: g.channel_type,
-      channel_index: g.channel_index,
-      name: g.name
+  for (const b of t)
+    l[b.name] || (l[b.name] = {
+      channel_type: b.channel_type,
+      channel_index: b.channel_index,
+      name: b.name
     });
   let i = (e == null ? void 0 : e.unit_dt) || Py, n = (e == null ? void 0 : e.pulse_row_height) || Oy;
   if (!t || t.length == 0 || !l || Object.keys(l).length == 0)
     return;
   let a = 0, r = 0, s, o = {}, _ = 0, c = [];
-  for (const g in l)
-    o[l[g].channel_type] || (o[l[g].channel_type] = { color: Wt[_] }, _ += 1), c.push(g);
-  c = c.map((g) => {
+  for (const b in l)
+    o[l[b].channel_type] || (o[l[b].channel_type] = { color: Wt[_] }, _ += 1), c.push(b);
+  c = c.map((b) => {
     var k, y;
-    return [(k = g.match(/[a-z]+/)) == null ? void 0 : k[0], parseInt((y = g.match(/[0-9]+/)) == null ? void 0 : y[0])];
-  }).toSorted((g, k) => g[1] - k[1]).map((g) => g.join(""));
-  let d = {}, h = c.map((g, k) => {
-    let y = l[g];
-    return d[g] = k, y;
-  }), p = El().domain([0, 0.5]).range([0, n]), b = (g) => g / i;
+    return [(k = b.match(/[a-z]+/)) == null ? void 0 : k[0], parseInt((y = b.match(/[0-9]+/)) == null ? void 0 : y[0])];
+  }).toSorted((b, k) => b[1] - k[1]).map((b) => b.join(""));
+  let d = {}, h = c.map((b, k) => {
+    let y = l[b];
+    return d[b] = k, y;
+  }), p = El().domain([0, 0.5]).range([0, n]), g = (b) => b / i;
   if (t.length > 0 && Object.keys(l).length > 0) {
     s = {
       type: "g",
@@ -10275,13 +10275,13 @@ function $u(t, e = {}) {
       height: 0,
       elem: []
     };
-    let g = n * h.length;
-    s.height = g, r = s.height > r ? s.height : r;
-    let k = t.map((j) => j.time_at + j.duration), y = Math.max(...k), v = b(y);
+    let b = n * h.length;
+    s.height = b, r = s.height > r ? s.height : r;
+    let k = t.map((j) => j.time_at + j.duration), y = Math.max(...k), v = g(y);
     s.width = v + Ot + et, a += s.width;
     let w = 0;
     for (const j of h) {
-      let O = {
+      let I = {
         type: "g",
         role: "mini-pulse-area-row-group",
         id: "mini-pulse-area-row-group-" + j.name,
@@ -10322,7 +10322,7 @@ function $u(t, e = {}) {
         text: "(" + j.name + ")",
         "font-weight": 400,
         "line-height": 1
-      }), O.elem.push(A), O.elem.push({
+      }), I.elem.push(A), I.elem.push({
         type: "rect",
         x: Ot + et,
         y: 0,
@@ -10331,7 +10331,7 @@ function $u(t, e = {}) {
         fill: Me,
         "fill-opacity": 0.05,
         "stroke-width": 0
-      }), O.elem.push({
+      }), I.elem.push({
         type: "line",
         x1: Ot + et,
         y1: n,
@@ -10339,7 +10339,7 @@ function $u(t, e = {}) {
         y2: n,
         "stroke-width": 1
       });
-      let C = {
+      let M = {
         type: "g",
         role: "mini-pulse-area-vis-group",
         id: "mini-pulse-area-vis-group-" + j.name,
@@ -10350,12 +10350,12 @@ function $u(t, e = {}) {
         height: n,
         elem: []
       };
-      O.elem.push(C), s.elem.push(O), w++;
+      I.elem.push(M), s.elem.push(I), w++;
     }
     for (const j of t) {
-      let O = b(j.time_at), A = b(j.time_at + j.duration);
+      let I = g(j.time_at), A = g(j.time_at + j.duration);
       if (j.component_type === "Play") {
-        let C = p(j.amplitude), z = s.elem[d[j.name]].elem.length - 1, H = lg(O, A, C, n);
+        let M = p(j.amplitude), z = s.elem[d[j.name]].elem.length - 1, H = l0(I, A, M, n);
         s.elem[d[j.name]].elem[z].elem.push({
           _class: `mini-pulse-path--layer-${j.layer_index}--op-${j.op_index}`,
           type: "path",
@@ -10365,11 +10365,11 @@ function $u(t, e = {}) {
           "stroke-width": 0
         });
       } else if (j.component_type === "ShiftPhase") {
-        let C = s.elem[d[j.name]].elem.length - 1;
-        s.elem[d[j.name]].elem[C].elem.push({
+        let M = s.elem[d[j.name]].elem.length - 1;
+        s.elem[d[j.name]].elem[M].elem.push({
           _class: `mini-pulse-path--layer-${j.layer_index}--op-${j.op_index}`,
           type: "rect",
-          x: O - 1,
+          x: I - 1,
           y: n * 0.2,
           width: 2,
           height: n * 0.8,
@@ -10385,7 +10385,7 @@ function $u(t, e = {}) {
       id: "mini-pulse-data-x-axis-group",
       _class: "mini-pulse-data-x-axis-group",
       x: Ot + et,
-      y: g,
+      y: b,
       width: v,
       height: Bl,
       elem: []
@@ -10396,7 +10396,7 @@ function $u(t, e = {}) {
         role: "mini-pulse-data-x-axis-group",
         id: "mini-pulse-data-x-axis-group-" + $,
         _class: "mini-pulse-data-x-axis-group",
-        x: b($),
+        x: g($),
         y: 0,
         elem: [{
           type: "line",
@@ -10430,7 +10430,7 @@ function $u(t, e = {}) {
       area_group: s
     },
     scales: {
-      dt_scale: b,
+      dt_scale: g,
       amp_scale: p
     }
   };
@@ -10447,29 +10447,29 @@ function ju(t) {
   ), a, r, s = (
     /*info*/
     ((F = t[0].operation.qubit_index) == null ? void 0 : F.join(", ")) + ""
-  ), o, _, c, d, h, p, b, g, k, y = (
+  ), o, _, c, d, h, p, g, b, k, y = (
     /*info*/
     t[0].pulse_data.duration + ""
-  ), v, w, q, $, j, O, A, C, z, H, B, R = (
+  ), v, w, q, $, j, I, A, M, z, H, B, R = (
     /*$pulse_vis*/
     t[2] && Tu(t)
   ), P = $e(
     /*info*/
     t[0].pulse_data.pulse_schedule
-  ), E = [];
+  ), O = [];
   for (let L = 0; L < P.length; L += 1)
-    E[L] = Pu(qu(t, P, L));
+    O[L] = Pu(qu(t, P, L));
   return {
     c() {
-      e = m("div"), l = m("h2"), i = I("Pulse for '"), a = I(n), r = I("' gate on qubits ("), o = I(s), _ = I(")"), c = N(), d = m("div"), h = m("table"), p = m("tbody"), b = m("tr"), g = m("th"), g.textContent = "Duration", k = m("td"), v = I(y), w = N(), R && R.c(), q = N(), $ = m("h3"), $.textContent = "Schedules", j = N(), O = m("div"), A = m("table"), C = m("thead"), C.innerHTML = '<tr><th class="svelte-1mijona">At</th> <th class="svelte-1mijona">Duration</th> <th class="svelte-1mijona">Comp</th> <th class="svelte-1mijona">Channel</th> <th class="svelte-1mijona">Amp.</th> <th class="svelte-1mijona">Params</th></tr>', z = N(), H = m("tbody");
-      for (let L = 0; L < E.length; L += 1)
-        E[L].c();
-      u(l, "class", "svelte-1mijona"), u(g, "class", "svelte-1mijona"), u(k, "class", "svelte-1mijona"), u(h, "class", "svelte-1mijona"), u($, "class", "svelte-1mijona"), u(A, "class", "svelte-1mijona"), u(O, "class", "schedule-table-wrap svelte-1mijona"), u(d, "class", "info-section svelte-1mijona");
+      e = m("div"), l = m("h2"), i = E("Pulse for '"), a = E(n), r = E("' gate on qubits ("), o = E(s), _ = E(")"), c = N(), d = m("div"), h = m("table"), p = m("tbody"), g = m("tr"), b = m("th"), b.textContent = "Duration", k = m("td"), v = E(y), w = N(), R && R.c(), q = N(), $ = m("h3"), $.textContent = "Schedules", j = N(), I = m("div"), A = m("table"), M = m("thead"), M.innerHTML = '<tr><th class="svelte-1mijona">At</th> <th class="svelte-1mijona">Duration</th> <th class="svelte-1mijona">Comp</th> <th class="svelte-1mijona">Channel</th> <th class="svelte-1mijona">Amp.</th> <th class="svelte-1mijona">Params</th></tr>', z = N(), H = m("tbody");
+      for (let L = 0; L < O.length; L += 1)
+        O[L].c();
+      u(l, "class", "svelte-1mijona"), u(b, "class", "svelte-1mijona"), u(k, "class", "svelte-1mijona"), u(h, "class", "svelte-1mijona"), u($, "class", "svelte-1mijona"), u(A, "class", "svelte-1mijona"), u(I, "class", "schedule-table-wrap svelte-1mijona"), u(d, "class", "info-section svelte-1mijona");
     },
     m(L, X) {
-      M(L, e, X), f(e, l), f(l, i), f(l, a), f(l, r), f(l, o), f(l, _), f(e, c), f(e, d), f(d, h), f(h, p), f(p, b), f(b, g), f(b, k), f(k, v), f(d, w), R && R.m(d, null), f(d, q), f(d, $), f(d, j), f(d, O), f(O, A), f(A, C), f(A, z), f(A, H);
-      for (let V = 0; V < E.length; V += 1)
-        E[V] && E[V].m(H, null);
+      S(L, e, X), f(e, l), f(l, i), f(l, a), f(l, r), f(l, o), f(l, _), f(e, c), f(e, d), f(d, h), f(h, p), f(p, g), f(g, b), f(g, k), f(k, v), f(d, w), R && R.m(d, null), f(d, q), f(d, $), f(d, j), f(d, I), f(I, A), f(A, M), f(A, z), f(A, H);
+      for (let V = 0; V < O.length; V += 1)
+        O[V] && O[V].m(H, null);
       B = !0;
     },
     p(L, X) {
@@ -10493,11 +10493,11 @@ function ju(t) {
         let Q;
         for (Q = 0; Q < P.length; Q += 1) {
           const Z = qu(L, P, Q);
-          E[Q] ? E[Q].p(Z, X) : (E[Q] = Pu(Z), E[Q].c(), E[Q].m(H, null));
+          O[Q] ? O[Q].p(Z, X) : (O[Q] = Pu(Z), O[Q].c(), O[Q].m(H, null));
         }
-        for (; Q < E.length; Q += 1)
-          E[Q].d(1);
-        E.length = P.length;
+        for (; Q < O.length; Q += 1)
+          O[Q].d(1);
+        O.length = P.length;
       }
     },
     i(L) {
@@ -10507,12 +10507,12 @@ function ju(t) {
       D(R), B = !1;
     },
     d(L) {
-      L && S(e), R && R.d(), Ye(E, L);
+      L && C(e), R && R.d(), Ye(O, L);
     }
   };
 }
 function Tu(t) {
-  let e, l, i, n, a, r, s, o, _, c, d, h, p, b, g, k = (
+  let e, l, i, n, a, r, s, o, _, c, d, h, p, g, b, k = (
     /*images*/
     t[1]["mini-pulse-view"] && Cu(t)
   ), y = (
@@ -10521,7 +10521,7 @@ function Tu(t) {
   );
   return {
     c() {
-      e = m("h3"), l = I("Pulse amplitude "), i = m("button"), i.textContent = "Image", n = N(), k && k.c(), a = N(), r = m("div"), s = Ge("svg"), o = Ge("style"), _ = I(`g {
+      e = m("h3"), l = E("Pulse amplitude "), i = m("button"), i.textContent = "Image", n = N(), k && k.c(), a = N(), r = m("div"), s = Ge("svg"), o = Ge("style"), _ = E(`g {
                 font-family: Iosevka;
                 font-size: 14px;
               }
@@ -10531,12 +10531,12 @@ function Tu(t) {
       t[2].viewBox.join(" ")), u(r, "class", "mini-pulse-view");
     },
     m(v, w) {
-      M(v, e, w), f(e, l), f(e, i), f(e, n), k && k.m(e, null), M(v, a, w), M(v, r, w), f(r, s), f(s, o), f(o, _), y && y.m(s, null), p = !0, b || (g = te(
+      S(v, e, w), f(e, l), f(e, i), f(e, n), k && k.m(e, null), S(v, a, w), S(v, r, w), f(r, s), f(s, o), f(o, _), y && y.m(s, null), p = !0, g || (b = te(
         i,
         "click",
         /*click_handler*/
         t[5]
-      ), b = !0);
+      ), g = !0);
     },
     p(v, w) {
       /*images*/
@@ -10559,7 +10559,7 @@ function Tu(t) {
       D(y), p = !1;
     },
     d(v) {
-      v && (S(e), S(a), S(r)), k && k.d(), y && y.d(), b = !1, g();
+      v && (C(e), C(a), C(r)), k && k.d(), y && y.d(), g = !1, b();
     }
   };
 }
@@ -10567,12 +10567,12 @@ function Cu(t) {
   let e, l, i, n, a, r, s;
   return {
     c() {
-      e = m("a"), l = I("PNG"), n = N(), a = m("a"), r = I("SVG"), u(e, "class", "save-download svelte-1mijona"), u(e, "href", i = /*images*/
+      e = m("a"), l = E("PNG"), n = N(), a = m("a"), r = E("SVG"), u(e, "class", "save-download svelte-1mijona"), u(e, "href", i = /*images*/
       t[1]["mini-pulse-view"].png), u(e, "download", ""), u(a, "class", "save-download svelte-1mijona"), u(a, "href", s = /*images*/
       t[1]["mini-pulse-view"].svg), u(a, "download", "");
     },
     m(o, _) {
-      M(o, e, _), f(e, l), M(o, n, _), M(o, a, _), f(a, r);
+      S(o, e, _), f(e, l), S(o, n, _), S(o, a, _), f(a, r);
     },
     p(o, _) {
       _ & /*images*/
@@ -10582,7 +10582,7 @@ function Cu(t) {
       o[1]["mini-pulse-view"].svg) && u(a, "href", s);
     },
     d(o) {
-      o && (S(e), S(n), S(a));
+      o && (C(e), C(n), C(a));
     }
   };
 }
@@ -10626,10 +10626,10 @@ function Mu(t) {
   ), i, n;
   return {
     c() {
-      e = I("Phase ("), i = I(l), n = I(")");
+      e = E("Phase ("), i = E(l), n = E(")");
     },
     m(a, r) {
-      M(a, e, r), M(a, i, r), M(a, n, r);
+      S(a, e, r), S(a, i, r), S(a, n, r);
     },
     p(a, r) {
       r & /*info*/
@@ -10637,7 +10637,7 @@ function Mu(t) {
       a[6].phase + "") && U(i, l);
     },
     d(a) {
-      a && (S(e), S(i), S(n));
+      a && (C(e), C(i), C(n));
     }
   };
 }
@@ -10648,10 +10648,10 @@ function zu(t) {
   ), i, n;
   return {
     c() {
-      e = I("Angle ("), i = I(l), n = I(")");
+      e = E("Angle ("), i = E(l), n = E(")");
     },
     m(a, r) {
-      M(a, e, r), M(a, i, r), M(a, n, r);
+      S(a, e, r), S(a, i, r), S(a, n, r);
     },
     p(a, r) {
       r & /*info*/
@@ -10659,7 +10659,7 @@ function zu(t) {
       a[6].angle + "") && U(i, l);
     },
     d(a) {
-      a && (S(e), S(i), S(n));
+      a && (C(e), C(i), C(n));
     }
   };
 }
@@ -10670,10 +10670,10 @@ function Nu(t) {
   ), i, n;
   return {
     c() {
-      e = I("Sigma ("), i = I(l), n = I(")");
+      e = E("Sigma ("), i = E(l), n = E(")");
     },
     m(a, r) {
-      M(a, e, r), M(a, i, r), M(a, n, r);
+      S(a, e, r), S(a, i, r), S(a, n, r);
     },
     p(a, r) {
       r & /*info*/
@@ -10681,7 +10681,7 @@ function Nu(t) {
       a[6].sigma + "") && U(i, l);
     },
     d(a) {
-      a && (S(e), S(i), S(n));
+      a && (C(e), C(i), C(n));
     }
   };
 }
@@ -10692,10 +10692,10 @@ function Au(t) {
   ), i, n;
   return {
     c() {
-      e = I("Beta ("), i = I(l), n = I(")");
+      e = E("Beta ("), i = E(l), n = E(")");
     },
     m(a, r) {
-      M(a, e, r), M(a, i, r), M(a, n, r);
+      S(a, e, r), S(a, i, r), S(a, n, r);
     },
     p(a, r) {
       r & /*info*/
@@ -10703,7 +10703,7 @@ function Au(t) {
       a[6].beta + "") && U(i, l);
     },
     d(a) {
-      a && (S(e), S(i), S(n));
+      a && (C(e), C(i), C(n));
     }
   };
 }
@@ -10714,10 +10714,10 @@ function Bu(t) {
   ), i, n;
   return {
     c() {
-      e = I("Freq ("), i = I(l), n = I(")");
+      e = E("Freq ("), i = E(l), n = E(")");
     },
     m(a, r) {
-      M(a, e, r), M(a, i, r), M(a, n, r);
+      S(a, e, r), S(a, i, r), S(a, n, r);
     },
     p(a, r) {
       r & /*info*/
@@ -10725,7 +10725,7 @@ function Bu(t) {
       a[6].freq + "") && U(i, l);
     },
     d(a) {
-      a && (S(e), S(i), S(n));
+      a && (C(e), C(i), C(n));
     }
   };
 }
@@ -10739,7 +10739,7 @@ function Pu(t) {
   ), o, _, c, d = (
     /*sched*/
     t[6].component_type + ""
-  ), h, p, b, g = (
+  ), h, p, g, b = (
     /*sched*/
     t[6].channel_type + ""
   ), k, y, v, w = (
@@ -10748,7 +10748,7 @@ function Pu(t) {
       /*sched*/
       t[6].amplitude
     ) : "") + ""
-  ), q, $, j, O, A, C, z, H, B = (
+  ), q, $, j, I, A, M, z, H, B = (
     /*sched*/
     t[6].phase && Mu(t)
   ), R = (
@@ -10757,7 +10757,7 @@ function Pu(t) {
   ), P = (
     /*sched*/
     t[6].sigma && Nu(t)
-  ), E = (
+  ), O = (
     /*sched*/
     t[6].beta && Au(t)
   ), F = (
@@ -10766,10 +10766,10 @@ function Pu(t) {
   );
   return {
     c() {
-      e = m("tr"), l = m("td"), n = I(i), a = N(), r = m("td"), o = I(s), _ = N(), c = m("td"), h = I(d), p = N(), b = m("td"), k = I(g), y = N(), v = m("td"), q = I(w), $ = N(), j = m("td"), B && B.c(), O = N(), R && R.c(), A = N(), P && P.c(), C = N(), E && E.c(), z = N(), F && F.c(), H = N(), u(l, "class", "svelte-1mijona"), u(r, "class", "svelte-1mijona"), u(c, "class", "svelte-1mijona"), u(b, "class", "svelte-1mijona"), u(v, "class", "svelte-1mijona"), u(j, "class", "svelte-1mijona");
+      e = m("tr"), l = m("td"), n = E(i), a = N(), r = m("td"), o = E(s), _ = N(), c = m("td"), h = E(d), p = N(), g = m("td"), k = E(b), y = N(), v = m("td"), q = E(w), $ = N(), j = m("td"), B && B.c(), I = N(), R && R.c(), A = N(), P && P.c(), M = N(), O && O.c(), z = N(), F && F.c(), H = N(), u(l, "class", "svelte-1mijona"), u(r, "class", "svelte-1mijona"), u(c, "class", "svelte-1mijona"), u(g, "class", "svelte-1mijona"), u(v, "class", "svelte-1mijona"), u(j, "class", "svelte-1mijona");
     },
     m(L, X) {
-      M(L, e, X), f(e, l), f(l, n), f(e, a), f(e, r), f(r, o), f(e, _), f(e, c), f(c, h), f(e, p), f(e, b), f(b, k), f(e, y), f(e, v), f(v, q), f(e, $), f(e, j), B && B.m(j, null), f(j, O), R && R.m(j, null), f(j, A), P && P.m(j, null), f(j, C), E && E.m(j, null), f(j, z), F && F.m(j, null), f(e, H);
+      S(L, e, X), f(e, l), f(l, n), f(e, a), f(e, r), f(r, o), f(e, _), f(e, c), f(c, h), f(e, p), f(e, g), f(g, k), f(e, y), f(e, v), f(v, q), f(e, $), f(e, j), B && B.m(j, null), f(j, I), R && R.m(j, null), f(j, A), P && P.m(j, null), f(j, M), O && O.m(j, null), f(j, z), F && F.m(j, null), f(e, H);
     },
     p(L, X) {
       X & /*info*/
@@ -10779,21 +10779,21 @@ function Pu(t) {
       L[6].duration + "") && U(o, s), X & /*info*/
       1 && d !== (d = /*sched*/
       L[6].component_type + "") && U(h, d), X & /*info*/
-      1 && g !== (g = /*sched*/
-      L[6].channel_type + "") && U(k, g), X & /*info*/
+      1 && b !== (b = /*sched*/
+      L[6].channel_type + "") && U(k, b), X & /*info*/
       1 && w !== (w = /*sched*/
       (L[6].amplitude !== void 0 ? (
         /*sched*/
         L[6].amplitude
       ) : "") + "") && U(q, w), /*sched*/
-      L[6].phase ? B ? B.p(L, X) : (B = Mu(L), B.c(), B.m(j, O)) : B && (B.d(1), B = null), /*sched*/
+      L[6].phase ? B ? B.p(L, X) : (B = Mu(L), B.c(), B.m(j, I)) : B && (B.d(1), B = null), /*sched*/
       L[6].angle ? R ? R.p(L, X) : (R = zu(L), R.c(), R.m(j, A)) : R && (R.d(1), R = null), /*sched*/
-      L[6].sigma ? P ? P.p(L, X) : (P = Nu(L), P.c(), P.m(j, C)) : P && (P.d(1), P = null), /*sched*/
-      L[6].beta ? E ? E.p(L, X) : (E = Au(L), E.c(), E.m(j, z)) : E && (E.d(1), E = null), /*sched*/
+      L[6].sigma ? P ? P.p(L, X) : (P = Nu(L), P.c(), P.m(j, M)) : P && (P.d(1), P = null), /*sched*/
+      L[6].beta ? O ? O.p(L, X) : (O = Au(L), O.c(), O.m(j, z)) : O && (O.d(1), O = null), /*sched*/
       L[6].freq ? F ? F.p(L, X) : (F = Bu(L), F.c(), F.m(j, null)) : F && (F.d(1), F = null);
     },
     d(L) {
-      L && S(e), B && B.d(), R && R.d(), P && P.d(), E && E.d(), F && F.d();
+      L && C(e), B && B.d(), R && R.d(), P && P.d(), O && O.d(), F && F.d();
     }
   };
 }
@@ -10807,7 +10807,7 @@ function Ey(t) {
       i && i.c(), e = Ae();
     },
     m(n, a) {
-      i && i.m(n, a), M(n, e, a), l = !0;
+      i && i.m(n, a), S(n, e, a), l = !0;
     },
     p(n, [a]) {
       /*info*/
@@ -10823,7 +10823,7 @@ function Ey(t) {
       D(i), l = !1;
     },
     d(n) {
-      n && S(e), i && i.d(n);
+      n && C(e), i && i.d(n);
     }
   };
 }
@@ -10866,10 +10866,10 @@ function Ou(t) {
   ), p = (
     /*info*/
     t[0].gate_info && Ru(t)
-  ), b = (
+  ), g = (
     /*info*/
     t[0].gate_error_info && Hu(t)
-  ), g = (
+  ), b = (
     /*info*/
     t[0].esp_this && Lu(t)
   ), k = (
@@ -10881,10 +10881,10 @@ function Ou(t) {
   );
   return {
     c() {
-      c && c.c(), e = N(), d && d.c(), l = N(), h && h.c(), i = N(), p && p.c(), n = N(), b && b.c(), a = N(), g && g.c(), r = N(), k && k.c(), s = N(), y && y.c(), o = Ae();
+      c && c.c(), e = N(), d && d.c(), l = N(), h && h.c(), i = N(), p && p.c(), n = N(), g && g.c(), a = N(), b && b.c(), r = N(), k && k.c(), s = N(), y && y.c(), o = Ae();
     },
     m(v, w) {
-      c && c.m(v, w), M(v, e, w), d && d.m(v, w), M(v, l, w), h && h.m(v, w), M(v, i, w), p && p.m(v, w), M(v, n, w), b && b.m(v, w), M(v, a, w), g && g.m(v, w), M(v, r, w), k && k.m(v, w), M(v, s, w), y && y.m(v, w), M(v, o, w), _ = !0;
+      c && c.m(v, w), S(v, e, w), d && d.m(v, w), S(v, l, w), h && h.m(v, w), S(v, i, w), p && p.m(v, w), S(v, n, w), g && g.m(v, w), S(v, a, w), b && b.m(v, w), S(v, r, w), k && k.m(v, w), S(v, s, w), y && y.m(v, w), S(v, o, w), _ = !0;
     },
     p(v, w) {
       /*info*/
@@ -10904,13 +10904,13 @@ function Ou(t) {
       1 && T(p, 1)) : (p = Ru(v), p.c(), T(p, 1), p.m(n.parentNode, n)) : p && (be(), D(p, 1, 1, () => {
         p = null;
       }), ke()), /*info*/
-      v[0].gate_error_info ? b ? (b.p(v, w), w & /*info*/
-      1 && T(b, 1)) : (b = Hu(v), b.c(), T(b, 1), b.m(a.parentNode, a)) : b && (be(), D(b, 1, 1, () => {
-        b = null;
-      }), ke()), /*info*/
-      v[0].esp_this ? g ? (g.p(v, w), w & /*info*/
-      1 && T(g, 1)) : (g = Lu(v), g.c(), T(g, 1), g.m(r.parentNode, r)) : g && (be(), D(g, 1, 1, () => {
+      v[0].gate_error_info ? g ? (g.p(v, w), w & /*info*/
+      1 && T(g, 1)) : (g = Hu(v), g.c(), T(g, 1), g.m(a.parentNode, a)) : g && (be(), D(g, 1, 1, () => {
         g = null;
+      }), ke()), /*info*/
+      v[0].esp_this ? b ? (b.p(v, w), w & /*info*/
+      1 && T(b, 1)) : (b = Lu(v), b.c(), T(b, 1), b.m(r.parentNode, r)) : b && (be(), D(b, 1, 1, () => {
+        b = null;
       }), ke()), /*info*/
       v[0].qasm ? k ? (k.p(v, w), w & /*info*/
       1 && T(k, 1)) : (k = Fu(v), k.c(), T(k, 1), k.m(s.parentNode, s)) : k && (be(), D(k, 1, 1, () => {
@@ -10922,19 +10922,19 @@ function Ou(t) {
       }), ke());
     },
     i(v) {
-      _ || (T(c), T(d), T(h), T(p), T(b), T(g), T(k), T(y), _ = !0);
+      _ || (T(c), T(d), T(h), T(p), T(g), T(b), T(k), T(y), _ = !0);
     },
     o(v) {
-      D(c), D(d), D(h), D(p), D(b), D(g), D(k), D(y), _ = !1;
+      D(c), D(d), D(h), D(p), D(g), D(b), D(k), D(y), _ = !1;
     },
     d(v) {
-      v && (S(e), S(l), S(i), S(n), S(a), S(r), S(s), S(o)), c && c.d(v), d && d.d(v), h && h.d(v), p && p.d(v), b && b.d(v), g && g.d(v), k && k.d(v), y && y.d(v);
+      v && (C(e), C(l), C(i), C(n), C(a), C(r), C(s), C(o)), c && c.d(v), d && d.d(v), h && h.d(v), p && p.d(v), g && g.d(v), b && b.d(v), k && k.d(v), y && y.d(v);
     }
   };
 }
 function Eu(t) {
   let e, l, i;
-  return l = new G0({ props: { info: (
+  return l = new Gg({ props: { info: (
     /*info*/
     t[0]
   ) } }), {
@@ -10942,7 +10942,7 @@ function Eu(t) {
       e = m("article"), pe(l.$$.fragment), u(e, "class", "svelte-m7xawd");
     },
     m(n, a) {
-      M(n, e, a), de(l, e, null), i = !0;
+      S(n, e, a), de(l, e, null), i = !0;
     },
     p(n, a) {
       const r = {};
@@ -10957,13 +10957,13 @@ function Eu(t) {
       D(l.$$.fragment, n), i = !1;
     },
     d(n) {
-      n && S(e), he(l);
+      n && C(e), he(l);
     }
   };
 }
 function Iu(t) {
   let e, l, i;
-  return l = new H0({ props: { info: (
+  return l = new Hg({ props: { info: (
     /*info*/
     t[0]
   ) } }), {
@@ -10971,7 +10971,7 @@ function Iu(t) {
       e = m("article"), pe(l.$$.fragment), u(e, "class", "svelte-m7xawd");
     },
     m(n, a) {
-      M(n, e, a), de(l, e, null), i = !0;
+      S(n, e, a), de(l, e, null), i = !0;
     },
     p(n, a) {
       const r = {};
@@ -10986,13 +10986,13 @@ function Iu(t) {
       D(l.$$.fragment, n), i = !1;
     },
     d(n) {
-      n && S(e), he(l);
+      n && C(e), he(l);
     }
   };
 }
 function Du(t) {
   let e, l, i;
-  return l = new U0({
+  return l = new Ug({
     props: {
       info: (
         /*info*/
@@ -11008,7 +11008,7 @@ function Du(t) {
       e = m("article"), pe(l.$$.fragment), u(e, "class", "svelte-m7xawd");
     },
     m(n, a) {
-      M(n, e, a), de(l, e, null), i = !0;
+      S(n, e, a), de(l, e, null), i = !0;
     },
     p(n, a) {
       const r = {};
@@ -11025,13 +11025,13 @@ function Du(t) {
       D(l.$$.fragment, n), i = !1;
     },
     d(n) {
-      n && S(e), he(l);
+      n && C(e), he(l);
     }
   };
 }
 function Ru(t) {
   let e, l, i;
-  return l = new Q0({ props: { info: (
+  return l = new Qg({ props: { info: (
     /*info*/
     t[0]
   ) } }), {
@@ -11039,7 +11039,7 @@ function Ru(t) {
       e = m("article"), pe(l.$$.fragment), u(e, "class", "svelte-m7xawd");
     },
     m(n, a) {
-      M(n, e, a), de(l, e, null), i = !0;
+      S(n, e, a), de(l, e, null), i = !0;
     },
     p(n, a) {
       const r = {};
@@ -11054,13 +11054,13 @@ function Ru(t) {
       D(l.$$.fragment, n), i = !1;
     },
     d(n) {
-      n && S(e), he(l);
+      n && C(e), he(l);
     }
   };
 }
 function Hu(t) {
   let e, l, i;
-  return l = new I0({ props: { info: (
+  return l = new Ig({ props: { info: (
     /*info*/
     t[0]
   ) } }), {
@@ -11068,7 +11068,7 @@ function Hu(t) {
       e = m("article"), pe(l.$$.fragment), u(e, "class", "svelte-m7xawd");
     },
     m(n, a) {
-      M(n, e, a), de(l, e, null), i = !0;
+      S(n, e, a), de(l, e, null), i = !0;
     },
     p(n, a) {
       const r = {};
@@ -11083,13 +11083,13 @@ function Hu(t) {
       D(l.$$.fragment, n), i = !1;
     },
     d(n) {
-      n && S(e), he(l);
+      n && C(e), he(l);
     }
   };
 }
 function Lu(t) {
   let e, l, i;
-  return l = new P0({ props: { info: (
+  return l = new Pg({ props: { info: (
     /*info*/
     t[0]
   ) } }), {
@@ -11097,7 +11097,7 @@ function Lu(t) {
       e = m("article"), pe(l.$$.fragment), u(e, "class", "svelte-m7xawd");
     },
     m(n, a) {
-      M(n, e, a), de(l, e, null), i = !0;
+      S(n, e, a), de(l, e, null), i = !0;
     },
     p(n, a) {
       const r = {};
@@ -11112,13 +11112,13 @@ function Lu(t) {
       D(l.$$.fragment, n), i = !1;
     },
     d(n) {
-      n && S(e), he(l);
+      n && C(e), he(l);
     }
   };
 }
 function Fu(t) {
   let e, l, i;
-  return l = new Z0({ props: { info: (
+  return l = new Zg({ props: { info: (
     /*info*/
     t[0]
   ) } }), {
@@ -11126,7 +11126,7 @@ function Fu(t) {
       e = m("article"), pe(l.$$.fragment), u(e, "class", "svelte-m7xawd");
     },
     m(n, a) {
-      M(n, e, a), de(l, e, null), i = !0;
+      S(n, e, a), de(l, e, null), i = !0;
     },
     p(n, a) {
       const r = {};
@@ -11141,7 +11141,7 @@ function Fu(t) {
       D(l.$$.fragment, n), i = !1;
     },
     d(n) {
-      n && S(e), he(l);
+      n && C(e), he(l);
     }
   };
 }
@@ -11155,7 +11155,7 @@ function Qu(t) {
       e = m("article"), pe(l.$$.fragment), u(e, "class", "svelte-m7xawd");
     },
     m(n, a) {
-      M(n, e, a), de(l, e, null), i = !0;
+      S(n, e, a), de(l, e, null), i = !0;
     },
     p(n, a) {
       const r = {};
@@ -11170,7 +11170,7 @@ function Qu(t) {
       D(l.$$.fragment, n), i = !1;
     },
     d(n) {
-      n && S(e), he(l);
+      n && C(e), he(l);
     }
   };
 }
@@ -11184,7 +11184,7 @@ function Ry(t) {
       e = m("div"), i && i.c(), u(e, "class", "svelte-m7xawd");
     },
     m(n, a) {
-      M(n, e, a), i && i.m(e, null), l = !0;
+      S(n, e, a), i && i.m(e, null), l = !0;
     },
     p(n, [a]) {
       /*info*/
@@ -11200,7 +11200,7 @@ function Ry(t) {
       D(i), l = !1;
     },
     d(n) {
-      n && S(e), i && i.d();
+      n && C(e), i && i.d();
     }
   };
 }
@@ -11221,7 +11221,7 @@ function Qy(t, e) {
 }
 let un = 160, Vu = 100, fn = 30;
 function Xu(t, e, l) {
-  var B, R, P, E, F, L, X, V, Q, Z, ne, se, K, Y, W, J, ee, we, Re, ve, me, fe, G, ye, ue, le, oe;
+  var B, R, P, O, F, L, X, V, Q, Z, ae, se, K, Y, W, J, ee, we, Re, ve, me, fe, G, ye, ue, le, oe;
   l != null && l.nodeColorScale && (l != null && l.nodeColorScale.domain) && (l == null || l.nodeColorScale.domain([e.esp, (1 + e.esp) / 2, 1]));
   let i = (l == null ? void 0 : l.filter_unused_qubits) === void 0 ? !1 : l.filter_unused_qubits, n = e.qubits.map((x) => x.index), a = n.length;
   i && ((B = l == null ? void 0 : l.match) != null && B.bit_match) ? (n = l.match.bit_match.filter((x) => !x.is_ancilla).map((x) => x.to), a = n.length) : i && (i = !1);
@@ -11231,7 +11231,7 @@ function Xu(t, e, l) {
   });
   let _, c, d = r.map((x) => x.x), h = r.map((x) => x.y);
   _ = Math.min(...d), c = Math.min(...h), r = r.map((x) => (x.x = x.x - _, x.y = x.y - c, x));
-  let p = 0, b = 0, g = {
+  let p = 0, g = 0, b = {
     type: "g",
     role: "machine-circuit",
     id: "machine-circuit",
@@ -11242,7 +11242,7 @@ function Xu(t, e, l) {
     height: 0,
     elem: []
   };
-  g.elem.push({
+  b.elem.push({
     type: "text",
     id: "title",
     role: "title",
@@ -11271,7 +11271,7 @@ function Xu(t, e, l) {
       var Ke;
       return (Ke = Ue == null ? void 0 : Ue.qubits) == null ? void 0 : Ke.includes(x.index);
     }), Ie;
-    (E = l == null ? void 0 : l.match) != null && E.bit_match && (Ie = (F = l == null ? void 0 : l.match) == null ? void 0 : F.bit_match.filter((Ue) => Ue.to === x.index)[0]);
+    (O = l == null ? void 0 : l.match) != null && O.bit_match && (Ie = (F = l == null ? void 0 : l.match) == null ? void 0 : F.bit_match.filter((Ue) => Ue.to === x.index)[0]);
     let je = {
       readout_error: ge,
       gate_info: re,
@@ -11335,9 +11335,9 @@ function Xu(t, e, l) {
       [Ee, ie + Te],
       [Ee + 2 * Te, ie + Te],
       [Ee + Te, ie + 2 * Te]
-    ], y[x.index].x = Ee, y[x.index].y = ie, y[x.index].cx = Ee + Te, y[x.index].cy = ie + Te, p = Math.max(p, _e.x + _e.width), b = Math.max(b, _e.y + _e.height), k.elem.push(_e);
+    ], y[x.index].x = Ee, y[x.index].y = ie, y[x.index].cx = Ee + Te, y[x.index].cy = ie + Te, p = Math.max(p, _e.x + _e.width), g = Math.max(g, _e.y + _e.height), k.elem.push(_e);
   }
-  k.width = p, k.height = b;
+  k.width = p, k.height = g;
   let v = {
     type: "g",
     role: "qubit-edges",
@@ -11360,7 +11360,7 @@ function Xu(t, e, l) {
     }
   let q = 0, $ = {};
   for (const x in w) {
-    let ge = w[x], re = (V = (X = ge.from_to) == null ? void 0 : X[0]) == null ? void 0 : V[0], Ie = (Z = (Q = ge.from_to) == null ? void 0 : Q[1]) == null ? void 0 : Z[0], je = (se = (ne = ge.from_to) == null ? void 0 : ne[0]) == null ? void 0 : se[1], _e = (Y = (K = ge.from_to) == null ? void 0 : K[1]) == null ? void 0 : Y[1], Ee = Math.min(re, Ie), ie = Math.min(je, _e), Te = Math.max(re, Ie) - Math.min(re, Ie), Ue = Math.max(je, _e) - Math.min(je, _e), Ke = Yy([Te, -Ue], [Te, 0]), We = Ke + 180, vt = {
+    let ge = w[x], re = (V = (X = ge.from_to) == null ? void 0 : X[0]) == null ? void 0 : V[0], Ie = (Z = (Q = ge.from_to) == null ? void 0 : Q[1]) == null ? void 0 : Z[0], je = (se = (ae = ge.from_to) == null ? void 0 : ae[0]) == null ? void 0 : se[1], _e = (Y = (K = ge.from_to) == null ? void 0 : K[1]) == null ? void 0 : Y[1], Ee = Math.min(re, Ie), ie = Math.min(je, _e), Te = Math.max(re, Ie) - Math.min(re, Ie), Ue = Math.max(je, _e) - Math.min(je, _e), Ke = Yy([Te, -Ue], [Te, 0]), We = Ke + 180, vt = {
       type: "g",
       role: "qubit-edge--group",
       id: `qubit-edge-${q}--group`,
@@ -11417,8 +11417,8 @@ function Xu(t, e, l) {
       "fill-opacity": 0
     }), $[x] = `qubit-edge-${q}`, q++, v.elem.push(vt);
   }
-  g.width = p, g.height = b, g.elem.push(k), g.elem.push(v);
-  let j = e.esp, O = [], A = [], C = [], z = 0, H = 0;
+  b.width = p, b.height = g, b.elem.push(k), b.elem.push(v);
+  let j = e.esp, I = [], A = [], M = [], z = 0, H = 0;
   for (const x of e.layers) {
     let ge = {
       type: "g",
@@ -11428,7 +11428,7 @@ function Xu(t, e, l) {
       x: De,
       y: De + fn + Pt,
       width: p,
-      height: b,
+      height: g,
       elem: [],
       data: {}
     }, re = 0, Ie = 0, je = {
@@ -11461,15 +11461,15 @@ function Xu(t, e, l) {
       )) == null ? void 0 : W[0], Te = ((J = ie == null ? void 0 : ie.gate_length) == null ? void 0 : J.value) || 0;
       Ie = Math.max(Te, Ie);
       let Ue = Ee.gate, Ke = ((ee = ie == null ? void 0 : ie.gate_error) == null ? void 0 : ee.value) || 0, We = (ie == null ? void 0 : ie.qubits) || Ee.qubits.map((He) => He.index);
-      Ee.gate === "measure" && (Ke = (we = t.readout_errors[Ee.qubits[0].index]) == null ? void 0 : we.value), A[z] = A[z] * (1 - Ke), O[z] || (O[z] = r.map(() => 0));
-      for (let He in O[z]) {
+      Ee.gate === "measure" && (Ke = (we = t.readout_errors[Ee.qubits[0].index]) == null ? void 0 : we.value), A[z] = A[z] * (1 - Ke), I[z] || (I[z] = r.map(() => 0));
+      for (let He in I[z]) {
         let Ze = parseInt(He), _t = s[Ze];
-        k.elem[Ze] && (O[z][Ze] = ((Re = O[z - 1]) == null ? void 0 : Re[Ze]) || 1, k.elem[Ze].data.esp_value || (k.elem[Ze].data.esp_value = []), ((ve = ie == null ? void 0 : ie.qubits) != null && ve.includes(_t) || Ee.gate === "measure" && Ee.qubits[0].index === _t) && (O[z][Ze] = O[z][Ze] * (1 - Ke)), k.elem[Ze].data.esp_value[z] = O[z][Ze]);
+        k.elem[Ze] && (I[z][Ze] = ((Re = I[z - 1]) == null ? void 0 : Re[Ze]) || 1, k.elem[Ze].data.esp_value || (k.elem[Ze].data.esp_value = []), ((ve = ie == null ? void 0 : ie.qubits) != null && ve.includes(_t) || Ee.gate === "measure" && Ee.qubits[0].index === _t) && (I[z][Ze] = I[z][Ze] * (1 - Ke)), k.elem[Ze].data.esp_value[z] = I[z][Ze]);
       }
       let { edges: vt, edge_ids: qt } = Vy(ie, $), rt, mt = vr((me = l == null ? void 0 : l.match) == null ? void 0 : me.layer_match, "t-o", z, re);
       mt ? rt = Wt[(mt.layer + mt.operation * _e) % Wt.length] : rt = "#454545";
       let Rt = Ue + "__" + We.join("_"), ot = [], ut = [], Ce = [], ce = [];
-      Mg.includes(Ee.gate) ? ot = We : zg.includes(Ee.gate) ? (ot = We.slice(0, -1), ut = We.slice(-1)) : Ng.includes(Ee.gate) ? (ot = We.slice(0, -2), ut = We.slice(-2)) : Ag.includes(Ee.gate) ? ce = We : ut = We, Ce = Ee.params.map((He) => St(He));
+      M0.includes(Ee.gate) ? ot = We : z0.includes(Ee.gate) ? (ot = We.slice(0, -1), ut = We.slice(-1)) : N0.includes(Ee.gate) ? (ot = We.slice(0, -2), ut = We.slice(-2)) : A0.includes(Ee.gate) ? ce = We : ut = We, Ce = Ee.params.map((He) => St(He));
       let Be = (fe = e == null ? void 0 : e.pulse_data) == null ? void 0 : fe[Rt], Le = {
         original_circuit_id: l == null ? void 0 : l.original_circuit_id,
         transpiled_circuit_id: l == null ? void 0 : l.transpiled_circuit_id,
@@ -11493,7 +11493,7 @@ function Xu(t, e, l) {
         edge_ids: qt,
         match_color: rt,
         gate_error: Ke,
-        esp_qubit_wise: O[z],
+        esp_qubit_wise: I[z],
         esp_cumulative: A[z],
         pulse_data: Be
       }, Pe = {
@@ -11616,7 +11616,7 @@ function Xu(t, e, l) {
       H += Ie;
       let Je = p + et * 2, Xe = re * 20 + De + 16 + 64;
       if (Ke !== void 0) {
-        let He = O[z][o[We[0]]], Ze = {
+        let He = I[z][o[We[0]]], Ze = {
           type: "g",
           role: "op-gate-error-group",
           id: `layer-${z}--operation-${re}--gate-error`,
@@ -11685,7 +11685,7 @@ function Xu(t, e, l) {
               esp: He
             }
           }
-        }), Pe.elem.push(Ze), Xe + Ui > b && (b = Xe + Ui);
+        }), Pe.elem.push(Ze), Xe + Ui > g && (g = Xe + Ui);
       }
       ge.elem.push(Pe), re++;
     }
@@ -11705,17 +11705,17 @@ function Xu(t, e, l) {
       "text-anchor": "start",
       "alignment-baseline": "bottom",
       text: `Cummulative: ${H.toString().slice(0, 7)} (${ge.data.unit || "ns"})`
-    }), ge.data.cummul_duration = H, ge.elem.push(je), z++, ge.is_timed = !0, ge.duration = Ie, C.push(ge);
+    }), ge.data.cummul_duration = H, ge.elem.push(je), z++, ge.is_timed = !0, ge.duration = Ie, M.push(ge);
   }
   return {
     type: "svg",
     width: p + De * 2 + un + et * 2,
-    height: b + De * 2 + fn + Pt,
-    viewBox: [0, 0, p + De * 4 + un, b + De * 2 + fn + Pt],
+    height: g + De * 2 + fn + Pt,
+    viewBox: [0, 0, p + De * 4 + un, g + De * 2 + fn + Pt],
     groups: {
-      machine: g
+      machine: b
     },
-    operations: C,
+    operations: M,
     bit_map: {
       qubit_rel_map: o,
       qubit_pos_map: s
@@ -11798,7 +11798,7 @@ function Uu(t) {
       )}`) + " svelte-k5l8cv");
     },
     m(n, a) {
-      M(n, e, a);
+      S(n, e, a);
     },
     p(n, a) {
       a & /*unit_width*/
@@ -11816,7 +11816,7 @@ function Uu(t) {
       )}`) + " svelte-k5l8cv") && u(e, "class", i);
     },
     d(n) {
-      n && S(e);
+      n && C(e);
     }
   };
 }
@@ -11828,56 +11828,56 @@ function Wy(t) {
     /*total*/
     t[0]
   ) }), p = [];
-  for (let b = 0; b < h.length; b += 1)
-    p[b] = Uu(Ku(t, h, b));
+  for (let g = 0; g < h.length; g += 1)
+    p[g] = Uu(Ku(t, h, g));
   return {
     c() {
       e = m("div"), l = m("div");
-      for (let b = 0; b < p.length; b += 1)
-        p[b].c();
-      n = N(), a = m("div"), r = I("("), o = I(s), _ = I(" / "), c = I(
+      for (let g = 0; g < p.length; g += 1)
+        p[g].c();
+      n = N(), a = m("div"), r = E("("), o = E(s), _ = E(" / "), c = E(
         /*total*/
         t[0]
-      ), d = I(")"), u(l, "style", i = `width: ${/*width*/
+      ), d = E(")"), u(l, "style", i = `width: ${/*width*/
       t[2]}px;`), u(l, "class", "w svelte-k5l8cv"), u(a, "class", "notion svelte-k5l8cv"), u(e, "class", "f svelte-k5l8cv");
     },
-    m(b, g) {
-      M(b, e, g), f(e, l);
+    m(g, b) {
+      S(g, e, b), f(e, l);
       for (let k = 0; k < p.length; k += 1)
         p[k] && p[k].m(l, null);
       f(e, n), f(e, a), f(a, r), f(a, o), f(a, _), f(a, c), f(a, d);
     },
-    p(b, [g]) {
-      if (g & /*unit_width, cumulative, curr, total*/
+    p(g, [b]) {
+      if (b & /*unit_width, cumulative, curr, total*/
       27) {
         h = $e({ length: (
           /*total*/
-          b[0]
+          g[0]
         ) });
         let k;
         for (k = 0; k < h.length; k += 1) {
-          const y = Ku(b, h, k);
-          p[k] ? p[k].p(y, g) : (p[k] = Uu(y), p[k].c(), p[k].m(l, null));
+          const y = Ku(g, h, k);
+          p[k] ? p[k].p(y, b) : (p[k] = Uu(y), p[k].c(), p[k].m(l, null));
         }
         for (; k < p.length; k += 1)
           p[k].d(1);
         p.length = h.length;
       }
-      g & /*width*/
+      b & /*width*/
       4 && i !== (i = `width: ${/*width*/
-      b[2]}px;`) && u(l, "style", i), g & /*curr*/
+      g[2]}px;`) && u(l, "style", i), b & /*curr*/
       2 && s !== (s = /*curr*/
-      b[1] + 1 + "") && U(o, s), g & /*total*/
+      g[1] + 1 + "") && U(o, s), b & /*total*/
       1 && U(
         c,
         /*total*/
-        b[0]
+        g[0]
       );
     },
-    i: ae,
-    o: ae,
-    d(b) {
-      b && S(e), Ye(p, b);
+    i: ne,
+    o: ne,
+    d(g) {
+      g && C(e), Ye(p, g);
     }
   };
 }
@@ -11946,20 +11946,20 @@ function Ju(t, e = {}) {
     let o = i, _ = !1, {
       delay: c = 0,
       duration: d = 400,
-      easing: h = gg,
+      easing: h = g0,
       interpolate: p = Br
     } = Xr(Xr({}, e), s);
     if (d === 0)
       return o && (o.abort(), o = null), l.set(t = n), Promise.resolve();
-    const b = kg() + c;
-    let g;
-    return i = vg((k) => {
-      if (k < b)
+    const g = k0() + c;
+    let b;
+    return i = v0((k) => {
+      if (k < g)
         return !0;
-      _ || (g = p(t, r), typeof d == "function" && (d = d(t, r)), _ = !0), o && (o.abort(), o = null);
-      const y = k - b;
+      _ || (b = p(t, r), typeof d == "function" && (d = d(t, r)), _ = !0), o && (o.abort(), o = null);
+      const y = k - g;
       return y > /** @type {number} */
-      d ? (l.set(t = r), !1) : (l.set(t = g(h(y / d))), !0);
+      d ? (l.set(t = r), !1) : (l.set(t = b(h(y / d))), !0);
     }), i.promise;
   }
   return {
@@ -11979,11 +11979,11 @@ function xy(t) {
   ), d, h, p = (
     /*duration*/
     t[0].toString().slice(0, 7) + ""
-  ), b, g;
+  ), g, b;
   return {
     c() {
-      e = m("div"), l = m("div"), i = m("div"), n = N(), a = m("div"), o = N(), _ = m("div"), d = I(c), h = I(`%
-    (`), b = I(p), g = I("ns)"), u(i, "class", "b svelte-1c1h349"), u(a, "class", "p svelte-1c1h349"), u(a, "style", r = `width: ${/*duration*/
+      e = m("div"), l = m("div"), i = m("div"), n = N(), a = m("div"), o = N(), _ = m("div"), d = E(c), h = E(`%
+    (`), g = E(p), b = E("ns)"), u(i, "class", "b svelte-1c1h349"), u(a, "class", "p svelte-1c1h349"), u(a, "style", r = `width: ${/*duration*/
       t[0] == 0 ? (
         /*width*/
         t[1]
@@ -11996,7 +11996,7 @@ function xy(t) {
       t[1]}px;`), u(l, "class", "w svelte-1c1h349"), u(_, "class", "notion svelte-1c1h349"), u(e, "class", "f svelte-1c1h349");
     },
     m(k, y) {
-      M(k, e, y), f(e, l), f(l, i), f(l, n), f(l, a), f(e, o), f(e, _), f(_, d), f(_, h), f(_, b), f(_, g);
+      S(k, e, y), f(e, l), f(l, i), f(l, n), f(l, a), f(e, o), f(e, _), f(_, d), f(_, h), f(_, g), f(_, b);
     },
     p(k, [y]) {
       y & /*duration, width, $progress*/
@@ -12019,17 +12019,17 @@ function xy(t) {
         k[0] * 1e4
       ) / 100) + "") && U(d, c), y & /*duration*/
       1 && p !== (p = /*duration*/
-      k[0].toString().slice(0, 7) + "") && U(b, p);
+      k[0].toString().slice(0, 7) + "") && U(g, p);
     },
-    i: ae,
-    o: ae,
+    i: ne,
+    o: ne,
     d(k) {
-      k && S(e);
+      k && C(e);
     }
   };
 }
 function ew(t, e, l) {
-  let i, n = ae, a = () => (n(), n = st(o, (_) => l(3, i = _)), o);
+  let i, n = ne, a = () => (n(), n = st(o, (_) => l(3, i = _)), o);
   t.$$.on_destroy.push(() => n());
   let { duration: r = 100, width: s = 200 } = e, o;
   return Tt(() => {
@@ -12047,7 +12047,7 @@ class tw extends Ve {
   }
 }
 function Zu(t) {
-  let e, l, i, n, a, r, s, o, _, c, d, h, p, b, g, k, y, v, w, q, $, j, O, A, C, z, H, B, R, P, E, F, L, X, V, Q, Z, ne, se, K, Y, W, J, ee = (
+  let e, l, i, n, a, r, s, o, _, c, d, h, p, g, b, k, y, v, w, q, $, j, I, A, M, z, H, B, R, P, O, F, L, X, V, Q, Z, ae, se, K, Y, W, J, ee = (
     /*$drawPlan*/
     t[6].groups.machine && xu(t)
   );
@@ -12070,35 +12070,35 @@ function Zu(t) {
   );
   return {
     c() {
-      e = m("h5"), e.textContent = "Cost estimate", l = N(), i = m("div"), n = m("div"), a = m("label"), r = I("Shots"), o = N(), _ = m("input"), d = N(), h = m("div"), p = m("label"), b = I("Time (ns)"), k = N(), y = m("input"), w = N(), q = m("div"), $ = m("label"), j = I("Estimated costs $"), A = N(), C = m("input"), H = N(), B = m("p"), B.textContent = `The estimated cost is only for the operations. The actual cost includes
-    qubit initialization, etc.`, R = N(), P = Ge("svg"), E = Ge("style"), F = I(`g {
+      e = m("h5"), e.textContent = "Cost estimate", l = N(), i = m("div"), n = m("div"), a = m("label"), r = E("Shots"), o = N(), _ = m("input"), d = N(), h = m("div"), p = m("label"), g = E("Time (ns)"), k = N(), y = m("input"), w = N(), q = m("div"), $ = m("label"), j = E("Estimated costs $"), A = N(), M = m("input"), H = N(), B = m("p"), B.textContent = `The estimated cost is only for the operations. The actual cost includes
+    qubit initialization, etc.`, R = N(), P = Ge("svg"), O = Ge("style"), F = E(`g {
         font-family: Iosevka;
         font-size: 14px;
       }
     `), ee && ee.c(), L = Ae(), V && V.c(), se = N(), me && me.c(), K = Ae(), u(e, "class", "svelte-18z7n1k"), u(a, "for", s = "cost-exp-shots-" + /*id*/
       t[1]), u(a, "class", "svelte-18z7n1k"), u(_, "id", c = "cost-exp-shots-" + /*id*/
-      t[1]), u(_, "type", "number"), u(_, "class", "svelte-18z7n1k"), u(n, "class", "input-wrap svelte-18z7n1k"), u(p, "for", g = "cost-exp-shots-" + /*id*/
+      t[1]), u(_, "type", "number"), u(_, "class", "svelte-18z7n1k"), u(n, "class", "input-wrap svelte-18z7n1k"), u(p, "for", b = "cost-exp-shots-" + /*id*/
       t[1]), u(p, "class", "svelte-18z7n1k"), u(y, "id", v = "cost-exp-shots-" + /*id*/
       t[1]), u(y, "type", "number"), y.disabled = !0, y.value = /*cost_time*/
-      t[8], u(y, "class", "svelte-18z7n1k"), u(h, "class", "input-wrap svelte-18z7n1k"), u($, "for", O = "cost-exp-shots-" + /*id*/
-      t[1]), u($, "class", "svelte-18z7n1k"), u(C, "id", z = "cost-exp-shots-" + /*id*/
-      t[1]), u(C, "type", "number"), C.disabled = !0, C.value = /*cost_charge*/
-      t[7], u(C, "class", "svelte-18z7n1k"), u(q, "class", "input-wrap svelte-18z7n1k"), u(i, "class", "cost-explorer svelte-18z7n1k"), u(B, "class", "note svelte-18z7n1k"), u(
+      t[8], u(y, "class", "svelte-18z7n1k"), u(h, "class", "input-wrap svelte-18z7n1k"), u($, "for", I = "cost-exp-shots-" + /*id*/
+      t[1]), u($, "class", "svelte-18z7n1k"), u(M, "id", z = "cost-exp-shots-" + /*id*/
+      t[1]), u(M, "type", "number"), M.disabled = !0, M.value = /*cost_charge*/
+      t[7], u(M, "class", "svelte-18z7n1k"), u(q, "class", "input-wrap svelte-18z7n1k"), u(i, "class", "cost-explorer svelte-18z7n1k"), u(B, "class", "note svelte-18z7n1k"), u(
         P,
         "id",
         /*id*/
         t[1]
       ), u(P, "width", Q = /*$drawPlan*/
       t[6].width), u(P, "height", Z = /*$drawPlan*/
-      t[6].height), u(P, "viewBox", ne = /*$drawPlan*/
+      t[6].height), u(P, "viewBox", ae = /*$drawPlan*/
       t[6].viewBox.join(" "));
     },
     m(fe, G) {
-      M(fe, e, G), M(fe, l, G), M(fe, i, G), f(i, n), f(n, a), f(a, r), f(n, o), f(n, _), pt(
+      S(fe, e, G), S(fe, l, G), S(fe, i, G), f(i, n), f(n, a), f(a, r), f(n, o), f(n, _), pt(
         _,
         /*cost_shots*/
         t[5]
-      ), f(i, d), f(i, h), f(h, p), f(p, b), f(h, k), f(h, y), f(i, w), f(i, q), f(q, $), f($, j), f(q, A), f(q, C), M(fe, H, G), M(fe, B, G), M(fe, R, G), M(fe, P, G), f(P, E), f(E, F), ee && ee.m(P, null), f(P, L), ~X && Re[X].m(P, null), M(fe, se, G), me && me.m(fe, G), M(fe, K, G), Y = !0, W || (J = te(
+      ), f(i, d), f(i, h), f(h, p), f(p, g), f(h, k), f(h, y), f(i, w), f(i, q), f(q, $), f($, j), f(q, A), f(q, M), S(fe, H, G), S(fe, B, G), S(fe, R, G), S(fe, P, G), f(P, O), f(O, F), ee && ee.m(P, null), f(P, L), ~X && Re[X].m(P, null), S(fe, se, G), me && me.m(fe, G), S(fe, K, G), Y = !0, W || (J = te(
         _,
         "input",
         /*input0_input_handler*/
@@ -12117,19 +12117,19 @@ function Zu(t) {
         /*cost_shots*/
         fe[5]
       ), (!Y || G[0] & /*id*/
-      2 && g !== (g = "cost-exp-shots-" + /*id*/
-      fe[1])) && u(p, "for", g), (!Y || G[0] & /*id*/
+      2 && b !== (b = "cost-exp-shots-" + /*id*/
+      fe[1])) && u(p, "for", b), (!Y || G[0] & /*id*/
       2 && v !== (v = "cost-exp-shots-" + /*id*/
       fe[1])) && u(y, "id", v), (!Y || G[0] & /*cost_time*/
       256 && y.value !== /*cost_time*/
       fe[8]) && (y.value = /*cost_time*/
       fe[8]), (!Y || G[0] & /*id*/
-      2 && O !== (O = "cost-exp-shots-" + /*id*/
-      fe[1])) && u($, "for", O), (!Y || G[0] & /*id*/
+      2 && I !== (I = "cost-exp-shots-" + /*id*/
+      fe[1])) && u($, "for", I), (!Y || G[0] & /*id*/
       2 && z !== (z = "cost-exp-shots-" + /*id*/
-      fe[1])) && u(C, "id", z), (!Y || G[0] & /*cost_charge*/
-      128 && C.value !== /*cost_charge*/
-      fe[7]) && (C.value = /*cost_charge*/
+      fe[1])) && u(M, "id", z), (!Y || G[0] & /*cost_charge*/
+      128 && M.value !== /*cost_charge*/
+      fe[7]) && (M.value = /*cost_charge*/
       fe[7]), /*$drawPlan*/
       fe[6].groups.machine ? ee ? (ee.p(fe, G), G[0] & /*$drawPlan*/
       64 && T(ee, 1)) : (ee = xu(fe), ee.c(), T(ee, 1), ee.m(P, L)) : ee && (be(), D(ee, 1, 1, () => {
@@ -12149,8 +12149,8 @@ function Zu(t) {
       fe[6].width)) && u(P, "width", Q), (!Y || G[0] & /*$drawPlan*/
       64 && Z !== (Z = /*$drawPlan*/
       fe[6].height)) && u(P, "height", Z), (!Y || G[0] & /*$drawPlan*/
-      64 && ne !== (ne = /*$drawPlan*/
-      fe[6].viewBox.join(" "))) && u(P, "viewBox", ne), /*$drawPlan*/
+      64 && ae !== (ae = /*$drawPlan*/
+      fe[6].viewBox.join(" "))) && u(P, "viewBox", ae), /*$drawPlan*/
       fe[6].operations ? me ? (me.p(fe, G), G[0] & /*$drawPlan*/
       64 && T(me, 1)) : (me = ef(fe), me.c(), T(me, 1), me.m(K.parentNode, K)) : me && (be(), D(me, 1, 1, () => {
         me = null;
@@ -12163,7 +12163,7 @@ function Zu(t) {
       D(ee), D(V), D(me), Y = !1;
     },
     d(fe) {
-      fe && (S(e), S(l), S(i), S(H), S(B), S(R), S(P), S(se), S(K)), ee && ee.d(), ~X && Re[X].d(), me && me.d(fe), W = !1, J();
+      fe && (C(e), C(l), C(i), C(H), C(B), C(R), C(P), C(se), C(K)), ee && ee.d(), ~X && Re[X].d(), me && me.d(fe), W = !1, J();
     }
   };
 }
@@ -12297,7 +12297,7 @@ function iw(t) {
   };
 }
 function ef(t) {
-  let e, l, i, n, a, r, s, o, _, c, d, h, p, b, g, k, y, v, w, q, $, j, O, A, C, z, H, B, R, P, E, F, L, X, V, Q, Z, ne, se, K, Y, W, J, ee, we, Re, ve = 5 / /*time_factors*/
+  let e, l, i, n, a, r, s, o, _, c, d, h, p, g, b, k, y, v, w, q, $, j, I, A, M, z, H, B, R, P, O, F, L, X, V, Q, Z, ae, se, K, Y, W, J, ee, we, Re, ve = 5 / /*time_factors*/
   t[18][
     /*$time_factor*/
     t[11]
@@ -12325,25 +12325,25 @@ function ef(t) {
     }
   }), {
     c() {
-      le && le.c(), e = N(), l = m("div"), pe(i.$$.fragment), n = N(), a = m("div"), r = m("button"), s = I("To first"), _ = N(), c = m("button"), d = I("← Prev"), p = N(), b = m("button"), g = I("Next →"), y = N(), v = m("button"), w = I("To last"), $ = N(), j = m("div"), O = m("button"), A = I("Autoplay"), C = N(), z = m("button"), H = I("Stop"), R = N(), P = m("button"), E = I("Slower"), L = N(), X = m("button"), V = I("Faster"), Z = N(), ne = m("br"), se = N(), K = m("div"), Y = m("input"), W = N(), J = m("label"), J.textContent = "Keep times", ee = N(), we = m("span"), Re = I("Speed: "), me = I(ve), fe = I("x"), u(l, "class", "button-wrap svelte-18z7n1k"), r.disabled = o = /*$curr_layer*/
+      le && le.c(), e = N(), l = m("div"), pe(i.$$.fragment), n = N(), a = m("div"), r = m("button"), s = E("To first"), _ = N(), c = m("button"), d = E("← Prev"), p = N(), g = m("button"), b = E("Next →"), y = N(), v = m("button"), w = E("To last"), $ = N(), j = m("div"), I = m("button"), A = E("Autoplay"), M = N(), z = m("button"), H = E("Stop"), R = N(), P = m("button"), O = E("Slower"), L = N(), X = m("button"), V = E("Faster"), Z = N(), ae = m("br"), se = N(), K = m("div"), Y = m("input"), W = N(), J = m("label"), J.textContent = "Keep times", ee = N(), we = m("span"), Re = E("Speed: "), me = E(ve), fe = E("x"), u(l, "class", "button-wrap svelte-18z7n1k"), r.disabled = o = /*$curr_layer*/
       t[13] == 0 || /*$autoplay*/
       t[12], u(r, "class", "svelte-18z7n1k"), c.disabled = h = /*$curr_layer*/
       t[13] == 0 || /*$autoplay*/
-      t[12], u(c, "class", "svelte-18z7n1k"), b.disabled = k = /*$curr_layer*/
+      t[12], u(c, "class", "svelte-18z7n1k"), g.disabled = k = /*$curr_layer*/
       t[13] == /*$drawPlan*/
       t[6].operations.length - 1 || /*$autoplay*/
-      t[12], u(b, "class", "svelte-18z7n1k"), v.disabled = q = /*$curr_layer*/
+      t[12], u(g, "class", "svelte-18z7n1k"), v.disabled = q = /*$curr_layer*/
       t[13] == /*$drawPlan*/
       t[6].operations.length - 1 || /*$autoplay*/
-      t[12], u(v, "class", "svelte-18z7n1k"), u(a, "class", "button-wrap svelte-18z7n1k"), O.disabled = /*$autoplay*/
-      t[12], u(O, "class", "svelte-18z7n1k"), z.disabled = B = !/*$autoplay*/
+      t[12], u(v, "class", "svelte-18z7n1k"), u(a, "class", "button-wrap svelte-18z7n1k"), I.disabled = /*$autoplay*/
+      t[12], u(I, "class", "svelte-18z7n1k"), z.disabled = B = !/*$autoplay*/
       t[12], u(z, "class", "svelte-18z7n1k"), P.disabled = F = /*$time_factor*/
       t[11] == 0, u(P, "class", "svelte-18z7n1k"), X.disabled = Q = /*$time_factor*/
       t[11] == /*time_factors*/
       t[18].length - 1, u(X, "class", "svelte-18z7n1k"), u(Y, "type", "checkbox"), u(Y, "name", "match-time-scale"), u(Y, "class", "svelte-18z7n1k"), u(J, "for", "match-time-scale"), u(J, "class", "svelte-18z7n1k"), u(we, "class", "speed svelte-18z7n1k"), At(K, "margin-top", "0.25rem"), u(j, "class", "button-wrap svelte-18z7n1k");
     },
     m(oe, x) {
-      le && le.m(oe, x), M(oe, e, x), M(oe, l, x), de(i, l, null), M(oe, n, x), M(oe, a, x), f(a, r), f(r, s), f(a, _), f(a, c), f(c, d), f(a, p), f(a, b), f(b, g), f(a, y), f(a, v), f(v, w), M(oe, $, x), M(oe, j, x), f(j, O), f(O, A), f(j, C), f(j, z), f(z, H), f(j, R), f(j, P), f(P, E), f(j, L), f(j, X), f(X, V), f(j, Z), f(j, ne), f(j, se), f(j, K), f(K, Y), f(K, W), f(K, J), f(K, ee), f(K, we), f(we, Re), f(we, me), f(we, fe), G = !0, ye || (ue = [
+      le && le.m(oe, x), S(oe, e, x), S(oe, l, x), de(i, l, null), S(oe, n, x), S(oe, a, x), f(a, r), f(r, s), f(a, _), f(a, c), f(c, d), f(a, p), f(a, g), f(g, b), f(a, y), f(a, v), f(v, w), S(oe, $, x), S(oe, j, x), f(j, I), f(I, A), f(j, M), f(j, z), f(z, H), f(j, R), f(j, P), f(P, O), f(j, L), f(j, X), f(X, V), f(j, Z), f(j, ae), f(j, se), f(j, K), f(K, Y), f(K, W), f(K, J), f(K, ee), f(K, we), f(we, Re), f(we, me), f(we, fe), G = !0, ye || (ue = [
         te(
           r,
           "click",
@@ -12357,7 +12357,7 @@ function ef(t) {
           t[32]
         ),
         te(
-          b,
+          g,
           "click",
           /*click_handler_2*/
           t[33]
@@ -12369,7 +12369,7 @@ function ef(t) {
           t[34]
         ),
         te(
-          O,
+          I,
           "click",
           /*click_handler_4*/
           t[35]
@@ -12428,12 +12428,12 @@ function ef(t) {
       12352 && k !== (k = /*$curr_layer*/
       oe[13] == /*$drawPlan*/
       oe[6].operations.length - 1 || /*$autoplay*/
-      oe[12])) && (b.disabled = k), (!G || x[0] & /*$curr_layer, $drawPlan, $autoplay*/
+      oe[12])) && (g.disabled = k), (!G || x[0] & /*$curr_layer, $drawPlan, $autoplay*/
       12352 && q !== (q = /*$curr_layer*/
       oe[13] == /*$drawPlan*/
       oe[6].operations.length - 1 || /*$autoplay*/
       oe[12])) && (v.disabled = q), (!G || x[0] & /*$autoplay*/
-      4096) && (O.disabled = /*$autoplay*/
+      4096) && (I.disabled = /*$autoplay*/
       oe[12]), (!G || x[0] & /*$autoplay*/
       4096 && B !== (B = !/*$autoplay*/
       oe[12])) && (z.disabled = B), (!G || x[0] & /*$time_factor*/
@@ -12455,7 +12455,7 @@ function ef(t) {
       D(le), D(i.$$.fragment, oe), G = !1;
     },
     d(oe) {
-      oe && (S(e), S(l), S(n), S(a), S($), S(j)), le && le.d(oe), he(i), ye = !1, wt(ue);
+      oe && (C(e), C(l), C(n), C(a), C($), C(j)), le && le.d(oe), he(i), ye = !1, wt(ue);
     }
   };
 }
@@ -12483,7 +12483,7 @@ function tf(t) {
       e = m("div"), pe(l.$$.fragment), u(e, "class", "button-wrap svelte-18z7n1k");
     },
     m(r, s) {
-      M(r, e, s), de(l, e, null), i = !0;
+      S(r, e, s), de(l, e, null), i = !0;
     },
     p(r, s) {
       var _, c;
@@ -12508,7 +12508,7 @@ function tf(t) {
       D(l.$$.fragment, r), i = !1;
     },
     d(r) {
-      r && S(e), he(l);
+      r && C(e), he(l);
     }
   };
 }
@@ -12523,7 +12523,7 @@ function nw(t) {
       i && i.c(), e = Ae();
     },
     m(n, a) {
-      i && i.m(n, a), M(n, e, a), l = !0;
+      i && i.m(n, a), S(n, e, a), l = !0;
     },
     p(n, a) {
       /*data*/
@@ -12540,7 +12540,7 @@ function nw(t) {
       D(i), l = !1;
     },
     d(n) {
-      n && S(e), i && i.d(n);
+      n && C(e), i && i.d(n);
     }
   };
 }
@@ -12550,17 +12550,17 @@ function aw(t) {
   });
 }
 function rw(t, e, l) {
-  let i, n, a = ae, r = () => (a(), a = st(O, (re) => l(43, n = re)), O), s, o, _, c, d = ae, h = () => (d(), d = st(z, (re) => l(12, c = re)), z), p;
+  let i, n, a = ne, r = () => (a(), a = st(I, (re) => l(43, n = re)), I), s, o, _, c, d = ne, h = () => (d(), d = st(z, (re) => l(12, c = re)), z), p;
   t.$$.on_destroy.push(() => a()), t.$$.on_destroy.push(() => d());
-  let { data: b, id: g, original_circuit_id: k, transpiled_circuit_id: y, pulse_view_id: v, match: w, operation_data: q, machine_moment_at: $ = Oe(0), machine_dt_at: j = Oe(0), op_schedule: O = Oe([]), open_tool: A = () => {
-  }, filter_unused_qubits: C = !1, autoplay: z = Oe(!1) } = e;
+  let { data: g, id: b, original_circuit_id: k, transpiled_circuit_id: y, pulse_view_id: v, match: w, operation_data: q, machine_moment_at: $ = Oe(0), machine_dt_at: j = Oe(0), op_schedule: I = Oe([]), open_tool: A = () => {
+  }, filter_unused_qubits: M = !1, autoplay: z = Oe(!1) } = e;
   r(), h();
   let H = window, B = Oe();
   at(t, B, (re) => l(6, i = re));
   let R = Oe(null), P = Oe(0);
   at(t, R, (re) => l(13, p = re)), at(t, P, (re) => l(9, s = re));
-  let E = Oe(!1), F = !1;
-  at(t, E, (re) => l(10, o = re));
+  let O = Oe(!1), F = !1;
+  at(t, O, (re) => l(10, o = re));
   let L = kl(Cy);
   R.subscribe((re) => {
     var Ie;
@@ -12574,14 +12574,14 @@ function rw(t, e, l) {
   let X = [];
   Tt(() => {
     var re;
-    b && (B.set(Xu(b, q, {
-      id: g,
+    g && (B.set(Xu(g, q, {
+      id: b,
       original_circuit_id: k,
       transpiled_circuit_id: y,
       pulse_view_id: v,
       match: w,
       nodeColorScale: L,
-      filter_unused_qubits: C
+      filter_unused_qubits: M
     })), (re = i.operations) == null || re.map((Ie) => Ie.duration).reduce((Ie, je) => Ie + je, 0), W(0));
   });
   let V = [
@@ -12598,7 +12598,7 @@ function rw(t, e, l) {
   function Z() {
     Q.update((re) => Math.max(re - 1, 0));
   }
-  function ne() {
+  function ae() {
     Q.update((re) => Math.min(re + 1, V.length - 1));
   }
   async function se() {
@@ -12632,7 +12632,7 @@ function rw(t, e, l) {
       let ie = Ie.elem.filter((Ue) => Ue.role === "op-layer-operation-group");
       ie && ie.forEach((Ue) => {
         Ue.data.edge_ids.forEach((Rt) => {
-          let ot = document.querySelector(`#${g} #${Rt}--group .highlight-wrap`);
+          let ot = document.querySelector(`#${b} #${Rt}--group .highlight-wrap`);
           ot && (ot.classList.add("edge-highlighted"), ot.style.fill = Ue.data.match_color, ot.style.fillOpacity = "0.4");
         });
         let We = Ue.data.operation_index, vt = document.querySelector(`#${y} .gate-wrap.layer-${re}.gate-${We}.transpiled`);
@@ -12644,8 +12644,8 @@ function rw(t, e, l) {
       });
       let Te = document.querySelector(`#${y} #layer-${re}--interaction-wrap`);
       if (Te) {
-        let Ue = Pg(je), Ke = Ue ? `tg-l-${re}` : null;
-        Ke && (Og(y, { id: Ke, grad_data: Ue }), X.push(Ke)), Te.classList.add("layer-highlighted"), Te.style.fill = Ke ? `url(#${Ke})` : je[0] || "#000000", Te.style.fillOpacity = "0.2";
+        let Ue = P0(je), Ke = Ue ? `tg-l-${re}` : null;
+        Ke && (O0(y, { id: Ke, grad_data: Ue }), X.push(Ke)), Te.classList.add("layer-highlighted"), Te.style.fill = Ke ? `url(#${Ke})` : je[0] || "#000000", Te.style.fillOpacity = "0.2";
       }
       _e.forEach((Ue, Ke) => {
         let We = document.querySelector(`#${k} #layer-${Ue}--interaction-wrap`);
@@ -12678,11 +12678,11 @@ function rw(t, e, l) {
   function W(re) {
     var _e, Ee, ie, Te, Ue;
     let Ie = (Ee = (_e = i == null ? void 0 : i.operations[re].elem) == null ? void 0 : _e.filter((Ke) => Ke.role === "op-layer-operation-group")) == null ? void 0 : Ee[0], je = ((ie = i == null ? void 0 : i.bit_map) == null ? void 0 : ie.qubit_rel_map) || {};
-    Ie && ((Ue = (Te = b == null ? void 0 : b.design) == null ? void 0 : Te.nodes) == null || Ue.forEach((Ke, We) => {
+    Ie && ((Ue = (Te = g == null ? void 0 : g.design) == null ? void 0 : Te.nodes) == null || Ue.forEach((Ke, We) => {
       var vt, qt;
       if (je[Ke.index] !== void 0) {
         $.set(re), j.set(n[re]);
-        let rt = (((qt = (vt = Ie.data) == null ? void 0 : vt.esp_qubit_wise) == null ? void 0 : qt[je[Ke.index]]) - q.esp) / (1 - q.esp), mt = document.querySelector(`#${g} #qubit-node-${Ke.index}--node`);
+        let rt = (((qt = (vt = Ie.data) == null ? void 0 : vt.esp_qubit_wise) == null ? void 0 : qt[je[Ke.index]]) - q.esp) / (1 - q.esp), mt = document.querySelector(`#${b} #qubit-node-${Ke.index}--node`);
         mt && mt.setAttribute("fill", L(rt));
       }
     }));
@@ -12712,29 +12712,29 @@ function rw(t, e, l) {
   }, oe = () => {
     Z();
   }, x = () => {
-    ne();
+    ae();
   }, ge = (re) => {
-    E.set(re.target.checked);
+    O.set(re.target.checked);
   };
   return t.$$set = (re) => {
-    "data" in re && l(0, b = re.data), "id" in re && l(1, g = re.id), "original_circuit_id" in re && l(22, k = re.original_circuit_id), "transpiled_circuit_id" in re && l(23, y = re.transpiled_circuit_id), "pulse_view_id" in re && l(24, v = re.pulse_view_id), "match" in re && l(25, w = re.match), "operation_data" in re && l(26, q = re.operation_data), "machine_moment_at" in re && l(27, $ = re.machine_moment_at), "machine_dt_at" in re && l(28, j = re.machine_dt_at), "op_schedule" in re && r(l(2, O = re.op_schedule)), "open_tool" in re && l(3, A = re.open_tool), "filter_unused_qubits" in re && l(29, C = re.filter_unused_qubits), "autoplay" in re && h(l(4, z = re.autoplay));
+    "data" in re && l(0, g = re.data), "id" in re && l(1, b = re.id), "original_circuit_id" in re && l(22, k = re.original_circuit_id), "transpiled_circuit_id" in re && l(23, y = re.transpiled_circuit_id), "pulse_view_id" in re && l(24, v = re.pulse_view_id), "match" in re && l(25, w = re.match), "operation_data" in re && l(26, q = re.operation_data), "machine_moment_at" in re && l(27, $ = re.machine_moment_at), "machine_dt_at" in re && l(28, j = re.machine_dt_at), "op_schedule" in re && r(l(2, I = re.op_schedule)), "open_tool" in re && l(3, A = re.open_tool), "filter_unused_qubits" in re && l(29, M = re.filter_unused_qubits), "autoplay" in re && h(l(4, z = re.autoplay));
   }, t.$$.update = () => {
     var re;
     t.$$.dirty[0] & /*data, operation_data, id, original_circuit_id, transpiled_circuit_id, pulse_view_id, match, filter_unused_qubits, $drawPlan*/
-    666894403 && b && (B.set(Xu(b, q, {
-      id: g,
+    666894403 && g && (B.set(Xu(g, q, {
+      id: b,
       original_circuit_id: k,
       transpiled_circuit_id: y,
       pulse_view_id: v,
       match: w,
       nodeColorScale: L,
-      filter_unused_qubits: C
+      filter_unused_qubits: M
     })), (re = i == null ? void 0 : i.operations) == null || re.map((Ie) => Ie.duration).reduce((Ie, je) => Ie + je, 0), W(0)), t.$$.dirty[0] & /*$drawPlan, cost_shots*/
     96 && (l(7, we = Qy(i.meta_info.cummul_duration, ee)), l(8, Re = ee * i.meta_info.cummul_duration));
   }, [
-    b,
     g,
-    O,
+    b,
+    I,
     A,
     z,
     ee,
@@ -12749,11 +12749,11 @@ function rw(t, e, l) {
     B,
     R,
     P,
-    E,
+    O,
     V,
     Q,
     Z,
-    ne,
+    ae,
     k,
     y,
     v,
@@ -12761,7 +12761,7 @@ function rw(t, e, l) {
     q,
     $,
     j,
-    C,
+    M,
     ve,
     me,
     fe,
@@ -12820,7 +12820,7 @@ function nf(t) {
       e = m("table"), i && i.c(), l = N(), n && n.c(), u(e, "class", "svelte-1yxnwb0");
     },
     m(r, s) {
-      M(r, e, s), i && i.m(e, null), f(e, l), n && n.m(e, null);
+      S(r, e, s), i && i.m(e, null), f(e, l), n && n.m(e, null);
     },
     p(r, s) {
       var o;
@@ -12829,41 +12829,41 @@ function nf(t) {
       r[1] ? n ? n.p(r, s) : (n = rf(r), n.c(), n.m(e, null)) : n && (n.d(1), n = null);
     },
     d(r) {
-      r && S(e), i && i.d(), n && n.d();
+      r && C(e), i && i.d(), n && n.d();
     }
   };
 }
 function af(t) {
-  var v, w, q, $, j, O;
+  var v, w, q, $, j, I;
   let e, l, i, n, a = (
     /*backend*/
     ((w = (v = t[0]) == null ? void 0 : v.machine_data) == null ? void 0 : w.backend_name) + ""
   ), r, s, o = (
     /*backend*/
     (($ = (q = t[0]) == null ? void 0 : q.machine_data) == null ? void 0 : $.backend_version) + ""
-  ), _, c, d, h, p, b, g, k = (
+  ), _, c, d, h, p, g, b, k = (
     /*backend*/
-    ((O = (j = t[0]) == null ? void 0 : j.machine_data) == null ? void 0 : O.gates.map(uf).join(", ")) + ""
+    ((I = (j = t[0]) == null ? void 0 : j.machine_data) == null ? void 0 : I.gates.map(uf).join(", ")) + ""
   ), y;
   return {
     c() {
-      e = m("tr"), l = m("th"), l.textContent = "Backend", i = N(), n = m("td"), r = I(a), s = I(" ("), _ = I(o), c = I(")"), d = N(), h = m("tr"), p = m("th"), p.textContent = "Supported Gates", b = N(), g = m("td"), y = I(k), u(l, "class", "svelte-1yxnwb0"), u(n, "class", "svelte-1yxnwb0"), u(p, "class", "svelte-1yxnwb0"), u(g, "class", "svelte-1yxnwb0");
+      e = m("tr"), l = m("th"), l.textContent = "Backend", i = N(), n = m("td"), r = E(a), s = E(" ("), _ = E(o), c = E(")"), d = N(), h = m("tr"), p = m("th"), p.textContent = "Supported Gates", g = N(), b = m("td"), y = E(k), u(l, "class", "svelte-1yxnwb0"), u(n, "class", "svelte-1yxnwb0"), u(p, "class", "svelte-1yxnwb0"), u(b, "class", "svelte-1yxnwb0");
     },
-    m(A, C) {
-      M(A, e, C), f(e, l), f(e, i), f(e, n), f(n, r), f(n, s), f(n, _), f(n, c), M(A, d, C), M(A, h, C), f(h, p), f(h, b), f(h, g), f(g, y);
+    m(A, M) {
+      S(A, e, M), f(e, l), f(e, i), f(e, n), f(n, r), f(n, s), f(n, _), f(n, c), S(A, d, M), S(A, h, M), f(h, p), f(h, g), f(h, b), f(b, y);
     },
-    p(A, C) {
-      var z, H, B, R, P, E;
-      C & /*backend*/
+    p(A, M) {
+      var z, H, B, R, P, O;
+      M & /*backend*/
       1 && a !== (a = /*backend*/
-      ((H = (z = A[0]) == null ? void 0 : z.machine_data) == null ? void 0 : H.backend_name) + "") && U(r, a), C & /*backend*/
+      ((H = (z = A[0]) == null ? void 0 : z.machine_data) == null ? void 0 : H.backend_name) + "") && U(r, a), M & /*backend*/
       1 && o !== (o = /*backend*/
-      ((R = (B = A[0]) == null ? void 0 : B.machine_data) == null ? void 0 : R.backend_version) + "") && U(_, o), C & /*backend*/
+      ((R = (B = A[0]) == null ? void 0 : B.machine_data) == null ? void 0 : R.backend_version) + "") && U(_, o), M & /*backend*/
       1 && k !== (k = /*backend*/
-      ((E = (P = A[0]) == null ? void 0 : P.machine_data) == null ? void 0 : E.gates.map(uf).join(", ")) + "") && U(y, k);
+      ((O = (P = A[0]) == null ? void 0 : P.machine_data) == null ? void 0 : O.gates.map(uf).join(", ")) + "") && U(y, k);
     },
     d(A) {
-      A && (S(e), S(d), S(h));
+      A && (C(e), C(d), C(h));
     }
   };
 }
@@ -12883,7 +12883,7 @@ function rf(t) {
     m(n, a) {
       for (let r = 0; r < i.length; r += 1)
         i[r] && i[r].m(n, a);
-      M(n, e, a);
+      S(n, e, a);
     },
     p(n, a) {
       if (a & /*params, Object, undefined*/
@@ -12903,7 +12903,7 @@ function rf(t) {
       }
     },
     d(n) {
-      n && S(e), Ye(i, n);
+      n && C(e), Ye(i, n);
     }
   };
 }
@@ -12920,10 +12920,10 @@ function sf(t) {
   ), o, _;
   return {
     c() {
-      e = m("tr"), l = m("th"), n = I(i), a = N(), r = m("td"), o = I(s), _ = N(), u(l, "class", "svelte-1yxnwb0"), u(r, "class", "svelte-1yxnwb0");
+      e = m("tr"), l = m("th"), n = E(i), a = N(), r = m("td"), o = E(s), _ = N(), u(l, "class", "svelte-1yxnwb0"), u(r, "class", "svelte-1yxnwb0");
     },
     m(c, d) {
-      M(c, e, d), f(e, l), f(l, n), f(e, a), f(e, r), f(r, o), f(e, _);
+      S(c, e, d), f(e, l), f(l, n), f(e, a), f(e, r), f(r, o), f(e, _);
     },
     p(c, d) {
       d & /*params*/
@@ -12936,7 +12936,7 @@ function sf(t) {
       ] + "") && U(o, s);
     },
     d(c) {
-      c && S(e);
+      c && C(e);
     }
   };
 }
@@ -12961,7 +12961,7 @@ function of(t) {
       l && l.c(), e = Ae();
     },
     m(i, n) {
-      l && l.m(i, n), M(i, e, n);
+      l && l.m(i, n), S(i, e, n);
     },
     p(i, n) {
       /*params*/
@@ -12979,7 +12979,7 @@ function of(t) {
       ] !== "default" ? l ? l.p(i, n) : (l = sf(i), l.c(), l.m(e.parentNode, e)) : l && (l.d(1), l = null);
     },
     d(i) {
-      i && S(e), l && l.d(i);
+      i && C(e), l && l.d(i);
     }
   };
 }
@@ -12993,10 +12993,10 @@ function ow(t) {
   );
   return {
     c() {
-      e = m("div"), l = m("h3"), i = I("Machine & transpilation information "), n = m("button"), r = I(a), s = N(), c && c.c(), u(n, "class", "svelte-1yxnwb0"), u(l, "class", "svelte-1yxnwb0"), u(e, "class", "machine-info-wrap svelte-1yxnwb0");
+      e = m("div"), l = m("h3"), i = E("Machine & transpilation information "), n = m("button"), r = E(a), s = N(), c && c.c(), u(n, "class", "svelte-1yxnwb0"), u(l, "class", "svelte-1yxnwb0"), u(e, "class", "machine-info-wrap svelte-1yxnwb0");
     },
     m(d, h) {
-      M(d, e, h), f(e, l), f(l, i), f(l, n), f(n, r), f(e, s), c && c.m(e, null), o || (_ = te(
+      S(d, e, h), f(e, l), f(l, i), f(l, n), f(n, r), f(e, s), c && c.m(e, null), o || (_ = te(
         n,
         "click",
         /*click_handler*/
@@ -13009,10 +13009,10 @@ function ow(t) {
       d[2] ? "Close" : "Open") && U(r, a), /*show*/
       d[2] ? c ? c.p(d, h) : (c = nf(d), c.c(), c.m(e, null)) : c && (c.d(1), c = null);
     },
-    i: ae,
-    o: ae,
+    i: ne,
+    o: ne,
     d(d) {
-      d && S(e), c && c.d(), o = !1, _();
+      d && C(e), c && c.d(), o = !1, _();
     }
   };
 }
@@ -13064,7 +13064,7 @@ function gf(t, e, l) {
   return i[2] = e[l], i[4] = l, i;
 }
 function bf(t) {
-  let e, l, i, n, a, r, s, o, _, c, d, h, p, b, g, k, y, v, w, q, $, j, O, A, C, z, H, B, R, P, E, F, L, X, V, Q, Z, ne, se, K, Y, W, J, ee, we, Re = $e(
+  let e, l, i, n, a, r, s, o, _, c, d, h, p, g, b, k, y, v, w, q, $, j, I, A, M, z, H, B, R, P, O, F, L, X, V, Q, Z, ae, se, K, Y, W, J, ee, we, Re = $e(
     /*transpile_data*/
     t[0]
   ), ve = [];
@@ -13111,46 +13111,46 @@ function bf(t) {
       e = m("table"), l = m("thead"), i = m("tr"), n = m("th"), a = N();
       for (let _e = 0; _e < ve.length; _e += 1)
         ve[_e].c();
-      r = N(), s = m("tbody"), o = m("tr"), _ = m("th"), _.textContent = "Backend", c = N(), d = m("td"), p = N(), b = m("tr"), g = m("th"), g.textContent = "Name", k = N();
+      r = N(), s = m("tbody"), o = m("tr"), _ = m("th"), _.textContent = "Backend", c = N(), d = m("td"), p = N(), g = m("tr"), b = m("th"), b.textContent = "Name", k = N();
       for (let _e = 0; _e < fe.length; _e += 1)
         fe[_e].c();
       y = N(), v = m("tr"), w = m("th"), w.textContent = "#Qubits", q = N();
       for (let _e = 0; _e < ye.length; _e += 1)
         ye[_e].c();
-      $ = N(), j = m("tr"), O = m("th"), O.textContent = "Params", A = N(), C = m("td"), H = N();
+      $ = N(), j = m("tr"), I = m("th"), I.textContent = "Params", A = N(), M = m("td"), H = N();
       for (let _e = 0; _e < le.length; _e += 1)
         le[_e].c();
-      B = N(), R = m("tr"), P = m("th"), P.textContent = "Post", E = N(), F = m("td"), X = N(), V = m("tr"), Q = m("th"), Q.textContent = "#Layers", Z = N();
+      B = N(), R = m("tr"), P = m("th"), P.textContent = "Post", O = N(), F = m("td"), X = N(), V = m("tr"), Q = m("th"), Q.textContent = "#Layers", Z = N();
       for (let _e = 0; _e < x.length; _e += 1)
         x[_e].c();
-      ne = N(), se = m("tr"), K = m("th"), K.textContent = "#Operations", Y = N();
+      ae = N(), se = m("tr"), K = m("th"), K.textContent = "#Operations", Y = N();
       for (let _e = 0; _e < re.length; _e += 1)
         re[_e].c();
       W = N(), J = m("tr"), ee = m("th"), ee.textContent = "ESP", we = N();
       for (let _e = 0; _e < je.length; _e += 1)
         je[_e].c();
       u(n, "class", "svelte-652jkj"), u(_, "class", "gap svelte-652jkj"), u(d, "colspan", h = /*transpile_data*/
-      t[0].length || 0), u(d, "class", "gap svelte-652jkj"), u(g, "class", "svelte-652jkj"), u(w, "class", "svelte-652jkj"), u(O, "class", "gap svelte-652jkj"), u(C, "colspan", z = /*transpile_data*/
-      t[0].length || 0), u(C, "class", "gap svelte-652jkj"), u(P, "class", "gap svelte-652jkj"), u(F, "colspan", L = /*transpile_data*/
+      t[0].length || 0), u(d, "class", "gap svelte-652jkj"), u(b, "class", "svelte-652jkj"), u(w, "class", "svelte-652jkj"), u(I, "class", "gap svelte-652jkj"), u(M, "colspan", z = /*transpile_data*/
+      t[0].length || 0), u(M, "class", "gap svelte-652jkj"), u(P, "class", "gap svelte-652jkj"), u(F, "colspan", L = /*transpile_data*/
       t[0].length || 0), u(F, "class", "gap svelte-652jkj"), u(Q, "class", "svelte-652jkj"), u(K, "class", "svelte-652jkj"), u(ee, "class", "svelte-652jkj"), u(e, "class", "svelte-652jkj");
     },
     m(_e, Ee) {
-      M(_e, e, Ee), f(e, l), f(l, i), f(i, n), f(i, a);
+      S(_e, e, Ee), f(e, l), f(l, i), f(i, n), f(i, a);
       for (let ie = 0; ie < ve.length; ie += 1)
         ve[ie] && ve[ie].m(i, null);
-      f(e, r), f(e, s), f(s, o), f(o, _), f(o, c), f(o, d), f(s, p), f(s, b), f(b, g), f(b, k);
+      f(e, r), f(e, s), f(s, o), f(o, _), f(o, c), f(o, d), f(s, p), f(s, g), f(g, b), f(g, k);
       for (let ie = 0; ie < fe.length; ie += 1)
-        fe[ie] && fe[ie].m(b, null);
+        fe[ie] && fe[ie].m(g, null);
       f(s, y), f(s, v), f(v, w), f(v, q);
       for (let ie = 0; ie < ye.length; ie += 1)
         ye[ie] && ye[ie].m(v, null);
-      f(s, $), f(s, j), f(j, O), f(j, A), f(j, C), f(s, H);
+      f(s, $), f(s, j), f(j, I), f(j, A), f(j, M), f(s, H);
       for (let ie = 0; ie < le.length; ie += 1)
         le[ie] && le[ie].m(s, null);
-      f(s, B), f(s, R), f(R, P), f(R, E), f(R, F), f(s, X), f(s, V), f(V, Q), f(V, Z);
+      f(s, B), f(s, R), f(R, P), f(R, O), f(R, F), f(s, X), f(s, V), f(V, Q), f(V, Z);
       for (let ie = 0; ie < x.length; ie += 1)
         x[ie] && x[ie].m(V, null);
-      f(s, ne), f(s, se), f(se, K), f(se, Y);
+      f(s, ae), f(s, se), f(se, K), f(se, Y);
       for (let ie = 0; ie < re.length; ie += 1)
         re[ie] && re[ie].m(se, null);
       f(s, W), f(s, J), f(J, ee), f(J, we);
@@ -13184,7 +13184,7 @@ function bf(t) {
         let ie;
         for (ie = 0; ie < me.length; ie += 1) {
           const Te = mf(_e, me, ie);
-          fe[ie] ? fe[ie].p(Te, Ee) : (fe[ie] = vf(Te), fe[ie].c(), fe[ie].m(b, null));
+          fe[ie] ? fe[ie].p(Te, Ee) : (fe[ie] = vf(Te), fe[ie].c(), fe[ie].m(g, null));
         }
         for (; ie < fe.length; ie += 1)
           fe[ie].d(1);
@@ -13207,7 +13207,7 @@ function bf(t) {
       }
       if (Ee & /*transpile_data*/
       1 && z !== (z = /*transpile_data*/
-      _e[0].length || 0) && u(C, "colspan", z), Ee & /*transpile_data, specified_parameters*/
+      _e[0].length || 0) && u(M, "colspan", z), Ee & /*transpile_data, specified_parameters*/
       3) {
         ue = $e(
           /*specified_parameters*/
@@ -13271,7 +13271,7 @@ function bf(t) {
       }
     },
     d(_e) {
-      _e && S(e), Ye(ve, _e), Ye(fe, _e), Ye(ye, _e), Ye(le, _e), Ye(x, _e), Ye(re, _e), Ye(je, _e);
+      _e && C(e), Ye(ve, _e), Ye(fe, _e), Ye(ye, _e), Ye(le, _e), Ye(x, _e), Ye(re, _e), Ye(je, _e);
     }
   };
 }
@@ -13283,11 +13283,11 @@ function kf(t) {
       t[4]} `, u(e, "class", "svelte-652jkj");
     },
     m(l, i) {
-      M(l, e, i);
+      S(l, e, i);
     },
-    p: ae,
+    p: ne,
     d(l) {
-      l && S(e);
+      l && C(e);
     }
   };
 }
@@ -13299,10 +13299,10 @@ function vf(t) {
   ) + "", i, n;
   return {
     c() {
-      e = m("td"), i = I(l), n = N(), u(e, "class", "svelte-652jkj");
+      e = m("td"), i = E(l), n = N(), u(e, "class", "svelte-652jkj");
     },
     m(o, _) {
-      M(o, e, _), f(e, i), f(e, n);
+      S(o, e, _), f(e, i), f(e, n);
     },
     p(o, _) {
       var c, d, h;
@@ -13313,7 +13313,7 @@ function vf(t) {
       ) + "") && U(i, l);
     },
     d(o) {
-      o && S(e);
+      o && C(e);
     }
   };
 }
@@ -13325,10 +13325,10 @@ function yf(t) {
   ), i, n;
   return {
     c() {
-      e = m("td"), i = I(l), n = N(), u(e, "class", "svelte-652jkj");
+      e = m("td"), i = E(l), n = N(), u(e, "class", "svelte-652jkj");
     },
     m(o, _) {
-      M(o, e, _), f(e, i), f(e, n);
+      S(o, e, _), f(e, i), f(e, n);
     },
     p(o, _) {
       var c, d, h;
@@ -13337,7 +13337,7 @@ function yf(t) {
       ((h = (d = (c = o[2]) == null ? void 0 : c.backend) == null ? void 0 : d.design) == null ? void 0 : h.nodes.length) + "") && U(i, l);
     },
     d(o) {
-      o && S(e);
+      o && C(e);
     }
   };
 }
@@ -13352,10 +13352,10 @@ function wf(t) {
   ), i;
   return {
     c() {
-      e = m("td"), i = I(l), u(e, "class", "svelte-652jkj");
+      e = m("td"), i = E(l), u(e, "class", "svelte-652jkj");
     },
     m(r, s) {
-      M(r, e, s), f(e, i);
+      S(r, e, s), f(e, i);
     },
     p(r, s) {
       var o, _;
@@ -13367,7 +13367,7 @@ function wf(t) {
       ]) + "") && U(i, l);
     },
     d(r) {
-      r && S(e);
+      r && C(e);
     }
   };
 }
@@ -13383,13 +13383,13 @@ function $f(t) {
     s[o] = wf(hf(t, r, o));
   return {
     c() {
-      e = m("tr"), l = m("th"), n = I(i), a = N();
+      e = m("tr"), l = m("th"), n = E(i), a = N();
       for (let o = 0; o < s.length; o += 1)
         s[o].c();
       u(l, "class", "svelte-652jkj");
     },
     m(o, _) {
-      M(o, e, _), f(e, l), f(l, n), f(e, a);
+      S(o, e, _), f(e, l), f(l, n), f(e, a);
       for (let c = 0; c < s.length; c += 1)
         s[c] && s[c].m(e, null);
     },
@@ -13413,7 +13413,7 @@ function $f(t) {
       }
     },
     d(o) {
-      o && S(e), Ye(s, o);
+      o && C(e), Ye(s, o);
     }
   };
 }
@@ -13425,10 +13425,10 @@ function qf(t) {
   ), i, n;
   return {
     c() {
-      e = m("td"), i = I(l), n = N(), u(e, "class", "svelte-652jkj");
+      e = m("td"), i = E(l), n = N(), u(e, "class", "svelte-652jkj");
     },
     m(s, o) {
-      M(s, e, o), f(e, i), f(e, n);
+      S(s, e, o), f(e, i), f(e, n);
     },
     p(s, o) {
       var _, c;
@@ -13437,7 +13437,7 @@ function qf(t) {
       ((c = (_ = s[2]) == null ? void 0 : _.layers) == null ? void 0 : c.length) + "") && U(i, l);
     },
     d(s) {
-      s && S(e);
+      s && C(e);
     }
   };
 }
@@ -13449,10 +13449,10 @@ function jf(t) {
   ), i, n;
   return {
     c() {
-      e = m("td"), i = I(l), n = N(), u(e, "class", "svelte-652jkj");
+      e = m("td"), i = E(l), n = N(), u(e, "class", "svelte-652jkj");
     },
     m(s, o) {
-      M(s, e, o), f(e, i), f(e, n);
+      S(s, e, o), f(e, i), f(e, n);
     },
     p(s, o) {
       var _, c;
@@ -13461,7 +13461,7 @@ function jf(t) {
       ((c = (_ = s[2]) == null ? void 0 : _.layers) == null ? void 0 : c.map(Mf).reduce(zf, 0)) + "") && U(i, l);
     },
     d(s) {
-      s && S(e);
+      s && C(e);
     }
   };
 }
@@ -13474,10 +13474,10 @@ function Tf(t) {
   ) + "", i, n;
   return {
     c() {
-      e = m("td"), i = I(l), n = N(), u(e, "class", "svelte-652jkj");
+      e = m("td"), i = E(l), n = N(), u(e, "class", "svelte-652jkj");
     },
     m(r, s) {
-      M(r, e, s), f(e, i), f(e, n);
+      S(r, e, s), f(e, i), f(e, n);
     },
     p(r, s) {
       var o;
@@ -13489,7 +13489,7 @@ function Tf(t) {
       ) + "") && U(i, l);
     },
     d(r) {
-      r && S(e);
+      r && C(e);
     }
   };
 }
@@ -13503,16 +13503,16 @@ function _w(t) {
       e = m("div"), l && l.c(), u(e, "class", "svelte-652jkj");
     },
     m(i, n) {
-      M(i, e, n), l && l.m(e, null);
+      S(i, e, n), l && l.m(e, null);
     },
     p(i, [n]) {
       /*transpile_data*/
       i[0] ? l ? l.p(i, n) : (l = bf(i), l.c(), l.m(e, null)) : l && (l.d(1), l = null);
     },
-    i: ae,
-    o: ae,
+    i: ne,
+    o: ne,
     d(i) {
-      i && S(e), l && l.d();
+      i && C(e), l && l.d();
     }
   };
 }
@@ -13549,11 +13549,11 @@ function Nf(t, e) {
   for (const s of t) {
     let o = 0, _ = 0;
     for (const c of s.operations) {
-      let d = c.gate, h = c.qubits.map((g) => g.index), p = d + "__" + h.join("_"), b = e == null ? void 0 : e[p];
-      if (b) {
-        o = b.duration > o ? b.duration : o;
-        for (const g of b.pulse_schedule) {
-          let k = JSON.parse(JSON.stringify(g));
+      let d = c.gate, h = c.qubits.map((b) => b.index), p = d + "__" + h.join("_"), g = e == null ? void 0 : e[p];
+      if (g) {
+        o = g.duration > o ? g.duration : o;
+        for (const b of g.pulse_schedule) {
+          let k = JSON.parse(JSON.stringify(b));
           k.time_at = k.time_at + l, k.layer_index = r, k.op_index = _, i.push(k), a[k.name] || (a[k.name] = {
             name: k.name,
             channel_type: k.channel_type,
@@ -13570,19 +13570,19 @@ function Nf(t, e) {
   return n.unshift(0), { schedule: i, channels: a, operation_schedule: n };
 }
 function Af(t) {
-  let e, l, i, n, a, r, s, o, _, c, d, h, p, b, g, k, y, v, w, q, $, j, O, A;
+  let e, l, i, n, a, r, s, o, _, c, d, h, p, g, b, k, y, v, w, q, $, j, I, A;
   return {
     c() {
-      e = m("div"), l = m("div"), i = m("button"), n = I("Width: 1/"), a = I(
+      e = m("div"), l = m("div"), i = m("button"), n = E("Width: 1/"), a = E(
         /*$unit_dt*/
         t[9]
-      ), r = N(), s = m("button"), s.textContent = "←", o = N(), _ = m("button"), _.textContent = "→", c = N(), d = m("button"), d.textContent = "↺", h = N(), p = m("div"), b = m("button"), g = I("Height: "), k = I(
+      ), r = N(), s = m("button"), s.textContent = "←", o = N(), _ = m("button"), _.textContent = "→", c = N(), d = m("button"), d.textContent = "↺", h = N(), p = m("div"), g = m("button"), b = E("Height: "), k = E(
         /*$pulse_row_height*/
         t[10]
-      ), y = N(), v = m("button"), v.textContent = "↑", w = N(), q = m("button"), q.textContent = "↓", $ = N(), j = m("button"), j.textContent = "↺", i.disabled = !0, u(i, "class", "svelte-wurcqz"), u(s, "alt", "narrower"), u(s, "class", "svelte-wurcqz"), u(_, "alt", "wider"), u(_, "class", "svelte-wurcqz"), u(d, "class", "svelte-wurcqz"), u(l, "class", "sizing-button-wrap svelte-wurcqz"), b.disabled = !0, u(b, "class", "svelte-wurcqz"), u(v, "alt", "shallower"), u(v, "class", "svelte-wurcqz"), u(q, "alt", "deeper"), u(q, "class", "svelte-wurcqz"), u(j, "alt", "reset"), u(j, "class", "svelte-wurcqz"), u(p, "class", "sizing-button-wrap svelte-wurcqz"), u(e, "class", "sizing-options svelte-wurcqz");
+      ), y = N(), v = m("button"), v.textContent = "↑", w = N(), q = m("button"), q.textContent = "↓", $ = N(), j = m("button"), j.textContent = "↺", i.disabled = !0, u(i, "class", "svelte-wurcqz"), u(s, "alt", "narrower"), u(s, "class", "svelte-wurcqz"), u(_, "alt", "wider"), u(_, "class", "svelte-wurcqz"), u(d, "class", "svelte-wurcqz"), u(l, "class", "sizing-button-wrap svelte-wurcqz"), g.disabled = !0, u(g, "class", "svelte-wurcqz"), u(v, "alt", "shallower"), u(v, "class", "svelte-wurcqz"), u(q, "alt", "deeper"), u(q, "class", "svelte-wurcqz"), u(j, "alt", "reset"), u(j, "class", "svelte-wurcqz"), u(p, "class", "sizing-button-wrap svelte-wurcqz"), u(e, "class", "sizing-options svelte-wurcqz");
     },
-    m(C, z) {
-      M(C, e, z), f(e, l), f(l, i), f(i, n), f(i, a), f(l, r), f(l, s), f(l, o), f(l, _), f(l, c), f(l, d), f(e, h), f(e, p), f(p, b), f(b, g), f(b, k), f(p, y), f(p, v), f(p, w), f(p, q), f(p, $), f(p, j), O || (A = [
+    m(M, z) {
+      S(M, e, z), f(e, l), f(l, i), f(i, n), f(i, a), f(l, r), f(l, s), f(l, o), f(l, _), f(l, c), f(l, d), f(e, h), f(e, p), f(p, g), f(g, b), f(g, k), f(p, y), f(p, v), f(p, w), f(p, q), f(p, $), f(p, j), I || (A = [
         te(
           s,
           "click",
@@ -13619,36 +13619,36 @@ function Af(t) {
           /*click_handler_7*/
           t[28]
         )
-      ], O = !0);
+      ], I = !0);
     },
-    p(C, z) {
+    p(M, z) {
       z[0] & /*$unit_dt*/
       512 && U(
         a,
         /*$unit_dt*/
-        C[9]
+        M[9]
       ), z[0] & /*$pulse_row_height*/
       1024 && U(
         k,
         /*$pulse_row_height*/
-        C[10]
+        M[10]
       );
     },
-    d(C) {
-      C && S(e), O = !1, wt(A);
+    d(M) {
+      M && C(e), I = !1, wt(A);
     }
   };
 }
 function Bf(t) {
-  var O, A, C, z, H;
-  let e, l, i, n, a, r, s, o, _, c, d, h, p, b, g, k, y, v, w, q, $ = (
+  var I, A, M, z, H;
+  let e, l, i, n, a, r, s, o, _, c, d, h, p, g, b, k, y, v, w, q, $ = (
     /*$drawPlan*/
     t[11].groups.axis_group && Pf(t)
   ), j = (
     /*$drawPlan*/
     t[11].groups.area_group && Of(t)
   );
-  return g = new _m({
+  return b = new _m({
     props: {
       data: {
         id: (
@@ -13656,7 +13656,7 @@ function Bf(t) {
           t[0] + "-dt-marker-text"
         ),
         x: De + Ot + et - 1 + /*$drawPlan*/
-        ((O = t[11].scales) == null ? void 0 : O.dt_scale(
+        ((I = t[11].scales) == null ? void 0 : I.dt_scale(
           /*$machine_dt_at*/
           t[12]
         )) + /*$drawPlan*/
@@ -13670,7 +13670,7 @@ function Bf(t) {
         "alignment-baseline": "bottom",
         "text-anchor": (
           /*$drawPlan*/
-          ((C = t[11].scales) == null ? void 0 : C.dt_scale(
+          ((M = t[11].scales) == null ? void 0 : M.dt_scale(
             /*$machine_dt_at*/
             t[12]
           )) > /*$drawPlan*/
@@ -13711,15 +13711,15 @@ function Bf(t) {
     }
   }), {
     c() {
-      e = m("div"), l = Ge("svg"), i = Ge("style"), n = I(`g {
+      e = m("div"), l = Ge("svg"), i = Ge("style"), n = E(`g {
             font-family: Iosevka;
             font-size: 14px;
           }
-        `), $ && $.c(), _ = N(), c = m("div"), d = Ge("svg"), h = Ge("style"), p = I(`g {
+        `), $ && $.c(), _ = N(), c = m("div"), d = Ge("svg"), h = Ge("style"), p = E(`g {
             font-family: Iosevka;
             font-size: 14px;
           }
-        `), j && j.c(), b = Ge("g"), pe(g.$$.fragment), pe(k.$$.fragment), u(l, "id", a = /*id*/
+        `), j && j.c(), g = Ge("g"), pe(b.$$.fragment), pe(k.$$.fragment), u(l, "id", a = /*id*/
       t[0] + "-sticky"), u(l, "class", "sticky-axis"), u(l, "width", De + Ot), u(l, "height", r = /*$drawPlan*/
       t[11].height), u(l, "viewBox", s = [
         0,
@@ -13739,7 +13739,7 @@ function Bf(t) {
       t[11].viewBox.join(" ")), u(c, "class", "pulse-main svelte-wurcqz");
     },
     m(B, R) {
-      M(B, e, R), f(e, l), f(l, i), f(i, n), $ && $.m(l, null), M(B, _, R), M(B, c, R), f(c, d), f(d, h), f(h, p), j && j.m(d, null), f(d, b), de(g, b, null), de(k, b, null), q = !0;
+      S(B, e, R), f(e, l), f(l, i), f(i, n), $ && $.m(l, null), S(B, _, R), S(B, c, R), f(c, d), f(d, h), f(h, p), j && j.m(d, null), f(d, g), de(b, g, null), de(k, g, null), q = !0;
     },
     p(B, R) {
       var F, L, X, V, Q;
@@ -13762,7 +13762,7 @@ function Bf(t) {
       2048 && o !== (o = `width: ${De + Ot}px; height:${De + /*$drawPlan*/
       B[11].height}px;`)) && u(e, "style", o), /*$drawPlan*/
       B[11].groups.area_group ? j ? (j.p(B, R), R[0] & /*$drawPlan*/
-      2048 && T(j, 1)) : (j = Of(B), j.c(), T(j, 1), j.m(d, b)) : j && (be(), D(j, 1, 1, () => {
+      2048 && T(j, 1)) : (j = Of(B), j.c(), T(j, 1), j.m(d, g)) : j && (be(), D(j, 1, 1, () => {
         j = null;
       }), ke());
       const P = {};
@@ -13796,10 +13796,10 @@ function Bf(t) {
         text: "Layer " + /*$machine_moment_at*/
         B[13] + "/" + /*$machine_dt_at*/
         B[12] + " (dt)"
-      }), g.$set(P);
-      const E = {};
+      }), b.$set(P);
+      const O = {};
       R[0] & /*id, $drawPlan, $machine_dt_at*/
-      6145 && (E.data = {
+      6145 && (O.data = {
         id: (
           /*id*/
           B[0] + "-dt-marker"
@@ -13823,7 +13823,7 @@ function Bf(t) {
         stroke: "red",
         "stroke-opacity": 0.5,
         animate: { duration: 20, delay: 0 }
-      }), k.$set(E), (!q || R[0] & /*id*/
+      }), k.$set(O), (!q || R[0] & /*id*/
       1) && u(
         d,
         "id",
@@ -13838,13 +13838,13 @@ function Bf(t) {
       B[11].viewBox.join(" "))) && u(d, "viewBox", w);
     },
     i(B) {
-      q || (T($), T(j), T(g.$$.fragment, B), T(k.$$.fragment, B), q = !0);
+      q || (T($), T(j), T(b.$$.fragment, B), T(k.$$.fragment, B), q = !0);
     },
     o(B) {
-      D($), D(j), D(g.$$.fragment, B), D(k.$$.fragment, B), q = !1;
+      D($), D(j), D(b.$$.fragment, B), D(k.$$.fragment, B), q = !1;
     },
     d(B) {
-      B && (S(e), S(_), S(c)), $ && $.d(), j && j.d(), he(g), he(k);
+      B && (C(e), C(_), C(c)), $ && $.d(), j && j.d(), he(b), he(k);
     }
   };
 }
@@ -13933,7 +13933,7 @@ function hw(t) {
   ), r, s, o, _, c = (
     /*showViewControl*/
     t[7] ? "Hide" : "Show"
-  ), d, h, p, b, g, k, y, v, w, q = (
+  ), d, h, p, g, b, k, y, v, w, q = (
     /*showViewControl*/
     t[7] && Af(t)
   ), $ = (
@@ -13945,12 +13945,12 @@ function hw(t) {
   );
   return {
     c() {
-      e = m("div"), l = m("h5"), i = I(`Pulse data view
-    `), n = m("button"), r = I(a), s = I(" pulse data"), o = N(), _ = m("button"), d = I(c), h = I(" view control"), p = N(), q && q.c(), b = N(), g = m("div"), $ && $.c(), u(n, "class", "svelte-wurcqz"), u(_, "class", "svelte-wurcqz"), u(l, "class", "svelte-wurcqz"), u(g, "class", "pulse-vis-wrap svelte-wurcqz"), u(g, "id", k = /*id*/
+      e = m("div"), l = m("h5"), i = E(`Pulse data view
+    `), n = m("button"), r = E(a), s = E(" pulse data"), o = N(), _ = m("button"), d = E(c), h = E(" view control"), p = N(), q && q.c(), g = N(), b = m("div"), $ && $.c(), u(n, "class", "svelte-wurcqz"), u(_, "class", "svelte-wurcqz"), u(l, "class", "svelte-wurcqz"), u(b, "class", "pulse-vis-wrap svelte-wurcqz"), u(b, "id", k = /*id*/
       t[0] + "-wrapper");
     },
-    m(j, O) {
-      M(j, e, O), f(e, l), f(l, i), f(l, n), f(n, r), f(n, s), f(l, o), f(l, _), f(_, d), f(_, h), f(e, p), q && q.m(e, null), M(j, b, O), M(j, g, O), $ && $.m(g, null), y = !0, v || (w = [
+    m(j, I) {
+      S(j, e, I), f(e, l), f(l, i), f(l, n), f(n, r), f(n, s), f(l, o), f(l, _), f(_, d), f(_, h), f(e, p), q && q.m(e, null), S(j, g, I), S(j, b, I), $ && $.m(b, null), y = !0, v || (w = [
         te(
           n,
           "click",
@@ -13965,22 +13965,22 @@ function hw(t) {
         )
       ], v = !0);
     },
-    p(j, O) {
-      (!y || O[0] & /*showPulseView*/
+    p(j, I) {
+      (!y || I[0] & /*showPulseView*/
       256) && a !== (a = /*showPulseView*/
-      j[8] ? "Hide" : "Show") && U(r, a), (!y || O[0] & /*showViewControl*/
+      j[8] ? "Hide" : "Show") && U(r, a), (!y || I[0] & /*showViewControl*/
       128) && c !== (c = /*showViewControl*/
       j[7] ? "Hide" : "Show") && U(d, c), /*showViewControl*/
-      j[7] ? q ? q.p(j, O) : (q = Af(j), q.c(), q.m(e, null)) : q && (q.d(1), q = null), /*circuit_layers*/
+      j[7] ? q ? q.p(j, I) : (q = Af(j), q.c(), q.m(e, null)) : q && (q.d(1), q = null), /*circuit_layers*/
       j[1] && /*pulse_data*/
       j[2] && /*$drawPlan*/
       j[11] && /*showPulseView*/
-      j[8] ? $ ? ($.p(j, O), O[0] & /*circuit_layers, pulse_data, $drawPlan, showPulseView*/
-      2310 && T($, 1)) : ($ = Bf(j), $.c(), T($, 1), $.m(g, null)) : $ && (be(), D($, 1, 1, () => {
+      j[8] ? $ ? ($.p(j, I), I[0] & /*circuit_layers, pulse_data, $drawPlan, showPulseView*/
+      2310 && T($, 1)) : ($ = Bf(j), $.c(), T($, 1), $.m(b, null)) : $ && (be(), D($, 1, 1, () => {
         $ = null;
-      }), ke()), (!y || O[0] & /*id*/
+      }), ke()), (!y || I[0] & /*id*/
       1 && k !== (k = /*id*/
-      j[0] + "-wrapper")) && u(g, "id", k);
+      j[0] + "-wrapper")) && u(b, "id", k);
     },
     i(j) {
       y || (T($), y = !0);
@@ -13989,16 +13989,16 @@ function hw(t) {
       D($), y = !1;
     },
     d(j) {
-      j && (S(e), S(b), S(g)), q && q.d(), $ && $.d(), v = !1, wt(w);
+      j && (C(e), C(g), C(b)), q && q.d(), $ && $.d(), v = !1, wt(w);
     }
   };
 }
 function pw(t, e, l) {
-  let i, n = ae, a = () => (n(), n = st(C, (Y) => l(30, i = Y)), C), r, s, o, _, c, d = ae, h = () => (d(), d = st(j, (Y) => l(12, c = Y)), j), p, b = ae, g = () => (b(), b = st($, (Y) => l(13, p = Y)), $);
-  t.$$.on_destroy.push(() => n()), t.$$.on_destroy.push(() => d()), t.$$.on_destroy.push(() => b());
-  let { id: k, transpiled_circuit_id: y, original_circuit_id: v, circuit_layers: w, pulse_data: q, machine_moment_at: $ = Oe(0), machine_dt_at: j = Oe(0), op_schedule: O = Oe([]), open_tool: A = () => {
-  }, autoplay: C = Oe(!1) } = e;
-  g(), h(), a();
+  let i, n = ne, a = () => (n(), n = st(M, (Y) => l(30, i = Y)), M), r, s, o, _, c, d = ne, h = () => (d(), d = st(j, (Y) => l(12, c = Y)), j), p, g = ne, b = () => (g(), g = st($, (Y) => l(13, p = Y)), $);
+  t.$$.on_destroy.push(() => n()), t.$$.on_destroy.push(() => d()), t.$$.on_destroy.push(() => g());
+  let { id: k, transpiled_circuit_id: y, original_circuit_id: v, circuit_layers: w, pulse_data: q, machine_moment_at: $ = Oe(0), machine_dt_at: j = Oe(0), op_schedule: I = Oe([]), open_tool: A = () => {
+  }, autoplay: M = Oe(!1) } = e;
+  b(), h(), a();
   let z = Oe(10), H = Oe(25);
   at(t, z, (Y) => l(9, r = Y)), at(t, H, (Y) => l(10, o = Y));
   let B = Oe([]), R = {}, P = Oe();
@@ -14017,7 +14017,7 @@ function pw(t, e, l) {
       P.set(dr(s, R, { unit_dt: r, pulse_row_height: ee }));
     });
     let { schedule: Y, channels: W, operation_schedule: J } = Nf(w, q);
-    R = W, B.set(Y), O.set(J), j.subscribe((ee) => {
+    R = W, B.set(Y), I.set(J), j.subscribe((ee) => {
       setTimeout(
         () => {
           var Re, ve, me, fe;
@@ -14039,18 +14039,18 @@ function pw(t, e, l) {
       );
     });
   });
-  let E = !1, F = !0;
+  let O = !1, F = !0;
   const L = () => {
     l(8, F = !F);
   }, X = () => {
-    l(7, E = !E);
+    l(7, O = !O);
   }, V = () => {
     z.update((Y) => Math.min(Y + 2, 20));
   }, Q = () => {
     z.update((Y) => Math.max(Y - 2, 1));
   }, Z = () => {
-    z.set(tg);
-  }, ne = () => {
+    z.set(t0);
+  }, ae = () => {
     H.update((Y) => Math.max(Y - 2, 10));
   }, se = () => {
     H.update((Y) => Math.min(Y + 2, 100));
@@ -14058,7 +14058,7 @@ function pw(t, e, l) {
     H.set(Ot);
   };
   return t.$$set = (Y) => {
-    "id" in Y && l(0, k = Y.id), "transpiled_circuit_id" in Y && l(18, y = Y.transpiled_circuit_id), "original_circuit_id" in Y && l(19, v = Y.original_circuit_id), "circuit_layers" in Y && l(1, w = Y.circuit_layers), "pulse_data" in Y && l(2, q = Y.pulse_data), "machine_moment_at" in Y && g(l(3, $ = Y.machine_moment_at)), "machine_dt_at" in Y && h(l(4, j = Y.machine_dt_at)), "op_schedule" in Y && l(20, O = Y.op_schedule), "open_tool" in Y && l(5, A = Y.open_tool), "autoplay" in Y && a(l(6, C = Y.autoplay));
+    "id" in Y && l(0, k = Y.id), "transpiled_circuit_id" in Y && l(18, y = Y.transpiled_circuit_id), "original_circuit_id" in Y && l(19, v = Y.original_circuit_id), "circuit_layers" in Y && l(1, w = Y.circuit_layers), "pulse_data" in Y && l(2, q = Y.pulse_data), "machine_moment_at" in Y && b(l(3, $ = Y.machine_moment_at)), "machine_dt_at" in Y && h(l(4, j = Y.machine_dt_at)), "op_schedule" in Y && l(20, I = Y.op_schedule), "open_tool" in Y && l(5, A = Y.open_tool), "autoplay" in Y && a(l(6, M = Y.autoplay));
   }, t.$$.update = () => {
     if (t.$$.dirty[0] & /*circuit_layers, pulse_data*/
     6) {
@@ -14072,8 +14072,8 @@ function pw(t, e, l) {
     $,
     j,
     A,
-    C,
-    E,
+    M,
+    O,
     F,
     r,
     o,
@@ -14086,13 +14086,13 @@ function pw(t, e, l) {
     P,
     y,
     v,
-    O,
+    I,
     L,
     X,
     V,
     Q,
     Z,
-    ne,
+    ae,
     se,
     K
   ];
@@ -14130,12 +14130,12 @@ function If(t) {
   let e, l, i, n, a, r, s;
   return {
     c() {
-      e = m("a"), l = I("PNG"), n = N(), a = m("a"), r = I("SVG"), u(e, "class", "save-download svelte-ttpui0"), u(e, "href", i = /*images*/
+      e = m("a"), l = E("PNG"), n = N(), a = m("a"), r = E("SVG"), u(e, "class", "save-download svelte-ttpui0"), u(e, "href", i = /*images*/
       t[6]["original-circuit"].png), u(e, "download", ""), u(a, "class", "save-download svelte-ttpui0"), u(a, "href", s = /*images*/
       t[6]["original-circuit"].svg), u(a, "download", "");
     },
     m(o, _) {
-      M(o, e, _), f(e, l), M(o, n, _), M(o, a, _), f(a, r);
+      S(o, e, _), f(e, l), S(o, n, _), S(o, a, _), f(a, r);
     },
     p(o, _) {
       _[0] & /*images*/
@@ -14145,7 +14145,7 @@ function If(t) {
       o[6]["original-circuit"].svg) && u(a, "href", s);
     },
     d(o) {
-      o && (S(e), S(n), S(a));
+      o && (C(e), C(n), C(a));
     }
   };
 }
@@ -14156,7 +14156,7 @@ function Df(t) {
       e = m("span"), e.textContent = "QASM2:", l = N(), i = m("button"), i.textContent = "Copy", n = N(), a = m("button"), a.textContent = "Show", u(e, "class", "save-make-label svelte-ttpui0"), u(i, "class", "save-make svelte-ttpui0"), u(a, "class", "save-make svelte-ttpui0");
     },
     m(o, _) {
-      M(o, e, _), M(o, l, _), M(o, i, _), M(o, n, _), M(o, a, _), r || (s = [
+      S(o, e, _), S(o, l, _), S(o, i, _), S(o, n, _), S(o, a, _), r || (s = [
         te(
           i,
           "click",
@@ -14171,9 +14171,9 @@ function Df(t) {
         )
       ], r = !0);
     },
-    p: ae,
+    p: ne,
     d(o) {
-      o && (S(e), S(l), S(i), S(n), S(a)), r = !1, wt(s);
+      o && (C(e), C(l), C(i), C(n), C(a)), r = !1, wt(s);
     }
   };
 }
@@ -14184,7 +14184,7 @@ function Rf(t) {
       e = m("span"), e.textContent = "QASM3:", l = N(), i = m("button"), i.textContent = "Copy", n = N(), a = m("button"), a.textContent = "Show", u(e, "class", "save-make-label svelte-ttpui0"), u(i, "class", "save-make svelte-ttpui0"), u(a, "class", "save-make svelte-ttpui0");
     },
     m(o, _) {
-      M(o, e, _), M(o, l, _), M(o, i, _), M(o, n, _), M(o, a, _), r || (s = [
+      S(o, e, _), S(o, l, _), S(o, i, _), S(o, n, _), S(o, a, _), r || (s = [
         te(
           i,
           "click",
@@ -14199,9 +14199,9 @@ function Rf(t) {
         )
       ], r = !0);
     },
-    p: ae,
+    p: ne,
     d(o) {
-      o && (S(e), S(l), S(i), S(n), S(a)), r = !1, wt(s);
+      o && (C(e), C(l), C(i), C(n), C(a)), r = !1, wt(s);
     }
   };
 }
@@ -14220,7 +14220,7 @@ function Hf(t) {
       e = m("div"), pe(l.$$.fragment), u(e, "class", "info-section-wrap svelte-ttpui0");
     },
     m(a, r) {
-      M(a, e, r), de(l, e, null), i = !0;
+      S(a, e, r), de(l, e, null), i = !0;
     },
     p(a, r) {
       var o;
@@ -14236,7 +14236,7 @@ function Hf(t) {
       D(l.$$.fragment, a), i = !1;
     },
     d(a) {
-      a && S(e), he(l);
+      a && C(e), he(l);
     }
   };
 }
@@ -14289,14 +14289,14 @@ function Ff(t) {
   let e, l, i, n, a, r, s;
   return {
     c() {
-      e = m("a"), l = I("PNG"), n = N(), a = m("a"), r = I("SVG"), u(e, "class", "save-download svelte-ttpui0"), u(e, "href", i = /*images*/
+      e = m("a"), l = E("PNG"), n = N(), a = m("a"), r = E("SVG"), u(e, "class", "save-download svelte-ttpui0"), u(e, "href", i = /*images*/
       t[6]["transpiled-circuit-" + /*ti*/
       t[39]].png), u(e, "download", ""), u(a, "class", "save-download svelte-ttpui0"), u(a, "href", s = /*images*/
       t[6]["transpiled-circuit-" + /*ti*/
       t[39]].svg), u(a, "download", "");
     },
     m(o, _) {
-      M(o, e, _), f(e, l), M(o, n, _), M(o, a, _), f(a, r);
+      S(o, e, _), f(e, l), S(o, n, _), S(o, a, _), f(a, r);
     },
     p(o, _) {
       _[0] & /*images*/
@@ -14308,7 +14308,7 @@ function Ff(t) {
       o[39]].svg) && u(a, "href", s);
     },
     d(o) {
-      o && (S(e), S(n), S(a));
+      o && (C(e), C(n), C(a));
     }
   };
 }
@@ -14341,7 +14341,7 @@ function Qf(t) {
       e = m("span"), e.textContent = "QASM2:", l = N(), i = m("button"), i.textContent = "Copy", n = N(), a = m("button"), a.textContent = "Show", u(e, "class", "save-make-label svelte-ttpui0"), u(i, "class", "save-make svelte-ttpui0"), u(a, "class", "save-make svelte-ttpui0");
     },
     m(c, d) {
-      M(c, e, d), M(c, l, d), M(c, i, d), M(c, n, d), M(c, a, d), r || (s = [
+      S(c, e, d), S(c, l, d), S(c, i, d), S(c, n, d), S(c, a, d), r || (s = [
         te(i, "click", o),
         te(a, "click", _)
       ], r = !0);
@@ -14350,7 +14350,7 @@ function Qf(t) {
       t = c;
     },
     d(c) {
-      c && (S(e), S(l), S(i), S(n), S(a)), r = !1, wt(s);
+      c && (C(e), C(l), C(i), C(n), C(a)), r = !1, wt(s);
     }
   };
 }
@@ -14383,7 +14383,7 @@ function Vf(t) {
       e = m("span"), e.textContent = "QASM3:", l = N(), i = m("button"), i.textContent = "Copy", n = N(), a = m("button"), a.textContent = "Show", u(e, "class", "save-make-label svelte-ttpui0"), u(i, "class", "save-make svelte-ttpui0"), u(a, "class", "save-make svelte-ttpui0");
     },
     m(c, d) {
-      M(c, e, d), M(c, l, d), M(c, i, d), M(c, n, d), M(c, a, d), r || (s = [
+      S(c, e, d), S(c, l, d), S(c, i, d), S(c, n, d), S(c, a, d), r || (s = [
         te(i, "click", o),
         te(a, "click", _)
       ], r = !0);
@@ -14392,7 +14392,7 @@ function Vf(t) {
       t = c;
     },
     d(c) {
-      c && (S(e), S(l), S(i), S(n), S(a)), r = !1, wt(s);
+      c && (C(e), C(l), C(i), C(n), C(a)), r = !1, wt(s);
     }
   };
 }
@@ -14400,14 +14400,14 @@ function Xf(t) {
   let e, l, i, n, a, r, s;
   return {
     c() {
-      e = m("a"), l = I("PNG"), n = N(), a = m("a"), r = I("SVG"), u(e, "class", "save-download svelte-ttpui0"), u(e, "href", i = /*images*/
+      e = m("a"), l = E("PNG"), n = N(), a = m("a"), r = E("SVG"), u(e, "class", "save-download svelte-ttpui0"), u(e, "href", i = /*images*/
       t[6]["on-machine-" + /*ti*/
       t[39]].png), u(e, "download", ""), u(a, "class", "save-download svelte-ttpui0"), u(a, "href", s = /*images*/
       t[6]["on-machine-" + /*ti*/
       t[39]].svg), u(a, "download", "");
     },
     m(o, _) {
-      M(o, e, _), f(e, l), M(o, n, _), M(o, a, _), f(a, r);
+      S(o, e, _), f(e, l), S(o, n, _), S(o, a, _), f(a, r);
     },
     p(o, _) {
       _[0] & /*images*/
@@ -14419,7 +14419,7 @@ function Xf(t) {
       o[39]].svg) && u(a, "href", s);
     },
     d(o) {
-      o && (S(e), S(n), S(a));
+      o && (C(e), C(n), C(a));
     }
   };
 }
@@ -14434,7 +14434,7 @@ function Gf(t) {
       /*ti*/
       t[39]
     ] ? "Show" : "Filter"
-  ), c, d, h, p, b, g, k, y, v, w, q, $, j, O, A, C, z, H, B, R, P, E, F, L, X, V, Q;
+  ), c, d, h, p, g, b, k, y, v, w, q, $, j, I, A, M, z, H, B, R, P, O, F, L, X, V, Q;
   function Z(...le) {
     return (
       /*click_handler_6*/
@@ -14445,7 +14445,7 @@ function Gf(t) {
       )
     );
   }
-  function ne(...le) {
+  function ae(...le) {
     return (
       /*click_handler_7*/
       t[25](
@@ -14672,12 +14672,12 @@ function Gf(t) {
   }
   return {
     c() {
-      e = m("div"), l = m("section"), i = m("h1"), n = I("Transpiled Circuit "), r = I(a), s = N(), o = m("button"), c = I(_), d = I(" unused qubits"), h = N(), p = m("button"), p.textContent = "Image", b = N(), se && se.c(), g = N(), K && K.c(), k = N(), Y && Y.c(), y = N(), pe(v.$$.fragment), w = N(), q = m("div"), pe($.$$.fragment), j = N(), O = m("section"), A = m("h1"), C = I("On-machine view "), z = m("button"), z.textContent = "Image", H = N(), J && J.c(), B = N(), R = m("div"), pe(P.$$.fragment), E = N(), F = m("div"), pe(L.$$.fragment), u(o, "class", "save-make svelte-ttpui0"), u(p, "class", "save-make svelte-ttpui0"), u(i, "class", "svelte-ttpui0"), u(q, "class", "circuit svelte-ttpui0"), u(l, "class", "circuit-view-wrap circuit-section svelte-ttpui0"), u(z, "class", "save-make svelte-ttpui0"), u(A, "class", "svelte-ttpui0"), u(R, "class", "circuit svelte-ttpui0"), u(F, "class", "circuit svelte-ttpui0"), u(O, "class", "circuit-view-wrap machine-section svelte-ttpui0"), u(e, "class", "transpiled-wrap svelte-ttpui0");
+      e = m("div"), l = m("section"), i = m("h1"), n = E("Transpiled Circuit "), r = E(a), s = N(), o = m("button"), c = E(_), d = E(" unused qubits"), h = N(), p = m("button"), p.textContent = "Image", g = N(), se && se.c(), b = N(), K && K.c(), k = N(), Y && Y.c(), y = N(), pe(v.$$.fragment), w = N(), q = m("div"), pe($.$$.fragment), j = N(), I = m("section"), A = m("h1"), M = E("On-machine view "), z = m("button"), z.textContent = "Image", H = N(), J && J.c(), B = N(), R = m("div"), pe(P.$$.fragment), O = N(), F = m("div"), pe(L.$$.fragment), u(o, "class", "save-make svelte-ttpui0"), u(p, "class", "save-make svelte-ttpui0"), u(i, "class", "svelte-ttpui0"), u(q, "class", "circuit svelte-ttpui0"), u(l, "class", "circuit-view-wrap circuit-section svelte-ttpui0"), u(z, "class", "save-make svelte-ttpui0"), u(A, "class", "svelte-ttpui0"), u(R, "class", "circuit svelte-ttpui0"), u(F, "class", "circuit svelte-ttpui0"), u(I, "class", "circuit-view-wrap machine-section svelte-ttpui0"), u(e, "class", "transpiled-wrap svelte-ttpui0");
     },
     m(le, oe) {
-      M(le, e, oe), f(e, l), f(l, i), f(i, n), f(i, r), f(i, s), f(i, o), f(o, c), f(o, d), f(i, h), f(i, p), f(i, b), se && se.m(i, null), f(i, g), K && K.m(i, null), f(i, k), Y && Y.m(i, null), f(l, y), de(v, l, null), f(l, w), f(l, q), de($, q, null), f(e, j), f(e, O), f(O, A), f(A, C), f(A, z), f(A, H), J && J.m(A, null), f(O, B), f(O, R), de(P, R, null), f(O, E), f(O, F), de(L, F, null), X = !0, V || (Q = [
+      S(le, e, oe), f(e, l), f(l, i), f(i, n), f(i, r), f(i, s), f(i, o), f(o, c), f(o, d), f(i, h), f(i, p), f(i, g), se && se.m(i, null), f(i, b), K && K.m(i, null), f(i, k), Y && Y.m(i, null), f(l, y), de(v, l, null), f(l, w), f(l, q), de($, q, null), f(e, j), f(e, I), f(I, A), f(A, M), f(A, z), f(A, H), J && J.m(A, null), f(I, B), f(I, R), de(P, R, null), f(I, O), f(I, F), de(L, F, null), X = !0, V || (Q = [
         te(o, "click", Z),
-        te(p, "click", ne),
+        te(p, "click", ae),
         te(z, "click", W),
         te(e, "focus", ee),
         te(e, "click", we)
@@ -14692,7 +14692,7 @@ function Gf(t) {
         t[39]
       ] ? "Show" : "Filter") && U(c, _), /*images*/
       t[6]["transpiled-circuit-" + /*ti*/
-      t[39]] ? se ? se.p(t, oe) : (se = Ff(t), se.c(), se.m(i, g)) : se && (se.d(1), se = null), /*trans_circuit*/
+      t[39]] ? se ? se.p(t, oe) : (se = Ff(t), se.c(), se.m(i, b)) : se && (se.d(1), se = null), /*trans_circuit*/
       (je = t[37]) != null && je.qasm2 ? K ? K.p(t, oe) : (K = Qf(t), K.c(), K.m(i, k)) : K && (K.d(1), K = null), /*trans_circuit*/
       (_e = t[37]) != null && _e.qasm3 ? Y ? Y.p(t, oe) : (Y = Vf(t), Y.c(), Y.m(i, null)) : Y && (Y.d(1), Y = null);
       const x = {};
@@ -14792,16 +14792,16 @@ function Gf(t) {
       D(v.$$.fragment, le), D($.$$.fragment, le), D(P.$$.fragment, le), D(L.$$.fragment, le), X = !1;
     },
     d(le) {
-      le && S(e), se && se.d(), K && K.d(), Y && Y.d(), he(v), he($), J && J.d(), he(P), he(L), V = !1, wt(Q);
+      le && C(e), se && se.d(), K && K.d(), Y && Y.d(), he(v), he($), J && J.d(), he(P), he(L), V = !1, wt(Q);
     }
   };
 }
 function gw(t) {
   var W, J, ee, we, Re, ve, me, fe, G, ye;
-  let e, l, i, n, a, r, s, o, _, c, d, h, p, b, g, k, y, v = (
+  let e, l, i, n, a, r, s, o, _, c, d, h, p, g, b, k, y, v = (
     /*show_transpile_summary*/
     t[4] ? "Hide" : "Show"
-  ), w, q, $, j, O, A, C, z, H, B, R, P, E, F, L, X = (
+  ), w, q, $, j, I, A, M, z, H, B, R, P, O, F, L, X = (
     /*images*/
     t[6]["original-circuit"] && If(t)
   ), V = (
@@ -14848,7 +14848,7 @@ function gw(t) {
   let Z = (
     /*show_transpile_summary*/
     t[4] && Hf(t)
-  ), ne = (
+  ), ae = (
     /*$selected_info*/
     t[10] && Lf(t)
   ), se = $e(
@@ -14862,7 +14862,7 @@ function gw(t) {
   });
   return {
     c() {
-      e = m("div"), l = m("div"), i = m("section"), n = m("h1"), a = I("Original Circuit "), r = m("button"), r.textContent = "Image", s = N(), X && X.c(), o = N(), V && V.c(), _ = N(), Q && Q.c(), c = N(), d = m("div"), pe(h.$$.fragment), p = N(), b = m("section"), g = m("h1"), k = I("Transpilation Summary "), y = m("button"), w = I(v), q = N(), Z && Z.c(), $ = N(), j = m("section"), O = m("h1"), O.textContent = "Information & Interaction", A = N(), C = m("div"), ne && ne.c(), z = N(), H = m("div");
+      e = m("div"), l = m("div"), i = m("section"), n = m("h1"), a = E("Original Circuit "), r = m("button"), r.textContent = "Image", s = N(), X && X.c(), o = N(), V && V.c(), _ = N(), Q && Q.c(), c = N(), d = m("div"), pe(h.$$.fragment), p = N(), g = m("section"), b = m("h1"), k = E("Transpilation Summary "), y = m("button"), w = E(v), q = N(), Z && Z.c(), $ = N(), j = m("section"), I = m("h1"), I.textContent = "Information & Interaction", A = N(), M = m("div"), ae && ae.c(), z = N(), H = m("div");
       for (let ue = 0; ue < K.length; ue += 1)
         K[ue].c();
       B = N(), R = m("span"), R.textContent = `To support how each qubit contributes to the overall success, each qubit
@@ -14871,14 +14871,14 @@ function gw(t) {
       (i.e., up to the current moment). Thus, the term may be different then the
       overall ESP value which is the product of the ESP values of all the
       operations in the circut. The overall ESP value change is shown in the
-      transpiled circuit view.`, u(r, "class", "save-make svelte-ttpui0"), u(n, "class", "svelte-ttpui0"), u(d, "class", "circuit svelte-ttpui0"), u(i, "class", "circuit-view-wrap original svelte-ttpui0"), u(y, "class", "save-make svelte-ttpui0"), u(g, "class", "svelte-ttpui0"), u(b, "class", "circuit-view-wrap transpile-summary svelte-ttpui0"), u(O, "class", "svelte-ttpui0"), u(C, "class", "info-section-wrap svelte-ttpui0"), u(j, "class", "circuit-view-wrap info-section-group svelte-ttpui0"), u(l, "class", "original-circuit-column svelte-ttpui0"), u(R, "class", "note svelte-ttpui0"), u(H, "class", "transpiled-circuit-column svelte-ttpui0"), u(e, "class", "frame svelte-ttpui0"), u(e, "id", P = "circuit-viewer-" + /*unit_id*/
+      transpiled circuit view.`, u(r, "class", "save-make svelte-ttpui0"), u(n, "class", "svelte-ttpui0"), u(d, "class", "circuit svelte-ttpui0"), u(i, "class", "circuit-view-wrap original svelte-ttpui0"), u(y, "class", "save-make svelte-ttpui0"), u(b, "class", "svelte-ttpui0"), u(g, "class", "circuit-view-wrap transpile-summary svelte-ttpui0"), u(I, "class", "svelte-ttpui0"), u(M, "class", "info-section-wrap svelte-ttpui0"), u(j, "class", "circuit-view-wrap info-section-group svelte-ttpui0"), u(l, "class", "original-circuit-column svelte-ttpui0"), u(R, "class", "note svelte-ttpui0"), u(H, "class", "transpiled-circuit-column svelte-ttpui0"), u(e, "class", "frame svelte-ttpui0"), u(e, "id", P = "circuit-viewer-" + /*unit_id*/
       t[7]);
     },
     m(ue, le) {
-      M(ue, e, le), f(e, l), f(l, i), f(i, n), f(n, a), f(n, r), f(n, s), X && X.m(n, null), f(n, o), V && V.m(n, null), f(n, _), Q && Q.m(n, null), f(i, c), f(i, d), de(h, d, null), f(l, p), f(l, b), f(b, g), f(g, k), f(g, y), f(y, w), f(b, q), Z && Z.m(b, null), f(l, $), f(l, j), f(j, O), f(j, A), f(j, C), ne && ne.m(C, null), f(e, z), f(e, H);
+      S(ue, e, le), f(e, l), f(l, i), f(i, n), f(n, a), f(n, r), f(n, s), X && X.m(n, null), f(n, o), V && V.m(n, null), f(n, _), Q && Q.m(n, null), f(i, c), f(i, d), de(h, d, null), f(l, p), f(l, g), f(g, b), f(b, k), f(b, y), f(y, w), f(g, q), Z && Z.m(g, null), f(l, $), f(l, j), f(j, I), f(j, A), f(j, M), ae && ae.m(M, null), f(e, z), f(e, H);
       for (let oe = 0; oe < K.length; oe += 1)
         K[oe] && K[oe].m(H, null);
-      f(H, B), f(H, R), E = !0, F || (L = [
+      f(H, B), f(H, R), O = !0, F || (L = [
         te(
           r,
           "click",
@@ -14913,16 +14913,16 @@ function gw(t) {
       256 && (oe.matched_machine_id = /*$data*/
       (Te = ue[8]) == null ? void 0 : Te.transpiled.map(Kf)), le[0] & /*unit_id*/
       128 && (oe.unit_id = /*unit_id*/
-      ue[7]), h.$set(oe), (!E || le[0] & /*show_transpile_summary*/
+      ue[7]), h.$set(oe), (!O || le[0] & /*show_transpile_summary*/
       16) && v !== (v = /*show_transpile_summary*/
       ue[4] ? "Hide" : "Show") && U(w, v), /*show_transpile_summary*/
       ue[4] ? Z ? (Z.p(ue, le), le[0] & /*show_transpile_summary*/
-      16 && T(Z, 1)) : (Z = Hf(ue), Z.c(), T(Z, 1), Z.m(b, null)) : Z && (be(), D(Z, 1, 1, () => {
+      16 && T(Z, 1)) : (Z = Hf(ue), Z.c(), T(Z, 1), Z.m(g, null)) : Z && (be(), D(Z, 1, 1, () => {
         Z = null;
       }), ke()), /*$selected_info*/
-      ue[10] ? ne ? (ne.p(ue, le), le[0] & /*$selected_info*/
-      1024 && T(ne, 1)) : (ne = Lf(ue), ne.c(), T(ne, 1), ne.m(C, null)) : ne && (be(), D(ne, 1, 1, () => {
-        ne = null;
+      ue[10] ? ae ? (ae.p(ue, le), le[0] & /*$selected_info*/
+      1024 && T(ae, 1)) : (ae = Lf(ue), ae.c(), T(ae, 1), ae.m(M, null)) : ae && (be(), D(ae, 1, 1, () => {
+        ae = null;
       }), ke()), le[0] & /*transpile_at, $data, open_tool, machine_moment_at, machine_dt_at, operation_schedules, autoplays, filter_unused_qubits, unit_id, images, images_loader*/
       53743) {
         se = $e(
@@ -14938,26 +14938,26 @@ function gw(t) {
           Y(Ke);
         ke();
       }
-      (!E || le[0] & /*unit_id*/
+      (!O || le[0] & /*unit_id*/
       128 && P !== (P = "circuit-viewer-" + /*unit_id*/
       ue[7])) && u(e, "id", P);
     },
     i(ue) {
-      if (!E) {
-        T(h.$$.fragment, ue), T(Z), T(ne);
+      if (!O) {
+        T(h.$$.fragment, ue), T(Z), T(ae);
         for (let le = 0; le < se.length; le += 1)
           T(K[le]);
-        E = !0;
+        O = !0;
       }
     },
     o(ue) {
-      D(h.$$.fragment, ue), D(Z), D(ne), K = K.filter(Boolean);
+      D(h.$$.fragment, ue), D(Z), D(ae), K = K.filter(Boolean);
       for (let le = 0; le < K.length; le += 1)
         D(K[le]);
-      E = !1;
+      O = !1;
     },
     d(ue) {
-      ue && S(e), X && X.d(), V && V.d(), Q && Q.d(), he(h), Z && Z.d(), ne && ne.d(), Ye(K, ue), F = !1, wt(L);
+      ue && C(e), X && X.d(), V && V.d(), Q && Q.d(), he(h), Z && Z.d(), ae && ae.d(), Ye(K, ue), F = !1, wt(L);
     }
   };
 }
@@ -14965,7 +14965,7 @@ const Yf = (t, e) => "transpiled-circuit-" + e, Kf = (t, e) => "on-machine-" + e
 function bw(t, e, l) {
   let i, n, a, { model: r } = e, { key_circ: s = "circ" } = e, o = r.get(s), _ = JSON.parse(o), c = `change:${s}`, d = () => o = r.get(s), h = Oe();
   at(t, h, (K) => l(8, i = K));
-  let p = [Oe(0)], b = [Oe([])], g = [Oe(0)], k = Oe(0);
+  let p = [Oe(0)], g = [Oe([])], b = [Oe(0)], k = Oe(0);
   at(t, k, (K) => l(9, n = K));
   let y = [Oe(!1)], v = !0, w = [], q = Oe();
   at(t, q, (K) => l(10, a = K));
@@ -14973,24 +14973,24 @@ function bw(t, e, l) {
   j.subscribe((K) => {
     K && l(6, $[K.id] = K, $);
   });
-  function O(K) {
+  function I(K) {
     q.set(K);
   }
   let A = "";
   Tt(() => {
     var K, Y, W, J, ee;
-    l(7, A = crypto.randomUUID()), h.set(_), r.on(c, d), l(0, p = (K = i == null ? void 0 : i.transpiled) == null ? void 0 : K.map(() => Oe(0))), l(2, g = (Y = i == null ? void 0 : i.transpiled) == null ? void 0 : Y.map(() => Oe(0))), l(1, b = (W = i == null ? void 0 : i.transpiled) == null ? void 0 : W.map(() => Oe([]))), l(5, w = (J = i == null ? void 0 : i.transpiled) == null ? void 0 : J.map(() => !0)), l(3, y = (ee = i == null ? void 0 : i.transpiled) == null ? void 0 : ee.map(() => Oe(!1))), console.log(i);
+    l(7, A = crypto.randomUUID()), h.set(_), r.on(c, d), l(0, p = (K = i == null ? void 0 : i.transpiled) == null ? void 0 : K.map(() => Oe(0))), l(2, b = (Y = i == null ? void 0 : i.transpiled) == null ? void 0 : Y.map(() => Oe(0))), l(1, g = (W = i == null ? void 0 : i.transpiled) == null ? void 0 : W.map(() => Oe([]))), l(5, w = (J = i == null ? void 0 : i.transpiled) == null ? void 0 : J.map(() => !0)), l(3, y = (ee = i == null ? void 0 : i.transpiled) == null ? void 0 : ee.map(() => Oe(!1))), console.log(i);
   }), ri(() => {
     r.off(c, d);
   });
-  const C = (K) => {
+  const M = (K) => {
     Ii("original-circuit", j);
   }, z = (K) => {
     var Y;
     ei((Y = i == null ? void 0 : i.original) == null ? void 0 : Y.qasm2);
   }, H = (K) => {
     var Y;
-    O({
+    I({
       data: {
         qasm_version: 2,
         title: "Original Circuit",
@@ -15002,7 +15002,7 @@ function bw(t, e, l) {
     ei((Y = i == null ? void 0 : i.original) == null ? void 0 : Y.qasm3);
   }, R = (K) => {
     var Y;
-    O({
+    I({
       data: {
         qasm_version: 3,
         title: "Original Circuit",
@@ -15011,14 +15011,14 @@ function bw(t, e, l) {
     });
   }, P = () => {
     l(4, v = !v);
-  }, E = (K, Y) => {
+  }, O = (K, Y) => {
     l(5, w[K] = !w[K], w);
   }, F = (K, Y) => {
     Ii("transpiled-circuit-" + K, j);
   }, L = (K, Y) => {
     ei(K == null ? void 0 : K.qasm2);
   }, X = (K, Y, W) => {
-    O({
+    I({
       data: {
         qasm_version: 2,
         title: "Transpiled Circuit " + (K + 1),
@@ -15028,7 +15028,7 @@ function bw(t, e, l) {
   }, V = (K, Y) => {
     ei(K == null ? void 0 : K.qasm3);
   }, Q = (K, Y, W) => {
-    O({
+    I({
       data: {
         qasm_version: 3,
         title: "Transpiled Circuit " + (K + 1),
@@ -15037,7 +15037,7 @@ function bw(t, e, l) {
     });
   }, Z = (K, Y) => {
     Ii("on-machine-" + K, j);
-  }, ne = (K, Y) => {
+  }, ae = (K, Y) => {
     k.set(K);
   }, se = (K, Y) => {
     k.set(K);
@@ -15046,8 +15046,8 @@ function bw(t, e, l) {
     "model" in K && l(16, r = K.model), "key_circ" in K && l(17, s = K.key_circ);
   }, [
     p,
-    b,
     g,
+    b,
     y,
     v,
     w,
@@ -15060,23 +15060,23 @@ function bw(t, e, l) {
     k,
     q,
     j,
-    O,
+    I,
     r,
     s,
-    C,
+    M,
     z,
     H,
     B,
     R,
     P,
-    E,
+    O,
     F,
     L,
     X,
     V,
     Q,
     Z,
-    ne,
+    ae,
     se
   ];
 }
@@ -15716,12 +15716,12 @@ circuit.append(qft_dagger(SHORS_COUNT), range(SHORS_COUNT))
 # circuit.measure(SHORS_COUNT_QUBITS, range(SHORS_COUNT))
 `;
 function xf(t, e) {
-  var $, j, O, A, C, z, H, B, R, P, E, F, L, X, V, Q, Z, ne, se, K, Y, W, J, ee, we, Re, ve, me, fe, G, ye, ue, le, oe, x, ge, re, Ie, je, _e, Ee, ie, Te, Ue, Ke, We, vt, qt, rt, mt, Rt, ot;
+  var $, j, I, A, M, z, H, B, R, P, O, F, L, X, V, Q, Z, ae, se, K, Y, W, J, ee, we, Re, ve, me, fe, G, ye, ue, le, oe, x, ge, re, Ie, je, _e, Ee, ie, Te, Ue, Ke, We, vt, qt, rt, mt, Rt, ot;
   let l = [], i = [], n = [], a = [], r = [], s = 0;
   e != null && e.no_includes || (i.push("from qiskit import QuantumCircuit"), t.reporting === "measure" && i.push("from qiskit.visualization import plot_histogram"));
   let o = t.num_qubits === "auto", _ = t.num_clbits === "auto", c = [], d = yl[t.machine], h = t.is_simulator;
   d && (i.push("from qiskit.transpiler.preset_passmanagers import generate_preset_pass_manager"), d.name === "Aer" ? (i.push("from qiskit_aer import AerSimulator"), i.push("from qiskit import transpile")) : h ? (i.push("import qiskit_aer"), i.push(`from qiskit_ibm_runtime.fake_provider import ${d.sim}`)) : (i.push("import os"), i.push("from qiskit_ibm_runtime import QiskitRuntimeService")));
-  let p = !1, b = !1, g, k = !1, y = [];
+  let p = !1, g = !1, b, k = !1, y = [];
   if (t != null && t.operations) {
     let ut = 0;
     for (const Ce of t.operations)
@@ -15785,7 +15785,7 @@ function xf(t, e) {
             } else
               Be = c;
           }
-          if (((O = Ce == null ? void 0 : Ce.globals) == null ? void 0 : O.type) === "linear")
+          if (((I = Ce == null ? void 0 : Ce.globals) == null ? void 0 : I.type) === "linear")
             Be.forEach((Le, Pe) => {
               Pe < Be.length - 1 && l.push(`circuit.cx(${Le}, ${Be[Pe + 1]})`);
             });
@@ -15798,7 +15798,7 @@ function xf(t, e) {
               }
             }
           else
-            (((C = Ce == null ? void 0 : Ce.globals) == null ? void 0 : C.type) === "circular" || !((z = Ce == null ? void 0 : Ce.globals) != null && z.type)) && Be.forEach((Le, Pe) => {
+            (((M = Ce == null ? void 0 : Ce.globals) == null ? void 0 : M.type) === "circular" || !((z = Ce == null ? void 0 : Ce.globals) != null && z.type)) && Be.forEach((Le, Pe) => {
               Pe < Be.length - 1 ? l.push(`circuit.cx(${Le}, ${Be[Pe + 1]})`) : l.push(`circuit.cx(${Le}, ${Be[0]})`);
             });
           _ && y.push(...Be);
@@ -15833,10 +15833,10 @@ function xf(t, e) {
           })), (R = Ce == null ? void 0 : Ce.globals) != null && R.boolean_expression && (l.push("# Boolean Truth Table Function Oracle"), l.push(`tt_bool_${ut} = revkit.truth_table.from_expression("${Ce.globals.boolean_expression}")`), l.push(`oracle_${ut} = revkit.oracle_synth(tt_bool_${ut})`), l.push(`oracle_gate_${ut} = oracle_${ut}.to_qiskit().to_gate()`), l.push(`circuit.append(oracle_gate_${ut}, [${Ce.apply_to.join(", ")}])`)), _ && y.push(...Be);
         } else if ((ce == null ? void 0 : ce.key) === "SHOR_period") {
           i.includes("import numpy as np") || i.push("import numpy as np"), i.includes(Zf) || i.push(Zf);
-          let Be = (E = (P = Ce.qubit_registers) == null ? void 0 : P.oracle) == null ? void 0 : E.apply_to, Le = (L = (F = Ce.qubit_registers) == null ? void 0 : F.counter) == null ? void 0 : L.apply_to;
+          let Be = (O = (P = Ce.qubit_registers) == null ? void 0 : P.oracle) == null ? void 0 : O.apply_to, Le = (L = (F = Ce.qubit_registers) == null ? void 0 : F.counter) == null ? void 0 : L.apply_to;
           if (o) {
             let Pe = ce.variables.oracle_size(Ce), Je = 6;
-            if (!((V = (X = Ce.qubit_registers) == null ? void 0 : X.oracle) != null && V.qubits_manual) && !((ne = (Z = (Q = Ce.qubit_registers) == null ? void 0 : Q.oracle) == null ? void 0 : Z.qubits_manual) != null && ne.length))
+            if (!((V = (X = Ce.qubit_registers) == null ? void 0 : X.oracle) != null && V.qubits_manual) && !((ae = (Z = (Q = Ce.qubit_registers) == null ? void 0 : Q.oracle) == null ? void 0 : Z.qubits_manual) != null && ae.length))
               if (c.length < Pe) {
                 let Xe = c.length - 1;
                 Be = [];
@@ -15941,7 +15941,7 @@ function xf(t, e) {
             (qt = Ce == null ? void 0 : Ce.globals) == null ? void 0 : qt.color_mode,
             (rt = Ce == null ? void 0 : Ce.globals) == null ? void 0 : rt.sigma
           );
-          l.push(Pe), p = !0, b = !0, g = ww(), k = !0;
+          l.push(Pe), p = !0, g = !0, b = ww(), k = !0;
         }
         ut++;
       }
@@ -15952,17 +15952,17 @@ function xf(t, e) {
   if (_ ? (q = y.map((ut, Ce) => Ce), w = Math.max(...q) + 1) : (q = t == null ? void 0 : t.clbits, w = t == null ? void 0 : t.num_qubits), p || l.splice(0, 0, `circuit = QuantumCircuit(${v || 1}, ${w || 0})`), d && (d.name === "Aer" ? n.push("aer_sim = AerSimulator()") : d.name === "Qiskit" ? (i.includes("from qiskit_ibm_runtime import QiskitRuntimeService") || i.push("from qiskit_ibm_runtime import QiskitRuntimeService"), n.push('QiskitRuntimeService.save_account(channel="ibm_quantum", token=token, overwrite=True)'), n.push('service = QiskitRuntimeService(channel="ibm_quantum")'), n.push("avail_backends = service.backends()"), n.push("backend = avail_backends[0]"), n.push("pass_manager = generate_preset_pass_manager(backend=backend, optimization_level=optimization_level)")) : (n.push("# backend and optimizer"), n.push(`optimization_level = ${t.optimization_level || 1}`), h ? n.push(`backend = qiskit_aer.AerSimulator.from_backend(${d.sim}())`) : (i.includes("from qiskit_ibm_runtime import QiskitRuntimeService") || i.push("from qiskit_ibm_runtime import QiskitRuntimeService"), n.push("# the below code retrieves your IBM token that is stored as an environment variable."), n.push("# Visit https://docs.quantum.ibm.com/api/runtime/ for details and search 'store an environment variable' for how-to."), n.push('token = os.environ["ibm_token"]'), n.push("# Alternatively, you can directly provide your token as a string, which is less recommended."), n.push("# token = YOUR_TOKEN"), n.push('QiskitRuntimeService.save_account(channel="ibm_quantum", token=token, overwrite=True)'), n.push('service = QiskitRuntimeService(channel="ibm_quantum")'), n.push(`backend = service.backend(name="${d.machine}")`)), n.push("pass_manager = generate_preset_pass_manager(backend=backend, optimization_level=optimization_level)")), n.push("")), t.reporting === "observe")
     ((mt = t == null ? void 0 : t.pauli_obs) == null ? void 0 : mt.length) > 0 && (e != null && e.no_includes || (i.push("from qiskit.quantum_info import SparsePauliOp"), i.push("from qiskit_ibm_runtime import EstimatorV2 as Estimator")), l.push(""), l.push("# Pauli Observables"), l.push(`observables_labels = [${t.pauli_obs.map((ut) => '"' + ut.observable + '"').join(", ")}]`), l.push("observables = [SparsePauliOp(label) for label in observables_labels]"), l.push("mapped_observables = [observable.apply_layout(circuit.layout) for observable in observables]")), d ? (n.push("# pass manager and run"), n.push("estimator = Estimator(backend)"), n.push("transpiled = pass_manager.run(transpiled)"), n.push("job = estimator.run([(transpiled, mapped_observables)])")) : (n.push("# # Uncomment & run this code with a pass manager"), n.push("# estimator = Estimator(backend)"), n.push("# transpiled = pass_manager.run(circuit)"), n.push("# # Uncomment & Run this code with a backend"), n.push("# job = estimator.run([(transpiled, mapped_observables)])"));
   else if (t.reporting === "measure") {
-    if (!b && (t != null && t.measure_all))
+    if (!g && (t != null && t.measure_all))
       l.push(""), l.push("# Measure"), l.push(`circuit.measure([${t.qubits.join(", ")}], [${t.clbits.join(", ")}])`);
-    else if (!b && (t != null && t.measure) && (t == null ? void 0 : t.measure[0]) === "auto")
+    else if (!g && (t != null && t.measure) && (t == null ? void 0 : t.measure[0]) === "auto")
       l.push(""), l.push("# Measure"), l.push(`circuit.measure([${y.join(", ")}], [${y.map((ut, Ce) => Ce).join(", ")}])`);
-    else if (!b && (t != null && t.measure) && (t == null ? void 0 : t.measure.length) > 0) {
+    else if (!g && (t != null && t.measure) && (t == null ? void 0 : t.measure.length) > 0) {
       l.push(""), l.push("# Measure");
       let ut = t.clbits.slice(0, t.measure.length);
       l.push(`circuit.measure([${t.measure.join(", ")}], [${ut.join(", ")}])`);
     } else
-      !b && q.length > 0 && l.push(`circuit.measure([${y.join(", ")}], [${q.join(", ")}])`);
-    d ? d.name === "Aer" ? (n.push("transpiled = transpile(circuit, aer_sim)"), k ? (n.push("shots = aer_sim.configuration().max_shots"), n.push("job = aer_sim.run(transpiled, shots=shots)")) : n.push("job = aer_sim.run(transpiled)")) : (n.push("# pass manager and run"), n.push("transpiled = pass_manager.run(circuit)"), k ? (n.push("shots = backend.configuration().max_shots"), n.push("job = backend.run(transpiled, shots=shots)")) : n.push("job = backend.run(transpiled)")) : (n.push("# # Uncomment & run this code with a pass manager"), n.push("# transpiled = pass_manager.run(circuit)"), n.push("# # Run this code with a backend"), n.push("# job = backend.run(transpiled)")), n.push(""), g ? n.push(g) : (n.push("counts = job.result().get_counts()"), n.push("plot_histogram(counts)"));
+      !g && q.length > 0 && l.push(`circuit.measure([${y.join(", ")}], [${q.join(", ")}])`);
+    d ? d.name === "Aer" ? (n.push("transpiled = transpile(circuit, aer_sim)"), k ? (n.push("shots = aer_sim.configuration().max_shots"), n.push("job = aer_sim.run(transpiled, shots=shots)")) : n.push("job = aer_sim.run(transpiled)")) : (n.push("# pass manager and run"), n.push("transpiled = pass_manager.run(circuit)"), k ? (n.push("shots = backend.configuration().max_shots"), n.push("job = backend.run(transpiled, shots=shots)")) : n.push("job = backend.run(transpiled)")) : (n.push("# # Uncomment & run this code with a pass manager"), n.push("# transpiled = pass_manager.run(circuit)"), n.push("# # Run this code with a backend"), n.push("# job = backend.run(transpiled)")), n.push(""), b ? n.push(b) : (n.push("counts = job.result().get_counts()"), n.push("plot_histogram(counts)"));
   }
   if ((Rt = t.sharing) != null && Rt.qasm2) {
     i.push("from qiskit import qasm2"), l.push(""), l.push("# save the circuit as a QASM2 file"), l.push("circuit_qasm2 = qasm2.dumps(circuit)");
@@ -16000,13 +16000,13 @@ function t_(t) {
   ), i, n, a;
   return {
     c() {
-      e = m("option"), i = I(l), n = N(), e.__value = /*m*/
+      e = m("option"), i = E(l), n = N(), e.__value = /*m*/
       t[6].name, pt(e, e.__value), e.selected = a = /*m*/
       t[6].name === /*$data*/
       t[1].machine;
     },
     m(r, s) {
-      M(r, e, s), f(e, i), f(e, n);
+      S(r, e, s), f(e, i), f(e, n);
     },
     p(r, s) {
       s & /*$data*/
@@ -16015,7 +16015,7 @@ function t_(t) {
       r[1].machine) && (e.selected = a);
     },
     d(r) {
-      r && S(e);
+      r && C(e);
     }
   };
 }
@@ -16023,14 +16023,14 @@ function jw(t) {
   let e;
   return {
     c() {
-      e = I(`This
+      e = E(`This
         machine cannot be used as a simulator.`);
     },
     m(l, i) {
-      M(l, e, i);
+      S(l, e, i);
     },
     d(l) {
-      l && S(e);
+      l && C(e);
     }
   };
 }
@@ -16038,13 +16038,13 @@ function Tw(t) {
   let e;
   return {
     c() {
-      e = I("This machine is only available as a simulator.");
+      e = E("This machine is only available as a simulator.");
     },
     m(l, i) {
-      M(l, e, i);
+      S(l, e, i);
     },
     d(l) {
-      l && S(e);
+      l && C(e);
     }
   };
 }
@@ -16055,10 +16055,10 @@ function l_(t) {
   ].description + "", n;
   return {
     c() {
-      e = m("span"), l = m("strong"), n = I(i), u(e, "class", "note svelte-r85cdz");
+      e = m("span"), l = m("strong"), n = E(i), u(e, "class", "note svelte-r85cdz");
     },
     m(a, r) {
-      M(a, e, r), f(e, l), f(l, n);
+      S(a, e, r), f(e, l), f(l, n);
     },
     p(a, r) {
       r & /*$data*/
@@ -16068,7 +16068,7 @@ function l_(t) {
       ].description + "") && U(n, i);
     },
     d(a) {
-      a && S(e);
+      a && C(e);
     }
   };
 }
@@ -16082,11 +16082,11 @@ function i_(t) {
   ), _, c;
   return {
     c() {
-      e = m("div"), l = m("strong"), i = I("You can use up to "), a = I(n), r = I(" qubits."), s = I(`
-      Currently, `), _ = I(o), c = I(" qubits are used."), u(e, "class", "warning svelte-r85cdz");
+      e = m("div"), l = m("strong"), i = E("You can use up to "), a = E(n), r = E(" qubits."), s = E(`
+      Currently, `), _ = E(o), c = E(" qubits are used."), u(e, "class", "warning svelte-r85cdz");
     },
     m(d, h) {
-      M(d, e, h), f(e, l), f(l, i), f(l, a), f(l, r), f(e, s), f(e, _), f(e, c);
+      S(d, e, h), f(e, l), f(l, i), f(l, a), f(l, r), f(e, s), f(e, _), f(e, c);
     },
     p(d, h) {
       h & /*$data*/
@@ -16096,19 +16096,19 @@ function i_(t) {
       d[1].num_qubits + "") && U(_, o);
     },
     d(d) {
-      d && S(e);
+      d && C(e);
     }
   };
 }
 function Cw(t) {
   var oe;
-  let e, l, i, n, a, r, s, o, _, c, d, h, p, b, g, k, y, v, w, q, $, j, O, A, C, z, H, B, R, P, E, F, L = (
+  let e, l, i, n, a, r, s, o, _, c, d, h, p, g, b, k, y, v, w, q, $, j, I, A, M, z, H, B, R, P, O, F, L = (
     /*$data*/
     t[1].machine + ""
   ), X, V, Q, Z = (
     /*$data*/
     t[1].machine_qubits + ""
-  ), ne, se, K, Y, W, J, ee, we, Re, ve = $e(Uf), me = [];
+  ), ae, se, K, Y, W, J, ee, we, Re, ve = $e(Uf), me = [];
   for (let x = 0; x < ve.length; x += 1)
     me[x] = t_(e_(t, ve, x));
   function fe(x, ge) {
@@ -16136,29 +16136,29 @@ function Cw(t) {
       e = m("article"), l = m("h4"), l.textContent = "1. What machine do you want? How many bits do you need?", i = N(), n = m("div"), a = m("div"), r = m("label"), r.textContent = "Machine", s = N(), o = m("select"), _ = m("option"), _.textContent = "-";
       for (let x = 0; x < me.length; x += 1)
         me[x].c();
-      d = N(), h = m("div"), p = m("label"), p.textContent = "Simulator?", b = N(), g = m("div"), k = m("input"), w = N(), q = m("div"), $ = m("label"), $.textContent = "# Qubits", j = m("input"), A = N(), C = m("div"), z = m("label"), z.textContent = "# Classical bits", H = m("input"), R = N(), P = m("div"), E = m("span"), F = I("The chosen machine ("), X = I(L), V = I(`) supports upto
-      `), Q = m("strong"), ne = I(Z), se = I(`
+      d = N(), h = m("div"), p = m("label"), p.textContent = "Simulator?", g = N(), b = m("div"), k = m("input"), w = N(), q = m("div"), $ = m("label"), $.textContent = "# Qubits", j = m("input"), A = N(), M = m("div"), z = m("label"), z.textContent = "# Classical bits", H = m("input"), R = N(), P = m("div"), O = m("span"), F = E("The chosen machine ("), X = E(L), V = E(`) supports upto
+      `), Q = m("strong"), ae = E(Z), se = E(`
       qubits.
-      `), ye && ye.c(), K = I(`
+      `), ye && ye.c(), K = E(`
       You can define as many qubits as needed, but exceeding the number of supported
       qubits can cause an error when you run a code. This information is also relevant
       if you want to set up Pauli observables. The machine part is for those who
       are less familiar with writing execution codes. If you are familiar with setting
       up a backend machine, then feel free to ignore the machien setting.`), Y = N(), W = m("span"), W.innerHTML = "If you are not sure about the nubmer of qubits, type <strong>&quot;auto&quot;</strong> for qubits and classical bits.", J = N(), ue && ue.c(), ee = N(), le && le.c(), u(l, "class", "svelte-r85cdz"), u(r, "for", "machine"), u(r, "class", "svelte-r85cdz"), _.__value = "-", pt(_, _.__value), u(o, "id", "machine"), u(o, "name", "machine"), u(o, "class", "svelte-r85cdz"), u(a, "class", "input-form svelte-r85cdz"), u(p, "for", "machine-simulator"), u(p, "class", "svelte-r85cdz"), u(k, "type", "checkbox"), u(k, "id", "machine-simulator"), u(k, "name", "machine-simulator"), k.checked = y = /*$data*/
       t[1].is_simulator, k.disabled = v = /*$data*/
-      t[1].sim_not_choosable, u(k, "class", "svelte-r85cdz"), u(g, "class", "checkbox-group solo svelte-r85cdz"), u(h, "class", "input-form svelte-r85cdz"), u($, "for", "num_qubits"), u($, "class", "svelte-r85cdz"), u(j, "type", "text"), u(j, "id", "num_qubits"), u(j, "name", "num_qubits"), j.value = O = /*$data*/
+      t[1].sim_not_choosable, u(k, "class", "svelte-r85cdz"), u(b, "class", "checkbox-group solo svelte-r85cdz"), u(h, "class", "input-form svelte-r85cdz"), u($, "for", "num_qubits"), u($, "class", "svelte-r85cdz"), u(j, "type", "text"), u(j, "id", "num_qubits"), u(j, "name", "num_qubits"), j.value = I = /*$data*/
       t[1].num_qubits || "", u(j, "class", "svelte-r85cdz"), u(q, "class", "input-form svelte-r85cdz"), u(z, "for", "num_clbits"), u(z, "class", "svelte-r85cdz"), u(H, "type", "text"), u(H, "id", "num_clbits"), u(H, "name", "num_clbits"), H.value = B = /*$data*/
-      t[1].num_clbits || "", u(H, "class", "svelte-r85cdz"), u(C, "class", "input-form svelte-r85cdz"), u(n, "class", "input-row svelte-r85cdz"), u(E, "class", "note svelte-r85cdz"), u(W, "class", "note svelte-r85cdz"), u(e, "class", "svelte-r85cdz");
+      t[1].num_clbits || "", u(H, "class", "svelte-r85cdz"), u(M, "class", "input-form svelte-r85cdz"), u(n, "class", "input-row svelte-r85cdz"), u(O, "class", "note svelte-r85cdz"), u(W, "class", "note svelte-r85cdz"), u(e, "class", "svelte-r85cdz");
     },
     m(x, ge) {
-      M(x, e, ge), f(e, l), f(e, i), f(e, n), f(n, a), f(a, r), f(a, s), f(a, o), f(o, _);
+      S(x, e, ge), f(e, l), f(e, i), f(e, n), f(n, a), f(a, r), f(a, s), f(a, o), f(o, _);
       for (let re = 0; re < me.length; re += 1)
         me[re] && me[re].m(o, null);
       fl(
         o,
         /*$data*/
         t[1].machine
-      ), f(n, d), f(n, h), f(h, p), f(h, b), f(h, g), f(g, k), f(n, w), f(n, q), f(q, $), f(q, j), f(n, A), f(n, C), f(C, z), f(C, H), f(e, R), f(e, P), f(P, E), f(E, F), f(E, X), f(E, V), f(E, Q), f(Q, ne), f(E, se), ye && ye.m(E, null), f(E, K), f(P, Y), f(P, W), f(P, J), ue && ue.m(P, null), f(e, ee), le && le.m(e, null), we || (Re = [
+      ), f(n, d), f(n, h), f(h, p), f(h, g), f(h, b), f(b, k), f(n, w), f(n, q), f(q, $), f(q, j), f(n, A), f(n, M), f(M, z), f(M, H), f(e, R), f(e, P), f(P, O), f(O, F), f(O, X), f(O, V), f(O, Q), f(Q, ae), f(O, se), ye && ye.m(O, null), f(O, K), f(P, Y), f(P, W), f(P, J), ue && ue.m(P, null), f(e, ee), le && le.m(e, null), we || (Re = [
         te(
           o,
           "change",
@@ -16210,29 +16210,29 @@ function Cw(t) {
       x[1].is_simulator) && (k.checked = y), ge & /*$data*/
       2 && v !== (v = /*$data*/
       x[1].sim_not_choosable) && (k.disabled = v), ge & /*$data*/
-      2 && O !== (O = /*$data*/
-      x[1].num_qubits || "") && j.value !== O && (j.value = O), ge & /*$data*/
+      2 && I !== (I = /*$data*/
+      x[1].num_qubits || "") && j.value !== I && (j.value = I), ge & /*$data*/
       2 && B !== (B = /*$data*/
       x[1].num_clbits || "") && H.value !== B && (H.value = B), ge & /*$data*/
       2 && L !== (L = /*$data*/
       x[1].machine + "") && U(X, L), ge & /*$data*/
       2 && Z !== (Z = /*$data*/
-      x[1].machine_qubits + "") && U(ne, Z), G !== (G = fe(x)) && (ye && ye.d(1), ye = G && G(x), ye && (ye.c(), ye.m(E, K))), (re = yl[
+      x[1].machine_qubits + "") && U(ae, Z), G !== (G = fe(x)) && (ye && ye.d(1), ye = G && G(x), ye && (ye.c(), ye.m(O, K))), (re = yl[
         /*$data*/
         x[1].machine
       ]) != null && re.description ? ue ? ue.p(x, ge) : (ue = l_(x), ue.c(), ue.m(P, null)) : ue && (ue.d(1), ue = null), /*$data*/
       x[1].num_qubits > /*$data*/
       x[1].machine_qubits ? le ? le.p(x, ge) : (le = i_(x), le.c(), le.m(e, null)) : le && (le.d(1), le = null);
     },
-    i: ae,
-    o: ae,
+    i: ne,
+    o: ne,
     d(x) {
-      x && S(e), Ye(me, x), ye && ye.d(), ue && ue.d(), le && le.d(), we = !1, wt(Re);
+      x && C(e), Ye(me, x), ye && ye.d(), ue && ue.d(), le && le.d(), we = !1, wt(Re);
     }
   };
 }
 function Sw(t, e, l) {
-  let i, n = ae, a = () => (n(), n = st(r, (d) => l(1, i = d)), r);
+  let i, n = ne, a = () => (n(), n = st(r, (d) => l(1, i = d)), r);
   t.$$.on_destroy.push(() => n());
   let { data: r = Oe({}) } = e;
   a();
@@ -16241,9 +16241,9 @@ function Sw(t, e, l) {
   }, o = (d) => {
     r.update((h) => (h.is_simulator = d.target.checked, h));
   }, _ = (d) => {
-    r.update((h) => (d.target.value === "auto" ? (h.num_qubits = "auto", h.qubits = ["auto"]) : (h.num_qubits = parseInt(d.target.value), h.qubits = [...Array(parseInt(d.target.value))].map((p, b) => b)), h));
+    r.update((h) => (d.target.value === "auto" ? (h.num_qubits = "auto", h.qubits = ["auto"]) : (h.num_qubits = parseInt(d.target.value), h.qubits = [...Array(parseInt(d.target.value))].map((p, g) => g)), h));
   }, c = (d) => {
-    r.update((h) => (d.target.value === "auto" ? (h.num_clbits = "auto", h.clbits = ["auto"]) : (h.num_clbits = parseInt(d.target.value), h.clbits = [...Array(parseInt(d.target.value))].map((p, b) => b)), h));
+    r.update((h) => (d.target.value === "auto" ? (h.num_clbits = "auto", h.clbits = ["auto"]) : (h.num_clbits = parseInt(d.target.value), h.clbits = [...Array(parseInt(d.target.value))].map((p, g) => g)), h));
   };
   return t.$$set = (d) => {
     "data" in d && a(l(0, r = d.data));
@@ -16265,7 +16265,7 @@ function zw(t) {
   let e, l, i, n, a, r;
   return {
     c() {
-      e = m("div"), l = m("button"), i = I(
+      e = m("div"), l = m("button"), i = E(
         /*label*/
         t[1]
       ), u(l, "class", n = Yt(
@@ -16280,7 +16280,7 @@ function zw(t) {
       ), u(e, "class", "checkbox-item svelte-1eeukdp");
     },
     m(s, o) {
-      M(s, e, o), f(e, l), f(l, i), a || (r = te(
+      S(s, e, o), f(e, l), f(l, i), a || (r = te(
         l,
         "click",
         /*click_handler*/
@@ -16307,10 +16307,10 @@ function zw(t) {
         s[0]
       );
     },
-    i: ae,
-    o: ae,
+    i: ne,
+    o: ne,
     d(s) {
-      s && S(e), a = !1, r();
+      s && C(e), a = !1, r();
     }
   };
 }
@@ -16344,7 +16344,7 @@ function Aw(t) {
   ), n, a, r = (
     /*param*/
     t[0].type + ""
-  ), s, o, _, c, d, h, p, b, g, k, y, v, w, q = $e(
+  ), s, o, _, c, d, h, p, g, b, k, y, v, w, q = $e(
     /*param*/
     t[0].option
   ), $ = [];
@@ -16352,21 +16352,21 @@ function Aw(t) {
     $[j] = a_(n_(t, q, j));
   return {
     c() {
-      var j, O;
-      e = m("div"), l = m("label"), n = I(i), a = I(" ("), s = I(r), o = I(")"), c = N(), d = m("select"), h = m("option"), p = I("-");
+      var j, I;
+      e = m("div"), l = m("label"), n = E(i), a = E(" ("), s = E(r), o = E(")"), c = N(), d = m("select"), h = m("option"), p = E("-");
       for (let A = 0; A < $.length; A += 1)
         $[A].c();
       u(l, "for", _ = `param-${/*param*/
       t[0].key}-${/*oi*/
       t[2]}-${/*pi*/
-      t[3]}`), u(l, "class", "svelte-7uzics"), h.__value = "null", pt(h, h.__value), h.selected = b = !/*$data*/
-      ((O = (j = t[4].operations[
+      t[3]}`), u(l, "class", "svelte-7uzics"), h.__value = "null", pt(h, h.__value), h.selected = g = !/*$data*/
+      ((I = (j = t[4].operations[
         /*oi*/
         t[2]
-      ]) == null ? void 0 : j.params) != null && O[
+      ]) == null ? void 0 : j.params) != null && I[
         /*param*/
         t[0].key
-      ]), u(d, "name", g = `param-${/*param*/
+      ]), u(d, "name", b = `param-${/*param*/
       t[0].key}-${/*oi*/
       t[2]}-${/*pi*/
       t[3]}`), u(d, "id", k = `param-${/*param*/
@@ -16374,18 +16374,18 @@ function Aw(t) {
       t[2]}-${/*pi*/
       t[3]}`), u(d, "class", "svelte-7uzics"), u(e, "class", "input-form svelte-7uzics");
     },
-    m(j, O) {
-      var A, C;
-      M(j, e, O), f(e, l), f(l, n), f(l, a), f(l, s), f(l, o), f(e, c), f(e, d), f(d, h), f(h, p);
+    m(j, I) {
+      var A, M;
+      S(j, e, I), f(e, l), f(l, n), f(l, a), f(l, s), f(l, o), f(e, c), f(e, d), f(d, h), f(h, p);
       for (let z = 0; z < $.length; z += 1)
         $[z] && $[z].m(d, null);
       fl(
         d,
         /*$data*/
-        ((C = (A = t[4].operations[
+        ((M = (A = t[4].operations[
           /*oi*/
           t[2]
-        ]) == null ? void 0 : A.params) == null ? void 0 : C[
+        ]) == null ? void 0 : A.params) == null ? void 0 : M[
           /*param*/
           t[0].key
         ]) || ""
@@ -16396,25 +16396,25 @@ function Aw(t) {
         t[8]
       ), v = !0);
     },
-    p(j, O) {
-      var A, C, z, H, B, R;
-      if (O & /*param*/
+    p(j, I) {
+      var A, M, z, H, B, R;
+      if (I & /*param*/
       1 && i !== (i = /*param*/
-      j[0].name + "") && U(n, i), O & /*param*/
+      j[0].name + "") && U(n, i), I & /*param*/
       1 && r !== (r = /*param*/
-      j[0].type + "") && U(s, r), O & /*param, oi, pi*/
+      j[0].type + "") && U(s, r), I & /*param, oi, pi*/
       13 && _ !== (_ = `param-${/*param*/
       j[0].key}-${/*oi*/
       j[2]}-${/*pi*/
-      j[3]}`) && u(l, "for", _), O & /*$data, oi, param*/
-      21 && b !== (b = !/*$data*/
-      ((C = (A = j[4].operations[
+      j[3]}`) && u(l, "for", _), I & /*$data, oi, param*/
+      21 && g !== (g = !/*$data*/
+      ((M = (A = j[4].operations[
         /*oi*/
         j[2]
-      ]) == null ? void 0 : A.params) != null && C[
+      ]) == null ? void 0 : A.params) != null && M[
         /*param*/
         j[0].key
-      ])) && (h.selected = b), O & /*param, $data, oi*/
+      ])) && (h.selected = g), I & /*param, $data, oi*/
       21) {
         q = $e(
           /*param*/
@@ -16422,22 +16422,22 @@ function Aw(t) {
         );
         let P;
         for (P = 0; P < q.length; P += 1) {
-          const E = n_(j, q, P);
-          $[P] ? $[P].p(E, O) : ($[P] = a_(E), $[P].c(), $[P].m(d, null));
+          const O = n_(j, q, P);
+          $[P] ? $[P].p(O, I) : ($[P] = a_(O), $[P].c(), $[P].m(d, null));
         }
         for (; P < $.length; P += 1)
           $[P].d(1);
         $.length = q.length;
       }
-      O & /*param, oi, pi*/
-      13 && g !== (g = `param-${/*param*/
+      I & /*param, oi, pi*/
+      13 && b !== (b = `param-${/*param*/
       j[0].key}-${/*oi*/
       j[2]}-${/*pi*/
-      j[3]}`) && u(d, "name", g), O & /*param, oi, pi*/
+      j[3]}`) && u(d, "name", b), I & /*param, oi, pi*/
       13 && k !== (k = `param-${/*param*/
       j[0].key}-${/*oi*/
       j[2]}-${/*pi*/
-      j[3]}`) && u(d, "id", k), O & /*$data, oi, param*/
+      j[3]}`) && u(d, "id", k), I & /*$data, oi, param*/
       21 && y !== (y = /*$data*/
       ((H = (z = j[4].operations[
         /*oi*/
@@ -16458,7 +16458,7 @@ function Aw(t) {
       );
     },
     d(j) {
-      j && S(e), Ye($, j), v = !1, w();
+      j && C(e), Ye($, j), v = !1, w();
     }
   };
 }
@@ -16469,11 +16469,11 @@ function Bw(t) {
   ), n, a, r = (
     /*param*/
     t[0].type + ""
-  ), s, o, _, c, d, h, p, b, g, k;
+  ), s, o, _, c, d, h, p, g, b, k;
   return {
     c() {
       var y, v;
-      e = m("div"), l = m("label"), n = I(i), a = I(" ("), s = I(r), o = I(")"), c = N(), d = m("input"), u(l, "for", _ = `param-${/*param*/
+      e = m("div"), l = m("label"), n = E(i), a = E(" ("), s = E(r), o = E(")"), c = N(), d = m("input"), u(l, "for", _ = `param-${/*param*/
       t[0].key}-${/*oi*/
       t[2]}-${/*pi*/
       t[3]}`), u(l, "class", "svelte-7uzics"), u(d, "type", "text"), u(d, "name", h = `param-${/*param*/
@@ -16482,7 +16482,7 @@ function Bw(t) {
       t[3]}`), u(d, "id", p = `param-${/*param*/
       t[0].key}-${/*oi*/
       t[2]}-${/*pi*/
-      t[3]}`), d.value = b = /*$data*/
+      t[3]}`), d.value = g = /*$data*/
       ((v = (y = t[4].operations[
         /*oi*/
         t[2]
@@ -16492,12 +16492,12 @@ function Bw(t) {
       ]) || "", u(d, "class", "svelte-7uzics"), u(e, "class", "input-form svelte-7uzics");
     },
     m(y, v) {
-      M(y, e, v), f(e, l), f(l, n), f(l, a), f(l, s), f(l, o), f(e, c), f(e, d), g || (k = te(
+      S(y, e, v), f(e, l), f(l, n), f(l, a), f(l, s), f(l, o), f(e, c), f(e, d), b || (k = te(
         d,
         "change",
         /*change_handler_2*/
         t[7]
-      ), g = !0);
+      ), b = !0);
     },
     p(y, v) {
       var w, q;
@@ -16518,17 +16518,17 @@ function Bw(t) {
       y[0].key}-${/*oi*/
       y[2]}-${/*pi*/
       y[3]}`) && u(d, "id", p), v & /*$data, oi, param*/
-      21 && b !== (b = /*$data*/
+      21 && g !== (g = /*$data*/
       ((q = (w = y[4].operations[
         /*oi*/
         y[2]
       ]) == null ? void 0 : w.params) == null ? void 0 : q[
         /*param*/
         y[0].key
-      ]) || "") && d.value !== b && (d.value = b);
+      ]) || "") && d.value !== g && (d.value = g);
     },
     d(y) {
-      y && S(e), g = !1, k();
+      y && C(e), b = !1, k();
     }
   };
 }
@@ -16539,11 +16539,11 @@ function Pw(t) {
   ), n, a, r = (
     /*param*/
     t[0].type + ""
-  ), s, o, _, c, d, h, p, b, g, k;
+  ), s, o, _, c, d, h, p, g, b, k;
   return {
     c() {
       var y, v;
-      e = m("div"), l = m("label"), n = I(i), a = I(" ("), s = I(r), o = I(")"), c = N(), d = m("input"), u(l, "for", _ = `param-${/*param*/
+      e = m("div"), l = m("label"), n = E(i), a = E(" ("), s = E(r), o = E(")"), c = N(), d = m("input"), u(l, "for", _ = `param-${/*param*/
       t[0].key}-${/*oi*/
       t[2]}-${/*pi*/
       t[3]}`), u(l, "class", "svelte-7uzics"), u(d, "type", "number"), u(d, "name", h = `param-${/*param*/
@@ -16552,7 +16552,7 @@ function Pw(t) {
       t[3]}`), u(d, "id", p = `param-${/*param*/
       t[0].key}-${/*oi*/
       t[2]}-${/*pi*/
-      t[3]}`), d.value = b = /*$data*/
+      t[3]}`), d.value = g = /*$data*/
       ((v = (y = t[4].operations[
         /*oi*/
         t[2]
@@ -16562,12 +16562,12 @@ function Pw(t) {
       ]) || "", u(d, "class", "svelte-7uzics"), u(e, "class", "input-form svelte-7uzics");
     },
     m(y, v) {
-      M(y, e, v), f(e, l), f(l, n), f(l, a), f(l, s), f(l, o), f(e, c), f(e, d), g || (k = te(
+      S(y, e, v), f(e, l), f(l, n), f(l, a), f(l, s), f(l, o), f(e, c), f(e, d), b || (k = te(
         d,
         "change",
         /*change_handler_1*/
         t[6]
-      ), g = !0);
+      ), b = !0);
     },
     p(y, v) {
       var w, q;
@@ -16588,17 +16588,17 @@ function Pw(t) {
       y[0].key}-${/*oi*/
       y[2]}-${/*pi*/
       y[3]}`) && u(d, "id", p), v & /*$data, oi, param*/
-      21 && b !== (b = /*$data*/
+      21 && g !== (g = /*$data*/
       ((q = (w = y[4].operations[
         /*oi*/
         y[2]
       ]) == null ? void 0 : w.params) == null ? void 0 : q[
         /*param*/
         y[0].key
-      ]) || "") && d.value !== b && (d.value = b);
+      ]) || "") && d.value !== g && (d.value = g);
     },
     d(y) {
-      y && S(e), g = !1, k();
+      y && C(e), b = !1, k();
     }
   };
 }
@@ -16609,11 +16609,11 @@ function Ow(t) {
   ), n, a, r = (
     /*param*/
     t[0].type + ""
-  ), s, o, _, c, d, h, p, b, g, k;
+  ), s, o, _, c, d, h, p, g, b, k;
   return {
     c() {
       var y, v;
-      e = m("div"), l = m("label"), n = I(i), a = I(" ("), s = I(r), o = I(")"), c = N(), d = m("input"), u(l, "for", _ = `param-${/*param*/
+      e = m("div"), l = m("label"), n = E(i), a = E(" ("), s = E(r), o = E(")"), c = N(), d = m("input"), u(l, "for", _ = `param-${/*param*/
       t[0].key}-${/*oi*/
       t[2]}-${/*pi*/
       t[3]}`), u(l, "class", "svelte-7uzics"), u(d, "type", "text"), u(d, "name", h = `param-${/*param*/
@@ -16622,7 +16622,7 @@ function Ow(t) {
       t[3]}`), u(d, "id", p = `param-${/*param*/
       t[0].key}-${/*oi*/
       t[2]}-${/*pi*/
-      t[3]}`), u(d, "match", "^[0-9]+[\\.\\/][0-9]+$"), d.value = b = /*$data*/
+      t[3]}`), u(d, "match", "^[0-9]+[\\.\\/][0-9]+$"), d.value = g = /*$data*/
       ((v = (y = t[4].operations[
         /*oi*/
         t[2]
@@ -16632,12 +16632,12 @@ function Ow(t) {
       ]) || "", u(d, "class", "svelte-7uzics"), u(e, "class", "input-form svelte-7uzics");
     },
     m(y, v) {
-      M(y, e, v), f(e, l), f(l, n), f(l, a), f(l, s), f(l, o), f(e, c), f(e, d), g || (k = te(
+      S(y, e, v), f(e, l), f(l, n), f(l, a), f(l, s), f(l, o), f(e, c), f(e, d), b || (k = te(
         d,
         "change",
         /*change_handler*/
         t[5]
-      ), g = !0);
+      ), b = !0);
     },
     p(y, v) {
       var w, q;
@@ -16658,17 +16658,17 @@ function Ow(t) {
       y[0].key}-${/*oi*/
       y[2]}-${/*pi*/
       y[3]}`) && u(d, "id", p), v & /*$data, oi, param*/
-      21 && b !== (b = /*$data*/
+      21 && g !== (g = /*$data*/
       ((q = (w = y[4].operations[
         /*oi*/
         y[2]
       ]) == null ? void 0 : w.params) == null ? void 0 : q[
         /*param*/
         y[0].key
-      ]) || "") && d.value !== b && (d.value = b);
+      ]) || "") && d.value !== g && (d.value = g);
     },
     d(y) {
-      y && S(e), g = !1, k();
+      y && C(e), b = !1, k();
     }
   };
 }
@@ -16680,7 +16680,7 @@ function a_(t) {
   return {
     c() {
       var r, s;
-      e = m("option"), i = I(l), e.__value = n = /*opt*/
+      e = m("option"), i = E(l), e.__value = n = /*opt*/
       t[9].key, pt(e, e.__value), e.selected = a = /*$data*/
       (((s = (r = t[4].operations[
         /*oi*/
@@ -16692,7 +16692,7 @@ function a_(t) {
       t[9].key;
     },
     m(r, s) {
-      M(r, e, s), f(e, i);
+      S(r, e, s), f(e, i);
     },
     p(r, s) {
       var o, _;
@@ -16712,7 +16712,7 @@ function a_(t) {
       r[9].key) && (e.selected = a);
     },
     d(r) {
-      r && S(e);
+      r && C(e);
     }
   };
 }
@@ -16746,34 +16746,34 @@ function Ew(t) {
       n && n.c(), e = Ae();
     },
     m(a, r) {
-      n && n.m(a, r), M(a, e, r);
+      n && n.m(a, r), S(a, e, r);
     },
     p(a, [r]) {
       i === (i = l(a)) && n ? n.p(a, r) : (n && n.d(1), n = i && i(a), n && (n.c(), n.m(e.parentNode, e)));
     },
-    i: ae,
-    o: ae,
+    i: ne,
+    o: ne,
     d(a) {
-      a && S(e), n && n.d(a);
+      a && C(e), n && n.d(a);
     }
   };
 }
 function Iw(t, e, l) {
-  let i, n = ae, a = () => (n(), n = st(s, (b) => l(4, i = b)), s);
+  let i, n = ne, a = () => (n(), n = st(s, (g) => l(4, i = g)), s);
   t.$$.on_destroy.push(() => n());
   let { param: r = {}, data: s = Oe(), oi: o, pi: _ } = e;
   a();
-  const c = (b) => {
-    s.update((g) => (g.operations[o].params || (g.operations[o].params = {}), g.operations[o].params[r.key] = b.target.value, g));
-  }, d = (b) => {
-    s.update((g) => (g.operations[o].params || (g.operations[o].params = {}), g.operations[o].params[r.key] = parseFloat(b.target.value), g));
-  }, h = (b) => {
-    s.update((g) => (g.operations[o].params || (g.operations[o].params = {}), g.operations[o].params[r.key] = b.target.value, g));
-  }, p = (b) => {
-    s.update((g) => (g.operations[o].params || (g.operations[o].params = {}), b.target.value === "null" ? delete g.operations[o].params[r.key] : g.operations[o].params[r.key] = b.target.value, g));
+  const c = (g) => {
+    s.update((b) => (b.operations[o].params || (b.operations[o].params = {}), b.operations[o].params[r.key] = g.target.value, b));
+  }, d = (g) => {
+    s.update((b) => (b.operations[o].params || (b.operations[o].params = {}), b.operations[o].params[r.key] = parseFloat(g.target.value), b));
+  }, h = (g) => {
+    s.update((b) => (b.operations[o].params || (b.operations[o].params = {}), b.operations[o].params[r.key] = g.target.value, b));
+  }, p = (g) => {
+    s.update((b) => (b.operations[o].params || (b.operations[o].params = {}), g.target.value === "null" ? delete b.operations[o].params[r.key] : b.operations[o].params[r.key] = g.target.value, b));
   };
-  return t.$$set = (b) => {
-    "param" in b && l(0, r = b.param), "data" in b && a(l(1, s = b.data)), "oi" in b && l(2, o = b.oi), "pi" in b && l(3, _ = b.pi);
+  return t.$$set = (g) => {
+    "param" in g && l(0, r = g.param), "data" in g && a(l(1, s = g.data)), "oi" in g && l(2, o = g.oi), "pi" in g && l(3, _ = g.pi);
   }, [
     r,
     s,
@@ -16786,7 +16786,7 @@ function Iw(t, e, l) {
     p
   ];
 }
-class ig extends Ve {
+class i0 extends Ve {
   constructor(e) {
     super(), Qe(this, e, Iw, Ew, Fe, { param: 0, data: 1, oi: 2, pi: 3 });
   }
@@ -16805,9 +16805,9 @@ function Dw(t) {
   return {
     c() {
       var h, p;
-      e = m("select"), l = m("option"), i = I("-");
-      for (let b = 0; b < d.length; b += 1)
-        d[b].c();
+      e = m("select"), l = m("option"), i = E("-");
+      for (let g = 0; g < d.length; g += 1)
+        d[g].c();
       l.__value = "null", pt(l, l.__value), l.selected = n = !/*$data*/
       ((p = (h = t[4].operations[
         /*oi*/
@@ -16822,17 +16822,17 @@ function Dw(t) {
       t[3]}`), u(e, "class", "svelte-7uzics");
     },
     m(h, p) {
-      var b, g;
-      M(h, e, p), f(e, l), f(l, i);
+      var g, b;
+      S(h, e, p), f(e, l), f(l, i);
       for (let k = 0; k < d.length; k += 1)
         d[k] && d[k].m(e, null);
       fl(
         e,
         /*$data*/
-        ((g = (b = t[4].operations[
+        ((b = (g = t[4].operations[
           /*oi*/
           t[2]
-        ]) == null ? void 0 : b.globals) == null ? void 0 : g[
+        ]) == null ? void 0 : g.globals) == null ? void 0 : b[
           /*glb*/
           t[0].key
         ]) || ""
@@ -16844,13 +16844,13 @@ function Dw(t) {
       ), o = !0);
     },
     p(h, p) {
-      var b, g, k, y, v, w;
+      var g, b, k, y, v, w;
       if (p & /*$data, oi, glb*/
       21 && n !== (n = !/*$data*/
-      ((g = (b = h[4].operations[
+      ((b = (g = h[4].operations[
         /*oi*/
         h[2]
-      ]) == null ? void 0 : b.globals) != null && g[
+      ]) == null ? void 0 : g.globals) != null && b[
         /*glb*/
         h[0].key
       ])) && (l.selected = n), p & /*glb, $data, oi*/
@@ -16895,7 +16895,7 @@ function Dw(t) {
       );
     },
     d(h) {
-      h && S(e), Ye(d, h), o = !1, _();
+      h && C(e), Ye(d, h), o = !1, _();
     }
   };
 }
@@ -16918,7 +16918,7 @@ function Rw(t) {
       ], u(l, "class", "svelte-7uzics"), u(e, "class", "checkbox-group solo svelte-7uzics");
     },
     m(o, _) {
-      M(o, e, _), f(e, l), r || (s = te(
+      S(o, e, _), f(e, l), r || (s = te(
         l,
         "change",
         /*change_handler_3*/
@@ -16944,7 +16944,7 @@ function Rw(t) {
       ]) && (l.checked = a);
     },
     d(o) {
-      o && S(e), r = !1, s();
+      o && C(e), r = !1, s();
     }
   };
 }
@@ -16967,7 +16967,7 @@ function Hw(t) {
       ]) || "", u(e, "class", "svelte-7uzics");
     },
     m(s, o) {
-      M(s, e, o), a || (r = te(
+      S(s, e, o), a || (r = te(
         e,
         "change",
         /*change_handler_2*/
@@ -16993,7 +16993,7 @@ function Hw(t) {
       ]) || "") && e.value !== n && (e.value = n);
     },
     d(s) {
-      s && S(e), a = !1, r();
+      s && C(e), a = !1, r();
     }
   };
 }
@@ -17016,7 +17016,7 @@ function Lw(t) {
       ]) || "", u(e, "class", "svelte-7uzics");
     },
     m(s, o) {
-      M(s, e, o), a || (r = te(
+      S(s, e, o), a || (r = te(
         e,
         "change",
         /*change_handler_1*/
@@ -17042,7 +17042,7 @@ function Lw(t) {
       ]) || "") && e.value !== n && (e.value = n);
     },
     d(s) {
-      s && S(e), a = !1, r();
+      s && C(e), a = !1, r();
     }
   };
 }
@@ -17065,7 +17065,7 @@ function Fw(t) {
       ]) || "", u(e, "class", "svelte-7uzics");
     },
     m(s, o) {
-      M(s, e, o), a || (r = te(
+      S(s, e, o), a || (r = te(
         e,
         "change",
         /*change_handler*/
@@ -17091,7 +17091,7 @@ function Fw(t) {
       ]) || "") && e.value !== n && (e.value = n);
     },
     d(s) {
-      s && S(e), a = !1, r();
+      s && C(e), a = !1, r();
     }
   };
 }
@@ -17103,7 +17103,7 @@ function s_(t) {
   return {
     c() {
       var r, s;
-      e = m("option"), i = I(l), e.__value = n = /*opt*/
+      e = m("option"), i = E(l), e.__value = n = /*opt*/
       t[10].key, pt(e, e.__value), e.selected = a = /*$data*/
       (((s = (r = t[4].operations[
         /*oi*/
@@ -17115,7 +17115,7 @@ function s_(t) {
       t[10].key;
     },
     m(r, s) {
-      M(r, e, s), f(e, i);
+      S(r, e, s), f(e, i);
     },
     p(r, s) {
       var o, _;
@@ -17135,7 +17135,7 @@ function s_(t) {
       r[10].key) && (e.selected = a);
     },
     d(r) {
-      r && S(e);
+      r && C(e);
     }
   };
 }
@@ -17174,12 +17174,12 @@ function Qw(t) {
   let o = s(t), _ = o && o(t);
   return {
     c() {
-      e = m("div"), l = m("label"), n = I(i), r = N(), _ && _.c(), u(l, "for", a = `global-${/*oi*/
+      e = m("div"), l = m("label"), n = E(i), r = N(), _ && _.c(), u(l, "for", a = `global-${/*oi*/
       t[2]}-${/*gi*/
       t[3]}`), u(l, "class", "svelte-7uzics"), u(e, "class", "input-form svelte-7uzics");
     },
     m(c, d) {
-      M(c, e, d), f(e, l), f(l, n), f(e, r), _ && _.m(e, null);
+      S(c, e, d), f(e, l), f(l, n), f(e, r), _ && _.m(e, null);
     },
     p(c, [d]) {
       d & /*glb*/
@@ -17189,31 +17189,31 @@ function Qw(t) {
       c[2]}-${/*gi*/
       c[3]}`) && u(l, "for", a), o === (o = s(c)) && _ ? _.p(c, d) : (_ && _.d(1), _ = o && o(c), _ && (_.c(), _.m(e, null)));
     },
-    i: ae,
-    o: ae,
+    i: ne,
+    o: ne,
     d(c) {
-      c && S(e), _ && _.d();
+      c && C(e), _ && _.d();
     }
   };
 }
 function Vw(t, e, l) {
-  let i, n = ae, a = () => (n(), n = st(s, (g) => l(4, i = g)), s);
+  let i, n = ne, a = () => (n(), n = st(s, (b) => l(4, i = b)), s);
   t.$$.on_destroy.push(() => n());
   let { glb: r = {}, data: s = Oe(), oi: o, gi: _ } = e;
   a();
-  const c = (g) => {
-    s.update((k) => (k.operations[o].globals || (k.operations[o].globals = {}), k.operations[o].globals[r.key] = g.target.value, k));
-  }, d = (g) => {
-    s.update((k) => (k.operations[o].globals || (k.operations[o].globals = {}), k.operations[o].globals[r.key] = g.target.value, k));
-  }, h = (g) => {
-    s.update((k) => (k.operations[o].globals || (k.operations[o].globals = {}), k.operations[o].globals[r.key] = g.target.value, k));
-  }, p = (g) => {
-    s.update((k) => (k.operations[o].globals || (k.operations[o].globals = {}), k.operations[o].globals[r.key] = g.target.checked, k));
-  }, b = (g) => {
-    s.update((k) => (k.operations[o].globals || (k.operations[o].globals = {}), g.target.value === "null" ? delete k.operations[o].globals[r.key] : k.operations[o].globals[r.key] = g.target.value, k));
+  const c = (b) => {
+    s.update((k) => (k.operations[o].globals || (k.operations[o].globals = {}), k.operations[o].globals[r.key] = b.target.value, k));
+  }, d = (b) => {
+    s.update((k) => (k.operations[o].globals || (k.operations[o].globals = {}), k.operations[o].globals[r.key] = b.target.value, k));
+  }, h = (b) => {
+    s.update((k) => (k.operations[o].globals || (k.operations[o].globals = {}), k.operations[o].globals[r.key] = b.target.value, k));
+  }, p = (b) => {
+    s.update((k) => (k.operations[o].globals || (k.operations[o].globals = {}), k.operations[o].globals[r.key] = b.target.checked, k));
+  }, g = (b) => {
+    s.update((k) => (k.operations[o].globals || (k.operations[o].globals = {}), b.target.value === "null" ? delete k.operations[o].globals[r.key] : k.operations[o].globals[r.key] = b.target.value, k));
   };
-  return t.$$set = (g) => {
-    "glb" in g && l(0, r = g.glb), "data" in g && a(l(1, s = g.data)), "oi" in g && l(2, o = g.oi), "gi" in g && l(3, _ = g.gi);
+  return t.$$set = (b) => {
+    "glb" in b && l(0, r = b.glb), "data" in b && a(l(1, s = b.data)), "oi" in b && l(2, o = b.oi), "gi" in b && l(3, _ = b.gi);
   }, [
     r,
     s,
@@ -17224,7 +17224,7 @@ function Vw(t, e, l) {
     d,
     h,
     p,
-    b
+    g
   ];
 }
 class Xw extends Ve {
@@ -17289,13 +17289,13 @@ function b_(t) {
       e = m("button"), e.textContent = "⊗ Deactivate", u(e, "class", "svelte-1tjl940");
     },
     m(a, r) {
-      M(a, e, r), l || (i = te(e, "click", n), l = !0);
+      S(a, e, r), l || (i = te(e, "click", n), l = !0);
     },
     p(a, r) {
       t = a;
     },
     d(a) {
-      a && S(e), l = !1, i();
+      a && C(e), l = !1, i();
     }
   };
 }
@@ -17316,13 +17316,13 @@ function k_(t) {
       e = m("button"), e.textContent = "⊚ Activate", u(e, "class", "svelte-1tjl940");
     },
     m(a, r) {
-      M(a, e, r), l || (i = te(e, "click", n), l = !0);
+      S(a, e, r), l || (i = te(e, "click", n), l = !0);
     },
     p(a, r) {
       t = a;
     },
     d(a) {
-      a && S(e), l = !1, i();
+      a && C(e), l = !1, i();
     }
   };
 }
@@ -17343,13 +17343,13 @@ function Gw(t) {
       e = m("button"), e.textContent = "↑ Move up", u(e, "class", "svelte-1tjl940");
     },
     m(a, r) {
-      M(a, e, r), l || (i = te(e, "click", n), l = !0);
+      S(a, e, r), l || (i = te(e, "click", n), l = !0);
     },
     p(a, r) {
       t = a;
     },
     d(a) {
-      a && S(e), l = !1, i();
+      a && C(e), l = !1, i();
     }
   };
 }
@@ -17370,13 +17370,13 @@ function v_(t) {
       e = m("button"), e.textContent = "↓ Move down", u(e, "class", "svelte-1tjl940");
     },
     m(a, r) {
-      M(a, e, r), l || (i = te(e, "click", n), l = !0);
+      S(a, e, r), l || (i = te(e, "click", n), l = !0);
     },
     p(a, r) {
       t = a;
     },
     d(a) {
-      a && S(e), l = !1, i();
+      a && C(e), l = !1, i();
     }
   };
 }
@@ -17387,13 +17387,13 @@ function y_(t) {
   ), i, n;
   return {
     c() {
-      e = m("option"), i = I(l), e.__value = /*item*/
+      e = m("option"), i = E(l), e.__value = /*item*/
       t[38].key, pt(e, e.__value), e.selected = n = /*item*/
       t[38].key === /*op*/
       t[19].operation_def, u(e, "class", "svelte-1tjl940");
     },
     m(a, r) {
-      M(a, e, r), f(e, i);
+      S(a, e, r), f(e, i);
     },
     p(a, r) {
       r[0] & /*$data*/
@@ -17402,19 +17402,19 @@ function y_(t) {
       a[19].operation_def) && (e.selected = n);
     },
     d(a) {
-      a && S(e);
+      a && C(e);
     }
   };
 }
 function Yw(t) {
   let e, l, i, n, a, r, s, o;
-  function _(...b) {
+  function _(...g) {
     return (
       /*func_3*/
       t[15](
         /*oi*/
         t[21],
-        ...b
+        ...g
       )
     );
   }
@@ -17434,33 +17434,33 @@ function Yw(t) {
     /*$data*/
     t[1].qubits || []
   ), h = [];
-  for (let b = 0; b < d.length; b += 1)
-    h[b] = $_(h_(t, d, b));
-  const p = (b) => D(h[b], 1, 1, () => {
-    h[b] = null;
+  for (let g = 0; g < d.length; g += 1)
+    h[g] = $_(h_(t, d, g));
+  const p = (g) => D(h[g], 1, 1, () => {
+    h[g] = null;
   });
   return {
     c() {
       e = m("div"), l = m("label"), l.textContent = "Qubits to apply", i = N(), n = m("div"), pe(a.$$.fragment), r = N(), c && c.c(), s = N();
-      for (let b = 0; b < h.length; b += 1)
-        h[b].c();
+      for (let g = 0; g < h.length; g += 1)
+        h[g].c();
       u(l, "class", "svelte-1tjl940"), u(n, "class", "checkbox-group svelte-1tjl940"), u(e, "class", "input-form svelte-1tjl940");
     },
-    m(b, g) {
-      M(b, e, g), f(e, l), f(e, i), f(e, n), de(a, n, null), f(n, r), c && c.m(n, null), f(n, s);
+    m(g, b) {
+      S(g, e, b), f(e, l), f(e, i), f(e, n), de(a, n, null), f(n, r), c && c.m(n, null), f(n, s);
       for (let k = 0; k < h.length; k += 1)
         h[k] && h[k].m(n, null);
       o = !0;
     },
-    p(b, g) {
-      t = b;
+    p(g, b) {
+      t = g;
       const k = {};
-      if (g[0] & /*data*/
+      if (b[0] & /*data*/
       1 && (k.oncheck = _), a.$set(k), /*$data*/
-      t[1].num_qubits ? c ? (c.p(t, g), g[0] & /*$data*/
+      t[1].num_qubits ? c ? (c.p(t, b), b[0] & /*$data*/
       2 && T(c, 1)) : (c = w_(t), c.c(), T(c, 1), c.m(n, s)) : c && (be(), D(c, 1, 1, () => {
         c = null;
-      }), ke()), g[0] & /*$data, data*/
+      }), ke()), b[0] & /*$data, data*/
       3) {
         d = $e(
           /*$data*/
@@ -17469,35 +17469,35 @@ function Yw(t) {
         let y;
         for (y = 0; y < d.length; y += 1) {
           const v = h_(t, d, y);
-          h[y] ? (h[y].p(v, g), T(h[y], 1)) : (h[y] = $_(v), h[y].c(), T(h[y], 1), h[y].m(n, null));
+          h[y] ? (h[y].p(v, b), T(h[y], 1)) : (h[y] = $_(v), h[y].c(), T(h[y], 1), h[y].m(n, null));
         }
         for (be(), y = d.length; y < h.length; y += 1)
           p(y);
         ke();
       }
     },
-    i(b) {
+    i(g) {
       if (!o) {
-        T(a.$$.fragment, b), T(c);
-        for (let g = 0; g < d.length; g += 1)
-          T(h[g]);
+        T(a.$$.fragment, g), T(c);
+        for (let b = 0; b < d.length; b += 1)
+          T(h[b]);
         o = !0;
       }
     },
-    o(b) {
-      D(a.$$.fragment, b), D(c), h = h.filter(Boolean);
-      for (let g = 0; g < h.length; g += 1)
-        D(h[g]);
+    o(g) {
+      D(a.$$.fragment, g), D(c), h = h.filter(Boolean);
+      for (let b = 0; b < h.length; b += 1)
+        D(h[b]);
       o = !1;
     },
-    d(b) {
-      b && S(e), he(a), c && c.d(), Ye(h, b);
+    d(g) {
+      g && C(e), he(a), c && c.d(), Ye(h, g);
     }
   };
 }
 function Kw(t) {
   let e, l, i, n, a, r, s, o, _, c, d, h, p;
-  function b(...k) {
+  function g(...k) {
     return (
       /*change_handler_3*/
       t[13](
@@ -17507,7 +17507,7 @@ function Kw(t) {
       )
     );
   }
-  function g(...k) {
+  function b(...k) {
     return (
       /*change_handler_4*/
       t[14](
@@ -17531,9 +17531,9 @@ function Kw(t) {
       ].qubits_manual || "", u(c, "class", "svelte-1tjl940"), u(s, "class", "input-form svelte-1tjl940");
     },
     m(k, y) {
-      M(k, e, y), f(e, l), f(e, i), f(e, n), M(k, r, y), M(k, s, y), f(s, o), f(s, _), f(s, c), h || (p = [
-        te(n, "change", b),
-        te(c, "change", g)
+      S(k, e, y), f(e, l), f(e, i), f(e, n), S(k, r, y), S(k, s, y), f(s, o), f(s, _), f(s, c), h || (p = [
+        te(n, "change", g),
+        te(c, "change", b)
       ], h = !0);
     },
     p(k, y) {
@@ -17546,10 +17546,10 @@ function Kw(t) {
         t[21]
       ].qubits_manual || "") && c.value !== d && (c.value = d);
     },
-    i: ae,
-    o: ae,
+    i: ne,
+    o: ne,
     d(k) {
-      k && (S(e), S(r), S(s)), h = !1, wt(p);
+      k && (C(e), C(r), C(s)), h = !1, wt(p);
     }
   };
 }
@@ -17573,7 +17573,7 @@ function Uw(t) {
     m(o, _) {
       for (let c = 0; c < n.length; c += 1)
         n[c] && n[c].m(o, _);
-      M(o, e, _), l = !0;
+      S(o, e, _), l = !0;
     },
     p(o, _) {
       var c, d;
@@ -17607,7 +17607,7 @@ function Uw(t) {
       l = !1;
     },
     d(o) {
-      o && S(e), Ye(n, o);
+      o && C(e), Ye(n, o);
     }
   };
 }
@@ -17753,28 +17753,28 @@ function Ww(t) {
       label: "Reset"
     }
   });
-  let b = (
+  let g = (
     /*$data*/
     t[1].num_qubits && /*$data*/
     t[1].num_qubits !== "auto" && q_(t)
-  ), g = $e(
+  ), b = $e(
     /*$data*/
     t[1].qubits || []
   ), k = [];
-  for (let v = 0; v < g.length; v += 1)
-    k[v] = j_(m_(t, g, v));
+  for (let v = 0; v < b.length; v += 1)
+    k[v] = j_(m_(t, b, v));
   const y = (v) => D(k[v], 1, 1, () => {
     k[v] = null;
   });
   return {
     c() {
-      e = m("div"), l = m("label"), i = I("Qubits to apply for "), a = I(n), r = N(), s = m("div"), pe(o.$$.fragment), _ = N(), b && b.c(), c = N();
+      e = m("div"), l = m("label"), i = E("Qubits to apply for "), a = E(n), r = N(), s = m("div"), pe(o.$$.fragment), _ = N(), g && g.c(), c = N();
       for (let v = 0; v < k.length; v += 1)
         k[v].c();
       d = N(), u(l, "class", "svelte-1tjl940"), u(s, "class", "checkbox-group svelte-1tjl940"), u(e, "class", "input-form svelte-1tjl940");
     },
     m(v, w) {
-      M(v, e, w), f(e, l), f(l, i), f(l, a), f(e, r), f(e, s), de(o, s, null), f(s, _), b && b.m(s, null), f(s, c);
+      S(v, e, w), f(e, l), f(l, i), f(l, a), f(e, r), f(e, s), de(o, s, null), f(s, _), g && g.m(s, null), f(s, c);
       for (let q = 0; q < k.length; q += 1)
         k[q] && k[q].m(s, null);
       f(e, d), h = !0;
@@ -17790,41 +17790,41 @@ function Ww(t) {
       t[35]}-reset`), w[0] & /*data, $data*/
       3 && (q.oncheck = p), o.$set(q), /*$data*/
       t[1].num_qubits && /*$data*/
-      t[1].num_qubits !== "auto" ? b ? (b.p(t, w), w[0] & /*$data*/
-      2 && T(b, 1)) : (b = q_(t), b.c(), T(b, 1), b.m(s, c)) : b && (be(), D(b, 1, 1, () => {
-        b = null;
+      t[1].num_qubits !== "auto" ? g ? (g.p(t, w), w[0] & /*$data*/
+      2 && T(g, 1)) : (g = q_(t), g.c(), T(g, 1), g.m(s, c)) : g && (be(), D(g, 1, 1, () => {
+        g = null;
       }), ke()), w[0] & /*$data, data*/
       3) {
-        g = $e(
+        b = $e(
           /*$data*/
           t[1].qubits || []
         );
         let $;
-        for ($ = 0; $ < g.length; $ += 1) {
-          const j = m_(t, g, $);
+        for ($ = 0; $ < b.length; $ += 1) {
+          const j = m_(t, b, $);
           k[$] ? (k[$].p(j, w), T(k[$], 1)) : (k[$] = j_(j), k[$].c(), T(k[$], 1), k[$].m(s, null));
         }
-        for (be(), $ = g.length; $ < k.length; $ += 1)
+        for (be(), $ = b.length; $ < k.length; $ += 1)
           y($);
         ke();
       }
     },
     i(v) {
       if (!h) {
-        T(o.$$.fragment, v), T(b);
-        for (let w = 0; w < g.length; w += 1)
+        T(o.$$.fragment, v), T(g);
+        for (let w = 0; w < b.length; w += 1)
           T(k[w]);
         h = !0;
       }
     },
     o(v) {
-      D(o.$$.fragment, v), D(b), k = k.filter(Boolean);
+      D(o.$$.fragment, v), D(g), k = k.filter(Boolean);
       for (let w = 0; w < k.length; w += 1)
         D(k[w]);
       h = !1;
     },
     d(v) {
-      v && S(e), he(o), b && b.d(), Ye(k, v);
+      v && C(e), he(o), g && g.d(), Ye(k, v);
     }
   };
 }
@@ -17832,11 +17832,11 @@ function Jw(t) {
   let e, l, i, n = (
     /*reg*/
     t[35] + ""
-  ), a, r, s, o, _, c, d, h, p, b, g = (
+  ), a, r, s, o, _, c, d, h, p, g, b = (
     /*reg*/
     t[35] + ""
-  ), k, y, v, w, q, $, j, O, A;
-  function C(...H) {
+  ), k, y, v, w, q, $, j, I, A;
+  function M(...H) {
     return (
       /*change_handler_1*/
       t[8](
@@ -17865,7 +17865,7 @@ function Jw(t) {
   return {
     c() {
       var H, B, R, P;
-      e = m("div"), l = m("label"), i = I("# Qubits "), a = I(n), s = N(), o = m("input"), d = N(), h = m("div"), p = m("label"), b = I("Qubits "), k = I(g), v = N(), w = m("input"), j = N(), u(l, "for", r = `op-${/*oi*/
+      e = m("div"), l = m("label"), i = E("# Qubits "), a = E(n), s = N(), o = m("input"), d = N(), h = m("div"), p = m("label"), g = E("Qubits "), k = E(b), v = N(), w = m("input"), j = N(), u(l, "for", r = `op-${/*oi*/
       t[21]}-qubit-${/*reg*/
       t[35]}-num_qubits`), u(l, "class", "svelte-1tjl940"), u(o, "type", "number"), u(o, "name", "num_qubits"), u(o, "id", _ = `op-${/*oi*/
       t[21]}-qubit-${/*reg*/
@@ -17884,13 +17884,13 @@ function Jw(t) {
       ]) == null ? void 0 : P.qubits_manual) || "", u(w, "class", "svelte-1tjl940"), u(h, "class", "input-form svelte-1tjl940");
     },
     m(H, B) {
-      M(H, e, B), f(e, l), f(l, i), f(l, a), f(e, s), f(e, o), M(H, d, B), M(H, h, B), f(h, p), f(p, b), f(p, k), f(h, v), f(h, w), f(h, j), O || (A = [
-        te(o, "change", C),
+      S(H, e, B), f(e, l), f(l, i), f(l, a), f(e, s), f(e, o), S(H, d, B), S(H, h, B), f(h, p), f(p, g), f(p, k), f(h, v), f(h, w), f(h, j), I || (A = [
+        te(o, "change", M),
         te(w, "change", z)
-      ], O = !0);
+      ], I = !0);
     },
     p(H, B) {
-      var R, P, E, F;
+      var R, P, O, F;
       t = H, B[0] & /*$data*/
       2 && n !== (n = /*reg*/
       t[35] + "") && U(a, n), B[0] & /*$data*/
@@ -17905,8 +17905,8 @@ function Jw(t) {
         /*reg*/
         t[35]
       ]) == null ? void 0 : P.size) && o.value !== c && (o.value = c), B[0] & /*$data*/
-      2 && g !== (g = /*reg*/
-      t[35] + "") && U(k, g), B[0] & /*$data*/
+      2 && b !== (b = /*reg*/
+      t[35] + "") && U(k, b), B[0] & /*$data*/
       2 && y !== (y = `op-${/*oi*/
       t[21]}-qubit-${/*reg*/
       t[35]}-qubits_manual`) && u(p, "for", y), B[0] & /*$data*/
@@ -17914,15 +17914,15 @@ function Jw(t) {
       t[21]}-qubit-${/*reg*/
       t[35]}-qubits_manual`) && u(w, "id", q), B[0] & /*$data*/
       2 && $ !== ($ = /*op*/
-      ((F = (E = t[19].qubit_registers) == null ? void 0 : E[
+      ((F = (O = t[19].qubit_registers) == null ? void 0 : O[
         /*reg*/
         t[35]
       ]) == null ? void 0 : F.qubits_manual) || "") && w.value !== $ && (w.value = $);
     },
-    i: ae,
-    o: ae,
+    i: ne,
+    o: ne,
     d(H) {
-      H && (S(e), S(d), S(h)), O = !1, wt(A);
+      H && (C(e), C(d), C(h)), I = !1, wt(A);
     }
   };
 }
@@ -18088,7 +18088,7 @@ function T_(t) {
       l && l.c(), i = Ae();
     },
     m(o, _) {
-      ~e && r[e].m(o, _), M(o, i, _), n = !0;
+      ~e && r[e].m(o, _), S(o, i, _), n = !0;
     },
     p(o, _) {
       let c = e;
@@ -18103,7 +18103,7 @@ function T_(t) {
       D(l), n = !1;
     },
     d(o) {
-      o && S(i), ~e && r[e].d(o);
+      o && C(i), ~e && r[e].d(o);
     }
   };
 }
@@ -18126,7 +18126,7 @@ function C_(t) {
       u(e, "class", "input-row svelte-1tjl940");
     },
     m(o, _) {
-      M(o, e, _);
+      S(o, e, _);
       for (let c = 0; c < n.length; c += 1)
         n[c] && n[c].m(e, null);
       l = !0;
@@ -18163,13 +18163,13 @@ function C_(t) {
       l = !1;
     },
     d(o) {
-      o && S(e), Ye(n, o);
+      o && C(e), Ye(n, o);
     }
   };
 }
 function S_(t) {
   let e, l;
-  return e = new ig({
+  return e = new i0({
     props: {
       data: (
         /*data*/
@@ -18228,7 +18228,7 @@ function M_(t) {
       i && i.c(), e = Ae();
     },
     m(r, s) {
-      i && i.m(r, s), M(r, e, s), l = !0;
+      i && i.m(r, s), S(r, e, s), l = !0;
     },
     p(r, s) {
       var o, _;
@@ -18248,7 +18248,7 @@ function M_(t) {
       D(i), l = !1;
     },
     d(r) {
-      r && S(e), i && i.d(r);
+      r && C(e), i && i.d(r);
     }
   };
 }
@@ -18275,7 +18275,7 @@ function z_(t) {
     m(s, o) {
       for (let _ = 0; _ < n.length; _ += 1)
         n[_] && n[_].m(s, o);
-      M(s, e, o), l = !0;
+      S(s, e, o), l = !0;
     },
     p(s, o) {
       var _;
@@ -18312,13 +18312,13 @@ function z_(t) {
       l = !1;
     },
     d(s) {
-      s && S(e), Ye(n, s);
+      s && C(e), Ye(n, s);
     }
   };
 }
 function N_(t) {
   let e, l;
-  return e = new ig({
+  return e = new i0({
     props: {
       data: (
         /*data*/
@@ -18420,7 +18420,7 @@ function A_(t) {
       l = N(), u(e, "class", "input-row svelte-1tjl940");
     },
     m(_, c) {
-      M(_, e, c);
+      S(_, e, c);
       for (let d = 0; d < a.length; d += 1)
         a[d] && a[d].m(e, null);
       f(e, l), i = !0;
@@ -18435,8 +18435,8 @@ function A_(t) {
         ]) == null ? void 0 : h.params_per_bit);
         let p;
         for (p = 0; p < n.length; p += 1) {
-          const b = c_(_, n, p);
-          a[p] ? (a[p].p(b, c), T(a[p], 1)) : (a[p] = N_(b), a[p].c(), T(a[p], 1), a[p].m(e, l));
+          const g = c_(_, n, p);
+          a[p] ? (a[p].p(g, c), T(a[p], 1)) : (a[p] = N_(g), a[p].c(), T(a[p], 1), a[p].m(e, l));
         }
         for (be(), p = n.length; p < a.length; p += 1)
           r(p);
@@ -18457,7 +18457,7 @@ function A_(t) {
       i = !1;
     },
     d(_) {
-      _ && S(e), Ye(a, _);
+      _ && C(e), Ye(a, _);
     }
   };
 }
@@ -18480,7 +18480,7 @@ function B_(t) {
       u(e, "class", "input-row svelte-1tjl940");
     },
     m(o, _) {
-      M(o, e, _);
+      S(o, e, _);
       for (let c = 0; c < n.length; c += 1)
         n[c] && n[c].m(e, null);
       l = !0;
@@ -18517,7 +18517,7 @@ function B_(t) {
       l = !1;
     },
     d(o) {
-      o && S(e), Ye(n, o);
+      o && C(e), Ye(n, o);
     }
   };
 }
@@ -18584,7 +18584,7 @@ function O_(t) {
       u(e, "class", "input-row svelte-1tjl940");
     },
     m(r, s) {
-      M(r, e, s);
+      S(r, e, s);
       for (let o = 0; o < i.length; o += 1)
         i[o] && i[o].m(e, null);
     },
@@ -18607,7 +18607,7 @@ function O_(t) {
       }
     },
     d(r) {
-      r && S(e), Ye(i, r);
+      r && C(e), Ye(i, r);
     }
   };
 }
@@ -18618,10 +18618,10 @@ function Zw(t) {
   ), n, a;
   return {
     c() {
-      e = m("div"), l = I("Constraint satisfied: "), n = I(i), a = N(), u(e, "class", "success svelte-1tjl940");
+      e = m("div"), l = E("Constraint satisfied: "), n = E(i), a = N(), u(e, "class", "success svelte-1tjl940");
     },
     m(r, s) {
-      M(r, e, s), f(e, l), f(e, n), f(e, a);
+      S(r, e, s), f(e, l), f(e, n), f(e, a);
     },
     p(r, s) {
       s[0] & /*$data*/
@@ -18629,7 +18629,7 @@ function Zw(t) {
       r[22].success + "") && U(n, i);
     },
     d(r) {
-      r && S(e);
+      r && C(e);
     }
   };
 }
@@ -18640,10 +18640,10 @@ function xw(t) {
   ), a, r;
   return {
     c() {
-      e = m("div"), l = m("strong"), l.textContent = "Constraint unsatisfied:", i = N(), a = I(n), r = N(), u(l, "class", "svelte-1tjl940"), u(e, "class", "warning svelte-1tjl940");
+      e = m("div"), l = m("strong"), l.textContent = "Constraint unsatisfied:", i = N(), a = E(n), r = N(), u(l, "class", "svelte-1tjl940"), u(e, "class", "warning svelte-1tjl940");
     },
     m(s, o) {
-      M(s, e, o), f(e, l), f(e, i), f(e, a), f(e, r);
+      S(s, e, o), f(e, l), f(e, i), f(e, a), f(e, r);
     },
     p(s, o) {
       o[0] & /*$data*/
@@ -18651,7 +18651,7 @@ function xw(t) {
       s[22].warning + "") && U(a, n);
     },
     d(s) {
-      s && S(e);
+      s && C(e);
     }
   };
 }
@@ -18679,13 +18679,13 @@ function E_(t) {
       a.c(), l = Ae();
     },
     m(r, s) {
-      a.m(r, s), M(r, l, s);
+      a.m(r, s), S(r, l, s);
     },
     p(r, s) {
       n === (n = i(r, s)) && a ? a.p(r, s) : (a.d(1), a = n(r), a && (a.c(), a.m(l.parentNode, l)));
     },
     d(r) {
-      r && S(l), a.d(r);
+      r && C(l), a.d(r);
     }
   };
 }
@@ -18697,10 +18697,10 @@ function I_(t) {
   ]) == null ? void 0 : s.notes) + "", n, a;
   return {
     c() {
-      e = m("div"), l = m("span"), n = I(i), a = N(), u(l, "class", "note svelte-1tjl940"), u(e, "class", "svelte-1tjl940");
+      e = m("div"), l = m("span"), n = E(i), a = N(), u(l, "class", "note svelte-1tjl940"), u(e, "class", "svelte-1tjl940");
     },
     m(o, _) {
-      M(o, e, _), f(e, l), f(l, n), f(e, a);
+      S(o, e, _), f(e, l), f(l, n), f(e, a);
     },
     p(o, _) {
       var c, d;
@@ -18711,7 +18711,7 @@ function I_(t) {
       ]) == null ? void 0 : d.notes) + "") && U(n, i);
     },
     d(o) {
-      o && S(e);
+      o && C(e);
     }
   };
 }
@@ -18723,12 +18723,12 @@ function D_(t) {
   ), n, a, r = (
     /*oi*/
     t[21] + 1 + ""
-  ), s, o, _, c, d, h, p, b, g, k, y, v, w, q, $, j, O, A, C, z, H, B, R, P, E, F, L, X, V, Q = !/*op*/
+  ), s, o, _, c, d, h, p, g, b, k, y, v, w, q, $, j, I, A, M, z, H, B, R, P, O, F, L, X, V, Q = !/*op*/
   t[19].deactive && b_(t), Z = (
     /*op*/
     t[19].deactive && k_(t)
   );
-  function ne(...ie) {
+  function ae(...ie) {
     return (
       /*click_handler_2*/
       t[4](
@@ -18772,7 +18772,7 @@ function D_(t) {
       ]) != null && vt.needs_size) ? 1 : 2
     );
   }
-  C = Re(t), z = we[C] = ee[C](t);
+  M = Re(t), z = we[M] = ee[M](t);
   let ve = ((le = Et[
     /*op*/
     (ue = t[19]) == null ? void 0 : ue.operation_def
@@ -18791,25 +18791,25 @@ function D_(t) {
   ]) == null ? void 0 : Ee.notes) && I_(t);
   return {
     c() {
-      e = m("div"), l = m("h5"), n = I(i), a = I(" Operation "), s = I(r), o = N(), _ = m("span"), Q && Q.c(), c = N(), Z && Z.c(), d = N(), h = m("button"), h.textContent = "× Remove", p = N(), se && se.c(), b = N(), K && K.c(), g = N(), k = m("div"), y = m("div"), v = m("label"), v.textContent = "Operation type", w = N(), q = m("select"), $ = m("option"), $.textContent = "-";
+      e = m("div"), l = m("h5"), n = E(i), a = E(" Operation "), s = E(r), o = N(), _ = m("span"), Q && Q.c(), c = N(), Z && Z.c(), d = N(), h = m("button"), h.textContent = "× Remove", p = N(), se && se.c(), g = N(), K && K.c(), b = N(), k = m("div"), y = m("div"), v = m("label"), v.textContent = "Operation type", w = N(), q = m("select"), $ = m("option"), $.textContent = "-";
       for (let ie = 0; ie < W.length; ie += 1)
         W[ie].c();
-      A = N(), z.c(), H = N(), ve && ve.c(), B = N(), me && me.c(), R = N(), fe && fe.c(), P = N(), G && G.c(), E = N(), ye && ye.c(), F = Ae(), u(h, "class", "svelte-1tjl940"), u(_, "class", "header-button-group svelte-1tjl940"), u(l, "class", "svelte-1tjl940"), u(v, "for", "op_type-" + /*oi*/
+      A = N(), z.c(), H = N(), ve && ve.c(), B = N(), me && me.c(), R = N(), fe && fe.c(), P = N(), G && G.c(), O = N(), ye && ye.c(), F = Ae(), u(h, "class", "svelte-1tjl940"), u(_, "class", "header-button-group svelte-1tjl940"), u(l, "class", "svelte-1tjl940"), u(v, "for", "op_type-" + /*oi*/
       t[21]), u(v, "class", "svelte-1tjl940"), $.__value = "-", pt($, $.__value), u($, "class", "svelte-1tjl940"), u(q, "id", "op_type-" + /*oi*/
       t[21]), u(q, "name", "op_type-" + /*oi*/
-      t[21]), q.disabled = O = !/*$data*/
+      t[21]), q.disabled = I = !/*$data*/
       t[1].num_qubits, u(q, "class", "svelte-1tjl940"), u(y, "class", "input-form svelte-1tjl940"), u(k, "class", "input-row svelte-1tjl940"), u(e, "class", "op-wrap svelte-1tjl940");
     },
     m(ie, Te) {
-      M(ie, e, Te), f(e, l), f(l, n), f(l, a), f(l, s), f(l, o), f(l, _), Q && Q.m(_, null), f(_, c), Z && Z.m(_, null), f(_, d), f(_, h), f(_, p), se && se.m(_, null), f(_, b), K && K.m(_, null), f(e, g), f(e, k), f(k, y), f(y, v), f(y, w), f(y, q), f(q, $);
+      S(ie, e, Te), f(e, l), f(l, n), f(l, a), f(l, s), f(l, o), f(l, _), Q && Q.m(_, null), f(_, c), Z && Z.m(_, null), f(_, d), f(_, h), f(_, p), se && se.m(_, null), f(_, g), K && K.m(_, null), f(e, b), f(e, k), f(k, y), f(y, v), f(y, w), f(y, q), f(q, $);
       for (let Ue = 0; Ue < W.length; Ue += 1)
         W[Ue] && W[Ue].m(q, null);
       fl(
         q,
         /*op*/
         t[19].operation_def
-      ), f(k, A), we[C].m(k, null), f(e, H), ve && ve.m(e, null), f(e, B), me && me.m(e, null), f(e, R), fe && fe.m(e, null), f(e, P), G && G.m(e, null), M(ie, E, Te), ye && ye.m(ie, Te), M(ie, F, Te), L = !0, X || (V = [
-        te(h, "click", ne),
+      ), f(k, A), we[M].m(k, null), f(e, H), ve && ve.m(e, null), f(e, B), me && me.m(e, null), f(e, R), fe && fe.m(e, null), f(e, P), G && G.m(e, null), S(ie, O, Te), ye && ye.m(ie, Te), S(ie, F, Te), L = !0, X || (V = [
+        te(h, "click", ae),
         te(q, "change", J)
       ], X = !0);
     },
@@ -18841,12 +18841,12 @@ function D_(t) {
         /*op*/
         t[19].operation_def
       ), (!L || Te[0] & /*$data*/
-      2 && O !== (O = !/*$data*/
-      t[1].num_qubits)) && (q.disabled = O);
-      let Ue = C;
-      C = Re(t), C === Ue ? we[C].p(t, Te) : (be(), D(we[Ue], 1, 1, () => {
+      2 && I !== (I = !/*$data*/
+      t[1].num_qubits)) && (q.disabled = I);
+      let Ue = M;
+      M = Re(t), M === Ue ? we[M].p(t, Te) : (be(), D(we[Ue], 1, 1, () => {
         we[Ue] = null;
-      }), ke(), z = we[C], z ? z.p(t, Te) : (z = we[C] = ee[C](t), z.c()), T(z, 1), z.m(k, null)), (We = Et[
+      }), ke(), z = we[M], z ? z.p(t, Te) : (z = we[M] = ee[M](t), z.c()), T(z, 1), z.m(k, null)), (We = Et[
         /*op*/
         (Ke = t[19]) == null ? void 0 : Ke.operation_def
       ]) != null && We.params ? ve ? (ve.p(t, Te), Te[0] & /*$data*/
@@ -18879,7 +18879,7 @@ function D_(t) {
       D(z), D(ve), D(me), D(fe), L = !1;
     },
     d(ie) {
-      ie && (S(e), S(E), S(F)), Q && Q.d(), Z && Z.d(), se && se.d(), K && K.d(), Ye(W, ie), we[C].d(), ve && ve.d(), me && me.d(), fe && fe.d(), G && G.d(), ye && ye.d(ie), X = !1, wt(V);
+      ie && (C(e), C(O), C(F)), Q && Q.d(), Z && Z.d(), se && se.d(), K && K.d(), Ye(W, ie), we[M].d(), ve && ve.d(), me && me.d(), fe && fe.d(), G && G.d(), ye && ye.d(ie), X = !1, wt(V);
     }
   };
 }
@@ -18890,10 +18890,10 @@ function R_(t) {
       e = m("hr"), u(e, "class", "svelte-1tjl940");
     },
     m(l, i) {
-      M(l, e, i);
+      S(l, e, i);
     },
     d(l) {
-      l && S(e);
+      l && C(e);
     }
   };
 }
@@ -18905,13 +18905,13 @@ function e3(t) {
   ), r, s, o = (
     /*$data*/
     ((B = t[1]) == null ? void 0 : B.num_operations) == 1 ? "" : "s"
-  ), _, c, d, h, p, b, g, k, y, v, w, q, $, j, O = $e(
+  ), _, c, d, h, p, g, b, k, y, v, w, q, $, j, I = $e(
     /*$data*/
     t[1].operations || []
   ), A = [];
-  for (let P = 0; P < O.length; P += 1)
-    A[P] = D_(o_(t, O, P));
-  const C = (P) => D(A[P], 1, 1, () => {
+  for (let P = 0; P < I.length; P += 1)
+    A[P] = D_(o_(t, I, P));
+  const M = (P) => D(A[P], 1, 1, () => {
     A[P] = null;
   });
   let z = (
@@ -18920,49 +18920,49 @@ function e3(t) {
   );
   return {
     c() {
-      e = m("article"), l = m("h4"), i = I(`2. Define operations
-    `), n = m("span"), r = I(a), s = I(" active opeartion"), _ = I(o), c = I("."), d = N(), h = m("div");
+      e = m("article"), l = m("h4"), i = E(`2. Define operations
+    `), n = m("span"), r = E(a), s = E(" active opeartion"), _ = E(o), c = E("."), d = N(), h = m("div");
       for (let P = 0; P < A.length; P += 1)
         A[P].c();
-      p = N(), z && z.c(), b = N(), g = m("div"), k = m("button"), k.textContent = "Add an operation", y = N(), v = m("span"), v.textContent = "Deactive operations are excluded from the final circuit code.", u(n, "class", "note svelte-1tjl940"), u(l, "class", "svelte-1tjl940"), u(h, "class", "content-wrap svelte-1tjl940"), u(k, "class", "svelte-1tjl940"), u(g, "class", "input-row svelte-1tjl940"), u(v, "class", "note svelte-1tjl940"), u(e, "class", w = Yt(
+      p = N(), z && z.c(), g = N(), b = m("div"), k = m("button"), k.textContent = "Add an operation", y = N(), v = m("span"), v.textContent = "Deactive operations are excluded from the final circuit code.", u(n, "class", "note svelte-1tjl940"), u(l, "class", "svelte-1tjl940"), u(h, "class", "content-wrap svelte-1tjl940"), u(k, "class", "svelte-1tjl940"), u(b, "class", "input-row svelte-1tjl940"), u(v, "class", "note svelte-1tjl940"), u(e, "class", w = Yt(
         /*$data*/
         t[1].num_qubits ? "" : "deactive"
       ) + " svelte-1tjl940");
     },
-    m(P, E) {
-      M(P, e, E), f(e, l), f(l, i), f(l, n), f(n, r), f(n, s), f(n, _), f(n, c), f(e, d), f(e, h);
+    m(P, O) {
+      S(P, e, O), f(e, l), f(l, i), f(l, n), f(n, r), f(n, s), f(n, _), f(n, c), f(e, d), f(e, h);
       for (let F = 0; F < A.length; F += 1)
         A[F] && A[F].m(h, null);
-      f(e, p), z && z.m(e, null), f(e, b), f(e, g), f(g, k), f(e, y), f(e, v), q = !0, $ || (j = te(
+      f(e, p), z && z.m(e, null), f(e, g), f(e, b), f(b, k), f(e, y), f(e, v), q = !0, $ || (j = te(
         k,
         "click",
         /*click_handler_5*/
         t[18]
       ), $ = !0);
     },
-    p(P, E) {
+    p(P, O) {
       var F, L, X;
-      if ((!q || E[0] & /*$data*/
+      if ((!q || O[0] & /*$data*/
       2) && a !== (a = /*$data*/
-      ((F = P[1]) == null ? void 0 : F.num_operations) + "") && U(r, a), (!q || E[0] & /*$data*/
+      ((F = P[1]) == null ? void 0 : F.num_operations) + "") && U(r, a), (!q || O[0] & /*$data*/
       2) && o !== (o = /*$data*/
-      ((L = P[1]) == null ? void 0 : L.num_operations) == 1 ? "" : "s") && U(_, o), E[0] & /*$data, data*/
+      ((L = P[1]) == null ? void 0 : L.num_operations) == 1 ? "" : "s") && U(_, o), O[0] & /*$data, data*/
       3) {
-        O = $e(
+        I = $e(
           /*$data*/
           P[1].operations || []
         );
         let V;
-        for (V = 0; V < O.length; V += 1) {
-          const Q = o_(P, O, V);
-          A[V] ? (A[V].p(Q, E), T(A[V], 1)) : (A[V] = D_(Q), A[V].c(), T(A[V], 1), A[V].m(h, null));
+        for (V = 0; V < I.length; V += 1) {
+          const Q = o_(P, I, V);
+          A[V] ? (A[V].p(Q, O), T(A[V], 1)) : (A[V] = D_(Q), A[V].c(), T(A[V], 1), A[V].m(h, null));
         }
-        for (be(), V = O.length; V < A.length; V += 1)
-          C(V);
+        for (be(), V = I.length; V < A.length; V += 1)
+          M(V);
         ke();
       }
       /*$data*/
-      ((X = P[1].operations) == null ? void 0 : X.length) > 0 ? z || (z = R_(), z.c(), z.m(e, b)) : z && (z.d(1), z = null), (!q || E[0] & /*$data*/
+      ((X = P[1].operations) == null ? void 0 : X.length) > 0 ? z || (z = R_(), z.c(), z.m(e, g)) : z && (z.d(1), z = null), (!q || O[0] & /*$data*/
       2 && w !== (w = Yt(
         /*$data*/
         P[1].num_qubits ? "" : "deactive"
@@ -18970,74 +18970,74 @@ function e3(t) {
     },
     i(P) {
       if (!q) {
-        for (let E = 0; E < O.length; E += 1)
-          T(A[E]);
+        for (let O = 0; O < I.length; O += 1)
+          T(A[O]);
         q = !0;
       }
     },
     o(P) {
       A = A.filter(Boolean);
-      for (let E = 0; E < A.length; E += 1)
-        D(A[E]);
+      for (let O = 0; O < A.length; O += 1)
+        D(A[O]);
       q = !1;
     },
     d(P) {
-      P && S(e), Ye(A, P), z && z.d(), $ = !1, j();
+      P && C(e), Ye(A, P), z && z.d(), $ = !1, j();
     }
   };
 }
 function t3(t, e, l) {
-  let i, n = ae, a = () => (n(), n = st(r, (A) => l(1, i = A)), r);
+  let i, n = ne, a = () => (n(), n = st(r, (A) => l(1, i = A)), r);
   t.$$.on_destroy.push(() => n());
   let { data: r = Oe({}) } = e;
   a();
-  const s = (A, C) => {
+  const s = (A, M) => {
     r.update((z) => (z.operations[A].deactive = !0, z));
-  }, o = (A, C) => {
+  }, o = (A, M) => {
     r.update((z) => (z.operations[A].deactive = !1, z));
-  }, _ = (A, C) => {
+  }, _ = (A, M) => {
     r.update((z) => (z.operations.splice(A, 1), z));
-  }, c = (A, C) => {
+  }, c = (A, M) => {
     r.update((z) => ([z.operations[A], z.operations[A - 1]] = [z.operations[A - 1], z.operations[A]], z));
-  }, d = (A, C) => {
+  }, d = (A, M) => {
     r.update((z) => ([z.operations[A], z.operations[A + 1]] = [z.operations[A + 1], z.operations[A]], z));
-  }, h = (A, C) => {
-    r.update((z) => (z.operations[A].operation_def = C.target.value, z));
-  }, p = (A, C, z, H) => {
-    r.update((B) => (B.operations[A].qubit_registers || (B.operations[A].qubit_registers = {}), B.operations[A].qubit_registers[C] || (B.operations[A].qubit_registers[C] = { apply_all: !1, apply_to: [] }), B.operations[A].qubit_registers[C].size = parseInt(H.target.value), B.operations[A].qubit_registers[C].size > 0 && (B.operations[A].qubit_registers[C].apply_to = Array.from(Array(B.operations[A].qubit_registers[C].size).keys()).map((R) => z * 1e3 + R)), B));
-  }, b = (A, C, z) => {
-    r.update((H) => (H.operations[A].qubit_registers || (H.operations[A].qubit_registers = {}), H.operations[A].qubit_registers[C] || (H.operations[A].qubit_registers[C] = { apply_all: !1, apply_to: [] }), z.target.value.length > 0 ? (H.operations[A].qubit_registers[C].qubits_manual = z.target.value, H.operations[A].qubit_registers[C].apply_to = z.target.value.split(",").map((B) => parseInt(B.trim()))) : (delete H.operations[A].qubit_registers[C].qubits_manual, H.operations[A].qubit_registers[C].apply_to = []), H));
-  }, g = (A, C, z) => {
+  }, h = (A, M) => {
+    r.update((z) => (z.operations[A].operation_def = M.target.value, z));
+  }, p = (A, M, z, H) => {
+    r.update((B) => (B.operations[A].qubit_registers || (B.operations[A].qubit_registers = {}), B.operations[A].qubit_registers[M] || (B.operations[A].qubit_registers[M] = { apply_all: !1, apply_to: [] }), B.operations[A].qubit_registers[M].size = parseInt(H.target.value), B.operations[A].qubit_registers[M].size > 0 && (B.operations[A].qubit_registers[M].apply_to = Array.from(Array(B.operations[A].qubit_registers[M].size).keys()).map((R) => z * 1e3 + R)), B));
+  }, g = (A, M, z) => {
+    r.update((H) => (H.operations[A].qubit_registers || (H.operations[A].qubit_registers = {}), H.operations[A].qubit_registers[M] || (H.operations[A].qubit_registers[M] = { apply_all: !1, apply_to: [] }), z.target.value.length > 0 ? (H.operations[A].qubit_registers[M].qubits_manual = z.target.value, H.operations[A].qubit_registers[M].apply_to = z.target.value.split(",").map((B) => parseInt(B.trim()))) : (delete H.operations[A].qubit_registers[M].qubits_manual, H.operations[A].qubit_registers[M].apply_to = []), H));
+  }, b = (A, M, z) => {
     r.update((H) => {
       var B, R, P;
-      return (P = (R = (B = H.operations) == null ? void 0 : B[A]) == null ? void 0 : R.qubit_registers) != null && P[C] && (H.operations[A].qubit_registers[C] = { apply_all: !1, apply_to: [] }), H;
+      return (P = (R = (B = H.operations) == null ? void 0 : B[A]) == null ? void 0 : R.qubit_registers) != null && P[M] && (H.operations[A].qubit_registers[M] = { apply_all: !1, apply_to: [] }), H;
     });
-  }, k = (A, C, z) => {
-    r.update((H) => (H.operations[A].qubit_registers || (H.operations[A].qubit_registers = {}), H.operations[A].qubit_registers[C] || (H.operations[A].qubit_registers[C] = { apply_all: !1, apply_to: [] }), H.operations[A].qubit_registers[C].apply_all = z, z ? H.operations[A].qubit_registers[C].apply_to = H.qubits.map((B) => B) : H.operations[A].qubit_registers[C].apply_to = [], H));
-  }, y = (A, C, z, H) => {
+  }, k = (A, M, z) => {
+    r.update((H) => (H.operations[A].qubit_registers || (H.operations[A].qubit_registers = {}), H.operations[A].qubit_registers[M] || (H.operations[A].qubit_registers[M] = { apply_all: !1, apply_to: [] }), H.operations[A].qubit_registers[M].apply_all = z, z ? H.operations[A].qubit_registers[M].apply_to = H.qubits.map((B) => B) : H.operations[A].qubit_registers[M].apply_to = [], H));
+  }, y = (A, M, z, H) => {
     r.update((B) => {
       var R, P;
-      return B.operations[A].qubit_registers || (B.operations[A].qubit_registers = {}), B.operations[A].qubit_registers[C] || (B.operations[A].qubit_registers[C] = { apply_all: !1, apply_to: [] }), H && !((R = B.operations[A].qubit_registers[C]) != null && R.apply_to.includes(z)) ? B.operations[A].qubit_registers[C].apply_to.push(z) : !H && ((P = B.operations[A].qubit_registers[C]) != null && P.apply_to.includes(z)) && B.operations[A].qubit_registers[C].apply_to.splice(B.operations[A].qubit_registers[C].apply_to.indexOf(z), 1), B;
+      return B.operations[A].qubit_registers || (B.operations[A].qubit_registers = {}), B.operations[A].qubit_registers[M] || (B.operations[A].qubit_registers[M] = { apply_all: !1, apply_to: [] }), H && !((R = B.operations[A].qubit_registers[M]) != null && R.apply_to.includes(z)) ? B.operations[A].qubit_registers[M].apply_to.push(z) : !H && ((P = B.operations[A].qubit_registers[M]) != null && P.apply_to.includes(z)) && B.operations[A].qubit_registers[M].apply_to.splice(B.operations[A].qubit_registers[M].apply_to.indexOf(z), 1), B;
     });
-  }, v = (A, C) => {
-    r.update((z) => (z.operations[A].qubit_size = parseInt(C.target.value), z.operations[A].qubit_size > 0 && (z.operations[A].apply_to = Array.from(Array(z.operations[A].qubit_size).keys())), z));
-  }, w = (A, C) => {
-    r.update((z) => (C.target.value.length > 0 ? (z.operations[A].qubits_manual = C.target.value, z.operations[A].apply_to = C.target.value.split(",").map((H) => parseInt(H.trim()))) : (delete z.operations[A].qubits_manual, z.operations[A].apply_to = []), z));
-  }, q = (A, C) => {
+  }, v = (A, M) => {
+    r.update((z) => (z.operations[A].qubit_size = parseInt(M.target.value), z.operations[A].qubit_size > 0 && (z.operations[A].apply_to = Array.from(Array(z.operations[A].qubit_size).keys())), z));
+  }, w = (A, M) => {
+    r.update((z) => (M.target.value.length > 0 ? (z.operations[A].qubits_manual = M.target.value, z.operations[A].apply_to = M.target.value.split(",").map((H) => parseInt(H.trim()))) : (delete z.operations[A].qubits_manual, z.operations[A].apply_to = []), z));
+  }, q = (A, M) => {
     r.update((z) => {
       var H;
       return (H = z.operations) != null && H[A] && (z.operations[A].apply_to = [], z.operations[A].apply_all = !1), z;
     });
-  }, $ = (A, C) => {
-    r.update((z) => (z.operations[A].apply_all = C, C ? z.operations[A].apply_to = z.qubits.map((H) => H) : z.operations[A].apply_to = [], z));
-  }, j = (A, C, z) => {
-    r.update((H) => (z && !H.operations[A].apply_to.includes(C) ? H.operations[A].apply_to.push(C) : !z && H.operations[A].apply_to.includes(C) && H.operations[A].apply_to.splice(H.operations[A].apply_to.indexOf(C), 1), H));
-  }, O = (A) => {
-    r.update((C) => (C.operations || (C.operations = []), C.num_operations || (C.num_operations = 0), C.operations.push({
+  }, $ = (A, M) => {
+    r.update((z) => (z.operations[A].apply_all = M, M ? z.operations[A].apply_to = z.qubits.map((H) => H) : z.operations[A].apply_to = [], z));
+  }, j = (A, M, z) => {
+    r.update((H) => (z && !H.operations[A].apply_to.includes(M) ? H.operations[A].apply_to.push(M) : !z && H.operations[A].apply_to.includes(M) && H.operations[A].apply_to.splice(H.operations[A].apply_to.indexOf(M), 1), H));
+  }, I = (A) => {
+    r.update((M) => (M.operations || (M.operations = []), M.num_operations || (M.num_operations = 0), M.operations.push({
       operation_def: void 0,
       apply_to: [],
       apply_all: !1
-    }), C));
+    }), M));
   };
   return t.$$set = (A) => {
     "data" in A && a(l(0, r = A.data));
@@ -19051,8 +19051,8 @@ function t3(t, e, l) {
     d,
     h,
     p,
-    b,
     g,
+    b,
     k,
     y,
     v,
@@ -19060,7 +19060,7 @@ function t3(t, e, l) {
     q,
     $,
     j,
-    O
+    I
   ];
 }
 class l3 extends Ve {
@@ -19074,16 +19074,16 @@ function i3(t, e) {
     return null;
   {
     let i = "I".repeat(l);
-    return ng(e).map((n) => n + i);
+    return n0(e).map((n) => n + i);
   }
 }
 const H_ = ["X", "Y", "Z"];
-function ng(t) {
+function n0(t) {
   if (t == 1)
     return H_;
   let e = [];
   for (const l of H_) {
-    let i = ng(t - 1).map((n) => l + n);
+    let i = n0(t - 1).map((n) => l + n);
     e.push(...i);
   }
   return e;
@@ -19113,13 +19113,13 @@ function Q_(t) {
       e = m("button"), e.textContent = "⊗ Deactivate", u(e, "class", "svelte-1fuex22");
     },
     m(a, r) {
-      M(a, e, r), l || (i = te(e, "click", n), l = !0);
+      S(a, e, r), l || (i = te(e, "click", n), l = !0);
     },
     p(a, r) {
       t = a;
     },
     d(a) {
-      a && S(e), l = !1, i();
+      a && C(e), l = !1, i();
     }
   };
 }
@@ -19140,13 +19140,13 @@ function V_(t) {
       e = m("button"), e.textContent = "⊚ Activate", u(e, "class", "svelte-1fuex22");
     },
     m(a, r) {
-      M(a, e, r), l || (i = te(e, "click", n), l = !0);
+      S(a, e, r), l || (i = te(e, "click", n), l = !0);
     },
     p(a, r) {
       t = a;
     },
     d(a) {
-      a && S(e), l = !1, i();
+      a && C(e), l = !1, i();
     }
   };
 }
@@ -19167,13 +19167,13 @@ function n3(t) {
       e = m("button"), e.textContent = "↑ Move up", u(e, "class", "svelte-1fuex22");
     },
     m(a, r) {
-      M(a, e, r), l || (i = te(e, "click", n), l = !0);
+      S(a, e, r), l || (i = te(e, "click", n), l = !0);
     },
     p(a, r) {
       t = a;
     },
     d(a) {
-      a && S(e), l = !1, i();
+      a && C(e), l = !1, i();
     }
   };
 }
@@ -19194,13 +19194,13 @@ function X_(t) {
       e = m("button"), e.textContent = "↓ Move down", u(e, "class", "svelte-1fuex22");
     },
     m(a, r) {
-      M(a, e, r), l || (i = te(e, "click", n), l = !0);
+      S(a, e, r), l || (i = te(e, "click", n), l = !0);
     },
     p(a, r) {
       t = a;
     },
     d(a) {
-      a && S(e), l = !1, i();
+      a && C(e), l = !1, i();
     }
   };
 }
@@ -19211,17 +19211,17 @@ function G_(t) {
   ), l, i;
   return {
     c() {
-      l = I(e), i = I(
+      l = E(e), i = E(
         /*xi*/
         t[17]
       );
     },
     m(n, a) {
-      M(n, l, a), M(n, i, a);
+      S(n, l, a), S(n, i, a);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && (S(l), S(i));
+      n && (C(l), C(i));
     }
   };
 }
@@ -19235,7 +19235,7 @@ function Y_(t) {
   ), s, o, _ = (
     /*pauli*/
     t[12].observable + ""
-  ), c, d, h, p, b, g, k, y, v, w, q, $, j, O, A, C, z, H, B, R, P, E, F = !/*pauli*/
+  ), c, d, h, p, g, b, k, y, v, w, q, $, j, I, A, M, z, H, B, R, P, O, F = !/*pauli*/
   t[12].deactive && Q_(t), L = (
     /*pauli*/
     t[12].deactive && V_(t)
@@ -19268,9 +19268,9 @@ function Y_(t) {
         t[1].num_qubits
       )
     )
-  }), ne = [];
+  }), ae = [];
   for (let K = 0; K < Z.length; K += 1)
-    ne[K] = G_(F_(t, Z, K));
+    ae[K] = G_(F_(t, Z, K));
   function se(...K) {
     return (
       /*change_handler*/
@@ -19283,32 +19283,32 @@ function Y_(t) {
   }
   return {
     c() {
-      e = m("div"), l = m("h5"), n = I(i), a = I(" Observable "), s = I(r), o = I(". ("), c = I(_), d = I(`)
-          `), h = m("span"), F && F.c(), p = N(), L && L.c(), b = N(), g = m("button"), g.textContent = "× Remove", k = N(), V && V.c(), y = N(), Q && Q.c(), v = N(), w = m("div"), q = m("div"), $ = m("label");
-      for (let K = 0; K < ne.length; K += 1)
-        ne[K].c();
-      j = N(), O = m("input"), H = N(), B = m("span"), R = N(), u(g, "class", "svelte-1fuex22"), u(h, "class", "header-button-group svelte-1fuex22"), u(l, "class", "svelte-1fuex22"), u($, "for", `pauli-obs-${/*pi*/
-      t[14]}`), u($, "class", "pauli-label svelte-1fuex22"), u(O, "type", "text"), u(O, "class", "pauli-input-form svelte-1fuex22"), u(O, "id", `pauli-obs-${/*pi*/
-      t[14]}`), u(O, "name", `pauli-obs-${/*pi*/
-      t[14]}`), O.value = A = /*$data*/
+      e = m("div"), l = m("h5"), n = E(i), a = E(" Observable "), s = E(r), o = E(". ("), c = E(_), d = E(`)
+          `), h = m("span"), F && F.c(), p = N(), L && L.c(), g = N(), b = m("button"), b.textContent = "× Remove", k = N(), V && V.c(), y = N(), Q && Q.c(), v = N(), w = m("div"), q = m("div"), $ = m("label");
+      for (let K = 0; K < ae.length; K += 1)
+        ae[K].c();
+      j = N(), I = m("input"), H = N(), B = m("span"), R = N(), u(b, "class", "svelte-1fuex22"), u(h, "class", "header-button-group svelte-1fuex22"), u(l, "class", "svelte-1fuex22"), u($, "for", `pauli-obs-${/*pi*/
+      t[14]}`), u($, "class", "pauli-label svelte-1fuex22"), u(I, "type", "text"), u(I, "class", "pauli-input-form svelte-1fuex22"), u(I, "id", `pauli-obs-${/*pi*/
+      t[14]}`), u(I, "name", `pauli-obs-${/*pi*/
+      t[14]}`), I.value = A = /*$data*/
       t[1].pauli_obs[
         /*pi*/
         t[14]
-      ].observable, u(O, "pattern", C = `[iIxXyYzZ]${/*$data*/
+      ].observable, u(I, "pattern", M = `[iIxXyYzZ]${/*$data*/
       t[1].machine_qubits ? `{${/*$data*/
-      t[1].machine_qubits}}` : "+"}`), u(O, "style", z = `width: ${/*$data*/
+      t[1].machine_qubits}}` : "+"}`), u(I, "style", z = `width: ${/*$data*/
       t[1].pauli_obs[
         /*pi*/
         t[14]
       ].observable.length * 2}rem; letter-spacing: 1rem;`), u(B, "class", "validity svelte-1fuex22"), u(q, "class", "pauli-input svelte-1fuex22"), u(w, "class", "pauli-input-row svelte-1fuex22"), u(e, "class", "op-wrap svelte-1fuex22");
     },
     m(K, Y) {
-      M(K, e, Y), f(e, l), f(l, n), f(l, a), f(l, s), f(l, o), f(l, c), f(l, d), f(l, h), F && F.m(h, null), f(h, p), L && L.m(h, null), f(h, b), f(h, g), f(h, k), V && V.m(h, null), f(h, y), Q && Q.m(h, null), f(e, v), f(e, w), f(w, q), f(q, $);
-      for (let W = 0; W < ne.length; W += 1)
-        ne[W] && ne[W].m($, null);
-      f(q, j), f(q, O), f(q, H), f(q, B), f(e, R), P || (E = [
-        te(g, "click", X),
-        te(O, "change", se)
+      S(K, e, Y), f(e, l), f(l, n), f(l, a), f(l, s), f(l, o), f(l, c), f(l, d), f(l, h), F && F.m(h, null), f(h, p), L && L.m(h, null), f(h, g), f(h, b), f(h, k), V && V.m(h, null), f(h, y), Q && Q.m(h, null), f(e, v), f(e, w), f(w, q), f(q, $);
+      for (let W = 0; W < ae.length; W += 1)
+        ae[W] && ae[W].m($, null);
+      f(q, j), f(q, I), f(q, H), f(q, B), f(e, R), P || (O = [
+        te(b, "click", X),
+        te(I, "change", se)
       ], P = !0);
     },
     p(K, Y) {
@@ -19318,7 +19318,7 @@ function Y_(t) {
       2 && _ !== (_ = /*pauli*/
       t[12].observable + "") && U(c, _), /*pauli*/
       t[12].deactive ? F && (F.d(1), F = null) : F ? F.p(t, Y) : (F = Q_(t), F.c(), F.m(h, p)), /*pauli*/
-      t[12].deactive ? L ? L.p(t, Y) : (L = V_(t), L.c(), L.m(h, b)) : L && (L.d(1), L = null), /*pi*/
+      t[12].deactive ? L ? L.p(t, Y) : (L = V_(t), L.c(), L.m(h, g)) : L && (L.d(1), L = null), /*pi*/
       t[14] > 0 && V.p(t, Y), /*pi*/
       t[14] < /*$data*/
       t[1].pauli_obs.length - 1 ? Q ? Q.p(t, Y) : (Q = X_(t), Q.c(), Q.m(h, null)) : Q && (Q.d(1), Q = null), Y & /*$data*/
@@ -19338,29 +19338,29 @@ function Y_(t) {
         let W;
         for (W = 0; W < Z.length; W += 1) {
           const J = F_(t, Z, W);
-          ne[W] ? ne[W].p(J, Y) : (ne[W] = G_(J), ne[W].c(), ne[W].m($, null));
+          ae[W] ? ae[W].p(J, Y) : (ae[W] = G_(J), ae[W].c(), ae[W].m($, null));
         }
-        for (; W < ne.length; W += 1)
-          ne[W].d(1);
-        ne.length = Z.length;
+        for (; W < ae.length; W += 1)
+          ae[W].d(1);
+        ae.length = Z.length;
       }
       Y & /*$data*/
       2 && A !== (A = /*$data*/
       t[1].pauli_obs[
         /*pi*/
         t[14]
-      ].observable) && O.value !== A && (O.value = A), Y & /*$data*/
-      2 && C !== (C = `[iIxXyYzZ]${/*$data*/
+      ].observable) && I.value !== A && (I.value = A), Y & /*$data*/
+      2 && M !== (M = `[iIxXyYzZ]${/*$data*/
       t[1].machine_qubits ? `{${/*$data*/
-      t[1].machine_qubits}}` : "+"}`) && u(O, "pattern", C), Y & /*$data*/
+      t[1].machine_qubits}}` : "+"}`) && u(I, "pattern", M), Y & /*$data*/
       2 && z !== (z = `width: ${/*$data*/
       t[1].pauli_obs[
         /*pi*/
         t[14]
-      ].observable.length * 2}rem; letter-spacing: 1rem;`) && u(O, "style", z);
+      ].observable.length * 2}rem; letter-spacing: 1rem;`) && u(I, "style", z);
     },
     d(K) {
-      K && S(e), F && F.d(), L && L.d(), V && V.d(), Q && Q.d(), Ye(ne, K), P = !1, wt(E);
+      K && C(e), F && F.d(), L && L.d(), V && V.d(), Q && Q.d(), Ye(ae, K), P = !1, wt(O);
     }
   };
 }
@@ -19368,13 +19368,13 @@ function K_(t) {
   let e, l, i, n;
   return {
     c() {
-      e = m("div"), l = m("strong"), l.textContent = "Warning:", i = N(), n = I(
+      e = m("div"), l = m("strong"), l.textContent = "Warning:", i = N(), n = E(
         /*$pauli_warning*/
         t[2]
       ), u(l, "class", "svelte-1fuex22"), u(e, "class", "warning svelte-1fuex22");
     },
     m(a, r) {
-      M(a, e, r), f(e, l), f(e, i), f(e, n);
+      S(a, e, r), f(e, l), f(e, i), f(e, n);
     },
     p(a, r) {
       r & /*$pauli_warning*/
@@ -19385,7 +19385,7 @@ function K_(t) {
       );
     },
     d(a) {
-      a && S(e);
+      a && C(e);
     }
   };
 }
@@ -19397,34 +19397,34 @@ function a3(t) {
   ), r, s, o = (
     /*$data*/
     ((P = t[1]) == null ? void 0 : P.num_pauli_obs) == 1 ? "" : "s"
-  ), _, c, d, h, p, b, g, k, y, v, w, q, $, j, O, A, C, z = $e(
+  ), _, c, d, h, p, g, b, k, y, v, w, q, $, j, I, A, M, z = $e(
     /*$data*/
     t[1].pauli_obs || []
   ), H = [];
-  for (let E = 0; E < z.length; E += 1)
-    H[E] = Y_(L_(t, z, E));
+  for (let O = 0; O < z.length; O += 1)
+    H[O] = Y_(L_(t, z, O));
   let B = (
     /*$pauli_warning*/
     t[2] && K_(t)
   );
   return {
     c() {
-      e = m("article"), l = m("h4"), i = I(`3b. Pauli Observables
-    `), n = m("span"), r = I(a), s = I(" active pauli observables"), _ = I(o), c = I("."), d = N(), h = m("span"), h.textContent = `Strongly recommend to set up the machine first because Pauli operators
-      should be defined for all the qubits in the machine.`, p = N(), b = m("div");
-      for (let E = 0; E < H.length; E += 1)
-        H[E].c();
-      g = N(), k = m("div"), y = m("button"), y.textContent = "Add a Pauli observable", v = N(), w = m("button"), w.textContent = "Generate Pauli obersvable permutations", q = N(), $ = m("span"), $.textContent = `Allowed opeartors: I/X/Y/Z (case-insensitive). If you have more than a few
-    qubits, avoid generating permutations because it can delay the process.`, j = N(), B && B.c(), u(n, "class", "note svelte-1fuex22"), u(h, "class", "note svelte-1fuex22"), u(l, "class", "svelte-1fuex22"), u(b, "class", "content-wrap svelte-1fuex22"), u(y, "class", "svelte-1fuex22"), u(w, "class", "svelte-1fuex22"), u(k, "class", "input-row svelte-1fuex22"), u($, "class", "note svelte-1fuex22"), u(e, "class", O = Yt(
+      e = m("article"), l = m("h4"), i = E(`3b. Pauli Observables
+    `), n = m("span"), r = E(a), s = E(" active pauli observables"), _ = E(o), c = E("."), d = N(), h = m("span"), h.textContent = `Strongly recommend to set up the machine first because Pauli operators
+      should be defined for all the qubits in the machine.`, p = N(), g = m("div");
+      for (let O = 0; O < H.length; O += 1)
+        H[O].c();
+      b = N(), k = m("div"), y = m("button"), y.textContent = "Add a Pauli observable", v = N(), w = m("button"), w.textContent = "Generate Pauli obersvable permutations", q = N(), $ = m("span"), $.textContent = `Allowed opeartors: I/X/Y/Z (case-insensitive). If you have more than a few
+    qubits, avoid generating permutations because it can delay the process.`, j = N(), B && B.c(), u(n, "class", "note svelte-1fuex22"), u(h, "class", "note svelte-1fuex22"), u(l, "class", "svelte-1fuex22"), u(g, "class", "content-wrap svelte-1fuex22"), u(y, "class", "svelte-1fuex22"), u(w, "class", "svelte-1fuex22"), u(k, "class", "input-row svelte-1fuex22"), u($, "class", "note svelte-1fuex22"), u(e, "class", I = Yt(
         /*$data*/
         t[1].num_qubits ? "" : "deactive"
       ) + " svelte-1fuex22");
     },
-    m(E, F) {
-      M(E, e, F), f(e, l), f(l, i), f(l, n), f(n, r), f(n, s), f(n, _), f(n, c), f(l, d), f(l, h), f(e, p), f(e, b);
+    m(O, F) {
+      S(O, e, F), f(e, l), f(l, i), f(l, n), f(n, r), f(n, s), f(n, _), f(n, c), f(l, d), f(l, h), f(e, p), f(e, g);
       for (let L = 0; L < H.length; L += 1)
-        H[L] && H[L].m(b, null);
-      f(e, g), f(e, k), f(k, y), f(k, v), f(k, w), f(e, q), f(e, $), f(e, j), B && B.m(e, null), A || (C = [
+        H[L] && H[L].m(g, null);
+      f(e, b), f(e, k), f(k, y), f(k, v), f(k, w), f(e, q), f(e, $), f(e, j), B && B.m(e, null), A || (M = [
         te(
           y,
           "click",
@@ -19439,43 +19439,43 @@ function a3(t) {
         )
       ], A = !0);
     },
-    p(E, [F]) {
+    p(O, [F]) {
       var L, X;
       if (F & /*$data*/
       2 && a !== (a = /*$data*/
-      ((L = E[1]) == null ? void 0 : L.num_pauli_obs) + "") && U(r, a), F & /*$data*/
+      ((L = O[1]) == null ? void 0 : L.num_pauli_obs) + "") && U(r, a), F & /*$data*/
       2 && o !== (o = /*$data*/
-      ((X = E[1]) == null ? void 0 : X.num_pauli_obs) == 1 ? "" : "s") && U(_, o), F & /*$data, data, RegExp, pauli_warning*/
+      ((X = O[1]) == null ? void 0 : X.num_pauli_obs) == 1 ? "" : "s") && U(_, o), F & /*$data, data, RegExp, pauli_warning*/
       11) {
         z = $e(
           /*$data*/
-          E[1].pauli_obs || []
+          O[1].pauli_obs || []
         );
         let V;
         for (V = 0; V < z.length; V += 1) {
-          const Q = L_(E, z, V);
-          H[V] ? H[V].p(Q, F) : (H[V] = Y_(Q), H[V].c(), H[V].m(b, null));
+          const Q = L_(O, z, V);
+          H[V] ? H[V].p(Q, F) : (H[V] = Y_(Q), H[V].c(), H[V].m(g, null));
         }
         for (; V < H.length; V += 1)
           H[V].d(1);
         H.length = z.length;
       }
       /*$pauli_warning*/
-      E[2] ? B ? B.p(E, F) : (B = K_(E), B.c(), B.m(e, null)) : B && (B.d(1), B = null), F & /*$data*/
-      2 && O !== (O = Yt(
+      O[2] ? B ? B.p(O, F) : (B = K_(O), B.c(), B.m(e, null)) : B && (B.d(1), B = null), F & /*$data*/
+      2 && I !== (I = Yt(
         /*$data*/
-        E[1].num_qubits ? "" : "deactive"
-      ) + " svelte-1fuex22") && u(e, "class", O);
+        O[1].num_qubits ? "" : "deactive"
+      ) + " svelte-1fuex22") && u(e, "class", I);
     },
-    i: ae,
-    o: ae,
-    d(E) {
-      E && S(e), Ye(H, E), B && B.d(), A = !1, wt(C);
+    i: ne,
+    o: ne,
+    d(O) {
+      O && C(e), Ye(H, O), B && B.d(), A = !1, wt(M);
     }
   };
 }
 function r3(t, e, l) {
-  let i, n = ae, a = () => (n(), n = st(o, (y) => l(1, i = y)), o), r;
+  let i, n = ne, a = () => (n(), n = st(o, (y) => l(1, i = y)), o), r;
   t.$$.on_destroy.push(() => n());
   let s = Oe();
   at(t, s, (y) => l(2, r = y));
@@ -19491,12 +19491,12 @@ function r3(t, e, l) {
     o.update((w) => ([w.pauli_obs[y], w.pauli_obs[y - 1]] = [w.pauli_obs[y - 1], w.pauli_obs[y]], w));
   }, p = (y, v) => {
     o.update((w) => ([w.pauli_obs[y], w.pauli_obs[y + 1]] = [w.pauli_obs[y + 1], w.pauli_obs[y]], w));
-  }, b = (y, v) => {
+  }, g = (y, v) => {
     o.update((w) => {
       let q = v.target.value.toUpperCase(), $ = `[iIxXyYzZ]${i.machine_qubits ? `{${i.machine_qubits}}` : "+"}`;
       return w.pauli_obs[y] || (w.pauli_obs[y] = {}), q.match(new RegExp($, "g")) ? (w.pauli_obs[y].observable = q, s.set()) : (w.pauli_obs[y].observable = w.pauli_obs[y].observable, s.set(v.target.value + " is not an allowed Pauli operator.")), w;
     });
-  }, g = (y) => {
+  }, b = (y) => {
     o.update((v) => {
       v.pauli_obs || (v.pauli_obs = []);
       let w = i.machine_qubits ? i.machine_qubits : i.num_qubits;
@@ -19521,8 +19521,8 @@ function r3(t, e, l) {
     d,
     h,
     p,
-    b,
     g,
+    b,
     k
   ];
 }
@@ -19534,6 +19534,125 @@ class s3 extends Ve {
 function U_(t, e, l) {
   const i = t.slice();
   return i[7] = e[l], i;
+}
+function o3(t) {
+  let e;
+  return {
+    c() {
+      e = m("span"), e.textContent = "Auto-selected", u(e, "class", "auto-selected svelte-1q1n3c9");
+    },
+    m(l, i) {
+      S(l, e, i);
+    },
+    p: ne,
+    i: ne,
+    o: ne,
+    d(l) {
+      l && C(e);
+    }
+  };
+}
+function u3(t) {
+  let e, l, i, n, a, r;
+  e = new Nl({
+    props: {
+      id: "measure-reset",
+      checked: !1,
+      oncheck: (
+        /*func*/
+        t[4]
+      ),
+      label: "Reset"
+    }
+  }), i = new Nl({
+    props: {
+      id: "measure-all",
+      checked: (
+        /*$data*/
+        t[1].measure_all
+      ),
+      deactive: /*$data*/ t[1].num_qubits && /*$data*/
+      t[1].num_clbits && /*$data*/
+      t[1].num_clbits >= /*$data*/
+      t[1].num_qubits ? "" : "deactive",
+      oncheck: (
+        /*func_1*/
+        t[5]
+      ),
+      label: "All"
+    }
+  });
+  let s = $e(
+    /*$data*/
+    t[1].qubits || []
+  ), o = [];
+  for (let c = 0; c < s.length; c += 1)
+    o[c] = W_(U_(t, s, c));
+  const _ = (c) => D(o[c], 1, 1, () => {
+    o[c] = null;
+  });
+  return {
+    c() {
+      pe(e.$$.fragment), l = N(), pe(i.$$.fragment), n = N();
+      for (let c = 0; c < o.length; c += 1)
+        o[c].c();
+      a = Ae();
+    },
+    m(c, d) {
+      de(e, c, d), S(c, l, d), de(i, c, d), S(c, n, d);
+      for (let h = 0; h < o.length; h += 1)
+        o[h] && o[h].m(c, d);
+      S(c, a, d), r = !0;
+    },
+    p(c, d) {
+      const h = {};
+      d & /*data*/
+      1 && (h.oncheck = /*func*/
+      c[4]), e.$set(h);
+      const p = {};
+      if (d & /*$data*/
+      2 && (p.checked = /*$data*/
+      c[1].measure_all), d & /*$data*/
+      2 && (p.deactive = /*$data*/
+      c[1].num_qubits && /*$data*/
+      c[1].num_clbits && /*$data*/
+      c[1].num_clbits >= /*$data*/
+      c[1].num_qubits ? "" : "deactive"), d & /*data*/
+      1 && (p.oncheck = /*func_1*/
+      c[5]), i.$set(p), d & /*$data, data, measure_warning*/
+      11) {
+        s = $e(
+          /*$data*/
+          c[1].qubits || []
+        );
+        let g;
+        for (g = 0; g < s.length; g += 1) {
+          const b = U_(c, s, g);
+          o[g] ? (o[g].p(b, d), T(o[g], 1)) : (o[g] = W_(b), o[g].c(), T(o[g], 1), o[g].m(a.parentNode, a));
+        }
+        for (be(), g = s.length; g < o.length; g += 1)
+          _(g);
+        ke();
+      }
+    },
+    i(c) {
+      if (!r) {
+        T(e.$$.fragment, c), T(i.$$.fragment, c);
+        for (let d = 0; d < s.length; d += 1)
+          T(o[d]);
+        r = !0;
+      }
+    },
+    o(c) {
+      D(e.$$.fragment, c), D(i.$$.fragment, c), o = o.filter(Boolean);
+      for (let d = 0; d < o.length; d += 1)
+        D(o[d]);
+      r = !1;
+    },
+    d(c) {
+      c && (C(l), C(n), C(a)), he(e, c), he(i, c), Ye(o, c);
+    }
+  };
 }
 function W_(t) {
   var n;
@@ -19603,13 +19722,13 @@ function J_(t) {
   let e, l;
   return {
     c() {
-      e = m("div"), l = I(
+      e = m("div"), l = E(
         /*$measure_warning*/
         t[2]
-      ), u(e, "class", "warning svelte-dl8wxr");
+      ), u(e, "class", "warning svelte-1q1n3c9");
     },
     m(i, n) {
-      M(i, e, n), f(e, l);
+      S(i, e, n), f(e, l);
     },
     p(i, n) {
       n & /*$measure_warning*/
@@ -19620,129 +19739,60 @@ function J_(t) {
       );
     },
     d(i) {
-      i && S(e);
+      i && C(e);
     }
   };
 }
-function o3(t) {
-  let e, l, i, n, a, r, s, o, _, c, d, h, p, b, g, k;
-  c = new Nl({
-    props: {
-      id: "measure-reset",
-      checked: !1,
-      oncheck: (
-        /*func*/
-        t[4]
-      ),
-      label: "Reset"
-    }
-  }), h = new Nl({
-    props: {
-      id: "measure-all",
-      checked: (
-        /*$data*/
-        t[1].measure_all
-      ),
-      deactive: /*$data*/ t[1].num_qubits && /*$data*/
-      t[1].num_clbits && /*$data*/
-      t[1].num_clbits >= /*$data*/
-      t[1].num_qubits ? "" : "deactive",
-      oncheck: (
-        /*func_1*/
-        t[5]
-      ),
-      label: "All"
-    }
-  });
-  let y = $e(
-    /*$data*/
-    t[1].qubits || []
-  ), v = [];
-  for (let $ = 0; $ < y.length; $ += 1)
-    v[$] = W_(U_(t, y, $));
-  const w = ($) => D(v[$], 1, 1, () => {
-    v[$] = null;
-  });
-  let q = (
+function f3(t) {
+  let e, l, i, n, a, r, s, o, _, c, d, h, p, g;
+  const b = [u3, o3], k = [];
+  function y(w, q) {
+    return (
+      /*$data*/
+      w[1].clbits === "auto" ? 0 : 1
+    );
+  }
+  c = y(t), d = k[c] = b[c](t);
+  let v = (
     /*$measure_warning*/
     t[2] && J_(t)
   );
   return {
     c() {
-      e = m("article"), l = m("h4"), l.textContent = "3a. Measure", i = N(), n = m("div"), a = m("div"), r = m("div"), s = m("label"), s.textContent = "Qubits to measure", o = N(), _ = m("div"), pe(c.$$.fragment), d = N(), pe(h.$$.fragment), p = N();
-      for (let $ = 0; $ < v.length; $ += 1)
-        v[$].c();
-      b = N(), q && q.c(), u(l, "class", "svelte-dl8wxr"), u(s, "class", "svelte-dl8wxr"), u(_, "class", "checkbox-group svelte-dl8wxr"), u(r, "class", "input-form svelte-dl8wxr"), u(a, "class", "input-row svelte-dl8wxr"), u(n, "class", "content-wrap svelte-dl8wxr"), u(e, "class", g = Yt(
+      e = m("article"), l = m("h4"), l.textContent = "3a. Measure", i = N(), n = m("div"), a = m("div"), r = m("div"), s = m("label"), s.textContent = "Qubits to measure", o = N(), _ = m("div"), d.c(), h = N(), v && v.c(), u(l, "class", "svelte-1q1n3c9"), u(s, "class", "svelte-1q1n3c9"), u(_, "class", "checkbox-group svelte-1q1n3c9"), u(r, "class", "input-form svelte-1q1n3c9"), u(a, "class", "input-row svelte-1q1n3c9"), u(n, "class", "content-wrap svelte-1q1n3c9"), u(e, "class", p = Yt(
         /*$data*/
         t[1].num_clbits && /*$data*/
         t[1].num_qubits ? "" : "deactive"
-      ) + " svelte-dl8wxr");
+      ) + " svelte-1q1n3c9");
     },
-    m($, j) {
-      M($, e, j), f(e, l), f(e, i), f(e, n), f(n, a), f(a, r), f(r, s), f(r, o), f(r, _), de(c, _, null), f(_, d), de(h, _, null), f(_, p);
-      for (let O = 0; O < v.length; O += 1)
-        v[O] && v[O].m(_, null);
-      f(e, b), q && q.m(e, null), k = !0;
+    m(w, q) {
+      S(w, e, q), f(e, l), f(e, i), f(e, n), f(n, a), f(a, r), f(r, s), f(r, o), f(r, _), k[c].m(_, null), f(e, h), v && v.m(e, null), g = !0;
     },
-    p($, [j]) {
-      const O = {};
-      j & /*data*/
-      1 && (O.oncheck = /*func*/
-      $[4]), c.$set(O);
-      const A = {};
-      if (j & /*$data*/
-      2 && (A.checked = /*$data*/
-      $[1].measure_all), j & /*$data*/
-      2 && (A.deactive = /*$data*/
-      $[1].num_qubits && /*$data*/
-      $[1].num_clbits && /*$data*/
-      $[1].num_clbits >= /*$data*/
-      $[1].num_qubits ? "" : "deactive"), j & /*data*/
-      1 && (A.oncheck = /*func_1*/
-      $[5]), h.$set(A), j & /*$data, data, measure_warning*/
-      11) {
-        y = $e(
-          /*$data*/
-          $[1].qubits || []
-        );
-        let C;
-        for (C = 0; C < y.length; C += 1) {
-          const z = U_($, y, C);
-          v[C] ? (v[C].p(z, j), T(v[C], 1)) : (v[C] = W_(z), v[C].c(), T(v[C], 1), v[C].m(_, null));
-        }
-        for (be(), C = y.length; C < v.length; C += 1)
-          w(C);
-        ke();
-      }
-      /*$measure_warning*/
-      $[2] ? q ? q.p($, j) : (q = J_($), q.c(), q.m(e, null)) : q && (q.d(1), q = null), (!k || j & /*$data*/
-      2 && g !== (g = Yt(
+    p(w, [q]) {
+      let $ = c;
+      c = y(w), c === $ ? k[c].p(w, q) : (be(), D(k[$], 1, 1, () => {
+        k[$] = null;
+      }), ke(), d = k[c], d ? d.p(w, q) : (d = k[c] = b[c](w), d.c()), T(d, 1), d.m(_, null)), /*$measure_warning*/
+      w[2] ? v ? v.p(w, q) : (v = J_(w), v.c(), v.m(e, null)) : v && (v.d(1), v = null), (!g || q & /*$data*/
+      2 && p !== (p = Yt(
         /*$data*/
-        $[1].num_clbits && /*$data*/
-        $[1].num_qubits ? "" : "deactive"
-      ) + " svelte-dl8wxr")) && u(e, "class", g);
+        w[1].num_clbits && /*$data*/
+        w[1].num_qubits ? "" : "deactive"
+      ) + " svelte-1q1n3c9")) && u(e, "class", p);
     },
-    i($) {
-      if (!k) {
-        T(c.$$.fragment, $), T(h.$$.fragment, $);
-        for (let j = 0; j < y.length; j += 1)
-          T(v[j]);
-        k = !0;
-      }
+    i(w) {
+      g || (T(d), g = !0);
     },
-    o($) {
-      D(c.$$.fragment, $), D(h.$$.fragment, $), v = v.filter(Boolean);
-      for (let j = 0; j < v.length; j += 1)
-        D(v[j]);
-      k = !1;
+    o(w) {
+      D(d), g = !1;
     },
-    d($) {
-      $ && S(e), he(c), he(h), Ye(v, $), q && q.d();
+    d(w) {
+      w && C(e), k[c].d(), v && v.d();
     }
   };
 }
-function u3(t, e, l) {
-  let i, n = ae, a = () => (n(), n = st(o, (h) => l(1, i = h)), o), r;
+function _3(t, e, l) {
+  let i, n = ne, a = () => (n(), n = st(o, (h) => l(1, i = h)), o), r;
   t.$$.on_destroy.push(() => n());
   let s = Oe();
   at(t, s, (h) => l(2, r = h));
@@ -19753,29 +19803,29 @@ function u3(t, e, l) {
   }, c = (h) => {
     o.update((p) => (p.measure_all = h, p));
   }, d = (h, p) => {
-    o.update((b) => {
-      var g, k;
-      if (b.measure || (b.measure = []), s.set(), p && !b.measure.includes(h)) {
-        if (b.num_clbits <= ((g = b.measure) == null ? void 0 : g.length))
-          return s.set(`More classical bits are needed to measure the qubit ${h}.`), b;
-        b.measure.push(h);
+    o.update((g) => {
+      var b, k;
+      if (g.measure || (g.measure = []), s.set(), p && !g.measure.includes(h)) {
+        if (g.num_clbits <= ((b = g.measure) == null ? void 0 : b.length))
+          return s.set(`More classical bits are needed to measure the qubit ${h}.`), g;
+        g.measure.push(h);
       } else
-        !p && b.measure.includes(h) && b.measure.splice(b.measure.indexOf(h), 1);
-      return b.num_clbits >= ((k = b.measure) == null ? void 0 : k.length) && s.set(), b;
+        !p && g.measure.includes(h) && g.measure.splice(g.measure.indexOf(h), 1);
+      return g.num_clbits >= ((k = g.measure) == null ? void 0 : k.length) && s.set(), g;
     });
   };
   return t.$$set = (h) => {
     "data" in h && a(l(0, o = h.data));
   }, [o, i, r, s, _, c, d];
 }
-class f3 extends Ve {
+class c3 extends Ve {
   constructor(e) {
-    super(), Qe(this, e, u3, o3, Fe, { data: 0 });
+    super(), Qe(this, e, _3, f3, Fe, { data: 0 });
   }
 }
-function _3(t) {
+function d3(t) {
   let e, l;
-  return e = new f3({ props: { data: (
+  return e = new c3({ props: { data: (
     /*data*/
     t[2]
   ) } }), {
@@ -19785,7 +19835,7 @@ function _3(t) {
     m(i, n) {
       de(e, i, n), l = !0;
     },
-    p: ae,
+    p: ne,
     i(i) {
       l || (T(e.$$.fragment, i), l = !0);
     },
@@ -19797,7 +19847,7 @@ function _3(t) {
     }
   };
 }
-function c3(t) {
+function h3(t) {
   let e, l;
   return e = new s3({ props: { data: (
     /*data*/
@@ -19809,7 +19859,7 @@ function c3(t) {
     m(i, n) {
       de(e, i, n), l = !0;
     },
-    p: ae,
+    p: ne,
     i(i) {
       l || (T(e.$$.fragment, i), l = !0);
     },
@@ -19822,18 +19872,18 @@ function c3(t) {
   };
 }
 function Z_(t) {
-  let e, l, i, n, a, r, s, o, _, c, d, h, p, b, g, k, y, v, w, q, $, j;
+  let e, l, i, n, a, r, s, o, _, c, d, h, p, g, b, k, y, v, w, q, $, j;
   return {
     c() {
-      e = m("article"), l = m("h4"), l.textContent = "4. Sharing options", i = N(), n = m("div"), a = m("div"), r = m("label"), r.textContent = "Add sharing options", s = N(), o = m("div"), _ = m("div"), c = m("input"), h = N(), p = m("label"), p.textContent = "QASM 2", b = N(), g = m("div"), k = m("input"), v = N(), w = m("label"), w.textContent = "QASM 3", u(l, "class", "svelte-2993p9"), u(r, "class", "svelte-2993p9"), u(c, "type", "checkbox"), u(c, "id", "reporting-measure"), c.checked = d = /*$data*/
+      e = m("article"), l = m("h4"), l.textContent = "4. Sharing options", i = N(), n = m("div"), a = m("div"), r = m("label"), r.textContent = "Add sharing options", s = N(), o = m("div"), _ = m("div"), c = m("input"), h = N(), p = m("label"), p.textContent = "QASM 2", g = N(), b = m("div"), k = m("input"), v = N(), w = m("label"), w.textContent = "QASM 3", u(l, "class", "svelte-2993p9"), u(r, "class", "svelte-2993p9"), u(c, "type", "checkbox"), u(c, "id", "reporting-measure"), c.checked = d = /*$data*/
       t[1].sharing.qasm2, u(c, "class", "svelte-2993p9"), u(p, "for", "reporting-measure"), u(p, "class", "svelte-2993p9"), u(_, "class", "checkbox-item svelte-2993p9"), u(k, "type", "checkbox"), u(k, "id", "reporting-measure"), k.checked = y = /*$data*/
-      t[1].sharing.qasm3, u(k, "class", "svelte-2993p9"), u(w, "for", "reporting-measure"), u(w, "class", "svelte-2993p9"), u(g, "class", "checkbox-item svelte-2993p9"), u(o, "class", "checkbox-group svelte-2993p9"), u(a, "class", "input-form svelte-2993p9"), u(n, "class", "input-row svelte-2993p9"), u(e, "class", q = Yt(
+      t[1].sharing.qasm3, u(k, "class", "svelte-2993p9"), u(w, "for", "reporting-measure"), u(w, "class", "svelte-2993p9"), u(b, "class", "checkbox-item svelte-2993p9"), u(o, "class", "checkbox-group svelte-2993p9"), u(a, "class", "input-form svelte-2993p9"), u(n, "class", "input-row svelte-2993p9"), u(e, "class", q = Yt(
         /*$data*/
         t[1].num_qubits ? "" : "deactive"
       ) + " svelte-2993p9");
     },
-    m(O, A) {
-      M(O, e, A), f(e, l), f(e, i), f(e, n), f(n, a), f(a, r), f(a, s), f(a, o), f(o, _), f(_, c), f(_, h), f(_, p), f(o, b), f(o, g), f(g, k), f(g, v), f(g, w), $ || (j = [
+    m(I, A) {
+      S(I, e, A), f(e, l), f(e, i), f(e, n), f(n, a), f(a, r), f(a, s), f(a, o), f(o, _), f(_, c), f(_, h), f(_, p), f(o, g), f(o, b), f(b, k), f(b, v), f(b, w), $ || (j = [
         te(
           c,
           "change",
@@ -19848,24 +19898,24 @@ function Z_(t) {
         )
       ], $ = !0);
     },
-    p(O, A) {
+    p(I, A) {
       A & /*$data*/
       2 && d !== (d = /*$data*/
-      O[1].sharing.qasm2) && (c.checked = d), A & /*$data*/
+      I[1].sharing.qasm2) && (c.checked = d), A & /*$data*/
       2 && y !== (y = /*$data*/
-      O[1].sharing.qasm3) && (k.checked = y), A & /*$data*/
+      I[1].sharing.qasm3) && (k.checked = y), A & /*$data*/
       2 && q !== (q = Yt(
         /*$data*/
-        O[1].num_qubits ? "" : "deactive"
+        I[1].num_qubits ? "" : "deactive"
       ) + " svelte-2993p9") && u(e, "class", q);
     },
-    d(O) {
-      O && S(e), $ = !1, wt(j);
+    d(I) {
+      I && C(e), $ = !1, wt(j);
     }
   };
 }
-function d3(t) {
-  let e, l, i, n, a, r, s, o, _, c, d, h, p, b, g, k, y, v, w, q, $, j, O, A, C, z, H, B, R, P, E, F, L, X, V, Q, Z, ne, se, K, Y, W, J, ee;
+function p3(t) {
+  let e, l, i, n, a, r, s, o, _, c, d, h, p, g, b, k, y, v, w, q, $, j, I, A, M, z, H, B, R, P, O, F, L, X, V, Q, Z, ae, se, K, Y, W, J, ee;
   s = new Mw({ props: { data: (
     /*data*/
     t[2]
@@ -19873,7 +19923,7 @@ function d3(t) {
     /*data*/
     t[2]
   ) } });
-  const we = [c3, _3], Re = [];
+  const we = [h3, d3], Re = [];
   function ve(fe, G) {
     return (
       /*$data*/
@@ -19890,10 +19940,10 @@ function d3(t) {
   );
   return {
     c() {
-      e = m("section"), l = m("h3"), i = I(`Writing a quantum circuit
-    `), n = m("button"), n.textContent = "Reset", a = N(), r = m("div"), pe(s.$$.fragment), o = N(), pe(_.$$.fragment), c = N(), d = m("article"), h = m("h4"), h.textContent = "3. Measure? or Observe?", p = N(), b = m("div"), g = m("div"), k = m("label"), k.textContent = "Choose reporting method", y = N(), v = m("div"), w = m("div"), q = m("input"), j = N(), O = m("label"), O.textContent = "Measure", A = N(), C = m("div"), z = m("input"), B = N(), R = m("label"), R.textContent = "Pauli-Observables", E = N(), L && L.c(), X = N(), me && me.c(), V = N(), Q = m("article"), Z = m("h4"), Z.textContent = "Get your circuit code (in Qiskit)", ne = N(), se = m("div"), K = m("button"), K.textContent = "Copy", u(n, "class", "svelte-2993p9"), u(l, "class", "svelte-2993p9"), u(h, "class", "svelte-2993p9"), u(k, "class", "svelte-2993p9"), u(q, "type", "radio"), u(q, "id", "reporting-measure"), u(q, "name", "reporting"), q.checked = $ = /*$data*/
-      t[1].reporting === "measure", u(q, "class", "svelte-2993p9"), u(O, "for", "reporting-measure"), u(O, "class", "svelte-2993p9"), u(w, "class", "checkbox-item svelte-2993p9"), u(z, "type", "radio"), u(z, "id", "reporting-observe"), u(z, "name", "reporting"), z.checked = H = /*$data*/
-      t[1].reporting === "observe", u(z, "class", "svelte-2993p9"), u(R, "for", "reporting-observe"), u(R, "class", "svelte-2993p9"), u(C, "class", "checkbox-item svelte-2993p9"), u(v, "class", "checkbox-group svelte-2993p9"), u(g, "class", "input-form svelte-2993p9"), u(b, "class", "input-row svelte-2993p9"), u(d, "class", P = Yt(
+      e = m("section"), l = m("h3"), i = E(`Writing a quantum circuit
+    `), n = m("button"), n.textContent = "Reset", a = N(), r = m("div"), pe(s.$$.fragment), o = N(), pe(_.$$.fragment), c = N(), d = m("article"), h = m("h4"), h.textContent = "3. Measure? or Observe?", p = N(), g = m("div"), b = m("div"), k = m("label"), k.textContent = "Choose reporting method", y = N(), v = m("div"), w = m("div"), q = m("input"), j = N(), I = m("label"), I.textContent = "Measure", A = N(), M = m("div"), z = m("input"), B = N(), R = m("label"), R.textContent = "Pauli-Observables", O = N(), L && L.c(), X = N(), me && me.c(), V = N(), Q = m("article"), Z = m("h4"), Z.textContent = "Get your circuit code (in Qiskit)", ae = N(), se = m("div"), K = m("button"), K.textContent = "Copy", u(n, "class", "svelte-2993p9"), u(l, "class", "svelte-2993p9"), u(h, "class", "svelte-2993p9"), u(k, "class", "svelte-2993p9"), u(q, "type", "radio"), u(q, "id", "reporting-measure"), u(q, "name", "reporting"), q.checked = $ = /*$data*/
+      t[1].reporting === "measure", u(q, "class", "svelte-2993p9"), u(I, "for", "reporting-measure"), u(I, "class", "svelte-2993p9"), u(w, "class", "checkbox-item svelte-2993p9"), u(z, "type", "radio"), u(z, "id", "reporting-observe"), u(z, "name", "reporting"), z.checked = H = /*$data*/
+      t[1].reporting === "observe", u(z, "class", "svelte-2993p9"), u(R, "for", "reporting-observe"), u(R, "class", "svelte-2993p9"), u(M, "class", "checkbox-item svelte-2993p9"), u(v, "class", "checkbox-group svelte-2993p9"), u(b, "class", "input-form svelte-2993p9"), u(g, "class", "input-row svelte-2993p9"), u(d, "class", P = Yt(
         /*$data*/
         t[1].num_qubits ? "" : "deactive"
       ) + " svelte-2993p9"), u(Z, "class", "svelte-2993p9"), u(K, "class", "copy-qiskit svelte-2993p9"), u(se, "class", "input-row svelte-2993p9"), u(Q, "class", Y = Yt(
@@ -19902,7 +19952,7 @@ function d3(t) {
       ) + " svelte-2993p9"), u(r, "class", "content svelte-2993p9"), u(e, "class", "circuit-write-wrap svelte-2993p9");
     },
     m(fe, G) {
-      M(fe, e, G), f(e, l), f(l, i), f(l, n), f(e, a), f(e, r), de(s, r, null), f(r, o), de(_, r, null), f(r, c), f(r, d), f(d, h), f(d, p), f(d, b), f(b, g), f(g, k), f(g, y), f(g, v), f(v, w), f(w, q), f(w, j), f(w, O), f(v, A), f(v, C), f(C, z), f(C, B), f(C, R), f(r, E), ~F && Re[F].m(r, null), f(r, X), me && me.m(r, null), f(r, V), f(r, Q), f(Q, Z), f(Q, ne), f(Q, se), f(se, K), W = !0, J || (ee = [
+      S(fe, e, G), f(e, l), f(l, i), f(l, n), f(e, a), f(e, r), de(s, r, null), f(r, o), de(_, r, null), f(r, c), f(r, d), f(d, h), f(d, p), f(d, g), f(g, b), f(b, k), f(b, y), f(b, v), f(v, w), f(w, q), f(w, j), f(w, I), f(v, A), f(v, M), f(M, z), f(M, B), f(M, R), f(r, O), ~F && Re[F].m(r, null), f(r, X), me && me.m(r, null), f(r, V), f(r, Q), f(Q, Z), f(Q, ae), f(Q, se), f(se, K), W = !0, J || (ee = [
         te(
           n,
           "click",
@@ -19956,11 +20006,11 @@ function d3(t) {
       D(s.$$.fragment, fe), D(_.$$.fragment, fe), D(L), W = !1;
     },
     d(fe) {
-      fe && S(e), he(s), he(_), ~F && Re[F].d(), me && me.d(), J = !1, wt(ee);
+      fe && C(e), he(s), he(_), ~F && Re[F].d(), me && me.d(), J = !1, wt(ee);
     }
   };
 }
-function h3(t, e, l) {
+function m3(t, e, l) {
   let i, { model: n } = e, { key_circ: a = "circ_code", key_machine: r = "machine" } = e;
   n.get(a);
   let s, o = `change:${r}`, _ = () => count = n.get(r), c = Oe({});
@@ -19968,10 +20018,10 @@ function h3(t, e, l) {
   let d = Oe({});
   Tt(() => {
     n.get(r) && l(0, s = JSON.parse(n.get(r))), n.get(a), c.subscribe((v) => {
-      var w, q, $, j, O;
+      var w, q, $, j, I;
       v.operations && (v.num_operations = ((q = (w = v.operations) == null ? void 0 : w.filter((A) => !A.deactive)) == null ? void 0 : q.length) || 0), v.pauli_obs && (v.num_pauli_obs = ((j = ($ = v.pauli_obs) == null ? void 0 : $.filter((A) => !A.deactive)) == null ? void 0 : j.length) || 0, v.pauli_obs.forEach((A) => {
         A.observable.length < v.machine_qubits ? A.observable = A.observable + "I".repeat(v.machine_qubits - A.observable.length) : A.observable.length > v.machine_qubits && (A.observable = A.observable.substring(0, v.machine_qubits));
-      })), v.machine && (v.machine_qubits = (O = yl[v.machine]) == null ? void 0 : O.n_qubits, yl[v.machine].sim ? yl[v.machine].machine ? (v.no_sim = !1, v.no_machine = !1) : (v.no_machine = !0, v.no_sim = !1, v.is_simulator = !0) : (v.no_sim = !0, v.no_machine = !1, v.is_simulator = !1), v.no_sim || v.no_machine ? v.sim_not_choosable = !0 : v.sim_not_choosable = !1), v.measure && v.measure.length > 0 && v.measure.sort(), d.set(xf(v));
+      })), v.machine && (v.machine_qubits = (I = yl[v.machine]) == null ? void 0 : I.n_qubits, yl[v.machine].sim ? yl[v.machine].machine ? (v.no_sim = !1, v.no_machine = !1) : (v.no_machine = !0, v.no_sim = !1, v.is_simulator = !0) : (v.no_sim = !0, v.no_machine = !1, v.is_simulator = !1), v.no_sim || v.no_machine ? v.sim_not_choosable = !0 : v.sim_not_choosable = !1), v.measure && v.measure.length > 0 && v.measure.sort(), d.set(xf(v));
     }), d.subscribe((v) => {
       n.set(a, v), n.save_changes();
     }), c.set({
@@ -19990,9 +20040,9 @@ function h3(t, e, l) {
     });
   }, p = (v) => {
     c.update((w) => (v.target.checked && (w.reporting = "measure"), w));
-  }, b = (v) => {
-    c.update((w) => (v.target.checked && (w.reporting = "observe"), w));
   }, g = (v) => {
+    c.update((w) => (v.target.checked && (w.reporting = "observe"), w));
+  }, b = (v) => {
     c.update((w) => (Ta(c, i.sharing.qasm2 = v.target.checked, i), w));
   }, k = (v) => {
     c.update((w) => (Ta(c, i.sharing.qasm3 = v.target.checked, i), w));
@@ -20010,15 +20060,15 @@ function h3(t, e, l) {
     r,
     h,
     p,
-    b,
     g,
+    b,
     k,
     y
   ];
 }
-class p3 extends Ve {
+class g3 extends Ve {
   constructor(e) {
-    super(), Qe(this, e, h3, d3, Fe, { model: 3, key_circ: 4, key_machine: 5 });
+    super(), Qe(this, e, m3, p3, Fe, { model: 3, key_circ: 4, key_machine: 5 });
   }
 }
 const Cl = [
@@ -20229,7 +20279,7 @@ const Cl = [
   // Compiler-related information
   target: "A description of instructions on a backend and their properties as well as some timing information.",
   translation_stage_plugin: "The default translation stage plugin name for IBM backends. If `None`, it is not provided."
-}, m3 = {
+}, b3 = {
   // Meta data
   name: "_backend_.name",
   description: "_backend_.description",
@@ -20294,7 +20344,7 @@ function x_(t, e) {
 `;
   let r = [];
   for (const s of t)
-    s.includes(" = ") ? (a += `${i}${s}`, r.push(s.split(" = ")[0])) : (a += `${i}${s} = ${m3[s]}`, r.push(s)), a += `
+    s.includes(" = ") ? (a += `${i}${s}`, r.push(s.split(" = ")[0])) : (a += `${i}${s} = ${b3[s]}`, r.push(s)), a += `
 `;
   if (l) {
     a += `
@@ -20312,7 +20362,7 @@ function ec(t) {
   let e = t.replace("#", ""), l = [e.slice(0, 2), e.slice(2, 4), e.slice(4, 6)].map((i) => parseInt(i, 16));
   return l[0] * 0.299 + l[1] * 0.587 + l[2] * 0.114 > 186 ? "#000000" : "#ffffff";
 }
-function ag(t) {
+function a0(t) {
   let e = new Date(t);
   return "datetime(" + [
     e.getFullYear(),
@@ -20324,7 +20374,7 @@ function ag(t) {
     e.getMilliseconds()
   ].join(", ") + ")";
 }
-function g3(t) {
+function k3(t) {
   let e, l, i, n, a, r = (
     /*hide*/
     t[2] ? "Open" : "Close"
@@ -20334,13 +20384,13 @@ function g3(t) {
   );
   return {
     c() {
-      e = m("h2"), l = I(
+      e = m("h2"), l = E(
         /*title*/
         t[0]
-      ), i = N(), c && c.c(), n = N(), a = m("button"), s = I(r), u(a, "class", "svelte-agu7v9"), u(e, "class", "svelte-agu7v9");
+      ), i = N(), c && c.c(), n = N(), a = m("button"), s = E(r), u(a, "class", "svelte-agu7v9"), u(e, "class", "svelte-agu7v9");
     },
     m(d, h) {
-      M(d, e, h), f(e, l), f(e, i), c && c.m(e, null), f(e, n), f(e, a), f(a, s), o || (_ = te(
+      S(d, e, h), f(e, l), f(e, i), c && c.m(e, null), f(e, n), f(e, a), f(a, s), o || (_ = te(
         a,
         "click",
         /*click_handler_1*/
@@ -20359,11 +20409,11 @@ function g3(t) {
       d[2] ? "Open" : "Close") && U(s, r);
     },
     d(d) {
-      d && S(e), c && c.d(), o = !1, _();
+      d && C(e), c && c.d(), o = !1, _();
     }
   };
 }
-function b3(t) {
+function v3(t) {
   let e, l, i, n, a, r = (
     /*hide*/
     t[2] ? "Open" : "Close"
@@ -20373,13 +20423,13 @@ function b3(t) {
   );
   return {
     c() {
-      e = m("h1"), l = I(
+      e = m("h1"), l = E(
         /*title*/
         t[0]
-      ), i = N(), c && c.c(), n = N(), a = m("button"), s = I(r), u(a, "class", "svelte-agu7v9"), u(e, "class", "svelte-agu7v9");
+      ), i = N(), c && c.c(), n = N(), a = m("button"), s = E(r), u(a, "class", "svelte-agu7v9"), u(e, "class", "svelte-agu7v9");
     },
     m(d, h) {
-      M(d, e, h), f(e, l), f(e, i), c && c.m(e, null), f(e, n), f(e, a), f(a, s), o || (_ = te(
+      S(d, e, h), f(e, l), f(e, i), c && c.m(e, null), f(e, n), f(e, a), f(a, s), o || (_ = te(
         a,
         "click",
         /*click_handler*/
@@ -20398,7 +20448,7 @@ function b3(t) {
       d[2] ? "Open" : "Close") && U(s, r);
     },
     d(d) {
-      d && S(e), c && c.d(), o = !1, _();
+      d && C(e), c && c.d(), o = !1, _();
     }
   };
 }
@@ -20406,13 +20456,13 @@ function tc(t) {
   let e, l;
   return {
     c() {
-      e = m("small"), l = I(
+      e = m("small"), l = E(
         /*note*/
         t[1]
       ), u(e, "class", "svelte-agu7v9");
     },
     m(i, n) {
-      M(i, e, n), f(e, l);
+      S(i, e, n), f(e, l);
     },
     p(i, n) {
       n & /*note*/
@@ -20423,7 +20473,7 @@ function tc(t) {
       );
     },
     d(i) {
-      i && S(e);
+      i && C(e);
     }
   };
 }
@@ -20431,13 +20481,13 @@ function lc(t) {
   let e, l;
   return {
     c() {
-      e = m("small"), l = I(
+      e = m("small"), l = E(
         /*note*/
         t[1]
       ), u(e, "class", "svelte-agu7v9");
     },
     m(i, n) {
-      M(i, e, n), f(e, l);
+      S(i, e, n), f(e, l);
     },
     p(i, n) {
       n & /*note*/
@@ -20448,23 +20498,23 @@ function lc(t) {
       );
     },
     d(i) {
-      i && S(e);
+      i && C(e);
     }
   };
 }
-function k3(t) {
+function y3(t) {
   let e;
   function l(a, r) {
     if (
       /*level*/
       a[3] == 1
     )
-      return b3;
+      return v3;
     if (
       /*level*/
       a[3] == 2
     )
-      return g3;
+      return k3;
   }
   let i = l(t), n = i && i(t);
   return {
@@ -20472,19 +20522,19 @@ function k3(t) {
       n && n.c(), e = Ae();
     },
     m(a, r) {
-      n && n.m(a, r), M(a, e, r);
+      n && n.m(a, r), S(a, e, r);
     },
     p(a, [r]) {
       i === (i = l(a)) && n ? n.p(a, r) : (n && n.d(1), n = i && i(a), n && (n.c(), n.m(e.parentNode, e)));
     },
-    i: ae,
-    o: ae,
+    i: ne,
+    o: ne,
     d(a) {
-      a && S(e), n && n.d(a);
+      a && C(e), n && n.d(a);
     }
   };
 }
-function v3(t, e, l) {
+function w3(t, e, l) {
   let { title: i = "", note: n, hide: a, level: r = 1 } = e, { toggleSection: s = () => {
   } } = e;
   const o = () => {
@@ -20496,9 +20546,9 @@ function v3(t, e, l) {
     "title" in c && l(0, i = c.title), "note" in c && l(1, n = c.note), "hide" in c && l(2, a = c.hide), "level" in c && l(3, r = c.level), "toggleSection" in c && l(4, s = c.toggleSection);
   }, [i, n, a, r, s, o, _];
 }
-class rg extends Ve {
+class r0 extends Ve {
   constructor(e) {
-    super(), Qe(this, e, v3, k3, Fe, {
+    super(), Qe(this, e, w3, y3, Fe, {
       title: 0,
       note: 1,
       hide: 2,
@@ -20507,40 +20557,40 @@ class rg extends Ve {
     });
   }
 }
-function y3(t) {
+function $3(t) {
   let e, l;
   return {
     c() {
       e = Ge("svg"), l = Ge("path"), u(l, "d", "M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"), u(e, "xmlns", "http://www.w3.org/2000/svg"), u(e, "width", "16"), u(e, "height", "16"), u(e, "fill", "currentColor"), u(e, "class", "bi bi-cart"), u(e, "viewBox", "0 0 16 16");
     },
     m(i, n) {
-      M(i, e, n), f(e, l);
+      S(i, e, n), f(e, l);
     },
     d(i) {
-      i && S(e);
+      i && C(e);
     }
   };
 }
-function w3(t) {
+function q3(t) {
   let e, l;
   return {
     c() {
       e = Ge("svg"), l = Ge("path"), u(l, "d", "M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m-1.646-7.646-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708"), u(e, "xmlns", "http://www.w3.org/2000/svg"), u(e, "width", "16"), u(e, "height", "16"), u(e, "fill", "currentColor"), u(e, "class", "bi bi-cart-check-fill"), u(e, "viewBox", "0 0 16 16");
     },
     m(i, n) {
-      M(i, e, n), f(e, l);
+      S(i, e, n), f(e, l);
     },
     d(i) {
-      i && S(e);
+      i && C(e);
     }
   };
 }
-function $3(t) {
+function j3(t) {
   let e;
   function l(a, r) {
     return (
       /*on*/
-      a[0] ? w3 : y3
+      a[0] ? q3 : $3
     );
   }
   let i = l(t), n = i(t);
@@ -20549,19 +20599,19 @@ function $3(t) {
       n.c(), e = Ae();
     },
     m(a, r) {
-      n.m(a, r), M(a, e, r);
+      n.m(a, r), S(a, e, r);
     },
     p(a, [r]) {
       i !== (i = l(a)) && (n.d(1), n = i(a), n && (n.c(), n.m(e.parentNode, e)));
     },
-    i: ae,
-    o: ae,
+    i: ne,
+    o: ne,
     d(a) {
-      a && S(e), n.d(a);
+      a && C(e), n.d(a);
     }
   };
 }
-function q3(t, e, l) {
+function T3(t, e, l) {
   let { on: i = !1 } = e;
   return t.$$set = (n) => {
     "on" in n && l(0, i = n.on);
@@ -20569,7 +20619,7 @@ function q3(t, e, l) {
 }
 class zt extends Ve {
   constructor(e) {
-    super(), Qe(this, e, q3, $3, Fe, { on: 0 });
+    super(), Qe(this, e, T3, j3, Fe, { on: 0 });
   }
 }
 function ic(t, e, l) {
@@ -20593,7 +20643,7 @@ function nc(t) {
       e = m("button"), pe(l.$$.fragment), u(e, "class", "basket svelte-1wl619s");
     },
     m(r, s) {
-      M(r, e, s), de(l, e, null), i = !0, n || (a = te(
+      S(r, e, s), de(l, e, null), i = !0, n || (a = te(
         e,
         "click",
         /*click_handler*/
@@ -20616,69 +20666,69 @@ function nc(t) {
       D(l.$$.fragment, r), i = !1;
     },
     d(r) {
-      r && S(e), he(l), n = !1, a();
-    }
-  };
-}
-function j3(t) {
-  let e, l = ct[
-    /*key*/
-    t[0]
-  ] + "", i;
-  return {
-    c() {
-      e = m("h3"), i = I(l), u(e, "class", "svelte-1wl619s");
-    },
-    m(n, a) {
-      M(n, e, a), f(e, i);
-    },
-    p(n, a) {
-      a & /*key*/
-      1 && l !== (l = ct[
-        /*key*/
-        n[0]
-      ] + "") && U(i, l);
-    },
-    d(n) {
-      n && S(e);
-    }
-  };
-}
-function T3(t) {
-  let e, l = ct[
-    /*key*/
-    t[0]
-  ] + "", i;
-  return {
-    c() {
-      e = m("h2"), i = I(l), u(e, "class", "svelte-1wl619s");
-    },
-    m(n, a) {
-      M(n, e, a), f(e, i);
-    },
-    p(n, a) {
-      a & /*key*/
-      1 && l !== (l = ct[
-        /*key*/
-        n[0]
-      ] + "") && U(i, l);
-    },
-    d(n) {
-      n && S(e);
+      r && C(e), he(l), n = !1, a();
     }
   };
 }
 function C3(t) {
+  let e, l = ct[
+    /*key*/
+    t[0]
+  ] + "", i;
+  return {
+    c() {
+      e = m("h3"), i = E(l), u(e, "class", "svelte-1wl619s");
+    },
+    m(n, a) {
+      S(n, e, a), f(e, i);
+    },
+    p(n, a) {
+      a & /*key*/
+      1 && l !== (l = ct[
+        /*key*/
+        n[0]
+      ] + "") && U(i, l);
+    },
+    d(n) {
+      n && C(e);
+    }
+  };
+}
+function S3(t) {
+  let e, l = ct[
+    /*key*/
+    t[0]
+  ] + "", i;
+  return {
+    c() {
+      e = m("h2"), i = E(l), u(e, "class", "svelte-1wl619s");
+    },
+    m(n, a) {
+      S(n, e, a), f(e, i);
+    },
+    p(n, a) {
+      a & /*key*/
+      1 && l !== (l = ct[
+        /*key*/
+        n[0]
+      ] + "") && U(i, l);
+    },
+    d(n) {
+      n && C(e);
+    }
+  };
+}
+function M3(t) {
   let e;
   return {
     c() {
-      e = I(
+      e = E(
         /*value*/
         t[1]
       );
     },
     m(l, i) {
-      M(l, e, i);
+      S(l, e, i);
     },
     p(l, i) {
       i & /*value*/
@@ -20688,38 +20738,38 @@ function C3(t) {
         l[1]
       );
     },
-    i: ae,
-    o: ae,
+    i: ne,
+    o: ne,
     d(l) {
-      l && S(e);
+      l && C(e);
     }
   };
 }
-function S3(t) {
+function z3(t) {
   let e = (
     /*value*/
     t[1].join(", ") + ""
   ), l;
   return {
     c() {
-      l = I(e);
+      l = E(e);
     },
     m(i, n) {
-      M(i, l, n);
+      S(i, l, n);
     },
     p(i, n) {
       n & /*value*/
       2 && e !== (e = /*value*/
       i[1].join(", ") + "") && U(l, e);
     },
-    i: ae,
-    o: ae,
+    i: ne,
+    o: ne,
     d(i) {
-      i && S(l);
+      i && C(l);
     }
   };
 }
-function M3(t) {
+function N3(t) {
   let e, l, i = $e(
     /*value*/
     t[1]
@@ -20738,7 +20788,7 @@ function M3(t) {
     m(r, s) {
       for (let o = 0; o < n.length; o += 1)
         n[o] && n[o].m(r, s);
-      M(r, e, s), l = !0;
+      S(r, e, s), l = !0;
     },
     p(r, s) {
       if (s & /*value, addToBasket, $basket*/
@@ -20771,7 +20821,7 @@ function M3(t) {
       l = !1;
     },
     d(r) {
-      r && S(e), Ye(n, r);
+      r && C(e), Ye(n, r);
     }
   };
 }
@@ -20801,7 +20851,7 @@ function ac(t) {
       e = m("button"), pe(l.$$.fragment), u(e, "class", "basket svelte-1wl619s");
     },
     m(s, o) {
-      M(s, e, o), de(l, e, null), i = !0, n || (a = te(e, "click", r), n = !0);
+      S(s, e, o), de(l, e, null), i = !0, n || (a = te(e, "click", r), n = !0);
     },
     p(s, o) {
       t = s;
@@ -20819,7 +20869,7 @@ function ac(t) {
       D(l.$$.fragment, s), i = !1;
     },
     d(s) {
-      s && S(e), he(l), n = !1, a();
+      s && C(e), he(l), n = !1, a();
     }
   };
 }
@@ -20836,17 +20886,17 @@ function rc(t) {
   );
   return {
     c() {
-      e = m("div"), l = m("strong"), i = I("Group "), a = I(n), r = N(), h && h.c(), s = N(), _ = I(o), c = N(), u(l, "class", "svelte-1wl619s"), u(e, "class", "meas_grouping svelte-1wl619s");
+      e = m("div"), l = m("strong"), i = E("Group "), a = E(n), r = N(), h && h.c(), s = N(), _ = E(o), c = N(), u(l, "class", "svelte-1wl619s"), u(e, "class", "meas_grouping svelte-1wl619s");
     },
-    m(p, b) {
-      M(p, e, b), f(e, l), f(l, i), f(l, a), f(l, r), h && h.m(l, null), f(e, s), f(e, _), f(e, c), d = !0;
+    m(p, g) {
+      S(p, e, g), f(e, l), f(l, i), f(l, a), f(l, r), h && h.m(l, null), f(e, s), f(e, _), f(e, c), d = !0;
     },
-    p(p, b) {
+    p(p, g) {
       /*addToBasket*/
-      p[2] ? h ? (h.p(p, b), b & /*addToBasket*/
+      p[2] ? h ? (h.p(p, g), g & /*addToBasket*/
       4 && T(h, 1)) : (h = ac(p), h.c(), T(h, 1), h.m(l, null)) : h && (be(), D(h, 1, 1, () => {
         h = null;
-      }), ke()), (!d || b & /*value*/
+      }), ke()), (!d || g & /*value*/
       2) && o !== (o = /*v*/
       p[8].join(", ") + "") && U(_, o);
     },
@@ -20857,7 +20907,7 @@ function rc(t) {
       D(h), d = !1;
     },
     d(p) {
-      p && S(e), h && h.d();
+      p && C(e), h && h.d();
     }
   };
 }
@@ -20868,10 +20918,10 @@ function sc(t) {
   ] + "", i;
   return {
     c() {
-      e = m("div"), i = I(l), u(e, "class", "desc svelte-1wl619s");
+      e = m("div"), i = E(l), u(e, "class", "desc svelte-1wl619s");
     },
     m(n, a) {
-      M(n, e, a), f(e, i);
+      S(n, e, a), f(e, i);
     },
     p(n, a) {
       a & /*key*/
@@ -20881,11 +20931,11 @@ function sc(t) {
       ] + "") && U(i, l);
     },
     d(n) {
-      n && S(e);
+      n && C(e);
     }
   };
 }
-function z3(t) {
+function A3(t) {
   let e, l, i, n, a, r, s, o, _ = (
     /*addToBasket*/
     t[2] && nc(t)
@@ -20895,16 +20945,16 @@ function z3(t) {
       /*level*/
       y[4] == 1
     )
-      return T3;
+      return S3;
     if (
       /*level*/
       y[4] == 2
     )
-      return j3;
+      return C3;
   }
   let d = c(t), h = d && d(t);
-  const p = [M3, S3, C3], b = [];
-  function g(y, v) {
+  const p = [N3, z3, M3], g = [];
+  function b(y, v) {
     var w;
     return (
       /*value*/
@@ -20919,7 +20969,7 @@ function z3(t) {
       )
     );
   }
-  ~(a = g(t)) && (r = b[a] = p[a](t));
+  ~(a = b(t)) && (r = g[a] = p[a](t));
   let k = bt[
     /*key*/
     t[0]
@@ -20929,7 +20979,7 @@ function z3(t) {
       e = m("article"), _ && _.c(), l = N(), h && h.c(), i = N(), n = m("div"), r && r.c(), s = N(), k && k.c(), u(n, "class", "value svelte-1wl619s"), u(e, "class", "svelte-1wl619s");
     },
     m(y, v) {
-      M(y, e, v), _ && _.m(e, null), f(e, l), h && h.m(e, null), f(e, i), f(e, n), ~a && b[a].m(n, null), f(e, s), k && k.m(e, null), o = !0;
+      S(y, e, v), _ && _.m(e, null), f(e, l), h && h.m(e, null), f(e, i), f(e, n), ~a && g[a].m(n, null), f(e, s), k && k.m(e, null), o = !0;
     },
     p(y, [v]) {
       /*addToBasket*/
@@ -20938,9 +20988,9 @@ function z3(t) {
         _ = null;
       }), ke()), d === (d = c(y)) && h ? h.p(y, v) : (h && h.d(1), h = d && d(y), h && (h.c(), h.m(e, i)));
       let w = a;
-      a = g(y), a === w ? ~a && b[a].p(y, v) : (r && (be(), D(b[w], 1, 1, () => {
-        b[w] = null;
-      }), ke()), ~a ? (r = b[a], r ? r.p(y, v) : (r = b[a] = p[a](y), r.c()), T(r, 1), r.m(n, null)) : r = null), bt[
+      a = b(y), a === w ? ~a && g[a].p(y, v) : (r && (be(), D(g[w], 1, 1, () => {
+        g[w] = null;
+      }), ke()), ~a ? (r = g[a], r ? r.p(y, v) : (r = g[a] = p[a](y), r.c()), T(r, 1), r.m(n, null)) : r = null), bt[
         /*key*/
         y[0]
       ] ? k ? k.p(y, v) : (k = sc(y), k.c(), k.m(e, null)) : k && (k.d(1), k = null);
@@ -20952,12 +21002,12 @@ function z3(t) {
       D(_), D(r), o = !1;
     },
     d(y) {
-      y && S(e), _ && _.d(), h && h.d(), ~a && b[a].d(), k && k.d();
+      y && C(e), _ && _.d(), h && h.d(), ~a && g[a].d(), k && k.d();
     }
   };
 }
-function N3(t, e, l) {
-  let i, n = ae, a = () => (n(), n = st(_, (p) => l(5, i = p)), _);
+function B3(t, e, l) {
+  let i, n = ne, a = () => (n(), n = st(_, (p) => l(5, i = p)), _);
   t.$$.on_destroy.push(() => n());
   let { key: r = "", value: s, addToBasket: o, basket: _, level: c = 1 } = e;
   a();
@@ -20981,7 +21031,7 @@ function N3(t, e, l) {
 }
 class Ya extends Ve {
   constructor(e) {
-    super(), Qe(this, e, N3, z3, Fe, {
+    super(), Qe(this, e, B3, A3, Fe, {
       key: 0,
       value: 1,
       addToBasket: 2,
@@ -20990,26 +21040,26 @@ class Ya extends Ve {
     });
   }
 }
-function A3(t) {
+function P3(t) {
   let e, l, i, n;
   return {
     c() {
       e = Ge("svg"), l = Ge("path"), i = Ge("path"), n = Ge("path"), u(l, "d", "M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022zm2.004.45a7 7 0 0 0-.985-.299l.219-.976q.576.129 1.126.342zm1.37.71a7 7 0 0 0-.439-.27l.493-.87a8 8 0 0 1 .979.654l-.615.789a7 7 0 0 0-.418-.302zm1.834 1.79a7 7 0 0 0-.653-.796l.724-.69q.406.429.747.91zm.744 1.352a7 7 0 0 0-.214-.468l.893-.45a8 8 0 0 1 .45 1.088l-.95.313a7 7 0 0 0-.179-.483m.53 2.507a7 7 0 0 0-.1-1.025l.985-.17q.1.58.116 1.17zm-.131 1.538q.05-.254.081-.51l.993.123a8 8 0 0 1-.23 1.155l-.964-.267q.069-.247.12-.501m-.952 2.379q.276-.436.486-.908l.914.405q-.24.54-.555 1.038zm-.964 1.205q.183-.183.35-.378l.758.653a8 8 0 0 1-.401.432z"), u(i, "d", "M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0z"), u(n, "d", "M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5"), u(e, "xmlns", "http://www.w3.org/2000/svg"), u(e, "width", "16"), u(e, "height", "16"), u(e, "fill", "currentColor"), u(e, "class", "bi bi-clock-history"), u(e, "viewBox", "0 0 16 16");
     },
     m(a, r) {
-      M(a, e, r), f(e, l), f(e, i), f(e, n);
+      S(a, e, r), f(e, l), f(e, i), f(e, n);
     },
-    p: ae,
-    i: ae,
-    o: ae,
+    p: ne,
+    i: ne,
+    o: ne,
     d(a) {
-      a && S(e);
+      a && C(e);
     }
   };
 }
 class ql extends Ve {
   constructor(e) {
-    super(), Qe(this, e, null, A3, Fe, {});
+    super(), Qe(this, e, null, P3, Fe, {});
   }
 }
 function oc(t, e, l) {
@@ -21033,7 +21083,7 @@ function uc(t) {
       e = m("button"), pe(l.$$.fragment), u(e, "class", "basket svelte-jt5wrr");
     },
     m(r, s) {
-      M(r, e, s), de(l, e, null), i = !0, n || (a = te(
+      S(r, e, s), de(l, e, null), i = !0, n || (a = te(
         e,
         "click",
         /*click_handler*/
@@ -21056,21 +21106,21 @@ function uc(t) {
       D(l.$$.fragment, r), i = !1;
     },
     d(r) {
-      r && S(e), he(l), n = !1, a();
+      r && C(e), he(l), n = !1, a();
     }
   };
 }
-function B3(t) {
+function O3(t) {
   let e, l = ct[
     /*key*/
     t[9]
   ] + "", i;
   return {
     c() {
-      e = m("h3"), i = I(l), u(e, "class", "svelte-jt5wrr");
+      e = m("h3"), i = E(l), u(e, "class", "svelte-jt5wrr");
     },
     m(n, a) {
-      M(n, e, a), f(e, i);
+      S(n, e, a), f(e, i);
     },
     p(n, a) {
       a & /*key*/
@@ -21080,21 +21130,21 @@ function B3(t) {
       ] + "") && U(i, l);
     },
     d(n) {
-      n && S(e);
+      n && C(e);
     }
   };
 }
-function P3(t) {
+function E3(t) {
   let e, l = ct[
     /*key*/
     t[9]
   ] + "", i;
   return {
     c() {
-      e = m("h2"), i = I(l), u(e, "class", "svelte-jt5wrr");
+      e = m("h2"), i = E(l), u(e, "class", "svelte-jt5wrr");
     },
     m(n, a) {
-      M(n, e, a), f(e, i);
+      S(n, e, a), f(e, i);
     },
     p(n, a) {
       a & /*key*/
@@ -21104,7 +21154,7 @@ function P3(t) {
       ] + "") && U(i, l);
     },
     d(n) {
-      n && S(e);
+      n && C(e);
     }
   };
 }
@@ -21115,10 +21165,10 @@ function fc(t) {
       e = m("th"), e.textContent = "T", u(e, "class", "svelte-jt5wrr");
     },
     m(l, i) {
-      M(l, e, i);
+      S(l, e, i);
     },
     d(l) {
-      l && S(e);
+      l && C(e);
     }
   };
 }
@@ -21153,7 +21203,7 @@ function _c(t) {
       e = m("button"), pe(l.$$.fragment), u(e, "class", "basket svelte-jt5wrr");
     },
     m(s, o) {
-      M(s, e, o), de(l, e, null), i = !0, n || (a = te(e, "click", r), n = !0);
+      S(s, e, o), de(l, e, null), i = !0, n || (a = te(e, "click", r), n = !0);
     },
     p(s, o) {
       t = s;
@@ -21174,7 +21224,7 @@ function _c(t) {
       D(l.$$.fragment, s), i = !1;
     },
     d(s) {
-      s && S(e), he(l), n = !1, a();
+      s && C(e), he(l), n = !1, a();
     }
   };
 }
@@ -21195,7 +21245,7 @@ function cc(t) {
       e = m("td"), l = m("button"), pe(i.$$.fragment), u(l, "class", "basket svelte-jt5wrr"), u(e, "class", "svelte-jt5wrr");
     },
     m(o, _) {
-      M(o, e, _), f(e, l), de(i, l, null), n = !0, a || (r = te(l, "click", s), a = !0);
+      S(o, e, _), f(e, l), de(i, l, null), n = !0, a || (r = te(l, "click", s), a = !0);
     },
     p(o, _) {
       t = o;
@@ -21207,7 +21257,7 @@ function cc(t) {
       D(i.$$.fragment, o), n = !1;
     },
     d(o) {
-      o && S(e), he(i), a = !1, r();
+      o && C(e), he(i), a = !1, r();
     }
   };
 }
@@ -21233,7 +21283,7 @@ function dc(t) {
       /*key*/
       t[9]
     ].asof + ""
-  ), p, b, g, k, y, v, w = (
+  ), p, g, b, k, y, v, w = (
     /*addToBasket*/
     t[1] && _c(t)
   ), q = (
@@ -21243,10 +21293,10 @@ function dc(t) {
   );
   return {
     c() {
-      e = m("tr"), l = m("th"), n = I(i), a = m("td"), s = I(r), o = m("td"), c = I(_), d = m("td"), p = I(h), b = N(), g = m("td"), w && w.c(), k = N(), q && q.c(), y = N(), u(l, "class", "svelte-jt5wrr"), u(a, "class", "svelte-jt5wrr"), u(o, "class", "svelte-jt5wrr"), u(d, "class", "svelte-jt5wrr"), u(g, "class", "svelte-jt5wrr");
+      e = m("tr"), l = m("th"), n = E(i), a = m("td"), s = E(r), o = m("td"), c = E(_), d = m("td"), p = E(h), g = N(), b = m("td"), w && w.c(), k = N(), q && q.c(), y = N(), u(l, "class", "svelte-jt5wrr"), u(a, "class", "svelte-jt5wrr"), u(o, "class", "svelte-jt5wrr"), u(d, "class", "svelte-jt5wrr"), u(b, "class", "svelte-jt5wrr");
     },
     m($, j) {
-      M($, e, j), f(e, l), f(l, n), f(e, a), f(a, s), f(e, o), f(o, c), f(e, d), f(d, p), f(e, b), f(e, g), w && w.m(g, null), f(e, k), q && q.m(e, null), f(e, y), v = !0;
+      S($, e, j), f(e, l), f(l, n), f(e, a), f(a, s), f(e, o), f(o, c), f(e, d), f(d, p), f(e, g), f(e, b), w && w.m(b, null), f(e, k), q && q.m(e, null), f(e, y), v = !0;
     },
     p($, j) {
       (!v || j & /*value*/
@@ -21268,7 +21318,7 @@ function dc(t) {
         $[9]
       ].asof + "") && U(p, h), /*addToBasket*/
       $[1] ? w ? (w.p($, j), j & /*addToBasket*/
-      2 && T(w, 1)) : (w = _c($), w.c(), T(w, 1), w.m(g, null)) : w && (be(), D(w, 1, 1, () => {
+      2 && T(w, 1)) : (w = _c($), w.c(), T(w, 1), w.m(b, null)) : w && (be(), D(w, 1, 1, () => {
         w = null;
       }), ke()), /*topLevelKey*/
       $[7] === "properties" && /*openTimeMachine*/
@@ -21284,7 +21334,7 @@ function dc(t) {
       D(w), D(q), v = !1;
     },
     d($) {
-      $ && S(e), w && w.d(), q && q.d();
+      $ && C(e), w && w.d(), q && q.d();
     }
   };
 }
@@ -21295,10 +21345,10 @@ function hc(t) {
   ] + "", i;
   return {
     c() {
-      e = m("div"), i = I(l), u(e, "class", "desc svelte-jt5wrr");
+      e = m("div"), i = E(l), u(e, "class", "desc svelte-jt5wrr");
     },
     m(n, a) {
-      M(n, e, a), f(e, i);
+      S(n, e, a), f(e, i);
     },
     p(n, a) {
       a & /*key*/
@@ -21308,28 +21358,28 @@ function hc(t) {
       ] + "") && U(i, l);
     },
     d(n) {
-      n && S(e);
+      n && C(e);
     }
   };
 }
-function O3(t) {
-  let e, l, i, n, a, r, s, o, _, c, d, h, p, b, g, k, y, v, w, q, $, j = (
+function I3(t) {
+  let e, l, i, n, a, r, s, o, _, c, d, h, p, g, b, k, y, v, w, q, $, j = (
     /*addToBasket*/
     t[1] && uc(t)
   );
-  function O(E, F) {
+  function I(O, F) {
     if (
       /*level*/
-      E[3] == 1
+      O[3] == 1
     )
-      return P3;
+      return E3;
     if (
       /*level*/
-      E[3] == 2
+      O[3] == 2
     )
-      return B3;
+      return O3;
   }
-  let A = O(t), C = A && A(t), z = (
+  let A = I(t), M = A && A(t), z = (
     /*topLevelKey*/
     t[7] === "properties" && /*openTimeMachine*/
     t[8] && fc()
@@ -21337,10 +21387,10 @@ function O3(t) {
     /*value*/
     t[0]
   )), B = [];
-  for (let E = 0; E < H.length; E += 1)
-    B[E] = dc(oc(t, H, E));
-  const R = (E) => D(B[E], 1, 1, () => {
-    B[E] = null;
+  for (let O = 0; O < H.length; O += 1)
+    B[O] = dc(oc(t, H, O));
+  const R = (O) => D(B[O], 1, 1, () => {
+    B[O] = null;
   });
   let P = bt[
     /*key*/
@@ -21348,33 +21398,33 @@ function O3(t) {
   ] && hc(t);
   return {
     c() {
-      e = m("article"), j && j.c(), l = N(), C && C.c(), i = N(), n = m("div"), a = m("table"), r = m("thead"), s = m("tr"), o = m("th"), o.textContent = "Name", _ = N(), c = m("th"), c.textContent = "Value", d = N(), h = m("th"), h.textContent = "Unit", p = N(), b = m("th"), b.textContent = "As of", g = N(), k = m("th"), k.textContent = "-", y = N(), z && z.c(), v = N(), w = m("tbody");
-      for (let E = 0; E < B.length; E += 1)
-        B[E].c();
-      q = N(), P && P.c(), u(o, "class", "svelte-jt5wrr"), u(c, "class", "svelte-jt5wrr"), u(h, "class", "svelte-jt5wrr"), u(b, "class", "svelte-jt5wrr"), u(k, "class", "svelte-jt5wrr"), u(r, "class", "svelte-jt5wrr"), u(a, "class", "svelte-jt5wrr"), u(n, "class", "value svelte-jt5wrr"), u(e, "class", "svelte-jt5wrr");
+      e = m("article"), j && j.c(), l = N(), M && M.c(), i = N(), n = m("div"), a = m("table"), r = m("thead"), s = m("tr"), o = m("th"), o.textContent = "Name", _ = N(), c = m("th"), c.textContent = "Value", d = N(), h = m("th"), h.textContent = "Unit", p = N(), g = m("th"), g.textContent = "As of", b = N(), k = m("th"), k.textContent = "-", y = N(), z && z.c(), v = N(), w = m("tbody");
+      for (let O = 0; O < B.length; O += 1)
+        B[O].c();
+      q = N(), P && P.c(), u(o, "class", "svelte-jt5wrr"), u(c, "class", "svelte-jt5wrr"), u(h, "class", "svelte-jt5wrr"), u(g, "class", "svelte-jt5wrr"), u(k, "class", "svelte-jt5wrr"), u(r, "class", "svelte-jt5wrr"), u(a, "class", "svelte-jt5wrr"), u(n, "class", "value svelte-jt5wrr"), u(e, "class", "svelte-jt5wrr");
     },
-    m(E, F) {
-      M(E, e, F), j && j.m(e, null), f(e, l), C && C.m(e, null), f(e, i), f(e, n), f(n, a), f(a, r), f(r, s), f(s, o), f(s, _), f(s, c), f(s, d), f(s, h), f(s, p), f(s, b), f(s, g), f(s, k), f(s, y), z && z.m(s, null), f(a, v), f(a, w);
+    m(O, F) {
+      S(O, e, F), j && j.m(e, null), f(e, l), M && M.m(e, null), f(e, i), f(e, n), f(n, a), f(a, r), f(r, s), f(s, o), f(s, _), f(s, c), f(s, d), f(s, h), f(s, p), f(s, g), f(s, b), f(s, k), f(s, y), z && z.m(s, null), f(a, v), f(a, w);
       for (let L = 0; L < B.length; L += 1)
         B[L] && B[L].m(w, null);
       f(e, q), P && P.m(e, null), $ = !0;
     },
-    p(E, [F]) {
+    p(O, [F]) {
       if (/*addToBasket*/
-      E[1] ? j ? (j.p(E, F), F & /*addToBasket*/
-      2 && T(j, 1)) : (j = uc(E), j.c(), T(j, 1), j.m(e, l)) : j && (be(), D(j, 1, 1, () => {
+      O[1] ? j ? (j.p(O, F), F & /*addToBasket*/
+      2 && T(j, 1)) : (j = uc(O), j.c(), T(j, 1), j.m(e, l)) : j && (be(), D(j, 1, 1, () => {
         j = null;
-      }), ke()), A === (A = O(E)) && C ? C.p(E, F) : (C && C.d(1), C = A && A(E), C && (C.c(), C.m(e, i))), /*topLevelKey*/
-      E[7] === "properties" && /*openTimeMachine*/
-      E[8] ? z || (z = fc(), z.c(), z.m(s, null)) : z && (z.d(1), z = null), F & /*openTimeMachine, Object, value, parentKey, topLevelKey, code_header, code_footer, addToBasket, $basket*/
+      }), ke()), A === (A = I(O)) && M ? M.p(O, F) : (M && M.d(1), M = A && A(O), M && (M.c(), M.m(e, i))), /*topLevelKey*/
+      O[7] === "properties" && /*openTimeMachine*/
+      O[8] ? z || (z = fc(), z.c(), z.m(s, null)) : z && (z.d(1), z = null), F & /*openTimeMachine, Object, value, parentKey, topLevelKey, code_header, code_footer, addToBasket, $basket*/
       1523) {
         H = $e(Object.keys(
           /*value*/
-          E[0]
+          O[0]
         ));
         let L;
         for (L = 0; L < H.length; L += 1) {
-          const X = oc(E, H, L);
+          const X = oc(O, H, L);
           B[L] ? (B[L].p(X, F), T(B[L], 1)) : (B[L] = dc(X), B[L].c(), T(B[L], 1), B[L].m(w, null));
         }
         for (be(), L = H.length; L < B.length; L += 1)
@@ -21383,10 +21433,10 @@ function O3(t) {
       }
       bt[
         /*key*/
-        E[9]
-      ] ? P ? P.p(E, F) : (P = hc(E), P.c(), P.m(e, null)) : P && (P.d(1), P = null);
+        O[9]
+      ] ? P ? P.p(O, F) : (P = hc(O), P.c(), P.m(e, null)) : P && (P.d(1), P = null);
     },
-    i(E) {
+    i(O) {
       if (!$) {
         T(j);
         for (let F = 0; F < H.length; F += 1)
@@ -21394,21 +21444,21 @@ function O3(t) {
         $ = !0;
       }
     },
-    o(E) {
+    o(O) {
       D(j), B = B.filter(Boolean);
       for (let F = 0; F < B.length; F += 1)
         D(B[F]);
       $ = !1;
     },
-    d(E) {
-      E && S(e), j && j.d(), C && C.d(), z && z.d(), Ye(B, E), P && P.d();
+    d(O) {
+      O && C(e), j && j.d(), M && M.d(), z && z.d(), Ye(B, O), P && P.d();
     }
   };
 }
-function E3(t, e, l) {
-  let i, n = ae, a = () => (n(), n = st(_, (q) => l(10, i = q)), _);
+function D3(t, e, l) {
+  let i, n = ne, a = () => (n(), n = st(_, (q) => l(10, i = q)), _);
   t.$$.on_destroy.push(() => n());
-  let { key: r = "", value: s, addToBasket: o, basket: _, level: c = 1, code_header: d = "", code_type: h = "", code_footer: p = "", parentKey: b = "", topLevelKey: g = "", openTimeMachine: k } = e;
+  let { key: r = "", value: s, addToBasket: o, basket: _, level: c = 1, code_header: d = "", code_type: h = "", code_footer: p = "", parentKey: g = "", topLevelKey: b = "", openTimeMachine: k } = e;
   a();
   const y = () => {
     o(r);
@@ -21419,8 +21469,8 @@ function E3(t, e, l) {
       datatype: "nudv-map",
       key: q,
       title_key: q,
-      parentKey: b,
-      topLevelKey: g,
+      parentKey: g,
+      topLevelKey: b,
       data: s[q],
       code_header: d,
       code_key: q,
@@ -21428,7 +21478,7 @@ function E3(t, e, l) {
     });
   };
   return t.$$set = (q) => {
-    "key" in q && l(9, r = q.key), "value" in q && l(0, s = q.value), "addToBasket" in q && l(1, o = q.addToBasket), "basket" in q && a(l(2, _ = q.basket)), "level" in q && l(3, c = q.level), "code_header" in q && l(4, d = q.code_header), "code_type" in q && l(11, h = q.code_type), "code_footer" in q && l(5, p = q.code_footer), "parentKey" in q && l(6, b = q.parentKey), "topLevelKey" in q && l(7, g = q.topLevelKey), "openTimeMachine" in q && l(8, k = q.openTimeMachine);
+    "key" in q && l(9, r = q.key), "value" in q && l(0, s = q.value), "addToBasket" in q && l(1, o = q.addToBasket), "basket" in q && a(l(2, _ = q.basket)), "level" in q && l(3, c = q.level), "code_header" in q && l(4, d = q.code_header), "code_type" in q && l(11, h = q.code_type), "code_footer" in q && l(5, p = q.code_footer), "parentKey" in q && l(6, g = q.parentKey), "topLevelKey" in q && l(7, b = q.topLevelKey), "openTimeMachine" in q && l(8, k = q.openTimeMachine);
   }, [
     s,
     o,
@@ -21436,8 +21486,8 @@ function E3(t, e, l) {
     c,
     d,
     p,
-    b,
     g,
+    b,
     k,
     r,
     i,
@@ -21447,9 +21497,9 @@ function E3(t, e, l) {
     w
   ];
 }
-class I3 extends Ve {
+class R3 extends Ve {
   constructor(e) {
-    super(), Qe(this, e, E3, O3, Fe, {
+    super(), Qe(this, e, D3, I3, Fe, {
       key: 9,
       value: 0,
       addToBasket: 1,
@@ -21493,7 +21543,7 @@ function bc(t) {
       e = m("button"), pe(l.$$.fragment), u(e, "class", "basket svelte-1xxiico");
     },
     m(r, s) {
-      M(r, e, s), de(l, e, null), i = !0, n || (a = te(
+      S(r, e, s), de(l, e, null), i = !0, n || (a = te(
         e,
         "click",
         /*click_handler*/
@@ -21516,21 +21566,21 @@ function bc(t) {
       D(l.$$.fragment, r), i = !1;
     },
     d(r) {
-      r && S(e), he(l), n = !1, a();
+      r && C(e), he(l), n = !1, a();
     }
   };
 }
-function D3(t) {
+function H3(t) {
   let e, l = ct[
     /*key*/
     t[0]
   ] + "", i;
   return {
     c() {
-      e = m("h3"), i = I(l), u(e, "class", "svelte-1xxiico");
+      e = m("h3"), i = E(l), u(e, "class", "svelte-1xxiico");
     },
     m(n, a) {
-      M(n, e, a), f(e, i);
+      S(n, e, a), f(e, i);
     },
     p(n, a) {
       a & /*key*/
@@ -21540,21 +21590,21 @@ function D3(t) {
       ] + "") && U(i, l);
     },
     d(n) {
-      n && S(e);
+      n && C(e);
     }
   };
 }
-function R3(t) {
+function L3(t) {
   let e, l = ct[
     /*key*/
     t[0]
   ] + "", i;
   return {
     c() {
-      e = m("h2"), i = I(l), u(e, "class", "svelte-1xxiico");
+      e = m("h2"), i = E(l), u(e, "class", "svelte-1xxiico");
     },
     m(n, a) {
-      M(n, e, a), f(e, i);
+      S(n, e, a), f(e, i);
     },
     p(n, a) {
       a & /*key*/
@@ -21564,7 +21614,7 @@ function R3(t) {
       ] + "") && U(i, l);
     },
     d(n) {
-      n && S(e);
+      n && C(e);
     }
   };
 }
@@ -21575,7 +21625,7 @@ function kc(t) {
   ), i, n, a;
   return {
     c() {
-      e = m("option"), i = I(l), e.__value = n = /*g*/
+      e = m("option"), i = E(l), e.__value = n = /*g*/
       t[26], pt(e, e.__value), e.selected = a = /*filter*/
       t[10].gates.includes(
         /*g*/
@@ -21583,7 +21633,7 @@ function kc(t) {
       );
     },
     m(r, s) {
-      M(r, e, s), f(e, i);
+      S(r, e, s), f(e, i);
     },
     p(r, s) {
       s & /*gates*/
@@ -21598,7 +21648,7 @@ function kc(t) {
       )) && (e.selected = a);
     },
     d(r) {
-      r && S(e);
+      r && C(e);
     }
   };
 }
@@ -21609,7 +21659,7 @@ function vc(t) {
   ), i, n, a;
   return {
     c() {
-      e = m("option"), i = I(l), e.__value = n = /*g*/
+      e = m("option"), i = E(l), e.__value = n = /*g*/
       t[26], pt(e, e.__value), e.selected = a = /*filter*/
       t[10].qubits.includes(
         /*g*/
@@ -21617,7 +21667,7 @@ function vc(t) {
       );
     },
     m(r, s) {
-      M(r, e, s), f(e, i);
+      S(r, e, s), f(e, i);
     },
     p(r, s) {
       s & /*qubits*/
@@ -21632,7 +21682,7 @@ function vc(t) {
       )) && (e.selected = a);
     },
     d(r) {
-      r && S(e);
+      r && C(e);
     }
   };
 }
@@ -21643,15 +21693,15 @@ function yc(t) {
       e = m("th"), e.textContent = "T", u(e, "class", "svelte-1xxiico");
     },
     m(l, i) {
-      M(l, e, i);
+      S(l, e, i);
     },
     d(l) {
-      l && S(e);
+      l && C(e);
     }
   };
 }
 function wc(t) {
-  var ne, se, K, Y;
+  var ae, se, K, Y;
   let e, l, i = (
     /*gate*/
     t[23].gate + ""
@@ -21660,20 +21710,20 @@ function wc(t) {
     t[23].qubits.join(",") + ""
   ), o, _, c, d = (
     /*gate*/
-    ((ne = t[23].parameters.gate_error) == null ? void 0 : ne.value) + ""
-  ), h, p, b, g, k = (
+    ((ae = t[23].parameters.gate_error) == null ? void 0 : ae.value) + ""
+  ), h, p, g, b, k = (
     /*gate*/
     ((se = t[23].parameters.gate_error) == null ? void 0 : se.asof) + ""
   ), y, v, w, q = (
     /*gate*/
     ((K = t[23].parameters.gate_length) == null ? void 0 : K.value) + ""
-  ), $, j, O = (
+  ), $, j, I = (
     /*gate*/
     t[23].parameters.gate_length.unit + ""
-  ), A, C, z, H, B, R = (
+  ), A, M, z, H, B, R = (
     /*gate*/
     ((Y = t[23].parameters.gate_length) == null ? void 0 : Y.asof) + ""
-  ), P, E, F, L, X, V, Q = (
+  ), P, O, F, L, X, V, Q = (
     /*addToBasket*/
     t[2] && $c(t)
   ), Z = (
@@ -21683,10 +21733,10 @@ function wc(t) {
   );
   return {
     c() {
-      e = m("tr"), l = m("th"), n = I(i), a = N(), r = m("td"), o = I(s), _ = N(), c = m("td"), h = I(d), p = m("br"), b = N(), g = m("span"), y = I(k), v = N(), w = m("td"), $ = I(q), j = I(" ("), A = I(O), C = I(")"), z = m("br"), H = N(), B = m("span"), P = I(R), E = N(), F = m("td"), Q && Q.c(), L = N(), Z && Z.c(), X = N(), u(l, "class", "svelte-1xxiico"), u(r, "class", "svelte-1xxiico"), u(g, "class", "asof svelte-1xxiico"), u(c, "class", "svelte-1xxiico"), u(B, "class", "asof svelte-1xxiico"), u(w, "class", "svelte-1xxiico"), u(F, "class", "svelte-1xxiico");
+      e = m("tr"), l = m("th"), n = E(i), a = N(), r = m("td"), o = E(s), _ = N(), c = m("td"), h = E(d), p = m("br"), g = N(), b = m("span"), y = E(k), v = N(), w = m("td"), $ = E(q), j = E(" ("), A = E(I), M = E(")"), z = m("br"), H = N(), B = m("span"), P = E(R), O = N(), F = m("td"), Q && Q.c(), L = N(), Z && Z.c(), X = N(), u(l, "class", "svelte-1xxiico"), u(r, "class", "svelte-1xxiico"), u(b, "class", "asof svelte-1xxiico"), u(c, "class", "svelte-1xxiico"), u(B, "class", "asof svelte-1xxiico"), u(w, "class", "svelte-1xxiico"), u(F, "class", "svelte-1xxiico");
     },
     m(W, J) {
-      M(W, e, J), f(e, l), f(l, n), f(e, a), f(e, r), f(r, o), f(e, _), f(e, c), f(c, h), f(c, p), f(c, b), f(c, g), f(g, y), f(e, v), f(e, w), f(w, $), f(w, j), f(w, A), f(w, C), f(w, z), f(w, H), f(w, B), f(B, P), f(e, E), f(e, F), Q && Q.m(F, null), f(e, L), Z && Z.m(e, null), f(e, X), V = !0;
+      S(W, e, J), f(e, l), f(l, n), f(e, a), f(e, r), f(r, o), f(e, _), f(e, c), f(c, h), f(c, p), f(c, g), f(c, b), f(b, y), f(e, v), f(e, w), f(w, $), f(w, j), f(w, A), f(w, M), f(w, z), f(w, H), f(w, B), f(B, P), f(e, O), f(e, F), Q && Q.m(F, null), f(e, L), Z && Z.m(e, null), f(e, X), V = !0;
     },
     p(W, J) {
       var ee, we, Re, ve;
@@ -21701,8 +21751,8 @@ function wc(t) {
       ((we = W[23].parameters.gate_error) == null ? void 0 : we.asof) + "") && U(y, k), (!V || J & /*value*/
       2) && q !== (q = /*gate*/
       ((Re = W[23].parameters.gate_length) == null ? void 0 : Re.value) + "") && U($, q), (!V || J & /*value*/
-      2) && O !== (O = /*gate*/
-      W[23].parameters.gate_length.unit + "") && U(A, O), (!V || J & /*value*/
+      2) && I !== (I = /*gate*/
+      W[23].parameters.gate_length.unit + "") && U(A, I), (!V || J & /*value*/
       2) && R !== (R = /*gate*/
       ((ve = W[23].parameters.gate_length) == null ? void 0 : ve.asof) + "") && U(P, R), /*addToBasket*/
       W[2] ? Q ? (Q.p(W, J), J & /*addToBasket*/
@@ -21722,7 +21772,7 @@ function wc(t) {
       D(Q), D(Z), V = !1;
     },
     d(W) {
-      W && S(e), Q && Q.d(), Z && Z.d();
+      W && C(e), Q && Q.d(), Z && Z.d();
     }
   };
 }
@@ -21756,7 +21806,7 @@ function $c(t) {
       e = m("button"), pe(l.$$.fragment), u(e, "class", "basket svelte-1xxiico");
     },
     m(s, o) {
-      M(s, e, o), de(l, e, null), i = !0, n || (a = te(e, "click", r), n = !0);
+      S(s, e, o), de(l, e, null), i = !0, n || (a = te(e, "click", r), n = !0);
     },
     p(s, o) {
       t = s;
@@ -21778,7 +21828,7 @@ function $c(t) {
       D(l.$$.fragment, s), i = !1;
     },
     d(s) {
-      s && S(e), he(l), n = !1, a();
+      s && C(e), he(l), n = !1, a();
     }
   };
 }
@@ -21801,7 +21851,7 @@ function qc(t) {
       e = m("td"), l = m("button"), pe(i.$$.fragment), u(l, "class", "basket svelte-1xxiico"), u(e, "class", "svelte-1xxiico");
     },
     m(o, _) {
-      M(o, e, _), f(e, l), de(i, l, null), n = !0, a || (r = te(l, "click", s), a = !0);
+      S(o, e, _), f(e, l), de(i, l, null), n = !0, a || (r = te(l, "click", s), a = !0);
     },
     p(o, _) {
       t = o;
@@ -21813,7 +21863,7 @@ function qc(t) {
       D(i.$$.fragment, o), n = !1;
     },
     d(o) {
-      o && S(e), he(i), a = !1, r();
+      o && C(e), he(i), a = !1, r();
     }
   };
 }
@@ -21838,7 +21888,7 @@ function jc(t) {
       n && n.c(), l = Ae();
     },
     m(a, r) {
-      n && n.m(a, r), M(a, l, r), i = !0;
+      n && n.m(a, r), S(a, l, r), i = !0;
     },
     p(a, r) {
       r & /*filter, value*/
@@ -21868,7 +21918,7 @@ function jc(t) {
       D(n), i = !1;
     },
     d(a) {
-      a && S(l), n && n.d(a);
+      a && C(l), n && n.d(a);
     }
   };
 }
@@ -21879,10 +21929,10 @@ function Tc(t) {
   ] + "", i;
   return {
     c() {
-      e = m("div"), i = I(l), u(e, "class", "desc svelte-1xxiico");
+      e = m("div"), i = E(l), u(e, "class", "desc svelte-1xxiico");
     },
     m(n, a) {
-      M(n, e, a), f(e, i);
+      S(n, e, a), f(e, i);
     },
     p(n, a) {
       a & /*key*/
@@ -21892,12 +21942,12 @@ function Tc(t) {
       ] + "") && U(i, l);
     },
     d(n) {
-      n && S(e);
+      n && C(e);
     }
   };
 }
-function H3(t) {
-  let e, l, i, n, a, r, s, o, _, c, d, h, p, b, g, k, y, v, w, q, $, j, O, A, C, z, H, B, R, P, E, F, L, X, V, Q, Z, ne, se, K = (
+function F3(t) {
+  let e, l, i, n, a, r, s, o, _, c, d, h, p, g, b, k, y, v, w, q, $, j, I, A, M, z, H, B, R, P, O, F, L, X, V, Q, Z, ae, se, K = (
     /*addToBasket*/
     t[2] && bc(t)
   );
@@ -21906,12 +21956,12 @@ function H3(t) {
       /*level*/
       le[4] == 1
     )
-      return R3;
+      return L3;
     if (
       /*level*/
       le[4] == 2
     )
-      return D3;
+      return H3;
   }
   let W = Y(t), J = W && W(t), ee = $e(
     /*gates*/
@@ -21947,25 +21997,25 @@ function H3(t) {
       e = m("article"), K && K.c(), l = N(), J && J.c(), i = N(), n = m("div"), a = m("div"), r = m("div"), s = m("label"), s.textContent = "Gates", o = N(), _ = m("button"), _.textContent = "×", c = N(), d = m("select");
       for (let le = 0; le < we.length; le += 1)
         we[le].c();
-      h = N(), p = m("div"), b = m("label"), b.textContent = "Qubits", g = N(), k = m("button"), k.textContent = "×", y = N(), v = m("select");
+      h = N(), p = m("div"), g = m("label"), g.textContent = "Qubits", b = N(), k = m("button"), k.textContent = "×", y = N(), v = m("select");
       for (let le = 0; le < ve.length; le += 1)
         ve[le].c();
-      w = N(), q = m("div"), $ = m("table"), j = m("thead"), O = m("tr"), A = m("th"), A.textContent = "Gate", C = N(), z = m("th"), z.textContent = "Qubits", H = N(), B = m("th"), B.textContent = "Error", R = N(), P = m("th"), P.textContent = "Length", E = N(), F = m("th"), F.textContent = "-", L = N(), me && me.c(), X = N(), V = m("tbody");
+      w = N(), q = m("div"), $ = m("table"), j = m("thead"), I = m("tr"), A = m("th"), A.textContent = "Gate", M = N(), z = m("th"), z.textContent = "Qubits", H = N(), B = m("th"), B.textContent = "Error", R = N(), P = m("th"), P.textContent = "Length", O = N(), F = m("th"), F.textContent = "-", L = N(), me && me.c(), X = N(), V = m("tbody");
       for (let le = 0; le < G.length; le += 1)
         G[le].c();
-      Q = N(), ue && ue.c(), u(s, "for", "gates"), u(s, "class", "svelte-1xxiico"), u(_, "class", "svelte-1xxiico"), u(d, "class", "filter svelte-1xxiico"), u(d, "name", "gates"), u(d, "id", "gates"), d.multiple = !0, u(r, "class", "svelte-1xxiico"), u(b, "for", "qubits"), u(b, "class", "svelte-1xxiico"), u(k, "class", "svelte-1xxiico"), u(v, "class", "filter svelte-1xxiico"), u(v, "name", "qubits"), u(v, "id", "qubits"), v.multiple = !0, u(p, "class", "svelte-1xxiico"), u(a, "class", "filter-wrap svelte-1xxiico"), u(A, "class", "svelte-1xxiico"), u(z, "class", "svelte-1xxiico"), u(B, "class", "svelte-1xxiico"), u(P, "class", "svelte-1xxiico"), u(F, "class", "svelte-1xxiico"), u(j, "class", "svelte-1xxiico"), u($, "class", "svelte-1xxiico"), u(q, "class", "value svelte-1xxiico"), u(n, "class", "content-wrap svelte-1xxiico"), u(e, "class", "svelte-1xxiico");
+      Q = N(), ue && ue.c(), u(s, "for", "gates"), u(s, "class", "svelte-1xxiico"), u(_, "class", "svelte-1xxiico"), u(d, "class", "filter svelte-1xxiico"), u(d, "name", "gates"), u(d, "id", "gates"), d.multiple = !0, u(r, "class", "svelte-1xxiico"), u(g, "for", "qubits"), u(g, "class", "svelte-1xxiico"), u(k, "class", "svelte-1xxiico"), u(v, "class", "filter svelte-1xxiico"), u(v, "name", "qubits"), u(v, "id", "qubits"), v.multiple = !0, u(p, "class", "svelte-1xxiico"), u(a, "class", "filter-wrap svelte-1xxiico"), u(A, "class", "svelte-1xxiico"), u(z, "class", "svelte-1xxiico"), u(B, "class", "svelte-1xxiico"), u(P, "class", "svelte-1xxiico"), u(F, "class", "svelte-1xxiico"), u(j, "class", "svelte-1xxiico"), u($, "class", "svelte-1xxiico"), u(q, "class", "value svelte-1xxiico"), u(n, "class", "content-wrap svelte-1xxiico"), u(e, "class", "svelte-1xxiico");
     },
     m(le, oe) {
-      M(le, e, oe), K && K.m(e, null), f(e, l), J && J.m(e, null), f(e, i), f(e, n), f(n, a), f(a, r), f(r, s), f(r, o), f(r, _), f(r, c), f(r, d);
+      S(le, e, oe), K && K.m(e, null), f(e, l), J && J.m(e, null), f(e, i), f(e, n), f(n, a), f(a, r), f(r, s), f(r, o), f(r, _), f(r, c), f(r, d);
       for (let x = 0; x < we.length; x += 1)
         we[x] && we[x].m(d, null);
-      f(a, h), f(a, p), f(p, b), f(p, g), f(p, k), f(p, y), f(p, v);
+      f(a, h), f(a, p), f(p, g), f(p, b), f(p, k), f(p, y), f(p, v);
       for (let x = 0; x < ve.length; x += 1)
         ve[x] && ve[x].m(v, null);
-      f(n, w), f(n, q), f(q, $), f($, j), f(j, O), f(O, A), f(O, C), f(O, z), f(O, H), f(O, B), f(O, R), f(O, P), f(O, E), f(O, F), f(O, L), me && me.m(O, null), f($, X), f($, V);
+      f(n, w), f(n, q), f(q, $), f($, j), f(j, I), f(I, A), f(I, M), f(I, z), f(I, H), f(I, B), f(I, R), f(I, P), f(I, O), f(I, F), f(I, L), me && me.m(I, null), f($, X), f($, V);
       for (let x = 0; x < G.length; x += 1)
         G[x] && G[x].m(V, null);
-      f(e, Q), ue && ue.m(e, null), Z = !0, ne || (se = [
+      f(e, Q), ue && ue.m(e, null), Z = !0, ae || (se = [
         te(
           _,
           "click",
@@ -21990,7 +22040,7 @@ function H3(t) {
           /*change_handler_1*/
           t[20]
         )
-      ], ne = !0);
+      ], ae = !0);
     },
     p(le, [oe]) {
       if (/*addToBasket*/
@@ -22029,7 +22079,7 @@ function H3(t) {
       }
       if (/*topLevelKey*/
       le[8] === "properties" && /*openTimeMachine*/
-      le[9] ? me || (me = yc(), me.c(), me.m(O, null)) : me && (me.d(1), me = null), oe & /*openTimeMachine, value, parentKey, topLevelKey, code_header, code_footer, addToBasket, $basket, filter*/
+      le[9] ? me || (me = yc(), me.c(), me.m(I, null)) : me && (me.d(1), me = null), oe & /*openTimeMachine, value, parentKey, topLevelKey, code_header, code_footer, addToBasket, $basket, filter*/
       10214) {
         fe = $e(
           /*value*/
@@ -22064,14 +22114,14 @@ function H3(t) {
       Z = !1;
     },
     d(le) {
-      le && S(e), K && K.d(), J && J.d(), Ye(we, le), Ye(ve, le), me && me.d(), Ye(G, le), ue && ue.d(), ne = !1, wt(se);
+      le && C(e), K && K.d(), J && J.d(), Ye(we, le), Ye(ve, le), me && me.d(), Ye(G, le), ue && ue.d(), ae = !1, wt(se);
     }
   };
 }
-function L3(t, e, l) {
-  let i, n = ae, a = () => (n(), n = st(_, (B) => l(13, i = B)), _);
+function Q3(t, e, l) {
+  let i, n = ne, a = () => (n(), n = st(_, (B) => l(13, i = B)), _);
   t.$$.on_destroy.push(() => n());
-  let { key: r = "", value: s, addToBasket: o, basket: _, level: c = 1, code_header: d = "", code_type: h = "", code_footer: p = "", parentKey: b = "", topLevelKey: g = "", openTimeMachine: k } = e;
+  let { key: r = "", value: s, addToBasket: o, basket: _, level: c = 1, code_header: d = "", code_type: h = "", code_footer: p = "", parentKey: g = "", topLevelKey: b = "", openTimeMachine: k } = e;
   a();
   let y = { gates: [], qubits: [] }, v = [], w = [];
   Tt(() => {
@@ -22081,11 +22131,11 @@ function L3(t, e, l) {
     o(r);
   }, j = (B) => {
     l(10, y.gates = [], y);
-  }, O = (B) => {
+  }, I = (B) => {
     l(10, y.gates = Array.from(B.target.selectedOptions).map((R) => R.value), y);
   }, A = (B) => {
     l(10, y.qubits = [], y);
-  }, C = (B) => {
+  }, M = (B) => {
     l(10, y.qubits = Array.from(B.target.selectedOptions).map((R) => parseInt(R.value)), y);
   }, z = (B) => {
     o(`gate_${B.gate}_${B.qubits.join("_")} = ${d}gate="${B.gate}", qubits=[${B.qubits.join(", ")}]${p}`);
@@ -22095,15 +22145,15 @@ function L3(t, e, l) {
       key: B.gate + "_" + B.qubits.join("_"),
       title_key: `gate[${B.qubits.join(",")}].${B.gate}`,
       index: R,
-      parentKey: b,
-      topLevelKey: g,
+      parentKey: g,
+      topLevelKey: b,
       data: B,
       code_header: d,
       code_footer: p
     });
   };
   return t.$$set = (B) => {
-    "key" in B && l(0, r = B.key), "value" in B && l(1, s = B.value), "addToBasket" in B && l(2, o = B.addToBasket), "basket" in B && a(l(3, _ = B.basket)), "level" in B && l(4, c = B.level), "code_header" in B && l(5, d = B.code_header), "code_type" in B && l(14, h = B.code_type), "code_footer" in B && l(6, p = B.code_footer), "parentKey" in B && l(7, b = B.parentKey), "topLevelKey" in B && l(8, g = B.topLevelKey), "openTimeMachine" in B && l(9, k = B.openTimeMachine);
+    "key" in B && l(0, r = B.key), "value" in B && l(1, s = B.value), "addToBasket" in B && l(2, o = B.addToBasket), "basket" in B && a(l(3, _ = B.basket)), "level" in B && l(4, c = B.level), "code_header" in B && l(5, d = B.code_header), "code_type" in B && l(14, h = B.code_type), "code_footer" in B && l(6, p = B.code_footer), "parentKey" in B && l(7, g = B.parentKey), "topLevelKey" in B && l(8, b = B.topLevelKey), "openTimeMachine" in B && l(9, k = B.openTimeMachine);
   }, [
     r,
     s,
@@ -22112,8 +22162,8 @@ function L3(t, e, l) {
     c,
     d,
     p,
-    b,
     g,
+    b,
     k,
     y,
     v,
@@ -22123,16 +22173,16 @@ function L3(t, e, l) {
     q,
     $,
     j,
-    O,
+    I,
     A,
-    C,
+    M,
     z,
     H
   ];
 }
-class sg extends Ve {
+class s0 extends Ve {
   constructor(e) {
-    super(), Qe(this, e, L3, H3, Fe, {
+    super(), Qe(this, e, Q3, F3, Fe, {
       key: 0,
       value: 1,
       addToBasket: 2,
@@ -22168,7 +22218,7 @@ function Sc(t) {
       e = m("button"), pe(l.$$.fragment), u(e, "class", "basket svelte-131ulv6");
     },
     m(r, s) {
-      M(r, e, s), de(l, e, null), i = !0, n || (a = te(
+      S(r, e, s), de(l, e, null), i = !0, n || (a = te(
         e,
         "click",
         /*click_handler*/
@@ -22191,21 +22241,21 @@ function Sc(t) {
       D(l.$$.fragment, r), i = !1;
     },
     d(r) {
-      r && S(e), he(l), n = !1, a();
+      r && C(e), he(l), n = !1, a();
     }
   };
 }
-function F3(t) {
+function V3(t) {
   let e, l = ct[
     /*key*/
     t[0]
   ] + "", i;
   return {
     c() {
-      e = m("h3"), i = I(l), u(e, "class", "svelte-131ulv6");
+      e = m("h3"), i = E(l), u(e, "class", "svelte-131ulv6");
     },
     m(n, a) {
-      M(n, e, a), f(e, i);
+      S(n, e, a), f(e, i);
     },
     p(n, a) {
       a & /*key*/
@@ -22215,21 +22265,21 @@ function F3(t) {
       ] + "") && U(i, l);
     },
     d(n) {
-      n && S(e);
+      n && C(e);
     }
   };
 }
-function Q3(t) {
+function X3(t) {
   let e, l = ct[
     /*key*/
     t[0]
   ] + "", i;
   return {
     c() {
-      e = m("h2"), i = I(l), u(e, "class", "svelte-131ulv6");
+      e = m("h2"), i = E(l), u(e, "class", "svelte-131ulv6");
     },
     m(n, a) {
-      M(n, e, a), f(e, i);
+      S(n, e, a), f(e, i);
     },
     p(n, a) {
       a & /*key*/
@@ -22239,7 +22289,7 @@ function Q3(t) {
       ] + "") && U(i, l);
     },
     d(n) {
-      n && S(e);
+      n && C(e);
     }
   };
 }
@@ -22262,7 +22312,7 @@ function Mc(t) {
     m(r, s) {
       for (let o = 0; o < n.length; o += 1)
         n[o] && n[o].m(r, s);
-      M(r, e, s), l = !0;
+      S(r, e, s), l = !0;
     },
     p(r, s) {
       if (s & /*value, addToBasket, key, code_header, code_footer, $basket*/
@@ -22295,7 +22345,7 @@ function Mc(t) {
       l = !1;
     },
     d(r) {
-      r && S(e), Ye(n, r);
+      r && C(e), Ye(n, r);
     }
   };
 }
@@ -22328,7 +22378,7 @@ function zc(t) {
       e = m("button"), pe(l.$$.fragment), i = N(), u(e, "class", "basket x2 svelte-131ulv6");
     },
     m(o, _) {
-      M(o, e, _), de(l, e, null), M(o, i, _), n = !0, a || (r = te(e, "click", s), a = !0);
+      S(o, e, _), de(l, e, null), S(o, i, _), n = !0, a || (r = te(e, "click", s), a = !0);
     },
     p(o, _) {
       t = o;
@@ -22349,7 +22399,7 @@ function zc(t) {
       D(l.$$.fragment, o), n = !1;
     },
     d(o) {
-      o && (S(e), S(i)), he(l), a = !1, r();
+      o && (C(e), C(i)), he(l), a = !1, r();
     }
   };
 }
@@ -22366,19 +22416,19 @@ function Nc(t) {
   );
   return {
     c() {
-      e = m("div"), l = m("strong"), n = I(i), a = N(), h && h.c(), r = m("br"), s = N(), _ = I(o), c = N(), u(e, "class", "value-row svelte-131ulv6");
+      e = m("div"), l = m("strong"), n = E(i), a = N(), h && h.c(), r = m("br"), s = N(), _ = E(o), c = N(), u(e, "class", "value-row svelte-131ulv6");
     },
-    m(p, b) {
-      M(p, e, b), f(e, l), f(l, n), f(e, a), h && h.m(e, null), f(e, r), f(e, s), f(e, _), f(e, c), d = !0;
+    m(p, g) {
+      S(p, e, g), f(e, l), f(l, n), f(e, a), h && h.m(e, null), f(e, r), f(e, s), f(e, _), f(e, c), d = !0;
     },
-    p(p, b) {
-      (!d || b & /*value*/
+    p(p, g) {
+      (!d || g & /*value*/
       2) && i !== (i = /*a_set*/
       p[10].name + "") && U(n, i), /*addToBasket*/
-      p[2] ? h ? (h.p(p, b), b & /*addToBasket*/
+      p[2] ? h ? (h.p(p, g), g & /*addToBasket*/
       4 && T(h, 1)) : (h = zc(p), h.c(), T(h, 1), h.m(e, r)) : h && (be(), D(h, 1, 1, () => {
         h = null;
-      }), ke()), (!d || b & /*value*/
+      }), ke()), (!d || g & /*value*/
       2) && o !== (o = /*a_set*/
       p[10].qubits.join(", ") + "") && U(_, o);
     },
@@ -22389,7 +22439,7 @@ function Nc(t) {
       D(h), d = !1;
     },
     d(p) {
-      p && S(e), h && h.d();
+      p && C(e), h && h.d();
     }
   };
 }
@@ -22400,10 +22450,10 @@ function Ac(t) {
   ] + "", i;
   return {
     c() {
-      e = m("div"), i = I(l), u(e, "class", "desc svelte-131ulv6");
+      e = m("div"), i = E(l), u(e, "class", "desc svelte-131ulv6");
     },
     m(n, a) {
-      M(n, e, a), f(e, i);
+      S(n, e, a), f(e, i);
     },
     p(n, a) {
       a & /*key*/
@@ -22413,26 +22463,26 @@ function Ac(t) {
       ] + "") && U(i, l);
     },
     d(n) {
-      n && S(e);
+      n && C(e);
     }
   };
 }
-function V3(t) {
+function G3(t) {
   let e, l, i, n, a, r, s = (
     /*addToBasket*/
     t[2] && Sc(t)
   );
-  function o(p, b) {
+  function o(p, g) {
     if (
       /*level*/
       p[4] == 1
     )
-      return Q3;
+      return X3;
     if (
       /*level*/
       p[4] == 2
     )
-      return F3;
+      return V3;
   }
   let _ = o(t), c = _ && _(t), d = (
     /*value*/
@@ -22445,22 +22495,22 @@ function V3(t) {
     c() {
       e = m("article"), s && s.c(), l = N(), c && c.c(), i = N(), n = m("div"), d && d.c(), a = N(), h && h.c(), u(n, "class", "value svelte-131ulv6"), u(e, "class", "svelte-131ulv6");
     },
-    m(p, b) {
-      M(p, e, b), s && s.m(e, null), f(e, l), c && c.m(e, null), f(e, i), f(e, n), d && d.m(n, null), f(e, a), h && h.m(e, null), r = !0;
+    m(p, g) {
+      S(p, e, g), s && s.m(e, null), f(e, l), c && c.m(e, null), f(e, i), f(e, n), d && d.m(n, null), f(e, a), h && h.m(e, null), r = !0;
     },
-    p(p, [b]) {
+    p(p, [g]) {
       /*addToBasket*/
-      p[2] ? s ? (s.p(p, b), b & /*addToBasket*/
+      p[2] ? s ? (s.p(p, g), g & /*addToBasket*/
       4 && T(s, 1)) : (s = Sc(p), s.c(), T(s, 1), s.m(e, l)) : s && (be(), D(s, 1, 1, () => {
         s = null;
-      }), ke()), _ === (_ = o(p)) && c ? c.p(p, b) : (c && c.d(1), c = _ && _(p), c && (c.c(), c.m(e, i))), /*value*/
-      p[1] !== void 0 ? d ? (d.p(p, b), b & /*value*/
+      }), ke()), _ === (_ = o(p)) && c ? c.p(p, g) : (c && c.d(1), c = _ && _(p), c && (c.c(), c.m(e, i))), /*value*/
+      p[1] !== void 0 ? d ? (d.p(p, g), g & /*value*/
       2 && T(d, 1)) : (d = Mc(p), d.c(), T(d, 1), d.m(n, null)) : d && (be(), D(d, 1, 1, () => {
         d = null;
       }), ke()), bt[
         /*key*/
         p[0]
-      ] ? h ? h.p(p, b) : (h = Ac(p), h.c(), h.m(e, null)) : h && (h.d(1), h = null);
+      ] ? h ? h.p(p, g) : (h = Ac(p), h.c(), h.m(e, null)) : h && (h.d(1), h = null);
     },
     i(p) {
       r || (T(s), T(d), r = !0);
@@ -22469,22 +22519,22 @@ function V3(t) {
       D(s), D(d), r = !1;
     },
     d(p) {
-      p && S(e), s && s.d(), c && c.d(), d && d.d(), h && h.d();
+      p && C(e), s && s.d(), c && c.d(), d && d.d(), h && h.d();
     }
   };
 }
-function X3(t, e, l) {
-  let i, n = ae, a = () => (n(), n = st(_, (g) => l(7, i = g)), _);
+function Y3(t, e, l) {
+  let i, n = ne, a = () => (n(), n = st(_, (b) => l(7, i = b)), _);
   t.$$.on_destroy.push(() => n());
   let { key: r = "", value: s, addToBasket: o, basket: _, level: c = 1, code_header: d = "", code_footer: h = "" } = e;
   a();
   const p = () => {
     o(r);
-  }, b = (g) => {
-    o(`${r}_${g} = ${d}${g}${h}`);
+  }, g = (b) => {
+    o(`${r}_${b} = ${d}${b}${h}`);
   };
-  return t.$$set = (g) => {
-    "key" in g && l(0, r = g.key), "value" in g && l(1, s = g.value), "addToBasket" in g && l(2, o = g.addToBasket), "basket" in g && a(l(3, _ = g.basket)), "level" in g && l(4, c = g.level), "code_header" in g && l(5, d = g.code_header), "code_footer" in g && l(6, h = g.code_footer);
+  return t.$$set = (b) => {
+    "key" in b && l(0, r = b.key), "value" in b && l(1, s = b.value), "addToBasket" in b && l(2, o = b.addToBasket), "basket" in b && a(l(3, _ = b.basket)), "level" in b && l(4, c = b.level), "code_header" in b && l(5, d = b.code_header), "code_footer" in b && l(6, h = b.code_footer);
   }, [
     r,
     s,
@@ -22495,12 +22545,12 @@ function X3(t, e, l) {
     h,
     i,
     p,
-    b
+    g
   ];
 }
-class G3 extends Ve {
+class K3 extends Ve {
   constructor(e) {
-    super(), Qe(this, e, X3, V3, Fe, {
+    super(), Qe(this, e, Y3, G3, Fe, {
       key: 0,
       value: 1,
       addToBasket: 2,
@@ -22532,7 +22582,7 @@ function Pc(t) {
       e = m("button"), pe(l.$$.fragment), u(e, "class", "basket svelte-1njjtck");
     },
     m(r, s) {
-      M(r, e, s), de(l, e, null), i = !0, n || (a = te(
+      S(r, e, s), de(l, e, null), i = !0, n || (a = te(
         e,
         "click",
         /*click_handler*/
@@ -22555,95 +22605,55 @@ function Pc(t) {
       D(l.$$.fragment, r), i = !1;
     },
     d(r) {
-      r && S(e), he(l), n = !1, a();
-    }
-  };
-}
-function Y3(t) {
-  let e, l = ct[
-    /*key*/
-    t[0]
-  ] + "", i;
-  return {
-    c() {
-      e = m("h3"), i = I(l), u(e, "class", "svelte-1njjtck");
-    },
-    m(n, a) {
-      M(n, e, a), f(e, i);
-    },
-    p(n, a) {
-      a[0] & /*key*/
-      1 && l !== (l = ct[
-        /*key*/
-        n[0]
-      ] + "") && U(i, l);
-    },
-    d(n) {
-      n && S(e);
-    }
-  };
-}
-function K3(t) {
-  let e, l = ct[
-    /*key*/
-    t[0]
-  ] + "", i;
-  return {
-    c() {
-      e = m("h2"), i = I(l), u(e, "class", "svelte-1njjtck");
-    },
-    m(n, a) {
-      M(n, e, a), f(e, i);
-    },
-    p(n, a) {
-      a[0] & /*key*/
-      1 && l !== (l = ct[
-        /*key*/
-        n[0]
-      ] + "") && U(i, l);
-    },
-    d(n) {
-      n && S(e);
+      r && C(e), he(l), n = !1, a();
     }
   };
 }
 function U3(t) {
-  let e, l, i;
+  let e, l = ct[
+    /*key*/
+    t[0]
+  ] + "", i;
   return {
     c() {
-      e = m("button"), e.textContent = "↓", u(e, "class", "svelte-1njjtck");
+      e = m("h3"), i = E(l), u(e, "class", "svelte-1njjtck");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
-        e,
-        "click",
-        /*click_handler_2*/
-        t[20]
-      ), l = !0);
+      S(n, e, a), f(e, i);
     },
-    p: ae,
+    p(n, a) {
+      a[0] & /*key*/
+      1 && l !== (l = ct[
+        /*key*/
+        n[0]
+      ] + "") && U(i, l);
+    },
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e);
     }
   };
 }
 function W3(t) {
-  let e, l, i;
+  let e, l = ct[
+    /*key*/
+    t[0]
+  ] + "", i;
   return {
     c() {
-      e = m("button"), e.textContent = "↑", u(e, "class", "svelte-1njjtck");
+      e = m("h2"), i = E(l), u(e, "class", "svelte-1njjtck");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
-        e,
-        "click",
-        /*click_handler_1*/
-        t[19]
-      ), l = !0);
+      S(n, e, a), f(e, i);
     },
-    p: ae,
+    p(n, a) {
+      a[0] & /*key*/
+      1 && l !== (l = ct[
+        /*key*/
+        n[0]
+      ] + "") && U(i, l);
+    },
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e);
     }
   };
 }
@@ -22651,19 +22661,19 @@ function J3(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↓V", u(e, "class", "svelte-1njjtck");
+      e = m("button"), e.textContent = "↓", u(e, "class", "svelte-1njjtck");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_4*/
-        t[22]
+        /*click_handler_2*/
+        t[20]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -22671,19 +22681,19 @@ function Z3(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↑V", u(e, "class", "svelte-1njjtck");
+      e = m("button"), e.textContent = "↑", u(e, "class", "svelte-1njjtck");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_3*/
-        t[21]
+        /*click_handler_1*/
+        t[19]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -22691,19 +22701,19 @@ function x3(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↓D", u(e, "class", "svelte-1njjtck");
+      e = m("button"), e.textContent = "↓V", u(e, "class", "svelte-1njjtck");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_6*/
-        t[24]
+        /*click_handler_4*/
+        t[22]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -22711,19 +22721,19 @@ function e4(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↑D", u(e, "class", "svelte-1njjtck");
+      e = m("button"), e.textContent = "↑V", u(e, "class", "svelte-1njjtck");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_5*/
-        t[23]
+        /*click_handler_3*/
+        t[21]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -22731,19 +22741,19 @@ function t4(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↓V", u(e, "class", "svelte-1njjtck");
+      e = m("button"), e.textContent = "↓D", u(e, "class", "svelte-1njjtck");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_8*/
-        t[26]
+        /*click_handler_6*/
+        t[24]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -22751,19 +22761,19 @@ function l4(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↑V", u(e, "class", "svelte-1njjtck");
+      e = m("button"), e.textContent = "↑D", u(e, "class", "svelte-1njjtck");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_7*/
-        t[25]
+        /*click_handler_5*/
+        t[23]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -22771,19 +22781,19 @@ function i4(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↓D", u(e, "class", "svelte-1njjtck");
+      e = m("button"), e.textContent = "↓V", u(e, "class", "svelte-1njjtck");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_10*/
-        t[28]
+        /*click_handler_8*/
+        t[26]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -22791,19 +22801,19 @@ function n4(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↑D", u(e, "class", "svelte-1njjtck");
+      e = m("button"), e.textContent = "↑V", u(e, "class", "svelte-1njjtck");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_9*/
-        t[27]
+        /*click_handler_7*/
+        t[25]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -22811,19 +22821,19 @@ function a4(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↓V", u(e, "class", "svelte-1njjtck");
+      e = m("button"), e.textContent = "↓D", u(e, "class", "svelte-1njjtck");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_12*/
-        t[30]
+        /*click_handler_10*/
+        t[28]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -22831,19 +22841,19 @@ function r4(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↑V", u(e, "class", "svelte-1njjtck");
+      e = m("button"), e.textContent = "↑D", u(e, "class", "svelte-1njjtck");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_11*/
-        t[29]
+        /*click_handler_9*/
+        t[27]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -22851,19 +22861,19 @@ function s4(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↓D", u(e, "class", "svelte-1njjtck");
+      e = m("button"), e.textContent = "↓V", u(e, "class", "svelte-1njjtck");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_14*/
-        t[32]
+        /*click_handler_12*/
+        t[30]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -22871,19 +22881,19 @@ function o4(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↑D", u(e, "class", "svelte-1njjtck");
+      e = m("button"), e.textContent = "↑V", u(e, "class", "svelte-1njjtck");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_13*/
-        t[31]
+        /*click_handler_11*/
+        t[29]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -22891,19 +22901,19 @@ function u4(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↓V", u(e, "class", "svelte-1njjtck");
+      e = m("button"), e.textContent = "↓D", u(e, "class", "svelte-1njjtck");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_16*/
-        t[34]
+        /*click_handler_14*/
+        t[32]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -22911,19 +22921,19 @@ function f4(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↑V", u(e, "class", "svelte-1njjtck");
+      e = m("button"), e.textContent = "↑D", u(e, "class", "svelte-1njjtck");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_15*/
-        t[33]
+        /*click_handler_13*/
+        t[31]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -22931,19 +22941,19 @@ function _4(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↓D", u(e, "class", "svelte-1njjtck");
+      e = m("button"), e.textContent = "↓V", u(e, "class", "svelte-1njjtck");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_18*/
-        t[36]
+        /*click_handler_16*/
+        t[34]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -22951,19 +22961,19 @@ function c4(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↑D", u(e, "class", "svelte-1njjtck");
+      e = m("button"), e.textContent = "↑V", u(e, "class", "svelte-1njjtck");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_17*/
-        t[35]
+        /*click_handler_15*/
+        t[33]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -22971,19 +22981,19 @@ function d4(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↓V", u(e, "class", "svelte-1njjtck");
+      e = m("button"), e.textContent = "↓D", u(e, "class", "svelte-1njjtck");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_20*/
-        t[38]
+        /*click_handler_18*/
+        t[36]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -22991,19 +23001,19 @@ function h4(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↑V", u(e, "class", "svelte-1njjtck");
+      e = m("button"), e.textContent = "↑D", u(e, "class", "svelte-1njjtck");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_19*/
-        t[37]
+        /*click_handler_17*/
+        t[35]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -23011,19 +23021,19 @@ function p4(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↓D", u(e, "class", "svelte-1njjtck");
+      e = m("button"), e.textContent = "↓V", u(e, "class", "svelte-1njjtck");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_22*/
-        t[40]
+        /*click_handler_20*/
+        t[38]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -23031,19 +23041,19 @@ function m4(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↑D", u(e, "class", "svelte-1njjtck");
+      e = m("button"), e.textContent = "↑V", u(e, "class", "svelte-1njjtck");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_21*/
-        t[39]
+        /*click_handler_19*/
+        t[37]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -23051,19 +23061,19 @@ function g4(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↓V", u(e, "class", "svelte-1njjtck");
+      e = m("button"), e.textContent = "↓D", u(e, "class", "svelte-1njjtck");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_24*/
-        t[42]
+        /*click_handler_22*/
+        t[40]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -23071,19 +23081,19 @@ function b4(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↑V", u(e, "class", "svelte-1njjtck");
+      e = m("button"), e.textContent = "↑D", u(e, "class", "svelte-1njjtck");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_23*/
-        t[41]
+        /*click_handler_21*/
+        t[39]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -23091,19 +23101,19 @@ function k4(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↓D", u(e, "class", "svelte-1njjtck");
+      e = m("button"), e.textContent = "↓V", u(e, "class", "svelte-1njjtck");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_26*/
-        t[44]
+        /*click_handler_24*/
+        t[42]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -23111,19 +23121,19 @@ function v4(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↑D", u(e, "class", "svelte-1njjtck");
+      e = m("button"), e.textContent = "↑V", u(e, "class", "svelte-1njjtck");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_25*/
-        t[43]
+        /*click_handler_23*/
+        t[41]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -23131,19 +23141,19 @@ function y4(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↓V", u(e, "class", "svelte-1njjtck");
+      e = m("button"), e.textContent = "↓D", u(e, "class", "svelte-1njjtck");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_28*/
-        t[46]
+        /*click_handler_26*/
+        t[44]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -23151,19 +23161,19 @@ function w4(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↑V", u(e, "class", "svelte-1njjtck");
+      e = m("button"), e.textContent = "↑D", u(e, "class", "svelte-1njjtck");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_27*/
-        t[45]
+        /*click_handler_25*/
+        t[43]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -23171,19 +23181,19 @@ function $4(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↓D", u(e, "class", "svelte-1njjtck");
+      e = m("button"), e.textContent = "↓V", u(e, "class", "svelte-1njjtck");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_30*/
-        t[48]
+        /*click_handler_28*/
+        t[46]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -23191,19 +23201,19 @@ function q4(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↑D", u(e, "class", "svelte-1njjtck");
+      e = m("button"), e.textContent = "↑V", u(e, "class", "svelte-1njjtck");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_29*/
-        t[47]
+        /*click_handler_27*/
+        t[45]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -23211,19 +23221,19 @@ function j4(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↓V", u(e, "class", "svelte-1njjtck");
+      e = m("button"), e.textContent = "↓D", u(e, "class", "svelte-1njjtck");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_32*/
-        t[50]
+        /*click_handler_30*/
+        t[48]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -23231,19 +23241,19 @@ function T4(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↑V", u(e, "class", "svelte-1njjtck");
+      e = m("button"), e.textContent = "↑D", u(e, "class", "svelte-1njjtck");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_31*/
-        t[49]
+        /*click_handler_29*/
+        t[47]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -23251,19 +23261,19 @@ function C4(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↓D", u(e, "class", "svelte-1njjtck");
+      e = m("button"), e.textContent = "↓V", u(e, "class", "svelte-1njjtck");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_34*/
-        t[52]
+        /*click_handler_32*/
+        t[50]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -23271,19 +23281,59 @@ function S4(t) {
   let e, l, i;
   return {
     c() {
+      e = m("button"), e.textContent = "↑V", u(e, "class", "svelte-1njjtck");
+    },
+    m(n, a) {
+      S(n, e, a), l || (i = te(
+        e,
+        "click",
+        /*click_handler_31*/
+        t[49]
+      ), l = !0);
+    },
+    p: ne,
+    d(n) {
+      n && C(e), l = !1, i();
+    }
+  };
+}
+function M4(t) {
+  let e, l, i;
+  return {
+    c() {
+      e = m("button"), e.textContent = "↓D", u(e, "class", "svelte-1njjtck");
+    },
+    m(n, a) {
+      S(n, e, a), l || (i = te(
+        e,
+        "click",
+        /*click_handler_34*/
+        t[52]
+      ), l = !0);
+    },
+    p: ne,
+    d(n) {
+      n && C(e), l = !1, i();
+    }
+  };
+}
+function z4(t) {
+  let e, l, i;
+  return {
+    c() {
       e = m("button"), e.textContent = "↑D", u(e, "class", "svelte-1njjtck");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
         /*click_handler_33*/
         t[51]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -23316,7 +23366,7 @@ function Oc(t) {
       e = m("button"), pe(l.$$.fragment), u(e, "class", "basket svelte-1njjtck");
     },
     m(s, o) {
-      M(s, e, o), de(l, e, null), i = !0, n || (a = te(e, "click", r), n = !0);
+      S(s, e, o), de(l, e, null), i = !0, n || (a = te(e, "click", r), n = !0);
     },
     p(s, o) {
       t = s;
@@ -23337,7 +23387,7 @@ function Oc(t) {
       D(l.$$.fragment, s), i = !1;
     },
     d(s) {
-      s && S(e), he(l), n = !1, a();
+      s && C(e), he(l), n = !1, a();
     }
   };
 }
@@ -23360,7 +23410,7 @@ function Ec(t) {
       e = m("button"), pe(l.$$.fragment), u(e, "class", "basket svelte-1njjtck");
     },
     m(s, o) {
-      M(s, e, o), de(l, e, null), i = !0, n || (a = te(e, "click", r), n = !0);
+      S(s, e, o), de(l, e, null), i = !0, n || (a = te(e, "click", r), n = !0);
     },
     p(s, o) {
       t = s;
@@ -23372,7 +23422,7 @@ function Ec(t) {
       D(l.$$.fragment, s), i = !1;
     },
     d(s) {
-      s && S(e), he(l), n = !1, a();
+      s && C(e), he(l), n = !1, a();
     }
   };
 }
@@ -23405,7 +23455,7 @@ function Ic(t) {
       e = m("button"), pe(l.$$.fragment), u(e, "class", "basket svelte-1njjtck");
     },
     m(s, o) {
-      M(s, e, o), de(l, e, null), i = !0, n || (a = te(e, "click", r), n = !0);
+      S(s, e, o), de(l, e, null), i = !0, n || (a = te(e, "click", r), n = !0);
     },
     p(s, o) {
       t = s;
@@ -23426,7 +23476,7 @@ function Ic(t) {
       D(l.$$.fragment, s), i = !1;
     },
     d(s) {
-      s && S(e), he(l), n = !1, a();
+      s && C(e), he(l), n = !1, a();
     }
   };
 }
@@ -23449,7 +23499,7 @@ function Dc(t) {
       e = m("button"), pe(l.$$.fragment), u(e, "class", "basket svelte-1njjtck");
     },
     m(s, o) {
-      M(s, e, o), de(l, e, null), i = !0, n || (a = te(e, "click", r), n = !0);
+      S(s, e, o), de(l, e, null), i = !0, n || (a = te(e, "click", r), n = !0);
     },
     p(s, o) {
       t = s;
@@ -23461,7 +23511,7 @@ function Dc(t) {
       D(l.$$.fragment, s), i = !1;
     },
     d(s) {
-      s && S(e), he(l), n = !1, a();
+      s && C(e), he(l), n = !1, a();
     }
   };
 }
@@ -23494,7 +23544,7 @@ function Rc(t) {
       e = m("button"), pe(l.$$.fragment), u(e, "class", "basket svelte-1njjtck");
     },
     m(s, o) {
-      M(s, e, o), de(l, e, null), i = !0, n || (a = te(e, "click", r), n = !0);
+      S(s, e, o), de(l, e, null), i = !0, n || (a = te(e, "click", r), n = !0);
     },
     p(s, o) {
       t = s;
@@ -23515,7 +23565,7 @@ function Rc(t) {
       D(l.$$.fragment, s), i = !1;
     },
     d(s) {
-      s && S(e), he(l), n = !1, a();
+      s && C(e), he(l), n = !1, a();
     }
   };
 }
@@ -23538,7 +23588,7 @@ function Hc(t) {
       e = m("button"), pe(l.$$.fragment), u(e, "class", "basket svelte-1njjtck");
     },
     m(s, o) {
-      M(s, e, o), de(l, e, null), i = !0, n || (a = te(e, "click", r), n = !0);
+      S(s, e, o), de(l, e, null), i = !0, n || (a = te(e, "click", r), n = !0);
     },
     p(s, o) {
       t = s;
@@ -23550,7 +23600,7 @@ function Hc(t) {
       D(l.$$.fragment, s), i = !1;
     },
     d(s) {
-      s && S(e), he(l), n = !1, a();
+      s && C(e), he(l), n = !1, a();
     }
   };
 }
@@ -23583,7 +23633,7 @@ function Lc(t) {
       e = m("button"), pe(l.$$.fragment), u(e, "class", "basket svelte-1njjtck");
     },
     m(s, o) {
-      M(s, e, o), de(l, e, null), i = !0, n || (a = te(e, "click", r), n = !0);
+      S(s, e, o), de(l, e, null), i = !0, n || (a = te(e, "click", r), n = !0);
     },
     p(s, o) {
       t = s;
@@ -23604,7 +23654,7 @@ function Lc(t) {
       D(l.$$.fragment, s), i = !1;
     },
     d(s) {
-      s && S(e), he(l), n = !1, a();
+      s && C(e), he(l), n = !1, a();
     }
   };
 }
@@ -23627,7 +23677,7 @@ function Fc(t) {
       e = m("button"), pe(l.$$.fragment), u(e, "class", "basket svelte-1njjtck");
     },
     m(s, o) {
-      M(s, e, o), de(l, e, null), i = !0, n || (a = te(e, "click", r), n = !0);
+      S(s, e, o), de(l, e, null), i = !0, n || (a = te(e, "click", r), n = !0);
     },
     p(s, o) {
       t = s;
@@ -23639,28 +23689,28 @@ function Fc(t) {
       D(l.$$.fragment, s), i = !1;
     },
     d(s) {
-      s && S(e), he(l), n = !1, a();
+      s && C(e), he(l), n = !1, a();
     }
   };
 }
-function M4(t) {
+function N4(t) {
   let e, l, i, n;
   return {
     c() {
-      e = I("-"), l = m("br"), i = N(), n = m("span"), n.textContent = "(-)", u(n, "class", "asof svelte-1njjtck");
+      e = E("-"), l = m("br"), i = N(), n = m("span"), n.textContent = "(-)", u(n, "class", "asof svelte-1njjtck");
     },
     m(a, r) {
-      M(a, e, r), M(a, l, r), M(a, i, r), M(a, n, r);
+      S(a, e, r), S(a, l, r), S(a, i, r), S(a, n, r);
     },
-    p: ae,
-    i: ae,
-    o: ae,
+    p: ne,
+    i: ne,
+    o: ne,
     d(a) {
-      a && (S(e), S(l), S(i), S(n));
+      a && (C(e), C(l), C(i), C(n));
     }
   };
 }
-function z4(t) {
+function A4(t) {
   var k, y;
   let e = (
     /*qubit*/
@@ -23668,20 +23718,20 @@ function z4(t) {
   ), l, i, n, a, r, s = (
     /*qubit*/
     ((y = t[70].prob_meas0_prep1) == null ? void 0 : y.asof) + ""
-  ), o, _, c, d, h, p, b = (
+  ), o, _, c, d, h, p, g = (
     /*addToBasket*/
     t[1] && Qc(t)
-  ), g = (
+  ), b = (
     /*topLevelKey*/
     t[7] === "properties" && /*openTimeMachine*/
     t[8] && Vc(t)
   );
   return {
     c() {
-      l = I(e), i = m("br"), n = N(), a = m("span"), r = I("("), o = I(s), _ = I(")"), c = N(), b && b.c(), d = N(), g && g.c(), h = Ae(), u(a, "class", "asof svelte-1njjtck");
+      l = E(e), i = m("br"), n = N(), a = m("span"), r = E("("), o = E(s), _ = E(")"), c = N(), g && g.c(), d = N(), b && b.c(), h = Ae(), u(a, "class", "asof svelte-1njjtck");
     },
     m(v, w) {
-      M(v, l, w), M(v, i, w), M(v, n, w), M(v, a, w), f(a, r), f(a, o), f(a, _), M(v, c, w), b && b.m(v, w), M(v, d, w), g && g.m(v, w), M(v, h, w), p = !0;
+      S(v, l, w), S(v, i, w), S(v, n, w), S(v, a, w), f(a, r), f(a, o), f(a, _), S(v, c, w), g && g.m(v, w), S(v, d, w), b && b.m(v, w), S(v, h, w), p = !0;
     },
     p(v, w) {
       var q, $;
@@ -23690,24 +23740,24 @@ function z4(t) {
       ((q = v[70].prob_meas0_prep1) == null ? void 0 : q.value) + "") && U(l, e), (!p || w[0] & /*$value_react*/
       2048) && s !== (s = /*qubit*/
       (($ = v[70].prob_meas0_prep1) == null ? void 0 : $.asof) + "") && U(o, s), /*addToBasket*/
-      v[1] ? b ? (b.p(v, w), w[0] & /*addToBasket*/
-      2 && T(b, 1)) : (b = Qc(v), b.c(), T(b, 1), b.m(d.parentNode, d)) : b && (be(), D(b, 1, 1, () => {
-        b = null;
+      v[1] ? g ? (g.p(v, w), w[0] & /*addToBasket*/
+      2 && T(g, 1)) : (g = Qc(v), g.c(), T(g, 1), g.m(d.parentNode, d)) : g && (be(), D(g, 1, 1, () => {
+        g = null;
       }), ke()), /*topLevelKey*/
       v[7] === "properties" && /*openTimeMachine*/
-      v[8] ? g ? (g.p(v, w), w[0] & /*topLevelKey, openTimeMachine*/
-      384 && T(g, 1)) : (g = Vc(v), g.c(), T(g, 1), g.m(h.parentNode, h)) : g && (be(), D(g, 1, 1, () => {
-        g = null;
+      v[8] ? b ? (b.p(v, w), w[0] & /*topLevelKey, openTimeMachine*/
+      384 && T(b, 1)) : (b = Vc(v), b.c(), T(b, 1), b.m(h.parentNode, h)) : b && (be(), D(b, 1, 1, () => {
+        b = null;
       }), ke());
     },
     i(v) {
-      p || (T(b), T(g), p = !0);
+      p || (T(g), T(b), p = !0);
     },
     o(v) {
-      D(b), D(g), p = !1;
+      D(g), D(b), p = !1;
     },
     d(v) {
-      v && (S(l), S(i), S(n), S(a), S(c), S(d), S(h)), b && b.d(v), g && g.d(v);
+      v && (C(l), C(i), C(n), C(a), C(c), C(d), C(h)), g && g.d(v), b && b.d(v);
     }
   };
 }
@@ -23740,7 +23790,7 @@ function Qc(t) {
       e = m("button"), pe(l.$$.fragment), u(e, "class", "basket svelte-1njjtck");
     },
     m(s, o) {
-      M(s, e, o), de(l, e, null), i = !0, n || (a = te(e, "click", r), n = !0);
+      S(s, e, o), de(l, e, null), i = !0, n || (a = te(e, "click", r), n = !0);
     },
     p(s, o) {
       t = s;
@@ -23761,7 +23811,7 @@ function Qc(t) {
       D(l.$$.fragment, s), i = !1;
     },
     d(s) {
-      s && S(e), he(l), n = !1, a();
+      s && C(e), he(l), n = !1, a();
     }
   };
 }
@@ -23784,7 +23834,7 @@ function Vc(t) {
       e = m("button"), pe(l.$$.fragment), u(e, "class", "basket svelte-1njjtck");
     },
     m(s, o) {
-      M(s, e, o), de(l, e, null), i = !0, n || (a = te(e, "click", r), n = !0);
+      S(s, e, o), de(l, e, null), i = !0, n || (a = te(e, "click", r), n = !0);
     },
     p(s, o) {
       t = s;
@@ -23796,49 +23846,49 @@ function Vc(t) {
       D(l.$$.fragment, s), i = !1;
     },
     d(s) {
-      s && S(e), he(l), n = !1, a();
+      s && C(e), he(l), n = !1, a();
     }
   };
 }
-function N4(t) {
+function B4(t) {
   let e, l, i, n;
   return {
     c() {
-      e = I("-"), l = m("br"), i = N(), n = m("span"), n.textContent = "(-)", u(n, "class", "asof svelte-1njjtck");
+      e = E("-"), l = m("br"), i = N(), n = m("span"), n.textContent = "(-)", u(n, "class", "asof svelte-1njjtck");
     },
     m(a, r) {
-      M(a, e, r), M(a, l, r), M(a, i, r), M(a, n, r);
+      S(a, e, r), S(a, l, r), S(a, i, r), S(a, n, r);
     },
-    p: ae,
-    i: ae,
-    o: ae,
+    p: ne,
+    i: ne,
+    o: ne,
     d(a) {
-      a && (S(e), S(l), S(i), S(n));
+      a && (C(e), C(l), C(i), C(n));
     }
   };
 }
-function A4(t) {
-  var g, k;
+function P4(t) {
+  var b, k;
   let e = (
     /*qubit*/
-    ((g = t[70].prob_meas1_prep0) == null ? void 0 : g.value) + ""
+    ((b = t[70].prob_meas1_prep0) == null ? void 0 : b.value) + ""
   ), l, i, n, a, r = (
     /*qubit*/
     ((k = t[70].prob_meas1_prep0) == null ? void 0 : k.asof) + ""
   ), s, o, _, c, d, h, p = (
     /*addToBasket*/
     t[1] && Xc(t)
-  ), b = (
+  ), g = (
     /*topLevelKey*/
     t[7] === "properties" && /*openTimeMachine*/
     t[8] && Gc(t)
   );
   return {
     c() {
-      l = I(e), i = m("br"), n = m("span"), a = I("("), s = I(r), o = I(")"), _ = N(), p && p.c(), c = N(), b && b.c(), d = Ae(), u(n, "class", "asof svelte-1njjtck");
+      l = E(e), i = m("br"), n = m("span"), a = E("("), s = E(r), o = E(")"), _ = N(), p && p.c(), c = N(), g && g.c(), d = Ae(), u(n, "class", "asof svelte-1njjtck");
     },
     m(y, v) {
-      M(y, l, v), M(y, i, v), M(y, n, v), f(n, a), f(n, s), f(n, o), M(y, _, v), p && p.m(y, v), M(y, c, v), b && b.m(y, v), M(y, d, v), h = !0;
+      S(y, l, v), S(y, i, v), S(y, n, v), f(n, a), f(n, s), f(n, o), S(y, _, v), p && p.m(y, v), S(y, c, v), g && g.m(y, v), S(y, d, v), h = !0;
     },
     p(y, v) {
       var w, q;
@@ -23852,19 +23902,19 @@ function A4(t) {
         p = null;
       }), ke()), /*topLevelKey*/
       y[7] === "properties" && /*openTimeMachine*/
-      y[8] ? b ? (b.p(y, v), v[0] & /*topLevelKey, openTimeMachine*/
-      384 && T(b, 1)) : (b = Gc(y), b.c(), T(b, 1), b.m(d.parentNode, d)) : b && (be(), D(b, 1, 1, () => {
-        b = null;
+      y[8] ? g ? (g.p(y, v), v[0] & /*topLevelKey, openTimeMachine*/
+      384 && T(g, 1)) : (g = Gc(y), g.c(), T(g, 1), g.m(d.parentNode, d)) : g && (be(), D(g, 1, 1, () => {
+        g = null;
       }), ke());
     },
     i(y) {
-      h || (T(p), T(b), h = !0);
+      h || (T(p), T(g), h = !0);
     },
     o(y) {
-      D(p), D(b), h = !1;
+      D(p), D(g), h = !1;
     },
     d(y) {
-      y && (S(l), S(i), S(n), S(_), S(c), S(d)), p && p.d(y), b && b.d(y);
+      y && (C(l), C(i), C(n), C(_), C(c), C(d)), p && p.d(y), g && g.d(y);
     }
   };
 }
@@ -23897,7 +23947,7 @@ function Xc(t) {
       e = m("button"), pe(l.$$.fragment), u(e, "class", "basket svelte-1njjtck");
     },
     m(s, o) {
-      M(s, e, o), de(l, e, null), i = !0, n || (a = te(e, "click", r), n = !0);
+      S(s, e, o), de(l, e, null), i = !0, n || (a = te(e, "click", r), n = !0);
     },
     p(s, o) {
       t = s;
@@ -23918,7 +23968,7 @@ function Xc(t) {
       D(l.$$.fragment, s), i = !1;
     },
     d(s) {
-      s && S(e), he(l), n = !1, a();
+      s && C(e), he(l), n = !1, a();
     }
   };
 }
@@ -23941,7 +23991,7 @@ function Gc(t) {
       e = m("button"), pe(l.$$.fragment), u(e, "class", "basket svelte-1njjtck");
     },
     m(s, o) {
-      M(s, e, o), de(l, e, null), i = !0, n || (a = te(e, "click", r), n = !0);
+      S(s, e, o), de(l, e, null), i = !0, n || (a = te(e, "click", r), n = !0);
     },
     p(s, o) {
       t = s;
@@ -23953,7 +24003,7 @@ function Gc(t) {
       D(l.$$.fragment, s), i = !1;
     },
     d(s) {
-      s && S(e), he(l), n = !1, a();
+      s && C(e), he(l), n = !1, a();
     }
   };
 }
@@ -23986,7 +24036,7 @@ function Yc(t) {
       e = m("button"), pe(l.$$.fragment), u(e, "class", "basket svelte-1njjtck");
     },
     m(s, o) {
-      M(s, e, o), de(l, e, null), i = !0, n || (a = te(e, "click", r), n = !0);
+      S(s, e, o), de(l, e, null), i = !0, n || (a = te(e, "click", r), n = !0);
     },
     p(s, o) {
       t = s;
@@ -24007,7 +24057,7 @@ function Yc(t) {
       D(l.$$.fragment, s), i = !1;
     },
     d(s) {
-      s && S(e), he(l), n = !1, a();
+      s && C(e), he(l), n = !1, a();
     }
   };
 }
@@ -24030,7 +24080,7 @@ function Kc(t) {
       e = m("button"), pe(l.$$.fragment), u(e, "class", "basket svelte-1njjtck");
     },
     m(s, o) {
-      M(s, e, o), de(l, e, null), i = !0, n || (a = te(e, "click", r), n = !0);
+      S(s, e, o), de(l, e, null), i = !0, n || (a = te(e, "click", r), n = !0);
     },
     p(s, o) {
       t = s;
@@ -24042,7 +24092,7 @@ function Kc(t) {
       D(l.$$.fragment, s), i = !1;
     },
     d(s) {
-      s && S(e), he(l), n = !1, a();
+      s && C(e), he(l), n = !1, a();
     }
   };
 }
@@ -24075,7 +24125,7 @@ function Uc(t) {
       e = m("button"), pe(l.$$.fragment), u(e, "class", "basket svelte-1njjtck");
     },
     m(s, o) {
-      M(s, e, o), de(l, e, null), i = !0, n || (a = te(e, "click", r), n = !0);
+      S(s, e, o), de(l, e, null), i = !0, n || (a = te(e, "click", r), n = !0);
     },
     p(s, o) {
       t = s;
@@ -24096,7 +24146,7 @@ function Uc(t) {
       D(l.$$.fragment, s), i = !1;
     },
     d(s) {
-      s && S(e), he(l), n = !1, a();
+      s && C(e), he(l), n = !1, a();
     }
   };
 }
@@ -24119,7 +24169,7 @@ function Wc(t) {
       e = m("button"), pe(l.$$.fragment), u(e, "class", "basket svelte-1njjtck");
     },
     m(s, o) {
-      M(s, e, o), de(l, e, null), i = !0, n || (a = te(e, "click", r), n = !0);
+      S(s, e, o), de(l, e, null), i = !0, n || (a = te(e, "click", r), n = !0);
     },
     p(s, o) {
       t = s;
@@ -24131,7 +24181,7 @@ function Wc(t) {
       D(l.$$.fragment, s), i = !1;
     },
     d(s) {
-      s && S(e), he(l), n = !1, a();
+      s && C(e), he(l), n = !1, a();
     }
   };
 }
@@ -24164,7 +24214,7 @@ function Jc(t) {
       e = m("button"), pe(l.$$.fragment), u(e, "class", "basket svelte-1njjtck");
     },
     m(s, o) {
-      M(s, e, o), de(l, e, null), i = !0, n || (a = te(e, "click", r), n = !0);
+      S(s, e, o), de(l, e, null), i = !0, n || (a = te(e, "click", r), n = !0);
     },
     p(s, o) {
       t = s;
@@ -24185,7 +24235,7 @@ function Jc(t) {
       D(l.$$.fragment, s), i = !1;
     },
     d(s) {
-      s && S(e), he(l), n = !1, a();
+      s && C(e), he(l), n = !1, a();
     }
   };
 }
@@ -24199,19 +24249,19 @@ function Zc(t) {
   ), o, _, c, d, h = (
     /*qubit*/
     t[70].T1.asof + ""
-  ), p, b, g, k, y, v, w = (
+  ), p, g, b, k, y, v, w = (
     /*qubit*/
     t[70].T2.value + ""
-  ), q, $, j, O, A = (
+  ), q, $, j, I, A = (
     /*qubit*/
     t[70].T2.asof + ""
-  ), C, z, H, B, R, P, E = (
+  ), M, z, H, B, R, P, O = (
     /*qubit*/
     t[70].anharmonicity.value + ""
   ), F, L, X, V, Q = (
     /*qubit*/
     t[70].anharmonicity.asof + ""
-  ), Z, ne, se, K, Y, W, J = (
+  ), Z, ae, se, K, Y, W, J = (
     /*qubit*/
     t[70].frequency.value + ""
   ), ee, we, Re, ve, me = (
@@ -24258,7 +24308,7 @@ function Zc(t) {
     t[7] === "properties" && /*openTimeMachine*/
     t[8] && Fc(t)
   );
-  const Yi = [z4, M4], il = [];
+  const Yi = [A4, N4], il = [];
   function nl(Ne, xe) {
     var sl;
     return (
@@ -24267,7 +24317,7 @@ function Zc(t) {
     );
   }
   x = nl(t), ge = il[x] = Yi[x](t);
-  const Ki = [A4, N4], al = [];
+  const Ki = [P4, B4], al = [];
   function rl(Ne, xe) {
     var sl;
     return (
@@ -24296,10 +24346,10 @@ function Zc(t) {
   );
   return {
     c() {
-      e = m("tr"), l = m("th"), n = I(i), a = N(), r = m("td"), o = I(s), _ = m("br"), c = m("span"), d = I("("), p = I(h), b = I(")"), g = N(), It && It.c(), k = N(), gt && gt.c(), y = N(), v = m("td"), q = I(w), $ = m("br"), j = m("span"), O = I("("), C = I(A), z = I(")"), H = N(), Dt && Dt.c(), B = N(), yt && yt.c(), R = N(), P = m("td"), F = I(E), L = m("br"), X = m("span"), V = I("("), Z = I(Q), ne = I(")"), se = N(), ze && ze.c(), K = N(), lt && lt.c(), Y = N(), W = m("td"), ee = I(J), we = m("br"), Re = m("span"), ve = I("("), fe = I(me), G = I(")"), ye = N(), dt && dt.c(), ue = N(), Nt && Nt.c(), le = N(), oe = m("td"), ge.c(), re = N(), Ie = m("td"), _e.c(), Ee = N(), ie = m("td"), Ue = I(Te), Ke = m("br"), We = m("span"), vt = I("("), rt = I(qt), mt = I(")"), Rt = N(), Ht && Ht.c(), ot = N(), ht && ht.c(), ut = N(), Ce = m("td"), Be = I(ce), Le = m("br"), Pe = m("span"), Je = I("("), He = I(Xe), Ze = I(")"), _t = N(), Qt && Qt.c(), Ct = N(), Mt && Mt.c(), tl = N(), jt = m("td"), Se && Se.c(), ft = N(), u(l, "class", "svelte-1njjtck"), u(c, "class", "asof svelte-1njjtck"), u(r, "class", "svelte-1njjtck"), u(j, "class", "asof svelte-1njjtck"), u(v, "class", "svelte-1njjtck"), u(X, "class", "asof svelte-1njjtck"), u(P, "class", "svelte-1njjtck"), u(Re, "class", "asof svelte-1njjtck"), u(W, "class", "svelte-1njjtck"), u(oe, "class", "svelte-1njjtck"), u(Ie, "class", "svelte-1njjtck"), u(We, "class", "asof svelte-1njjtck"), u(ie, "class", "svelte-1njjtck"), u(Pe, "class", "asof svelte-1njjtck"), u(Ce, "class", "svelte-1njjtck"), u(jt, "class", "svelte-1njjtck");
+      e = m("tr"), l = m("th"), n = E(i), a = N(), r = m("td"), o = E(s), _ = m("br"), c = m("span"), d = E("("), p = E(h), g = E(")"), b = N(), It && It.c(), k = N(), gt && gt.c(), y = N(), v = m("td"), q = E(w), $ = m("br"), j = m("span"), I = E("("), M = E(A), z = E(")"), H = N(), Dt && Dt.c(), B = N(), yt && yt.c(), R = N(), P = m("td"), F = E(O), L = m("br"), X = m("span"), V = E("("), Z = E(Q), ae = E(")"), se = N(), ze && ze.c(), K = N(), lt && lt.c(), Y = N(), W = m("td"), ee = E(J), we = m("br"), Re = m("span"), ve = E("("), fe = E(me), G = E(")"), ye = N(), dt && dt.c(), ue = N(), Nt && Nt.c(), le = N(), oe = m("td"), ge.c(), re = N(), Ie = m("td"), _e.c(), Ee = N(), ie = m("td"), Ue = E(Te), Ke = m("br"), We = m("span"), vt = E("("), rt = E(qt), mt = E(")"), Rt = N(), Ht && Ht.c(), ot = N(), ht && ht.c(), ut = N(), Ce = m("td"), Be = E(ce), Le = m("br"), Pe = m("span"), Je = E("("), He = E(Xe), Ze = E(")"), _t = N(), Qt && Qt.c(), Ct = N(), Mt && Mt.c(), tl = N(), jt = m("td"), Se && Se.c(), ft = N(), u(l, "class", "svelte-1njjtck"), u(c, "class", "asof svelte-1njjtck"), u(r, "class", "svelte-1njjtck"), u(j, "class", "asof svelte-1njjtck"), u(v, "class", "svelte-1njjtck"), u(X, "class", "asof svelte-1njjtck"), u(P, "class", "svelte-1njjtck"), u(Re, "class", "asof svelte-1njjtck"), u(W, "class", "svelte-1njjtck"), u(oe, "class", "svelte-1njjtck"), u(Ie, "class", "svelte-1njjtck"), u(We, "class", "asof svelte-1njjtck"), u(ie, "class", "svelte-1njjtck"), u(Pe, "class", "asof svelte-1njjtck"), u(Ce, "class", "svelte-1njjtck"), u(jt, "class", "svelte-1njjtck");
     },
     m(Ne, xe) {
-      M(Ne, e, xe), f(e, l), f(l, n), f(e, a), f(e, r), f(r, o), f(r, _), f(r, c), f(c, d), f(c, p), f(c, b), f(r, g), It && It.m(r, null), f(r, k), gt && gt.m(r, null), f(e, y), f(e, v), f(v, q), f(v, $), f(v, j), f(j, O), f(j, C), f(j, z), f(v, H), Dt && Dt.m(v, null), f(v, B), yt && yt.m(v, null), f(e, R), f(e, P), f(P, F), f(P, L), f(P, X), f(X, V), f(X, Z), f(X, ne), f(P, se), ze && ze.m(P, null), f(P, K), lt && lt.m(P, null), f(e, Y), f(e, W), f(W, ee), f(W, we), f(W, Re), f(Re, ve), f(Re, fe), f(Re, G), f(W, ye), dt && dt.m(W, null), f(W, ue), Nt && Nt.m(W, null), f(e, le), f(e, oe), il[x].m(oe, null), f(e, re), f(e, Ie), al[je].m(Ie, null), f(e, Ee), f(e, ie), f(ie, Ue), f(ie, Ke), f(ie, We), f(We, vt), f(We, rt), f(We, mt), f(ie, Rt), Ht && Ht.m(ie, null), f(ie, ot), ht && ht.m(ie, null), f(e, ut), f(e, Ce), f(Ce, Be), f(Ce, Le), f(Ce, Pe), f(Pe, Je), f(Pe, He), f(Pe, Ze), f(Ce, _t), Qt && Qt.m(Ce, null), f(Ce, Ct), Mt && Mt.m(Ce, null), f(e, tl), f(e, jt), Se && Se.m(jt, null), f(e, ft), Lt = !0;
+      S(Ne, e, xe), f(e, l), f(l, n), f(e, a), f(e, r), f(r, o), f(r, _), f(r, c), f(c, d), f(c, p), f(c, g), f(r, b), It && It.m(r, null), f(r, k), gt && gt.m(r, null), f(e, y), f(e, v), f(v, q), f(v, $), f(v, j), f(j, I), f(j, M), f(j, z), f(v, H), Dt && Dt.m(v, null), f(v, B), yt && yt.m(v, null), f(e, R), f(e, P), f(P, F), f(P, L), f(P, X), f(X, V), f(X, Z), f(X, ae), f(P, se), ze && ze.m(P, null), f(P, K), lt && lt.m(P, null), f(e, Y), f(e, W), f(W, ee), f(W, we), f(W, Re), f(Re, ve), f(Re, fe), f(Re, G), f(W, ye), dt && dt.m(W, null), f(W, ue), Nt && Nt.m(W, null), f(e, le), f(e, oe), il[x].m(oe, null), f(e, re), f(e, Ie), al[je].m(Ie, null), f(e, Ee), f(e, ie), f(ie, Ue), f(ie, Ke), f(ie, We), f(We, vt), f(We, rt), f(We, mt), f(ie, Rt), Ht && Ht.m(ie, null), f(ie, ot), ht && ht.m(ie, null), f(e, ut), f(e, Ce), f(Ce, Be), f(Ce, Le), f(Ce, Pe), f(Pe, Je), f(Pe, He), f(Pe, Ze), f(Ce, _t), Qt && Qt.m(Ce, null), f(Ce, Ct), Mt && Mt.m(Ce, null), f(e, tl), f(e, jt), Se && Se.m(jt, null), f(e, ft), Lt = !0;
     },
     p(Ne, xe) {
       (!Lt || xe[0] & /*$value_react*/
@@ -24321,7 +24371,7 @@ function Zc(t) {
       2048) && w !== (w = /*qubit*/
       Ne[70].T2.value + "") && U(q, w), (!Lt || xe[0] & /*$value_react*/
       2048) && A !== (A = /*qubit*/
-      Ne[70].T2.asof + "") && U(C, A), /*addToBasket*/
+      Ne[70].T2.asof + "") && U(M, A), /*addToBasket*/
       Ne[1] ? Dt ? (Dt.p(Ne, xe), xe[0] & /*addToBasket*/
       2 && T(Dt, 1)) : (Dt = Ic(Ne), Dt.c(), T(Dt, 1), Dt.m(v, B)) : Dt && (be(), D(Dt, 1, 1, () => {
         Dt = null;
@@ -24331,8 +24381,8 @@ function Zc(t) {
       384 && T(yt, 1)) : (yt = Dc(Ne), yt.c(), T(yt, 1), yt.m(v, null)) : yt && (be(), D(yt, 1, 1, () => {
         yt = null;
       }), ke()), (!Lt || xe[0] & /*$value_react*/
-      2048) && E !== (E = /*qubit*/
-      Ne[70].anharmonicity.value + "") && U(F, E), (!Lt || xe[0] & /*$value_react*/
+      2048) && O !== (O = /*qubit*/
+      Ne[70].anharmonicity.value + "") && U(F, O), (!Lt || xe[0] & /*$value_react*/
       2048) && Q !== (Q = /*qubit*/
       Ne[70].anharmonicity.asof + "") && U(Z, Q), /*addToBasket*/
       Ne[1] ? ze ? (ze.p(Ne, xe), xe[0] & /*addToBasket*/
@@ -24403,7 +24453,7 @@ function Zc(t) {
       D(It), D(gt), D(Dt), D(yt), D(ze), D(lt), D(dt), D(Nt), D(ge), D(_e), D(Ht), D(ht), D(Qt), D(Mt), D(Se), Lt = !1;
     },
     d(Ne) {
-      Ne && S(e), It && It.d(), gt && gt.d(), Dt && Dt.d(), yt && yt.d(), ze && ze.d(), lt && lt.d(), dt && dt.d(), Nt && Nt.d(), il[x].d(), al[je].d(), Ht && Ht.d(), ht && ht.d(), Qt && Qt.d(), Mt && Mt.d(), Se && Se.d();
+      Ne && C(e), It && It.d(), gt && gt.d(), Dt && Dt.d(), yt && yt.d(), ze && ze.d(), lt && lt.d(), dt && dt.d(), Nt && Nt.d(), il[x].d(), al[je].d(), Ht && Ht.d(), ht && ht.d(), Qt && Qt.d(), Mt && Mt.d(), Se && Se.d();
     }
   };
 }
@@ -24414,10 +24464,10 @@ function xc(t) {
   ] + "", i;
   return {
     c() {
-      e = m("div"), i = I(l), u(e, "class", "desc svelte-1njjtck");
+      e = m("div"), i = E(l), u(e, "class", "desc svelte-1njjtck");
     },
     m(n, a) {
-      M(n, e, a), f(e, i);
+      S(n, e, a), f(e, i);
     },
     p(n, a) {
       a[0] & /*key*/
@@ -24427,12 +24477,12 @@ function xc(t) {
       ] + "") && U(i, l);
     },
     d(n) {
-      n && S(e);
+      n && C(e);
     }
   };
 }
-function B4(t) {
-  let e, l, i, n, a, r, s, o, _, c, d, h, p, b, g, k, y, v, w, q, $, j, O, A, C, z, H, B, R, P, E, F, L, X, V, Q, Z, ne, se, K, Y, W, J, ee, we, Re, ve, me = (
+function O4(t) {
+  let e, l, i, n, a, r, s, o, _, c, d, h, p, g, b, k, y, v, w, q, $, j, I, A, M, z, H, B, R, P, O, F, L, X, V, Q, Z, ae, se, K, Y, W, J, ee, we, Re, ve, me = (
     /*addToBasket*/
     t[1] && Pc(t)
   );
@@ -24441,130 +24491,130 @@ function B4(t) {
       /*level*/
       Se[3] == 1
     )
-      return K3;
+      return W3;
     if (
       /*level*/
       Se[3] == 2
     )
-      return Y3;
+      return U3;
   }
   let G = fe(t), ye = G && G(t);
   function ue(Se, Ne) {
     return (
       /*sort_reg*/
-      Se[9].index !== "a" ? W3 : U3
+      Se[9].index !== "a" ? Z3 : J3
     );
   }
   let le = ue(t), oe = le(t);
   function x(Se, Ne) {
     return (
       /*sort_reg*/
-      Se[9].T1 !== "a" ? Z3 : J3
+      Se[9].T1 !== "a" ? e4 : x3
     );
   }
   let ge = x(t), re = ge(t);
   function Ie(Se, Ne) {
     return (
       /*sort_reg*/
-      Se[9].T1d !== "a" ? e4 : x3
+      Se[9].T1d !== "a" ? l4 : t4
     );
   }
   let je = Ie(t), _e = je(t);
   function Ee(Se, Ne) {
     return (
       /*sort_reg*/
-      Se[9].T2 !== "a" ? l4 : t4
+      Se[9].T2 !== "a" ? n4 : i4
     );
   }
   let ie = Ee(t), Te = ie(t);
   function Ue(Se, Ne) {
     return (
       /*sort_reg*/
-      Se[9].T2d !== "a" ? n4 : i4
+      Se[9].T2d !== "a" ? r4 : a4
     );
   }
   let Ke = Ue(t), We = Ke(t);
   function vt(Se, Ne) {
     return (
       /*sort_reg*/
-      Se[9].anharmonicity !== "a" ? r4 : a4
+      Se[9].anharmonicity !== "a" ? o4 : s4
     );
   }
   let qt = vt(t), rt = qt(t);
   function mt(Se, Ne) {
     return (
       /*sort_reg*/
-      Se[9].anharmonicityd !== "a" ? o4 : s4
+      Se[9].anharmonicityd !== "a" ? f4 : u4
     );
   }
   let Rt = mt(t), ot = Rt(t);
   function ut(Se, Ne) {
     return (
       /*sort_reg*/
-      Se[9].frequency !== "a" ? f4 : u4
+      Se[9].frequency !== "a" ? c4 : _4
     );
   }
   let Ce = ut(t), ce = Ce(t);
   function Be(Se, Ne) {
     return (
       /*sort_reg*/
-      Se[9].frequencyd !== "a" ? c4 : _4
+      Se[9].frequencyd !== "a" ? h4 : d4
     );
   }
   let Le = Be(t), Pe = Le(t);
   function Je(Se, Ne) {
     return (
       /*sort_reg*/
-      Se[9].prob_meas0_prep1 !== "a" ? h4 : d4
+      Se[9].prob_meas0_prep1 !== "a" ? m4 : p4
     );
   }
   let Xe = Je(t), He = Xe(t);
   function Ze(Se, Ne) {
     return (
       /*sort_reg*/
-      Se[9].prob_meas0_prep1d !== "a" ? m4 : p4
+      Se[9].prob_meas0_prep1d !== "a" ? b4 : g4
     );
   }
   let _t = Ze(t), Ct = _t(t);
   function tl(Se, Ne) {
     return (
       /*sort_reg*/
-      Se[9].prob_meas1_prep0 !== "a" ? b4 : g4
+      Se[9].prob_meas1_prep0 !== "a" ? v4 : k4
     );
   }
   let jt = tl(t), ft = jt(t);
   function Lt(Se, Ne) {
     return (
       /*sort_reg*/
-      Se[9].prob_meas1_prep0d !== "a" ? v4 : k4
+      Se[9].prob_meas1_prep0d !== "a" ? w4 : y4
     );
   }
   let It = Lt(t), gt = It(t);
   function Dt(Se, Ne) {
     return (
       /*sort_reg*/
-      Se[9].readout_error !== "a" ? w4 : y4
+      Se[9].readout_error !== "a" ? q4 : $4
     );
   }
   let yt = Dt(t), ze = yt(t);
   function lt(Se, Ne) {
     return (
       /*sort_reg*/
-      Se[9].readout_errord !== "a" ? q4 : $4
+      Se[9].readout_errord !== "a" ? T4 : j4
     );
   }
   let dt = lt(t), Nt = dt(t);
   function Yi(Se, Ne) {
     return (
       /*sort_reg*/
-      Se[9].readout_length !== "a" ? T4 : j4
+      Se[9].readout_length !== "a" ? S4 : C4
     );
   }
   let il = Yi(t), nl = il(t);
   function Ki(Se, Ne) {
     return (
       /*sort_reg*/
-      Se[9].readout_lengthd !== "a" ? S4 : C4
+      Se[9].readout_lengthd !== "a" ? z4 : M4
     );
   }
   let al = Ki(t), rl = al(t), Ht = $e(
@@ -24582,13 +24632,13 @@ function B4(t) {
   ] && xc(t);
   return {
     c() {
-      e = m("article"), me && me.c(), l = N(), ye && ye.c(), i = N(), n = m("div"), a = m("table"), r = m("thead"), s = m("tr"), o = m("th"), _ = I("I "), oe.c(), c = N(), d = m("th"), h = I("T1 "), re.c(), p = Ae(), _e.c(), b = N(), g = m("th"), k = I("T2 "), Te.c(), y = Ae(), We.c(), v = N(), w = m("th"), q = I("Anharmonic. "), rt.c(), $ = Ae(), ot.c(), j = N(), O = m("th"), A = I("Frequency "), ce.c(), C = Ae(), Pe.c(), z = N(), H = m("th"), B = I("Meas0Prob1 "), He.c(), R = Ae(), Ct.c(), P = N(), E = m("th"), F = I("Meas1Prob0 "), ft.c(), L = Ae(), gt.c(), X = N(), V = m("th"), Q = I("Readout Error "), ze.c(), Z = Ae(), Nt.c(), ne = N(), se = m("th"), K = I("Readout Length "), nl.c(), Y = Ae(), rl.c(), W = N(), J = m("th"), J.textContent = "-", ee = N(), we = m("tbody");
+      e = m("article"), me && me.c(), l = N(), ye && ye.c(), i = N(), n = m("div"), a = m("table"), r = m("thead"), s = m("tr"), o = m("th"), _ = E("I "), oe.c(), c = N(), d = m("th"), h = E("T1 "), re.c(), p = Ae(), _e.c(), g = N(), b = m("th"), k = E("T2 "), Te.c(), y = Ae(), We.c(), v = N(), w = m("th"), q = E("Anharmonic. "), rt.c(), $ = Ae(), ot.c(), j = N(), I = m("th"), A = E("Frequency "), ce.c(), M = Ae(), Pe.c(), z = N(), H = m("th"), B = E("Meas0Prob1 "), He.c(), R = Ae(), Ct.c(), P = N(), O = m("th"), F = E("Meas1Prob0 "), ft.c(), L = Ae(), gt.c(), X = N(), V = m("th"), Q = E("Readout Error "), ze.c(), Z = Ae(), Nt.c(), ae = N(), se = m("th"), K = E("Readout Length "), nl.c(), Y = Ae(), rl.c(), W = N(), J = m("th"), J.textContent = "-", ee = N(), we = m("tbody");
       for (let Se = 0; Se < ht.length; Se += 1)
         ht[Se].c();
-      Re = N(), Mt && Mt.c(), u(o, "class", "svelte-1njjtck"), u(d, "class", "svelte-1njjtck"), u(g, "class", "svelte-1njjtck"), u(w, "class", "svelte-1njjtck"), u(O, "class", "svelte-1njjtck"), u(H, "class", "svelte-1njjtck"), u(E, "class", "svelte-1njjtck"), u(V, "class", "svelte-1njjtck"), u(se, "class", "svelte-1njjtck"), u(J, "class", "svelte-1njjtck"), u(r, "class", "svelte-1njjtck"), u(we, "class", "svelte-1njjtck"), u(a, "class", "svelte-1njjtck"), u(n, "class", "value svelte-1njjtck"), u(e, "class", "svelte-1njjtck");
+      Re = N(), Mt && Mt.c(), u(o, "class", "svelte-1njjtck"), u(d, "class", "svelte-1njjtck"), u(b, "class", "svelte-1njjtck"), u(w, "class", "svelte-1njjtck"), u(I, "class", "svelte-1njjtck"), u(H, "class", "svelte-1njjtck"), u(O, "class", "svelte-1njjtck"), u(V, "class", "svelte-1njjtck"), u(se, "class", "svelte-1njjtck"), u(J, "class", "svelte-1njjtck"), u(r, "class", "svelte-1njjtck"), u(we, "class", "svelte-1njjtck"), u(a, "class", "svelte-1njjtck"), u(n, "class", "value svelte-1njjtck"), u(e, "class", "svelte-1njjtck");
     },
     m(Se, Ne) {
-      M(Se, e, Ne), me && me.m(e, null), f(e, l), ye && ye.m(e, null), f(e, i), f(e, n), f(n, a), f(a, r), f(r, s), f(s, o), f(o, _), oe.m(o, null), f(s, c), f(s, d), f(d, h), re.m(d, null), f(d, p), _e.m(d, null), f(s, b), f(s, g), f(g, k), Te.m(g, null), f(g, y), We.m(g, null), f(s, v), f(s, w), f(w, q), rt.m(w, null), f(w, $), ot.m(w, null), f(s, j), f(s, O), f(O, A), ce.m(O, null), f(O, C), Pe.m(O, null), f(s, z), f(s, H), f(H, B), He.m(H, null), f(H, R), Ct.m(H, null), f(s, P), f(s, E), f(E, F), ft.m(E, null), f(E, L), gt.m(E, null), f(s, X), f(s, V), f(V, Q), ze.m(V, null), f(V, Z), Nt.m(V, null), f(s, ne), f(s, se), f(se, K), nl.m(se, null), f(se, Y), rl.m(se, null), f(s, W), f(s, J), f(a, ee), f(a, we);
+      S(Se, e, Ne), me && me.m(e, null), f(e, l), ye && ye.m(e, null), f(e, i), f(e, n), f(n, a), f(a, r), f(r, s), f(s, o), f(o, _), oe.m(o, null), f(s, c), f(s, d), f(d, h), re.m(d, null), f(d, p), _e.m(d, null), f(s, g), f(s, b), f(b, k), Te.m(b, null), f(b, y), We.m(b, null), f(s, v), f(s, w), f(w, q), rt.m(w, null), f(w, $), ot.m(w, null), f(s, j), f(s, I), f(I, A), ce.m(I, null), f(I, M), Pe.m(I, null), f(s, z), f(s, H), f(H, B), He.m(H, null), f(H, R), Ct.m(H, null), f(s, P), f(s, O), f(O, F), ft.m(O, null), f(O, L), gt.m(O, null), f(s, X), f(s, V), f(V, Q), ze.m(V, null), f(V, Z), Nt.m(V, null), f(s, ae), f(s, se), f(se, K), nl.m(se, null), f(se, Y), rl.m(se, null), f(s, W), f(s, J), f(a, ee), f(a, we);
       for (let xe = 0; xe < ht.length; xe += 1)
         ht[xe] && ht[xe].m(we, null);
       f(e, Re), Mt && Mt.m(e, null), ve = !0;
@@ -24598,7 +24648,7 @@ function B4(t) {
       Se[1] ? me ? (me.p(Se, Ne), Ne[0] & /*addToBasket*/
       2 && T(me, 1)) : (me = Pc(Se), me.c(), T(me, 1), me.m(e, l)) : me && (be(), D(me, 1, 1, () => {
         me = null;
-      }), ke()), G === (G = fe(Se)) && ye ? ye.p(Se, Ne) : (ye && ye.d(1), ye = G && G(Se), ye && (ye.c(), ye.m(e, i))), le === (le = ue(Se)) && oe ? oe.p(Se, Ne) : (oe.d(1), oe = le(Se), oe && (oe.c(), oe.m(o, null))), ge === (ge = x(Se)) && re ? re.p(Se, Ne) : (re.d(1), re = ge(Se), re && (re.c(), re.m(d, p))), je === (je = Ie(Se)) && _e ? _e.p(Se, Ne) : (_e.d(1), _e = je(Se), _e && (_e.c(), _e.m(d, null))), ie === (ie = Ee(Se)) && Te ? Te.p(Se, Ne) : (Te.d(1), Te = ie(Se), Te && (Te.c(), Te.m(g, y))), Ke === (Ke = Ue(Se)) && We ? We.p(Se, Ne) : (We.d(1), We = Ke(Se), We && (We.c(), We.m(g, null))), qt === (qt = vt(Se)) && rt ? rt.p(Se, Ne) : (rt.d(1), rt = qt(Se), rt && (rt.c(), rt.m(w, $))), Rt === (Rt = mt(Se)) && ot ? ot.p(Se, Ne) : (ot.d(1), ot = Rt(Se), ot && (ot.c(), ot.m(w, null))), Ce === (Ce = ut(Se)) && ce ? ce.p(Se, Ne) : (ce.d(1), ce = Ce(Se), ce && (ce.c(), ce.m(O, C))), Le === (Le = Be(Se)) && Pe ? Pe.p(Se, Ne) : (Pe.d(1), Pe = Le(Se), Pe && (Pe.c(), Pe.m(O, null))), Xe === (Xe = Je(Se)) && He ? He.p(Se, Ne) : (He.d(1), He = Xe(Se), He && (He.c(), He.m(H, R))), _t === (_t = Ze(Se)) && Ct ? Ct.p(Se, Ne) : (Ct.d(1), Ct = _t(Se), Ct && (Ct.c(), Ct.m(H, null))), jt === (jt = tl(Se)) && ft ? ft.p(Se, Ne) : (ft.d(1), ft = jt(Se), ft && (ft.c(), ft.m(E, L))), It === (It = Lt(Se)) && gt ? gt.p(Se, Ne) : (gt.d(1), gt = It(Se), gt && (gt.c(), gt.m(E, null))), yt === (yt = Dt(Se)) && ze ? ze.p(Se, Ne) : (ze.d(1), ze = yt(Se), ze && (ze.c(), ze.m(V, Z))), dt === (dt = lt(Se)) && Nt ? Nt.p(Se, Ne) : (Nt.d(1), Nt = dt(Se), Nt && (Nt.c(), Nt.m(V, null))), il === (il = Yi(Se)) && nl ? nl.p(Se, Ne) : (nl.d(1), nl = il(Se), nl && (nl.c(), nl.m(se, Y))), al === (al = Ki(Se)) && rl ? rl.p(Se, Ne) : (rl.d(1), rl = al(Se), rl && (rl.c(), rl.m(se, null))), Ne[0] & /*addToBasket, key, code_header, code_footer, $basket, openTimeMachine, parentKey, topLevelKey, $value_react*/
+      }), ke()), G === (G = fe(Se)) && ye ? ye.p(Se, Ne) : (ye && ye.d(1), ye = G && G(Se), ye && (ye.c(), ye.m(e, i))), le === (le = ue(Se)) && oe ? oe.p(Se, Ne) : (oe.d(1), oe = le(Se), oe && (oe.c(), oe.m(o, null))), ge === (ge = x(Se)) && re ? re.p(Se, Ne) : (re.d(1), re = ge(Se), re && (re.c(), re.m(d, p))), je === (je = Ie(Se)) && _e ? _e.p(Se, Ne) : (_e.d(1), _e = je(Se), _e && (_e.c(), _e.m(d, null))), ie === (ie = Ee(Se)) && Te ? Te.p(Se, Ne) : (Te.d(1), Te = ie(Se), Te && (Te.c(), Te.m(b, y))), Ke === (Ke = Ue(Se)) && We ? We.p(Se, Ne) : (We.d(1), We = Ke(Se), We && (We.c(), We.m(b, null))), qt === (qt = vt(Se)) && rt ? rt.p(Se, Ne) : (rt.d(1), rt = qt(Se), rt && (rt.c(), rt.m(w, $))), Rt === (Rt = mt(Se)) && ot ? ot.p(Se, Ne) : (ot.d(1), ot = Rt(Se), ot && (ot.c(), ot.m(w, null))), Ce === (Ce = ut(Se)) && ce ? ce.p(Se, Ne) : (ce.d(1), ce = Ce(Se), ce && (ce.c(), ce.m(I, M))), Le === (Le = Be(Se)) && Pe ? Pe.p(Se, Ne) : (Pe.d(1), Pe = Le(Se), Pe && (Pe.c(), Pe.m(I, null))), Xe === (Xe = Je(Se)) && He ? He.p(Se, Ne) : (He.d(1), He = Xe(Se), He && (He.c(), He.m(H, R))), _t === (_t = Ze(Se)) && Ct ? Ct.p(Se, Ne) : (Ct.d(1), Ct = _t(Se), Ct && (Ct.c(), Ct.m(H, null))), jt === (jt = tl(Se)) && ft ? ft.p(Se, Ne) : (ft.d(1), ft = jt(Se), ft && (ft.c(), ft.m(O, L))), It === (It = Lt(Se)) && gt ? gt.p(Se, Ne) : (gt.d(1), gt = It(Se), gt && (gt.c(), gt.m(O, null))), yt === (yt = Dt(Se)) && ze ? ze.p(Se, Ne) : (ze.d(1), ze = yt(Se), ze && (ze.c(), ze.m(V, Z))), dt === (dt = lt(Se)) && Nt ? Nt.p(Se, Ne) : (Nt.d(1), Nt = dt(Se), Nt && (Nt.c(), Nt.m(V, null))), il === (il = Yi(Se)) && nl ? nl.p(Se, Ne) : (nl.d(1), nl = il(Se), nl && (nl.c(), nl.m(se, Y))), al === (al = Ki(Se)) && rl ? rl.p(Se, Ne) : (rl.d(1), rl = al(Se), rl && (rl.c(), rl.m(se, null))), Ne[0] & /*addToBasket, key, code_header, code_footer, $basket, openTimeMachine, parentKey, topLevelKey, $value_react*/
       3571) {
         Ht = $e(
           /*$value_react*/
@@ -24633,14 +24683,14 @@ function B4(t) {
       ve = !1;
     },
     d(Se) {
-      Se && S(e), me && me.d(), ye && ye.d(), oe.d(), re.d(), _e.d(), Te.d(), We.d(), rt.d(), ot.d(), ce.d(), Pe.d(), He.d(), Ct.d(), ft.d(), gt.d(), ze.d(), Nt.d(), nl.d(), rl.d(), Ye(ht, Se), Mt && Mt.d();
+      Se && C(e), me && me.d(), ye && ye.d(), oe.d(), re.d(), _e.d(), Te.d(), We.d(), rt.d(), ot.d(), ce.d(), Pe.d(), He.d(), Ct.d(), ft.d(), gt.d(), ze.d(), Nt.d(), nl.d(), rl.d(), Ye(ht, Se), Mt && Mt.d();
     }
   };
 }
-function P4(t, e, l) {
-  let i, n = ae, a = () => (n(), n = st(c, (ce) => l(10, i = ce)), c), r;
+function E4(t, e, l) {
+  let i, n = ne, a = () => (n(), n = st(c, (ce) => l(10, i = ce)), c), r;
   t.$$.on_destroy.push(() => n());
-  let { key: s = "", value: o, addToBasket: _, basket: c, level: d = 1, code_header: h = "", code_type: p = "", code_footer: b = "", parentKey: g = "", topLevelKey: k = "", openTimeMachine: y, property_time: v = Oe() } = e;
+  let { key: s = "", value: o, addToBasket: _, basket: c, level: d = 1, code_header: h = "", code_type: p = "", code_footer: g = "", parentKey: b = "", topLevelKey: k = "", openTimeMachine: y, property_time: v = Oe() } = e;
   a();
   let w = {}, q = Oe([]);
   at(t, q, (ce) => l(11, r = ce));
@@ -24667,11 +24717,11 @@ function P4(t, e, l) {
       q.set(o.map((Be, Le) => (Be.index = { value: Le }, Be)));
     });
   });
-  const O = () => {
+  const I = () => {
     _(s);
   }, A = () => {
     $("index", "a");
-  }, C = () => {
+  }, M = () => {
     $("index", "d");
   }, z = () => {
     $("T1", "a");
@@ -24683,7 +24733,7 @@ function P4(t, e, l) {
     j("T1", "d");
   }, P = () => {
     $("T2", "a");
-  }, E = () => {
+  }, O = () => {
     $("T2", "d");
   }, F = () => {
     j("T2", "a");
@@ -24697,7 +24747,7 @@ function P4(t, e, l) {
     j("anharmonicity", "a");
   }, Z = () => {
     j("anharmonicity", "d");
-  }, ne = () => {
+  }, ae = () => {
     $("frequency", "a");
   }, se = () => {
     $("frequency", "d");
@@ -24738,7 +24788,7 @@ function P4(t, e, l) {
   }, re = () => {
     j("readout_length", "d");
   }, Ie = (ce) => {
-    _(`qubit_${s}_${ce}_T1 = ${h}${ce}, name="T1"${b}`);
+    _(`qubit_${s}_${ce}_T1 = ${h}${ce}, name="T1"${g}`);
   }, je = (ce, Be) => {
     y({
       datatype: "nudv-map",
@@ -24747,15 +24797,15 @@ function P4(t, e, l) {
       title_key: `qubit[${ce}].T1`,
       qubit_index: ce,
       property: "T1",
-      parentKey: g,
+      parentKey: b,
       topLevelKey: k,
       data: Be.T1,
       code_header: `${h}${ce}, name="T1"`,
-      code_footer: b,
+      code_footer: g,
       code_key: ""
     });
   }, _e = (ce) => {
-    _(`qubit_${s}_${ce}_T2 = ${h}${ce}, name="T2"${b}`);
+    _(`qubit_${s}_${ce}_T2 = ${h}${ce}, name="T2"${g}`);
   }, Ee = (ce, Be) => {
     y({
       datatype: "nudv-map",
@@ -24764,15 +24814,15 @@ function P4(t, e, l) {
       title_key: `qubit[${ce}].T2`,
       qubit_index: ce,
       property: "T2",
-      parentKey: g,
+      parentKey: b,
       topLevelKey: k,
       data: Be.T2,
       code_header: `${h}${ce}, name="T2"`,
-      code_footer: b,
+      code_footer: g,
       code_key: ""
     });
   }, ie = (ce) => {
-    _(`qubit_${s}_${ce}_anharmonicity = ${h}${ce}, name="anharmonicity"${b}`);
+    _(`qubit_${s}_${ce}_anharmonicity = ${h}${ce}, name="anharmonicity"${g}`);
   }, Te = (ce, Be) => {
     y({
       datatype: "nudv-map",
@@ -24781,15 +24831,15 @@ function P4(t, e, l) {
       title_key: `qubit[${ce}].anharmonicity`,
       qubit_index: ce,
       property: "anharmonicity",
-      parentKey: g,
+      parentKey: b,
       topLevelKey: k,
       data: Be.anharmonicity,
       code_header: `${h}${ce}, name="anharmonicity"`,
-      code_footer: b,
+      code_footer: g,
       code_key: ""
     });
   }, Ue = (ce) => {
-    _(`qubit_${s}_${ce}_frequency = ${h}${ce}, name="frequency"${b}`);
+    _(`qubit_${s}_${ce}_frequency = ${h}${ce}, name="frequency"${g}`);
   }, Ke = (ce, Be) => {
     y({
       datatype: "nudv-map",
@@ -24798,15 +24848,15 @@ function P4(t, e, l) {
       title_key: `qubit[${ce}].frequency`,
       qubit_index: ce,
       property: "frequency",
-      parentKey: g,
+      parentKey: b,
       topLevelKey: k,
       data: Be.frequency,
       code_header: `${h}${ce}, name="frequency"`,
-      code_footer: b,
+      code_footer: g,
       code_key: ""
     });
   }, We = (ce) => {
-    _(`qubit_${s}_${ce}_prob_meas0_prep1 = ${h}${ce}, name="prob_meas0_prep1"${b}`);
+    _(`qubit_${s}_${ce}_prob_meas0_prep1 = ${h}${ce}, name="prob_meas0_prep1"${g}`);
   }, vt = (ce, Be) => {
     y({
       datatype: "nudv-map",
@@ -24815,15 +24865,15 @@ function P4(t, e, l) {
       title_key: `qubit[${ce}].prob_meas0_prep1`,
       qubit_index: ce,
       property: "prob_meas0_prep1",
-      parentKey: g,
+      parentKey: b,
       topLevelKey: k,
       data: Be.prob_meas0_prep1,
       code_header: `${h}${ce}, name="prob_meas0_prep1"`,
-      code_footer: b,
+      code_footer: g,
       code_key: ""
     });
   }, qt = (ce) => {
-    _(`qubit_${s}_${ce}_prob_meas1_prep0 = ${h}${ce}, name="prob_meas1_prep0"${b}`);
+    _(`qubit_${s}_${ce}_prob_meas1_prep0 = ${h}${ce}, name="prob_meas1_prep0"${g}`);
   }, rt = (ce, Be) => {
     y({
       datatype: "nudv-map",
@@ -24832,15 +24882,15 @@ function P4(t, e, l) {
       title_key: `qubit[${ce}].prob_meas1_prep0`,
       qubit_index: ce,
       property: "prob_meas1_prep0",
-      parentKey: g,
+      parentKey: b,
       topLevelKey: k,
       data: Be.prob_meas1_prep0,
       code_header: `${h}${ce}, name="prob_meas1_prep0"`,
-      code_footer: b,
+      code_footer: g,
       code_key: ""
     });
   }, mt = (ce) => {
-    _(`qubit_${s}_${ce}_readout_error = ${h}${ce}, name="readout_error"${b}`);
+    _(`qubit_${s}_${ce}_readout_error = ${h}${ce}, name="readout_error"${g}`);
   }, Rt = (ce, Be) => {
     y({
       datatype: "nudv-map",
@@ -24849,15 +24899,15 @@ function P4(t, e, l) {
       title_key: `qubit[${ce}].readout_error`,
       qubit_index: ce,
       property: "readout_error",
-      parentKey: g,
+      parentKey: b,
       topLevelKey: k,
       data: Be.readout_error,
       code_header: `${h}${ce}, name="readout_error"`,
-      code_footer: b,
+      code_footer: g,
       code_key: ""
     });
   }, ot = (ce) => {
-    _(`qubit_${s}_${ce}_readout_length = ${h}${ce}, name="readout_length"${b}`);
+    _(`qubit_${s}_${ce}_readout_length = ${h}${ce}, name="readout_length"${g}`);
   }, ut = (ce, Be) => {
     y({
       datatype: "nudv-map",
@@ -24866,26 +24916,26 @@ function P4(t, e, l) {
       title_key: `qubit[${ce}].readout_length`,
       qubit_index: ce,
       property: "readout_length",
-      parentKey: g,
+      parentKey: b,
       topLevelKey: k,
       data: Be.readout_length,
       code_header: `${h}${ce}, name="readout_length"`,
-      code_footer: b,
+      code_footer: g,
       code_key: ""
     });
   }, Ce = (ce) => {
-    _(`qubit_${s}_${ce} = ${h}${ce}${b}`);
+    _(`qubit_${s}_${ce} = ${h}${ce}${g}`);
   };
   return t.$$set = (ce) => {
-    "key" in ce && l(0, s = ce.key), "value" in ce && l(15, o = ce.value), "addToBasket" in ce && l(1, _ = ce.addToBasket), "basket" in ce && a(l(2, c = ce.basket)), "level" in ce && l(3, d = ce.level), "code_header" in ce && l(4, h = ce.code_header), "code_type" in ce && l(16, p = ce.code_type), "code_footer" in ce && l(5, b = ce.code_footer), "parentKey" in ce && l(6, g = ce.parentKey), "topLevelKey" in ce && l(7, k = ce.topLevelKey), "openTimeMachine" in ce && l(8, y = ce.openTimeMachine), "property_time" in ce && l(17, v = ce.property_time);
+    "key" in ce && l(0, s = ce.key), "value" in ce && l(15, o = ce.value), "addToBasket" in ce && l(1, _ = ce.addToBasket), "basket" in ce && a(l(2, c = ce.basket)), "level" in ce && l(3, d = ce.level), "code_header" in ce && l(4, h = ce.code_header), "code_type" in ce && l(16, p = ce.code_type), "code_footer" in ce && l(5, g = ce.code_footer), "parentKey" in ce && l(6, b = ce.parentKey), "topLevelKey" in ce && l(7, k = ce.topLevelKey), "openTimeMachine" in ce && l(8, y = ce.openTimeMachine), "property_time" in ce && l(17, v = ce.property_time);
   }, [
     s,
     _,
     c,
     d,
     h,
-    b,
     g,
+    b,
     k,
     y,
     w,
@@ -24897,22 +24947,22 @@ function P4(t, e, l) {
     o,
     p,
     v,
-    O,
+    I,
     A,
-    C,
+    M,
     z,
     H,
     B,
     R,
     P,
-    E,
+    O,
     F,
     L,
     X,
     V,
     Q,
     Z,
-    ne,
+    ae,
     se,
     K,
     Y,
@@ -24951,13 +25001,13 @@ function P4(t, e, l) {
     Ce
   ];
 }
-class O4 extends Ve {
+class I4 extends Ve {
   constructor(e) {
     super(), Qe(
       this,
       e,
-      P4,
-      B4,
+      E4,
+      O4,
       Fe,
       {
         key: 0,
@@ -24985,7 +25035,7 @@ function ed(t) {
     return (
       /*edge_nodes*/
       ((s = a[1][0]) == null ? void 0 : s.x) == /*edge_nodes*/
-      ((o = a[1][1]) == null ? void 0 : o.x) ? I4 : E4
+      ((o = a[1][1]) == null ? void 0 : o.x) ? R4 : D4
     );
   }
   let i = l(t), n = i(t);
@@ -24994,17 +25044,17 @@ function ed(t) {
       n.c(), e = Ae();
     },
     m(a, r) {
-      n.m(a, r), M(a, e, r);
+      n.m(a, r), S(a, e, r);
     },
     p(a, r) {
       i === (i = l(a)) && n ? n.p(a, r) : (n.d(1), n = i(a), n && (n.c(), n.m(e.parentNode, e)));
     },
     d(a) {
-      a && S(e), n.d(a);
+      a && C(e), n.d(a);
     }
   };
 }
-function E4(t) {
+function D4(t) {
   let e, l, i, n, a;
   return {
     c() {
@@ -25034,7 +25084,7 @@ function E4(t) {
       )};`);
     },
     m(r, s) {
-      M(r, e, s), n || (a = [
+      S(r, e, s), n || (a = [
         te(
           e,
           "mouseover",
@@ -25096,11 +25146,11 @@ function E4(t) {
       )};`) && xt(e, "style", i);
     },
     d(r) {
-      r && S(e), n = !1, wt(a);
+      r && C(e), n = !1, wt(a);
     }
   };
 }
-function I4(t) {
+function R4(t) {
   let e, l, i, n, a;
   return {
     c() {
@@ -25130,7 +25180,7 @@ function I4(t) {
       )};`);
     },
     m(r, s) {
-      M(r, e, s), n || (a = [
+      S(r, e, s), n || (a = [
         te(
           e,
           "mouseover",
@@ -25192,11 +25242,11 @@ function I4(t) {
       )};`) && xt(e, "style", i);
     },
     d(r) {
-      r && S(e), n = !1, wt(a);
+      r && C(e), n = !1, wt(a);
     }
   };
 }
-function D4(t) {
+function H4(t) {
   let e, l = (
     /*edge*/
     t[0] && /*edge_nodes*/
@@ -25207,49 +25257,49 @@ function D4(t) {
       l && l.c(), e = Ae();
     },
     m(i, n) {
-      l && l.m(i, n), M(i, e, n);
+      l && l.m(i, n), S(i, e, n);
     },
     p(i, [n]) {
       /*edge*/
       i[0] && /*edge_nodes*/
       i[1] ? l ? l.p(i, n) : (l = ed(i), l.c(), l.m(e.parentNode, e)) : l && (l.d(1), l = null);
     },
-    i: ae,
-    o: ae,
+    i: ne,
+    o: ne,
     d(i) {
-      i && S(e), l && l.d(i);
+      i && C(e), l && l.d(i);
     }
   };
 }
-function R4(t, e, l) {
+function L4(t, e, l) {
   let { edge: i, edge_nodes: n, qubit_gap: a = 35, edge_width: r = 20, padding: s = 20, edge_info_value: o, info_type: _, colorScale: c = () => {
   }, openTooltip: d = () => {
   }, hideTooltip: h = () => {
   }, moveTooltip: p = () => {
-  }, edge_info_selected: b } = e;
-  const g = (C) => {
-    d(C, "Edge " + i.join("-"), b, o, "edge-" + i.join("-"), i, !1);
-  }, k = (C) => {
-    d(C, "Edge " + i.join("-"), b, o, "edge-" + i.join("-"), i, !0);
-  }, y = (C) => {
-    d(C, "Edge " + i.join("-"), b, o, "edge-" + i.join("-"), i, !0);
-  }, v = (C) => {
+  }, edge_info_selected: g } = e;
+  const b = (M) => {
+    d(M, "Edge " + i.join("-"), g, o, "edge-" + i.join("-"), i, !1);
+  }, k = (M) => {
+    d(M, "Edge " + i.join("-"), g, o, "edge-" + i.join("-"), i, !0);
+  }, y = (M) => {
+    d(M, "Edge " + i.join("-"), g, o, "edge-" + i.join("-"), i, !0);
+  }, v = (M) => {
     h(!1);
-  }, w = (C) => {
+  }, w = (M) => {
     h(!0);
-  }, q = (C) => {
-    d(C, "Edge " + i.join("-"), b, o, "edge-" + i.join("-"), i, !1);
-  }, $ = (C) => {
-    d(C, "Edge " + i.join("-"), b, o, "edge-" + i.join("-"), i, !0);
-  }, j = (C) => {
-    d(C, "Edge " + i.join("-"), b, o, "edge-" + i.join("-"), i, !0);
-  }, O = (C) => {
+  }, q = (M) => {
+    d(M, "Edge " + i.join("-"), g, o, "edge-" + i.join("-"), i, !1);
+  }, $ = (M) => {
+    d(M, "Edge " + i.join("-"), g, o, "edge-" + i.join("-"), i, !0);
+  }, j = (M) => {
+    d(M, "Edge " + i.join("-"), g, o, "edge-" + i.join("-"), i, !0);
+  }, I = (M) => {
     h(!1);
-  }, A = (C) => {
+  }, A = (M) => {
     h(!0);
   };
-  return t.$$set = (C) => {
-    "edge" in C && l(0, i = C.edge), "edge_nodes" in C && l(1, n = C.edge_nodes), "qubit_gap" in C && l(2, a = C.qubit_gap), "edge_width" in C && l(3, r = C.edge_width), "padding" in C && l(4, s = C.padding), "edge_info_value" in C && l(5, o = C.edge_info_value), "info_type" in C && l(10, _ = C.info_type), "colorScale" in C && l(6, c = C.colorScale), "openTooltip" in C && l(7, d = C.openTooltip), "hideTooltip" in C && l(8, h = C.hideTooltip), "moveTooltip" in C && l(11, p = C.moveTooltip), "edge_info_selected" in C && l(9, b = C.edge_info_selected);
+  return t.$$set = (M) => {
+    "edge" in M && l(0, i = M.edge), "edge_nodes" in M && l(1, n = M.edge_nodes), "qubit_gap" in M && l(2, a = M.qubit_gap), "edge_width" in M && l(3, r = M.edge_width), "padding" in M && l(4, s = M.padding), "edge_info_value" in M && l(5, o = M.edge_info_value), "info_type" in M && l(10, _ = M.info_type), "colorScale" in M && l(6, c = M.colorScale), "openTooltip" in M && l(7, d = M.openTooltip), "hideTooltip" in M && l(8, h = M.hideTooltip), "moveTooltip" in M && l(11, p = M.moveTooltip), "edge_info_selected" in M && l(9, g = M.edge_info_selected);
   }, [
     i,
     n,
@@ -25260,10 +25310,10 @@ function R4(t, e, l) {
     c,
     d,
     h,
-    b,
+    g,
     _,
     p,
-    g,
+    b,
     k,
     y,
     v,
@@ -25271,13 +25321,13 @@ function R4(t, e, l) {
     q,
     $,
     j,
-    O,
+    I,
     A
   ];
 }
-class og extends Ve {
+class o0 extends Ve {
   constructor(e) {
-    super(), Qe(this, e, R4, D4, Fe, {
+    super(), Qe(this, e, L4, H4, Fe, {
       edge: 0,
       edge_nodes: 1,
       qubit_gap: 2,
@@ -25297,7 +25347,7 @@ function td(t) {
   let e, l, i, n, a, r;
   return {
     c() {
-      e = m("qubit-node"), l = I(
+      e = m("qubit-node"), l = E(
         /*qubit*/
         t[0]
       ), xt(e, "id", i = "qubit-" + /*qubit*/
@@ -25335,7 +25385,7 @@ function td(t) {
       )}`);
     },
     m(s, o) {
-      M(s, e, o), f(e, l), a || (r = [
+      S(s, e, o), f(e, l), a || (r = [
         te(
           e,
           "mouseover",
@@ -25411,11 +25461,11 @@ function td(t) {
       )}`) && xt(e, "style", n);
     },
     d(s) {
-      s && S(e), a = !1, wt(r);
+      s && C(e), a = !1, wt(r);
     }
   };
 }
-function H4(t) {
+function F4(t) {
   let e, l = (
     /*qubit*/
     t[0] !== void 0 && /*qubit_node*/
@@ -25426,39 +25476,39 @@ function H4(t) {
       l && l.c(), e = Ae();
     },
     m(i, n) {
-      l && l.m(i, n), M(i, e, n);
+      l && l.m(i, n), S(i, e, n);
     },
     p(i, [n]) {
       /*qubit*/
       i[0] !== void 0 && /*qubit_node*/
       i[1] ? l ? l.p(i, n) : (l = td(i), l.c(), l.m(e.parentNode, e)) : l && (l.d(1), l = null);
     },
-    i: ae,
-    o: ae,
+    i: ne,
+    o: ne,
     d(i) {
-      i && S(e), l && l.d(i);
+      i && C(e), l && l.d(i);
     }
   };
 }
-function L4(t, e, l) {
+function Q4(t, e, l) {
   let { qubit: i, qubit_node: n, qubit_gap: a = 35, edge_width: r = 15, padding: s = 20, qubit_radius: o = 25, qubit_info_value: _, info_type: c, colorScale: d = () => {
   }, openTooltip: h = () => {
   }, hideTooltip: p = () => {
-  }, moveTooltip: b = () => {
-  }, qubit_info_selected: g } = e;
+  }, moveTooltip: g = () => {
+  }, qubit_info_selected: b } = e;
   const k = ($) => {
-    $.preventDefault(), h($, "Qubit " + i, g, _, "qubit-" + i, [i], !1);
+    $.preventDefault(), h($, "Qubit " + i, b, _, "qubit-" + i, [i], !1);
   }, y = ($) => {
-    console.log("/"), $.preventDefault(), h($, "Qubit " + i, g, _, "qubit-" + i, [i], !0);
+    console.log("/"), $.preventDefault(), h($, "Qubit " + i, b, _, "qubit-" + i, [i], !0);
   }, v = ($) => {
-    $.preventDefault(), h($, "Qubit " + i, g, _, "qubit-" + i, [i], !0);
+    $.preventDefault(), h($, "Qubit " + i, b, _, "qubit-" + i, [i], !0);
   }, w = ($) => {
     $.preventDefault(), p(!1);
   }, q = ($) => {
     console.log("/"), $.preventDefault(), p(!0);
   };
   return t.$$set = ($) => {
-    "qubit" in $ && l(0, i = $.qubit), "qubit_node" in $ && l(1, n = $.qubit_node), "qubit_gap" in $ && l(2, a = $.qubit_gap), "edge_width" in $ && l(10, r = $.edge_width), "padding" in $ && l(3, s = $.padding), "qubit_radius" in $ && l(4, o = $.qubit_radius), "qubit_info_value" in $ && l(5, _ = $.qubit_info_value), "info_type" in $ && l(11, c = $.info_type), "colorScale" in $ && l(6, d = $.colorScale), "openTooltip" in $ && l(7, h = $.openTooltip), "hideTooltip" in $ && l(8, p = $.hideTooltip), "moveTooltip" in $ && l(12, b = $.moveTooltip), "qubit_info_selected" in $ && l(9, g = $.qubit_info_selected);
+    "qubit" in $ && l(0, i = $.qubit), "qubit_node" in $ && l(1, n = $.qubit_node), "qubit_gap" in $ && l(2, a = $.qubit_gap), "edge_width" in $ && l(10, r = $.edge_width), "padding" in $ && l(3, s = $.padding), "qubit_radius" in $ && l(4, o = $.qubit_radius), "qubit_info_value" in $ && l(5, _ = $.qubit_info_value), "info_type" in $ && l(11, c = $.info_type), "colorScale" in $ && l(6, d = $.colorScale), "openTooltip" in $ && l(7, h = $.openTooltip), "hideTooltip" in $ && l(8, p = $.hideTooltip), "moveTooltip" in $ && l(12, g = $.moveTooltip), "qubit_info_selected" in $ && l(9, b = $.qubit_info_selected);
   }, [
     i,
     n,
@@ -25469,10 +25519,10 @@ function L4(t, e, l) {
     d,
     h,
     p,
-    g,
+    b,
     r,
     c,
-    b,
+    g,
     k,
     y,
     v,
@@ -25480,9 +25530,9 @@ function L4(t, e, l) {
     q
   ];
 }
-class ug extends Ve {
+class u0 extends Ve {
   constructor(e) {
-    super(), Qe(this, e, L4, H4, Fe, {
+    super(), Qe(this, e, Q4, F4, Fe, {
       qubit: 0,
       qubit_node: 1,
       qubit_gap: 2,
@@ -25522,7 +25572,7 @@ function id(t) {
       )}`);
     },
     m(i, n) {
-      M(i, e, n);
+      S(i, e, n);
     },
     p(i, n) {
       n & /*counts, max_count, colorScale, bins*/
@@ -25541,18 +25591,18 @@ function id(t) {
       )}`) && u(e, "style", l);
     },
     d(i) {
-      i && S(e);
+      i && C(e);
     }
   };
 }
-function F4(t) {
+function V4(t) {
   let e, l, i, n, a = (
     /*roundN*/
     t[8](
       /*mean*/
       t[3]
     ) + ""
-  ), r, s, o, _, c, d, h, p, b, g, k, y = (
+  ), r, s, o, _, c, d, h, p, g, b, k, y = (
     /*roundN*/
     t[8](
       /*min*/
@@ -25564,18 +25614,18 @@ function F4(t) {
       /*max*/
       t[2]
     ) + ""
-  ), O, A = $e(
+  ), I, A = $e(
     /*counts*/
     t[6]
-  ), C = [];
+  ), M = [];
   for (let z = 0; z < A.length; z += 1)
-    C[z] = id(ld(t, A, z));
+    M[z] = id(ld(t, A, z));
   return {
     c() {
-      e = m("div"), l = m("div"), i = m("span"), n = I("Med: "), r = I(a), o = N(), _ = m("div");
-      for (let z = 0; z < C.length; z += 1)
-        C[z].c();
-      c = N(), d = m("div"), p = N(), b = m("div"), g = m("span"), k = I("Min: "), v = I(y), w = N(), q = m("span"), $ = I("Max: "), O = I(j), u(i, "class", "median svelte-k599bk"), u(i, "style", s = `left: ${/*median*/
+      e = m("div"), l = m("div"), i = m("span"), n = E("Med: "), r = E(a), o = N(), _ = m("div");
+      for (let z = 0; z < M.length; z += 1)
+        M[z].c();
+      c = N(), d = m("div"), p = N(), g = m("div"), b = m("span"), k = E("Min: "), v = E(y), w = N(), q = m("span"), $ = E("Max: "), I = E(j), u(i, "class", "median svelte-k599bk"), u(i, "style", s = `left: ${/*median*/
       (t[4] - /*min*/
       t[1]) / /*max*/
       (t[2] - /*min*/
@@ -25588,13 +25638,13 @@ function F4(t) {
       (t[4] - /*min*/
       t[1]) / /*max*/
       (t[2] - /*min*/
-      t[1]) * ul}px;`), u(_, "class", "histogram-wrap svelte-k599bk"), u(_, "style", `width: ${ul}px`), u(g, "class", "min svelte-k599bk"), u(q, "class", "max svelte-k599bk"), u(b, "class", "histogram-stats-wrap svelte-k599bk"), u(b, "style", `width: ${ul}px`), u(e, "style", `width: ${ul}px; padding: `), u(e, "class", "svelte-k599bk");
+      t[1]) * ul}px;`), u(_, "class", "histogram-wrap svelte-k599bk"), u(_, "style", `width: ${ul}px`), u(b, "class", "min svelte-k599bk"), u(q, "class", "max svelte-k599bk"), u(g, "class", "histogram-stats-wrap svelte-k599bk"), u(g, "style", `width: ${ul}px`), u(e, "style", `width: ${ul}px; padding: `), u(e, "class", "svelte-k599bk");
     },
     m(z, H) {
-      M(z, e, H), f(e, l), f(l, i), f(i, n), f(i, r), f(e, o), f(e, _);
-      for (let B = 0; B < C.length; B += 1)
-        C[B] && C[B].m(_, null);
-      f(_, c), f(_, d), f(e, p), f(e, b), f(b, g), f(g, k), f(g, v), f(b, w), f(b, q), f(q, $), f(q, O);
+      S(z, e, H), f(e, l), f(l, i), f(i, n), f(i, r), f(e, o), f(e, _);
+      for (let B = 0; B < M.length; B += 1)
+        M[B] && M[B].m(_, null);
+      f(_, c), f(_, d), f(e, p), f(e, g), f(g, b), f(b, k), f(b, v), f(g, w), f(g, q), f(q, $), f(q, I);
     },
     p(z, [H]) {
       if (H & /*mean*/
@@ -25621,11 +25671,11 @@ function F4(t) {
         let B;
         for (B = 0; B < A.length; B += 1) {
           const R = ld(z, A, B);
-          C[B] ? C[B].p(R, H) : (C[B] = id(R), C[B].c(), C[B].m(_, c));
+          M[B] ? M[B].p(R, H) : (M[B] = id(R), M[B].c(), M[B].m(_, c));
         }
-        for (; B < C.length; B += 1)
-          C[B].d(1);
-        C.length = A.length;
+        for (; B < M.length; B += 1)
+          M[B].d(1);
+        M.length = A.length;
       }
       H & /*median, min, max*/
       22 && h !== (h = `left:${/*median*/
@@ -25642,36 +25692,36 @@ function F4(t) {
       z[8](
         /*max*/
         z[2]
-      ) + "") && U(O, j);
+      ) + "") && U(I, j);
     },
-    i: ae,
-    o: ae,
+    i: ne,
+    o: ne,
     d(z) {
-      z && S(e), Ye(C, z);
+      z && C(e), Ye(M, z);
     }
   };
 }
 let ul = 200;
 const nd = 40;
-function Q4(t, e, l) {
+function X4(t, e, l) {
   let { data: i = {}, colorScale: n = () => {
   } } = e, a, r, s, o, _, c, d, h;
-  function p(g) {
-    l(1, a = g.min), l(2, r = g.max), l(3, s = g.mean), l(4, o = g.median), _ = g.values, l(5, c = kb().thresholds(20)(_)), l(6, d = c.map((k) => k.length)), l(7, h = Math.max(...d));
+  function p(b) {
+    l(1, a = b.min), l(2, r = b.max), l(3, s = b.mean), l(4, o = b.median), _ = b.values, l(5, c = kb().thresholds(20)(_)), l(6, d = c.map((k) => k.length)), l(7, h = Math.max(...d));
   }
-  let b = (g) => Math.round(g * 1e4) / 1e4;
+  let g = (b) => Math.round(b * 1e4) / 1e4;
   return Tt(() => {
     p(i);
-  }), t.$$set = (g) => {
-    "data" in g && l(9, i = g.data), "colorScale" in g && l(0, n = g.colorScale);
+  }), t.$$set = (b) => {
+    "data" in b && l(9, i = b.data), "colorScale" in b && l(0, n = b.colorScale);
   }, t.$$.update = () => {
     t.$$.dirty & /*data*/
     512 && p(i);
-  }, [n, a, r, s, o, c, d, h, b, i];
+  }, [n, a, r, s, o, c, d, h, g, i];
 }
 class Ka extends Ve {
   constructor(e) {
-    super(), Qe(this, e, Q4, F4, Fe, { data: 9, colorScale: 0 });
+    super(), Qe(this, e, X4, V4, Fe, { data: 9, colorScale: 0 });
   }
 }
 const ad = {
@@ -25711,7 +25761,7 @@ function fd(t) {
       e = m("button"), pe(l.$$.fragment), u(e, "class", "basket svelte-1xkxkc8");
     },
     m(r, s) {
-      M(r, e, s), de(l, e, null), i = !0, n || (a = te(
+      S(r, e, s), de(l, e, null), i = !0, n || (a = te(
         e,
         "click",
         /*click_handler*/
@@ -25734,21 +25784,21 @@ function fd(t) {
       D(l.$$.fragment, r), i = !1;
     },
     d(r) {
-      r && S(e), he(l), n = !1, a();
+      r && C(e), he(l), n = !1, a();
     }
   };
 }
-function V4(t) {
+function G4(t) {
   let e, l = ct[
     /*key*/
     t[0]
   ] + "", i;
   return {
     c() {
-      e = m("h3"), i = I(l), u(e, "class", "svelte-1xkxkc8");
+      e = m("h3"), i = E(l), u(e, "class", "svelte-1xkxkc8");
     },
     m(n, a) {
-      M(n, e, a), f(e, i);
+      S(n, e, a), f(e, i);
     },
     p(n, a) {
       a[0] & /*key*/
@@ -25758,21 +25808,21 @@ function V4(t) {
       ] + "") && U(i, l);
     },
     d(n) {
-      n && S(e);
+      n && C(e);
     }
   };
 }
-function X4(t) {
+function Y4(t) {
   let e, l = ct[
     /*key*/
     t[0]
   ] + "", i;
   return {
     c() {
-      e = m("h2"), i = I(l), u(e, "class", "svelte-1xkxkc8");
+      e = m("h2"), i = E(l), u(e, "class", "svelte-1xkxkc8");
     },
     m(n, a) {
-      M(n, e, a), f(e, i);
+      S(n, e, a), f(e, i);
     },
     p(n, a) {
       a[0] & /*key*/
@@ -25782,7 +25832,7 @@ function X4(t) {
       ] + "") && U(i, l);
     },
     d(n) {
-      n && S(e);
+      n && C(e);
     }
   };
 }
@@ -25798,13 +25848,13 @@ function _d(t) {
   ), r, s;
   return {
     c() {
-      e = m("option"), i = I(l), n = N(), r = I(a), e.__value = s = JSON.stringify(
+      e = m("option"), i = E(l), n = N(), r = E(a), e.__value = s = JSON.stringify(
         /*item*/
         t[54]
       ), pt(e, e.__value);
     },
     m(o, _) {
-      M(o, e, _), f(e, i), f(e, n), f(e, r);
+      S(o, e, _), f(e, i), f(e, n), f(e, r);
     },
     p(o, _) {
       _[0] & /*qubit_info_list*/
@@ -25820,7 +25870,7 @@ function _d(t) {
       )) && (e.__value = s, pt(e, e.__value));
     },
     d(o) {
-      o && S(e);
+      o && C(e);
     }
   };
 }
@@ -25875,13 +25925,13 @@ function dd(t) {
   ), r, s;
   return {
     c() {
-      e = m("option"), i = I(l), n = N(), r = I(a), e.__value = s = JSON.stringify(
+      e = m("option"), i = E(l), n = N(), r = E(a), e.__value = s = JSON.stringify(
         /*item*/
         t[54]
       ), pt(e, e.__value);
     },
     m(o, _) {
-      M(o, e, _), f(e, i), f(e, n), f(e, r);
+      S(o, e, _), f(e, i), f(e, n), f(e, r);
     },
     p(o, _) {
       _[0] & /*edge_info_list*/
@@ -25897,7 +25947,7 @@ function dd(t) {
       )) && (e.__value = s, pt(e, e.__value));
     },
     d(o) {
-      o && S(e);
+      o && C(e);
     }
   };
 }
@@ -25971,10 +26021,10 @@ function pd(t) {
     m(c, d) {
       for (let h = 0; h < a.length; h += 1)
         a[h] && a[h].m(c, d);
-      M(c, e, d);
+      S(c, e, d);
       for (let h = 0; h < o.length; h += 1)
         o[h] && o[h].m(c, d);
-      M(c, l, d), i = !0;
+      S(c, l, d), i = !0;
     },
     p(c, d) {
       if (d[0] & /*qubit_edges, node_map, edge_info_values, $edge_info_selected, edgeColorScale, openTooltip, hideTooltip, moveTooltip*/
@@ -26027,14 +26077,14 @@ function pd(t) {
       i = !1;
     },
     d(c) {
-      c && (S(e), S(l)), Ye(a, c), Ye(o, c);
+      c && (C(e), C(l)), Ye(a, c), Ye(o, c);
     }
   };
 }
 function md(t) {
   var i, n;
   let e, l;
-  return e = new og({
+  return e = new o0({
     props: {
       edge: (
         /*edge*/
@@ -26048,7 +26098,7 @@ function md(t) {
         )
       ),
       qubit_gap: Da,
-      edge_width: fg,
+      edge_width: f0,
       padding: Ra,
       edge_info_value: (
         /*edge_info_values*/
@@ -26137,7 +26187,7 @@ function md(t) {
 }
 function gd(t) {
   let e, l;
-  return e = new ug({
+  return e = new u0({
     props: {
       qubit: (
         /*qi*/
@@ -26151,7 +26201,7 @@ function gd(t) {
         ]
       ),
       qubit_gap: Da,
-      edge_width: fg,
+      edge_width: f0,
       padding: Ra,
       qubit_info_value: (
         /*$qubit_info_selected*/
@@ -26252,10 +26302,10 @@ function bd(t) {
   ] + "", i;
   return {
     c() {
-      e = m("div"), i = I(l), u(e, "class", "desc svelte-1xkxkc8");
+      e = m("div"), i = E(l), u(e, "class", "desc svelte-1xkxkc8");
     },
     m(n, a) {
-      M(n, e, a), f(e, i);
+      S(n, e, a), f(e, i);
     },
     p(n, a) {
       a[0] & /*key*/
@@ -26265,7 +26315,7 @@ function bd(t) {
       ] + "") && U(i, l);
     },
     d(n) {
-      n && S(e);
+      n && C(e);
     }
   };
 }
@@ -26283,13 +26333,13 @@ function kd(t) {
       /*tooltipInfo*/
       t[20].key.type
     ) : "") + ""
-  ), c, d, h, p, b, g, k = (
+  ), c, d, h, p, g, b, k = (
     /*tooltipInfo*/
     t[20].value.value + ""
   ), y, v, w, q, $, j = (
     /*tooltipInfo*/
     t[20].value.asof + ""
-  ), O, A, C, z, H, B, R, P, E, F, L = (
+  ), I, A, M, z, H, B, R, P, O, F, L = (
     /*tooltipInfo*/
     t[20].value.unit && vd(t)
   ), X = (
@@ -26298,16 +26348,16 @@ function kd(t) {
   );
   return {
     c() {
-      e = m("div"), l = m("h5"), n = I(i), a = I("–"), s = I(r), o = N(), c = I(_), d = N(), h = m("table"), p = m("tr"), b = m("th"), b.textContent = "Value", g = m("td"), y = I(k), v = N(), w = m("tr"), q = m("th"), q.textContent = "Date", $ = m("td"), O = I(j), A = N(), L && L.c(), C = N(), z = m("div"), X && X.c(), H = N(), B = m("button"), B.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"></path></svg>', u(l, "class", "svelte-1xkxkc8"), u(b, "class", "svelte-1xkxkc8"), u(g, "class", "svelte-1xkxkc8"), u(q, "class", "svelte-1xkxkc8"), u($, "class", "svelte-1xkxkc8"), u(h, "class", "svelte-1xkxkc8"), u(B, "class", "close svelte-1xkxkc8"), At(z, "text-align", "right"), u(e, "class", "tooltip svelte-1xkxkc8"), u(e, "style", R = `right: 1rem; top: ${/*tooltipY*/
+      e = m("div"), l = m("h5"), n = E(i), a = E("–"), s = E(r), o = N(), c = E(_), d = N(), h = m("table"), p = m("tr"), g = m("th"), g.textContent = "Value", b = m("td"), y = E(k), v = N(), w = m("tr"), q = m("th"), q.textContent = "Date", $ = m("td"), I = E(j), A = N(), L && L.c(), M = N(), z = m("div"), X && X.c(), H = N(), B = m("button"), B.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"></path></svg>', u(l, "class", "svelte-1xkxkc8"), u(g, "class", "svelte-1xkxkc8"), u(b, "class", "svelte-1xkxkc8"), u(q, "class", "svelte-1xkxkc8"), u($, "class", "svelte-1xkxkc8"), u(h, "class", "svelte-1xkxkc8"), u(B, "class", "close svelte-1xkxkc8"), At(z, "text-align", "right"), u(e, "class", "tooltip svelte-1xkxkc8"), u(e, "style", R = `right: 1rem; top: ${/*tooltipY*/
       t[19]}px;`);
     },
     m(V, Q) {
-      M(V, e, Q), f(e, l), f(l, n), f(l, a), f(l, s), f(l, o), f(l, c), f(e, d), f(e, h), f(h, p), f(p, b), f(p, g), f(g, y), f(h, v), f(h, w), f(w, q), f(w, $), f($, O), f(h, A), L && L.m(h, null), f(e, C), f(e, z), X && X.m(z, null), f(z, H), f(z, B), P = !0, E || (F = te(
+      S(V, e, Q), f(e, l), f(l, n), f(l, a), f(l, s), f(l, o), f(l, c), f(e, d), f(e, h), f(h, p), f(p, g), f(p, b), f(b, y), f(h, v), f(h, w), f(w, q), f(w, $), f($, I), f(h, A), L && L.m(h, null), f(e, M), f(e, z), X && X.m(z, null), f(z, H), f(z, B), P = !0, O || (F = te(
         B,
         "click",
         /*click_handler_3*/
         t[38]
-      ), E = !0);
+      ), O = !0);
     },
     p(V, Q) {
       (!P || Q[0] & /*tooltipInfo*/
@@ -26324,7 +26374,7 @@ function kd(t) {
       1048576) && k !== (k = /*tooltipInfo*/
       V[20].value.value + "") && U(y, k), (!P || Q[0] & /*tooltipInfo*/
       1048576) && j !== (j = /*tooltipInfo*/
-      V[20].value.asof + "") && U(O, j), /*tooltipInfo*/
+      V[20].value.asof + "") && U(I, j), /*tooltipInfo*/
       V[20].value.unit ? L ? L.p(V, Q) : (L = vd(V), L.c(), L.m(h, null)) : L && (L.d(1), L = null), /*addToBasket*/
       V[3] ? X ? (X.p(V, Q), Q[0] & /*addToBasket*/
       8 && T(X, 1)) : (X = yd(V), X.c(), T(X, 1), X.m(z, H)) : X && (be(), D(X, 1, 1, () => {
@@ -26340,7 +26390,7 @@ function kd(t) {
       D(X), P = !1;
     },
     d(V) {
-      V && S(e), L && L.d(), X && X.d(), E = !1, F();
+      V && C(e), L && L.d(), X && X.d(), O = !1, F();
     }
   };
 }
@@ -26351,10 +26401,10 @@ function vd(t) {
   ), a;
   return {
     c() {
-      e = m("tr"), l = m("th"), l.textContent = "Unit", i = m("td"), a = I(n), u(l, "class", "svelte-1xkxkc8"), u(i, "class", "svelte-1xkxkc8");
+      e = m("tr"), l = m("th"), l.textContent = "Unit", i = m("td"), a = E(n), u(l, "class", "svelte-1xkxkc8"), u(i, "class", "svelte-1xkxkc8");
     },
     m(r, s) {
-      M(r, e, s), f(e, l), f(e, i), f(i, a);
+      S(r, e, s), f(e, l), f(e, i), f(i, a);
     },
     p(r, s) {
       s[0] & /*tooltipInfo*/
@@ -26362,7 +26412,7 @@ function vd(t) {
       r[20].value.unit + "") && U(a, n);
     },
     d(r) {
-      r && S(e);
+      r && C(e);
     }
   };
 }
@@ -26383,7 +26433,7 @@ function yd(t) {
       e = m("button"), pe(l.$$.fragment), u(e, "class", "basket svelte-1xkxkc8");
     },
     m(r, s) {
-      M(r, e, s), de(l, e, null), i = !0, n || (a = te(
+      S(r, e, s), de(l, e, null), i = !0, n || (a = te(
         e,
         "click",
         /*click_handler_2*/
@@ -26406,12 +26456,12 @@ function yd(t) {
       D(l.$$.fragment, r), i = !1;
     },
     d(r) {
-      r && S(e), he(l), n = !1, a();
+      r && C(e), he(l), n = !1, a();
     }
   };
 }
-function G4(t) {
-  let e, l, i, n, a, r, s, o, _, c, d, h, p, b, g, k, y, v, w, q, $, j, O, A, C, z, H, B = (
+function K4(t) {
+  let e, l, i, n, a, r, s, o, _, c, d, h, p, g, b, k, y, v, w, q, $, j, I, A, M, z, H, B = (
     /*addToBasket*/
     t[3] && fd(t)
   );
@@ -26420,14 +26470,14 @@ function G4(t) {
       /*level*/
       Y[5] == 1
     )
-      return X4;
+      return Y4;
     if (
       /*level*/
       Y[5] == 2
     )
-      return V4;
+      return G4;
   }
-  let P = R(t), E = P && P(t), F = $e(
+  let P = R(t), O = P && P(t), F = $e(
     /*qubit_info_list*/
     t[11]
   ), L = [];
@@ -26447,7 +26497,7 @@ function G4(t) {
     /*edge_stats*/
     t[16] && /*edgeColorScale*/
     t[7] && hd(t)
-  ), ne = (
+  ), ae = (
     /*qubit_edges*/
     t[1] && /*node_map*/
     t[8] && pd(t)
@@ -26460,24 +26510,24 @@ function G4(t) {
   );
   return {
     c() {
-      e = m("article"), B && B.c(), l = N(), E && E.c(), i = N(), n = m("div"), a = m("div"), r = m("label"), r.textContent = "For Qubits:", s = N(), o = m("select");
+      e = m("article"), B && B.c(), l = N(), O && O.c(), i = N(), n = m("div"), a = m("div"), r = m("label"), r.textContent = "For Qubits:", s = N(), o = m("select");
       for (let Y = 0; Y < L.length; Y += 1)
         L[Y].c();
-      _ = N(), c = m("div"), X && X.c(), d = N(), h = m("div"), p = m("label"), p.textContent = "For Edges:", b = N(), g = m("select");
+      _ = N(), c = m("div"), X && X.c(), d = N(), h = m("div"), p = m("label"), p.textContent = "For Edges:", g = N(), b = m("select");
       for (let Y = 0; Y < Q.length; Y += 1)
         Q[Y].c();
-      k = N(), y = m("div"), Z && Z.c(), v = N(), w = m("div"), q = N(), $ = m("div"), ne && ne.c(), O = N(), se && se.c(), A = N(), K && K.c(), u(r, "for", "qubit_rep"), u(r, "class", "svelte-1xkxkc8"), u(o, "name", "qubit_rep"), u(o, "id", "qubit_rep"), u(o, "class", "svelte-1xkxkc8"), u(c, "class", "stats"), u(a, "class", "svelte-1xkxkc8"), u(p, "for", "edge_rep"), u(p, "class", "svelte-1xkxkc8"), u(g, "name", "edge_rep"), u(g, "id", "edge_rep"), u(g, "class", "svelte-1xkxkc8"), u(y, "class", "stats"), u(h, "class", "svelte-1xkxkc8"), u(n, "class", "controls svelte-1xkxkc8"), u(w, "class", "circuit-background-map svelte-1xkxkc8"), u($, "class", "circuit svelte-1xkxkc8"), u($, "style", j = `width: ${/*width*/
+      k = N(), y = m("div"), Z && Z.c(), v = N(), w = m("div"), q = N(), $ = m("div"), ae && ae.c(), I = N(), se && se.c(), A = N(), K && K.c(), u(r, "for", "qubit_rep"), u(r, "class", "svelte-1xkxkc8"), u(o, "name", "qubit_rep"), u(o, "id", "qubit_rep"), u(o, "class", "svelte-1xkxkc8"), u(c, "class", "stats"), u(a, "class", "svelte-1xkxkc8"), u(p, "for", "edge_rep"), u(p, "class", "svelte-1xkxkc8"), u(b, "name", "edge_rep"), u(b, "id", "edge_rep"), u(b, "class", "svelte-1xkxkc8"), u(y, "class", "stats"), u(h, "class", "svelte-1xkxkc8"), u(n, "class", "controls svelte-1xkxkc8"), u(w, "class", "circuit-background-map svelte-1xkxkc8"), u($, "class", "circuit svelte-1xkxkc8"), u($, "style", j = `width: ${/*width*/
       t[9]}px; height: ${/*height*/
       t[10]}px; padding-bottom: 3rem;`), u(e, "class", "svelte-1xkxkc8");
     },
     m(Y, W) {
-      M(Y, e, W), B && B.m(e, null), f(e, l), E && E.m(e, null), f(e, i), f(e, n), f(n, a), f(a, r), f(a, s), f(a, o);
+      S(Y, e, W), B && B.m(e, null), f(e, l), O && O.m(e, null), f(e, i), f(e, n), f(n, a), f(a, r), f(a, s), f(a, o);
       for (let J = 0; J < L.length; J += 1)
         L[J] && L[J].m(o, null);
-      f(a, _), f(a, c), X && X.m(c, null), f(n, d), f(n, h), f(h, p), f(h, b), f(h, g);
+      f(a, _), f(a, c), X && X.m(c, null), f(n, d), f(n, h), f(h, p), f(h, g), f(h, b);
       for (let J = 0; J < Q.length; J += 1)
-        Q[J] && Q[J].m(g, null);
-      f(h, k), f(h, y), Z && Z.m(y, null), f(e, v), f(e, w), f(e, q), f(e, $), ne && ne.m($, null), f(e, O), se && se.m(e, null), f(e, A), K && K.m(e, null), C = !0, z || (H = [
+        Q[J] && Q[J].m(b, null);
+      f(h, k), f(h, y), Z && Z.m(y, null), f(e, v), f(e, w), f(e, q), f(e, $), ae && ae.m($, null), f(e, I), se && se.m(e, null), f(e, A), K && K.m(e, null), M = !0, z || (H = [
         te(
           o,
           "change",
@@ -26485,7 +26535,7 @@ function G4(t) {
           t[33]
         ),
         te(
-          g,
+          b,
           "change",
           /*change_handler_1*/
           t[34]
@@ -26503,7 +26553,7 @@ function G4(t) {
       Y[3] ? B ? (B.p(Y, W), W[0] & /*addToBasket*/
       8 && T(B, 1)) : (B = fd(Y), B.c(), T(B, 1), B.m(e, l)) : B && (be(), D(B, 1, 1, () => {
         B = null;
-      }), ke()), P === (P = R(Y)) && E ? E.p(Y, W) : (E && E.d(1), E = P && P(Y), E && (E.c(), E.m(e, i))), W[0] & /*qubit_info_list*/
+      }), ke()), P === (P = R(Y)) && O ? O.p(Y, W) : (O && O.d(1), O = P && P(Y), O && (O.c(), O.m(e, i))), W[0] & /*qubit_info_list*/
       2048) {
         F = $e(
           /*qubit_info_list*/
@@ -26532,7 +26582,7 @@ function G4(t) {
         let J;
         for (J = 0; J < V.length; J += 1) {
           const ee = od(Y, V, J);
-          Q[J] ? Q[J].p(ee, W) : (Q[J] = dd(ee), Q[J].c(), Q[J].m(g, null));
+          Q[J] ? Q[J].p(ee, W) : (Q[J] = dd(ee), Q[J].c(), Q[J].m(b, null));
         }
         for (; J < Q.length; J += 1)
           Q[J].d(1);
@@ -26545,10 +26595,10 @@ function G4(t) {
         Z = null;
       }), ke()), /*qubit_edges*/
       Y[1] && /*node_map*/
-      Y[8] ? ne ? (ne.p(Y, W), W[0] & /*qubit_edges, node_map*/
-      258 && T(ne, 1)) : (ne = pd(Y), ne.c(), T(ne, 1), ne.m($, null)) : ne && (be(), D(ne, 1, 1, () => {
-        ne = null;
-      }), ke()), (!C || W[0] & /*width, height*/
+      Y[8] ? ae ? (ae.p(Y, W), W[0] & /*qubit_edges, node_map*/
+      258 && T(ae, 1)) : (ae = pd(Y), ae.c(), T(ae, 1), ae.m($, null)) : ae && (be(), D(ae, 1, 1, () => {
+        ae = null;
+      }), ke()), (!M || W[0] & /*width, height*/
       1536 && j !== (j = `width: ${/*width*/
       Y[9]}px; height: ${/*height*/
       Y[10]}px; padding-bottom: 3rem;`)) && u($, "style", j), bt[
@@ -26561,41 +26611,41 @@ function G4(t) {
       }), ke());
     },
     i(Y) {
-      C || (T(B), T(X), T(Z), T(ne), T(K), C = !0);
+      M || (T(B), T(X), T(Z), T(ae), T(K), M = !0);
     },
     o(Y) {
-      D(B), D(X), D(Z), D(ne), D(K), C = !1;
+      D(B), D(X), D(Z), D(ae), D(K), M = !1;
     },
     d(Y) {
-      Y && S(e), B && B.d(), E && E.d(), Ye(L, Y), X && X.d(), Ye(Q, Y), Z && Z.d(), ne && ne.d(), se && se.d(), K && K.d(), z = !1, wt(H);
+      Y && C(e), B && B.d(), O && O.d(), Ye(L, Y), X && X.d(), Ye(Q, Y), Z && Z.d(), ae && ae.d(), se && se.d(), K && K.d(), z = !1, wt(H);
     }
   };
 }
-let Da = 45, fg = 15, Ra = 20;
+let Da = 45, f0 = 15, Ra = 20;
 const wd = (t, e) => t - e;
-function Y4(t, e, l) {
-  let i, n = ae, a = () => (n(), n = st(p, (ue) => l(21, i = ue)), p), r, s;
+function U4(t, e, l) {
+  let i, n = ne, a = () => (n(), n = st(p, (ue) => l(21, i = ue)), p), r, s;
   t.$$.on_destroy.push(() => n());
-  let { key: o = "", qubit_edges: _, qubit_nodes: c, qubit_index: d, addToBasket: h, basket: p, level: b = 1, qubit_info: g, gate_info: k } = e;
+  let { key: o = "", qubit_edges: _, qubit_nodes: c, qubit_index: d, addToBasket: h, basket: p, level: g = 1, qubit_info: b, gate_info: k } = e;
   a();
   const y = ["id", "rz", "sx"], v = ["cx", "ecr"];
-  let w, q, $, j = 0, O = 0, A = 0, C = 0, z = [], H = [], B = Oe(), R = Oe();
+  let w, q, $, j = 0, I = 0, A = 0, M = 0, z = [], H = [], B = Oe(), R = Oe();
   at(t, B, (ue) => l(23, s = ue)), at(t, R, (ue) => l(22, r = ue));
   function P(ue) {
-    if (j = Math.max(...(ue == null ? void 0 : ue.map((x) => x.y)) ?? [0]) + 1, O = Math.max(...(ue == null ? void 0 : ue.map((x) => x.x)) ?? [0]) + 1, l(9, A = (O - 1) * Da + Ra * 2), l(10, C = j * Da + Ra * 2), l(8, $ = {}), ue)
+    if (j = Math.max(...(ue == null ? void 0 : ue.map((x) => x.y)) ?? [0]) + 1, I = Math.max(...(ue == null ? void 0 : ue.map((x) => x.x)) ?? [0]) + 1, l(9, A = (I - 1) * Da + Ra * 2), l(10, M = j * Da + Ra * 2), l(8, $ = {}), ue)
       for (const x of ue)
         l(8, $[x.index] = x, $);
-    g && l(11, z = Object.keys(g[0]).filter((x) => x !== "index").map((x) => ({ feature: x })));
+    b && l(11, z = Object.keys(b[0]).filter((x) => x !== "index").map((x) => ({ feature: x })));
     let le = [], oe = [];
     l(12, H = []), k.forEach((x) => {
       v.includes(x.gate) && !oe.includes(x.gate) && (H.push({ gate: x.gate, type: "error" }), H.push({ gate: x.gate, type: "length" }), oe.push(x.gate)), y.includes(x.gate) && !le.includes(x.gate) && (z.push({ gate: x.gate, type: "error" }), z.push({ gate: x.gate, type: "length" }), le.push(x.gate));
     }), B.set(z[0]), R.set(H[0]);
   }
-  let E = [], F = {}, L, X, V, Q, Z;
+  let O = [], F = {}, L, X, V, Q, Z;
   B.subscribe((ue) => {
-    if (l(13, E = []), ue != null && ue.feature) {
-      l(13, E = g.map((ge) => ge[ue.feature]));
-      let le = E.map((ge) => ge.value), [oe, x] = [Math.min(...le), Math.max(...le)];
+    if (l(13, O = []), ue != null && ue.feature) {
+      l(13, O = b.map((ge) => ge[ue.feature]));
+      let le = O.map((ge) => ge.value), [oe, x] = [Math.min(...le), Math.max(...le)];
       l(15, L = {
         min: oe,
         max: x,
@@ -26604,8 +26654,8 @@ function Y4(t, e, l) {
         values: le
       }), ["frequency", "readout_error"].includes(ue.feature) ? l(6, w = kl(Ol).domain([x, oe])) : l(6, w = kl(Ol).domain([oe, x]));
     } else if (ue != null && ue.gate) {
-      l(13, E = k.filter((ge) => ge.gate === ue.gate).map((ge) => (ge.qubit = ge.qubits[0], ge)).toSorted((ge, re) => ge.qubit - re.qubit));
-      let le = E.map((ge) => ge.parameters["gate_" + ue.type].value), [oe, x] = [Math.min(...le), Math.max(...le)];
+      l(13, O = k.filter((ge) => ge.gate === ue.gate).map((ge) => (ge.qubit = ge.qubits[0], ge)).toSorted((ge, re) => ge.qubit - re.qubit));
+      let le = O.map((ge) => ge.parameters["gate_" + ue.type].value), [oe, x] = [Math.min(...le), Math.max(...le)];
       l(15, L = {
         min: oe,
         max: x,
@@ -26632,17 +26682,17 @@ function Y4(t, e, l) {
       }), l(7, q = kl(Ol).domain([ge, x]));
     }
   });
-  let ne = !1, se, K = !1, Y = {};
+  let ae = !1, se, K = !1, Y = {};
   function W(ue, le, oe, x, ge, re, Ie) {
-    K && !Ie || (l(18, ne = !0), l(20, Y = { item: le, key: oe, value: x }), K = Ie, l(19, se = ue.target.offsetTop + 100), Array.from(document.querySelectorAll(".circuit-element")).forEach((je) => {
+    K && !Ie || (l(18, ae = !0), l(20, Y = { item: le, key: oe, value: x }), K = Ie, l(19, se = ue.target.offsetTop + 100), Array.from(document.querySelectorAll(".circuit-element")).forEach((je) => {
       je.style.outline = null;
     }), document.querySelector("#" + ge) && (document.querySelector("#" + ge).style.outline = "2px solid black"), oe.feature === "T1" ? (Q = "backend.properties().t1(", Z = ")") : oe.feature === "T2" ? (Q = "backend.properties().t2(", Z = ")") : oe.feature === "frequency" ? (Q = "backend.properties().frequency(", Z = ")") : oe.feature === "readout_error" ? (Q = "backend.properties().readout_error(", Z = ")") : oe.feature === "readout_length" ? (Q = "backend.properties().readout_length(", Z = ")") : oe.feature === "prob_meas0_prep1" ? (Q = "backend.properties().qubit_property(", Z = ', "prob_meas0_prep1")') : oe.feature === "prob_meas1_prep0" ? (Q = "backend.properties().qubit_property(", Z = ', "prob_meas1_prep0")') : oe.gate && (Q = `backend.properties().gate_${oe.type}(${oe.gate}, [`, Z = "])"), l(17, V = `circuit_${oe.gate ? oe.gate + "_" + oe.type : oe.feature}_${re.join("_")} = ${Q}${re.join(",")}${Z}`));
   }
   function J(ue) {
-    ne && (ue.screenX - ad.x, l(19, se = ue.screenY - ad.y));
+    ae && (ue.screenX - ad.x, l(19, se = ue.screenY - ad.y));
   }
   function ee(ue) {
-    K || l(18, ne = !1), ue && (l(18, ne = !1), l(20, Y = void 0), K = !1, Array.from(document.querySelectorAll(".circuit-element")).forEach((le) => {
+    K || l(18, ae = !1), ue && (l(18, ae = !1), l(20, Y = void 0), K = !1, Array.from(document.querySelectorAll(".circuit-element")).forEach((le) => {
       le.style.outline = null;
     }));
   }
@@ -26663,27 +26713,27 @@ function Y4(t, e, l) {
     ee(!0);
   };
   return t.$$set = (ue) => {
-    "key" in ue && l(0, o = ue.key), "qubit_edges" in ue && l(1, _ = ue.qubit_edges), "qubit_nodes" in ue && l(29, c = ue.qubit_nodes), "qubit_index" in ue && l(2, d = ue.qubit_index), "addToBasket" in ue && l(3, h = ue.addToBasket), "basket" in ue && a(l(4, p = ue.basket)), "level" in ue && l(5, b = ue.level), "qubit_info" in ue && l(30, g = ue.qubit_info), "gate_info" in ue && l(31, k = ue.gate_info);
+    "key" in ue && l(0, o = ue.key), "qubit_edges" in ue && l(1, _ = ue.qubit_edges), "qubit_nodes" in ue && l(29, c = ue.qubit_nodes), "qubit_index" in ue && l(2, d = ue.qubit_index), "addToBasket" in ue && l(3, h = ue.addToBasket), "basket" in ue && a(l(4, p = ue.basket)), "level" in ue && l(5, g = ue.level), "qubit_info" in ue && l(30, b = ue.qubit_info), "gate_info" in ue && l(31, k = ue.gate_info);
   }, [
     o,
     _,
     d,
     h,
     p,
-    b,
+    g,
     w,
     q,
     $,
     A,
-    C,
+    M,
     z,
     H,
-    E,
+    O,
     F,
     L,
     X,
     V,
-    ne,
+    ae,
     se,
     Y,
     i,
@@ -26695,7 +26745,7 @@ function Y4(t, e, l) {
     J,
     ee,
     c,
-    g,
+    b,
     k,
     we,
     Re,
@@ -26706,13 +26756,13 @@ function Y4(t, e, l) {
     ye
   ];
 }
-class K4 extends Ve {
+class W4 extends Ve {
   constructor(e) {
     super(), Qe(
       this,
       e,
-      Y4,
-      G4,
+      U4,
+      K4,
       Fe,
       {
         key: 0,
@@ -26759,7 +26809,7 @@ function Td(t) {
       e = m("button"), pe(l.$$.fragment), u(e, "class", "basket svelte-aa04ir");
     },
     m(r, s) {
-      M(r, e, s), de(l, e, null), i = !0, n || (a = te(
+      S(r, e, s), de(l, e, null), i = !0, n || (a = te(
         e,
         "click",
         /*click_handler*/
@@ -26782,21 +26832,21 @@ function Td(t) {
       D(l.$$.fragment, r), i = !1;
     },
     d(r) {
-      r && S(e), he(l), n = !1, a();
+      r && C(e), he(l), n = !1, a();
     }
   };
 }
-function U4(t) {
+function J4(t) {
   let e, l = ct[
     /*key*/
     t[0]
   ] + "", i;
   return {
     c() {
-      e = m("h3"), i = I(l), u(e, "class", "svelte-aa04ir");
+      e = m("h3"), i = E(l), u(e, "class", "svelte-aa04ir");
     },
     m(n, a) {
-      M(n, e, a), f(e, i);
+      S(n, e, a), f(e, i);
     },
     p(n, a) {
       a & /*key*/
@@ -26806,21 +26856,21 @@ function U4(t) {
       ] + "") && U(i, l);
     },
     d(n) {
-      n && S(e);
+      n && C(e);
     }
   };
 }
-function W4(t) {
+function Z4(t) {
   let e, l = ct[
     /*key*/
     t[0]
   ] + "", i;
   return {
     c() {
-      e = m("h2"), i = I(l), u(e, "class", "svelte-aa04ir");
+      e = m("h2"), i = E(l), u(e, "class", "svelte-aa04ir");
     },
     m(n, a) {
-      M(n, e, a), f(e, i);
+      S(n, e, a), f(e, i);
     },
     p(n, a) {
       a & /*key*/
@@ -26830,7 +26880,7 @@ function W4(t) {
       ] + "") && U(i, l);
     },
     d(n) {
-      n && S(e);
+      n && C(e);
     }
   };
 }
@@ -26842,11 +26892,11 @@ function Cd(t) {
       t[17]}`, u(e, "class", "svelte-aa04ir");
     },
     m(l, i) {
-      M(l, e, i);
+      S(l, e, i);
     },
-    p: ae,
+    p: ne,
     d(l) {
-      l && S(e);
+      l && C(e);
     }
   };
 }
@@ -26865,7 +26915,7 @@ function Sd(t) {
   return {
     c() {
       var s, o;
-      e = m("td"), i = I(l), u(e, "style", n = `background-color: rgba(255, 102, 13, ${/*colorFunc*/
+      e = m("td"), i = E(l), u(e, "style", n = `background-color: rgba(255, 102, 13, ${/*colorFunc*/
       t[6](
         /*value*/
         (o = (s = t[1]) == null ? void 0 : s[
@@ -26878,7 +26928,7 @@ function Sd(t) {
       )})`), u(e, "class", "svelte-aa04ir");
     },
     m(s, o) {
-      M(s, e, o), f(e, i);
+      S(s, e, o), f(e, i);
     },
     p(s, o) {
       var _, c, d, h;
@@ -26904,7 +26954,7 @@ function Sd(t) {
       )})`) && u(e, "style", n);
     },
     d(s) {
-      s && S(e);
+      s && C(e);
     }
   };
 }
@@ -26924,7 +26974,7 @@ function Md(t) {
       n = N(), u(l, "class", "svelte-aa04ir");
     },
     m(s, o) {
-      M(s, e, o), f(e, l), f(e, i);
+      S(s, e, o), f(e, l), f(e, i);
       for (let _ = 0; _ < r.length; _ += 1)
         r[_] && r[_].m(e, null);
       f(e, n);
@@ -26947,7 +26997,7 @@ function Md(t) {
       }
     },
     d(s) {
-      s && S(e), Ye(r, s);
+      s && C(e), Ye(r, s);
     }
   };
 }
@@ -26958,10 +27008,10 @@ function zd(t) {
   ] + "", i;
   return {
     c() {
-      e = m("div"), i = I(l), u(e, "class", "desc svelte-aa04ir");
+      e = m("div"), i = E(l), u(e, "class", "desc svelte-aa04ir");
     },
     m(n, a) {
-      M(n, e, a), f(e, i);
+      S(n, e, a), f(e, i);
     },
     p(n, a) {
       a & /*key*/
@@ -26971,123 +27021,123 @@ function zd(t) {
       ] + "") && U(i, l);
     },
     d(n) {
-      n && S(e);
+      n && C(e);
     }
   };
 }
-function J4(t) {
-  let e, l, i, n, a, r, s, o, _, c, d, h, p, b = (
+function x4(t) {
+  let e, l, i, n, a, r, s, o, _, c, d, h, p, g = (
     /*addToBasket*/
     t[2] && Td(t)
   );
-  function g(O, A) {
+  function b(I, A) {
     if (
       /*level*/
-      O[4] == 1
+      I[4] == 1
     )
-      return W4;
+      return Z4;
     if (
       /*level*/
-      O[4] == 2
+      I[4] == 2
     )
-      return U4;
+      return J4;
   }
-  let k = g(t), y = k && k(t), v = $e(Array(
+  let k = b(t), y = k && k(t), v = $e(Array(
     /*size*/
     t[5][1]
   )), w = [];
-  for (let O = 0; O < v.length; O += 1)
-    w[O] = Cd(jd(t, v, O));
+  for (let I = 0; I < v.length; I += 1)
+    w[I] = Cd(jd(t, v, I));
   let q = $e(Array(
     /*size*/
     t[5][0]
   )), $ = [];
-  for (let O = 0; O < q.length; O += 1)
-    $[O] = Md($d(t, q, O));
+  for (let I = 0; I < q.length; I += 1)
+    $[I] = Md($d(t, q, I));
   let j = bt[
     /*key*/
     t[0]
   ] && zd(t);
   return {
     c() {
-      e = m("article"), b && b.c(), l = N(), y && y.c(), i = N(), n = m("div"), a = m("table"), r = m("thead"), s = m("tr"), o = m("th"), _ = N();
-      for (let O = 0; O < w.length; O += 1)
-        w[O].c();
+      e = m("article"), g && g.c(), l = N(), y && y.c(), i = N(), n = m("div"), a = m("table"), r = m("thead"), s = m("tr"), o = m("th"), _ = N();
+      for (let I = 0; I < w.length; I += 1)
+        w[I].c();
       c = N(), d = m("tbody");
-      for (let O = 0; O < $.length; O += 1)
-        $[O].c();
+      for (let I = 0; I < $.length; I += 1)
+        $[I].c();
       h = N(), j && j.c(), u(o, "class", "svelte-aa04ir"), u(a, "class", "svelte-aa04ir"), u(n, "class", "content-wrap svelte-aa04ir"), u(e, "class", "svelte-aa04ir");
     },
-    m(O, A) {
-      M(O, e, A), b && b.m(e, null), f(e, l), y && y.m(e, null), f(e, i), f(e, n), f(n, a), f(a, r), f(r, s), f(s, o), f(s, _);
-      for (let C = 0; C < w.length; C += 1)
-        w[C] && w[C].m(s, null);
+    m(I, A) {
+      S(I, e, A), g && g.m(e, null), f(e, l), y && y.m(e, null), f(e, i), f(e, n), f(n, a), f(a, r), f(r, s), f(s, o), f(s, _);
+      for (let M = 0; M < w.length; M += 1)
+        w[M] && w[M].m(s, null);
       f(a, c), f(a, d);
-      for (let C = 0; C < $.length; C += 1)
-        $[C] && $[C].m(d, null);
+      for (let M = 0; M < $.length; M += 1)
+        $[M] && $[M].m(d, null);
       f(e, h), j && j.m(e, null), p = !0;
     },
-    p(O, [A]) {
+    p(I, [A]) {
       if (/*addToBasket*/
-      O[2] ? b ? (b.p(O, A), A & /*addToBasket*/
-      4 && T(b, 1)) : (b = Td(O), b.c(), T(b, 1), b.m(e, l)) : b && (be(), D(b, 1, 1, () => {
-        b = null;
-      }), ke()), k === (k = g(O)) && y ? y.p(O, A) : (y && y.d(1), y = k && k(O), y && (y.c(), y.m(e, i))), A & /*size*/
+      I[2] ? g ? (g.p(I, A), A & /*addToBasket*/
+      4 && T(g, 1)) : (g = Td(I), g.c(), T(g, 1), g.m(e, l)) : g && (be(), D(g, 1, 1, () => {
+        g = null;
+      }), ke()), k === (k = b(I)) && y ? y.p(I, A) : (y && y.d(1), y = k && k(I), y && (y.c(), y.m(e, i))), A & /*size*/
       32) {
         v = $e(Array(
           /*size*/
-          O[5][1]
+          I[5][1]
         ));
-        let C;
-        for (C = 0; C < v.length; C += 1) {
-          const z = jd(O, v, C);
-          w[C] ? w[C].p(z, A) : (w[C] = Cd(z), w[C].c(), w[C].m(s, null));
+        let M;
+        for (M = 0; M < v.length; M += 1) {
+          const z = jd(I, v, M);
+          w[M] ? w[M].p(z, A) : (w[M] = Cd(z), w[M].c(), w[M].m(s, null));
         }
-        for (; C < w.length; C += 1)
-          w[C].d(1);
+        for (; M < w.length; M += 1)
+          w[M].d(1);
         w.length = v.length;
       }
       if (A & /*Array, size, colorFunc, value*/
       98) {
         q = $e(Array(
           /*size*/
-          O[5][0]
+          I[5][0]
         ));
-        let C;
-        for (C = 0; C < q.length; C += 1) {
-          const z = $d(O, q, C);
-          $[C] ? $[C].p(z, A) : ($[C] = Md(z), $[C].c(), $[C].m(d, null));
+        let M;
+        for (M = 0; M < q.length; M += 1) {
+          const z = $d(I, q, M);
+          $[M] ? $[M].p(z, A) : ($[M] = Md(z), $[M].c(), $[M].m(d, null));
         }
-        for (; C < $.length; C += 1)
-          $[C].d(1);
+        for (; M < $.length; M += 1)
+          $[M].d(1);
         $.length = q.length;
       }
       bt[
         /*key*/
-        O[0]
-      ] ? j ? j.p(O, A) : (j = zd(O), j.c(), j.m(e, null)) : j && (j.d(1), j = null);
+        I[0]
+      ] ? j ? j.p(I, A) : (j = zd(I), j.c(), j.m(e, null)) : j && (j.d(1), j = null);
     },
-    i(O) {
-      p || (T(b), p = !0);
+    i(I) {
+      p || (T(g), p = !0);
     },
-    o(O) {
-      D(b), p = !1;
+    o(I) {
+      D(g), p = !1;
     },
-    d(O) {
-      O && S(e), b && b.d(), y && y.d(), Ye(w, O), Ye($, O), j && j.d();
+    d(I) {
+      I && C(e), g && g.d(), y && y.d(), Ye(w, I), Ye($, I), j && j.d();
     }
   };
 }
-function Z4(t, e, l) {
-  let i, n = ae, a = () => (n(), n = st(_, (v) => l(7, i = v)), _);
+function e5(t, e, l) {
+  let i, n = ne, a = () => (n(), n = st(_, (v) => l(7, i = v)), _);
   t.$$.on_destroy.push(() => n());
   let { key: r = "", value: s, addToBasket: o, basket: _, level: c = 1, code_header: d = "", code_type: h = "", code_footer: p = "" } = e;
   a();
-  let b = [0, 0], g = () => {
+  let g = [0, 0], b = () => {
   }, k = 1;
   Tt(() => {
     var v;
-    s && (l(5, b[0] = (s == null ? void 0 : s.length) || 0, b), l(5, b[1] = ((v = s == null ? void 0 : s[0]) == null ? void 0 : v.length) || 0, b), k = Math.max(...s == null ? void 0 : s.map((w) => Math.max(...w))), l(6, g = (w) => (1 - w / k) * 0.8));
+    s && (l(5, g[0] = (s == null ? void 0 : s.length) || 0, g), l(5, g[1] = ((v = s == null ? void 0 : s[0]) == null ? void 0 : v.length) || 0, g), k = Math.max(...s == null ? void 0 : s.map((w) => Math.max(...w))), l(6, b = (w) => (1 - w / k) * 0.8));
   });
   const y = () => {
     o(r);
@@ -27100,8 +27150,8 @@ function Z4(t, e, l) {
     o,
     _,
     c,
-    b,
     g,
+    b,
     i,
     d,
     h,
@@ -27109,9 +27159,9 @@ function Z4(t, e, l) {
     y
   ];
 }
-class x4 extends Ve {
+class t5 extends Ve {
   constructor(e) {
-    super(), Qe(this, e, Z4, J4, Fe, {
+    super(), Qe(this, e, e5, x4, Fe, {
       key: 0,
       value: 1,
       addToBasket: 2,
@@ -27144,7 +27194,7 @@ function Ad(t) {
       e = m("button"), pe(l.$$.fragment), u(e, "class", "basket svelte-1dv3ar6");
     },
     m(r, s) {
-      M(r, e, s), de(l, e, null), i = !0, n || (a = te(
+      S(r, e, s), de(l, e, null), i = !0, n || (a = te(
         e,
         "click",
         /*click_handler*/
@@ -27167,21 +27217,21 @@ function Ad(t) {
       D(l.$$.fragment, r), i = !1;
     },
     d(r) {
-      r && S(e), he(l), n = !1, a();
+      r && C(e), he(l), n = !1, a();
     }
   };
 }
-function e5(t) {
+function l5(t) {
   let e, l = ct[
     /*key*/
     t[0]
   ] + "", i;
   return {
     c() {
-      e = m("h3"), i = I(l), u(e, "class", "svelte-1dv3ar6");
+      e = m("h3"), i = E(l), u(e, "class", "svelte-1dv3ar6");
     },
     m(n, a) {
-      M(n, e, a), f(e, i);
+      S(n, e, a), f(e, i);
     },
     p(n, a) {
       a & /*key*/
@@ -27191,21 +27241,21 @@ function e5(t) {
       ] + "") && U(i, l);
     },
     d(n) {
-      n && S(e);
+      n && C(e);
     }
   };
 }
-function t5(t) {
+function i5(t) {
   let e, l = ct[
     /*key*/
     t[0]
   ] + "", i;
   return {
     c() {
-      e = m("h2"), i = I(l), u(e, "class", "svelte-1dv3ar6");
+      e = m("h2"), i = E(l), u(e, "class", "svelte-1dv3ar6");
     },
     m(n, a) {
-      M(n, e, a), f(e, i);
+      S(n, e, a), f(e, i);
     },
     p(n, a) {
       a & /*key*/
@@ -27215,7 +27265,7 @@ function t5(t) {
       ] + "") && U(i, l);
     },
     d(n) {
-      n && S(e);
+      n && C(e);
     }
   };
 }
@@ -27248,7 +27298,7 @@ function Bd(t) {
       e = m("button"), pe(l.$$.fragment), u(e, "class", "basket svelte-1dv3ar6");
     },
     m(s, o) {
-      M(s, e, o), de(l, e, null), i = !0, n || (a = te(e, "click", r), n = !0);
+      S(s, e, o), de(l, e, null), i = !0, n || (a = te(e, "click", r), n = !0);
     },
     p(s, o) {
       t = s;
@@ -27269,7 +27319,7 @@ function Bd(t) {
       D(l.$$.fragment, s), i = !1;
     },
     d(s) {
-      s && S(e), he(l), n = !1, a();
+      s && C(e), he(l), n = !1, a();
     }
   };
 }
@@ -27284,10 +27334,10 @@ function Pd(t) {
   return {
     c() {
       e = m("div"), l = m("div"), l.textContent = `${/*i*/
-      t[13]}`, i = N(), n = m("div"), r = I(a), s = N(), o = m("div"), d && d.c(), _ = N(), u(l, "class", "i svelte-1dv3ar6"), u(n, "class", "v svelte-1dv3ar6"), u(o, "class", "b svelte-1dv3ar6"), u(e, "class", "chip svelte-1dv3ar6");
+      t[13]}`, i = N(), n = m("div"), r = E(a), s = N(), o = m("div"), d && d.c(), _ = N(), u(l, "class", "i svelte-1dv3ar6"), u(n, "class", "v svelte-1dv3ar6"), u(o, "class", "b svelte-1dv3ar6"), u(e, "class", "chip svelte-1dv3ar6");
     },
     m(h, p) {
-      M(h, e, p), f(e, l), f(e, i), f(e, n), f(n, r), f(e, s), f(e, o), d && d.m(o, null), f(e, _), c = !0;
+      S(h, e, p), f(e, l), f(e, i), f(e, n), f(n, r), f(e, s), f(e, o), d && d.m(o, null), f(e, _), c = !0;
     },
     p(h, p) {
       (!c || p & /*value*/
@@ -27305,7 +27355,7 @@ function Pd(t) {
       D(d), c = !1;
     },
     d(h) {
-      h && S(e), d && d.d();
+      h && C(e), d && d.d();
     }
   };
 }
@@ -27316,10 +27366,10 @@ function Od(t) {
   ] + "", i;
   return {
     c() {
-      e = m("div"), i = I(l), u(e, "class", "desc svelte-1dv3ar6");
+      e = m("div"), i = E(l), u(e, "class", "desc svelte-1dv3ar6");
     },
     m(n, a) {
-      M(n, e, a), f(e, i);
+      S(n, e, a), f(e, i);
     },
     p(n, a) {
       a & /*key*/
@@ -27329,67 +27379,67 @@ function Od(t) {
       ] + "") && U(i, l);
     },
     d(n) {
-      n && S(e);
+      n && C(e);
     }
   };
 }
-function l5(t) {
+function n5(t) {
   let e, l, i, n, a, r, s = (
     /*addToBasket*/
     t[2] && Ad(t)
   );
-  function o(g, k) {
+  function o(b, k) {
     if (
       /*level*/
-      g[4] == 1
+      b[4] == 1
     )
-      return t5;
+      return i5;
     if (
       /*level*/
-      g[4] == 2
+      b[4] == 2
     )
-      return e5;
+      return l5;
   }
   let _ = o(t), c = _ && _(t), d = $e(
     /*value*/
     t[1]
   ), h = [];
-  for (let g = 0; g < d.length; g += 1)
-    h[g] = Pd(Nd(t, d, g));
-  const p = (g) => D(h[g], 1, 1, () => {
-    h[g] = null;
+  for (let b = 0; b < d.length; b += 1)
+    h[b] = Pd(Nd(t, d, b));
+  const p = (b) => D(h[b], 1, 1, () => {
+    h[b] = null;
   });
-  let b = bt[
+  let g = bt[
     /*key*/
     t[0]
   ] && Od(t);
   return {
     c() {
       e = m("article"), s && s.c(), l = N(), c && c.c(), i = N(), n = m("div");
-      for (let g = 0; g < h.length; g += 1)
-        h[g].c();
-      a = N(), b && b.c(), u(n, "class", "value svelte-1dv3ar6"), u(e, "class", "svelte-1dv3ar6");
+      for (let b = 0; b < h.length; b += 1)
+        h[b].c();
+      a = N(), g && g.c(), u(n, "class", "value svelte-1dv3ar6"), u(e, "class", "svelte-1dv3ar6");
     },
-    m(g, k) {
-      M(g, e, k), s && s.m(e, null), f(e, l), c && c.m(e, null), f(e, i), f(e, n);
+    m(b, k) {
+      S(b, e, k), s && s.m(e, null), f(e, l), c && c.m(e, null), f(e, i), f(e, n);
       for (let y = 0; y < h.length; y += 1)
         h[y] && h[y].m(n, null);
-      f(e, a), b && b.m(e, null), r = !0;
+      f(e, a), g && g.m(e, null), r = !0;
     },
-    p(g, [k]) {
+    p(b, [k]) {
       if (/*addToBasket*/
-      g[2] ? s ? (s.p(g, k), k & /*addToBasket*/
-      4 && T(s, 1)) : (s = Ad(g), s.c(), T(s, 1), s.m(e, l)) : s && (be(), D(s, 1, 1, () => {
+      b[2] ? s ? (s.p(b, k), k & /*addToBasket*/
+      4 && T(s, 1)) : (s = Ad(b), s.c(), T(s, 1), s.m(e, l)) : s && (be(), D(s, 1, 1, () => {
         s = null;
-      }), ke()), _ === (_ = o(g)) && c ? c.p(g, k) : (c && c.d(1), c = _ && _(g), c && (c.c(), c.m(e, i))), k & /*addToBasket, key, code_header, code_footer, $basket, value*/
+      }), ke()), _ === (_ = o(b)) && c ? c.p(b, k) : (c && c.d(1), c = _ && _(b), c && (c.c(), c.m(e, i))), k & /*addToBasket, key, code_header, code_footer, $basket, value*/
       231) {
         d = $e(
           /*value*/
-          g[1]
+          b[1]
         );
         let y;
         for (y = 0; y < d.length; y += 1) {
-          const v = Nd(g, d, y);
+          const v = Nd(b, d, y);
           h[y] ? (h[y].p(v, k), T(h[y], 1)) : (h[y] = Pd(v), h[y].c(), T(h[y], 1), h[y].m(n, null));
         }
         for (be(), y = d.length; y < h.length; y += 1)
@@ -27398,10 +27448,10 @@ function l5(t) {
       }
       bt[
         /*key*/
-        g[0]
-      ] ? b ? b.p(g, k) : (b = Od(g), b.c(), b.m(e, null)) : b && (b.d(1), b = null);
+        b[0]
+      ] ? g ? g.p(b, k) : (g = Od(b), g.c(), g.m(e, null)) : g && (g.d(1), g = null);
     },
-    i(g) {
+    i(b) {
       if (!r) {
         T(s);
         for (let k = 0; k < d.length; k += 1)
@@ -27409,26 +27459,26 @@ function l5(t) {
         r = !0;
       }
     },
-    o(g) {
+    o(b) {
       D(s), h = h.filter(Boolean);
       for (let k = 0; k < h.length; k += 1)
         D(h[k]);
       r = !1;
     },
-    d(g) {
-      g && S(e), s && s.d(), c && c.d(), Ye(h, g), b && b.d();
+    d(b) {
+      b && C(e), s && s.d(), c && c.d(), Ye(h, b), g && g.d();
     }
   };
 }
-function i5(t, e, l) {
-  let i, n = ae, a = () => (n(), n = st(_, (k) => l(7, i = k)), _);
+function a5(t, e, l) {
+  let i, n = ne, a = () => (n(), n = st(_, (k) => l(7, i = k)), _);
   t.$$.on_destroy.push(() => n());
   let { key: r = "", value: s, addToBasket: o, basket: _, level: c = 1, code_header: d = "", code_type: h = "", code_footer: p = "" } = e;
   a(), Tt(() => {
   });
-  const b = () => {
+  const g = () => {
     o(r);
-  }, g = (k) => {
+  }, b = (k) => {
     o(`${r}_${k} = ${d}${k}${p}`);
   };
   return t.$$set = (k) => {
@@ -27443,13 +27493,13 @@ function i5(t, e, l) {
     p,
     i,
     h,
-    b,
-    g
+    g,
+    b
   ];
 }
-class _g extends Ve {
+class _0 extends Ve {
   constructor(e) {
-    super(), Qe(this, e, i5, l5, Fe, {
+    super(), Qe(this, e, a5, n5, Fe, {
       key: 0,
       value: 1,
       addToBasket: 2,
@@ -27467,7 +27517,7 @@ function Ed(t, e, l) {
 }
 function Id(t) {
   let e, l, i, n;
-  l = new rg({
+  l = new r0({
     props: {
       title: (
         /*section_meta*/
@@ -27500,7 +27550,7 @@ function Id(t) {
       e = m("section"), pe(l.$$.fragment), i = N(), a && a.c(), u(e, "class", "svelte-1fzr24z");
     },
     m(r, s) {
-      M(r, e, s), de(l, e, null), f(e, i), a && a.m(e, null), n = !0;
+      S(r, e, s), de(l, e, null), f(e, i), a && a.m(e, null), n = !0;
     },
     p(r, s) {
       const o = {};
@@ -27528,7 +27578,7 @@ function Id(t) {
       D(l.$$.fragment, r), D(a), n = !1;
     },
     d(r) {
-      r && S(e), he(l), a && a.d();
+      r && C(e), he(l), a && a.d();
     }
   };
 }
@@ -27551,7 +27601,7 @@ function Dd(t) {
       u(e, "class", "panel svelte-1fzr24z");
     },
     m(s, o) {
-      M(s, e, o);
+      S(s, e, o);
       for (let _ = 0; _ < n.length; _ += 1)
         n[_] && n[_].m(e, null);
       l = !0;
@@ -27588,11 +27638,11 @@ function Dd(t) {
       l = !1;
     },
     d(s) {
-      s && S(e), Ye(n, s);
+      s && C(e), Ye(n, s);
     }
   };
 }
-function n5(t) {
+function r5(t) {
   var i;
   let e, l;
   return e = new Ya({
@@ -27658,9 +27708,9 @@ function n5(t) {
     }
   };
 }
-function a5(t) {
+function s5(t) {
   let e, l;
-  return e = new _g({
+  return e = new _0({
     props: {
       key: (
         /*sub*/
@@ -27724,9 +27774,9 @@ function a5(t) {
     }
   };
 }
-function r5(t) {
+function o5(t) {
   let e, l;
-  return e = new _g({
+  return e = new _0({
     props: {
       key: (
         /*sub*/
@@ -27790,9 +27840,9 @@ function r5(t) {
     }
   };
 }
-function s5(t) {
+function u5(t) {
   let e, l;
-  return e = new x4({
+  return e = new t5({
     props: {
       key: (
         /*sub*/
@@ -27854,9 +27904,9 @@ function s5(t) {
     }
   };
 }
-function o5(t) {
+function f5(t) {
   let e, l;
-  return e = new K4({
+  return e = new W4({
     props: {
       key: (
         /*sub*/
@@ -27942,9 +27992,9 @@ function o5(t) {
     }
   };
 }
-function u5(t) {
+function _5(t) {
   let e, l;
-  return e = new sg({
+  return e = new s0({
     props: {
       key: (
         /*sub*/
@@ -28038,7 +28088,7 @@ function u5(t) {
     }
   };
 }
-function f5(t) {
+function c5(t) {
   let e, l;
   return e = new Ya({
     props: {
@@ -28134,9 +28184,9 @@ function f5(t) {
     }
   };
 }
-function _5(t) {
+function d5(t) {
   let e, l;
-  return e = new O4({
+  return e = new I4({
     props: {
       key: (
         /*sub*/
@@ -28244,10 +28294,10 @@ function _5(t) {
     }
   };
 }
-function c5(t) {
+function h5(t) {
   var i;
   let e, l;
-  return e = new G3({
+  return e = new K3({
     props: {
       key: (
         /*sub*/
@@ -28350,9 +28400,9 @@ function c5(t) {
     }
   };
 }
-function d5(t) {
+function p5(t) {
   let e, l;
-  return e = new sg({
+  return e = new s0({
     props: {
       key: (
         /*sub*/
@@ -28454,9 +28504,9 @@ function d5(t) {
     }
   };
 }
-function h5(t) {
+function m5(t) {
   let e, l;
-  return e = new I3({
+  return e = new R3({
     props: {
       key: (
         /*sub*/
@@ -28561,6 +28611,8 @@ function h5(t) {
 function Rd(t) {
   let e, l, i, n;
   const a = [
+    m5,
+    p5,
     h5,
     d5,
     c5,
@@ -28569,9 +28621,7 @@ function Rd(t) {
     u5,
     o5,
     s5,
-    r5,
-    a5,
-    n5
+    r5
   ], r = [];
   function s(o, _) {
     return (
@@ -28611,7 +28661,7 @@ function Rd(t) {
       l.c(), i = Ae();
     },
     m(o, _) {
-      r[e].m(o, _), M(o, i, _), n = !0;
+      r[e].m(o, _), S(o, i, _), n = !0;
     },
     p(o, _) {
       let c = e;
@@ -28626,11 +28676,11 @@ function Rd(t) {
       D(l), n = !1;
     },
     d(o) {
-      o && S(i), r[e].d(o);
+      o && C(i), r[e].d(o);
     }
   };
 }
-function p5(t) {
+function g5(t) {
   let e, l, i = (
     /*$data*/
     t[8] && /*section_meta*/
@@ -28641,7 +28691,7 @@ function p5(t) {
       i && i.c(), e = Ae();
     },
     m(n, a) {
-      i && i.m(n, a), M(n, e, a), l = !0;
+      i && i.m(n, a), S(n, e, a), l = !0;
     },
     p(n, [a]) {
       /*$data*/
@@ -28658,18 +28708,18 @@ function p5(t) {
       D(i), l = !1;
     },
     d(n) {
-      n && S(e), i && i.d(n);
+      n && C(e), i && i.d(n);
     }
   };
 }
-function m5(t, e, l) {
-  let i, n = ae, a = () => (n(), n = st(_, (v) => l(8, i = v)), _), r, s = ae, o = () => (s(), s = st(g, (v) => l(9, r = v)), g);
+function b5(t, e, l) {
+  let i, n = ne, a = () => (n(), n = st(_, (v) => l(8, i = v)), _), r, s = ne, o = () => (s(), s = st(b, (v) => l(9, r = v)), b);
   t.$$.on_destroy.push(() => n()), t.$$.on_destroy.push(() => s());
   let { data: _ = Oe() } = e;
   a();
   let { addToBasket: c = () => {
   } } = e, { openTimeMachine: d = () => {
-  } } = e, { basket: h } = e, { section_meta: p } = e, { is_prop_timed: b } = e, { property_time: g = Oe() } = e;
+  } } = e, { basket: h } = e, { section_meta: p } = e, { is_prop_timed: g } = e, { property_time: b = Oe() } = e;
   o();
   let k = !1;
   function y() {
@@ -28678,24 +28728,24 @@ function m5(t, e, l) {
   return Tt(() => {
     (p == null ? void 0 : p.key) === "properties" && (p == null ? void 0 : p.title) === "Overall" && l(7, k = !0);
   }), t.$$set = (v) => {
-    "data" in v && a(l(0, _ = v.data)), "addToBasket" in v && l(1, c = v.addToBasket), "openTimeMachine" in v && l(2, d = v.openTimeMachine), "basket" in v && l(3, h = v.basket), "section_meta" in v && l(4, p = v.section_meta), "is_prop_timed" in v && l(5, b = v.is_prop_timed), "property_time" in v && o(l(6, g = v.property_time));
+    "data" in v && a(l(0, _ = v.data)), "addToBasket" in v && l(1, c = v.addToBasket), "openTimeMachine" in v && l(2, d = v.openTimeMachine), "basket" in v && l(3, h = v.basket), "section_meta" in v && l(4, p = v.section_meta), "is_prop_timed" in v && l(5, g = v.is_prop_timed), "property_time" in v && o(l(6, b = v.property_time));
   }, [
     _,
     c,
     d,
     h,
     p,
-    b,
     g,
+    b,
     k,
     i,
     r,
     y
   ];
 }
-class g5 extends Ve {
+class k5 extends Ve {
   constructor(e) {
-    super(), Qe(this, e, m5, p5, Fe, {
+    super(), Qe(this, e, b5, g5, Fe, {
       data: 0,
       addToBasket: 1,
       openTimeMachine: 2,
@@ -28727,7 +28777,7 @@ function Ld(t) {
       e = m("button"), pe(l.$$.fragment), u(e, "class", "basket svelte-rs5kk");
     },
     m(r, s) {
-      M(r, e, s), de(l, e, null), i = !0, n || (a = te(
+      S(r, e, s), de(l, e, null), i = !0, n || (a = te(
         e,
         "click",
         /*click_handler*/
@@ -28750,21 +28800,21 @@ function Ld(t) {
       D(l.$$.fragment, r), i = !1;
     },
     d(r) {
-      r && S(e), he(l), n = !1, a();
+      r && C(e), he(l), n = !1, a();
     }
   };
 }
-function b5(t) {
+function v5(t) {
   let e, l = ct[
     /*key*/
     t[0]
   ] + "", i;
   return {
     c() {
-      e = m("h3"), i = I(l), u(e, "class", "svelte-rs5kk");
+      e = m("h3"), i = E(l), u(e, "class", "svelte-rs5kk");
     },
     m(n, a) {
-      M(n, e, a), f(e, i);
+      S(n, e, a), f(e, i);
     },
     p(n, a) {
       a & /*key*/
@@ -28774,21 +28824,21 @@ function b5(t) {
       ] + "") && U(i, l);
     },
     d(n) {
-      n && S(e);
+      n && C(e);
     }
   };
 }
-function k5(t) {
+function y5(t) {
   let e, l = ct[
     /*key*/
     t[0]
   ] + "", i;
   return {
     c() {
-      e = m("h2"), i = I(l), u(e, "class", "svelte-rs5kk");
+      e = m("h2"), i = E(l), u(e, "class", "svelte-rs5kk");
     },
     m(n, a) {
-      M(n, e, a), f(e, i);
+      S(n, e, a), f(e, i);
     },
     p(n, a) {
       a & /*key*/
@@ -28798,7 +28848,7 @@ function k5(t) {
       ] + "") && U(i, l);
     },
     d(n) {
-      n && S(e);
+      n && C(e);
     }
   };
 }
@@ -28831,7 +28881,7 @@ function Fd(t) {
       e = m("button"), pe(l.$$.fragment), u(e, "class", "basket svelte-rs5kk");
     },
     m(s, o) {
-      M(s, e, o), de(l, e, null), i = !0, n || (a = te(e, "click", r), n = !0);
+      S(s, e, o), de(l, e, null), i = !0, n || (a = te(e, "click", r), n = !0);
     },
     p(s, o) {
       t = s;
@@ -28852,7 +28902,7 @@ function Fd(t) {
       D(l.$$.fragment, s), i = !1;
     },
     d(s) {
-      s && S(e), he(l), n = !1, a();
+      s && C(e), he(l), n = !1, a();
     }
   };
 }
@@ -28867,54 +28917,54 @@ function Qd(t) {
   ), o, _, c, d = (
     /*gate*/
     (t[10].num_qubits || "") + ""
-  ), h, p, b, g = (
+  ), h, p, g, b = (
     /*gate*/
     (t[10].num_clbits || "") + ""
   ), k, y, v, w = (
     /*gate*/
     (((P = t[10].params) == null ? void 0 : P.join(", ")) || "") + ""
-  ), q, $, j, O = (
+  ), q, $, j, I = (
     /*gate*/
     (t[10].mutable || "") + ""
-  ), A, C, z, H, B, R = (
+  ), A, M, z, H, B, R = (
     /*addToBasket*/
     t[2] && Fd(t)
   );
   return {
     c() {
-      e = m("tr"), l = m("th"), n = I(i), a = N(), r = m("td"), o = I(s), _ = N(), c = m("td"), h = I(d), p = N(), b = m("td"), k = I(g), y = N(), v = m("td"), q = I(w), $ = N(), j = m("td"), A = I(O), C = N(), z = m("th"), R && R.c(), H = N(), u(l, "class", "svelte-rs5kk"), u(r, "class", "svelte-rs5kk"), u(c, "class", "svelte-rs5kk"), u(b, "class", "svelte-rs5kk"), u(v, "class", "svelte-rs5kk"), u(j, "class", "svelte-rs5kk"), u(z, "class", "svelte-rs5kk");
+      e = m("tr"), l = m("th"), n = E(i), a = N(), r = m("td"), o = E(s), _ = N(), c = m("td"), h = E(d), p = N(), g = m("td"), k = E(b), y = N(), v = m("td"), q = E(w), $ = N(), j = m("td"), A = E(I), M = N(), z = m("th"), R && R.c(), H = N(), u(l, "class", "svelte-rs5kk"), u(r, "class", "svelte-rs5kk"), u(c, "class", "svelte-rs5kk"), u(g, "class", "svelte-rs5kk"), u(v, "class", "svelte-rs5kk"), u(j, "class", "svelte-rs5kk"), u(z, "class", "svelte-rs5kk");
     },
-    m(E, F) {
-      M(E, e, F), f(e, l), f(l, n), f(e, a), f(e, r), f(r, o), f(e, _), f(e, c), f(c, h), f(e, p), f(e, b), f(b, k), f(e, y), f(e, v), f(v, q), f(e, $), f(e, j), f(j, A), f(e, C), f(e, z), R && R.m(z, null), f(e, H), B = !0;
+    m(O, F) {
+      S(O, e, F), f(e, l), f(l, n), f(e, a), f(e, r), f(r, o), f(e, _), f(e, c), f(c, h), f(e, p), f(e, g), f(g, k), f(e, y), f(e, v), f(v, q), f(e, $), f(e, j), f(j, A), f(e, M), f(e, z), R && R.m(z, null), f(e, H), B = !0;
     },
-    p(E, F) {
+    p(O, F) {
       var L;
       (!B || F & /*value*/
       2) && i !== (i = /*gate*/
-      E[10].name + "") && U(n, i), (!B || F & /*value*/
+      O[10].name + "") && U(n, i), (!B || F & /*value*/
       2) && s !== (s = /*gate*/
-      E[10].type + "") && U(o, s), (!B || F & /*value*/
+      O[10].type + "") && U(o, s), (!B || F & /*value*/
       2) && d !== (d = /*gate*/
-      (E[10].num_qubits || "") + "") && U(h, d), (!B || F & /*value*/
-      2) && g !== (g = /*gate*/
-      (E[10].num_clbits || "") + "") && U(k, g), (!B || F & /*value*/
+      (O[10].num_qubits || "") + "") && U(h, d), (!B || F & /*value*/
+      2) && b !== (b = /*gate*/
+      (O[10].num_clbits || "") + "") && U(k, b), (!B || F & /*value*/
       2) && w !== (w = /*gate*/
-      (((L = E[10].params) == null ? void 0 : L.join(", ")) || "") + "") && U(q, w), (!B || F & /*value*/
-      2) && O !== (O = /*gate*/
-      (E[10].mutable || "") + "") && U(A, O), /*addToBasket*/
-      E[2] ? R ? (R.p(E, F), F & /*addToBasket*/
-      4 && T(R, 1)) : (R = Fd(E), R.c(), T(R, 1), R.m(z, null)) : R && (be(), D(R, 1, 1, () => {
+      (((L = O[10].params) == null ? void 0 : L.join(", ")) || "") + "") && U(q, w), (!B || F & /*value*/
+      2) && I !== (I = /*gate*/
+      (O[10].mutable || "") + "") && U(A, I), /*addToBasket*/
+      O[2] ? R ? (R.p(O, F), F & /*addToBasket*/
+      4 && T(R, 1)) : (R = Fd(O), R.c(), T(R, 1), R.m(z, null)) : R && (be(), D(R, 1, 1, () => {
         R = null;
       }), ke());
     },
-    i(E) {
+    i(O) {
       B || (T(R), B = !0);
     },
-    o(E) {
+    o(O) {
       D(R), B = !1;
     },
-    d(E) {
-      E && S(e), R && R.d();
+    d(O) {
+      O && C(e), R && R.d();
     }
   };
 }
@@ -28925,10 +28975,10 @@ function Vd(t) {
   ] + "", i;
   return {
     c() {
-      e = m("div"), i = I(l), u(e, "class", "desc svelte-rs5kk");
+      e = m("div"), i = E(l), u(e, "class", "desc svelte-rs5kk");
     },
     m(n, a) {
-      M(n, e, a), f(e, i);
+      S(n, e, a), f(e, i);
     },
     p(n, a) {
       a & /*key*/
@@ -28938,11 +28988,11 @@ function Vd(t) {
       ] + "") && U(i, l);
     },
     d(n) {
-      n && S(e);
+      n && C(e);
     }
   };
 }
-function v5(t) {
+function w5(t) {
   let e, l, i, n, a, r, s, o, _, c, d, h = (
     /*addToBasket*/
     t[2] && Ld(t)
@@ -28952,14 +29002,14 @@ function v5(t) {
       /*level*/
       q[4] == 1
     )
-      return k5;
+      return y5;
     if (
       /*level*/
       q[4] == 2
     )
-      return b5;
+      return v5;
   }
-  let b = p(t), g = b && b(t), k = $e(
+  let g = p(t), b = g && g(t), k = $e(
     /*value*/
     t[1]
   ), y = [];
@@ -28974,13 +29024,13 @@ function v5(t) {
   ] && Vd(t);
   return {
     c() {
-      e = m("article"), h && h.c(), l = N(), g && g.c(), i = N(), n = m("div"), a = m("div"), r = m("table"), s = m("thead"), s.innerHTML = '<tr><th class="svelte-rs5kk">Name</th> <th class="svelte-rs5kk">Type</th> <th class="svelte-rs5kk">#Qubits</th> <th class="svelte-rs5kk">#ClBits</th> <th class="svelte-rs5kk">Params</th> <th class="svelte-rs5kk">Mutable?</th> <th class="svelte-rs5kk">-</th></tr>', o = N(), _ = m("tbody");
+      e = m("article"), h && h.c(), l = N(), b && b.c(), i = N(), n = m("div"), a = m("div"), r = m("table"), s = m("thead"), s.innerHTML = '<tr><th class="svelte-rs5kk">Name</th> <th class="svelte-rs5kk">Type</th> <th class="svelte-rs5kk">#Qubits</th> <th class="svelte-rs5kk">#ClBits</th> <th class="svelte-rs5kk">Params</th> <th class="svelte-rs5kk">Mutable?</th> <th class="svelte-rs5kk">-</th></tr>', o = N(), _ = m("tbody");
       for (let q = 0; q < y.length; q += 1)
         y[q].c();
       c = N(), w && w.c(), u(s, "class", "svelte-rs5kk"), u(r, "class", "svelte-rs5kk"), u(a, "class", "value svelte-rs5kk"), u(n, "class", "content-wrap"), u(e, "class", "svelte-rs5kk");
     },
     m(q, $) {
-      M(q, e, $), h && h.m(e, null), f(e, l), g && g.m(e, null), f(e, i), f(e, n), f(n, a), f(a, r), f(r, s), f(r, o), f(r, _);
+      S(q, e, $), h && h.m(e, null), f(e, l), b && b.m(e, null), f(e, i), f(e, n), f(n, a), f(a, r), f(r, s), f(r, o), f(r, _);
       for (let j = 0; j < y.length; j += 1)
         y[j] && y[j].m(_, null);
       f(e, c), w && w.m(e, null), d = !0;
@@ -28990,7 +29040,7 @@ function v5(t) {
       q[2] ? h ? (h.p(q, $), $ & /*addToBasket*/
       4 && T(h, 1)) : (h = Ld(q), h.c(), T(h, 1), h.m(e, l)) : h && (be(), D(h, 1, 1, () => {
         h = null;
-      }), ke()), b === (b = p(q)) && g ? g.p(q, $) : (g && g.d(1), g = b && b(q), g && (g.c(), g.m(e, i))), $ & /*addToBasket, key, value, code_header, code_footer, $basket*/
+      }), ke()), g === (g = p(q)) && b ? b.p(q, $) : (b && b.d(1), b = g && g(q), b && (b.c(), b.m(e, i))), $ & /*addToBasket, key, value, code_header, code_footer, $basket*/
       231) {
         k = $e(
           /*value*/
@@ -28998,8 +29048,8 @@ function v5(t) {
         );
         let j;
         for (j = 0; j < k.length; j += 1) {
-          const O = Hd(q, k, j);
-          y[j] ? (y[j].p(O, $), T(y[j], 1)) : (y[j] = Qd(O), y[j].c(), T(y[j], 1), y[j].m(_, null));
+          const I = Hd(q, k, j);
+          y[j] ? (y[j].p(I, $), T(y[j], 1)) : (y[j] = Qd(I), y[j].c(), T(y[j], 1), y[j].m(_, null));
         }
         for (be(), j = k.length; j < y.length; j += 1)
           v(j);
@@ -29025,22 +29075,22 @@ function v5(t) {
       d = !1;
     },
     d(q) {
-      q && S(e), h && h.d(), g && g.d(), Ye(y, q), w && w.d();
+      q && C(e), h && h.d(), b && b.d(), Ye(y, q), w && w.d();
     }
   };
 }
-function y5(t, e, l) {
-  let i, n = ae, a = () => (n(), n = st(_, (g) => l(7, i = g)), _);
+function $5(t, e, l) {
+  let i, n = ne, a = () => (n(), n = st(_, (b) => l(7, i = b)), _);
   t.$$.on_destroy.push(() => n());
   let { key: r = "", value: s = [], addToBasket: o, basket: _, level: c = 1, code_header: d = "", code_footer: h = "" } = e;
   a();
   const p = () => {
     o(r);
-  }, b = (g) => {
-    o(`op_${r}_${g.name} = ${d}${g.name}${h}`);
+  }, g = (b) => {
+    o(`op_${r}_${b.name} = ${d}${b.name}${h}`);
   };
-  return t.$$set = (g) => {
-    "key" in g && l(0, r = g.key), "value" in g && l(1, s = g.value), "addToBasket" in g && l(2, o = g.addToBasket), "basket" in g && a(l(3, _ = g.basket)), "level" in g && l(4, c = g.level), "code_header" in g && l(5, d = g.code_header), "code_footer" in g && l(6, h = g.code_footer);
+  return t.$$set = (b) => {
+    "key" in b && l(0, r = b.key), "value" in b && l(1, s = b.value), "addToBasket" in b && l(2, o = b.addToBasket), "basket" in b && a(l(3, _ = b.basket)), "level" in b && l(4, c = b.level), "code_header" in b && l(5, d = b.code_header), "code_footer" in b && l(6, h = b.code_footer);
   }, [
     r,
     s,
@@ -29051,12 +29101,12 @@ function y5(t, e, l) {
     h,
     i,
     p,
-    b
+    g
   ];
 }
-class w5 extends Ve {
+class q5 extends Ve {
   constructor(e) {
-    super(), Qe(this, e, y5, v5, Fe, {
+    super(), Qe(this, e, $5, w5, Fe, {
       key: 0,
       value: 1,
       addToBasket: 2,
@@ -29096,7 +29146,7 @@ function Kd(t) {
       e = m("button"), pe(l.$$.fragment), u(e, "class", "basket svelte-7dhgf1");
     },
     m(r, s) {
-      M(r, e, s), de(l, e, null), i = !0, n || (a = te(
+      S(r, e, s), de(l, e, null), i = !0, n || (a = te(
         e,
         "click",
         /*click_handler*/
@@ -29119,21 +29169,21 @@ function Kd(t) {
       D(l.$$.fragment, r), i = !1;
     },
     d(r) {
-      r && S(e), he(l), n = !1, a();
+      r && C(e), he(l), n = !1, a();
     }
   };
 }
-function $5(t) {
+function j5(t) {
   let e, l = ct[
     /*key*/
     t[0]
   ] + "", i;
   return {
     c() {
-      e = m("h3"), i = I(l), u(e, "class", "svelte-7dhgf1");
+      e = m("h3"), i = E(l), u(e, "class", "svelte-7dhgf1");
     },
     m(n, a) {
-      M(n, e, a), f(e, i);
+      S(n, e, a), f(e, i);
     },
     p(n, a) {
       a & /*key*/
@@ -29143,21 +29193,21 @@ function $5(t) {
       ] + "") && U(i, l);
     },
     d(n) {
-      n && S(e);
+      n && C(e);
     }
   };
 }
-function q5(t) {
+function T5(t) {
   let e, l = ct[
     /*key*/
     t[0]
   ] + "", i;
   return {
     c() {
-      e = m("h2"), i = I(l), u(e, "class", "svelte-7dhgf1");
+      e = m("h2"), i = E(l), u(e, "class", "svelte-7dhgf1");
     },
     m(n, a) {
-      M(n, e, a), f(e, i);
+      S(n, e, a), f(e, i);
     },
     p(n, a) {
       a & /*key*/
@@ -29167,7 +29217,7 @@ function q5(t) {
       ] + "") && U(i, l);
     },
     d(n) {
-      n && S(e);
+      n && C(e);
     }
   };
 }
@@ -29178,7 +29228,7 @@ function Ud(t) {
   ), i, n, a;
   return {
     c() {
-      e = m("option"), i = I(l), e.__value = n = /*g*/
+      e = m("option"), i = E(l), e.__value = n = /*g*/
       t[22], pt(e, e.__value), e.selected = a = /*filter*/
       t[7].gates.includes(
         /*g*/
@@ -29186,7 +29236,7 @@ function Ud(t) {
       );
     },
     m(r, s) {
-      M(r, e, s), f(e, i);
+      S(r, e, s), f(e, i);
     },
     p(r, s) {
       s & /*gates*/
@@ -29201,7 +29251,7 @@ function Ud(t) {
       )) && (e.selected = a);
     },
     d(r) {
-      r && S(e);
+      r && C(e);
     }
   };
 }
@@ -29212,7 +29262,7 @@ function Wd(t) {
   ), i, n, a;
   return {
     c() {
-      e = m("option"), i = I(l), e.__value = n = /*g*/
+      e = m("option"), i = E(l), e.__value = n = /*g*/
       t[22], pt(e, e.__value), e.selected = a = /*filter*/
       t[7].qubits.includes(
         /*g*/
@@ -29220,7 +29270,7 @@ function Wd(t) {
       );
     },
     m(r, s) {
-      M(r, e, s), f(e, i);
+      S(r, e, s), f(e, i);
     },
     p(r, s) {
       s & /*qubits*/
@@ -29235,7 +29285,7 @@ function Wd(t) {
       )) && (e.selected = a);
     },
     d(r) {
-      r && S(e);
+      r && C(e);
     }
   };
 }
@@ -29250,44 +29300,44 @@ function Jd(t) {
   ), o, _, c, d = (
     /*gate*/
     (t[19].num_qubits || "") + ""
-  ), h, p, b, g = (
+  ), h, p, g, b = (
     /*gate*/
     (t[19].num_clbits || "") + ""
   ), k, y, v, w = (
     /*gate*/
     (t[19].duration || "") + ""
-  ), q, $, j, O = (
+  ), q, $, j, I = (
     /*gate*/
     (t[19].mutable || "") + ""
-  ), A, C, z, H = (
+  ), A, M, z, H = (
     /*gate*/
     (((V = t[19].params) == null ? void 0 : V.join(", ")) || "") + ""
-  ), B, R, P, E, F, L = (
+  ), B, R, P, O, F, L = (
     /*addToBasket*/
     t[2] && Zd(t)
   );
   return {
     c() {
-      e = m("tr"), l = m("th"), n = I(i), a = N(), r = m("td"), o = I(s), _ = N(), c = m("td"), h = I(d), p = N(), b = m("td"), k = I(g), y = N(), v = m("td"), q = I(w), $ = N(), j = m("td"), A = I(O), C = N(), z = m("td"), B = I(H), R = N(), P = m("td"), L && L.c(), E = N(), u(l, "class", "svelte-7dhgf1"), u(r, "class", "svelte-7dhgf1"), u(c, "class", "svelte-7dhgf1"), u(b, "class", "svelte-7dhgf1"), u(v, "class", "svelte-7dhgf1"), u(j, "class", "svelte-7dhgf1"), u(z, "class", "svelte-7dhgf1"), u(P, "class", "svelte-7dhgf1");
+      e = m("tr"), l = m("th"), n = E(i), a = N(), r = m("td"), o = E(s), _ = N(), c = m("td"), h = E(d), p = N(), g = m("td"), k = E(b), y = N(), v = m("td"), q = E(w), $ = N(), j = m("td"), A = E(I), M = N(), z = m("td"), B = E(H), R = N(), P = m("td"), L && L.c(), O = N(), u(l, "class", "svelte-7dhgf1"), u(r, "class", "svelte-7dhgf1"), u(c, "class", "svelte-7dhgf1"), u(g, "class", "svelte-7dhgf1"), u(v, "class", "svelte-7dhgf1"), u(j, "class", "svelte-7dhgf1"), u(z, "class", "svelte-7dhgf1"), u(P, "class", "svelte-7dhgf1");
     },
     m(Q, Z) {
-      M(Q, e, Z), f(e, l), f(l, n), f(e, a), f(e, r), f(r, o), f(e, _), f(e, c), f(c, h), f(e, p), f(e, b), f(b, k), f(e, y), f(e, v), f(v, q), f(e, $), f(e, j), f(j, A), f(e, C), f(e, z), f(z, B), f(e, R), f(e, P), L && L.m(P, null), f(e, E), F = !0;
+      S(Q, e, Z), f(e, l), f(l, n), f(e, a), f(e, r), f(r, o), f(e, _), f(e, c), f(c, h), f(e, p), f(e, g), f(g, k), f(e, y), f(e, v), f(v, q), f(e, $), f(e, j), f(j, A), f(e, M), f(e, z), f(z, B), f(e, R), f(e, P), L && L.m(P, null), f(e, O), F = !0;
     },
     p(Q, Z) {
-      var ne, se;
+      var ae, se;
       (!F || Z & /*value*/
       2) && i !== (i = /*gate*/
       Q[19].name + "") && U(n, i), (!F || Z & /*value*/
       2) && s !== (s = /*gate*/
-      (((ne = Q[19].qubits) == null ? void 0 : ne.join(", ")) || "") + "") && U(o, s), (!F || Z & /*value*/
+      (((ae = Q[19].qubits) == null ? void 0 : ae.join(", ")) || "") + "") && U(o, s), (!F || Z & /*value*/
       2) && d !== (d = /*gate*/
       (Q[19].num_qubits || "") + "") && U(h, d), (!F || Z & /*value*/
-      2) && g !== (g = /*gate*/
-      (Q[19].num_clbits || "") + "") && U(k, g), (!F || Z & /*value*/
+      2) && b !== (b = /*gate*/
+      (Q[19].num_clbits || "") + "") && U(k, b), (!F || Z & /*value*/
       2) && w !== (w = /*gate*/
       (Q[19].duration || "") + "") && U(q, w), (!F || Z & /*value*/
-      2) && O !== (O = /*gate*/
-      (Q[19].mutable || "") + "") && U(A, O), (!F || Z & /*value*/
+      2) && I !== (I = /*gate*/
+      (Q[19].mutable || "") + "") && U(A, I), (!F || Z & /*value*/
       2) && H !== (H = /*gate*/
       (((se = Q[19].params) == null ? void 0 : se.join(", ")) || "") + "") && U(B, H), /*addToBasket*/
       Q[2] ? L ? (L.p(Q, Z), Z & /*addToBasket*/
@@ -29302,7 +29352,7 @@ function Jd(t) {
       D(L), F = !1;
     },
     d(Q) {
-      Q && S(e), L && L.d();
+      Q && C(e), L && L.d();
     }
   };
 }
@@ -29337,7 +29387,7 @@ function Zd(t) {
       e = m("button"), pe(l.$$.fragment), u(e, "class", "basket svelte-7dhgf1");
     },
     m(_, c) {
-      M(_, e, c), de(l, e, null), i = !0, n || (a = te(e, "click", r), n = !0);
+      S(_, e, c), de(l, e, null), i = !0, n || (a = te(e, "click", r), n = !0);
     },
     p(_, c) {
       var h, p;
@@ -29360,7 +29410,7 @@ function Zd(t) {
       D(l.$$.fragment, _), i = !1;
     },
     d(_) {
-      _ && S(e), he(l), n = !1, a();
+      _ && C(e), he(l), n = !1, a();
     }
   };
 }
@@ -29385,7 +29435,7 @@ function xd(t) {
       n && n.c(), l = Ae();
     },
     m(a, r) {
-      n && n.m(a, r), M(a, l, r), i = !0;
+      n && n.m(a, r), S(a, l, r), i = !0;
     },
     p(a, r) {
       r & /*filter, value*/
@@ -29415,7 +29465,7 @@ function xd(t) {
       D(n), i = !1;
     },
     d(a) {
-      a && S(l), n && n.d(a);
+      a && C(l), n && n.d(a);
     }
   };
 }
@@ -29426,10 +29476,10 @@ function eh(t) {
   ] + "", i;
   return {
     c() {
-      e = m("div"), i = I(l), u(e, "class", "desc svelte-7dhgf1");
+      e = m("div"), i = E(l), u(e, "class", "desc svelte-7dhgf1");
     },
     m(n, a) {
-      M(n, e, a), f(e, i);
+      S(n, e, a), f(e, i);
     },
     p(n, a) {
       a & /*key*/
@@ -29439,12 +29489,12 @@ function eh(t) {
       ] + "") && U(i, l);
     },
     d(n) {
-      n && S(e);
+      n && C(e);
     }
   };
 }
-function j5(t) {
-  let e, l, i, n, a, r, s, o, _, c, d, h, p, b, g, k, y, v, w, q, $, j, O, A, C, z, H, B, R = (
+function C5(t) {
+  let e, l, i, n, a, r, s, o, _, c, d, h, p, g, b, k, y, v, w, q, $, j, I, A, M, z, H, B, R = (
     /*addToBasket*/
     t[2] && Kd(t)
   );
@@ -29453,14 +29503,14 @@ function j5(t) {
       /*level*/
       Y[4] == 1
     )
-      return q5;
+      return T5;
     if (
       /*level*/
       Y[4] == 2
     )
-      return $5;
+      return j5;
   }
-  let E = P(t), F = E && E(t), L = $e(
+  let O = P(t), F = O && O(t), L = $e(
     /*gates*/
     t[8]
   ), X = [];
@@ -29475,11 +29525,11 @@ function j5(t) {
   let Z = $e(
     /*value*/
     t[1]
-  ), ne = [];
+  ), ae = [];
   for (let Y = 0; Y < Z.length; Y += 1)
-    ne[Y] = xd(Xd(t, Z, Y));
-  const se = (Y) => D(ne[Y], 1, 1, () => {
-    ne[Y] = null;
+    ae[Y] = xd(Xd(t, Z, Y));
+  const se = (Y) => D(ae[Y], 1, 1, () => {
+    ae[Y] = null;
   });
   let K = bt[
     /*key*/
@@ -29490,25 +29540,25 @@ function j5(t) {
       e = m("article"), R && R.c(), l = N(), F && F.c(), i = N(), n = m("div"), a = m("div"), r = m("div"), s = m("label"), s.textContent = "Gates", o = N(), _ = m("button"), _.textContent = "×", c = N(), d = m("select");
       for (let Y = 0; Y < X.length; Y += 1)
         X[Y].c();
-      h = N(), p = m("div"), b = m("label"), b.textContent = "Qubits", g = N(), k = m("button"), k.textContent = "×", y = N(), v = m("select");
+      h = N(), p = m("div"), g = m("label"), g.textContent = "Qubits", b = N(), k = m("button"), k.textContent = "×", y = N(), v = m("select");
       for (let Y = 0; Y < Q.length; Y += 1)
         Q[Y].c();
-      w = N(), q = m("div"), $ = m("table"), j = m("thead"), j.innerHTML = '<tr><th class="svelte-7dhgf1">Gate</th> <th class="svelte-7dhgf1">Qubits</th> <th class="svelte-7dhgf1">#Qubits</th> <th class="svelte-7dhgf1">#Clbits</th> <th class="svelte-7dhgf1">Duration</th> <th class="svelte-7dhgf1">Mutable?</th> <th class="svelte-7dhgf1">Params</th> <th class="svelte-7dhgf1">-</th></tr>', O = N(), A = m("tbody");
-      for (let Y = 0; Y < ne.length; Y += 1)
-        ne[Y].c();
-      C = N(), K && K.c(), u(s, "for", "gates"), u(s, "class", "svelte-7dhgf1"), u(_, "class", "svelte-7dhgf1"), u(d, "class", "filter svelte-7dhgf1"), u(d, "name", "gates"), u(d, "id", "gates"), d.multiple = !0, u(r, "class", "svelte-7dhgf1"), u(b, "for", "qubits"), u(b, "class", "svelte-7dhgf1"), u(k, "class", "svelte-7dhgf1"), u(v, "class", "filter svelte-7dhgf1"), u(v, "name", "qubits"), u(v, "id", "qubits"), v.multiple = !0, u(p, "class", "svelte-7dhgf1"), u(a, "class", "filter-wrap svelte-7dhgf1"), u(j, "class", "svelte-7dhgf1"), u($, "class", "svelte-7dhgf1"), u(q, "class", "value svelte-7dhgf1"), u(n, "class", "content-wrap svelte-7dhgf1"), u(e, "class", "svelte-7dhgf1");
+      w = N(), q = m("div"), $ = m("table"), j = m("thead"), j.innerHTML = '<tr><th class="svelte-7dhgf1">Gate</th> <th class="svelte-7dhgf1">Qubits</th> <th class="svelte-7dhgf1">#Qubits</th> <th class="svelte-7dhgf1">#Clbits</th> <th class="svelte-7dhgf1">Duration</th> <th class="svelte-7dhgf1">Mutable?</th> <th class="svelte-7dhgf1">Params</th> <th class="svelte-7dhgf1">-</th></tr>', I = N(), A = m("tbody");
+      for (let Y = 0; Y < ae.length; Y += 1)
+        ae[Y].c();
+      M = N(), K && K.c(), u(s, "for", "gates"), u(s, "class", "svelte-7dhgf1"), u(_, "class", "svelte-7dhgf1"), u(d, "class", "filter svelte-7dhgf1"), u(d, "name", "gates"), u(d, "id", "gates"), d.multiple = !0, u(r, "class", "svelte-7dhgf1"), u(g, "for", "qubits"), u(g, "class", "svelte-7dhgf1"), u(k, "class", "svelte-7dhgf1"), u(v, "class", "filter svelte-7dhgf1"), u(v, "name", "qubits"), u(v, "id", "qubits"), v.multiple = !0, u(p, "class", "svelte-7dhgf1"), u(a, "class", "filter-wrap svelte-7dhgf1"), u(j, "class", "svelte-7dhgf1"), u($, "class", "svelte-7dhgf1"), u(q, "class", "value svelte-7dhgf1"), u(n, "class", "content-wrap svelte-7dhgf1"), u(e, "class", "svelte-7dhgf1");
     },
     m(Y, W) {
-      M(Y, e, W), R && R.m(e, null), f(e, l), F && F.m(e, null), f(e, i), f(e, n), f(n, a), f(a, r), f(r, s), f(r, o), f(r, _), f(r, c), f(r, d);
+      S(Y, e, W), R && R.m(e, null), f(e, l), F && F.m(e, null), f(e, i), f(e, n), f(n, a), f(a, r), f(r, s), f(r, o), f(r, _), f(r, c), f(r, d);
       for (let J = 0; J < X.length; J += 1)
         X[J] && X[J].m(d, null);
-      f(a, h), f(a, p), f(p, b), f(p, g), f(p, k), f(p, y), f(p, v);
+      f(a, h), f(a, p), f(p, g), f(p, b), f(p, k), f(p, y), f(p, v);
       for (let J = 0; J < Q.length; J += 1)
         Q[J] && Q[J].m(v, null);
-      f(n, w), f(n, q), f(q, $), f($, j), f($, O), f($, A);
-      for (let J = 0; J < ne.length; J += 1)
-        ne[J] && ne[J].m(A, null);
-      f(e, C), K && K.m(e, null), z = !0, H || (B = [
+      f(n, w), f(n, q), f(q, $), f($, j), f($, I), f($, A);
+      for (let J = 0; J < ae.length; J += 1)
+        ae[J] && ae[J].m(A, null);
+      f(e, M), K && K.m(e, null), z = !0, H || (B = [
         te(
           _,
           "click",
@@ -29540,7 +29590,7 @@ function j5(t) {
       Y[2] ? R ? (R.p(Y, W), W & /*addToBasket*/
       4 && T(R, 1)) : (R = Kd(Y), R.c(), T(R, 1), R.m(e, l)) : R && (be(), D(R, 1, 1, () => {
         R = null;
-      }), ke()), E === (E = P(Y)) && F ? F.p(Y, W) : (F && F.d(1), F = E && E(Y), F && (F.c(), F.m(e, i))), W & /*gates, filter*/
+      }), ke()), O === (O = P(Y)) && F ? F.p(Y, W) : (F && F.d(1), F = O && O(Y), F && (F.c(), F.m(e, i))), W & /*gates, filter*/
       384) {
         L = $e(
           /*gates*/
@@ -29579,9 +29629,9 @@ function j5(t) {
         let J;
         for (J = 0; J < Z.length; J += 1) {
           const ee = Xd(Y, Z, J);
-          ne[J] ? (ne[J].p(ee, W), T(ne[J], 1)) : (ne[J] = xd(ee), ne[J].c(), T(ne[J], 1), ne[J].m(A, null));
+          ae[J] ? (ae[J].p(ee, W), T(ae[J], 1)) : (ae[J] = xd(ee), ae[J].c(), T(ae[J], 1), ae[J].m(A, null));
         }
-        for (be(), J = Z.length; J < ne.length; J += 1)
+        for (be(), J = Z.length; J < ae.length; J += 1)
           se(J);
         ke();
       }
@@ -29594,43 +29644,43 @@ function j5(t) {
       if (!z) {
         T(R);
         for (let W = 0; W < Z.length; W += 1)
-          T(ne[W]);
+          T(ae[W]);
         z = !0;
       }
     },
     o(Y) {
-      D(R), ne = ne.filter(Boolean);
-      for (let W = 0; W < ne.length; W += 1)
-        D(ne[W]);
+      D(R), ae = ae.filter(Boolean);
+      for (let W = 0; W < ae.length; W += 1)
+        D(ae[W]);
       z = !1;
     },
     d(Y) {
-      Y && S(e), R && R.d(), F && F.d(), Ye(X, Y), Ye(Q, Y), Ye(ne, Y), K && K.d(), H = !1, wt(B);
+      Y && C(e), R && R.d(), F && F.d(), Ye(X, Y), Ye(Q, Y), Ye(ae, Y), K && K.d(), H = !1, wt(B);
     }
   };
 }
-function T5(t, e, l) {
-  let i, n = ae, a = () => (n(), n = st(_, (A) => l(10, i = A)), _);
+function S5(t, e, l) {
+  let i, n = ne, a = () => (n(), n = st(_, (A) => l(10, i = A)), _);
   t.$$.on_destroy.push(() => n());
   let { key: r = "", value: s, addToBasket: o, basket: _, level: c = 1, code_header: d = "", code_type: h = "", code_footer: p = "" } = e;
   a();
-  let b = { gates: [], qubits: [] }, g = [], k = [];
+  let g = { gates: [], qubits: [] }, b = [], k = [];
   Tt(() => {
-    s && (l(8, g = Array.from(new Set(s.map((A) => A.name)))), l(9, k = Array.from(new Set(s.map((A) => A.qubits).flat()))));
+    s && (l(8, b = Array.from(new Set(s.map((A) => A.name)))), l(9, k = Array.from(new Set(s.map((A) => A.qubits).flat()))));
   });
-  const y = (A) => b.qubits.includes(A), v = () => {
+  const y = (A) => g.qubits.includes(A), v = () => {
     o(r);
   }, w = (A) => {
-    l(7, b.gates = [], b);
+    l(7, g.gates = [], g);
   }, q = (A) => {
-    l(7, b.gates = Array.from(A.target.selectedOptions).map((C) => C.value), b);
+    l(7, g.gates = Array.from(A.target.selectedOptions).map((M) => M.value), g);
   }, $ = (A) => {
-    l(7, b.qubits = [], b);
+    l(7, g.qubits = [], g);
   }, j = (A) => {
-    l(7, b.qubits = Array.from(A.target.selectedOptions).map((C) => parseInt(C.value)), b);
-  }, O = (A) => {
-    var C, z;
-    o(`instruction_${A.name}_${(C = A.qubits) == null ? void 0 : C.join(", ")} = ${d}x.name == "${A.name}" and x.qubits == [${(z = A.qubits) == null ? void 0 : z.join(", ")}]${p}`);
+    l(7, g.qubits = Array.from(A.target.selectedOptions).map((M) => parseInt(M.value)), g);
+  }, I = (A) => {
+    var M, z;
+    o(`instruction_${A.name}_${(M = A.qubits) == null ? void 0 : M.join(", ")} = ${d}x.name == "${A.name}" and x.qubits == [${(z = A.qubits) == null ? void 0 : z.join(", ")}]${p}`);
   };
   return t.$$set = (A) => {
     "key" in A && l(0, r = A.key), "value" in A && l(1, s = A.value), "addToBasket" in A && l(2, o = A.addToBasket), "basket" in A && a(l(3, _ = A.basket)), "level" in A && l(4, c = A.level), "code_header" in A && l(5, d = A.code_header), "code_type" in A && l(11, h = A.code_type), "code_footer" in A && l(6, p = A.code_footer);
@@ -29642,8 +29692,8 @@ function T5(t, e, l) {
     c,
     d,
     p,
-    b,
     g,
+    b,
     k,
     i,
     h,
@@ -29653,12 +29703,12 @@ function T5(t, e, l) {
     q,
     $,
     j,
-    O
+    I
   ];
 }
-class C5 extends Ve {
+class M5 extends Ve {
   constructor(e) {
-    super(), Qe(this, e, T5, j5, Fe, {
+    super(), Qe(this, e, S5, C5, Fe, {
       key: 0,
       value: 1,
       addToBasket: 2,
@@ -29684,7 +29734,7 @@ function ih(t, e, l) {
 }
 function nh(t) {
   let e, l, i, n;
-  l = new rg({
+  l = new r0({
     props: {
       title: (
         /*section_meta*/
@@ -29708,7 +29758,7 @@ function nh(t) {
       e = m("section"), pe(l.$$.fragment), i = N(), a && a.c(), u(e, "class", "svelte-eg8s2l");
     },
     m(r, s) {
-      M(r, e, s), de(l, e, null), f(e, i), a && a.m(e, null), n = !0;
+      S(r, e, s), de(l, e, null), f(e, i), a && a.m(e, null), n = !0;
     },
     p(r, s) {
       const o = {};
@@ -29729,12 +29779,12 @@ function nh(t) {
       D(l.$$.fragment, r), D(a), n = !1;
     },
     d(r) {
-      r && S(e), he(l), a && a.d();
+      r && C(e), he(l), a && a.d();
     }
   };
 }
 function ah(t) {
-  var p, b;
+  var p, g;
   let e, l, i, n, a, r = (
     /*is_prop_timed*/
     t[7] && rh(t)
@@ -29742,51 +29792,51 @@ function ah(t) {
     /*section_meta*/
     (p = t[6]) == null ? void 0 : p.subsections
   ), o = [];
-  for (let g = 0; g < s.length; g += 1)
-    o[g] = oh(lh(t, s, g));
-  const _ = (g) => D(o[g], 1, 1, () => {
-    o[g] = null;
+  for (let b = 0; b < s.length; b += 1)
+    o[b] = oh(lh(t, s, b));
+  const _ = (b) => D(o[b], 1, 1, () => {
+    o[b] = null;
   });
   let c = $e(
     /*section_meta*/
-    (b = t[6]) == null ? void 0 : b.subsections
+    (g = t[6]) == null ? void 0 : g.subsections
   ), d = [];
-  for (let g = 0; g < c.length; g += 1)
-    d[g] = fh(th(t, c, g));
-  const h = (g) => D(d[g], 1, 1, () => {
-    d[g] = null;
+  for (let b = 0; b < c.length; b += 1)
+    d[b] = fh(th(t, c, b));
+  const h = (b) => D(d[b], 1, 1, () => {
+    d[b] = null;
   });
   return {
     c() {
       r && r.c(), e = N(), l = m("div");
-      for (let g = 0; g < o.length; g += 1)
-        o[g].c();
+      for (let b = 0; b < o.length; b += 1)
+        o[b].c();
       i = N();
-      for (let g = 0; g < d.length; g += 1)
-        d[g].c();
+      for (let b = 0; b < d.length; b += 1)
+        d[b].c();
       n = Ae(), u(l, "class", "panel svelte-eg8s2l");
     },
-    m(g, k) {
-      r && r.m(g, k), M(g, e, k), M(g, l, k);
+    m(b, k) {
+      r && r.m(b, k), S(b, e, k), S(b, l, k);
       for (let y = 0; y < o.length; y += 1)
         o[y] && o[y].m(l, null);
-      M(g, i, k);
+      S(b, i, k);
       for (let y = 0; y < d.length; y += 1)
-        d[y] && d[y].m(g, k);
-      M(g, n, k), a = !0;
+        d[y] && d[y].m(b, k);
+      S(b, n, k), a = !0;
     },
-    p(g, k) {
+    p(b, k) {
       var y, v;
       if (/*is_prop_timed*/
-      g[7] ? r ? r.p(g, k) : (r = rh(g), r.c(), r.m(e.parentNode, e)) : r && (r.d(1), r = null), k & /*section_meta, $data, addToBasket, basket, openTimeMachine*/
+      b[7] ? r ? r.p(b, k) : (r = rh(b), r.c(), r.m(e.parentNode, e)) : r && (r.d(1), r = null), k & /*section_meta, $data, addToBasket, basket, openTimeMachine*/
       364) {
         s = $e(
           /*section_meta*/
-          (y = g[6]) == null ? void 0 : y.subsections
+          (y = b[6]) == null ? void 0 : y.subsections
         );
         let w;
         for (w = 0; w < s.length; w += 1) {
-          const q = lh(g, s, w);
+          const q = lh(b, s, w);
           o[w] ? (o[w].p(q, k), T(o[w], 1)) : (o[w] = oh(q), o[w].c(), T(o[w], 1), o[w].m(l, null));
         }
         for (be(), w = s.length; w < o.length; w += 1)
@@ -29797,11 +29847,11 @@ function ah(t) {
       254) {
         c = $e(
           /*section_meta*/
-          (v = g[6]) == null ? void 0 : v.subsections
+          (v = b[6]) == null ? void 0 : v.subsections
         );
         let w;
         for (w = 0; w < c.length; w += 1) {
-          const q = th(g, c, w);
+          const q = th(b, c, w);
           d[w] ? (d[w].p(q, k), T(d[w], 1)) : (d[w] = fh(q), d[w].c(), T(d[w], 1), d[w].m(n.parentNode, n));
         }
         for (be(), w = c.length; w < d.length; w += 1)
@@ -29809,7 +29859,7 @@ function ah(t) {
         ke();
       }
     },
-    i(g) {
+    i(b) {
       if (!a) {
         for (let k = 0; k < s.length; k += 1)
           T(o[k]);
@@ -29818,7 +29868,7 @@ function ah(t) {
         a = !0;
       }
     },
-    o(g) {
+    o(b) {
       o = o.filter(Boolean);
       for (let k = 0; k < o.length; k += 1)
         D(o[k]);
@@ -29827,8 +29877,8 @@ function ah(t) {
         D(d[k]);
       a = !1;
     },
-    d(g) {
-      g && (S(e), S(l), S(i), S(n)), r && r.d(g), Ye(o, g), Ye(d, g);
+    d(b) {
+      b && (C(e), C(l), C(i), C(n)), r && r.d(b), Ye(o, b), Ye(d, b);
     }
   };
 }
@@ -29841,16 +29891,16 @@ function rh(t) {
     h[p] = sh(ih(t, d, p));
   return {
     c() {
-      e = m("div"), l = m("div"), i = m("label"), i.textContent = "Collected at:", n = N(), a = m("select"), r = m("option"), s = I("Current");
+      e = m("div"), l = m("div"), i = m("label"), i.textContent = "Collected at:", n = N(), a = m("select"), r = m("option"), s = E("Current");
       for (let p = 0; p < h.length; p += 1)
         h[p].c();
       u(i, "for", "property-time-machine"), u(i, "class", "svelte-eg8s2l"), r.__value = "current", pt(r, r.__value), r.selected = o = /*$property_time*/
       t[9] === "current", u(r, "class", "svelte-eg8s2l"), u(a, "id", "property-time-machine"), u(a, "class", "svelte-eg8s2l"), u(l, "class", "input-wrap svelte-eg8s2l"), u(e, "class", "input-row sticky svelte-eg8s2l");
     },
-    m(p, b) {
-      M(p, e, b), f(e, l), f(l, i), f(l, n), f(l, a), f(a, r), f(r, s);
-      for (let g = 0; g < h.length; g += 1)
-        h[g] && h[g].m(a, null);
+    m(p, g) {
+      S(p, e, g), f(e, l), f(l, i), f(l, n), f(l, a), f(a, r), f(r, s);
+      for (let b = 0; b < h.length; b += 1)
+        h[b] && h[b].m(a, null);
       _ || (c = te(
         a,
         "change",
@@ -29858,27 +29908,27 @@ function rh(t) {
         t[11]
       ), _ = !0);
     },
-    p(p, b) {
-      if (b & /*$property_time*/
+    p(p, g) {
+      if (g & /*$property_time*/
       512 && o !== (o = /*$property_time*/
-      p[9] === "current") && (r.selected = o), b & /*Object, $data, $property_time*/
+      p[9] === "current") && (r.selected = o), g & /*Object, $data, $property_time*/
       768) {
         d = $e(Object.keys(
           /*$data*/
           p[8].timed_properties
         ));
-        let g;
-        for (g = 0; g < d.length; g += 1) {
-          const k = ih(p, d, g);
-          h[g] ? h[g].p(k, b) : (h[g] = sh(k), h[g].c(), h[g].m(a, null));
+        let b;
+        for (b = 0; b < d.length; b += 1) {
+          const k = ih(p, d, b);
+          h[b] ? h[b].p(k, g) : (h[b] = sh(k), h[b].c(), h[b].m(a, null));
         }
-        for (; g < h.length; g += 1)
-          h[g].d(1);
+        for (; b < h.length; b += 1)
+          h[b].d(1);
         h.length = d.length;
       }
     },
     d(p) {
-      p && S(e), Ye(h, p), _ = !1, c();
+      p && C(e), Ye(h, p), _ = !1, c();
     }
   };
 }
@@ -29889,13 +29939,13 @@ function sh(t) {
   ), i, n, a;
   return {
     c() {
-      e = m("option"), i = I(l), e.__value = n = /*time*/
+      e = m("option"), i = E(l), e.__value = n = /*time*/
       t[17], pt(e, e.__value), e.selected = a = /*$property_time*/
       t[9] === /*time*/
       t[17], u(e, "class", "svelte-eg8s2l");
     },
     m(r, s) {
-      M(r, e, s), f(e, i);
+      S(r, e, s), f(e, i);
     },
     p(r, s) {
       s & /*$data*/
@@ -29908,11 +29958,11 @@ function sh(t) {
       r[17]) && (e.selected = a);
     },
     d(r) {
-      r && S(e);
+      r && C(e);
     }
   };
 }
-function S5(t) {
+function z5(t) {
   let e, l;
   return e = new Ya({
     props: {
@@ -29976,9 +30026,9 @@ function S5(t) {
     }
   };
 }
-function M5(t) {
+function N5(t) {
   let e, l;
-  return e = new C5({
+  return e = new M5({
     props: {
       key: (
         /*sub*/
@@ -30042,9 +30092,9 @@ function M5(t) {
     }
   };
 }
-function z5(t) {
+function A5(t) {
   let e, l;
-  return e = new w5({
+  return e = new q5({
     props: {
       key: (
         /*sub*/
@@ -30108,7 +30158,7 @@ function z5(t) {
     }
   };
 }
-function N5(t) {
+function B5(t) {
   let e, l;
   return e = new Ya({
     props: {
@@ -30156,7 +30206,7 @@ function N5(t) {
 }
 function oh(t) {
   let e, l, i, n;
-  const a = [N5, z5, M5, S5], r = [];
+  const a = [B5, A5, N5, z5], r = [];
   function s(o, _) {
     return (
       /*sub*/
@@ -30177,7 +30227,7 @@ function oh(t) {
       l && l.c(), i = Ae();
     },
     m(o, _) {
-      ~e && r[e].m(o, _), M(o, i, _), n = !0;
+      ~e && r[e].m(o, _), S(o, i, _), n = !0;
     },
     p(o, _) {
       let c = e;
@@ -30192,13 +30242,13 @@ function oh(t) {
       D(l), n = !1;
     },
     d(o) {
-      o && S(i), ~e && r[e].d(o);
+      o && C(i), ~e && r[e].d(o);
     }
   };
 }
 function uh(t) {
   let e, l;
-  return e = new g5({
+  return e = new k5({
     props: {
       section_meta: (
         /*sub*/
@@ -30276,7 +30326,7 @@ function fh(t) {
       i && i.c(), e = Ae();
     },
     m(n, a) {
-      i && i.m(n, a), M(n, e, a), l = !0;
+      i && i.m(n, a), S(n, e, a), l = !0;
     },
     p(n, a) {
       /*sub*/
@@ -30293,11 +30343,11 @@ function fh(t) {
       D(i), l = !1;
     },
     d(n) {
-      n && S(e), i && i.d(n);
+      n && C(e), i && i.d(n);
     }
   };
 }
-function A5(t) {
+function P5(t) {
   let e, l, i = (
     /*$data*/
     t[8] && /*section_meta*/
@@ -30308,7 +30358,7 @@ function A5(t) {
       i && i.c(), e = Ae();
     },
     m(n, a) {
-      i && i.m(n, a), M(n, e, a), l = !0;
+      i && i.m(n, a), S(n, e, a), l = !0;
     },
     p(n, [a]) {
       /*$data*/
@@ -30325,12 +30375,12 @@ function A5(t) {
       D(i), l = !1;
     },
     d(n) {
-      n && S(e), i && i.d(n);
+      n && C(e), i && i.d(n);
     }
   };
 }
-function B5(t, e, l) {
-  let i, n = ae, a = () => (n(), n = st(_, (w) => l(8, i = w)), _), r, s = ae, o = () => (s(), s = st(h, (w) => l(9, r = w)), h);
+function O5(t, e, l) {
+  let i, n = ne, a = () => (n(), n = st(_, (w) => l(8, i = w)), _), r, s = ne, o = () => (s(), s = st(h, (w) => l(9, r = w)), h);
   t.$$.on_destroy.push(() => n()), t.$$.on_destroy.push(() => s());
   let { data: _ = Oe() } = e;
   a();
@@ -30338,27 +30388,27 @@ function B5(t, e, l) {
   } } = e, { openTimeMachine: d = () => {
   } } = e, { property_time: h = Oe() } = e;
   o();
-  let { basket: p } = e, { section_meta: b } = e, { hide: g = !1 } = e;
+  let { basket: p } = e, { section_meta: g } = e, { hide: b = !1 } = e;
   function k() {
-    l(0, g = !g);
+    l(0, b = !b);
   }
   let y = !1;
   Tt(() => {
-    l(7, y = i.property_times && b.title === "Properties");
+    l(7, y = i.property_times && g.title === "Properties");
   });
   const v = (w) => {
     h.set(w.target.value);
   };
   return t.$$set = (w) => {
-    "data" in w && a(l(1, _ = w.data)), "addToBasket" in w && l(2, c = w.addToBasket), "openTimeMachine" in w && l(3, d = w.openTimeMachine), "property_time" in w && o(l(4, h = w.property_time)), "basket" in w && l(5, p = w.basket), "section_meta" in w && l(6, b = w.section_meta), "hide" in w && l(0, g = w.hide);
+    "data" in w && a(l(1, _ = w.data)), "addToBasket" in w && l(2, c = w.addToBasket), "openTimeMachine" in w && l(3, d = w.openTimeMachine), "property_time" in w && o(l(4, h = w.property_time)), "basket" in w && l(5, p = w.basket), "section_meta" in w && l(6, g = w.section_meta), "hide" in w && l(0, b = w.hide);
   }, [
-    g,
+    b,
     _,
     c,
     d,
     h,
     p,
-    b,
+    g,
     y,
     i,
     r,
@@ -30368,7 +30418,7 @@ function B5(t, e, l) {
 }
 class Sl extends Ve {
   constructor(e) {
-    super(), Qe(this, e, B5, A5, Fe, {
+    super(), Qe(this, e, O5, P5, Fe, {
       data: 1,
       addToBasket: 2,
       openTimeMachine: 3,
@@ -30379,7 +30429,7 @@ class Sl extends Ve {
     });
   }
 }
-function P5(t) {
+function E5(t) {
   let e, l;
   return {
     c() {
@@ -30392,7 +30442,7 @@ function P5(t) {
       t[3] + ";" : ""}`);
     },
     m(i, n) {
-      M(i, e, n);
+      S(i, e, n);
     },
     p(i, [n]) {
       n & /*value, min, max, color*/
@@ -30404,14 +30454,14 @@ function P5(t) {
       i[3] ? "background-color:" + /*color*/
       i[3] + ";" : ""}`) && u(e, "style", l);
     },
-    i: ae,
-    o: ae,
+    i: ne,
+    o: ne,
     d(i) {
-      i && S(e);
+      i && C(e);
     }
   };
 }
-function O5(t, e, l) {
+function I5(t, e, l) {
   let { value: i = 0, min: n = 0, max: a = 1, color: r = "dodgerblue" } = e;
   return t.$$set = (s) => {
     "value" in s && l(0, i = s.value), "min" in s && l(1, n = s.min), "max" in s && l(2, a = s.max), "color" in s && l(3, r = s.color);
@@ -30419,7 +30469,7 @@ function O5(t, e, l) {
 }
 class Xi extends Ve {
   constructor(e) {
-    super(), Qe(this, e, O5, P5, Fe, { value: 0, min: 1, max: 2, color: 3 });
+    super(), Qe(this, e, I5, E5, Fe, { value: 0, min: 1, max: 2, color: 3 });
   }
 }
 function _h(t, e, l) {
@@ -30443,7 +30493,7 @@ function ch(t) {
       e = m("button"), pe(l.$$.fragment), u(e, "class", "basket svelte-1gm7n3s");
     },
     m(r, s) {
-      M(r, e, s), de(l, e, null), i = !0, n || (a = te(
+      S(r, e, s), de(l, e, null), i = !0, n || (a = te(
         e,
         "click",
         /*click_handler*/
@@ -30466,7 +30516,7 @@ function ch(t) {
       D(l.$$.fragment, r), i = !1;
     },
     d(r) {
-      r && S(e), he(l), n = !1, a();
+      r && C(e), he(l), n = !1, a();
     }
   };
 }
@@ -30487,7 +30537,7 @@ function dh(t) {
       e = m("button"), pe(l.$$.fragment), u(e, "class", "basket svelte-1gm7n3s");
     },
     m(r, s) {
-      M(r, e, s), de(l, e, null), i = !0, n || (a = te(
+      S(r, e, s), de(l, e, null), i = !0, n || (a = te(
         e,
         "click",
         /*click_handler_1*/
@@ -30510,7 +30560,7 @@ function dh(t) {
       D(l.$$.fragment, r), i = !1;
     },
     d(r) {
-      r && S(e), he(l), n = !1, a();
+      r && C(e), he(l), n = !1, a();
     }
   };
 }
@@ -30544,7 +30594,7 @@ function hh(t) {
       e = m("button"), pe(l.$$.fragment), u(e, "class", "basket svelte-1gm7n3s");
     },
     m(s, o) {
-      M(s, e, o), de(l, e, null), i = !0, n || (a = te(e, "click", r), n = !0);
+      S(s, e, o), de(l, e, null), i = !0, n || (a = te(e, "click", r), n = !0);
     },
     p(s, o) {
       t = s;
@@ -30566,7 +30616,7 @@ function hh(t) {
       D(l.$$.fragment, s), i = !1;
     },
     d(s) {
-      s && S(e), he(l), n = !1, a();
+      s && C(e), he(l), n = !1, a();
     }
   };
 }
@@ -30580,10 +30630,10 @@ function ph(t) {
   ), o, _, c, d = (
     /*dp*/
     t[11].data.value + ""
-  ), h, p, b = (
+  ), h, p, g = (
     /*dp*/
     t[11].data.unit + ""
-  ), g, k, y, v, w, q, $, j, O;
+  ), b, k, y, v, w, q, $, j, I;
   w = new Xi({
     props: {
       value: (
@@ -30606,56 +30656,56 @@ function ph(t) {
   );
   return {
     c() {
-      e = m("tr"), l = m("td"), n = I(i), a = N(), r = m("td"), o = I(s), _ = N(), c = m("td"), h = I(d), p = I(" ("), g = I(b), k = I(")"), y = N(), v = m("td"), pe(w.$$.fragment), q = N(), $ = m("td"), A && A.c(), j = N(), u(l, "class", "svelte-1gm7n3s"), u(r, "class", "svelte-1gm7n3s"), u(c, "class", "svelte-1gm7n3s"), u(v, "class", "in-table-bar-cell svelte-1gm7n3s"), u($, "class", "svelte-1gm7n3s");
+      e = m("tr"), l = m("td"), n = E(i), a = N(), r = m("td"), o = E(s), _ = N(), c = m("td"), h = E(d), p = E(" ("), b = E(g), k = E(")"), y = N(), v = m("td"), pe(w.$$.fragment), q = N(), $ = m("td"), A && A.c(), j = N(), u(l, "class", "svelte-1gm7n3s"), u(r, "class", "svelte-1gm7n3s"), u(c, "class", "svelte-1gm7n3s"), u(v, "class", "in-table-bar-cell svelte-1gm7n3s"), u($, "class", "svelte-1gm7n3s");
     },
-    m(C, z) {
-      M(C, e, z), f(e, l), f(l, n), f(e, a), f(e, r), f(r, o), f(e, _), f(e, c), f(c, h), f(c, p), f(c, g), f(c, k), f(e, y), f(e, v), de(w, v, null), f(e, q), f(e, $), A && A.m($, null), f(e, j), O = !0;
+    m(M, z) {
+      S(M, e, z), f(e, l), f(l, n), f(e, a), f(e, r), f(r, o), f(e, _), f(e, c), f(c, h), f(c, p), f(c, b), f(c, k), f(e, y), f(e, v), de(w, v, null), f(e, q), f(e, $), A && A.m($, null), f(e, j), I = !0;
     },
-    p(C, z) {
-      (!O || z & /*$timeMachineData*/
+    p(M, z) {
+      (!I || z & /*$timeMachineData*/
       64) && i !== (i = /*dp*/
-      C[11].date + "") && U(n, i), (!O || z & /*$timeMachineData*/
+      M[11].date + "") && U(n, i), (!I || z & /*$timeMachineData*/
       64) && s !== (s = /*dp*/
-      C[11].data.asof + "") && U(o, s), (!O || z & /*$timeMachineData*/
+      M[11].data.asof + "") && U(o, s), (!I || z & /*$timeMachineData*/
       64) && d !== (d = /*dp*/
-      C[11].data.value + "") && U(h, d), (!O || z & /*$timeMachineData*/
-      64) && b !== (b = /*dp*/
-      C[11].data.unit + "") && U(g, b);
+      M[11].data.value + "") && U(h, d), (!I || z & /*$timeMachineData*/
+      64) && g !== (g = /*dp*/
+      M[11].data.unit + "") && U(b, g);
       const H = {};
       z & /*$timeMachineData*/
       64 && (H.value = /*dp*/
-      C[11].data.value), z & /*minValue*/
+      M[11].data.value), z & /*minValue*/
       16 && (H.min = /*minValue*/
-      C[4]), z & /*maxValue*/
+      M[4]), z & /*maxValue*/
       8 && (H.max = /*maxValue*/
-      C[3]), w.$set(H), /*addToBasket*/
-      C[1] ? A ? (A.p(C, z), z & /*addToBasket*/
-      2 && T(A, 1)) : (A = hh(C), A.c(), T(A, 1), A.m($, null)) : A && (be(), D(A, 1, 1, () => {
+      M[3]), w.$set(H), /*addToBasket*/
+      M[1] ? A ? (A.p(M, z), z & /*addToBasket*/
+      2 && T(A, 1)) : (A = hh(M), A.c(), T(A, 1), A.m($, null)) : A && (be(), D(A, 1, 1, () => {
         A = null;
       }), ke());
     },
-    i(C) {
-      O || (T(w.$$.fragment, C), T(A), O = !0);
+    i(M) {
+      I || (T(w.$$.fragment, M), T(A), I = !0);
     },
-    o(C) {
-      D(w.$$.fragment, C), D(A), O = !1;
+    o(M) {
+      D(w.$$.fragment, M), D(A), I = !1;
     },
-    d(C) {
-      C && S(e), he(w), A && A.d();
+    d(M) {
+      M && C(e), he(w), A && A.d();
     }
   };
 }
-function E5(t) {
-  let e, l, i, n, a, r, s, o, _, c, d, h, p, b, g, k, y, v, w, q = (
+function D5(t) {
+  let e, l, i, n, a, r, s, o, _, c, d, h, p, g, b, k, y, v, w, q = (
     /*$timeMachineData*/
     t[6].curr_data.asof + ""
-  ), $, j, O, A = (
+  ), $, j, I, A = (
     /*$timeMachineData*/
     t[6].curr_data.value + ""
-  ), C, z, H = (
+  ), M, z, H = (
     /*$timeMachineData*/
     t[6].curr_data.unit + ""
-  ), B, R, P, E, F, L, X, V, Q, Z = (
+  ), B, R, P, O, F, L, X, V, Q, Z = (
     /*addToBasket*/
     t[1] && ch(t)
   );
@@ -30675,7 +30725,7 @@ function E5(t) {
       )
     }
   });
-  let ne = (
+  let ae = (
     /*addToBasket*/
     t[1] && dh(t)
   ), se = $e(
@@ -30689,15 +30739,15 @@ function E5(t) {
   });
   return {
     c() {
-      e = m("div"), l = m("table"), i = m("thead"), n = m("tr"), a = m("th"), a.textContent = "Time point", r = N(), s = m("th"), s.textContent = "As of", o = N(), _ = m("th"), _.textContent = "Value", c = N(), d = m("th"), d.textContent = "→", h = N(), p = m("th"), Z && Z.c(), b = N(), g = m("tbody"), k = m("tr"), y = m("td"), y.textContent = "Current", v = N(), w = m("td"), $ = I(q), j = N(), O = m("td"), C = I(A), z = I(" ("), B = I(H), R = I(")"), P = N(), E = m("td"), pe(F.$$.fragment), L = N(), X = m("td"), ne && ne.c(), V = N();
+      e = m("div"), l = m("table"), i = m("thead"), n = m("tr"), a = m("th"), a.textContent = "Time point", r = N(), s = m("th"), s.textContent = "As of", o = N(), _ = m("th"), _.textContent = "Value", c = N(), d = m("th"), d.textContent = "→", h = N(), p = m("th"), Z && Z.c(), g = N(), b = m("tbody"), k = m("tr"), y = m("td"), y.textContent = "Current", v = N(), w = m("td"), $ = E(q), j = N(), I = m("td"), M = E(A), z = E(" ("), B = E(H), R = E(")"), P = N(), O = m("td"), pe(F.$$.fragment), L = N(), X = m("td"), ae && ae.c(), V = N();
       for (let W = 0; W < K.length; W += 1)
         K[W].c();
-      u(a, "class", "svelte-1gm7n3s"), u(s, "class", "svelte-1gm7n3s"), u(_, "class", "svelte-1gm7n3s"), u(d, "class", "svelte-1gm7n3s"), u(p, "class", "svelte-1gm7n3s"), u(y, "class", "svelte-1gm7n3s"), u(w, "class", "svelte-1gm7n3s"), u(O, "class", "svelte-1gm7n3s"), u(E, "class", "in-table-bar-cell svelte-1gm7n3s"), u(X, "class", "svelte-1gm7n3s"), u(l, "class", "svelte-1gm7n3s"), u(e, "class", "time-machine-body svelte-1gm7n3s");
+      u(a, "class", "svelte-1gm7n3s"), u(s, "class", "svelte-1gm7n3s"), u(_, "class", "svelte-1gm7n3s"), u(d, "class", "svelte-1gm7n3s"), u(p, "class", "svelte-1gm7n3s"), u(y, "class", "svelte-1gm7n3s"), u(w, "class", "svelte-1gm7n3s"), u(I, "class", "svelte-1gm7n3s"), u(O, "class", "in-table-bar-cell svelte-1gm7n3s"), u(X, "class", "svelte-1gm7n3s"), u(l, "class", "svelte-1gm7n3s"), u(e, "class", "time-machine-body svelte-1gm7n3s");
     },
     m(W, J) {
-      M(W, e, J), f(e, l), f(l, i), f(i, n), f(n, a), f(n, r), f(n, s), f(n, o), f(n, _), f(n, c), f(n, d), f(n, h), f(n, p), Z && Z.m(p, null), f(l, b), f(l, g), f(g, k), f(k, y), f(k, v), f(k, w), f(w, $), f(k, j), f(k, O), f(O, C), f(O, z), f(O, B), f(O, R), f(k, P), f(k, E), de(F, E, null), f(k, L), f(k, X), ne && ne.m(X, null), f(g, V);
+      S(W, e, J), f(e, l), f(l, i), f(i, n), f(n, a), f(n, r), f(n, s), f(n, o), f(n, _), f(n, c), f(n, d), f(n, h), f(n, p), Z && Z.m(p, null), f(l, g), f(l, b), f(b, k), f(k, y), f(k, v), f(k, w), f(w, $), f(k, j), f(k, I), f(I, M), f(I, z), f(I, B), f(I, R), f(k, P), f(k, O), de(F, O, null), f(k, L), f(k, X), ae && ae.m(X, null), f(b, V);
       for (let ee = 0; ee < K.length; ee += 1)
-        K[ee] && K[ee].m(g, null);
+        K[ee] && K[ee].m(b, null);
       Q = !0;
     },
     p(W, [J]) {
@@ -30709,7 +30759,7 @@ function E5(t) {
       64) && q !== (q = /*$timeMachineData*/
       W[6].curr_data.asof + "") && U($, q), (!Q || J & /*$timeMachineData*/
       64) && A !== (A = /*$timeMachineData*/
-      W[6].curr_data.value + "") && U(C, A), (!Q || J & /*$timeMachineData*/
+      W[6].curr_data.value + "") && U(M, A), (!Q || J & /*$timeMachineData*/
       64) && H !== (H = /*$timeMachineData*/
       W[6].curr_data.unit + "") && U(B, H);
       const ee = {};
@@ -30720,9 +30770,9 @@ function E5(t) {
       W[4]), J & /*maxValue*/
       8 && (ee.max = /*maxValue*/
       W[3]), F.$set(ee), /*addToBasket*/
-      W[1] ? ne ? (ne.p(W, J), J & /*addToBasket*/
-      2 && T(ne, 1)) : (ne = dh(W), ne.c(), T(ne, 1), ne.m(X, null)) : ne && (be(), D(ne, 1, 1, () => {
-        ne = null;
+      W[1] ? ae ? (ae.p(W, J), J & /*addToBasket*/
+      2 && T(ae, 1)) : (ae = dh(W), ae.c(), T(ae, 1), ae.m(X, null)) : ae && (be(), D(ae, 1, 1, () => {
+        ae = null;
       }), ke()), J & /*addToBasket, basket_codes, $basket, $timeMachineData, minValue, maxValue*/
       250) {
         se = $e(
@@ -30732,7 +30782,7 @@ function E5(t) {
         let we;
         for (we = 0; we < se.length; we += 1) {
           const Re = _h(W, se, we);
-          K[we] ? (K[we].p(Re, J), T(K[we], 1)) : (K[we] = ph(Re), K[we].c(), T(K[we], 1), K[we].m(g, null));
+          K[we] ? (K[we].p(Re, J), T(K[we], 1)) : (K[we] = ph(Re), K[we].c(), T(K[we], 1), K[we].m(b, null));
         }
         for (be(), we = se.length; we < K.length; we += 1)
           Y(we);
@@ -30741,53 +30791,53 @@ function E5(t) {
     },
     i(W) {
       if (!Q) {
-        T(Z), T(F.$$.fragment, W), T(ne);
+        T(Z), T(F.$$.fragment, W), T(ae);
         for (let J = 0; J < se.length; J += 1)
           T(K[J]);
         Q = !0;
       }
     },
     o(W) {
-      D(Z), D(F.$$.fragment, W), D(ne), K = K.filter(Boolean);
+      D(Z), D(F.$$.fragment, W), D(ae), K = K.filter(Boolean);
       for (let J = 0; J < K.length; J += 1)
         D(K[J]);
       Q = !1;
     },
     d(W) {
-      W && S(e), Z && Z.d(), he(F), ne && ne.d(), Ye(K, W);
+      W && C(e), Z && Z.d(), he(F), ae && ae.d(), Ye(K, W);
     }
   };
 }
-function I5(t, e, l) {
-  let i, n = ae, a = () => (n(), n = st(_, (v) => l(6, i = v)), _), r, s = ae, o = () => (s(), s = st(d, (v) => l(7, r = v)), d);
+function R5(t, e, l) {
+  let i, n = ne, a = () => (n(), n = st(_, (v) => l(6, i = v)), _), r, s = ne, o = () => (s(), s = st(d, (v) => l(7, r = v)), d);
   t.$$.on_destroy.push(() => n()), t.$$.on_destroy.push(() => s());
   let { timeMachineData: _ = Oe(), addToBasket: c, basket: d } = e;
   a(), o();
-  let h = -1 / 0, p = 1 / 0, b = {};
+  let h = -1 / 0, p = 1 / 0, g = {};
   Tt(() => {
-    l(3, h = i.curr_data.value > h ? i.curr_data.value : h), l(4, p = i.curr_data.value < p ? i.curr_data.value : p), l(5, b.curr = `${i.key}_curr = ${i.code_header}${i.code_key}${i.code_footer}`, b), l(5, b.total = `${i.key}_timed = [${i.key}_curr`, b);
+    l(3, h = i.curr_data.value > h ? i.curr_data.value : h), l(4, p = i.curr_data.value < p ? i.curr_data.value : p), l(5, g.curr = `${i.key}_curr = ${i.code_header}${i.code_key}${i.code_footer}`, g), l(5, g.total = `${i.key}_timed = [${i.key}_curr`, g);
     let v = 0;
     for (let w of i.history_data)
-      l(3, h = w.data.value > h ? w.data.value : h), l(4, p = w.data.value < p ? w.data.value : p), l(5, b[v] = `${i.key}_h_${v} = ${i.code_header}${i.code_key}${i.code_footer}`, b), l(5, b[v] = b[v].replace(".properties()", ".properties(datetime=" + ag(w.date) + ")"), b), l(5, b.total += `, ${i.key}_h_${v}`, b), v++;
-    l(5, b.total += "]", b), l(4, p -= (h - p) / 4);
+      l(3, h = w.data.value > h ? w.data.value : h), l(4, p = w.data.value < p ? w.data.value : p), l(5, g[v] = `${i.key}_h_${v} = ${i.code_header}${i.code_key}${i.code_footer}`, g), l(5, g[v] = g[v].replace(".properties()", ".properties(datetime=" + a0(w.date) + ")"), g), l(5, g.total += `, ${i.key}_h_${v}`, g), v++;
+    l(5, g.total += "]", g), l(4, p -= (h - p) / 4);
   });
-  const g = () => {
-    if (r.includes(b.total)) {
-      r.includes(b.curr) && c(b.curr);
+  const b = () => {
+    if (r.includes(g.total)) {
+      r.includes(g.curr) && c(g.curr);
       let v = 0;
       for (let w of i.history_data)
-        r.includes(b[v]) && c(b[v]), v++;
+        r.includes(g[v]) && c(g[v]), v++;
     } else {
-      r.includes(b.curr) || c(b.curr);
+      r.includes(g.curr) || c(g.curr);
       let v = 0;
       for (let w of i.history_data)
-        r.includes(b[v]) || c(b[v]), v++;
+        r.includes(g[v]) || c(g[v]), v++;
     }
-    c(b.total);
+    c(g.total);
   }, k = () => {
-    c(b.curr), !r.includes(b.curr) && r.includes(b.total) && c(b.total);
+    c(g.curr), !r.includes(g.curr) && r.includes(g.total) && c(g.total);
   }, y = (v) => {
-    c(b[v]), !r.includes(b[v]) && r.includes(b.total) && c(b.total);
+    c(g[v]), !r.includes(g[v]) && r.includes(g.total) && c(g.total);
   };
   return t.$$set = (v) => {
     "timeMachineData" in v && a(l(0, _ = v.timeMachineData)), "addToBasket" in v && l(1, c = v.addToBasket), "basket" in v && o(l(2, d = v.basket));
@@ -30797,17 +30847,17 @@ function I5(t, e, l) {
     d,
     h,
     p,
-    b,
+    g,
     i,
     r,
-    g,
+    b,
     k,
     y
   ];
 }
-class D5 extends Ve {
+class H5 extends Ve {
   constructor(e) {
-    super(), Qe(this, e, I5, E5, Fe, {
+    super(), Qe(this, e, R5, D5, Fe, {
       timeMachineData: 0,
       addToBasket: 1,
       basket: 2
@@ -30835,7 +30885,7 @@ function gh(t) {
       e = m("button"), pe(l.$$.fragment), u(e, "class", "basket svelte-ymle7z");
     },
     m(r, s) {
-      M(r, e, s), de(l, e, null), i = !0, n || (a = te(
+      S(r, e, s), de(l, e, null), i = !0, n || (a = te(
         e,
         "click",
         /*click_handler*/
@@ -30858,7 +30908,7 @@ function gh(t) {
       D(l.$$.fragment, r), i = !1;
     },
     d(r) {
-      r && S(e), he(l), n = !1, a();
+      r && C(e), he(l), n = !1, a();
     }
   };
 }
@@ -30879,7 +30929,7 @@ function bh(t) {
       e = m("button"), pe(l.$$.fragment), u(e, "class", "basket svelte-ymle7z");
     },
     m(r, s) {
-      M(r, e, s), de(l, e, null), i = !0, n || (a = te(
+      S(r, e, s), de(l, e, null), i = !0, n || (a = te(
         e,
         "click",
         /*click_handler_1*/
@@ -30902,7 +30952,7 @@ function bh(t) {
       D(l.$$.fragment, r), i = !1;
     },
     d(r) {
-      r && S(e), he(l), n = !1, a();
+      r && C(e), he(l), n = !1, a();
     }
   };
 }
@@ -30936,7 +30986,7 @@ function kh(t) {
       e = m("button"), pe(l.$$.fragment), u(e, "class", "basket svelte-ymle7z");
     },
     m(s, o) {
-      M(s, e, o), de(l, e, null), i = !0, n || (a = te(e, "click", r), n = !0);
+      S(s, e, o), de(l, e, null), i = !0, n || (a = te(e, "click", r), n = !0);
     },
     p(s, o) {
       t = s;
@@ -30958,7 +31008,7 @@ function kh(t) {
       D(l.$$.fragment, s), i = !1;
     },
     d(s) {
-      s && S(e), he(l), n = !1, a();
+      s && C(e), he(l), n = !1, a();
     }
   };
 }
@@ -30972,17 +31022,17 @@ function vh(t) {
   ), o, _, c, d = (
     /*dp*/
     t[11].data.parameters.gate_error.value + ""
-  ), h, p, b, g, k, y, v = (
+  ), h, p, g, b, k, y, v = (
     /*dp*/
     t[11].data.parameters.gate_length.asof + ""
   ), w, q, $, j = (
     /*dp*/
     t[11].data.parameters.gate_length.value + ""
-  ), O, A, C = (
+  ), I, A, M = (
     /*dp*/
     t[11].data.parameters.gate_length.unit + ""
-  ), z, H, B, R, P, E, F, L, X;
-  g = new Xi({
+  ), z, H, B, R, P, O, F, L, X;
+  b = new Xi({
     props: {
       value: (
         /*dp*/
@@ -31020,11 +31070,11 @@ function vh(t) {
   );
   return {
     c() {
-      e = m("tr"), l = m("td"), n = I(i), a = N(), r = m("td"), o = I(s), _ = N(), c = m("td"), h = I(d), p = N(), b = m("td"), pe(g.$$.fragment), k = N(), y = m("td"), w = I(v), q = N(), $ = m("td"), O = I(j), A = I(`
-            (`), z = I(C), H = I(")"), B = N(), R = m("td"), pe(P.$$.fragment), E = N(), F = m("td"), V && V.c(), L = N(), u(l, "class", "svelte-ymle7z"), u(r, "class", "svelte-ymle7z"), u(c, "class", "svelte-ymle7z"), u(b, "class", "in-table-bar-cell svelte-ymle7z"), u(y, "class", "svelte-ymle7z"), u($, "class", "svelte-ymle7z"), u(R, "class", "in-table-bar-cell svelte-ymle7z"), u(F, "class", "svelte-ymle7z");
+      e = m("tr"), l = m("td"), n = E(i), a = N(), r = m("td"), o = E(s), _ = N(), c = m("td"), h = E(d), p = N(), g = m("td"), pe(b.$$.fragment), k = N(), y = m("td"), w = E(v), q = N(), $ = m("td"), I = E(j), A = E(`
+            (`), z = E(M), H = E(")"), B = N(), R = m("td"), pe(P.$$.fragment), O = N(), F = m("td"), V && V.c(), L = N(), u(l, "class", "svelte-ymle7z"), u(r, "class", "svelte-ymle7z"), u(c, "class", "svelte-ymle7z"), u(g, "class", "in-table-bar-cell svelte-ymle7z"), u(y, "class", "svelte-ymle7z"), u($, "class", "svelte-ymle7z"), u(R, "class", "in-table-bar-cell svelte-ymle7z"), u(F, "class", "svelte-ymle7z");
     },
     m(Q, Z) {
-      M(Q, e, Z), f(e, l), f(l, n), f(e, a), f(e, r), f(r, o), f(e, _), f(e, c), f(c, h), f(e, p), f(e, b), de(g, b, null), f(e, k), f(e, y), f(y, w), f(e, q), f(e, $), f($, O), f($, A), f($, z), f($, H), f(e, B), f(e, R), de(P, R, null), f(e, E), f(e, F), V && V.m(F, null), f(e, L), X = !0;
+      S(Q, e, Z), f(e, l), f(l, n), f(e, a), f(e, r), f(r, o), f(e, _), f(e, c), f(c, h), f(e, p), f(e, g), de(b, g, null), f(e, k), f(e, y), f(y, w), f(e, q), f(e, $), f($, I), f($, A), f($, z), f($, H), f(e, B), f(e, R), de(P, R, null), f(e, O), f(e, F), V && V.m(F, null), f(e, L), X = !0;
     },
     p(Q, Z) {
       (!X || Z & /*$timeMachineData*/
@@ -31034,20 +31084,20 @@ function vh(t) {
       Q[11].data.parameters.gate_error.asof + "") && U(o, s), (!X || Z & /*$timeMachineData*/
       64) && d !== (d = /*dp*/
       Q[11].data.parameters.gate_error.value + "") && U(h, d);
-      const ne = {};
+      const ae = {};
       Z & /*$timeMachineData*/
-      64 && (ne.value = /*dp*/
+      64 && (ae.value = /*dp*/
       Q[11].data.parameters.gate_error.value), Z & /*minValue*/
-      16 && (ne.min = /*minValue*/
+      16 && (ae.min = /*minValue*/
       Q[4][0]), Z & /*maxValue*/
-      8 && (ne.max = /*maxValue*/
-      Q[3][0]), g.$set(ne), (!X || Z & /*$timeMachineData*/
+      8 && (ae.max = /*maxValue*/
+      Q[3][0]), b.$set(ae), (!X || Z & /*$timeMachineData*/
       64) && v !== (v = /*dp*/
       Q[11].data.parameters.gate_length.asof + "") && U(w, v), (!X || Z & /*$timeMachineData*/
       64) && j !== (j = /*dp*/
-      Q[11].data.parameters.gate_length.value + "") && U(O, j), (!X || Z & /*$timeMachineData*/
-      64) && C !== (C = /*dp*/
-      Q[11].data.parameters.gate_length.unit + "") && U(z, C);
+      Q[11].data.parameters.gate_length.value + "") && U(I, j), (!X || Z & /*$timeMachineData*/
+      64) && M !== (M = /*dp*/
+      Q[11].data.parameters.gate_length.unit + "") && U(z, M);
       const se = {};
       Z & /*$timeMachineData*/
       64 && (se.value = /*dp*/
@@ -31062,27 +31112,27 @@ function vh(t) {
       }), ke());
     },
     i(Q) {
-      X || (T(g.$$.fragment, Q), T(P.$$.fragment, Q), T(V), X = !0);
+      X || (T(b.$$.fragment, Q), T(P.$$.fragment, Q), T(V), X = !0);
     },
     o(Q) {
-      D(g.$$.fragment, Q), D(P.$$.fragment, Q), D(V), X = !1;
+      D(b.$$.fragment, Q), D(P.$$.fragment, Q), D(V), X = !1;
     },
     d(Q) {
-      Q && S(e), he(g), he(P), V && V.d();
+      Q && C(e), he(b), he(P), V && V.d();
     }
   };
 }
-function R5(t) {
-  let e, l, i, n, a, r, s, o, _, c, d, h, p, b, g, k, y, v, w, q, $, j, O, A, C, z = (
+function L5(t) {
+  let e, l, i, n, a, r, s, o, _, c, d, h, p, g, b, k, y, v, w, q, $, j, I, A, M, z = (
     /*$timeMachineData*/
     t[6].curr_data.parameters.gate_error.asof + ""
   ), H, B, R, P = (
     /*$timeMachineData*/
     t[6].curr_data.parameters.gate_error.value + ""
-  ), E, F, L, X, V, Q, Z = (
+  ), O, F, L, X, V, Q, Z = (
     /*$timeMachineData*/
     t[6].curr_data.parameters.gate_length.asof + ""
-  ), ne, se, K, Y = (
+  ), ae, se, K, Y = (
     /*$timeMachineData*/
     t[6].curr_data.parameters.gate_length.value + ""
   ), W, J, ee = (
@@ -31138,14 +31188,14 @@ function R5(t) {
   });
   return {
     c() {
-      e = m("div"), l = m("table"), i = m("thead"), n = m("tr"), a = m("th"), a.textContent = "Time point", r = N(), s = m("th"), s.textContent = "As of", o = N(), _ = m("th"), _.textContent = "Error", c = N(), d = m("th"), d.textContent = "→", h = N(), p = m("th"), p.textContent = "As of", b = N(), g = m("th"), g.textContent = "Length", k = N(), y = m("th"), y.textContent = "→", v = N(), w = m("th"), oe && oe.c(), q = N(), $ = m("tbody"), j = m("tr"), O = m("td"), O.textContent = "Current", A = N(), C = m("td"), H = I(z), B = N(), R = m("td"), E = I(P), F = N(), L = m("td"), pe(X.$$.fragment), V = N(), Q = m("td"), ne = I(Z), se = N(), K = m("td"), W = I(Y), J = I(`
-          (`), we = I(ee), Re = I(")"), ve = N(), me = m("td"), pe(fe.$$.fragment), G = N(), ye = m("td"), x && x.c(), ue = N();
+      e = m("div"), l = m("table"), i = m("thead"), n = m("tr"), a = m("th"), a.textContent = "Time point", r = N(), s = m("th"), s.textContent = "As of", o = N(), _ = m("th"), _.textContent = "Error", c = N(), d = m("th"), d.textContent = "→", h = N(), p = m("th"), p.textContent = "As of", g = N(), b = m("th"), b.textContent = "Length", k = N(), y = m("th"), y.textContent = "→", v = N(), w = m("th"), oe && oe.c(), q = N(), $ = m("tbody"), j = m("tr"), I = m("td"), I.textContent = "Current", A = N(), M = m("td"), H = E(z), B = N(), R = m("td"), O = E(P), F = N(), L = m("td"), pe(X.$$.fragment), V = N(), Q = m("td"), ae = E(Z), se = N(), K = m("td"), W = E(Y), J = E(`
+          (`), we = E(ee), Re = E(")"), ve = N(), me = m("td"), pe(fe.$$.fragment), G = N(), ye = m("td"), x && x.c(), ue = N();
       for (let je = 0; je < re.length; je += 1)
         re[je].c();
-      u(a, "class", "svelte-ymle7z"), u(s, "class", "svelte-ymle7z"), u(_, "class", "svelte-ymle7z"), u(d, "class", "svelte-ymle7z"), u(p, "class", "svelte-ymle7z"), u(g, "class", "svelte-ymle7z"), u(y, "class", "svelte-ymle7z"), u(w, "class", "svelte-ymle7z"), u(O, "class", "svelte-ymle7z"), u(C, "class", "svelte-ymle7z"), u(R, "class", "svelte-ymle7z"), u(L, "class", "in-table-bar-cell svelte-ymle7z"), u(Q, "class", "svelte-ymle7z"), u(K, "class", "svelte-ymle7z"), u(me, "class", "in-table-bar-cell svelte-ymle7z"), u(ye, "class", "svelte-ymle7z"), u(l, "class", "svelte-ymle7z"), u(e, "class", "time-machine-body svelte-ymle7z");
+      u(a, "class", "svelte-ymle7z"), u(s, "class", "svelte-ymle7z"), u(_, "class", "svelte-ymle7z"), u(d, "class", "svelte-ymle7z"), u(p, "class", "svelte-ymle7z"), u(b, "class", "svelte-ymle7z"), u(y, "class", "svelte-ymle7z"), u(w, "class", "svelte-ymle7z"), u(I, "class", "svelte-ymle7z"), u(M, "class", "svelte-ymle7z"), u(R, "class", "svelte-ymle7z"), u(L, "class", "in-table-bar-cell svelte-ymle7z"), u(Q, "class", "svelte-ymle7z"), u(K, "class", "svelte-ymle7z"), u(me, "class", "in-table-bar-cell svelte-ymle7z"), u(ye, "class", "svelte-ymle7z"), u(l, "class", "svelte-ymle7z"), u(e, "class", "time-machine-body svelte-ymle7z");
     },
     m(je, _e) {
-      M(je, e, _e), f(e, l), f(l, i), f(i, n), f(n, a), f(n, r), f(n, s), f(n, o), f(n, _), f(n, c), f(n, d), f(n, h), f(n, p), f(n, b), f(n, g), f(n, k), f(n, y), f(n, v), f(n, w), oe && oe.m(w, null), f(l, q), f(l, $), f($, j), f(j, O), f(j, A), f(j, C), f(C, H), f(j, B), f(j, R), f(R, E), f(j, F), f(j, L), de(X, L, null), f(j, V), f(j, Q), f(Q, ne), f(j, se), f(j, K), f(K, W), f(K, J), f(K, we), f(K, Re), f(j, ve), f(j, me), de(fe, me, null), f(j, G), f(j, ye), x && x.m(ye, null), f($, ue);
+      S(je, e, _e), f(e, l), f(l, i), f(i, n), f(n, a), f(n, r), f(n, s), f(n, o), f(n, _), f(n, c), f(n, d), f(n, h), f(n, p), f(n, g), f(n, b), f(n, k), f(n, y), f(n, v), f(n, w), oe && oe.m(w, null), f(l, q), f(l, $), f($, j), f(j, I), f(j, A), f(j, M), f(M, H), f(j, B), f(j, R), f(R, O), f(j, F), f(j, L), de(X, L, null), f(j, V), f(j, Q), f(Q, ae), f(j, se), f(j, K), f(K, W), f(K, J), f(K, we), f(K, Re), f(j, ve), f(j, me), de(fe, me, null), f(j, G), f(j, ye), x && x.m(ye, null), f($, ue);
       for (let Ee = 0; Ee < re.length; Ee += 1)
         re[Ee] && re[Ee].m($, null);
       le = !0;
@@ -31159,7 +31209,7 @@ function R5(t) {
       64) && z !== (z = /*$timeMachineData*/
       je[6].curr_data.parameters.gate_error.asof + "") && U(H, z), (!le || _e & /*$timeMachineData*/
       64) && P !== (P = /*$timeMachineData*/
-      je[6].curr_data.parameters.gate_error.value + "") && U(E, P);
+      je[6].curr_data.parameters.gate_error.value + "") && U(O, P);
       const Ee = {};
       _e & /*$timeMachineData*/
       64 && (Ee.value = /*$timeMachineData*/
@@ -31169,7 +31219,7 @@ function R5(t) {
       8 && (Ee.max = /*maxValue*/
       je[3][0]), X.$set(Ee), (!le || _e & /*$timeMachineData*/
       64) && Z !== (Z = /*$timeMachineData*/
-      je[6].curr_data.parameters.gate_length.asof + "") && U(ne, Z), (!le || _e & /*$timeMachineData*/
+      je[6].curr_data.parameters.gate_length.asof + "") && U(ae, Z), (!le || _e & /*$timeMachineData*/
       64) && Y !== (Y = /*$timeMachineData*/
       je[6].curr_data.parameters.gate_length.value + "") && U(W, Y), (!le || _e & /*$timeMachineData*/
       64) && ee !== (ee = /*$timeMachineData*/
@@ -31216,16 +31266,16 @@ function R5(t) {
       le = !1;
     },
     d(je) {
-      je && S(e), oe && oe.d(), he(X), he(fe), x && x.d(), Ye(re, je);
+      je && C(e), oe && oe.d(), he(X), he(fe), x && x.d(), Ye(re, je);
     }
   };
 }
-function H5(t, e, l) {
-  let i, n = ae, a = () => (n(), n = st(_, (v) => l(6, i = v)), _), r, s = ae, o = () => (s(), s = st(d, (v) => l(7, r = v)), d);
+function F5(t, e, l) {
+  let i, n = ne, a = () => (n(), n = st(_, (v) => l(6, i = v)), _), r, s = ne, o = () => (s(), s = st(d, (v) => l(7, r = v)), d);
   t.$$.on_destroy.push(() => n()), t.$$.on_destroy.push(() => s());
   let { timeMachineData: _ = Oe(), addToBasket: c, basket: d } = e;
   a(), o();
-  let h = [-1 / 0, -1 / 0], p = [1 / 0, 1 / 0], b = {};
+  let h = [-1 / 0, -1 / 0], p = [1 / 0, 1 / 0], g = {};
   Tt(() => {
     let v = [
       i.curr_data.parameters.gate_error.value,
@@ -31237,7 +31287,7 @@ function H5(t, e, l) {
     ]), l(4, p = [
       v[0] < p[0] ? v[0] : p[0],
       v[1] < p[1] ? v[1] : p[1]
-    ]), l(5, b.curr = `gate_${i.curr_data.gate}_${i.curr_data.qubits.join("_")}_curr = ${i.code_header}gate=${i.curr_data.gate}, qubits=[${i.curr_data.qubits.join(", ")}]${i.code_footer}`, b), l(5, b.total = `gate_${i.key}_timed = [gate_${i.curr_data.gate}_${i.curr_data.qubits.join("_")}_curr`, b);
+    ]), l(5, g.curr = `gate_${i.curr_data.gate}_${i.curr_data.qubits.join("_")}_curr = ${i.code_header}gate=${i.curr_data.gate}, qubits=[${i.curr_data.qubits.join(", ")}]${i.code_footer}`, g), l(5, g.total = `gate_${i.key}_timed = [gate_${i.curr_data.gate}_${i.curr_data.qubits.join("_")}_curr`, g);
     let w = 0;
     for (let q of i.history_data) {
       let $ = [q.data.parameters.gate_error.value, q.data.parameters.gate_length.value];
@@ -31247,27 +31297,27 @@ function H5(t, e, l) {
       ]), l(4, p = [
         $[0] < p[0] ? $[0] : p[0],
         $[1] < p[1] ? $[1] : p[1]
-      ]), l(5, b[w] = `gate_${q.data.gate}_${q.data.qubits.join("_")}_h_${w} = ${i.code_header.replace("properties()", "properties(datetime=" + ag(q.date) + ")")}gate=${q.data.gate}, qubits=[${q.data.qubits.join(", ")}]${i.code_footer}`, b), l(5, b.total += `, gate_${q.data.gate}_${q.data.qubits.join("_")}_h_${w}`, b), w++;
+      ]), l(5, g[w] = `gate_${q.data.gate}_${q.data.qubits.join("_")}_h_${w} = ${i.code_header.replace("properties()", "properties(datetime=" + a0(q.date) + ")")}gate=${q.data.gate}, qubits=[${q.data.qubits.join(", ")}]${i.code_footer}`, g), l(5, g.total += `, gate_${q.data.gate}_${q.data.qubits.join("_")}_h_${w}`, g), w++;
     }
-    l(4, p[0] -= (h[0] - p[0]) / 4, p), l(4, p[1] -= (h[1] - p[1]) / 4, p), l(5, b.total += "]", b);
+    l(4, p[0] -= (h[0] - p[0]) / 4, p), l(4, p[1] -= (h[1] - p[1]) / 4, p), l(5, g.total += "]", g);
   });
-  const g = () => {
-    if (r.includes(b.total)) {
-      r.includes(b.curr) && c(b.curr);
+  const b = () => {
+    if (r.includes(g.total)) {
+      r.includes(g.curr) && c(g.curr);
       let v = 0;
       for (let w of i.history_data)
-        r.includes(b[v]) && c(b[v]), v++;
+        r.includes(g[v]) && c(g[v]), v++;
     } else {
-      r.includes(b.curr) || c(b.curr);
+      r.includes(g.curr) || c(g.curr);
       let v = 0;
       for (let w of i.history_data)
-        r.includes(b[v]) || c(b[v]), v++;
+        r.includes(g[v]) || c(g[v]), v++;
     }
-    c(b.total);
+    c(g.total);
   }, k = () => {
-    c(b.curr), !r.includes(b.curr) && r.includes(b.total) && c(b.total);
+    c(g.curr), !r.includes(g.curr) && r.includes(g.total) && c(g.total);
   }, y = (v) => {
-    c(b[v]), !r.includes(b[v]) && r.includes(b.total) && c(b.total);
+    c(g[v]), !r.includes(g[v]) && r.includes(g.total) && c(g.total);
   };
   return t.$$set = (v) => {
     "timeMachineData" in v && a(l(0, _ = v.timeMachineData)), "addToBasket" in v && l(1, c = v.addToBasket), "basket" in v && o(l(2, d = v.basket));
@@ -31277,114 +31327,114 @@ function H5(t, e, l) {
     d,
     h,
     p,
-    b,
+    g,
     i,
     r,
-    g,
+    b,
     k,
     y
   ];
 }
-class L5 extends Ve {
+class Q5 extends Ve {
   constructor(e) {
-    super(), Qe(this, e, H5, R5, Fe, {
+    super(), Qe(this, e, F5, L5, Fe, {
       timeMachineData: 0,
       addToBasket: 1,
       basket: 2
     });
   }
 }
-function F5(t) {
-  let e, l;
-  return e = new L5({
-    props: {
-      addToBasket: (
-        /*addToBasket*/
-        t[2]
-      ),
-      basket: (
-        /*basket*/
-        t[3]
-      ),
-      timeMachineData: (
-        /*timeMachineData*/
-        t[0]
-      )
-    }
-  }), {
-    c() {
-      pe(e.$$.fragment);
-    },
-    m(i, n) {
-      de(e, i, n), l = !0;
-    },
-    p(i, n) {
-      const a = {};
-      n & /*addToBasket*/
-      4 && (a.addToBasket = /*addToBasket*/
-      i[2]), n & /*basket*/
-      8 && (a.basket = /*basket*/
-      i[3]), n & /*timeMachineData*/
-      1 && (a.timeMachineData = /*timeMachineData*/
-      i[0]), e.$set(a);
-    },
-    i(i) {
-      l || (T(e.$$.fragment, i), l = !0);
-    },
-    o(i) {
-      D(e.$$.fragment, i), l = !1;
-    },
-    d(i) {
-      he(e, i);
-    }
-  };
-}
-function Q5(t) {
-  let e, l;
-  return e = new D5({
-    props: {
-      addToBasket: (
-        /*addToBasket*/
-        t[2]
-      ),
-      basket: (
-        /*basket*/
-        t[3]
-      ),
-      timeMachineData: (
-        /*timeMachineData*/
-        t[0]
-      )
-    }
-  }), {
-    c() {
-      pe(e.$$.fragment);
-    },
-    m(i, n) {
-      de(e, i, n), l = !0;
-    },
-    p(i, n) {
-      const a = {};
-      n & /*addToBasket*/
-      4 && (a.addToBasket = /*addToBasket*/
-      i[2]), n & /*basket*/
-      8 && (a.basket = /*basket*/
-      i[3]), n & /*timeMachineData*/
-      1 && (a.timeMachineData = /*timeMachineData*/
-      i[0]), e.$set(a);
-    },
-    i(i) {
-      l || (T(e.$$.fragment, i), l = !0);
-    },
-    o(i) {
-      D(e.$$.fragment, i), l = !1;
-    },
-    d(i) {
-      he(e, i);
-    }
-  };
-}
 function V5(t) {
+  let e, l;
+  return e = new Q5({
+    props: {
+      addToBasket: (
+        /*addToBasket*/
+        t[2]
+      ),
+      basket: (
+        /*basket*/
+        t[3]
+      ),
+      timeMachineData: (
+        /*timeMachineData*/
+        t[0]
+      )
+    }
+  }), {
+    c() {
+      pe(e.$$.fragment);
+    },
+    m(i, n) {
+      de(e, i, n), l = !0;
+    },
+    p(i, n) {
+      const a = {};
+      n & /*addToBasket*/
+      4 && (a.addToBasket = /*addToBasket*/
+      i[2]), n & /*basket*/
+      8 && (a.basket = /*basket*/
+      i[3]), n & /*timeMachineData*/
+      1 && (a.timeMachineData = /*timeMachineData*/
+      i[0]), e.$set(a);
+    },
+    i(i) {
+      l || (T(e.$$.fragment, i), l = !0);
+    },
+    o(i) {
+      D(e.$$.fragment, i), l = !1;
+    },
+    d(i) {
+      he(e, i);
+    }
+  };
+}
+function X5(t) {
+  let e, l;
+  return e = new H5({
+    props: {
+      addToBasket: (
+        /*addToBasket*/
+        t[2]
+      ),
+      basket: (
+        /*basket*/
+        t[3]
+      ),
+      timeMachineData: (
+        /*timeMachineData*/
+        t[0]
+      )
+    }
+  }), {
+    c() {
+      pe(e.$$.fragment);
+    },
+    m(i, n) {
+      de(e, i, n), l = !0;
+    },
+    p(i, n) {
+      const a = {};
+      n & /*addToBasket*/
+      4 && (a.addToBasket = /*addToBasket*/
+      i[2]), n & /*basket*/
+      8 && (a.basket = /*basket*/
+      i[3]), n & /*timeMachineData*/
+      1 && (a.timeMachineData = /*timeMachineData*/
+      i[0]), e.$set(a);
+    },
+    i(i) {
+      l || (T(e.$$.fragment, i), l = !0);
+    },
+    o(i) {
+      D(e.$$.fragment, i), l = !1;
+    },
+    d(i) {
+      he(e, i);
+    }
+  };
+}
+function G5(t) {
   let e, l, i, n, a, r = (
     /*$timeMachineData*/
     t[4].parentKey + ""
@@ -31392,54 +31442,54 @@ function V5(t) {
     /*$timeMachineData*/
     (t[4].title_key || /*$timeMachineData*/
     t[4].key) + ""
-  ), c, d, h, p, b, g, k, y, v, w;
-  const q = [Q5, F5], $ = [];
-  function j(O, A) {
+  ), c, d, h, p, g, b, k, y, v, w;
+  const q = [X5, V5], $ = [];
+  function j(I, A) {
     return (
       /*$timeMachineData*/
-      O[4].datatype === "nudv-map" ? 0 : (
+      I[4].datatype === "nudv-map" ? 0 : (
         /*$timeMachineData*/
-        O[4].datatype === "gates" ? 1 : -1
+        I[4].datatype === "gates" ? 1 : -1
       )
     );
   }
-  return ~(g = j(t)) && (k = $[g] = q[g](t)), {
+  return ~(b = j(t)) && (k = $[b] = q[b](t)), {
     c() {
-      e = m("div"), l = m("div"), i = m("h2"), n = I("History of "), a = m("code"), s = I(r), o = I("."), c = I(_), d = N(), h = m("button"), h.textContent = "×", p = N(), b = m("div"), k && k.c(), u(a, "class", "svelte-sjkial"), u(h, "class", "close svelte-sjkial"), u(i, "class", "svelte-sjkial"), u(b, "class", "time-machine-body svelte-sjkial"), u(l, "class", "time-machine-modal svelte-sjkial"), u(e, "class", "time-machine-fade svelte-sjkial"), u(e, "tabindex", "-1");
+      e = m("div"), l = m("div"), i = m("h2"), n = E("History of "), a = m("code"), s = E(r), o = E("."), c = E(_), d = N(), h = m("button"), h.textContent = "×", p = N(), g = m("div"), k && k.c(), u(a, "class", "svelte-sjkial"), u(h, "class", "close svelte-sjkial"), u(i, "class", "svelte-sjkial"), u(g, "class", "time-machine-body svelte-sjkial"), u(l, "class", "time-machine-modal svelte-sjkial"), u(e, "class", "time-machine-fade svelte-sjkial"), u(e, "tabindex", "-1");
     },
-    m(O, A) {
-      M(O, e, A), f(e, l), f(l, i), f(i, n), f(i, a), f(a, s), f(a, o), f(a, c), f(i, d), f(i, h), f(l, p), f(l, b), ~g && $[g].m(b, null), y = !0, v || (w = te(
+    m(I, A) {
+      S(I, e, A), f(e, l), f(l, i), f(i, n), f(i, a), f(a, s), f(a, o), f(a, c), f(i, d), f(i, h), f(l, p), f(l, g), ~b && $[b].m(g, null), y = !0, v || (w = te(
         h,
         "click",
         /*click_handler*/
         t[5]
       ), v = !0);
     },
-    p(O, [A]) {
+    p(I, [A]) {
       (!y || A & /*$timeMachineData*/
       16) && r !== (r = /*$timeMachineData*/
-      O[4].parentKey + "") && U(s, r), (!y || A & /*$timeMachineData*/
+      I[4].parentKey + "") && U(s, r), (!y || A & /*$timeMachineData*/
       16) && _ !== (_ = /*$timeMachineData*/
-      (O[4].title_key || /*$timeMachineData*/
-      O[4].key) + "") && U(c, _);
-      let C = g;
-      g = j(O), g === C ? ~g && $[g].p(O, A) : (k && (be(), D($[C], 1, 1, () => {
-        $[C] = null;
-      }), ke()), ~g ? (k = $[g], k ? k.p(O, A) : (k = $[g] = q[g](O), k.c()), T(k, 1), k.m(b, null)) : k = null);
+      (I[4].title_key || /*$timeMachineData*/
+      I[4].key) + "") && U(c, _);
+      let M = b;
+      b = j(I), b === M ? ~b && $[b].p(I, A) : (k && (be(), D($[M], 1, 1, () => {
+        $[M] = null;
+      }), ke()), ~b ? (k = $[b], k ? k.p(I, A) : (k = $[b] = q[b](I), k.c()), T(k, 1), k.m(g, null)) : k = null);
     },
-    i(O) {
+    i(I) {
       y || (T(k), y = !0);
     },
-    o(O) {
+    o(I) {
       D(k), y = !1;
     },
-    d(O) {
-      O && S(e), ~g && $[g].d(), v = !1, w();
+    d(I) {
+      I && C(e), ~b && $[b].d(), v = !1, w();
     }
   };
 }
-function X5(t, e, l) {
-  let i, n = ae, a = () => (n(), n = st(r, (d) => l(4, i = d)), r);
+function Y5(t, e, l) {
+  let i, n = ne, a = () => (n(), n = st(r, (d) => l(4, i = d)), r);
   t.$$.on_destroy.push(() => n());
   let { timeMachineData: r = Oe(), closeTimeMachine: s = () => {
   }, addToBasket: o, basket: _ } = e;
@@ -31459,9 +31509,9 @@ function X5(t, e, l) {
     c
   ];
 }
-class G5 extends Ve {
+class K5 extends Ve {
   constructor(e) {
-    super(), Qe(this, e, X5, V5, Fe, {
+    super(), Qe(this, e, Y5, G5, Fe, {
       timeMachineData: 0,
       closeTimeMachine: 1,
       addToBasket: 2,
@@ -31469,16 +31519,16 @@ class G5 extends Ve {
     });
   }
 }
-function Y5(t) {
-  let e, l, i, n, a, r, s, o, _, c, d, h, p, b, g, k, y;
+function U5(t) {
+  let e, l, i, n, a, r, s, o, _, c, d, h, p, g, b, k, y;
   return {
     c() {
-      e = m("div"), l = m("h4"), l.textContent = "Configure output code", i = N(), n = m("div"), a = m("div"), r = m("label"), r.textContent = "Backend variable name", s = N(), o = m("input"), c = N(), d = m("div"), h = m("label"), h.textContent = "Output code as a function", p = N(), b = m("input"), u(l, "class", "svelte-nkjr63"), u(r, "for", "code_config-var_name"), u(r, "class", "svelte-nkjr63"), u(o, "type", "text"), u(o, "id", "code_config-var_name"), o.value = _ = /*$code_config*/
-      t[1].backend_var_name, u(o, "class", "svelte-nkjr63"), u(a, "class", "input-wrap svelte-nkjr63"), u(h, "for", "code_config-as_function"), u(h, "class", "svelte-nkjr63"), u(b, "type", "checkbox"), u(b, "id", "code_config-as_function"), b.checked = g = /*$code_config*/
+      e = m("div"), l = m("h4"), l.textContent = "Configure output code", i = N(), n = m("div"), a = m("div"), r = m("label"), r.textContent = "Backend variable name", s = N(), o = m("input"), c = N(), d = m("div"), h = m("label"), h.textContent = "Output code as a function", p = N(), g = m("input"), u(l, "class", "svelte-nkjr63"), u(r, "for", "code_config-var_name"), u(r, "class", "svelte-nkjr63"), u(o, "type", "text"), u(o, "id", "code_config-var_name"), o.value = _ = /*$code_config*/
+      t[1].backend_var_name, u(o, "class", "svelte-nkjr63"), u(a, "class", "input-wrap svelte-nkjr63"), u(h, "for", "code_config-as_function"), u(h, "class", "svelte-nkjr63"), u(g, "type", "checkbox"), u(g, "id", "code_config-as_function"), g.checked = b = /*$code_config*/
       t[1].as_function, u(d, "class", "input-wrap svelte-nkjr63"), u(n, "class", "input-row svelte-nkjr63"), u(e, "class", "code-config-wrap svelte-nkjr63");
     },
     m(v, w) {
-      M(v, e, w), f(e, l), f(e, i), f(e, n), f(n, a), f(a, r), f(a, s), f(a, o), f(n, c), f(n, d), f(d, h), f(d, p), f(d, b), k || (y = [
+      S(v, e, w), f(e, l), f(e, i), f(e, n), f(n, a), f(a, r), f(a, s), f(a, o), f(n, c), f(n, d), f(d, h), f(d, p), f(d, g), k || (y = [
         te(
           o,
           "change",
@@ -31486,7 +31536,7 @@ function Y5(t) {
           t[2]
         ),
         te(
-          b,
+          g,
           "change",
           /*change_handler_1*/
           t[3]
@@ -31497,18 +31547,18 @@ function Y5(t) {
       w & /*$code_config*/
       2 && _ !== (_ = /*$code_config*/
       v[1].backend_var_name) && o.value !== _ && (o.value = _), w & /*$code_config*/
-      2 && g !== (g = /*$code_config*/
-      v[1].as_function) && (b.checked = g);
+      2 && b !== (b = /*$code_config*/
+      v[1].as_function) && (g.checked = b);
     },
-    i: ae,
-    o: ae,
+    i: ne,
+    o: ne,
     d(v) {
-      v && S(e), k = !1, wt(y);
+      v && C(e), k = !1, wt(y);
     }
   };
 }
-function K5(t, e, l) {
-  let i, n = ae, a = () => (n(), n = st(r, (_) => l(1, i = _)), r);
+function W5(t, e, l) {
+  let i, n = ne, a = () => (n(), n = st(r, (_) => l(1, i = _)), r);
   t.$$.on_destroy.push(() => n());
   let { code_config: r = Oe({}) } = e;
   a();
@@ -31521,13 +31571,13 @@ function K5(t, e, l) {
     "code_config" in _ && a(l(0, r = _.code_config));
   }, [r, i, s, o];
 }
-class U5 extends Ve {
+class J5 extends Ve {
   constructor(e) {
-    super(), Qe(this, e, K5, Y5, Fe, { code_config: 0 });
+    super(), Qe(this, e, W5, U5, Fe, { code_config: 0 });
   }
 }
 function yh(t) {
-  let e, l, i, n, a, r, s, o, _, c, d, h, p, b, g, k, y, v;
+  let e, l, i, n, a, r, s, o, _, c, d, h, p, g, b, k, y, v;
   return e = new Sl({
     props: {
       data: (
@@ -31676,7 +31726,7 @@ function yh(t) {
       section_meta: Cl[6],
       hide: !0
     }
-  }), g = new Sl({
+  }), b = new Sl({
     props: {
       data: (
         /*data*/
@@ -31719,26 +31769,26 @@ function yh(t) {
     }
   }), {
     c() {
-      pe(e.$$.fragment), l = N(), pe(i.$$.fragment), n = N(), pe(a.$$.fragment), r = N(), pe(s.$$.fragment), o = N(), pe(_.$$.fragment), c = N(), pe(d.$$.fragment), h = N(), pe(p.$$.fragment), b = N(), pe(g.$$.fragment), k = N(), pe(y.$$.fragment);
+      pe(e.$$.fragment), l = N(), pe(i.$$.fragment), n = N(), pe(a.$$.fragment), r = N(), pe(s.$$.fragment), o = N(), pe(_.$$.fragment), c = N(), pe(d.$$.fragment), h = N(), pe(p.$$.fragment), g = N(), pe(b.$$.fragment), k = N(), pe(y.$$.fragment);
     },
     m(w, q) {
-      de(e, w, q), M(w, l, q), de(i, w, q), M(w, n, q), de(a, w, q), M(w, r, q), de(s, w, q), M(w, o, q), de(_, w, q), M(w, c, q), de(d, w, q), M(w, h, q), de(p, w, q), M(w, b, q), de(g, w, q), M(w, k, q), de(y, w, q), v = !0;
+      de(e, w, q), S(w, l, q), de(i, w, q), S(w, n, q), de(a, w, q), S(w, r, q), de(s, w, q), S(w, o, q), de(_, w, q), S(w, c, q), de(d, w, q), S(w, h, q), de(p, w, q), S(w, g, q), de(b, w, q), S(w, k, q), de(y, w, q), v = !0;
     },
-    p: ae,
+    p: ne,
     i(w) {
-      v || (T(e.$$.fragment, w), T(i.$$.fragment, w), T(a.$$.fragment, w), T(s.$$.fragment, w), T(_.$$.fragment, w), T(d.$$.fragment, w), T(p.$$.fragment, w), T(g.$$.fragment, w), T(y.$$.fragment, w), v = !0);
+      v || (T(e.$$.fragment, w), T(i.$$.fragment, w), T(a.$$.fragment, w), T(s.$$.fragment, w), T(_.$$.fragment, w), T(d.$$.fragment, w), T(p.$$.fragment, w), T(b.$$.fragment, w), T(y.$$.fragment, w), v = !0);
     },
     o(w) {
-      D(e.$$.fragment, w), D(i.$$.fragment, w), D(a.$$.fragment, w), D(s.$$.fragment, w), D(_.$$.fragment, w), D(d.$$.fragment, w), D(p.$$.fragment, w), D(g.$$.fragment, w), D(y.$$.fragment, w), v = !1;
+      D(e.$$.fragment, w), D(i.$$.fragment, w), D(a.$$.fragment, w), D(s.$$.fragment, w), D(_.$$.fragment, w), D(d.$$.fragment, w), D(p.$$.fragment, w), D(b.$$.fragment, w), D(y.$$.fragment, w), v = !1;
     },
     d(w) {
-      w && (S(l), S(n), S(r), S(o), S(c), S(h), S(b), S(k)), he(e, w), he(i, w), he(a, w), he(s, w), he(_, w), he(d, w), he(p, w), he(g, w), he(y, w);
+      w && (C(l), C(n), C(r), C(o), C(c), C(h), C(g), C(k)), he(e, w), he(i, w), he(a, w), he(s, w), he(_, w), he(d, w), he(p, w), he(b, w), he(y, w);
     }
   };
 }
 function wh(t) {
   let e, l;
-  return e = new G5({
+  return e = new K5({
     props: {
       timeMachineData: (
         /*timeMachineData*/
@@ -31764,7 +31814,7 @@ function wh(t) {
     m(i, n) {
       de(e, i, n), l = !0;
     },
-    p: ae,
+    p: ne,
     i(i) {
       l || (T(e.$$.fragment, i), l = !0);
     },
@@ -31776,9 +31826,9 @@ function wh(t) {
     }
   };
 }
-function W5(t) {
+function Z5(t) {
   let e, l, i, n, a, r, s, o, _, c, d, h;
-  r = new U5({
+  r = new J5({
     props: { code_config: (
       /*code_config*/
       t[6]
@@ -31787,145 +31837,145 @@ function W5(t) {
   let p = (
     /*$data*/
     t[1] && yh(t)
-  ), b = (
+  ), g = (
     /*showTimeMachine*/
     t[0] && wh(t)
   );
   return {
     c() {
-      e = m("section"), l = m("h3"), i = I(`Machine information
-    `), n = m("button"), n.textContent = "Copy reusable code", a = N(), pe(r.$$.fragment), s = N(), p && p.c(), o = N(), b && b.c(), _ = Ae(), u(n, "class", "svelte-1pb9xsa"), u(l, "class", "svelte-1pb9xsa"), u(e, "class", "wrap svelte-1pb9xsa"), u(e, "id", "machine-viewer-wrap");
+      e = m("section"), l = m("h3"), i = E(`Machine information
+    `), n = m("button"), n.textContent = "Copy reusable code", a = N(), pe(r.$$.fragment), s = N(), p && p.c(), o = N(), g && g.c(), _ = Ae(), u(n, "class", "svelte-1pb9xsa"), u(l, "class", "svelte-1pb9xsa"), u(e, "class", "wrap svelte-1pb9xsa"), u(e, "id", "machine-viewer-wrap");
     },
-    m(g, k) {
-      M(g, e, k), f(e, l), f(l, i), f(l, n), f(e, a), de(r, e, null), f(e, s), p && p.m(e, null), M(g, o, k), b && b.m(g, k), M(g, _, k), c = !0, d || (h = te(
+    m(b, k) {
+      S(b, e, k), f(e, l), f(l, i), f(l, n), f(e, a), de(r, e, null), f(e, s), p && p.m(e, null), S(b, o, k), g && g.m(b, k), S(b, _, k), c = !0, d || (h = te(
         n,
         "click",
         /*click_handler*/
         t[15]
       ), d = !0);
     },
-    p(g, [k]) {
+    p(b, [k]) {
       /*$data*/
-      g[1] ? p ? (p.p(g, k), k & /*$data*/
-      2 && T(p, 1)) : (p = yh(g), p.c(), T(p, 1), p.m(e, null)) : p && (be(), D(p, 1, 1, () => {
+      b[1] ? p ? (p.p(b, k), k & /*$data*/
+      2 && T(p, 1)) : (p = yh(b), p.c(), T(p, 1), p.m(e, null)) : p && (be(), D(p, 1, 1, () => {
         p = null;
       }), ke()), /*showTimeMachine*/
-      g[0] ? b ? (b.p(g, k), k & /*showTimeMachine*/
-      1 && T(b, 1)) : (b = wh(g), b.c(), T(b, 1), b.m(_.parentNode, _)) : b && (be(), D(b, 1, 1, () => {
-        b = null;
+      b[0] ? g ? (g.p(b, k), k & /*showTimeMachine*/
+      1 && T(g, 1)) : (g = wh(b), g.c(), T(g, 1), g.m(_.parentNode, _)) : g && (be(), D(g, 1, 1, () => {
+        g = null;
       }), ke());
     },
-    i(g) {
-      c || (T(r.$$.fragment, g), T(p), T(b), c = !0);
+    i(b) {
+      c || (T(r.$$.fragment, b), T(p), T(g), c = !0);
     },
-    o(g) {
-      D(r.$$.fragment, g), D(p), D(b), c = !1;
+    o(b) {
+      D(r.$$.fragment, b), D(p), D(g), c = !1;
     },
-    d(g) {
-      g && (S(e), S(o), S(_)), he(r), p && p.d(), b && b.d(g), d = !1, h();
+    d(b) {
+      b && (C(e), C(o), C(_)), he(r), p && p.d(), g && g.d(b), d = !1, h();
     }
   };
 }
-function J5(t, e, l) {
-  let i, n, a, r, { model: s } = e, { data_key: o = "machine_data", output_key: _ = "code" } = e, c = s.get(o), d = JSON.parse(c), h = `change:${o}`, p = () => circ = s.get(o), b = Oe();
-  at(t, b, (C) => l(1, i = C));
-  let g = Oe([]);
-  at(t, g, (C) => l(16, n = C));
+function x5(t, e, l) {
+  let i, n, a, r, { model: s } = e, { data_key: o = "machine_data", output_key: _ = "code" } = e, c = s.get(o), d = JSON.parse(c), h = `change:${o}`, p = () => circ = s.get(o), g = Oe();
+  at(t, g, (M) => l(1, i = M));
+  let b = Oe([]);
+  at(t, b, (M) => l(16, n = M));
   let k = Oe("");
-  at(t, k, (C) => l(2, r = C));
+  at(t, k, (M) => l(2, r = M));
   let y = Oe({
     backend_var_name: "backend",
     as_function: !0
   });
-  at(t, y, (C) => l(17, a = C));
+  at(t, y, (M) => l(17, a = M));
   let v = Oe("current");
   Tt(() => {
-    b.set(d), s.on(h, p), g.subscribe((C) => {
-      k.set(x_(C, a));
-    }), y.subscribe((C) => {
-      k.set(x_(n, C));
-    }), k.subscribe((C) => {
-      s.set(_, C), s.save_changes();
+    g.set(d), s.on(h, p), b.subscribe((M) => {
+      k.set(x_(M, a));
+    }), y.subscribe((M) => {
+      k.set(x_(n, M));
+    }), k.subscribe((M) => {
+      s.set(_, M), s.save_changes();
     }), console.log(i);
   }), ri(() => {
     s.off(h, p);
   });
-  function w(C) {
-    g.update((z) => (z.includes(C) ? z.splice(z.indexOf(C), 1) : z.push(C), z));
+  function w(M) {
+    b.update((z) => (z.includes(M) ? z.splice(z.indexOf(M), 1) : z.push(M), z));
   }
   let q = !1, $ = Oe();
-  function j(C) {
+  function j(M) {
     let z = i.timed_properties, H = [];
-    if (C.datatype === "nudv-map")
+    if (M.datatype === "nudv-map")
       for (const B of Object.keys(z)) {
         let R = { date: B };
-        C.subtype === "qubit-property" ? R.data = z[B][C.parentKey][C.qubit_index][C.property] : R.data = z[B][C.parentKey][C.key], H.push(R);
+        M.subtype === "qubit-property" ? R.data = z[B][M.parentKey][M.qubit_index][M.property] : R.data = z[B][M.parentKey][M.key], H.push(R);
       }
-    else if (C.datatype === "gates")
+    else if (M.datatype === "gates")
       for (const B of Object.keys(z)) {
-        let R = z[B][C.parentKey].filter((P) => P.gate === C.data.gate && P.qubits.join("-") === C.data.qubits.join("-"))[0];
+        let R = z[B][M.parentKey].filter((P) => P.gate === M.data.gate && P.qubits.join("-") === M.data.qubits.join("-"))[0];
         H.push({ date: B, data: R });
       }
     l(0, q = !0), $.set({
-      datatype: C.datatype,
-      key: C.key,
-      title_key: C.title_key,
-      parentKey: C.parentKey,
-      topLevelKey: C.topLevelKey,
-      code_header: C.code_header,
-      code_footer: C.code_footer,
-      code_key: C.code_key,
-      curr_data: C.data,
+      datatype: M.datatype,
+      key: M.key,
+      title_key: M.title_key,
+      parentKey: M.parentKey,
+      topLevelKey: M.topLevelKey,
+      code_header: M.code_header,
+      code_footer: M.code_footer,
+      code_key: M.code_key,
+      curr_data: M.data,
       history_data: H
     });
   }
-  function O() {
+  function I() {
     l(0, q = !1);
   }
-  const A = (C) => {
+  const A = (M) => {
     ei(r);
   };
-  return t.$$set = (C) => {
-    "model" in C && l(12, s = C.model), "data_key" in C && l(13, o = C.data_key), "output_key" in C && l(14, _ = C.output_key);
+  return t.$$set = (M) => {
+    "model" in M && l(12, s = M.model), "data_key" in M && l(13, o = M.data_key), "output_key" in M && l(14, _ = M.output_key);
   }, [
     q,
     i,
     r,
-    b,
     g,
+    b,
     k,
     y,
     v,
     w,
     $,
     j,
-    O,
+    I,
     s,
     o,
     _,
     A
   ];
 }
-class Z5 extends Ve {
+class e$ extends Ve {
   constructor(e) {
-    super(), Qe(this, e, J5, W5, Fe, { model: 12, data_key: 13, output_key: 14 });
+    super(), Qe(this, e, x5, Z5, Fe, { model: 12, data_key: 13, output_key: 14 });
   }
 }
-const x5 = 14, e$ = 10, t$ = 250, ka = 22, Kt = 10, l$ = 2, i$ = 2, n$ = "#FF5733", a$ = "#0b7ad6", r$ = "#000000", $h = 36, s$ = 5, o$ = {
+const t$ = 14, l$ = 10, i$ = 250, ka = 22, Kt = 10, n$ = 2, a$ = 2, r$ = "#FF5733", s$ = "#0b7ad6", o$ = "#000000", $h = 36, u$ = 5, f$ = {
   h: "H",
   v: "V",
   horizontal: "H",
   vertical: "V"
 }, wl = "H", Al = "V";
-function u$(t, e) {
-  let l = {}, i = Object.keys(t.data), n = i.length, a = o$[e.direction];
+function _$(t, e) {
+  let l = {}, i = Object.keys(t.data), n = i.length, a = f$[e.direction];
   l.dir = a;
-  let r = e.band_width || x5, s = e.band_gap || e$, o = e.x_axis_area_size || ka, _ = e.y_axis_area_size || (a === wl ? ka * 3 : ka * 2), c = e.padding || Kt, d = e.chart_height || t$, h = e.legend === void 0 || e.legend ? $h : 0, p = e.legend === void 0 || e.legend ? $h + Kt : 0, b = e.legend_rect_size || s$, g = e.dot_radius || l$, k = e.rule_width || i$, y = e.true_color || n$, v = e.hypo_color || a$, w = e.interval_color || r$;
+  let r = e.band_width || t$, s = e.band_gap || l$, o = e.x_axis_area_size || ka, _ = e.y_axis_area_size || (a === wl ? ka * 3 : ka * 2), c = e.padding || Kt, d = e.chart_height || i$, h = e.legend === void 0 || e.legend ? $h : 0, p = e.legend === void 0 || e.legend ? $h + Kt : 0, g = e.legend_rect_size || u$, b = e.dot_radius || n$, k = e.rule_width || a$, y = e.true_color || r$, v = e.hypo_color || s$, w = e.interval_color || o$;
   if (l.padding = c, a === Al) {
     let q = 0;
     if (i.some((j) => j.length > 5)) {
       q = -25;
-      let j = Math.max(...i.map((O) => O.length));
+      let j = Math.max(...i.map((I) => I.length));
       o = Math.ceil(o + ka * (j / 10));
     }
     let $ = (r + s * 2) * n;
@@ -31948,7 +31998,7 @@ function u$(t, e) {
       band_total_width: r + s * 2,
       band_width: r,
       band_gap: s,
-      dot_radius: g,
+      dot_radius: b,
       rule_width: k,
       true_color: y,
       hypo_color: v,
@@ -31974,7 +32024,7 @@ function u$(t, e) {
       band_total_width: r + s * 2,
       band_width: r,
       band_gap: s,
-      dot_radius: g,
+      dot_radius: b,
       rule_width: k,
       true_color: y,
       hypo_color: v,
@@ -31987,10 +32037,10 @@ function u$(t, e) {
     y: Kt,
     true_color: y,
     hypo_color: v,
-    legend_rect_size: b
+    legend_rect_size: g
   }), l.viewBox = [0, 0, l.width, l.height], l;
 }
-function f$(t, e, l) {
+function c$(t, e, l) {
   let i = {}, n = Object.keys(t.data);
   n = n.toSorted(li);
   let a = 0;
@@ -32004,7 +32054,7 @@ function f$(t, e, l) {
   let r = n.map((s, o) => l.chart.band_total_width * o);
   return l.dir === Al ? (i.y = El([0, a], [l.chart.height, 0]).nice(), i.x = Nr(n, r)) : l.dir === wl && (i.x = El([0, a], [0, l.chart.width]).nice(), i.y = Nr(n, r)), i;
 }
-function _$(t) {
+function d$(t) {
   let e, l, i, n, a, r, s, o, _;
   return {
     c() {
@@ -32055,7 +32105,7 @@ function _$(t) {
       t[6].chart.band_total_width);
     },
     m(c, d) {
-      M(c, e, d), f(e, l);
+      S(c, e, d), f(e, l);
     },
     p(c, d) {
       d & /*id*/
@@ -32118,11 +32168,11 @@ function _$(t) {
       c[6].chart.band_total_width) && u(e, "height", _);
     },
     d(c) {
-      c && S(e);
+      c && C(e);
     }
   };
 }
-function c$(t) {
+function h$(t) {
   let e, l, i, n, a, r, s, o, _;
   return {
     c() {
@@ -32173,7 +32223,7 @@ function c$(t) {
       t[6].chart.band_total_width);
     },
     m(c, d) {
-      M(c, e, d), f(e, l);
+      S(c, e, d), f(e, l);
     },
     p(c, d) {
       d & /*id*/
@@ -32236,23 +32286,23 @@ function c$(t) {
       c[6].chart.band_total_width) && u(e, "width", _);
     },
     d(c) {
-      c && S(e);
+      c && C(e);
     }
   };
 }
-function d$(t) {
+function p$(t) {
   let e;
   function l(a, r) {
     if (
       /*sizing*/
       a[6].dir === Al
     )
-      return c$;
+      return h$;
     if (
       /*sizing*/
       a[6].dir === wl
     )
-      return _$;
+      return d$;
   }
   let i = l(t), n = i && i(t);
   return {
@@ -32260,36 +32310,36 @@ function d$(t) {
       n && n.c(), e = Ae();
     },
     m(a, r) {
-      n && n.m(a, r), M(a, e, r);
+      n && n.m(a, r), S(a, e, r);
     },
     p(a, [r]) {
       i === (i = l(a)) && n ? n.p(a, r) : (n && n.d(1), n = i && i(a), n && (n.c(), n.m(e.parentNode, e)));
     },
-    i: ae,
-    o: ae,
+    i: ne,
+    o: ne,
     d(a) {
-      a && S(e), n && n.d(a);
+      a && C(e), n && n.d(a);
     }
   };
 }
-function h$(t, e, l) {
+function m$(t, e, l) {
   let { id: i = "", index: n, state: a = "", datum: r = {}, scaleX: s = () => {
   }, scaleY: o = () => {
-  }, fill: _ = "#000000", sizing: c = {}, key: d = "", HOPS: h = !1, HOPS_speed: p = 500, count_data: b = [] } = e, g, k, y = 0;
+  }, fill: _ = "#000000", sizing: c = {}, key: d = "", HOPS: h = !1, HOPS_speed: p = 500, count_data: g = [] } = e, b, k, y = 0;
   function v(w, q) {
     y = 0, w ? k = setInterval(
       () => {
-        l(7, g = b[y]), y = (y + 1) % b.length;
+        l(7, b = g[y]), y = (y + 1) % g.length;
       },
       q
-    ) : l(7, g = r[d]);
+    ) : l(7, b = r[d]);
   }
   return Tt(() => {
     v(h, p);
   }), ri(() => {
     clearInterval(k);
   }), t.$$set = (w) => {
-    "id" in w && l(0, i = w.id), "index" in w && l(1, n = w.index), "state" in w && l(2, a = w.state), "datum" in w && l(8, r = w.datum), "scaleX" in w && l(3, s = w.scaleX), "scaleY" in w && l(4, o = w.scaleY), "fill" in w && l(5, _ = w.fill), "sizing" in w && l(6, c = w.sizing), "key" in w && l(9, d = w.key), "HOPS" in w && l(10, h = w.HOPS), "HOPS_speed" in w && l(11, p = w.HOPS_speed), "count_data" in w && l(12, b = w.count_data);
+    "id" in w && l(0, i = w.id), "index" in w && l(1, n = w.index), "state" in w && l(2, a = w.state), "datum" in w && l(8, r = w.datum), "scaleX" in w && l(3, s = w.scaleX), "scaleY" in w && l(4, o = w.scaleY), "fill" in w && l(5, _ = w.fill), "sizing" in w && l(6, c = w.sizing), "key" in w && l(9, d = w.key), "HOPS" in w && l(10, h = w.HOPS), "HOPS_speed" in w && l(11, p = w.HOPS_speed), "count_data" in w && l(12, g = w.count_data);
   }, [
     i,
     n,
@@ -32298,17 +32348,17 @@ function h$(t, e, l) {
     o,
     _,
     c,
-    g,
+    b,
     r,
     d,
     h,
     p,
-    b
+    g
   ];
 }
 class qh extends Ve {
   constructor(e) {
-    super(), Qe(this, e, h$, d$, Fe, {
+    super(), Qe(this, e, m$, p$, Fe, {
       id: 0,
       index: 1,
       state: 2,
@@ -32324,7 +32374,7 @@ class qh extends Ve {
     });
   }
 }
-function p$(t) {
+function g$(t) {
   let e, l, i, n, a, r, s, o;
   return {
     c() {
@@ -32382,7 +32432,7 @@ function p$(t) {
       t[8].chart.band_total_width);
     },
     m(_, c) {
-      M(_, e, c), f(e, l);
+      S(_, e, c), f(e, l);
     },
     p(_, c) {
       c & /*id*/
@@ -32451,11 +32501,11 @@ function p$(t) {
       _[8].chart.band_total_width) && u(e, "height", o);
     },
     d(_) {
-      _ && S(e);
+      _ && C(e);
     }
   };
 }
-function m$(t) {
+function b$(t) {
   let e, l, i, n, a, r, s, o;
   return {
     c() {
@@ -32513,7 +32563,7 @@ function m$(t) {
       t[8].chart.band_total_width);
     },
     m(_, c) {
-      M(_, e, c), f(e, l);
+      S(_, e, c), f(e, l);
     },
     p(_, c) {
       c & /*id*/
@@ -32582,23 +32632,23 @@ function m$(t) {
       _[8].chart.band_total_width) && u(e, "width", o);
     },
     d(_) {
-      _ && S(e);
+      _ && C(e);
     }
   };
 }
-function g$(t) {
+function k$(t) {
   let e;
   function l(a, r) {
     if (
       /*sizing*/
       a[8].dir === Al
     )
-      return m$;
+      return b$;
     if (
       /*sizing*/
       a[8].dir === wl
     )
-      return p$;
+      return g$;
   }
   let i = l(t), n = i && i(t);
   return {
@@ -32606,19 +32656,19 @@ function g$(t) {
       n && n.c(), e = Ae();
     },
     m(a, r) {
-      n && n.m(a, r), M(a, e, r);
+      n && n.m(a, r), S(a, e, r);
     },
     p(a, [r]) {
       i === (i = l(a)) && n ? n.p(a, r) : (n && n.d(1), n = i && i(a), n && (n.c(), n.m(e.parentNode, e)));
     },
-    i: ae,
-    o: ae,
+    i: ne,
+    o: ne,
     d(a) {
-      a && S(e), n && n.d(a);
+      a && C(e), n && n.d(a);
     }
   };
 }
-function b$(t, e, l) {
+function v$(t, e, l) {
   let { id: i = "", index: n, state: a = "", datum: r = {}, key: s = "", scaleX: o = () => {
   }, scaleY: _ = () => {
   }, stroke: c = "#000000", sizing: d = {} } = e;
@@ -32626,9 +32676,9 @@ function b$(t, e, l) {
     "id" in h && l(0, i = h.id), "index" in h && l(1, n = h.index), "state" in h && l(2, a = h.state), "datum" in h && l(3, r = h.datum), "key" in h && l(4, s = h.key), "scaleX" in h && l(5, o = h.scaleX), "scaleY" in h && l(6, _ = h.scaleY), "stroke" in h && l(7, c = h.stroke), "sizing" in h && l(8, d = h.sizing);
   }, [i, n, a, r, s, o, _, c, d];
 }
-class k$ extends Ve {
+class y$ extends Ve {
   constructor(e) {
-    super(), Qe(this, e, b$, g$, Fe, {
+    super(), Qe(this, e, v$, k$, Fe, {
       id: 0,
       index: 1,
       state: 2,
@@ -32641,7 +32691,7 @@ class k$ extends Ve {
     });
   }
 }
-function v$(t) {
+function w$(t) {
   let e, l, i, n, a, r, s, o, _;
   return {
     c() {
@@ -32676,7 +32726,7 @@ function v$(t) {
       ].y})`);
     },
     m(c, d) {
-      M(c, e, d), M(c, a, d), M(c, r, d);
+      S(c, e, d), S(c, a, d), S(c, r, d);
     },
     p(c, d) {
       d & /*id*/
@@ -32716,11 +32766,11 @@ function v$(t) {
       ].y})`) && u(r, "transform", _);
     },
     d(c) {
-      c && (S(e), S(a), S(r));
+      c && (C(e), C(a), C(r));
     }
   };
 }
-function y$(t) {
+function $$(t) {
   let e, l, i, n;
   return {
     c() {
@@ -32738,7 +32788,7 @@ function y$(t) {
       ].y + 1})`);
     },
     m(a, r) {
-      M(a, e, r);
+      S(a, e, r);
     },
     p(a, r) {
       r & /*id*/
@@ -32758,11 +32808,11 @@ function y$(t) {
       ].y + 1})`) && u(e, "transform", n);
     },
     d(a) {
-      a && S(e);
+      a && C(e);
     }
   };
 }
-function w$(t) {
+function q$(t) {
   let e, l, i, n;
   return {
     c() {
@@ -32784,7 +32834,7 @@ function w$(t) {
       t[4]})`);
     },
     m(a, r) {
-      M(a, e, r);
+      S(a, e, r);
     },
     p(a, r) {
       r & /*id*/
@@ -32808,11 +32858,11 @@ function w$(t) {
       a[4]})`) && u(e, "transform", n);
     },
     d(a) {
-      a && S(e);
+      a && C(e);
     }
   };
 }
-function $$(t) {
+function j$(t) {
   let e, l, i, n, a, r, s, o, _;
   return {
     c() {
@@ -32839,7 +32889,7 @@ function $$(t) {
       ].y})`);
     },
     m(c, d) {
-      M(c, e, d), M(c, a, d), M(c, r, d);
+      S(c, e, d), S(c, a, d), S(c, r, d);
     },
     p(c, d) {
       d & /*id*/
@@ -32871,7 +32921,7 @@ function $$(t) {
       ].y})`) && u(r, "transform", _);
     },
     d(c) {
-      c && (S(e), S(a), S(r));
+      c && (C(e), C(a), C(r));
     }
   };
 }
@@ -32883,25 +32933,25 @@ function jh(t) {
       a[1] === "x_axis" && /*sizing*/
       a[3].dir === wl
     )
-      return $$;
+      return j$;
     if (
       /*role*/
       a[1] === "y_axis" && /*sizing*/
       a[3].dir === wl
     )
-      return w$;
+      return q$;
     if (
       /*role*/
       a[1] === "x_axis" && /*sizing*/
       a[3].dir === Al
     )
-      return y$;
+      return $$;
     if (
       /*role*/
       a[1] === "y_axis" && /*sizing*/
       a[3].dir === Al
     )
-      return v$;
+      return w$;
   }
   let i = l(t), n = i && i(t);
   return {
@@ -32909,17 +32959,17 @@ function jh(t) {
       n && n.c(), e = Ae();
     },
     m(a, r) {
-      n && n.m(a, r), M(a, e, r);
+      n && n.m(a, r), S(a, e, r);
     },
     p(a, r) {
       i === (i = l(a)) && n ? n.p(a, r) : (n && n.d(1), n = i && i(a), n && (n.c(), n.m(e.parentNode, e)));
     },
     d(a) {
-      a && S(e), n && n.d(a);
+      a && C(e), n && n.d(a);
     }
   };
 }
-function q$(t) {
+function T$(t) {
   let e = (
     /*scales*/
     t[2]
@@ -32929,36 +32979,36 @@ function q$(t) {
       i.c(), l = Ae();
     },
     m(n, a) {
-      i.m(n, a), M(n, l, a);
+      i.m(n, a), S(n, l, a);
     },
     p(n, [a]) {
       a & /*scales*/
       4 && Fe(e, e = /*scales*/
       n[2]) ? (i.d(1), i = jh(n), i.c(), i.m(l.parentNode, l)) : i.p(n, a);
     },
-    i: ae,
-    o: ae,
+    i: ne,
+    o: ne,
     d(n) {
-      n && S(l), i.d(n);
+      n && C(l), i.d(n);
     }
   };
 }
-function j$(t, e, l) {
+function C$(t, e, l) {
   let { id: i, role: n, scales: a = Oe({}), sizing: r, bootstrap: s = !1 } = e, o, _, c, d, h = 0, p = 0;
-  function b(g) {
-    o = void 0, _ = void 0, c = void 0, d = void 0, l(4, h = 0), p = 0, _ = tu("#" + i + "-group"), n === "x_axis" ? (o = Mb().scale(g), r.dir === wl ? (o.tickFormat(Jt(s ? ".3" : ",.0f")), c = Cb().scale(g), c.tickFormat((k) => null).tickSize(r.chart.height)) : r.dir === Al && (p = r.x_axis.rotate)) : n === "y_axis" && (o = zb().scale(g), r.dir === wl || r.dir === Al && (o.tickFormat(Jt(s ? ".3" : ",.0f")), c = Sb().scale(g), c.tickFormat((k) => null).tickSize(r.chart.width))), l(4, h = r.chart.band_total_width / 2), _.call(o), p && _.selectAll("text").style("text-anchor", "end").attr("dx", "-.5em").attr("dy", ".10em").attr("transform", `rotate(${p})`), c && (d = tu("#" + i + "-group-grid"), d.call(c));
+  function g(b) {
+    o = void 0, _ = void 0, c = void 0, d = void 0, l(4, h = 0), p = 0, _ = tu("#" + i + "-group"), n === "x_axis" ? (o = Mb().scale(b), r.dir === wl ? (o.tickFormat(Jt(s ? ".3" : ",.0f")), c = Cb().scale(b), c.tickFormat((k) => null).tickSize(r.chart.height)) : r.dir === Al && (p = r.x_axis.rotate)) : n === "y_axis" && (o = zb().scale(b), r.dir === wl || r.dir === Al && (o.tickFormat(Jt(s ? ".3" : ",.0f")), c = Sb().scale(b), c.tickFormat((k) => null).tickSize(r.chart.width))), l(4, h = r.chart.band_total_width / 2), _.call(o), p && _.selectAll("text").style("text-anchor", "end").attr("dx", "-.5em").attr("dy", ".10em").attr("transform", `rotate(${p})`), c && (d = tu("#" + i + "-group-grid"), d.call(c));
   }
   return Tt(() => {
-    a.subscribe((g) => {
-      g && b(n === "y_axis" ? g == null ? void 0 : g.y : g == null ? void 0 : g.x);
+    a.subscribe((b) => {
+      b && g(n === "y_axis" ? b == null ? void 0 : b.y : b == null ? void 0 : b.x);
     });
-  }), t.$$set = (g) => {
-    "id" in g && l(0, i = g.id), "role" in g && l(1, n = g.role), "scales" in g && l(2, a = g.scales), "sizing" in g && l(3, r = g.sizing), "bootstrap" in g && l(5, s = g.bootstrap);
+  }), t.$$set = (b) => {
+    "id" in b && l(0, i = b.id), "role" in b && l(1, n = b.role), "scales" in b && l(2, a = b.scales), "sizing" in b && l(3, r = b.sizing), "bootstrap" in b && l(5, s = b.bootstrap);
   }, [i, n, a, r, h, s];
 }
 class Th extends Ve {
   constructor(e) {
-    super(), Qe(this, e, j$, q$, Fe, {
+    super(), Qe(this, e, C$, T$, Fe, {
       id: 0,
       role: 1,
       scales: 2,
@@ -32967,7 +33017,7 @@ class Th extends Ve {
     });
   }
 }
-function T$(t) {
+function S$(t) {
   let e, l, i, n, a, r, s, o;
   return {
     c() {
@@ -33006,7 +33056,7 @@ function T$(t) {
       t[6].chart.band_total_width);
     },
     m(_, c) {
-      M(_, e, c), f(e, l), s || (o = te(
+      S(_, e, c), f(e, l), s || (o = te(
         l,
         "click",
         /*click_handler_1*/
@@ -33058,11 +33108,11 @@ function T$(t) {
       _[6].chart.band_total_width) && u(e, "height", r);
     },
     d(_) {
-      _ && S(e), s = !1, o();
+      _ && C(e), s = !1, o();
     }
   };
 }
-function C$(t) {
+function M$(t) {
   let e, l, i, n, a, r, s, o;
   return {
     c() {
@@ -33101,7 +33151,7 @@ function C$(t) {
       t[6].chart.band_total_width);
     },
     m(_, c) {
-      M(_, e, c), f(e, l), s || (o = te(
+      S(_, e, c), f(e, l), s || (o = te(
         l,
         "click",
         /*click_handler*/
@@ -33153,23 +33203,23 @@ function C$(t) {
       _[6].chart.band_total_width) && u(e, "width", r);
     },
     d(_) {
-      _ && S(e), s = !1, o();
+      _ && C(e), s = !1, o();
     }
   };
 }
-function S$(t) {
+function z$(t) {
   let e;
   function l(a, r) {
     if (
       /*sizing*/
       a[6].dir === Al
     )
-      return C$;
+      return M$;
     if (
       /*sizing*/
       a[6].dir === wl
     )
-      return T$;
+      return S$;
   }
   let i = l(t), n = i && i(t);
   return {
@@ -33177,19 +33227,19 @@ function S$(t) {
       n && n.c(), e = Ae();
     },
     m(a, r) {
-      n && n.m(a, r), M(a, e, r);
+      n && n.m(a, r), S(a, e, r);
     },
     p(a, [r]) {
       i === (i = l(a)) && n ? n.p(a, r) : (n && n.d(1), n = i && i(a), n && (n.c(), n.m(e.parentNode, e)));
     },
-    i: ae,
-    o: ae,
+    i: ne,
+    o: ne,
     d(a) {
-      a && S(e), n && n.d(a);
+      a && C(e), n && n.d(a);
     }
   };
 }
-function M$(t, e, l) {
+function N$(t, e, l) {
   let { id: i = "", index: n, state: a = "", datum: r = {}, scaleX: s = () => {
   }, scaleY: o = () => {
   }, sizing: _ = {}, show_info: c = () => {
@@ -33214,9 +33264,9 @@ function M$(t, e, l) {
     h
   ];
 }
-class z$ extends Ve {
+class A$ extends Ve {
   constructor(e) {
-    super(), Qe(this, e, M$, S$, Fe, {
+    super(), Qe(this, e, N$, z$, Fe, {
       id: 0,
       index: 1,
       state: 2,
@@ -33229,11 +33279,11 @@ class z$ extends Ve {
   }
 }
 function Ch(t) {
-  let e, l, i, n, a, r, s, o, _, c, d, h, p, b, g, k, y, v, w, q;
+  let e, l, i, n, a, r, s, o, _, c, d, h, p, g, b, k, y, v, w, q;
   return {
     c() {
-      e = Ge("g"), l = Ge("rect"), o = Ge("text"), _ = I(`Measure counts
-    `), d = Ge("rect"), y = Ge("text"), v = I("Error-adjusted counts"), u(l, "id", i = /*id*/
+      e = Ge("g"), l = Ge("rect"), o = Ge("text"), _ = E(`Measure counts
+    `), d = Ge("rect"), y = Ge("text"), v = E("Error-adjusted counts"), u(l, "id", i = /*id*/
       t[0] + "-true"), u(l, "fill", n = /*sizing*/
       t[1].legend.true_color), u(l, "x", "0"), u(l, "y", a = (14 - /*sizing*/
       t[1].legend.legend_rect_size) / 2 - 1), u(l, "width", r = /*sizing*/
@@ -33242,8 +33292,8 @@ function Ch(t) {
       t[1].legend.legend_rect_size + /*sizing*/
       t[1].padding), u(o, "y", 14 / 2), u(o, "alignment-baseline", "middle"), u(d, "id", h = /*id*/
       t[0] + "-true"), u(d, "fill", p = /*sizing*/
-      t[1].legend.hypo_color), u(d, "x", "0"), u(d, "y", b = (14 - /*sizing*/
-      t[1].legend.legend_rect_size) / 2 + 14 - 1), u(d, "width", g = /*sizing*/
+      t[1].legend.hypo_color), u(d, "x", "0"), u(d, "y", g = (14 - /*sizing*/
+      t[1].legend.legend_rect_size) / 2 + 14 - 1), u(d, "width", b = /*sizing*/
       t[1].legend.legend_rect_size), u(d, "height", k = /*sizing*/
       t[1].legend.legend_rect_size), u(y, "x", w = /*sizing*/
       t[1].legend.legend_rect_size + /*sizing*/
@@ -33257,7 +33307,7 @@ function Ch(t) {
       t[1].legend.y})`);
     },
     m($, j) {
-      M($, e, j), f(e, l), f(e, o), f(o, _), f(e, d), f(e, y), f(y, v);
+      S($, e, j), f(e, l), f(e, o), f(o, _), f(e, d), f(e, y), f(y, v);
     },
     p($, j) {
       j & /*id*/
@@ -33278,10 +33328,10 @@ function Ch(t) {
       $[0] + "-true") && u(d, "id", h), j & /*sizing*/
       2 && p !== (p = /*sizing*/
       $[1].legend.hypo_color) && u(d, "fill", p), j & /*sizing*/
-      2 && b !== (b = (14 - /*sizing*/
-      $[1].legend.legend_rect_size) / 2 + 14 - 1) && u(d, "y", b), j & /*sizing*/
-      2 && g !== (g = /*sizing*/
-      $[1].legend.legend_rect_size) && u(d, "width", g), j & /*sizing*/
+      2 && g !== (g = (14 - /*sizing*/
+      $[1].legend.legend_rect_size) / 2 + 14 - 1) && u(d, "y", g), j & /*sizing*/
+      2 && b !== (b = /*sizing*/
+      $[1].legend.legend_rect_size) && u(d, "width", b), j & /*sizing*/
       2 && k !== (k = /*sizing*/
       $[1].legend.legend_rect_size) && u(d, "height", k), j & /*sizing*/
       2 && w !== (w = /*sizing*/
@@ -33298,11 +33348,11 @@ function Ch(t) {
       $[1].legend.y})`) && u(e, "transform", q);
     },
     d($) {
-      $ && S(e);
+      $ && C(e);
     }
   };
 }
-function N$(t) {
+function B$(t) {
   let e, l = (
     /*sizing*/
     t[1] && Ch(t)
@@ -33312,28 +33362,28 @@ function N$(t) {
       l && l.c(), e = Ae();
     },
     m(i, n) {
-      l && l.m(i, n), M(i, e, n);
+      l && l.m(i, n), S(i, e, n);
     },
     p(i, [n]) {
       /*sizing*/
       i[1] ? l ? l.p(i, n) : (l = Ch(i), l.c(), l.m(e.parentNode, e)) : l && (l.d(1), l = null);
     },
-    i: ae,
-    o: ae,
+    i: ne,
+    o: ne,
     d(i) {
-      i && S(e), l && l.d(i);
+      i && C(e), l && l.d(i);
     }
   };
 }
-function A$(t, e, l) {
+function P$(t, e, l) {
   let { id: i = "", sizing: n = {} } = e;
   return t.$$set = (a) => {
     "id" in a && l(0, i = a.id), "sizing" in a && l(1, n = a.sizing);
   }, [i, n];
 }
-class B$ extends Ve {
+class O$ extends Ve {
   constructor(e) {
-    super(), Qe(this, e, A$, N$, Fe, { id: 0, sizing: 1 });
+    super(), Qe(this, e, P$, B$, Fe, { id: 0, sizing: 1 });
   }
 }
 function Sh(t, e, l) {
@@ -33353,7 +33403,7 @@ function Mh(t) {
       e = m("div"), i && i.c(), u(e, "class", "vis-wrap svelte-1ryqbkw");
     },
     m(n, a) {
-      M(n, e, a), i && i.m(e, null), l = !0;
+      S(n, e, a), i && i.m(e, null), l = !0;
     },
     p(n, a) {
       /*$sizing*/
@@ -33372,12 +33422,12 @@ function Mh(t) {
       D(i), l = !1;
     },
     d(n) {
-      n && S(e), i && i.d();
+      n && C(e), i && i.d();
     }
   };
 }
 function zh(t) {
-  let e, l, i, n, a, r, s, o, _, c, d, h, p, b, g, k = (
+  let e, l, i, n, a, r, s, o, _, c, d, h, p, g, b, k = (
     /*$sizing*/
     t[8].legend && Nh(t)
   );
@@ -33433,7 +33483,7 @@ function zh(t) {
   });
   return {
     c() {
-      e = Ge("svg"), l = Ge("style"), i = I(`.axis {
+      e = Ge("svg"), l = Ge("style"), i = E(`.axis {
               font-family: Iosevka;
               font-size: 11px;
             }
@@ -33467,14 +33517,14 @@ function zh(t) {
         t[2]
       ), u(e, "width", h = /*$sizing*/
       t[8].width), u(e, "height", p = /*$sizing*/
-      t[8].height), u(e, "viewBox", b = /*$sizing*/
+      t[8].height), u(e, "viewBox", g = /*$sizing*/
       t[8].viewBox.join(" ")), u(e, "class", "svelte-1ryqbkw");
     },
     m(q, $) {
-      M(q, e, $), f(e, l), f(l, i), k && k.m(e, null), f(e, n), de(a, e, null), de(r, e, null), f(e, s);
+      S(q, e, $), f(e, l), f(l, i), k && k.m(e, null), f(e, n), de(a, e, null), de(r, e, null), f(e, s);
       for (let j = 0; j < v.length; j += 1)
         v[j] && v[j].m(s, null);
-      g = !0;
+      b = !0;
     },
     p(q, $) {
       /*$sizing*/
@@ -33490,14 +33540,14 @@ function zh(t) {
       q[8]), $ & /*$data*/
       128 && (j.bootstrap = /*$data*/
       q[7].metadata.bootstrap), a.$set(j);
-      const O = {};
+      const I = {};
       if ($ & /*id*/
-      4 && (O.id = /*id*/
+      4 && (I.id = /*id*/
       q[2] + "-axis-y"), $ & /*$sizing*/
-      256 && (O.sizing = /*$sizing*/
+      256 && (I.sizing = /*$sizing*/
       q[8]), $ & /*$data*/
-      128 && (O.bootstrap = /*$data*/
-      q[7].metadata.bootstrap), r.$set(O), $ & /*id, Object, $data, $scales, $sizing, show_info, $design*/
+      128 && (I.bootstrap = /*$data*/
+      q[7].metadata.bootstrap), r.$set(I), $ & /*id, Object, $data, $scales, $sizing, show_info, $design*/
       9156) {
         y = $e(Object.keys(
           /*$data*/
@@ -33505,58 +33555,58 @@ function zh(t) {
         ));
         let A;
         for (A = 0; A < y.length; A += 1) {
-          const C = Sh(q, y, A);
-          v[A] ? (v[A].p(C, $), T(v[A], 1)) : (v[A] = Bh(C), v[A].c(), T(v[A], 1), v[A].m(s, null));
+          const M = Sh(q, y, A);
+          v[A] ? (v[A].p(M, $), T(v[A], 1)) : (v[A] = Bh(M), v[A].c(), T(v[A], 1), v[A].m(s, null));
         }
         for (be(), A = y.length; A < v.length; A += 1)
           w(A);
         ke();
       }
-      (!g || $ & /*id*/
+      (!b || $ & /*id*/
       4 && o !== (o = /*id*/
-      q[2] + "-chart")) && u(s, "id", o), (!g || $ & /*$sizing*/
+      q[2] + "-chart")) && u(s, "id", o), (!b || $ & /*$sizing*/
       256 && _ !== (_ = /*$sizing*/
-      q[8].chart.width)) && u(s, "width", _), (!g || $ & /*$sizing*/
+      q[8].chart.width)) && u(s, "width", _), (!b || $ & /*$sizing*/
       256 && c !== (c = /*$sizing*/
-      q[8].chart.height)) && u(s, "height", c), (!g || $ & /*$sizing*/
+      q[8].chart.height)) && u(s, "height", c), (!b || $ & /*$sizing*/
       256 && d !== (d = `translate(${/*$sizing*/
       q[8].chart.x} ${/*$sizing*/
-      q[8].chart.y})`)) && u(s, "transform", d), (!g || $ & /*id*/
+      q[8].chart.y})`)) && u(s, "transform", d), (!b || $ & /*id*/
       4) && u(
         e,
         "id",
         /*id*/
         q[2]
-      ), (!g || $ & /*$sizing*/
+      ), (!b || $ & /*$sizing*/
       256 && h !== (h = /*$sizing*/
-      q[8].width)) && u(e, "width", h), (!g || $ & /*$sizing*/
+      q[8].width)) && u(e, "width", h), (!b || $ & /*$sizing*/
       256 && p !== (p = /*$sizing*/
-      q[8].height)) && u(e, "height", p), (!g || $ & /*$sizing*/
-      256 && b !== (b = /*$sizing*/
-      q[8].viewBox.join(" "))) && u(e, "viewBox", b);
+      q[8].height)) && u(e, "height", p), (!b || $ & /*$sizing*/
+      256 && g !== (g = /*$sizing*/
+      q[8].viewBox.join(" "))) && u(e, "viewBox", g);
     },
     i(q) {
-      if (!g) {
+      if (!b) {
         T(k), T(a.$$.fragment, q), T(r.$$.fragment, q);
         for (let $ = 0; $ < y.length; $ += 1)
           T(v[$]);
-        g = !0;
+        b = !0;
       }
     },
     o(q) {
       D(k), D(a.$$.fragment, q), D(r.$$.fragment, q), v = v.filter(Boolean);
       for (let $ = 0; $ < v.length; $ += 1)
         D(v[$]);
-      g = !1;
+      b = !1;
     },
     d(q) {
-      q && S(e), k && k.d(), he(a), he(r), Ye(v, q);
+      q && C(e), k && k.d(), he(a), he(r), Ye(v, q);
     }
   };
 }
 function Nh(t) {
   let e, l;
-  return e = new B$({
+  return e = new O$({
     props: { id: "legend", sizing: (
       /*$sizing*/
       t[8]
@@ -33587,7 +33637,7 @@ function Nh(t) {
 }
 function Ah(t) {
   let e, l;
-  return e = new k$({
+  return e = new y$({
     props: {
       id: (
         /*id*/
@@ -33787,7 +33837,7 @@ function Bh(t) {
   });
   let r = !/*$design*/
   t[6].HOPS && Ah(t);
-  return n = new z$({
+  return n = new A$({
     props: {
       id: (
         /*id*/
@@ -33831,7 +33881,7 @@ function Bh(t) {
       pe(e.$$.fragment), pe(l.$$.fragment), r && r.c(), i = Ae(), pe(n.$$.fragment);
     },
     m(s, o) {
-      de(e, s, o), de(l, s, o), r && r.m(s, o), M(s, i, o), de(n, s, o), a = !0;
+      de(e, s, o), de(l, s, o), r && r.m(s, o), S(s, i, o), de(n, s, o), a = !0;
     },
     p(s, o) {
       const _ = {};
@@ -33926,7 +33976,7 @@ function Bh(t) {
       D(e.$$.fragment, s), D(l.$$.fragment, s), D(r), D(n.$$.fragment, s), a = !1;
     },
     d(s) {
-      s && S(i), he(e, s), he(l, s), r && r.d(s), he(n, s);
+      s && C(i), he(e, s), he(l, s), r && r.d(s), he(n, s);
     }
   };
 }
@@ -33934,7 +33984,7 @@ function Ph(t) {
   let e, l, i, n, a, r, s, o = (
     /*info_point*/
     t[5].state + ""
-  ), _, c, d, h, p, b, g = (
+  ), _, c, d, h, p, g, b = (
     /*info_point*/
     t[5].measure + ""
   ), k, y, v = (
@@ -33943,7 +33993,7 @@ function Ph(t) {
       /*info_point*/
       t[5].prob_measure
     ) + ""
-  ), w, q, $, j, O, A, C, z = (
+  ), w, q, $, j, I, A, M, z = (
     /*info_point*/
     t[5].mean + ""
   ), H, B, R = (
@@ -33952,7 +34002,7 @@ function Ph(t) {
       /*info_point*/
       t[5].prob_mean
     ) + ""
-  ), P, E, F, L, X, V, Q, Z, ne = (
+  ), P, O, F, L, X, V, Q, Z, ae = (
     /*info_point*/
     t[5].interval.join(", ") + ""
   ), se, K, Y = (
@@ -33964,17 +34014,17 @@ function Ph(t) {
   ), W, J;
   return {
     c() {
-      e = m("div"), l = m("div"), i = m("table"), n = m("tr"), a = m("th"), a.textContent = "State", r = N(), s = m("td"), _ = I(o), c = N(), d = m("tr"), h = m("th"), h.textContent = "Measured counts", p = N(), b = m("td"), k = I(g), y = I(" ("), w = I(v), q = I(")"), $ = N(), j = m("tr"), O = m("th"), O.textContent = "Error-adjusted count mean", A = N(), C = m("td"), H = I(z), B = I(" ("), P = I(R), E = I(")"), F = N(), L = m("tr"), X = m("th"), X.textContent = "Error-adjusted interval", V = N(), Q = m("td"), Z = I("["), se = I(ne), K = I("] (["), W = I(Y), J = I("])"), u(a, "class", "svelte-1ryqbkw"), u(s, "class", "svelte-1ryqbkw"), u(n, "class", "svelte-1ryqbkw"), u(h, "class", "svelte-1ryqbkw"), u(b, "class", "svelte-1ryqbkw"), u(d, "class", "svelte-1ryqbkw"), u(O, "class", "svelte-1ryqbkw"), u(C, "class", "svelte-1ryqbkw"), u(j, "class", "svelte-1ryqbkw"), u(X, "class", "svelte-1ryqbkw"), u(Q, "class", "svelte-1ryqbkw"), u(L, "class", "svelte-1ryqbkw"), u(i, "class", "svelte-1ryqbkw"), u(l, "class", "info-box svelte-1ryqbkw"), u(e, "class", "info-wrap svelte-1ryqbkw");
+      e = m("div"), l = m("div"), i = m("table"), n = m("tr"), a = m("th"), a.textContent = "State", r = N(), s = m("td"), _ = E(o), c = N(), d = m("tr"), h = m("th"), h.textContent = "Measured counts", p = N(), g = m("td"), k = E(b), y = E(" ("), w = E(v), q = E(")"), $ = N(), j = m("tr"), I = m("th"), I.textContent = "Error-adjusted count mean", A = N(), M = m("td"), H = E(z), B = E(" ("), P = E(R), O = E(")"), F = N(), L = m("tr"), X = m("th"), X.textContent = "Error-adjusted interval", V = N(), Q = m("td"), Z = E("["), se = E(ae), K = E("] (["), W = E(Y), J = E("])"), u(a, "class", "svelte-1ryqbkw"), u(s, "class", "svelte-1ryqbkw"), u(n, "class", "svelte-1ryqbkw"), u(h, "class", "svelte-1ryqbkw"), u(g, "class", "svelte-1ryqbkw"), u(d, "class", "svelte-1ryqbkw"), u(I, "class", "svelte-1ryqbkw"), u(M, "class", "svelte-1ryqbkw"), u(j, "class", "svelte-1ryqbkw"), u(X, "class", "svelte-1ryqbkw"), u(Q, "class", "svelte-1ryqbkw"), u(L, "class", "svelte-1ryqbkw"), u(i, "class", "svelte-1ryqbkw"), u(l, "class", "info-box svelte-1ryqbkw"), u(e, "class", "info-wrap svelte-1ryqbkw");
     },
     m(ee, we) {
-      M(ee, e, we), f(e, l), f(l, i), f(i, n), f(n, a), f(n, r), f(n, s), f(s, _), f(i, c), f(i, d), f(d, h), f(d, p), f(d, b), f(b, k), f(b, y), f(b, w), f(b, q), f(i, $), f(i, j), f(j, O), f(j, A), f(j, C), f(C, H), f(C, B), f(C, P), f(C, E), f(i, F), f(i, L), f(L, X), f(L, V), f(L, Q), f(Q, Z), f(Q, se), f(Q, K), f(Q, W), f(Q, J);
+      S(ee, e, we), f(e, l), f(l, i), f(i, n), f(n, a), f(n, r), f(n, s), f(s, _), f(i, c), f(i, d), f(d, h), f(d, p), f(d, g), f(g, k), f(g, y), f(g, w), f(g, q), f(i, $), f(i, j), f(j, I), f(j, A), f(j, M), f(M, H), f(M, B), f(M, P), f(M, O), f(i, F), f(i, L), f(L, X), f(L, V), f(L, Q), f(Q, Z), f(Q, se), f(Q, K), f(Q, W), f(Q, J);
     },
     p(ee, we) {
       we & /*info_point*/
       32 && o !== (o = /*info_point*/
       ee[5].state + "") && U(_, o), we & /*info_point*/
-      32 && g !== (g = /*info_point*/
-      ee[5].measure + "") && U(k, g), we & /*info_point*/
+      32 && b !== (b = /*info_point*/
+      ee[5].measure + "") && U(k, b), we & /*info_point*/
       32 && v !== (v = /*perc_format*/
       ee[12](
         /*info_point*/
@@ -33987,8 +34037,8 @@ function Ph(t) {
         /*info_point*/
         ee[5].prob_mean
       ) + "") && U(P, R), we & /*info_point*/
-      32 && ne !== (ne = /*info_point*/
-      ee[5].interval.join(", ") + "") && U(se, ne), we & /*info_point*/
+      32 && ae !== (ae = /*info_point*/
+      ee[5].interval.join(", ") + "") && U(se, ae), we & /*info_point*/
       32 && Y !== (Y = /*info_point*/
       ee[5].prob_interval.map(
         /*perc_format*/
@@ -33996,11 +34046,11 @@ function Ph(t) {
       ).join(", ") + "") && U(W, Y);
     },
     d(ee) {
-      ee && S(e);
+      ee && C(e);
     }
   };
 }
-function P$(t) {
+function E$(t) {
   let e, l, i, n = !/*redrawing*/
   t[3] && Mh(t), a = (
     /*show_info_box*/
@@ -34012,7 +34062,7 @@ function P$(t) {
       e = m("div"), n && n.c(), l = N(), a && a.c(), u(e, "class", "vis-flex-group svelte-1ryqbkw");
     },
     m(r, s) {
-      M(r, e, s), n && n.m(e, null), f(e, l), a && a.m(e, null), i = !0;
+      S(r, e, s), n && n.m(e, null), f(e, l), a && a.m(e, null), i = !0;
     },
     p(r, [s]) {
       /*redrawing*/
@@ -34030,20 +34080,20 @@ function P$(t) {
       D(n), i = !1;
     },
     d(r) {
-      r && S(e), n && n.d(), a && a.d();
+      r && C(e), n && n.d(), a && a.d();
     }
   };
 }
-function O$(t, e, l) {
-  let i, n = ae, a = () => (n(), n = st(h, (j) => l(6, i = j)), h), r, s = ae, o = () => (s(), s = st(d, (j) => l(7, r = j)), d), _, c;
+function I$(t, e, l) {
+  let i, n = ne, a = () => (n(), n = st(h, (j) => l(6, i = j)), h), r, s = ne, o = () => (s(), s = st(d, (j) => l(7, r = j)), d), _, c;
   t.$$.on_destroy.push(() => n()), t.$$.on_destroy.push(() => s());
   let { data: d = Oe(), design: h = Oe(), id: p } = e;
   o(), a();
-  let b = Oe(), g = Oe();
-  at(t, b, (j) => l(8, _ = j)), at(t, g, (j) => l(9, c = j));
+  let g = Oe(), b = Oe();
+  at(t, g, (j) => l(8, _ = j)), at(t, b, (j) => l(9, c = j));
   let k = Jt(".2%");
-  function y(j, O) {
-    return O && (lu("svg .axis text").remove(), b.set(u$(j, O))), {};
+  function y(j, I) {
+    return I && (lu("svg .axis text").remove(), g.set(_$(j, I))), {};
   }
   let v = !1, w = !1, q;
   function $(j) {
@@ -34064,8 +34114,8 @@ function O$(t, e, l) {
         },
         100
       );
-    }), b.subscribe((j) => {
-      l(3, v = !0), j && g.set(f$(r, i, j)), setTimeout(
+    }), g.subscribe((j) => {
+      l(3, v = !0), j && b.set(c$(r, i, j)), setTimeout(
         () => {
           l(3, v = !1);
         },
@@ -34087,31 +34137,31 @@ function O$(t, e, l) {
     r,
     _,
     c,
-    b,
     g,
+    b,
     k,
     $
   ];
 }
-class E$ extends Ve {
+class D$ extends Ve {
   constructor(e) {
-    super(), Qe(this, e, O$, P$, Fe, { data: 0, design: 1, id: 2 });
+    super(), Qe(this, e, I$, E$, Fe, { data: 0, design: 1, id: 2 });
   }
 }
 function Oh(t) {
   let e, l, i, n, a, r, s, o = (
     /*$data*/
     t[1].metadata.sampling_counts + ""
-  ), _, c, d, h, p, b = (
+  ), _, c, d, h, p, g = (
     /*$data*/
     t[1].metadata.sample_size + ""
-  ), g, k, y, v, w, q = (
+  ), b, k, y, v, w, q = (
     /*$data*/
     t[1].metadata.ci_alpha + ""
-  ), $, j, O, A, C, z = (
+  ), $, j, I, A, M, z = (
     /*$data*/
     t[1].metadata.bootstrap + ""
-  ), H, B, R, P, E, F = (
+  ), H, B, R, P, O, F = (
     /*$data*/
     t[1].metadata.esp + ""
   ), L, X, V = (
@@ -34120,17 +34170,17 @@ function Oh(t) {
   );
   return {
     c() {
-      e = m("div"), l = m("h2"), l.textContent = "Meta information", i = N(), n = m("ul"), a = m("li"), r = m("strong"), r.textContent = "Sampling counts", s = I(": "), _ = I(o), c = N(), d = m("li"), h = m("strong"), h.textContent = "Sample size", p = I(": "), g = I(b), k = N(), y = m("li"), v = m("strong"), v.textContent = "CI %", w = I(": "), $ = I(q), j = N(), O = m("li"), A = m("strong"), A.textContent = "Bootstrap?", C = I(": "), H = I(z), B = N(), R = m("li"), P = m("strong"), P.textContent = "Estimated Success Probability (ESP)", E = I(": "), L = I(F), X = N(), V && V.c(), u(l, "class", "svelte-18xk1o2"), u(r, "class", "svelte-18xk1o2"), u(a, "class", "svelte-18xk1o2"), u(h, "class", "svelte-18xk1o2"), u(d, "class", "svelte-18xk1o2"), u(v, "class", "svelte-18xk1o2"), u(y, "class", "svelte-18xk1o2"), u(A, "class", "svelte-18xk1o2"), u(O, "class", "svelte-18xk1o2"), u(P, "class", "svelte-18xk1o2"), u(R, "class", "svelte-18xk1o2"), u(n, "class", "svelte-18xk1o2"), u(e, "class", "meta_info svelte-18xk1o2");
+      e = m("div"), l = m("h2"), l.textContent = "Meta information", i = N(), n = m("ul"), a = m("li"), r = m("strong"), r.textContent = "Sampling counts", s = E(": "), _ = E(o), c = N(), d = m("li"), h = m("strong"), h.textContent = "Sample size", p = E(": "), b = E(g), k = N(), y = m("li"), v = m("strong"), v.textContent = "CI %", w = E(": "), $ = E(q), j = N(), I = m("li"), A = m("strong"), A.textContent = "Bootstrap?", M = E(": "), H = E(z), B = N(), R = m("li"), P = m("strong"), P.textContent = "Estimated Success Probability (ESP)", O = E(": "), L = E(F), X = N(), V && V.c(), u(l, "class", "svelte-18xk1o2"), u(r, "class", "svelte-18xk1o2"), u(a, "class", "svelte-18xk1o2"), u(h, "class", "svelte-18xk1o2"), u(d, "class", "svelte-18xk1o2"), u(v, "class", "svelte-18xk1o2"), u(y, "class", "svelte-18xk1o2"), u(A, "class", "svelte-18xk1o2"), u(I, "class", "svelte-18xk1o2"), u(P, "class", "svelte-18xk1o2"), u(R, "class", "svelte-18xk1o2"), u(n, "class", "svelte-18xk1o2"), u(e, "class", "meta_info svelte-18xk1o2");
     },
     m(Q, Z) {
-      M(Q, e, Z), f(e, l), f(e, i), f(e, n), f(n, a), f(a, r), f(a, s), f(a, _), f(n, c), f(n, d), f(d, h), f(d, p), f(d, g), f(n, k), f(n, y), f(y, v), f(y, w), f(y, $), f(n, j), f(n, O), f(O, A), f(O, C), f(O, H), f(n, B), f(n, R), f(R, P), f(R, E), f(R, L), f(n, X), V && V.m(n, null);
+      S(Q, e, Z), f(e, l), f(e, i), f(e, n), f(n, a), f(a, r), f(a, s), f(a, _), f(n, c), f(n, d), f(d, h), f(d, p), f(d, b), f(n, k), f(n, y), f(y, v), f(y, w), f(y, $), f(n, j), f(n, I), f(I, A), f(I, M), f(I, H), f(n, B), f(n, R), f(R, P), f(R, O), f(R, L), f(n, X), V && V.m(n, null);
     },
     p(Q, Z) {
       Z & /*$data*/
       2 && o !== (o = /*$data*/
       Q[1].metadata.sampling_counts + "") && U(_, o), Z & /*$data*/
-      2 && b !== (b = /*$data*/
-      Q[1].metadata.sample_size + "") && U(g, b), Z & /*$data*/
+      2 && g !== (g = /*$data*/
+      Q[1].metadata.sample_size + "") && U(b, g), Z & /*$data*/
       2 && q !== (q = /*$data*/
       Q[1].metadata.ci_alpha + "") && U($, q), Z & /*$data*/
       2 && z !== (z = /*$data*/
@@ -34140,7 +34190,7 @@ function Oh(t) {
       Q[1].mean_sim_error ? V ? V.p(Q, Z) : (V = Eh(Q), V.c(), V.m(n, null)) : V && (V.d(1), V = null);
     },
     d(Q) {
-      Q && S(e), V && V.d();
+      Q && C(e), V && V.d();
     }
   };
 }
@@ -34151,10 +34201,10 @@ function Eh(t) {
   ), a;
   return {
     c() {
-      e = m("li"), l = m("strong"), l.textContent = "Mean simulation error", i = I(": "), a = I(n), u(l, "class", "svelte-18xk1o2"), u(e, "class", "svelte-18xk1o2");
+      e = m("li"), l = m("strong"), l.textContent = "Mean simulation error", i = E(": "), a = E(n), u(l, "class", "svelte-18xk1o2"), u(e, "class", "svelte-18xk1o2");
     },
     m(r, s) {
-      M(r, e, s), f(e, l), f(e, i), f(e, a);
+      S(r, e, s), f(e, l), f(e, i), f(e, a);
     },
     p(r, s) {
       s & /*$data*/
@@ -34162,34 +34212,34 @@ function Eh(t) {
       r[1].mean_sim_error + "") && U(a, n);
     },
     d(r) {
-      r && S(e);
+      r && C(e);
     }
   };
 }
 function Ih(t) {
-  let e, l, i, n, a, r, s, o, _, c, d, h, p, b, g, k, y, v, w, q, $, j, O, A, C, z, H, B, R, P, E, F, L = (
+  let e, l, i, n, a, r, s, o, _, c, d, h, p, g, b, k, y, v, w, q, $, j, I, A, M, z, H, B, R, P, O, F, L = (
     /*$design*/
     t[2].HOPS && Dh(t)
   );
   return {
     c() {
-      e = m("div"), l = m("h2"), l.textContent = "Design controls", i = N(), n = m("div"), a = m("div"), r = m("input"), c = N(), d = m("label"), h = I("Use HOPS"), b = N(), L && L.c(), g = N(), k = m("div"), y = m("label"), v = I("Direction"), q = N(), $ = m("select"), j = m("option"), O = I("Horizontal"), C = m("option"), z = I("Vertical"), u(l, "class", "svelte-18xk1o2"), u(r, "type", "checkbox"), u(r, "id", s = /*id*/
+      e = m("div"), l = m("h2"), l.textContent = "Design controls", i = N(), n = m("div"), a = m("div"), r = m("input"), c = N(), d = m("label"), h = E("Use HOPS"), g = N(), L && L.c(), b = N(), k = m("div"), y = m("label"), v = E("Direction"), q = N(), $ = m("select"), j = m("option"), I = E("Horizontal"), M = m("option"), z = E("Vertical"), u(l, "class", "svelte-18xk1o2"), u(r, "type", "checkbox"), u(r, "id", s = /*id*/
       t[0] + "-design-hops"), u(r, "name", o = /*id*/
       t[0] + "-design-hops"), r.checked = _ = /*$design*/
       t[2].HOPS, u(r, "class", "svelte-18xk1o2"), u(d, "for", p = /*id*/
       t[0] + "-design-hops"), u(d, "class", "svelte-18xk1o2"), u(a, "class", "svelte-18xk1o2"), u(y, "for", w = /*id*/
       t[0] + "-design-dir"), u(y, "class", "svelte-18xk1o2"), j.__value = "horizontal", pt(j, j.__value), j.selected = A = /*$design*/
-      t[2].direction == "horizontal", u(j, "class", "svelte-18xk1o2"), C.__value = "vertical", pt(C, C.__value), C.selected = H = /*$design*/
-      t[2].direction == "vertical", u(C, "class", "svelte-18xk1o2"), u($, "type", "checkbox"), u($, "id", B = /*id*/
+      t[2].direction == "horizontal", u(j, "class", "svelte-18xk1o2"), M.__value = "vertical", pt(M, M.__value), M.selected = H = /*$design*/
+      t[2].direction == "vertical", u(M, "class", "svelte-18xk1o2"), u($, "type", "checkbox"), u($, "id", B = /*id*/
       t[0] + "-design-dir"), u($, "name", R = /*id*/
       t[0] + "-design-dir"), u($, "class", "svelte-18xk1o2"), u(k, "class", "svelte-18xk1o2"), u(n, "class", "control-box svelte-18xk1o2"), u(e, "class", "control svelte-18xk1o2");
     },
     m(X, V) {
-      M(X, e, V), f(e, l), f(e, i), f(e, n), f(n, a), f(a, r), f(a, c), f(a, d), f(d, h), f(n, b), L && L.m(n, null), f(n, g), f(n, k), f(k, y), f(y, v), f(k, q), f(k, $), f($, j), f(j, O), f($, C), f(C, z), fl(
+      S(X, e, V), f(e, l), f(e, i), f(e, n), f(n, a), f(a, r), f(a, c), f(a, d), f(d, h), f(n, g), L && L.m(n, null), f(n, b), f(n, k), f(k, y), f(y, v), f(k, q), f(k, $), f($, j), f(j, I), f($, M), f(M, z), fl(
         $,
         /*$design*/
         t[2].direction
-      ), E || (F = [
+      ), O || (F = [
         te(
           r,
           "change",
@@ -34202,7 +34252,7 @@ function Ih(t) {
           /*change_handler_2*/
           t[10]
         )
-      ], E = !0);
+      ], O = !0);
     },
     p(X, V) {
       V & /*id*/
@@ -34214,13 +34264,13 @@ function Ih(t) {
       X[2].HOPS) && (r.checked = _), V & /*id*/
       1 && p !== (p = /*id*/
       X[0] + "-design-hops") && u(d, "for", p), /*$design*/
-      X[2].HOPS ? L ? L.p(X, V) : (L = Dh(X), L.c(), L.m(n, g)) : L && (L.d(1), L = null), V & /*id*/
+      X[2].HOPS ? L ? L.p(X, V) : (L = Dh(X), L.c(), L.m(n, b)) : L && (L.d(1), L = null), V & /*id*/
       1 && w !== (w = /*id*/
       X[0] + "-design-dir") && u(y, "for", w), V & /*$design*/
       4 && A !== (A = /*$design*/
       X[2].direction == "horizontal") && (j.selected = A), V & /*$design*/
       4 && H !== (H = /*$design*/
-      X[2].direction == "vertical") && (C.selected = H), V & /*id*/
+      X[2].direction == "vertical") && (M.selected = H), V & /*id*/
       1 && B !== (B = /*id*/
       X[0] + "-design-dir") && u($, "id", B), V & /*id*/
       1 && R !== (R = /*id*/
@@ -34233,7 +34283,7 @@ function Ih(t) {
       );
     },
     d(X) {
-      X && S(e), L && L.d(), E = !1, wt(F);
+      X && C(e), L && L.d(), O = !1, wt(F);
     }
   };
 }
@@ -34241,14 +34291,14 @@ function Dh(t) {
   let e, l, i, n, a, r, s, o, _, c, d;
   return {
     c() {
-      e = m("div"), l = m("input"), r = N(), s = m("label"), o = I("HOPS animation speed"), u(l, "type", "number"), u(l, "id", i = /*id*/
+      e = m("div"), l = m("input"), r = N(), s = m("label"), o = E("HOPS animation speed"), u(l, "type", "number"), u(l, "id", i = /*id*/
       t[0] + "-design-hops-speed"), u(l, "name", n = /*id*/
       t[0] + "-design-hops-speed"), l.value = a = /*$design*/
       t[2].HOPS_speed, u(l, "by", "1"), u(l, "class", "svelte-18xk1o2"), u(s, "for", _ = /*id*/
       t[0] + "-design-hops-speed"), u(s, "class", "svelte-18xk1o2"), u(e, "class", "svelte-18xk1o2");
     },
     m(h, p) {
-      M(h, e, p), f(e, l), f(e, r), f(e, s), f(s, o), c || (d = te(
+      S(h, e, p), f(e, l), f(e, r), f(e, s), f(s, o), c || (d = te(
         l,
         "change",
         /*change_handler_1*/
@@ -34267,11 +34317,11 @@ function Dh(t) {
       h[0] + "-design-hops-speed") && u(s, "for", _);
     },
     d(h) {
-      h && S(e), c = !1, d();
+      h && C(e), c = !1, d();
     }
   };
 }
-function I$(t) {
+function R$(t) {
   let e, l, i, n, a, r, s, o, _, c = (
     /*$data*/
     t[1] && Oh(t)
@@ -34279,7 +34329,7 @@ function I$(t) {
     /*$design*/
     t[2] && Ih(t)
   );
-  return o = new E$({
+  return o = new D$({
     props: {
       id: (
         /*id*/
@@ -34299,16 +34349,16 @@ function I$(t) {
       e = m("div"), l = m("h1"), l.textContent = "Hypothetical error adjustment for measured outcomes", i = N(), n = m("section"), c && c.c(), a = N(), d && d.c(), r = N(), s = m("section"), pe(o.$$.fragment), u(l, "class", "svelte-18xk1o2"), u(n, "class", "meta svelte-18xk1o2"), u(s, "class", "content svelte-18xk1o2"), u(e, "class", "wrap svelte-18xk1o2");
     },
     m(h, p) {
-      M(h, e, p), f(e, l), f(e, i), f(e, n), c && c.m(n, null), f(n, a), d && d.m(n, null), f(e, r), f(e, s), de(o, s, null), _ = !0;
+      S(h, e, p), f(e, l), f(e, i), f(e, n), c && c.m(n, null), f(n, a), d && d.m(n, null), f(e, r), f(e, s), de(o, s, null), _ = !0;
     },
     p(h, [p]) {
       /*$data*/
       h[1] ? c ? c.p(h, p) : (c = Oh(h), c.c(), c.m(n, a)) : c && (c.d(1), c = null), /*$design*/
       h[2] ? d ? d.p(h, p) : (d = Ih(h), d.c(), d.m(n, null)) : d && (d.d(1), d = null);
-      const b = {};
+      const g = {};
       p & /*id*/
-      1 && (b.id = /*id*/
-      h[0]), o.$set(b);
+      1 && (g.id = /*id*/
+      h[0]), o.$set(g);
     },
     i(h) {
       _ || (T(o.$$.fragment, h), _ = !0);
@@ -34317,18 +34367,18 @@ function I$(t) {
       D(o.$$.fragment, h), _ = !1;
     },
     d(h) {
-      h && S(e), c && c.d(), d && d.d(), he(o);
+      h && C(e), c && c.d(), d && d.d(), he(o);
     }
   };
 }
-function D$(t, e, l) {
+function H$(t, e, l) {
   let i, n, { model: a } = e, { key_data: r = "vis_data", key_design: s = "design" } = e, o = JSON.parse(a.get(r)), _ = JSON.parse(a.get(s)), c = `change:${r}`, d = () => circ = a.get(r), h = Oe();
   at(t, h, (q) => l(1, i = q));
   let p = Oe();
   at(t, p, (q) => l(2, n = q));
-  let b = {};
+  let g = {};
   Oe().subscribe((q) => {
-    q && (b[q.id] = q);
+    q && (g[q.id] = q);
   });
   let k;
   Tt(() => {
@@ -34359,14 +34409,14 @@ function D$(t, e, l) {
     w
   ];
 }
-class R$ extends Ve {
+class L$ extends Ve {
   constructor(e) {
-    super(), Qe(this, e, D$, I$, Fe, { model: 5, key_data: 6, key_design: 7 });
+    super(), Qe(this, e, H$, R$, Fe, { model: 5, key_data: 6, key_design: 7 });
   }
 }
 function Rh(t) {
-  var Z, ne, se, K, Y, W;
-  let e, l, i, n, a, r, s, o, _, c, d, h, p, b, g, k, y, v, w, q, $, j, O, A, C, z = (
+  var Z, ae, se, K, Y, W;
+  let e, l, i, n, a, r, s, o, _, c, d, h, p, g, b, k, y, v, w, q, $, j, I, A, M, z = (
     /*$data*/
     t[1].job_id && Hh(t)
   ), H = (
@@ -34381,12 +34431,12 @@ function Rh(t) {
   ), P = (
     /*$data*/
     t[1].n_shots !== void 0 && Vh(t)
-  ), E = (
+  ), O = (
     /*$data*/
     ((Z = t[1].metrics) == null ? void 0 : Z.circuit_depths) !== void 0 && Xh(t)
   ), F = (
     /*$data*/
-    ((ne = t[1]) == null ? void 0 : ne.physical_qubits) && Gh(t)
+    ((ae = t[1]) == null ? void 0 : ae.physical_qubits) && Gh(t)
   ), L = (
     /*$data*/
     t[1].est_start_time && Yh(t)
@@ -34403,10 +34453,10 @@ function Rh(t) {
   );
   return {
     c() {
-      e = m("article"), l = m("h4"), l.textContent = "Job metadata", i = N(), n = m("div"), a = m("table"), z && z.c(), r = N(), H && H.c(), s = N(), B && B.c(), o = N(), R && R.c(), _ = N(), c = m("article"), d = m("h4"), d.textContent = "Usage size", h = N(), p = m("div"), b = m("table"), P && P.c(), g = N(), E && E.c(), k = N(), F && F.c(), y = N(), v = m("article"), w = m("h4"), w.textContent = "Usage information", q = N(), $ = m("div"), j = m("table"), L && L.c(), O = N(), X && X.c(), A = N(), V && V.c(), C = N(), Q && Q.c(), u(a, "class", "svelte-1hp7is1"), u(n, "class", "content-wrap"), u(e, "class", "panel svelte-1hp7is1"), u(b, "class", "svelte-1hp7is1"), u(p, "class", "content-wrap"), u(c, "class", "panel svelte-1hp7is1"), u(j, "class", "svelte-1hp7is1"), u($, "class", "content-wrap"), u(v, "class", "panel svelte-1hp7is1");
+      e = m("article"), l = m("h4"), l.textContent = "Job metadata", i = N(), n = m("div"), a = m("table"), z && z.c(), r = N(), H && H.c(), s = N(), B && B.c(), o = N(), R && R.c(), _ = N(), c = m("article"), d = m("h4"), d.textContent = "Usage size", h = N(), p = m("div"), g = m("table"), P && P.c(), b = N(), O && O.c(), k = N(), F && F.c(), y = N(), v = m("article"), w = m("h4"), w.textContent = "Usage information", q = N(), $ = m("div"), j = m("table"), L && L.c(), I = N(), X && X.c(), A = N(), V && V.c(), M = N(), Q && Q.c(), u(a, "class", "svelte-1hp7is1"), u(n, "class", "content-wrap"), u(e, "class", "panel svelte-1hp7is1"), u(g, "class", "svelte-1hp7is1"), u(p, "class", "content-wrap"), u(c, "class", "panel svelte-1hp7is1"), u(j, "class", "svelte-1hp7is1"), u($, "class", "content-wrap"), u(v, "class", "panel svelte-1hp7is1");
     },
     m(J, ee) {
-      M(J, e, ee), f(e, l), f(e, i), f(e, n), f(n, a), z && z.m(a, null), f(a, r), H && H.m(a, null), f(a, s), B && B.m(a, null), f(a, o), R && R.m(a, null), M(J, _, ee), M(J, c, ee), f(c, d), f(c, h), f(c, p), f(p, b), P && P.m(b, null), f(b, g), E && E.m(b, null), f(b, k), F && F.m(b, null), M(J, y, ee), M(J, v, ee), f(v, w), f(v, q), f(v, $), f($, j), L && L.m(j, null), f(j, O), X && X.m(j, null), f(j, A), V && V.m(j, null), f(j, C), Q && Q.m(j, null);
+      S(J, e, ee), f(e, l), f(e, i), f(e, n), f(n, a), z && z.m(a, null), f(a, r), H && H.m(a, null), f(a, s), B && B.m(a, null), f(a, o), R && R.m(a, null), S(J, _, ee), S(J, c, ee), f(c, d), f(c, h), f(c, p), f(p, g), P && P.m(g, null), f(g, b), O && O.m(g, null), f(g, k), F && F.m(g, null), S(J, y, ee), S(J, v, ee), f(v, w), f(v, q), f(v, $), f($, j), L && L.m(j, null), f(j, I), X && X.m(j, null), f(j, A), V && V.m(j, null), f(j, M), Q && Q.m(j, null);
     },
     p(J, ee) {
       var we, Re, ve, me, fe, G;
@@ -34415,17 +34465,17 @@ function Rh(t) {
       J[1].creation_date ? H ? H.p(J, ee) : (H = Lh(J), H.c(), H.m(a, s)) : H && (H.d(1), H = null), /*$data*/
       J[1].done !== void 0 ? B ? B.p(J, ee) : (B = Fh(J), B.c(), B.m(a, o)) : B && (B.d(1), B = null), /*$data*/
       J[1].program_id ? R ? R.p(J, ee) : (R = Qh(J), R.c(), R.m(a, null)) : R && (R.d(1), R = null), /*$data*/
-      J[1].n_shots !== void 0 ? P ? P.p(J, ee) : (P = Vh(J), P.c(), P.m(b, g)) : P && (P.d(1), P = null), /*$data*/
-      ((we = J[1].metrics) == null ? void 0 : we.circuit_depths) !== void 0 ? E ? E.p(J, ee) : (E = Xh(J), E.c(), E.m(b, k)) : E && (E.d(1), E = null), /*$data*/
-      (Re = J[1]) != null && Re.physical_qubits ? F ? F.p(J, ee) : (F = Gh(J), F.c(), F.m(b, null)) : F && (F.d(1), F = null), /*$data*/
-      J[1].est_start_time ? L ? L.p(J, ee) : (L = Yh(J), L.c(), L.m(j, O)) : L && (L.d(1), L = null), /*$data*/
+      J[1].n_shots !== void 0 ? P ? P.p(J, ee) : (P = Vh(J), P.c(), P.m(g, b)) : P && (P.d(1), P = null), /*$data*/
+      ((we = J[1].metrics) == null ? void 0 : we.circuit_depths) !== void 0 ? O ? O.p(J, ee) : (O = Xh(J), O.c(), O.m(g, k)) : O && (O.d(1), O = null), /*$data*/
+      (Re = J[1]) != null && Re.physical_qubits ? F ? F.p(J, ee) : (F = Gh(J), F.c(), F.m(g, null)) : F && (F.d(1), F = null), /*$data*/
+      J[1].est_start_time ? L ? L.p(J, ee) : (L = Yh(J), L.c(), L.m(j, I)) : L && (L.d(1), L = null), /*$data*/
       ((me = (ve = J[1].metrics) == null ? void 0 : ve.usage) == null ? void 0 : me.quantum_seconds) !== void 0 && /*$data*/
       ((G = (fe = J[1].metrics) == null ? void 0 : fe.usage) == null ? void 0 : G.seconds) !== void 0 ? X ? X.p(J, ee) : (X = Kh(J), X.c(), X.m(j, A)) : X && (X.d(1), X = null), /*$data*/
-      J[1].init_qubits !== void 0 ? V ? V.p(J, ee) : (V = Uh(J), V.c(), V.m(j, C)) : V && (V.d(1), V = null), /*$data*/
+      J[1].init_qubits !== void 0 ? V ? V.p(J, ee) : (V = Uh(J), V.c(), V.m(j, M)) : V && (V.d(1), V = null), /*$data*/
       J[1].backend_name ? Q ? Q.p(J, ee) : (Q = Wh(J), Q.c(), Q.m(j, null)) : Q && (Q.d(1), Q = null);
     },
     d(J) {
-      J && (S(e), S(_), S(c), S(y), S(v)), z && z.d(), H && H.d(), B && B.d(), R && R.d(), P && P.d(), E && E.d(), F && F.d(), L && L.d(), X && X.d(), V && V.d(), Q && Q.d();
+      J && (C(e), C(_), C(c), C(y), C(v)), z && z.d(), H && H.d(), B && B.d(), R && R.d(), P && P.d(), O && O.d(), F && F.d(), L && L.d(), X && X.d(), V && V.d(), Q && Q.d();
     }
   };
 }
@@ -34436,10 +34486,10 @@ function Hh(t) {
   ), a;
   return {
     c() {
-      e = m("tr"), l = m("th"), l.textContent = "Job ID", i = m("td"), a = I(n), u(l, "class", "svelte-1hp7is1"), u(i, "class", "svelte-1hp7is1");
+      e = m("tr"), l = m("th"), l.textContent = "Job ID", i = m("td"), a = E(n), u(l, "class", "svelte-1hp7is1"), u(i, "class", "svelte-1hp7is1");
     },
     m(r, s) {
-      M(r, e, s), f(e, l), f(e, i), f(i, a);
+      S(r, e, s), f(e, l), f(e, i), f(i, a);
     },
     p(r, s) {
       s & /*$data*/
@@ -34447,7 +34497,7 @@ function Hh(t) {
       r[1].job_id + "") && U(a, n);
     },
     d(r) {
-      r && S(e);
+      r && C(e);
     }
   };
 }
@@ -34458,10 +34508,10 @@ function Lh(t) {
   ), a;
   return {
     c() {
-      e = m("tr"), l = m("th"), l.textContent = "Job created", i = m("td"), a = I(n), u(l, "class", "svelte-1hp7is1"), u(i, "class", "svelte-1hp7is1");
+      e = m("tr"), l = m("th"), l.textContent = "Job created", i = m("td"), a = E(n), u(l, "class", "svelte-1hp7is1"), u(i, "class", "svelte-1hp7is1");
     },
     m(r, s) {
-      M(r, e, s), f(e, l), f(e, i), f(i, a);
+      S(r, e, s), f(e, l), f(e, i), f(i, a);
     },
     p(r, s) {
       s & /*$data*/
@@ -34469,7 +34519,7 @@ function Lh(t) {
       r[1].creation_date + "") && U(a, n);
     },
     d(r) {
-      r && S(e);
+      r && C(e);
     }
   };
 }
@@ -34480,10 +34530,10 @@ function Fh(t) {
   ), a;
   return {
     c() {
-      e = m("tr"), l = m("th"), l.textContent = "Job done?", i = m("td"), a = I(n), u(l, "class", "svelte-1hp7is1"), u(i, "class", "svelte-1hp7is1");
+      e = m("tr"), l = m("th"), l.textContent = "Job done?", i = m("td"), a = E(n), u(l, "class", "svelte-1hp7is1"), u(i, "class", "svelte-1hp7is1");
     },
     m(r, s) {
-      M(r, e, s), f(e, l), f(e, i), f(i, a);
+      S(r, e, s), f(e, l), f(e, i), f(i, a);
     },
     p(r, s) {
       s & /*$data*/
@@ -34491,7 +34541,7 @@ function Fh(t) {
       r[1].done ? "Done" : "Running") && U(a, n);
     },
     d(r) {
-      r && S(e);
+      r && C(e);
     }
   };
 }
@@ -34502,10 +34552,10 @@ function Qh(t) {
   ), a;
   return {
     c() {
-      e = m("tr"), l = m("th"), l.textContent = "Program ID", i = m("td"), a = I(n), u(l, "class", "svelte-1hp7is1"), u(i, "class", "svelte-1hp7is1");
+      e = m("tr"), l = m("th"), l.textContent = "Program ID", i = m("td"), a = E(n), u(l, "class", "svelte-1hp7is1"), u(i, "class", "svelte-1hp7is1");
     },
     m(r, s) {
-      M(r, e, s), f(e, l), f(e, i), f(i, a);
+      S(r, e, s), f(e, l), f(e, i), f(i, a);
     },
     p(r, s) {
       s & /*$data*/
@@ -34513,7 +34563,7 @@ function Qh(t) {
       r[1].program_id + "") && U(a, n);
     },
     d(r) {
-      r && S(e);
+      r && C(e);
     }
   };
 }
@@ -34524,10 +34574,10 @@ function Vh(t) {
   ), a;
   return {
     c() {
-      e = m("tr"), l = m("th"), l.textContent = "# Shots", i = m("td"), a = I(n), u(l, "class", "svelte-1hp7is1"), u(i, "class", "svelte-1hp7is1");
+      e = m("tr"), l = m("th"), l.textContent = "# Shots", i = m("td"), a = E(n), u(l, "class", "svelte-1hp7is1"), u(i, "class", "svelte-1hp7is1");
     },
     m(r, s) {
-      M(r, e, s), f(e, l), f(e, i), f(i, a);
+      S(r, e, s), f(e, l), f(e, i), f(i, a);
     },
     p(r, s) {
       s & /*$data*/
@@ -34535,7 +34585,7 @@ function Vh(t) {
       r[1].n_shots + "") && U(a, n);
     },
     d(r) {
-      r && S(e);
+      r && C(e);
     }
   };
 }
@@ -34546,10 +34596,10 @@ function Xh(t) {
   ) + "", a;
   return {
     c() {
-      e = m("tr"), l = m("th"), l.textContent = "Circuit depth", i = m("td"), a = I(n), u(l, "class", "svelte-1hp7is1"), u(i, "class", "svelte-1hp7is1");
+      e = m("tr"), l = m("th"), l.textContent = "Circuit depth", i = m("td"), a = E(n), u(l, "class", "svelte-1hp7is1"), u(i, "class", "svelte-1hp7is1");
     },
     m(r, s) {
-      M(r, e, s), f(e, l), f(e, i), f(i, a);
+      S(r, e, s), f(e, l), f(e, i), f(i, a);
     },
     p(r, s) {
       s & /*$data*/
@@ -34559,7 +34609,7 @@ function Xh(t) {
       ) + "") && U(a, n);
     },
     d(r) {
-      r && S(e);
+      r && C(e);
     }
   };
 }
@@ -34571,10 +34621,10 @@ function Gh(t) {
   ), a;
   return {
     c() {
-      e = m("tr"), l = m("th"), l.textContent = "# Qubits", i = m("td"), a = I(n), u(l, "class", "svelte-1hp7is1"), u(i, "class", "svelte-1hp7is1");
+      e = m("tr"), l = m("th"), l.textContent = "# Qubits", i = m("td"), a = E(n), u(l, "class", "svelte-1hp7is1"), u(i, "class", "svelte-1hp7is1");
     },
     m(s, o) {
-      M(s, e, o), f(e, l), f(e, i), f(i, a);
+      S(s, e, o), f(e, l), f(e, i), f(i, a);
     },
     p(s, o) {
       var _;
@@ -34583,7 +34633,7 @@ function Gh(t) {
       ((_ = s[1].physical_qubits) == null ? void 0 : _.length) + "") && U(a, n);
     },
     d(s) {
-      s && S(e);
+      s && C(e);
     }
   };
 }
@@ -34594,10 +34644,10 @@ function Yh(t) {
   ), a;
   return {
     c() {
-      e = m("tr"), l = m("th"), l.textContent = "Start time (est)", i = m("td"), a = I(n), u(l, "class", "svelte-1hp7is1"), u(i, "class", "svelte-1hp7is1");
+      e = m("tr"), l = m("th"), l.textContent = "Start time (est)", i = m("td"), a = E(n), u(l, "class", "svelte-1hp7is1"), u(i, "class", "svelte-1hp7is1");
     },
     m(r, s) {
-      M(r, e, s), f(e, l), f(e, i), f(i, a);
+      S(r, e, s), f(e, l), f(e, i), f(i, a);
     },
     p(r, s) {
       s & /*$data*/
@@ -34605,7 +34655,7 @@ function Yh(t) {
       r[1].est_start_time + "") && U(a, n);
     },
     d(r) {
-      r && S(e);
+      r && C(e);
     }
   };
 }
@@ -34619,10 +34669,10 @@ function Kh(t) {
   ), o, _;
   return {
     c() {
-      e = m("tr"), l = m("th"), l.textContent = "Duration (sec.) ", i = m("td"), a = I(n), r = I(" (quantum) / "), o = I(s), _ = I(" (total)"), u(l, "class", "svelte-1hp7is1"), u(i, "class", "svelte-1hp7is1");
+      e = m("tr"), l = m("th"), l.textContent = "Duration (sec.) ", i = m("td"), a = E(n), r = E(" (quantum) / "), o = E(s), _ = E(" (total)"), u(l, "class", "svelte-1hp7is1"), u(i, "class", "svelte-1hp7is1");
     },
     m(c, d) {
-      M(c, e, d), f(e, l), f(e, i), f(i, a), f(i, r), f(i, o), f(i, _);
+      S(c, e, d), f(e, l), f(e, i), f(i, a), f(i, r), f(i, o), f(i, _);
     },
     p(c, d) {
       d & /*$data*/
@@ -34632,7 +34682,7 @@ function Kh(t) {
       c[1].metrics.usage.seconds + "") && U(o, s);
     },
     d(c) {
-      c && S(e);
+      c && C(e);
     }
   };
 }
@@ -34643,10 +34693,10 @@ function Uh(t) {
   ), a;
   return {
     c() {
-      e = m("tr"), l = m("th"), l.textContent = "Qubits initialized", i = m("td"), a = I(n), u(l, "class", "svelte-1hp7is1"), u(i, "class", "svelte-1hp7is1");
+      e = m("tr"), l = m("th"), l.textContent = "Qubits initialized", i = m("td"), a = E(n), u(l, "class", "svelte-1hp7is1"), u(i, "class", "svelte-1hp7is1");
     },
     m(r, s) {
-      M(r, e, s), f(e, l), f(e, i), f(i, a);
+      S(r, e, s), f(e, l), f(e, i), f(i, a);
     },
     p(r, s) {
       s & /*$data*/
@@ -34654,7 +34704,7 @@ function Uh(t) {
       r[1].init_qubits + "") && U(a, n);
     },
     d(r) {
-      r && S(e);
+      r && C(e);
     }
   };
 }
@@ -34665,10 +34715,10 @@ function Wh(t) {
   ), a;
   return {
     c() {
-      e = m("tr"), l = m("th"), l.textContent = "Backend name", i = m("td"), a = I(n), u(l, "class", "svelte-1hp7is1"), u(i, "class", "svelte-1hp7is1");
+      e = m("tr"), l = m("th"), l.textContent = "Backend name", i = m("td"), a = E(n), u(l, "class", "svelte-1hp7is1"), u(i, "class", "svelte-1hp7is1");
     },
     m(r, s) {
-      M(r, e, s), f(e, l), f(e, i), f(i, a);
+      S(r, e, s), f(e, l), f(e, i), f(i, a);
     },
     p(r, s) {
       s & /*$data*/
@@ -34676,11 +34726,11 @@ function Wh(t) {
       r[1].backend_name + "") && U(a, n);
     },
     d(r) {
-      r && S(e);
+      r && C(e);
     }
   };
 }
-function H$(t) {
+function F$(t) {
   let e, l = (
     /*$data*/
     t[1] && Rh(t)
@@ -34690,38 +34740,38 @@ function H$(t) {
       l && l.c(), e = Ae();
     },
     m(i, n) {
-      l && l.m(i, n), M(i, e, n);
+      l && l.m(i, n), S(i, e, n);
     },
     p(i, [n]) {
       /*$data*/
       i[1] ? l ? l.p(i, n) : (l = Rh(i), l.c(), l.m(e.parentNode, e)) : l && (l.d(1), l = null);
     },
-    i: ae,
-    o: ae,
+    i: ne,
+    o: ne,
     d(i) {
-      i && S(e), l && l.d(i);
+      i && C(e), l && l.d(i);
     }
   };
 }
-function L$(t, e, l) {
-  let i, n = ae, a = () => (n(), n = st(r, (s) => l(1, i = s)), r);
+function Q$(t, e, l) {
+  let i, n = ne, a = () => (n(), n = st(r, (s) => l(1, i = s)), r);
   t.$$.on_destroy.push(() => n());
   let { data: r = Oe() } = e;
   return a(), t.$$set = (s) => {
     "data" in s && a(l(0, r = s.data));
   }, [r, i];
 }
-class F$ extends Ve {
+class V$ extends Ve {
   constructor(e) {
-    super(), Qe(this, e, L$, H$, Fe, { data: 0 });
+    super(), Qe(this, e, Q$, F$, Fe, { data: 0 });
   }
 }
 const Zt = 50, Ft = 300, hr = 30, Vt = 20, Ml = 0.75, _l = 30;
-function Q$(t) {
+function X$(t) {
   return t.split("").reverse().join("");
 }
-function V$(t, e) {
-  let l = t.map((a) => e ? Q$(a) : a), i = l.map((a, r) => [a, r]);
+function G$(t, e) {
+  let l = t.map((a) => e ? X$(a) : a), i = l.map((a, r) => [a, r]);
   i = i.toSorted((a, r) => a[0].localeCompare(r[0]));
   let n = {};
   return i.forEach((a) => {
@@ -34729,10 +34779,10 @@ function V$(t, e) {
   }), l = i.map((a) => a[0]), { wrapped_state_bistrings: l, bitstring_arg_map: n };
 }
 function pr(t, e, l = {}) {
-  var C;
+  var M;
   if (!t)
     return null;
-  let i = (l == null ? void 0 : l.reverse_state_vector) !== void 0 ? l == null ? void 0 : l.reverse_state_vector : !0, n = l.see_uncertainty !== !1 && e !== void 0 && (e == null ? void 0 : e.data) !== void 0 && (e == null ? void 0 : e.counts) !== void 0 && (e == null ? void 0 : e.probs) !== void 0 && (e == null ? void 0 : e.metadata) !== void 0, a = n ? (C = e.metadata) == null ? void 0 : C.bootstrap : !1, r = Jt(a ? ".6f" : ",d"), s = Jt(a ? ".10f" : ",d"), o = [], _ = Object.keys(t), { wrapped_state_bistrings: c, bitstring_arg_map: d } = V$(_, i);
+  let i = (l == null ? void 0 : l.reverse_state_vector) !== void 0 ? l == null ? void 0 : l.reverse_state_vector : !0, n = l.see_uncertainty !== !1 && e !== void 0 && (e == null ? void 0 : e.data) !== void 0 && (e == null ? void 0 : e.counts) !== void 0 && (e == null ? void 0 : e.probs) !== void 0 && (e == null ? void 0 : e.metadata) !== void 0, a = n ? (M = e.metadata) == null ? void 0 : M.bootstrap : !1, r = Jt(a ? ".6f" : ",d"), s = Jt(a ? ".10f" : ",d"), o = [], _ = Object.keys(t), { wrapped_state_bistrings: c, bitstring_arg_map: d } = G$(_, i);
   c = c.toSorted();
   for (let z = 0; z < (c == null ? void 0 : c.length); z++) {
     let H = c[z], B = _[d[H]], R = t[B] || 0;
@@ -34745,12 +34795,12 @@ function pr(t, e, l = {}) {
       unceratinty_probs: n ? e.probs[B] : void 0
     });
   }
-  let h = 0, p = Ft + hr, b, g, k, y, v, w = (o == null ? void 0 : o.length) * Vt;
+  let h = 0, p = Ft + hr, g, b, k, y, v, w = (o == null ? void 0 : o.length) * Vt;
   h = w + Zt;
   let q;
   n && a ? q = Math.max(...o.map((z) => Math.max(...z.unceratinty_probs))) : n && !a ? q = Math.max(...o.map((z) => Math.max(...z.unceratinty_counts))) : q = Math.max(...o.map((z) => z.count));
-  let $ = El().domain([0, q]).range([0, Ft]).nice(), j = $.invert(Ft), O = G$(j);
-  g = {
+  let $ = El().domain([0, q]).range([0, Ft]).nice(), j = $.invert(Ft), I = K$(j);
+  b = {
     type: "g",
     id: "count-histogram-y-axis",
     role: "count-histogram-y-axis",
@@ -34797,7 +34847,7 @@ function pr(t, e, l = {}) {
     y: De,
     elem: []
   }, h += Zt;
-  for (let z = 0; z <= j; z += O) {
+  for (let z = 0; z <= j; z += I) {
     let H = {
       type: "g",
       id: "count-histogram-y-axis-tick",
@@ -34822,7 +34872,7 @@ function pr(t, e, l = {}) {
       text: r(z),
       "font-size": 12
     };
-    H.elem.push(B, R), g.elem.push(H), k.elem.push({
+    H.elem.push(B, R), b.elem.push(H), k.elem.push({
       type: "line",
       x1: 0,
       x2: w,
@@ -34832,7 +34882,7 @@ function pr(t, e, l = {}) {
       "stroke-width": 1
     });
   }
-  b = {
+  g = {
     type: "g",
     id: "count-histogram-bar-group",
     role: "count-histogram-bar-group",
@@ -34944,8 +34994,8 @@ function pr(t, e, l = {}) {
         hea_count_mean: n ? z.unceratinty.mean : void 0,
         hea_count_interval: n ? z.unceratinty.interval : void 0
       }
-    }), b.elem.push(P);
-    let E = {
+    }), g.elem.push(P);
+    let O = {
       type: "g",
       id: "count-histogram-x-axis-group-" + A,
       width: Vt,
@@ -34973,7 +35023,7 @@ function pr(t, e, l = {}) {
         transform: "rotate(-40 0 0)"
       }]
     };
-    y.elem.push(E), A++;
+    y.elem.push(O), A++;
   }
   return n && (v = {
     type: "g",
@@ -35068,17 +35118,17 @@ function pr(t, e, l = {}) {
     height: p + De * 2,
     viewBox: [0, 0, h + De * 2, p + De * 2],
     groups: {
-      bar_group: b,
-      y_axis_group: g,
+      bar_group: g,
+      y_axis_group: b,
       y_grid_group: k,
       x_axis_group: y,
       legend_group: v
     }
   };
 }
-let X$ = [100, 50, 25, 10, 5, 1, 0.5, 0.25, 0.1, 0.05, 0.025, 0.01, 5e-3, 25e-4, 1e-3];
-function G$(t) {
-  for (let e of X$) {
+let Y$ = [100, 50, 25, 10, 5, 1, 0.5, 0.25, 0.1, 0.05, 0.025, 0.01, 5e-3, 25e-4, 1e-3];
+function K$(t) {
+  for (let e of Y$) {
     if (t > 1 && t % e == 0 && t / e > 1)
       return e;
     if (t < 1 && t % e < 1e-3 && t / e > 1)
@@ -35089,7 +35139,7 @@ function Jh(t) {
   let e, l, i, n, a = (
     /*$hide1*/
     t[7] ? "Show" : "Hide"
-  ), r, s, o, _, c, d, h, p, b, g, k, y, v = (
+  ), r, s, o, _, c, d, h, p, g, b, k, y, v = (
     /*images*/
     t[4]["count-histogram"] && Zh(t)
   ), w = !/*$hide1*/
@@ -35098,11 +35148,11 @@ function Jh(t) {
   t[7] && o1(t);
   return {
     c() {
-      e = m("article"), l = m("h4"), i = I(`Counts with hypothetical error adjustment
-      `), n = m("button"), r = I(a), s = N(), o = m("button"), o.textContent = "Image", _ = N(), v && v.c(), c = N(), d = m("div"), w && w.c(), h = N(), p = m("div"), q && q.c(), b = N(), $ && $.c(), u(o, "class", "save-make svelte-ef6jyv"), u(d, "class", "content-wrap"), u(p, "class", "content-wrap"), u(e, "class", "panel svelte-ef6jyv");
+      e = m("article"), l = m("h4"), i = E(`Counts with hypothetical error adjustment
+      `), n = m("button"), r = E(a), s = N(), o = m("button"), o.textContent = "Image", _ = N(), v && v.c(), c = N(), d = m("div"), w && w.c(), h = N(), p = m("div"), q && q.c(), g = N(), $ && $.c(), u(o, "class", "save-make svelte-ef6jyv"), u(d, "class", "content-wrap"), u(p, "class", "content-wrap"), u(e, "class", "panel svelte-ef6jyv");
     },
-    m(j, O) {
-      M(j, e, O), f(e, l), f(l, i), f(l, n), f(n, r), f(l, s), f(l, o), f(l, _), v && v.m(l, null), f(e, c), f(e, d), w && w.m(d, null), f(e, h), f(e, p), q && q.m(p, null), f(e, b), $ && $.m(e, null), g = !0, k || (y = [
+    m(j, I) {
+      S(j, e, I), f(e, l), f(l, i), f(l, n), f(n, r), f(l, s), f(l, o), f(l, _), v && v.m(l, null), f(e, c), f(e, d), w && w.m(d, null), f(e, h), f(e, p), q && q.m(p, null), f(e, g), $ && $.m(e, null), b = !0, k || (y = [
         te(
           n,
           "click",
@@ -35117,26 +35167,26 @@ function Jh(t) {
         )
       ], k = !0);
     },
-    p(j, O) {
-      (!g || O & /*$hide1*/
+    p(j, I) {
+      (!b || I & /*$hide1*/
       128) && a !== (a = /*$hide1*/
       j[7] ? "Show" : "Hide") && U(r, a), /*images*/
-      j[4]["count-histogram"] ? v ? v.p(j, O) : (v = Zh(j), v.c(), v.m(l, null)) : v && (v.d(1), v = null), /*$hide1*/
-      j[7] ? w && (w.d(1), w = null) : w ? w.p(j, O) : (w = xh(j), w.c(), w.m(d, null)), /*$hide1*/
+      j[4]["count-histogram"] ? v ? v.p(j, I) : (v = Zh(j), v.c(), v.m(l, null)) : v && (v.d(1), v = null), /*$hide1*/
+      j[7] ? w && (w.d(1), w = null) : w ? w.p(j, I) : (w = xh(j), w.c(), w.m(d, null)), /*$hide1*/
       j[7] ? q && (be(), D(q, 1, 1, () => {
         q = null;
-      }), ke()) : q ? (q.p(j, O), O & /*$hide1*/
+      }), ke()) : q ? (q.p(j, I), I & /*$hide1*/
       128 && T(q, 1)) : (q = e1(j), q.c(), T(q, 1), q.m(p, null)), /*$hide1*/
-      j[7] ? $ && ($.d(1), $ = null) : $ ? $.p(j, O) : ($ = o1(j), $.c(), $.m(e, null));
+      j[7] ? $ && ($.d(1), $ = null) : $ ? $.p(j, I) : ($ = o1(j), $.c(), $.m(e, null));
     },
     i(j) {
-      g || (T(q), g = !0);
+      b || (T(q), b = !0);
     },
     o(j) {
-      D(q), g = !1;
+      D(q), b = !1;
     },
     d(j) {
-      j && S(e), v && v.d(), w && w.d(), q && q.d(), $ && $.d(), k = !1, wt(y);
+      j && C(e), v && v.d(), w && w.d(), q && q.d(), $ && $.d(), k = !1, wt(y);
     }
   };
 }
@@ -35144,12 +35194,12 @@ function Zh(t) {
   let e, l, i, n, a, r, s;
   return {
     c() {
-      e = m("a"), l = I("PNG"), n = N(), a = m("a"), r = I("SVG"), u(e, "class", "save-download svelte-ef6jyv"), u(e, "href", i = /*images*/
+      e = m("a"), l = E("PNG"), n = N(), a = m("a"), r = E("SVG"), u(e, "class", "save-download svelte-ef6jyv"), u(e, "href", i = /*images*/
       t[4]["count-histogram"].png), u(e, "download", ""), u(a, "class", "save-download svelte-ef6jyv"), u(a, "href", s = /*images*/
       t[4]["count-histogram"].svg), u(a, "download", "");
     },
     m(o, _) {
-      M(o, e, _), f(e, l), M(o, n, _), M(o, a, _), f(a, r);
+      S(o, e, _), f(e, l), S(o, n, _), S(o, a, _), f(a, r);
     },
     p(o, _) {
       _ & /*images*/
@@ -35159,25 +35209,25 @@ function Zh(t) {
       o[4]["count-histogram"].svg) && u(a, "href", s);
     },
     d(o) {
-      o && (S(e), S(n), S(a));
+      o && (C(e), C(n), C(a));
     }
   };
 }
 function xh(t) {
   let e, l, i, n, a, r, s, o, _, c, d, h, p;
-  function b(q, $) {
+  function g(q, $) {
     var j;
     return (
       /*$config*/
-      (j = q[5]) != null && j.reverse_state_vector ? K$ : Y$
+      (j = q[5]) != null && j.reverse_state_vector ? W$ : U$
     );
   }
-  let g = b(t), k = g(t);
+  let b = g(t), k = b(t);
   function y(q, $) {
     var j;
     return (
       /*$config*/
-      (j = q[5]) != null && j.see_uncertainty ? W$ : U$
+      (j = q[5]) != null && j.see_uncertainty ? Z$ : J$
     );
   }
   let v = y(t), w = v(t);
@@ -35189,7 +35239,7 @@ function xh(t) {
       ($ = t[5]) == null ? void 0 : $.see_uncertainty, u(d, "for", "config2"), u(d, "class", "svelte-ef6jyv"), u(s, "class", "input-wrap svelte-ef6jyv");
     },
     m(q, $) {
-      M(q, e, $), f(e, l), f(e, n), f(e, a), k.m(a, null), M(q, r, $), M(q, s, $), f(s, o), f(s, c), f(s, d), w.m(d, null), h || (p = [
+      S(q, e, $), f(e, l), f(e, n), f(e, a), k.m(a, null), S(q, r, $), S(q, s, $), f(s, o), f(s, c), f(s, d), w.m(d, null), h || (p = [
         te(
           l,
           "change",
@@ -35205,43 +35255,15 @@ function xh(t) {
       ], h = !0);
     },
     p(q, $) {
-      var j, O;
+      var j, I;
       $ & /*$config*/
       32 && i !== (i = /*$config*/
-      (j = q[5]) == null ? void 0 : j.reverse_state_vector) && (l.checked = i), g !== (g = b(q)) && (k.d(1), k = g(q), k && (k.c(), k.m(a, null))), $ & /*$config*/
+      (j = q[5]) == null ? void 0 : j.reverse_state_vector) && (l.checked = i), b !== (b = g(q)) && (k.d(1), k = b(q), k && (k.c(), k.m(a, null))), $ & /*$config*/
       32 && _ !== (_ = /*$config*/
-      (O = q[5]) == null ? void 0 : O.see_uncertainty) && (o.checked = _), v !== (v = y(q)) && (w.d(1), w = v(q), w && (w.c(), w.m(d, null)));
+      (I = q[5]) == null ? void 0 : I.see_uncertainty) && (o.checked = _), v !== (v = y(q)) && (w.d(1), w = v(q), w && (w.c(), w.m(d, null)));
     },
     d(q) {
-      q && (S(e), S(r), S(s)), k.d(), w.d(), h = !1, wt(p);
-    }
-  };
-}
-function Y$(t) {
-  let e;
-  return {
-    c() {
-      e = I("The bitstring is original (Qubit N ← Qubit 0).");
-    },
-    m(l, i) {
-      M(l, e, i);
-    },
-    d(l) {
-      l && S(e);
-    }
-  };
-}
-function K$(t) {
-  let e;
-  return {
-    c() {
-      e = I("The bitstring is reversed (Qubit 0 → Qubit N).");
-    },
-    m(l, i) {
-      M(l, e, i);
-    },
-    d(l) {
-      l && S(e);
+      q && (C(e), C(r), C(s)), k.d(), w.d(), h = !1, wt(p);
     }
   };
 }
@@ -35249,13 +35271,13 @@ function U$(t) {
   let e;
   return {
     c() {
-      e = I("Hypothetical Error-Adjsutmen (HEA) turned off");
+      e = E("The bitstring is original (Qubit N ← Qubit 0).");
     },
     m(l, i) {
-      M(l, e, i);
+      S(l, e, i);
     },
     d(l) {
-      l && S(e);
+      l && C(e);
     }
   };
 }
@@ -35263,13 +35285,41 @@ function W$(t) {
   let e;
   return {
     c() {
-      e = I("Hypothetical Error-Adjsutmen (HEA) turned on");
+      e = E("The bitstring is reversed (Qubit 0 → Qubit N).");
     },
     m(l, i) {
-      M(l, e, i);
+      S(l, e, i);
     },
     d(l) {
-      l && S(e);
+      l && C(e);
+    }
+  };
+}
+function J$(t) {
+  let e;
+  return {
+    c() {
+      e = E("Hypothetical Error-Adjsutmen (HEA) turned off");
+    },
+    m(l, i) {
+      S(l, e, i);
+    },
+    d(l) {
+      l && C(e);
+    }
+  };
+}
+function Z$(t) {
+  let e;
+  return {
+    c() {
+      e = E("Hypothetical Error-Adjsutmen (HEA) turned on");
+    },
+    m(l, i) {
+      S(l, e, i);
+    },
+    d(l) {
+      l && C(e);
     }
   };
 }
@@ -35284,7 +35334,7 @@ function e1(t) {
       i && i.c(), e = Ae();
     },
     m(a, r) {
-      i && i.m(a, r), M(a, e, r), l = !0;
+      i && i.m(a, r), S(a, e, r), l = !0;
     },
     p(a, r) {
       var s;
@@ -35301,12 +35351,12 @@ function e1(t) {
       D(i), l = !1;
     },
     d(a) {
-      a && S(e), i && i.d(a);
+      a && C(e), i && i.d(a);
     }
   };
 }
 function t1(t) {
-  let e, l, i, n, a, r, s, o, _, c, d, h, p, b, g, k, y, v, w, q, $, j, O, A, C = (
+  let e, l, i, n, a, r, s, o, _, c, d, h, p, g, b, k, y, v, w, q, $, j, I, A, M = (
     /*$drawPlan*/
     t[8].groups.y_axis_group && l1(t)
   ), z = (
@@ -35327,11 +35377,11 @@ function t1(t) {
   );
   return {
     c() {
-      e = m("div"), l = m("div"), i = Ge("svg"), n = Ge("style"), a = I(`g {
+      e = m("div"), l = m("div"), i = Ge("svg"), n = Ge("style"), a = E(`g {
                     font-family: Iosevka;
                     font-size: 14px;
                   }
-                `), C && C.c(), d = N(), h = m("div"), p = Ge("svg"), b = Ge("style"), g = I(`g {
+                `), M && M.c(), d = N(), h = m("div"), p = Ge("svg"), g = Ge("style"), b = E(`g {
                     font-family: Iosevka;
                     font-size: 14px;
                   }
@@ -35354,77 +35404,77 @@ function t1(t) {
       ), u(p, "width", q = /*$drawPlan*/
       t[8].width), u(p, "height", $ = /*$drawPlan*/
       t[8].height), u(p, "viewBox", j = /*$drawPlan*/
-      t[8].viewBox.join(" ")), u(h, "class", "count-histogram-main svelte-ef6jyv"), u(e, "id", O = /*id*/
+      t[8].viewBox.join(" ")), u(h, "class", "count-histogram-main svelte-ef6jyv"), u(e, "id", I = /*id*/
       t[1] + "-wrapper"), u(e, "class", "count-histogram-wrapper svelte-ef6jyv"), At(e, "position", "relative"), At(e, "width", "100%"), At(e, "overflow-x", "scroll"), At(e, "overflow-y", "hidden");
     },
-    m(E, F) {
-      M(E, e, F), f(e, l), f(l, i), f(i, n), f(n, a), C && C.m(i, null), f(e, d), f(e, h), f(h, p), f(p, b), f(b, g), z && z.m(p, null), f(p, k), H && H.m(p, null), f(p, y), B && B.m(p, null), f(p, v), R && R.m(p, null), f(p, w), P && P.m(p, null), A = !0;
+    m(O, F) {
+      S(O, e, F), f(e, l), f(l, i), f(i, n), f(n, a), M && M.m(i, null), f(e, d), f(e, h), f(h, p), f(p, g), f(g, b), z && z.m(p, null), f(p, k), H && H.m(p, null), f(p, y), B && B.m(p, null), f(p, v), R && R.m(p, null), f(p, w), P && P.m(p, null), A = !0;
     },
-    p(E, F) {
+    p(O, F) {
       /*$drawPlan*/
-      E[8].groups.y_axis_group ? C ? (C.p(E, F), F & /*$drawPlan*/
-      256 && T(C, 1)) : (C = l1(E), C.c(), T(C, 1), C.m(i, null)) : C && (be(), D(C, 1, 1, () => {
-        C = null;
+      O[8].groups.y_axis_group ? M ? (M.p(O, F), F & /*$drawPlan*/
+      256 && T(M, 1)) : (M = l1(O), M.c(), T(M, 1), M.m(i, null)) : M && (be(), D(M, 1, 1, () => {
+        M = null;
       }), ke()), (!A || F & /*id*/
       2 && r !== (r = /*id*/
-      E[1] + "-sticky")) && u(i, "id", r), (!A || F & /*$drawPlan*/
+      O[1] + "-sticky")) && u(i, "id", r), (!A || F & /*$drawPlan*/
       256 && s !== (s = /*$drawPlan*/
-      E[8].groups.y_axis_group.x + /*$drawPlan*/
-      E[8].groups.y_axis_group.width)) && u(i, "width", s), (!A || F & /*$drawPlan*/
+      O[8].groups.y_axis_group.x + /*$drawPlan*/
+      O[8].groups.y_axis_group.width)) && u(i, "width", s), (!A || F & /*$drawPlan*/
       256 && o !== (o = /*$drawPlan*/
-      E[8].height)) && u(i, "height", o), (!A || F & /*$drawPlan*/
+      O[8].height)) && u(i, "height", o), (!A || F & /*$drawPlan*/
       256 && _ !== (_ = /*$drawPlan*/
-      E[8].viewBox.map(
+      O[8].viewBox.map(
         /*func*/
-        E[20]
+        O[20]
       ).join(" "))) && u(i, "viewBox", _), (!A || F & /*$drawPlan*/
       256 && c !== (c = `width: ${/*$drawPlan*/
-      E[8].groups.y_axis_group.x + /*$drawPlan*/
-      E[8].groups.y_axis_group.width}px; height:${/*$drawPlan*/
-      E[8].height}px;`)) && u(l, "style", c), /*$drawPlan*/
-      E[8].groups.y_axis_group ? z ? (z.p(E, F), F & /*$drawPlan*/
-      256 && T(z, 1)) : (z = i1(E), z.c(), T(z, 1), z.m(p, k)) : z && (be(), D(z, 1, 1, () => {
+      O[8].groups.y_axis_group.x + /*$drawPlan*/
+      O[8].groups.y_axis_group.width}px; height:${/*$drawPlan*/
+      O[8].height}px;`)) && u(l, "style", c), /*$drawPlan*/
+      O[8].groups.y_axis_group ? z ? (z.p(O, F), F & /*$drawPlan*/
+      256 && T(z, 1)) : (z = i1(O), z.c(), T(z, 1), z.m(p, k)) : z && (be(), D(z, 1, 1, () => {
         z = null;
       }), ke()), /*$drawPlan*/
-      E[8].groups.y_grid_group ? H ? (H.p(E, F), F & /*$drawPlan*/
-      256 && T(H, 1)) : (H = n1(E), H.c(), T(H, 1), H.m(p, y)) : H && (be(), D(H, 1, 1, () => {
+      O[8].groups.y_grid_group ? H ? (H.p(O, F), F & /*$drawPlan*/
+      256 && T(H, 1)) : (H = n1(O), H.c(), T(H, 1), H.m(p, y)) : H && (be(), D(H, 1, 1, () => {
         H = null;
       }), ke()), /*$drawPlan*/
-      E[8].groups.bar_group ? B ? (B.p(E, F), F & /*$drawPlan*/
-      256 && T(B, 1)) : (B = a1(E), B.c(), T(B, 1), B.m(p, v)) : B && (be(), D(B, 1, 1, () => {
+      O[8].groups.bar_group ? B ? (B.p(O, F), F & /*$drawPlan*/
+      256 && T(B, 1)) : (B = a1(O), B.c(), T(B, 1), B.m(p, v)) : B && (be(), D(B, 1, 1, () => {
         B = null;
       }), ke()), /*$drawPlan*/
-      E[8].groups.x_axis_group ? R ? (R.p(E, F), F & /*$drawPlan*/
-      256 && T(R, 1)) : (R = r1(E), R.c(), T(R, 1), R.m(p, w)) : R && (be(), D(R, 1, 1, () => {
+      O[8].groups.x_axis_group ? R ? (R.p(O, F), F & /*$drawPlan*/
+      256 && T(R, 1)) : (R = r1(O), R.c(), T(R, 1), R.m(p, w)) : R && (be(), D(R, 1, 1, () => {
         R = null;
       }), ke()), /*$drawPlan*/
-      E[8].groups.legend_group ? P ? (P.p(E, F), F & /*$drawPlan*/
-      256 && T(P, 1)) : (P = s1(E), P.c(), T(P, 1), P.m(p, null)) : P && (be(), D(P, 1, 1, () => {
+      O[8].groups.legend_group ? P ? (P.p(O, F), F & /*$drawPlan*/
+      256 && T(P, 1)) : (P = s1(O), P.c(), T(P, 1), P.m(p, null)) : P && (be(), D(P, 1, 1, () => {
         P = null;
       }), ke()), (!A || F & /*id*/
       2) && u(
         p,
         "id",
         /*id*/
-        E[1]
+        O[1]
       ), (!A || F & /*$drawPlan*/
       256 && q !== (q = /*$drawPlan*/
-      E[8].width)) && u(p, "width", q), (!A || F & /*$drawPlan*/
+      O[8].width)) && u(p, "width", q), (!A || F & /*$drawPlan*/
       256 && $ !== ($ = /*$drawPlan*/
-      E[8].height)) && u(p, "height", $), (!A || F & /*$drawPlan*/
+      O[8].height)) && u(p, "height", $), (!A || F & /*$drawPlan*/
       256 && j !== (j = /*$drawPlan*/
-      E[8].viewBox.join(" "))) && u(p, "viewBox", j), (!A || F & /*id*/
-      2 && O !== (O = /*id*/
-      E[1] + "-wrapper")) && u(e, "id", O);
+      O[8].viewBox.join(" "))) && u(p, "viewBox", j), (!A || F & /*id*/
+      2 && I !== (I = /*id*/
+      O[1] + "-wrapper")) && u(e, "id", I);
     },
-    i(E) {
-      A || (T(C), T(z), T(H), T(B), T(R), T(P), A = !0);
+    i(O) {
+      A || (T(M), T(z), T(H), T(B), T(R), T(P), A = !0);
     },
-    o(E) {
-      D(C), D(z), D(H), D(B), D(R), D(P), A = !1;
+    o(O) {
+      D(M), D(z), D(H), D(B), D(R), D(P), A = !1;
     },
-    d(E) {
-      E && S(e), C && C.d(), z && z.d(), H && H.d(), B && B.d(), R && R.d(), P && P.d();
+    d(O) {
+      O && C(e), M && M.d(), z && z.d(), H && H.d(), B && B.d(), R && R.d(), P && P.d();
     }
   };
 }
@@ -35643,7 +35693,7 @@ function o1(t) {
   function l(a, r) {
     return (
       /*showTooltip*/
-      a[2] ? Z$ : J$
+      a[2] ? e6 : x$
     );
   }
   let i = l(t), n = i(t);
@@ -35652,39 +35702,39 @@ function o1(t) {
       e = m("div"), n.c(), u(e, "class", "tooltip-space svelte-ef6jyv");
     },
     m(a, r) {
-      M(a, e, r), n.m(e, null);
+      S(a, e, r), n.m(e, null);
     },
     p(a, r) {
       i === (i = l(a)) && n ? n.p(a, r) : (n.d(1), n = i(a), n && (n.c(), n.m(e, null)));
     },
     d(a) {
-      a && S(e), n.d();
+      a && C(e), n.d();
     }
   };
 }
-function J$(t) {
+function x$(t) {
   let e;
   return {
     c() {
       e = m("div"), e.textContent = "Hover or click an item to see details", u(e, "class", "g-tooltip deactive svelte-ef6jyv");
     },
     m(l, i) {
-      M(l, e, i);
+      S(l, e, i);
     },
-    p: ae,
+    p: ne,
     d(l) {
-      l && S(e);
+      l && C(e);
     }
   };
 }
-function Z$(t) {
+function e6(t) {
   let e;
   return {
     c() {
       e = m("div"), u(e, "class", "g-tooltip svelte-ef6jyv");
     },
     m(l, i) {
-      M(l, e, i), e.innerHTML = /*tootlip_content*/
+      S(l, e, i), e.innerHTML = /*tootlip_content*/
       t[3];
     },
     p(l, i) {
@@ -35693,11 +35743,11 @@ function Z$(t) {
       l[3]);
     },
     d(l) {
-      l && S(e);
+      l && C(e);
     }
   };
 }
-function x$(t) {
+function t6(t) {
   let e, l, i = (
     /*$data*/
     t[6] && Jh(t)
@@ -35707,7 +35757,7 @@ function x$(t) {
       i && i.c(), e = Ae();
     },
     m(n, a) {
-      i && i.m(n, a), M(n, e, a), l = !0;
+      i && i.m(n, a), S(n, e, a), l = !0;
     },
     p(n, [a]) {
       /*$data*/
@@ -35723,12 +35773,12 @@ function x$(t) {
       D(i), l = !1;
     },
     d(n) {
-      n && S(e), i && i.d(n);
+      n && C(e), i && i.d(n);
     }
   };
 }
-function e6(t, e, l) {
-  let i, n, a = ae, r = () => (a(), a = st(_, (B) => l(6, n = B)), _), s, o;
+function l6(t, e, l) {
+  let i, n, a = ne, r = () => (a(), a = st(_, (B) => l(6, n = B)), _), s, o;
   t.$$.on_destroy.push(() => a());
   let { data: _ = Oe(), id: c = "count-histogram" } = e;
   r();
@@ -35747,23 +35797,23 @@ function e6(t, e, l) {
       h.set(pr(B == null ? void 0 : B.counts, B.uncertainty_data, i));
     });
   });
-  let b = !1, g, k = !1, y = 999;
-  function v(B, R, P, E) {
-    k && !P || y < E || (l(2, b = !0), B.clientX + 5, B.clientY + 5, l(3, g = R), k = P, y = E || 0);
+  let g = !1, b, k = !1, y = 999;
+  function v(B, R, P, O) {
+    k && !P || y < O || (l(2, g = !0), B.clientX + 5, B.clientY + 5, l(3, b = R), k = P, y = O || 0);
   }
   function w(B) {
-    b && (B.clientX + 5, B.clientY + 5);
+    g && (B.clientX + 5, B.clientY + 5);
   }
   function q(B) {
-    k || l(2, b = !1), B && (l(2, b = !1), y = 999);
+    k || l(2, g = !1), B && (l(2, g = !1), y = 999);
   }
   let $ = {}, j = Oe();
   j.subscribe((B) => {
     B && l(4, $[B.id] = B, $);
   });
-  const O = (B) => d.set(!s), A = (B) => {
+  const I = (B) => d.set(!s), A = (B) => {
     Ii("count-histogram", j);
-  }, C = (B) => {
+  }, M = (B) => {
     p.update((R) => (R.reverse_state_vector = B.target.checked, R));
   }, z = (B) => {
     p.update((R) => (R.see_uncertainty = B.target.checked, R));
@@ -35773,8 +35823,8 @@ function e6(t, e, l) {
   }, [
     _,
     c,
-    b,
     g,
+    b,
     $,
     i,
     n,
@@ -35787,36 +35837,36 @@ function e6(t, e, l) {
     w,
     q,
     j,
-    O,
+    I,
     A,
-    C,
+    M,
     z,
     H
   ];
 }
-class t6 extends Ve {
+class i6 extends Ve {
   constructor(e) {
-    super(), Qe(this, e, e6, x$, Fe, { data: 0, id: 1 });
+    super(), Qe(this, e, l6, t6, Fe, { data: 0, id: 1 });
   }
 }
 function u1(t) {
   let e, l, i, n, a, r = (
     /*$hide1*/
     t[6] ? "Show" : "Hide"
-  ), s, o, _, c, d, h, p, b, g = !/*$hide1*/
+  ), s, o, _, c, d, h, p, g, b = !/*$hide1*/
   t[6] && /*$pagination*/
   t[7].total_page > 1 && f1(t), k = !/*$hide1*/
   t[6] && _1(t), y = !/*$hide1*/
   t[6] && y1(t);
   return {
     c() {
-      e = m("article"), l = m("h4"), i = I(
+      e = m("article"), l = m("h4"), i = E(
         /*panel_name*/
         t[0]
-      ), n = N(), a = m("button"), s = I(r), o = N(), g && g.c(), _ = N(), c = m("div"), k && k.c(), d = N(), y && y.c(), u(c, "class", "content-wrap"), u(e, "class", "panel svelte-1ws4qni");
+      ), n = N(), a = m("button"), s = E(r), o = N(), b && b.c(), _ = N(), c = m("div"), k && k.c(), d = N(), y && y.c(), u(c, "class", "content-wrap"), u(e, "class", "panel svelte-1ws4qni");
     },
     m(v, w) {
-      M(v, e, w), f(e, l), f(l, i), f(l, n), f(l, a), f(a, s), f(l, o), g && g.m(l, null), f(e, _), f(e, c), k && k.m(c, null), f(e, d), y && y.m(e, null), h = !0, p || (b = te(
+      S(v, e, w), f(e, l), f(l, i), f(l, n), f(l, a), f(a, s), f(l, o), b && b.m(l, null), f(e, _), f(e, c), k && k.m(c, null), f(e, d), y && y.m(e, null), h = !0, p || (g = te(
         a,
         "click",
         /*click_handler*/
@@ -35833,7 +35883,7 @@ function u1(t) {
       64) && r !== (r = /*$hide1*/
       v[6] ? "Show" : "Hide") && U(s, r), !/*$hide1*/
       v[6] && /*$pagination*/
-      v[7].total_page > 1 ? g ? g.p(v, w) : (g = f1(v), g.c(), g.m(l, null)) : g && (g.d(1), g = null), /*$hide1*/
+      v[7].total_page > 1 ? b ? b.p(v, w) : (b = f1(v), b.c(), b.m(l, null)) : b && (b.d(1), b = null), /*$hide1*/
       v[6] ? k && (be(), D(k, 1, 1, () => {
         k = null;
       }), ke()) : k ? (k.p(v, w), w & /*$hide1*/
@@ -35847,7 +35897,7 @@ function u1(t) {
       D(k), h = !1;
     },
     d(v) {
-      v && S(e), g && g.d(), k && k.d(), y && y.d(), p = !1, b();
+      v && C(e), b && b.d(), k && k.d(), y && y.d(), p = !1, g();
     }
   };
 }
@@ -35861,20 +35911,20 @@ function f1(t) {
   ), s, o, _ = (
     /*$pagination*/
     t[7].total_page + ""
-  ), c, d, h, p, b, g, k, y, v, w, q;
+  ), c, d, h, p, g, b, k, y, v, w, q;
   return {
     c() {
-      e = I(`Showing layer
-        `), l = m("input"), a = I(`
-        (`), s = I(r), o = I(") / "), c = I(_), d = N(), h = m("button"), p = I("← Prev"), g = N(), k = m("button"), y = I("Next →"), u(l, "type", "number"), u(l, "min", 1), u(l, "max", i = /*$pagination*/
+      e = E(`Showing layer
+        `), l = m("input"), a = E(`
+        (`), s = E(r), o = E(") / "), c = E(_), d = N(), h = m("button"), p = E("← Prev"), b = N(), k = m("button"), y = E("Next →"), u(l, "type", "number"), u(l, "min", 1), u(l, "max", i = /*$pagination*/
       t[7].total_page), l.value = n = /*$pagination*/
-      t[7].page, h.disabled = b = /*$pagination*/
+      t[7].page, h.disabled = g = /*$pagination*/
       t[7].page <= 1, k.disabled = v = /*$pagination*/
       t[7].page > /*$pagination*/
       t[7].total_page;
     },
     m($, j) {
-      M($, e, j), M($, l, j), M($, a, j), M($, s, j), M($, o, j), M($, c, j), M($, d, j), M($, h, j), f(h, p), M($, g, j), M($, k, j), f(k, y), w || (q = [
+      S($, e, j), S($, l, j), S($, a, j), S($, s, j), S($, o, j), S($, c, j), S($, d, j), S($, h, j), f(h, p), S($, b, j), S($, k, j), f(k, y), w || (q = [
         te(
           l,
           "change",
@@ -35908,14 +35958,14 @@ function f1(t) {
       ).join("...") + "") && U(s, r), j & /*$pagination*/
       128 && _ !== (_ = /*$pagination*/
       $[7].total_page + "") && U(c, _), j & /*$pagination*/
-      128 && b !== (b = /*$pagination*/
-      $[7].page <= 1) && (h.disabled = b), j & /*$pagination*/
+      128 && g !== (g = /*$pagination*/
+      $[7].page <= 1) && (h.disabled = g), j & /*$pagination*/
       128 && v !== (v = /*$pagination*/
       $[7].page > /*$pagination*/
       $[7].total_page) && (k.disabled = v);
     },
     d($) {
-      $ && (S(e), S(l), S(a), S(s), S(o), S(c), S(d), S(h), S(g), S(k)), w = !1, wt(q);
+      $ && (C(e), C(l), C(a), C(s), C(o), C(c), C(d), C(h), C(b), C(k)), w = !1, wt(q);
     }
   };
 }
@@ -35929,7 +35979,7 @@ function _1(t) {
       i && i.c(), e = Ae();
     },
     m(n, a) {
-      i && i.m(n, a), M(n, e, a), l = !0;
+      i && i.m(n, a), S(n, e, a), l = !0;
     },
     p(n, a) {
       /*drawPlan*/
@@ -35945,12 +35995,12 @@ function _1(t) {
       D(i), l = !1;
     },
     d(n) {
-      n && S(e), i && i.d(n);
+      n && C(e), i && i.d(n);
     }
   };
 }
 function c1(t) {
-  let e, l, i, n, a, r, s, o, _, c, d, h, p, b, g, k, y, v, w, q, $, j, O, A, C, z, H = (
+  let e, l, i, n, a, r, s, o, _, c, d, h, p, g, b, k, y, v, w, q, $, j, I, A, M, z, H = (
     /*drawPlan*/
     t[3].groups.phase_marker && d1(t)
   ), B = (
@@ -35962,7 +36012,7 @@ function c1(t) {
   ), P = (
     /*drawPlan*/
     t[3].groups.phase_marker && m1(t)
-  ), E = (
+  ), O = (
     /*drawPlan*/
     t[3].groups.moment_group && g1(t)
   ), F = (
@@ -35977,15 +36027,15 @@ function c1(t) {
   );
   return {
     c() {
-      e = m("div"), l = m("div"), i = Ge("svg"), n = Ge("style"), a = I(`g {
+      e = m("div"), l = m("div"), i = Ge("svg"), n = Ge("style"), a = E(`g {
                     font-family: Iosevka;
                     font-size: 14px;
                   }
-                `), H && H.c(), r = Ae(), B && B.c(), s = Ae(), R && R.c(), p = N(), b = m("div"), g = Ge("svg"), k = Ge("style"), y = I(`g {
+                `), H && H.c(), r = Ae(), B && B.c(), s = Ae(), R && R.c(), p = N(), g = m("div"), b = Ge("svg"), k = Ge("style"), y = E(`g {
                     font-family: Iosevka;
                     font-size: 14px;
                   }
-                `), P && P.c(), v = Ae(), E && E.c(), w = Ae(), F && F.c(), q = Ae(), L && L.c(), $ = Ae(), X && X.c(), u(i, "id", o = /*id*/
+                `), P && P.c(), v = Ae(), O && O.c(), w = Ae(), F && F.c(), q = Ae(), L && L.c(), $ = Ae(), X && X.c(), u(i, "id", o = /*id*/
       t[2] + "-sticky"), u(i, "width", _ = /*drawPlan*/
       t[3].groups.qubit_group.x + /*drawPlan*/
       t[3].groups.qubit_group.width), u(i, "height", c = /*drawPlan*/
@@ -35997,18 +36047,18 @@ function c1(t) {
       t[3].groups.qubit_group.x + /*drawPlan*/
       t[3].groups.qubit_group.width}px; height:${/*drawPlan*/
       t[3].height}px;`), u(
-        g,
+        b,
         "id",
         /*id*/
         t[2]
-      ), u(g, "width", j = /*drawPlan*/
-      t[3].width), u(g, "height", O = /*drawPlan*/
-      t[3].height), u(g, "viewBox", A = /*drawPlan*/
-      t[3].viewBox.join(" ")), u(b, "class", "circuit-main svelte-1ws4qni"), u(e, "id", C = /*id*/
+      ), u(b, "width", j = /*drawPlan*/
+      t[3].width), u(b, "height", I = /*drawPlan*/
+      t[3].height), u(b, "viewBox", A = /*drawPlan*/
+      t[3].viewBox.join(" ")), u(g, "class", "circuit-main svelte-1ws4qni"), u(e, "id", M = /*id*/
       t[2] + "-wrapper"), u(e, "class", "ciruit-view-wrapper svelte-1ws4qni"), At(e, "position", "relative"), At(e, "width", "100%"), At(e, "overflow-x", "scroll"), At(e, "overflow-y", "hidden");
     },
     m(V, Q) {
-      M(V, e, Q), f(e, l), f(l, i), f(i, n), f(n, a), H && H.m(i, null), f(i, r), B && B.m(i, null), f(i, s), R && R.m(i, null), f(e, p), f(e, b), f(b, g), f(g, k), f(k, y), P && P.m(g, null), f(g, v), E && E.m(g, null), f(g, w), F && F.m(g, null), f(g, q), L && L.m(g, null), f(g, $), X && X.m(g, null), z = !0;
+      S(V, e, Q), f(e, l), f(l, i), f(i, n), f(n, a), H && H.m(i, null), f(i, r), B && B.m(i, null), f(i, s), R && R.m(i, null), f(e, p), f(e, g), f(g, b), f(b, k), f(k, y), P && P.m(b, null), f(b, v), O && O.m(b, null), f(b, w), F && F.m(b, null), f(b, q), L && L.m(b, null), f(b, $), X && X.m(b, null), z = !0;
     },
     p(V, Q) {
       /*drawPlan*/
@@ -36041,48 +36091,48 @@ function c1(t) {
       V[3].groups.qubit_group.width}px; height:${/*drawPlan*/
       V[3].height}px;`)) && u(l, "style", h), /*drawPlan*/
       V[3].groups.phase_marker ? P ? (P.p(V, Q), Q & /*drawPlan*/
-      8 && T(P, 1)) : (P = m1(V), P.c(), T(P, 1), P.m(g, v)) : P && (be(), D(P, 1, 1, () => {
+      8 && T(P, 1)) : (P = m1(V), P.c(), T(P, 1), P.m(b, v)) : P && (be(), D(P, 1, 1, () => {
         P = null;
       }), ke()), /*drawPlan*/
-      V[3].groups.moment_group ? E ? (E.p(V, Q), Q & /*drawPlan*/
-      8 && T(E, 1)) : (E = g1(V), E.c(), T(E, 1), E.m(g, w)) : E && (be(), D(E, 1, 1, () => {
-        E = null;
+      V[3].groups.moment_group ? O ? (O.p(V, Q), Q & /*drawPlan*/
+      8 && T(O, 1)) : (O = g1(V), O.c(), T(O, 1), O.m(b, w)) : O && (be(), D(O, 1, 1, () => {
+        O = null;
       }), ke()), /*drawPlan*/
       V[3].groups.qubit_group ? F ? (F.p(V, Q), Q & /*drawPlan*/
-      8 && T(F, 1)) : (F = b1(V), F.c(), T(F, 1), F.m(g, q)) : F && (be(), D(F, 1, 1, () => {
+      8 && T(F, 1)) : (F = b1(V), F.c(), T(F, 1), F.m(b, q)) : F && (be(), D(F, 1, 1, () => {
         F = null;
       }), ke()), /*drawPlan*/
       V[3].groups.circuit_line_group ? L ? (L.p(V, Q), Q & /*drawPlan*/
-      8 && T(L, 1)) : (L = k1(V), L.c(), T(L, 1), L.m(g, $)) : L && (be(), D(L, 1, 1, () => {
+      8 && T(L, 1)) : (L = k1(V), L.c(), T(L, 1), L.m(b, $)) : L && (be(), D(L, 1, 1, () => {
         L = null;
       }), ke()), /*drawPlan*/
       V[3].groups.circuit_group ? X ? (X.p(V, Q), Q & /*drawPlan*/
-      8 && T(X, 1)) : (X = v1(V), X.c(), T(X, 1), X.m(g, null)) : X && (be(), D(X, 1, 1, () => {
+      8 && T(X, 1)) : (X = v1(V), X.c(), T(X, 1), X.m(b, null)) : X && (be(), D(X, 1, 1, () => {
         X = null;
       }), ke()), (!z || Q & /*id*/
       4) && u(
-        g,
+        b,
         "id",
         /*id*/
         V[2]
       ), (!z || Q & /*drawPlan*/
       8 && j !== (j = /*drawPlan*/
-      V[3].width)) && u(g, "width", j), (!z || Q & /*drawPlan*/
-      8 && O !== (O = /*drawPlan*/
-      V[3].height)) && u(g, "height", O), (!z || Q & /*drawPlan*/
+      V[3].width)) && u(b, "width", j), (!z || Q & /*drawPlan*/
+      8 && I !== (I = /*drawPlan*/
+      V[3].height)) && u(b, "height", I), (!z || Q & /*drawPlan*/
       8 && A !== (A = /*drawPlan*/
-      V[3].viewBox.join(" "))) && u(g, "viewBox", A), (!z || Q & /*id*/
-      4 && C !== (C = /*id*/
-      V[2] + "-wrapper")) && u(e, "id", C);
+      V[3].viewBox.join(" "))) && u(b, "viewBox", A), (!z || Q & /*id*/
+      4 && M !== (M = /*id*/
+      V[2] + "-wrapper")) && u(e, "id", M);
     },
     i(V) {
-      z || (T(H), T(B), T(R), T(P), T(E), T(F), T(L), T(X), z = !0);
+      z || (T(H), T(B), T(R), T(P), T(O), T(F), T(L), T(X), z = !0);
     },
     o(V) {
-      D(H), D(B), D(R), D(P), D(E), D(F), D(L), D(X), z = !1;
+      D(H), D(B), D(R), D(P), D(O), D(F), D(L), D(X), z = !1;
     },
     d(V) {
-      V && S(e), H && H.d(), B && B.d(), R && R.d(), P && P.d(), E && E.d(), F && F.d(), L && L.d(), X && X.d();
+      V && C(e), H && H.d(), B && B.d(), R && R.d(), P && P.d(), O && O.d(), F && F.d(), L && L.d(), X && X.d();
     }
   };
 }
@@ -36379,7 +36429,7 @@ function y1(t) {
   function l(a, r) {
     return (
       /*showTooltip*/
-      a[4] ? i6 : l6
+      a[4] ? a6 : n6
     );
   }
   let i = l(t), n = i(t);
@@ -36388,39 +36438,39 @@ function y1(t) {
       e = m("div"), n.c(), u(e, "class", "tooltip-space svelte-1ws4qni");
     },
     m(a, r) {
-      M(a, e, r), n.m(e, null);
+      S(a, e, r), n.m(e, null);
     },
     p(a, r) {
       i === (i = l(a)) && n ? n.p(a, r) : (n.d(1), n = i(a), n && (n.c(), n.m(e, null)));
     },
     d(a) {
-      a && S(e), n.d();
+      a && C(e), n.d();
     }
   };
 }
-function l6(t) {
+function n6(t) {
   let e;
   return {
     c() {
       e = m("div"), e.textContent = "Hover or click an item to see details", u(e, "class", "g-tooltip deactive svelte-1ws4qni");
     },
     m(l, i) {
-      M(l, e, i);
+      S(l, e, i);
     },
-    p: ae,
+    p: ne,
     d(l) {
-      l && S(e);
+      l && C(e);
     }
   };
 }
-function i6(t) {
+function a6(t) {
   let e;
   return {
     c() {
       e = m("div"), u(e, "class", "g-tooltip svelte-1ws4qni");
     },
     m(l, i) {
-      M(l, e, i), e.innerHTML = /*tootlip_content*/
+      S(l, e, i), e.innerHTML = /*tootlip_content*/
       t[5];
     },
     p(l, i) {
@@ -36429,11 +36479,11 @@ function i6(t) {
       l[5]);
     },
     d(l) {
-      l && S(e);
+      l && C(e);
     }
   };
 }
-function n6(t) {
+function r6(t) {
   let e, l, i = (
     /*circuit_data*/
     t[1] && u1(t)
@@ -36443,7 +36493,7 @@ function n6(t) {
       i && i.c(), e = Ae();
     },
     m(n, a) {
-      i && i.m(n, a), M(n, e, a), l = !0;
+      i && i.m(n, a), S(n, e, a), l = !0;
     },
     p(n, [a]) {
       /*circuit_data*/
@@ -36459,7 +36509,7 @@ function n6(t) {
       D(i), l = !1;
     },
     d(n) {
-      n && S(e), i && i.d(n);
+      n && C(e), i && i.d(n);
     }
   };
 }
@@ -36482,20 +36532,20 @@ function w1(t, e) {
     };
   });
 }
-function a6(t, e, l) {
+function s6(t, e, l) {
   let i, n, { panel_name: a = "Circuit", circuit_data: r, is_original: s = !1, id: o = "circuit" } = e, _ = Oe(!0);
   at(t, _, (P) => l(6, i = P));
   let c = Oe({ total_page: 0, page: 0, range: [0, 0] });
   at(t, c, (P) => l(7, n = P));
-  let d, h = !0, p = [], b = [];
-  function g(P, E) {
+  let d, h = !0, p = [], g = [];
+  function b(P, O) {
     var F;
     if (!P.layers) {
       l(3, d = void 0);
       return;
     }
-    p = w1(P, "qubits"), b = w1(P, "clbits"), P.qubits = p, P.num_qubits = p == null ? void 0 : p.length, P.clbits = b, P.num_clbits = b == null ? void 0 : b.length, l(3, d = kr(P, {
-      pagination: E,
+    p = w1(P, "qubits"), g = w1(P, "clbits"), P.qubits = p, P.num_qubits = p == null ? void 0 : p.length, P.clbits = g, P.num_clbits = g == null ? void 0 : g.length, l(3, d = kr(P, {
+      pagination: O,
       show_moments: !0,
       is_original: s,
       filter_unused_qubits: h,
@@ -36506,54 +36556,54 @@ function a6(t, e, l) {
   Tt(() => {
     var F;
     c.subscribe((L) => {
-      g(r, L);
+      b(r, L);
     });
-    let P = ((F = r.layers) == null ? void 0 : F.length) || 0, E = Math.ceil(P / Bi);
+    let P = ((F = r.layers) == null ? void 0 : F.length) || 0, O = Math.ceil(P / Bi);
     c.set({
       total_layers: P,
-      total_page: E,
+      total_page: O,
       page: 1,
       range: [0, Math.min(Bi, P)]
     });
   });
   function k(P) {
-    c.update((E) => (E.page = Math.min(E.total_page, Math.max(1, P)), E.range = [
-      Math.min(E.total_layers - 1, Math.max(0, (P - 1) * Bi)),
-      Math.min(E.total_layers - 1, Math.max(0, P * Bi))
-    ], console.log(E), E));
+    c.update((O) => (O.page = Math.min(O.total_page, Math.max(1, P)), O.range = [
+      Math.min(O.total_layers - 1, Math.max(0, (P - 1) * Bi)),
+      Math.min(O.total_layers - 1, Math.max(0, P * Bi))
+    ], console.log(O), O));
   }
   let y = !1, v, w = !1, q = 999;
-  function $(P, E, F, L) {
-    w && !F || q < L || (l(4, y = !0), P.clientX + 5, P.clientY + 5, l(5, v = E), w = F, q = L || 0);
+  function $(P, O, F, L) {
+    w && !F || q < L || (l(4, y = !0), P.clientX + 5, P.clientY + 5, l(5, v = O), w = F, q = L || 0);
   }
   function j(P) {
     y && (P.clientX + 5, P.clientY + 5);
   }
-  function O(P) {
+  function I(P) {
     w || l(4, y = !1), P && (l(4, y = !1), q = 999);
   }
-  const A = (P) => _.set(!i), C = (P) => {
+  const A = (P) => _.set(!i), M = (P) => {
     k(parseInt(P.target.value));
   }, z = (P) => {
-    var E;
-    return (((E = r.layer_index) == null ? void 0 : E[0]) || 0) + P;
+    var O;
+    return (((O = r.layer_index) == null ? void 0 : O[0]) || 0) + P;
   }, H = (P) => {
     k(n.page - 1);
   }, B = (P) => {
     k(n.page + 1);
-  }, R = (P, E) => E == 2 ? d.groups.qubit_group.x + d.groups.qubit_group.width : P;
+  }, R = (P, O) => O == 2 ? d.groups.qubit_group.x + d.groups.qubit_group.width : P;
   return t.$$set = (P) => {
     "panel_name" in P && l(0, a = P.panel_name), "circuit_data" in P && l(1, r = P.circuit_data), "is_original" in P && l(14, s = P.is_original), "id" in P && l(2, o = P.id);
   }, t.$$.update = () => {
     var P;
     if (t.$$.dirty & /*circuit_data*/
     2) {
-      let E = ((P = r.layers) == null ? void 0 : P.length) || 0, F = Math.ceil(E / Bi);
+      let O = ((P = r.layers) == null ? void 0 : P.length) || 0, F = Math.ceil(O / Bi);
       c.set({
-        total_layers: E,
+        total_layers: O,
         total_page: F,
         page: 1,
-        range: [0, Math.min(Bi, E)]
+        range: [0, Math.min(Bi, O)]
       });
     }
   }, [
@@ -36570,10 +36620,10 @@ function a6(t, e, l) {
     k,
     $,
     j,
-    O,
+    I,
     s,
     A,
-    C,
+    M,
     z,
     H,
     B,
@@ -36582,7 +36632,7 @@ function a6(t, e, l) {
 }
 class $1 extends Ve {
   constructor(e) {
-    super(), Qe(this, e, a6, n6, Fe, {
+    super(), Qe(this, e, s6, r6, Fe, {
       panel_name: 0,
       circuit_data: 1,
       is_original: 14,
@@ -36602,22 +36652,22 @@ function T1(t) {
   let e, l, i, n, a = (
     /*$hide1*/
     t[2] ? "Show" : "Hide"
-  ), r, s, o, _, c, d, h, p, b = (
+  ), r, s, o, _, c, d, h, p, g = (
     /*$hide2*/
     t[3] ? "Show" : "Hide"
-  ), g, k, y, v, w, q, $, j, O = (
+  ), b, k, y, v, w, q, $, j, I = (
     /*$hide3*/
     t[4] ? "Show" : "Hide"
-  ), A, C, z, H, B, R = !/*$hide1*/
+  ), A, M, z, H, B, R = !/*$hide1*/
   t[2] && C1(t), P = !/*$hide2*/
-  t[3] && A1(t), E = !/*$hide3*/
+  t[3] && A1(t), O = !/*$hide3*/
   t[4] && O1(t);
   return {
     c() {
-      e = m("article"), l = m("h4"), i = I("Backend information "), n = m("button"), r = I(a), s = N(), o = m("div"), R && R.c(), _ = N(), c = m("article"), d = m("h4"), h = I("Backend general parameters "), p = m("button"), g = I(b), k = N(), y = m("div"), P && P.c(), v = N(), w = m("article"), q = m("h4"), $ = I("Qubit groups "), j = m("button"), A = I(O), C = N(), z = m("div"), E && E.c(), u(o, "class", "content-wrap"), u(e, "class", "panel meta svelte-ab2y8n"), u(y, "class", "content-wrap svelte-ab2y8n"), u(c, "class", "panel generic svelte-ab2y8n"), u(z, "class", "content-wrap svelte-ab2y8n"), u(w, "class", "panel generic-q svelte-ab2y8n");
+      e = m("article"), l = m("h4"), i = E("Backend information "), n = m("button"), r = E(a), s = N(), o = m("div"), R && R.c(), _ = N(), c = m("article"), d = m("h4"), h = E("Backend general parameters "), p = m("button"), b = E(g), k = N(), y = m("div"), P && P.c(), v = N(), w = m("article"), q = m("h4"), $ = E("Qubit groups "), j = m("button"), A = E(I), M = N(), z = m("div"), O && O.c(), u(o, "class", "content-wrap"), u(e, "class", "panel meta svelte-ab2y8n"), u(y, "class", "content-wrap svelte-ab2y8n"), u(c, "class", "panel generic svelte-ab2y8n"), u(z, "class", "content-wrap svelte-ab2y8n"), u(w, "class", "panel generic-q svelte-ab2y8n");
     },
     m(F, L) {
-      M(F, e, L), f(e, l), f(l, i), f(l, n), f(n, r), f(e, s), f(e, o), R && R.m(o, null), M(F, _, L), M(F, c, L), f(c, d), f(d, h), f(d, p), f(p, g), f(c, k), f(c, y), P && P.m(y, null), M(F, v, L), M(F, w, L), f(w, q), f(q, $), f(q, j), f(j, A), f(w, C), f(w, z), E && E.m(z, null), H || (B = [
+      S(F, e, L), f(e, l), f(l, i), f(l, n), f(n, r), f(e, s), f(e, o), R && R.m(o, null), S(F, _, L), S(F, c, L), f(c, d), f(d, h), f(d, p), f(p, b), f(c, k), f(c, y), P && P.m(y, null), S(F, v, L), S(F, w, L), f(w, q), f(q, $), f(q, j), f(j, A), f(w, M), f(w, z), O && O.m(z, null), H || (B = [
         te(
           n,
           "click",
@@ -36643,15 +36693,15 @@ function T1(t) {
       4 && a !== (a = /*$hide1*/
       F[2] ? "Show" : "Hide") && U(r, a), /*$hide1*/
       F[2] ? R && (R.d(1), R = null) : R ? R.p(F, L) : (R = C1(F), R.c(), R.m(o, null)), L & /*$hide2*/
-      8 && b !== (b = /*$hide2*/
-      F[3] ? "Show" : "Hide") && U(g, b), /*$hide2*/
+      8 && g !== (g = /*$hide2*/
+      F[3] ? "Show" : "Hide") && U(b, g), /*$hide2*/
       F[3] ? P && (P.d(1), P = null) : P ? P.p(F, L) : (P = A1(F), P.c(), P.m(y, null)), L & /*$hide3*/
-      16 && O !== (O = /*$hide3*/
-      F[4] ? "Show" : "Hide") && U(A, O), /*$hide3*/
-      F[4] ? E && (E.d(1), E = null) : E ? E.p(F, L) : (E = O1(F), E.c(), E.m(z, null));
+      16 && I !== (I = /*$hide3*/
+      F[4] ? "Show" : "Hide") && U(A, I), /*$hide3*/
+      F[4] ? O && (O.d(1), O = null) : O ? O.p(F, L) : (O = O1(F), O.c(), O.m(z, null));
     },
     d(F) {
-      F && (S(e), S(_), S(c), S(v), S(w)), R && R.d(), P && P.d(), E && E.d(), H = !1, wt(B);
+      F && (C(e), C(_), C(c), C(v), C(w)), R && R.d(), P && P.d(), O && O.d(), H = !1, wt(B);
     }
   };
 }
@@ -36674,19 +36724,19 @@ function C1(t) {
     c() {
       e = m("table"), a && a.c(), l = N(), r && r.c(), i = N(), s && s.c(), n = N(), o && o.c(), u(e, "class", "svelte-ab2y8n");
     },
-    m(p, b) {
-      M(p, e, b), a && a.m(e, null), f(e, l), r && r.m(e, null), f(e, i), s && s.m(e, null), f(e, n), o && o.m(e, null);
+    m(p, g) {
+      S(p, e, g), a && a.m(e, null), f(e, l), r && r.m(e, null), f(e, i), s && s.m(e, null), f(e, n), o && o.m(e, null);
     },
-    p(p, b) {
-      var g, k, y, v;
+    p(p, g) {
+      var b, k, y, v;
       /*$data*/
-      (g = p[1].machine_data) != null && g.backend_name ? a ? a.p(p, b) : (a = S1(p), a.c(), a.m(e, l)) : a && (a.d(1), a = null), /*data*/
-      (k = p[0].machine_data) != null && k.backend_version ? r ? r.p(p, b) : (r = M1(p), r.c(), r.m(e, i)) : r && (r.d(1), r = null), /*data*/
-      (y = p[0].backend_properties) != null && y.last_update_date ? s ? s.p(p, b) : (s = z1(p), s.c(), s.m(e, n)) : s && (s.d(1), s = null), /*$data*/
-      (v = p[1].machine_data) != null && v.basis_gates ? o ? o.p(p, b) : (o = N1(p), o.c(), o.m(e, null)) : o && (o.d(1), o = null);
+      (b = p[1].machine_data) != null && b.backend_name ? a ? a.p(p, g) : (a = S1(p), a.c(), a.m(e, l)) : a && (a.d(1), a = null), /*data*/
+      (k = p[0].machine_data) != null && k.backend_version ? r ? r.p(p, g) : (r = M1(p), r.c(), r.m(e, i)) : r && (r.d(1), r = null), /*data*/
+      (y = p[0].backend_properties) != null && y.last_update_date ? s ? s.p(p, g) : (s = z1(p), s.c(), s.m(e, n)) : s && (s.d(1), s = null), /*$data*/
+      (v = p[1].machine_data) != null && v.basis_gates ? o ? o.p(p, g) : (o = N1(p), o.c(), o.m(e, null)) : o && (o.d(1), o = null);
     },
     d(p) {
-      p && S(e), a && a.d(), r && r.d(), s && s.d(), o && o.d();
+      p && C(e), a && a.d(), r && r.d(), s && s.d(), o && o.d();
     }
   };
 }
@@ -36697,10 +36747,10 @@ function S1(t) {
   ), a;
   return {
     c() {
-      e = m("tr"), l = m("th"), l.textContent = "Backend name", i = m("td"), a = I(n), u(l, "class", "svelte-ab2y8n"), u(i, "class", "svelte-ab2y8n");
+      e = m("tr"), l = m("th"), l.textContent = "Backend name", i = m("td"), a = E(n), u(l, "class", "svelte-ab2y8n"), u(i, "class", "svelte-ab2y8n");
     },
     m(r, s) {
-      M(r, e, s), f(e, l), f(e, i), f(i, a);
+      S(r, e, s), f(e, l), f(e, i), f(i, a);
     },
     p(r, s) {
       s & /*$data*/
@@ -36708,7 +36758,7 @@ function S1(t) {
       r[1].machine_data.backend_name + "") && U(a, n);
     },
     d(r) {
-      r && S(e);
+      r && C(e);
     }
   };
 }
@@ -36719,10 +36769,10 @@ function M1(t) {
   ), a;
   return {
     c() {
-      e = m("tr"), l = m("th"), l.textContent = "Backend version", i = m("td"), a = I(n), u(l, "class", "svelte-ab2y8n"), u(i, "class", "svelte-ab2y8n");
+      e = m("tr"), l = m("th"), l.textContent = "Backend version", i = m("td"), a = E(n), u(l, "class", "svelte-ab2y8n"), u(i, "class", "svelte-ab2y8n");
     },
     m(r, s) {
-      M(r, e, s), f(e, l), f(e, i), f(i, a);
+      S(r, e, s), f(e, l), f(e, i), f(i, a);
     },
     p(r, s) {
       s & /*$data*/
@@ -36730,7 +36780,7 @@ function M1(t) {
       r[1].machine_data.backend_version + "") && U(a, n);
     },
     d(r) {
-      r && S(e);
+      r && C(e);
     }
   };
 }
@@ -36741,10 +36791,10 @@ function z1(t) {
   ), a;
   return {
     c() {
-      e = m("tr"), l = m("th"), l.textContent = "Last updated", i = m("td"), a = I(n), u(l, "class", "svelte-ab2y8n"), u(i, "class", "svelte-ab2y8n");
+      e = m("tr"), l = m("th"), l.textContent = "Last updated", i = m("td"), a = E(n), u(l, "class", "svelte-ab2y8n"), u(i, "class", "svelte-ab2y8n");
     },
     m(r, s) {
-      M(r, e, s), f(e, l), f(e, i), f(i, a);
+      S(r, e, s), f(e, l), f(e, i), f(i, a);
     },
     p(r, s) {
       s & /*$data*/
@@ -36752,7 +36802,7 @@ function z1(t) {
       r[1].backend_properties.last_update_date + "") && U(a, n);
     },
     d(r) {
-      r && S(e);
+      r && C(e);
     }
   };
 }
@@ -36764,10 +36814,10 @@ function N1(t) {
   ), a;
   return {
     c() {
-      e = m("tr"), l = m("th"), l.textContent = "Basis gates", i = m("td"), a = I(n), u(l, "class", "svelte-ab2y8n"), u(i, "class", "svelte-ab2y8n");
+      e = m("tr"), l = m("th"), l.textContent = "Basis gates", i = m("td"), a = E(n), u(l, "class", "svelte-ab2y8n"), u(i, "class", "svelte-ab2y8n");
     },
     m(s, o) {
-      M(s, e, o), f(e, l), f(e, i), f(i, a);
+      S(s, e, o), f(e, l), f(e, i), f(i, a);
     },
     p(s, o) {
       var _;
@@ -36776,7 +36826,7 @@ function N1(t) {
       ((_ = s[1].machine_data.basis_gates) == null ? void 0 : _.join(", ")) + "") && U(a, n);
     },
     d(s) {
-      s && S(e);
+      s && C(e);
     }
   };
 }
@@ -36791,7 +36841,7 @@ function A1(t) {
       l && l.c(), e = Ae();
     },
     m(n, a) {
-      l && l.m(n, a), M(n, e, a);
+      l && l.m(n, a), S(n, e, a);
     },
     p(n, a) {
       var r;
@@ -36799,7 +36849,7 @@ function A1(t) {
       (r = n[0].backend_properties) != null && r.general ? l ? l.p(n, a) : (l = B1(n), l.c(), l.m(e.parentNode, e)) : l && (l.d(1), l = null);
     },
     d(n) {
-      n && S(e), l && l.d(n);
+      n && C(e), l && l.d(n);
     }
   };
 }
@@ -36818,7 +36868,7 @@ function B1(t) {
       u(l, "class", "svelte-ab2y8n"), u(e, "class", "svelte-ab2y8n");
     },
     m(s, o) {
-      M(s, e, o), f(e, l), f(e, i), f(e, n);
+      S(s, e, o), f(e, l), f(e, i), f(e, n);
       for (let _ = 0; _ < r.length; _ += 1)
         r[_] && r[_].m(n, null);
     },
@@ -36840,7 +36890,7 @@ function B1(t) {
       }
     },
     d(s) {
-      s && S(e), Ye(r, s);
+      s && C(e), Ye(r, s);
     }
   };
 }
@@ -36860,7 +36910,7 @@ function P1(t) {
       /*key*/
       t[14]
     ].unit + ""
-  ), h, p, b, g = (
+  ), h, p, g, b = (
     /*$data*/
     t[1].backend_properties.general[
       /*key*/
@@ -36869,10 +36919,10 @@ function P1(t) {
   ), k, y;
   return {
     c() {
-      e = m("tr"), l = m("th"), n = I(i), a = N(), r = m("td"), o = I(s), _ = N(), c = m("td"), h = I(d), p = N(), b = m("td"), k = I(g), y = N(), u(l, "class", "svelte-ab2y8n"), u(r, "class", "svelte-ab2y8n"), u(c, "class", "svelte-ab2y8n"), u(b, "class", "svelte-ab2y8n");
+      e = m("tr"), l = m("th"), n = E(i), a = N(), r = m("td"), o = E(s), _ = N(), c = m("td"), h = E(d), p = N(), g = m("td"), k = E(b), y = N(), u(l, "class", "svelte-ab2y8n"), u(r, "class", "svelte-ab2y8n"), u(c, "class", "svelte-ab2y8n"), u(g, "class", "svelte-ab2y8n");
     },
     m(v, w) {
-      M(v, e, w), f(e, l), f(l, n), f(e, a), f(e, r), f(r, o), f(e, _), f(e, c), f(c, h), f(e, p), f(e, b), f(b, k), f(e, y);
+      S(v, e, w), f(e, l), f(l, n), f(e, a), f(e, r), f(r, o), f(e, _), f(e, c), f(c, h), f(e, p), f(e, g), f(g, k), f(e, y);
     },
     p(v, w) {
       w & /*$data*/
@@ -36888,14 +36938,14 @@ function P1(t) {
         /*key*/
         v[14]
       ].unit + "") && U(h, d), w & /*$data*/
-      2 && g !== (g = /*$data*/
+      2 && b !== (b = /*$data*/
       v[1].backend_properties.general[
         /*key*/
         v[14]
-      ].asof + "") && U(k, g);
+      ].asof + "") && U(k, b);
     },
     d(v) {
-      v && S(e);
+      v && C(e);
     }
   };
 }
@@ -36910,7 +36960,7 @@ function O1(t) {
       l && l.c(), e = Ae();
     },
     m(n, a) {
-      l && l.m(n, a), M(n, e, a);
+      l && l.m(n, a), S(n, e, a);
     },
     p(n, a) {
       var r;
@@ -36918,7 +36968,7 @@ function O1(t) {
       (r = n[1].backend_properties) != null && r.general_qlists ? l ? l.p(n, a) : (l = E1(n), l.c(), l.m(e.parentNode, e)) : l && (l.d(1), l = null);
     },
     d(n) {
-      n && S(e), l && l.d(n);
+      n && C(e), l && l.d(n);
     }
   };
 }
@@ -36938,7 +36988,7 @@ function E1(t) {
     m(n, a) {
       for (let r = 0; r < i.length; r += 1)
         i[r] && i[r].m(n, a);
-      M(n, e, a);
+      S(n, e, a);
     },
     p(n, a) {
       if (a & /*$data*/
@@ -36958,7 +37008,7 @@ function E1(t) {
       }
     },
     d(n) {
-      n && S(e), Ye(i, n);
+      n && C(e), Ye(i, n);
     }
   };
 }
@@ -36972,10 +37022,10 @@ function I1(t) {
   ), o;
   return {
     c() {
-      e = m("strong"), i = I(l), n = N(), a = m("br"), r = N(), o = I(s);
+      e = m("strong"), i = E(l), n = N(), a = m("br"), r = N(), o = E(s);
     },
     m(_, c) {
-      M(_, e, c), f(e, i), M(_, n, c), M(_, a, c), M(_, r, c), M(_, o, c);
+      S(_, e, c), f(e, i), S(_, n, c), S(_, a, c), S(_, r, c), S(_, o, c);
     },
     p(_, c) {
       c & /*$data*/
@@ -36985,11 +37035,11 @@ function I1(t) {
       _[11].qubits.join(", ") + "") && U(o, s);
     },
     d(_) {
-      _ && (S(e), S(n), S(a), S(r), S(o));
+      _ && (C(e), C(n), C(a), C(r), C(o));
     }
   };
 }
-function r6(t) {
+function o6(t) {
   let e, l = (
     /*$data*/
     t[1] && T1(t)
@@ -36999,27 +37049,27 @@ function r6(t) {
       l && l.c(), e = Ae();
     },
     m(i, n) {
-      l && l.m(i, n), M(i, e, n);
+      l && l.m(i, n), S(i, e, n);
     },
     p(i, [n]) {
       /*$data*/
       i[1] ? l ? l.p(i, n) : (l = T1(i), l.c(), l.m(e.parentNode, e)) : l && (l.d(1), l = null);
     },
-    i: ae,
-    o: ae,
+    i: ne,
+    o: ne,
     d(i) {
-      i && S(e), l && l.d(i);
+      i && C(e), l && l.d(i);
     }
   };
 }
-function s6(t, e, l) {
-  let i, n = ae, a = () => (n(), n = st(_, (k) => l(1, i = k)), _), r, s, o;
+function u6(t, e, l) {
+  let i, n = ne, a = () => (n(), n = st(_, (k) => l(1, i = k)), _), r, s, o;
   t.$$.on_destroy.push(() => n());
   let { data: _ = Oe() } = e;
   a();
   let c = Oe(!1), d = Oe(!1), h = Oe(!1);
   at(t, c, (k) => l(2, r = k)), at(t, d, (k) => l(3, s = k)), at(t, h, (k) => l(4, o = k));
-  const p = (k) => c.set(!r), b = (k) => d.set(!s), g = (k) => h.set(!o);
+  const p = (k) => c.set(!r), g = (k) => d.set(!s), b = (k) => h.set(!o);
   return t.$$set = (k) => {
     "data" in k && a(l(0, _ = k.data));
   }, [
@@ -37032,13 +37082,13 @@ function s6(t, e, l) {
     d,
     h,
     p,
-    b,
-    g
+    g,
+    b
   ];
 }
-class o6 extends Ve {
+class f6 extends Ve {
   constructor(e) {
-    super(), Qe(this, e, s6, r6, Fe, { data: 0 });
+    super(), Qe(this, e, u6, o6, Fe, { data: 0 });
   }
 }
 const D1 = [
@@ -37047,8 +37097,8 @@ const D1 = [
   { key: "pivot_table", name: "Categorical Table" },
   { key: "image_1d", name: "Image (1D)" },
   { key: "image_3d", name: "Image (3D)" }
-], ol = 40, Ut = 300, R1 = 30, cl = 20, H1 = 0.75, u6 = Jt(",d");
-function f6(t) {
+], ol = 40, Ut = 300, R1 = 30, cl = 20, H1 = 0.75, _6 = Jt(",d");
+function c6(t) {
   var k;
   if (!t)
     return null;
@@ -37061,13 +37111,13 @@ function f6(t) {
   for (const y of Object.keys(t))
     e.push({
       original_state_vector: y,
-      number: parseInt(_6(y), 2),
+      number: parseInt(d6(y), 2),
       count: t[y]
     });
   e.sort((y, v) => y.number - v.number);
   let n = 0, a = Ut + R1, r, s, o, _, c = (e == null ? void 0 : e.length) * cl;
   n = c + ol;
-  let d = Math.max(...e.map((y) => y.count)), h = El().domain([0, d]).range([0, Ut]).nice(), p = h.invert(Ut), b = d6(p);
+  let d = Math.max(...e.map((y) => y.count)), h = El().domain([0, d]).range([0, Ut]).nice(), p = h.invert(Ut), g = p6(p);
   s = {
     type: "g",
     id: "natural-number-view-y-axis",
@@ -37096,7 +37146,7 @@ function f6(t) {
     y: De,
     elem: []
   }, n += ol;
-  for (let y = 0; y <= p; y += b) {
+  for (let y = 0; y <= p; y += g) {
     let v = {
       type: "g",
       id: "natural-number-view-y-axis-tick",
@@ -37118,7 +37168,7 @@ function f6(t) {
       y: 0,
       "text-anchor": "end",
       "alignment-baseline": "middle",
-      text: u6(y),
+      text: _6(y),
       "font-size": 12
     };
     v.elem.push(w, q), s.elem.push(v), o.elem.push({
@@ -37159,11 +37209,11 @@ function f6(t) {
       "stroke-width": 1
     }]
   };
-  let g = 0;
+  let b = 0;
   for (let y of e) {
-    let v = cl * g, w = h(y.count), q = {
+    let v = cl * b, w = h(y.count), q = {
       type: "g",
-      id: "natural-number-view-bar-item-" + g,
+      id: "natural-number-view-bar-item-" + b,
       role: "natural-number-view-bar--group",
       width: cl,
       height: Ut,
@@ -37171,7 +37221,7 @@ function f6(t) {
       y: 0,
       elem: [{
         type: "rect",
-        id: "natural-number-view-bar-" + g,
+        id: "natural-number-view-bar-" + b,
         width: cl * H1,
         x: cl * (1 - H1) / 2,
         height: 4,
@@ -37180,7 +37230,7 @@ function f6(t) {
         "stroke-width": 0
       }, {
         type: "text",
-        id: "natural-number-view-bar-count-" + g,
+        id: "natural-number-view-bar-count-" + b,
         x: cl / 2,
         y: Ut - w + 9,
         "text-anchor": "middle",
@@ -37190,7 +37240,7 @@ function f6(t) {
         text: y.count || 0
       }, {
         type: "click-wrap",
-        id: "natural-number-view-bar-click-wrap-" + g,
+        id: "natural-number-view-bar-click-wrap-" + b,
         role: "natural-number-view-bar-click-wrap",
         width: cl,
         x: 0,
@@ -37212,14 +37262,14 @@ function f6(t) {
     r.elem.push(q);
     let $ = {
       type: "g",
-      id: "natural-number-view-x-axis-group-" + g,
+      id: "natural-number-view-x-axis-group-" + b,
       width: cl,
       height: Ut,
       x: v,
       y: 0,
       elem: [{
         type: "line",
-        id: "natural-number-view-x-axis-" + g,
+        id: "natural-number-view-x-axis-" + b,
         x1: cl / 2 - 0.5,
         x2: cl / 2 - 0.5,
         y1: 0,
@@ -37227,7 +37277,7 @@ function f6(t) {
         "stroke-width": 1
       }, {
         type: "text",
-        id: "natural-number-view-x-axis-marker-" + g,
+        id: "natural-number-view-x-axis-marker-" + b,
         role: "natural-number-view-x-axis-marker",
         x: cl / 2,
         y: 15,
@@ -37237,7 +37287,7 @@ function f6(t) {
         text: y.number
       }]
     };
-    _.elem.push($), g++;
+    _.elem.push($), b++;
   }
   return {
     type: "svg",
@@ -37252,33 +37302,33 @@ function f6(t) {
     }
   };
 }
-function _6(t) {
+function d6(t) {
   return t.split("").reverse().join("");
 }
-let c6 = [100, 50, 25, 10, 5, 1];
-function d6(t) {
-  for (let e of c6)
+let h6 = [100, 50, 25, 10, 5, 1];
+function p6(t) {
+  for (let e of h6)
     if (t % e == 0 && t / e > 1)
       return e;
 }
 const Bt = 25, Xt = 25, bl = 50, mr = 200, L1 = 15;
-function h6(t, e) {
-  var b;
+function m6(t, e) {
+  var g;
   if (!t)
     return null;
   let l = [], i = (e == null ? void 0 : e.filter_true) !== void 0 ? e == null ? void 0 : e.filter_true : !1;
-  for (const g of Object.keys(t)) {
-    let k = m6(g);
+  for (const b of Object.keys(t)) {
+    let k = b6(b);
     i && !k.truth || l.push({
-      original_state_vector: g,
-      reversed_state_vector: g6(g),
+      original_state_vector: b,
+      reversed_state_vector: k6(b),
       truth_state: k,
-      count: t[g]
+      count: t[b]
     });
   }
   let n = Object.keys(l[0].truth_state.symbols), a = n == null ? void 0 : n.length;
-  l.sort((g, k) => k.count - g.count);
-  let r = ((b = l[0].original_state_vector) == null ? void 0 : b.length) * 12 * 0.6 + 10, s = r + a * Xt + bl + et + mr + et, o = Bt * ((l == null ? void 0 : l.length) + 1), _, c, d = Math.max(...l.map((g) => g.count)), h = El().domain([0, d]).range([0, mr]).nice();
+  l.sort((b, k) => k.count - b.count);
+  let r = ((g = l[0].original_state_vector) == null ? void 0 : g.length) * 12 * 0.6 + 10, s = r + a * Xt + bl + et + mr + et, o = Bt * ((l == null ? void 0 : l.length) + 1), _, c, d = Math.max(...l.map((b) => b.count)), h = El().domain([0, d]).range([0, mr]).nice();
   _ = {
     type: "g",
     id: "truth-table-header-group",
@@ -37325,21 +37375,21 @@ function h6(t, e) {
     "stroke-width": 1,
     stroke: Me
   });
-  for (let g = 0; g < a; g++)
+  for (let b = 0; b < a; b++)
     _.elem.push({
       type: "text",
-      id: "truth-table-header-symbol-" + n[g],
-      x: r + Xt * g + Xt / 2,
+      id: "truth-table-header-symbol-" + n[b],
+      x: r + Xt * b + Xt / 2,
       y: Bt / 2 + 6,
       fill: Me,
-      text: n[g],
+      text: n[b],
       "font-weight": 700,
       "text-anchor": "middle",
       "alignment-baseline": "bottom"
     }), _.elem.push({
       type: "line",
-      x1: r + Xt * (g + 1),
-      x2: r + Xt * (g + 1),
+      x1: r + Xt * (b + 1),
+      x2: r + Xt * (b + 1),
       y1: 0.5,
       y2: Bt - 0.5,
       "stroke-width": 1,
@@ -37408,7 +37458,7 @@ function h6(t, e) {
     elem: []
   };
   let p = 0;
-  for (const g of l) {
+  for (const b of l) {
     let k = {
       type: "g",
       id: "truth-table-row-group-" + p,
@@ -37427,11 +37477,11 @@ function h6(t, e) {
       }],
       data: {
         tooltip_content: {
-          State: g.original_state_vector,
-          Symbols: Object.keys(g.truth_state.symbols).join(" "),
-          "Symbols-truth": Object.values(g.truth_state.symbols).map((y) => y ? "T" : "F").join(" "),
-          Truth: g.truth_state.truth,
-          Count: g.count
+          State: b.original_state_vector,
+          Symbols: Object.keys(b.truth_state.symbols).join(" "),
+          "Symbols-truth": Object.values(b.truth_state.symbols).map((y) => y ? "T" : "F").join(" "),
+          Truth: b.truth_state.truth,
+          Count: b.count
         }
       }
     };
@@ -37449,7 +37499,7 @@ function h6(t, e) {
       x: r / 2,
       y: Bt / 2 + 6,
       fill: Me,
-      text: g.original_state_vector,
+      text: b.original_state_vector,
       "text-anchor": "middle",
       "alignment-baseline": "bottom"
     }), k.elem.push({
@@ -37467,9 +37517,9 @@ function h6(t, e) {
         id: "truth-table-row-group-" + p + "-" + n[y],
         x: r + Xt * y + Xt / 2,
         y: Bt / 2 + 6,
-        fill: g.truth_state.symbols[n[y]] ? Me : "#999999",
-        text: g.truth_state.symbols[n[y]] ? "T" : "F",
-        "font-weight": g.truth_state.symbols[n[y]] ? "900" : "400",
+        fill: b.truth_state.symbols[n[y]] ? Me : "#999999",
+        text: b.truth_state.symbols[n[y]] ? "T" : "F",
+        "font-weight": b.truth_state.symbols[n[y]] ? "900" : "400",
         "text-anchor": "middle",
         "alignment-baseline": "bottom"
       }), k.elem.push({
@@ -37486,9 +37536,9 @@ function h6(t, e) {
       id: "truth-table-row-group-" + p + "-truth",
       x: r + Xt * a + bl / 2,
       y: Bt / 2 + 6,
-      fill: g.truth_state.truth ? Me : "#999999",
-      text: g.truth_state.truth ? "T" : "F",
-      "font-weight": g.truth_state.truth ? "700" : "400",
+      fill: b.truth_state.truth ? Me : "#999999",
+      text: b.truth_state.truth ? "T" : "F",
+      "font-weight": b.truth_state.truth ? "700" : "400",
       "text-anchor": "middle",
       "alignment-baseline": "bottom"
     }), k.elem.push({
@@ -37504,10 +37554,10 @@ function h6(t, e) {
       id: "truth-table-row-group-" + p + "-count-bar",
       x: r + Xt * a + bl + et,
       y: Bt / 2 - L1 / 2,
-      width: h(g.count),
+      width: h(b.count),
       height: L1,
       fill: Wt[2],
-      text: g.count,
+      text: b.count,
       "text-anchor": "end",
       "alignment-baseline": "bottom"
     }), k.elem.push({
@@ -37516,7 +37566,7 @@ function h6(t, e) {
       x: r + Xt * a + bl + et + 5,
       y: Bt / 2 + 5,
       fill: Me,
-      text: g.count,
+      text: b.count,
       "text-anchor": "start",
       "alignment-baseline": "bottom"
     }), k.elem.push({
@@ -37548,9 +37598,9 @@ function h6(t, e) {
     }
   };
 }
-let p6 = "abcdefghijklmnopqrstiuvxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-function m6(t) {
-  let e = t.split(""), l = e[0] === "1", i = e.slice(1).reverse().map((a, r) => [p6[r], a == "1"]), n = {};
+let g6 = "abcdefghijklmnopqrstiuvxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+function b6(t) {
+  let e = t.split(""), l = e[0] === "1", i = e.slice(1).reverse().map((a, r) => [g6[r], a == "1"]), n = {};
   for (const a of i)
     n[a[0]] = a[1];
   return {
@@ -37558,10 +37608,10 @@ function m6(t) {
     symbols: n
   };
 }
-function g6(t) {
+function k6(t) {
   return t.split("").reverse().join("");
 }
-function b6(t, e) {
+function v6(t, e) {
   let l = [];
   for (const i of Object.keys(t)) {
     let n = i.split(""), a = i == null ? void 0 : i.length, s = { count: t[i], state: i };
@@ -37571,7 +37621,7 @@ function b6(t, e) {
   }
   return l;
 }
-function k6(t, e) {
+function y6(t, e) {
   let l = [], i = {};
   if ((e == null ? void 0 : e.length) == 0)
     return {
@@ -37625,7 +37675,7 @@ function Pr(t) {
     });
   return i;
 }
-function cg(t, e) {
+function c0(t, e) {
   var c;
   let l = t.image_pixelized, i = t.mode, n = t.image_size, a = (e == null ? void 0 : e.resolution) || 1, r = n[0] * a, s = n[1] * a, o = {
     type: "g",
@@ -37644,8 +37694,8 @@ function cg(t, e) {
         width: a,
         height: a,
         "stroke-width": 0
-      }, b = l[d][h];
-      i === "brightness" ? (p.fill = Me, p["fill-opacity"] = (255 - b[0]) / 255) : i === "rgb" && (p.fill = `rgb(${b.map((g) => g).join(", ")})`), o.elem.push(p);
+      }, g = l[d][h];
+      i === "brightness" ? (p.fill = Me, p["fill-opacity"] = (255 - g[0]) / 255) : i === "rgb" && (p.fill = `rgb(${g.map((b) => b).join(", ")})`), o.elem.push(p);
     }
   return {
     type: "svg",
@@ -37657,7 +37707,7 @@ function cg(t, e) {
     }
   };
 }
-function v6(t, e) {
+function w6(t, e) {
   var y;
   if (!t)
     return;
@@ -37675,17 +37725,17 @@ function v6(t, e) {
       h[w] = Math.sqrt(q / d) * c;
     }
   }
-  let p = s > 0 ? dg(h, o, _) : [], b = [o[0], o[1]], g = {
+  let p = s > 0 ? d0(h, o, _) : [], g = [o[0], o[1]], b = {
     image: h,
     image_pixelized: p,
     data_shape: o,
-    image_size: b,
+    image_size: g,
     mode: "brightness",
     dir: _
-  }, k = cg(g, e);
-  return k.data = g, k;
+  }, k = c0(b, e);
+  return k.data = b, k;
 }
-function y6(t, e) {
+function $6(t, e) {
   var v;
   if (!t)
     return;
@@ -37704,17 +37754,17 @@ function y6(t, e) {
   let p = 0;
   for (const w of h)
     h[p] || (h[p] = 0), p++;
-  let b = s > 0 ? dg(h, o, _) : [], g = [o[0], o[1]], k = {
+  let g = s > 0 ? d0(h, o, _) : [], b = [o[0], o[1]], k = {
     image: h,
-    image_pixelized: b,
+    image_pixelized: g,
     data_shape: o,
-    image_size: g,
+    image_size: b,
     mode: "rgb",
     dir: _
-  }, y = cg(k, e);
+  }, y = c0(k, e);
   return y.data = k, y;
 }
-function dg(t, e, l) {
+function d0(t, e, l) {
   let i = [], n = e[0], a = e[1], r = e[2], s = [], o = Math.floor(t.length / r);
   for (let _ = 0; _ < r; _++)
     s.push(o * _);
@@ -37733,10 +37783,10 @@ function dg(t, e, l) {
   return i;
 }
 function F1(t) {
-  let e, l, i, n, a, r, s, o, _, c, d, h, p, b, g, k, y, v, w, q, $, j, O, A = (
+  let e, l, i, n, a, r, s, o, _, c, d, h, p, g, b, k, y, v, w, q, $, j, I, A = (
     /*$drawPlan*/
     t[4].groups.y_axis_group && Q1(t)
-  ), C = (
+  ), M = (
     /*$drawPlan*/
     t[4].groups.y_axis_group && V1(t)
   ), z = (
@@ -37751,15 +37801,15 @@ function F1(t) {
   );
   return {
     c() {
-      e = m("div"), l = m("div"), i = Ge("svg"), n = Ge("style"), a = I(`g {
+      e = m("div"), l = m("div"), i = Ge("svg"), n = Ge("style"), a = E(`g {
               font-family: Iosevka;
               font-size: 14px;
             }
-          `), A && A.c(), d = N(), h = m("div"), p = Ge("svg"), b = Ge("style"), g = I(`g {
+          `), A && A.c(), d = N(), h = m("div"), p = Ge("svg"), g = Ge("style"), b = E(`g {
               font-family: Iosevka;
               font-size: 14px;
             }
-          `), C && C.c(), k = Ae(), z && z.c(), y = Ae(), H && H.c(), v = Ae(), B && B.c(), u(i, "id", r = /*id*/
+          `), M && M.c(), k = Ae(), z && z.c(), y = Ae(), H && H.c(), v = Ae(), B && B.c(), u(i, "id", r = /*id*/
       t[1] + "-sticky"), u(i, "width", s = /*$drawPlan*/
       t[4].groups.y_axis_group.x + /*$drawPlan*/
       t[4].groups.y_axis_group.width), u(i, "height", o = /*$drawPlan*/
@@ -37782,33 +37832,33 @@ function F1(t) {
       t[1] + "-wrapper"), u(e, "class", "count-histogram-wrapper svelte-1h6j252"), At(e, "position", "relative"), At(e, "width", "100%"), At(e, "overflow-x", "scroll"), At(e, "overflow-y", "hidden");
     },
     m(R, P) {
-      M(R, e, P), f(e, l), f(l, i), f(i, n), f(n, a), A && A.m(i, null), f(e, d), f(e, h), f(h, p), f(p, b), f(b, g), C && C.m(p, null), f(p, k), z && z.m(p, null), f(p, y), H && H.m(p, null), f(p, v), B && B.m(p, null), O = !0;
+      S(R, e, P), f(e, l), f(l, i), f(i, n), f(n, a), A && A.m(i, null), f(e, d), f(e, h), f(h, p), f(p, g), f(g, b), M && M.m(p, null), f(p, k), z && z.m(p, null), f(p, y), H && H.m(p, null), f(p, v), B && B.m(p, null), I = !0;
     },
     p(R, P) {
       /*$drawPlan*/
       R[4].groups.y_axis_group ? A ? (A.p(R, P), P & /*$drawPlan*/
       16 && T(A, 1)) : (A = Q1(R), A.c(), T(A, 1), A.m(i, null)) : A && (be(), D(A, 1, 1, () => {
         A = null;
-      }), ke()), (!O || P & /*id*/
+      }), ke()), (!I || P & /*id*/
       2 && r !== (r = /*id*/
-      R[1] + "-sticky")) && u(i, "id", r), (!O || P & /*$drawPlan*/
+      R[1] + "-sticky")) && u(i, "id", r), (!I || P & /*$drawPlan*/
       16 && s !== (s = /*$drawPlan*/
       R[4].groups.y_axis_group.x + /*$drawPlan*/
-      R[4].groups.y_axis_group.width)) && u(i, "width", s), (!O || P & /*$drawPlan*/
+      R[4].groups.y_axis_group.width)) && u(i, "width", s), (!I || P & /*$drawPlan*/
       16 && o !== (o = /*$drawPlan*/
-      R[4].height)) && u(i, "height", o), (!O || P & /*$drawPlan*/
+      R[4].height)) && u(i, "height", o), (!I || P & /*$drawPlan*/
       16 && _ !== (_ = /*$drawPlan*/
       R[4].viewBox.map(
         /*func*/
         R[8]
-      ).join(" "))) && u(i, "viewBox", _), (!O || P & /*$drawPlan*/
+      ).join(" "))) && u(i, "viewBox", _), (!I || P & /*$drawPlan*/
       16 && c !== (c = `width: ${/*$drawPlan*/
       R[4].groups.y_axis_group.x + /*$drawPlan*/
       R[4].groups.y_axis_group.width}px; height:${/*$drawPlan*/
       R[4].height}px;`)) && u(l, "style", c), /*$drawPlan*/
-      R[4].groups.y_axis_group ? C ? (C.p(R, P), P & /*$drawPlan*/
-      16 && T(C, 1)) : (C = V1(R), C.c(), T(C, 1), C.m(p, k)) : C && (be(), D(C, 1, 1, () => {
-        C = null;
+      R[4].groups.y_axis_group ? M ? (M.p(R, P), P & /*$drawPlan*/
+      16 && T(M, 1)) : (M = V1(R), M.c(), T(M, 1), M.m(p, k)) : M && (be(), D(M, 1, 1, () => {
+        M = null;
       }), ke()), /*$drawPlan*/
       R[4].groups.y_grid_group ? z ? (z.p(R, P), P & /*$drawPlan*/
       16 && T(z, 1)) : (z = X1(R), z.c(), T(z, 1), z.m(p, y)) : z && (be(), D(z, 1, 1, () => {
@@ -37821,30 +37871,30 @@ function F1(t) {
       R[4].groups.x_axis_group ? B ? (B.p(R, P), P & /*$drawPlan*/
       16 && T(B, 1)) : (B = Y1(R), B.c(), T(B, 1), B.m(p, null)) : B && (be(), D(B, 1, 1, () => {
         B = null;
-      }), ke()), (!O || P & /*id*/
+      }), ke()), (!I || P & /*id*/
       2) && u(
         p,
         "id",
         /*id*/
         R[1]
-      ), (!O || P & /*$drawPlan*/
+      ), (!I || P & /*$drawPlan*/
       16 && w !== (w = /*$drawPlan*/
-      R[4].width)) && u(p, "width", w), (!O || P & /*$drawPlan*/
+      R[4].width)) && u(p, "width", w), (!I || P & /*$drawPlan*/
       16 && q !== (q = /*$drawPlan*/
-      R[4].height)) && u(p, "height", q), (!O || P & /*$drawPlan*/
+      R[4].height)) && u(p, "height", q), (!I || P & /*$drawPlan*/
       16 && $ !== ($ = /*$drawPlan*/
-      R[4].viewBox.join(" "))) && u(p, "viewBox", $), (!O || P & /*id*/
+      R[4].viewBox.join(" "))) && u(p, "viewBox", $), (!I || P & /*id*/
       2 && j !== (j = /*id*/
       R[1] + "-wrapper")) && u(e, "id", j);
     },
     i(R) {
-      O || (T(A), T(C), T(z), T(H), T(B), O = !0);
+      I || (T(A), T(M), T(z), T(H), T(B), I = !0);
     },
     o(R) {
-      D(A), D(C), D(z), D(H), D(B), O = !1;
+      D(A), D(M), D(z), D(H), D(B), I = !1;
     },
     d(R) {
-      R && S(e), A && A.d(), C && C.d(), z && z.d(), H && H.d(), B && B.d();
+      R && C(e), A && A.d(), M && M.d(), z && z.d(), H && H.d(), B && B.d();
     }
   };
 }
@@ -38025,29 +38075,29 @@ function Y1(t) {
     }
   };
 }
-function w6(t) {
+function q6(t) {
   let e;
   return {
     c() {
       e = m("div"), e.textContent = "Hover or click an item to see details", u(e, "class", "g-tooltip deactive svelte-1h6j252");
     },
     m(l, i) {
-      M(l, e, i);
+      S(l, e, i);
     },
-    p: ae,
+    p: ne,
     d(l) {
-      l && S(e);
+      l && C(e);
     }
   };
 }
-function $6(t) {
+function j6(t) {
   let e;
   return {
     c() {
       e = m("div"), u(e, "class", "g-tooltip svelte-1h6j252");
     },
     m(l, i) {
-      M(l, e, i), e.innerHTML = /*tootlip_content*/
+      S(l, e, i), e.innerHTML = /*tootlip_content*/
       t[3];
     },
     p(l, i) {
@@ -38056,11 +38106,11 @@ function $6(t) {
       l[3]);
     },
     d(l) {
-      l && S(e);
+      l && C(e);
     }
   };
 }
-function q6(t) {
+function T6(t) {
   var _;
   let e, l, i, n, a = (
     /*$drawPlan*/
@@ -38069,7 +38119,7 @@ function q6(t) {
   function r(c, d) {
     return (
       /*showTooltip*/
-      c[2] ? $6 : w6
+      c[2] ? j6 : q6
     );
   }
   let s = r(t), o = s(t);
@@ -38078,7 +38128,7 @@ function q6(t) {
       e = m("div"), a && a.c(), l = N(), i = m("div"), o.c(), u(e, "class", "content-wrap"), u(i, "class", "tooltip-space svelte-1h6j252");
     },
     m(c, d) {
-      M(c, e, d), a && a.m(e, null), M(c, l, d), M(c, i, d), o.m(i, null), n = !0;
+      S(c, e, d), a && a.m(e, null), S(c, l, d), S(c, i, d), o.m(i, null), n = !0;
     },
     p(c, [d]) {
       var h;
@@ -38095,12 +38145,12 @@ function q6(t) {
       D(a), n = !1;
     },
     d(c) {
-      c && (S(e), S(l), S(i)), a && a.d(), o.d();
+      c && (C(e), C(l), C(i)), a && a.d(), o.d();
     }
   };
 }
-function j6(t, e, l) {
-  let i, n = ae, a = () => (n(), n = st(r, (k) => l(4, i = k)), r);
+function C6(t, e, l) {
+  let i, n = ne, a = () => (n(), n = st(r, (k) => l(4, i = k)), r);
   t.$$.on_destroy.push(() => n());
   let { drawPlan: r = Oe(), id: s = "natural-number-view" } = e;
   a();
@@ -38111,10 +38161,10 @@ function j6(t, e, l) {
   function p(k) {
     o && (k.clientX + 5, k.clientY + 5);
   }
-  function b(k) {
+  function g(k) {
     c || l(2, o = !1), k && (l(2, o = !1), d = 999);
   }
-  const g = (k, y) => y == 2 ? i.groups.y_axis_group.x + i.groups.y_axis_group.width : k;
+  const b = (k, y) => y == 2 ? i.groups.y_axis_group.x + i.groups.y_axis_group.width : k;
   return t.$$set = (k) => {
     "drawPlan" in k && a(l(0, r = k.drawPlan)), "id" in k && l(1, s = k.id);
   }, [
@@ -38125,20 +38175,20 @@ function j6(t, e, l) {
     i,
     h,
     p,
-    b,
-    g
+    g,
+    b
   ];
 }
-class T6 extends Ve {
+class S6 extends Ve {
   constructor(e) {
-    super(), Qe(this, e, j6, q6, Fe, { drawPlan: 0, id: 1 });
+    super(), Qe(this, e, C6, T6, Fe, { drawPlan: 0, id: 1 });
   }
 }
 function K1(t) {
-  let e, l, i, n, a, r, s, o, _, c, d, h, p, b, g, k, y, v, w, q, $, j = (
+  let e, l, i, n, a, r, s, o, _, c, d, h, p, g, b, k, y, v, w, q, $, j = (
     /*$drawPlan*/
     t[4].groups.header_group && U1(t)
-  ), O = (
+  ), I = (
     /*$drawPlan*/
     t[4].groups.header_group && W1(t)
   ), A = (
@@ -38147,15 +38197,15 @@ function K1(t) {
   );
   return {
     c() {
-      e = m("div"), l = m("div"), i = Ge("svg"), n = Ge("style"), a = I(`g {
+      e = m("div"), l = m("div"), i = Ge("svg"), n = Ge("style"), a = E(`g {
               font-family: Iosevka;
               font-size: 14px;
             }
-          `), j && j.c(), d = N(), h = m("div"), p = Ge("svg"), b = Ge("style"), g = I(`g {
+          `), j && j.c(), d = N(), h = m("div"), p = Ge("svg"), g = Ge("style"), b = E(`g {
               font-family: Iosevka;
               font-size: 14px;
             }
-          `), O && O.c(), k = Ae(), A && A.c(), u(i, "id", r = /*id*/
+          `), I && I.c(), k = Ae(), A && A.c(), u(i, "id", r = /*id*/
       t[1] + "-sticky"), u(i, "width", s = /*$drawPlan*/
       t[4].width + De * 2), u(i, "height", o = /*$drawPlan*/
       t[4].groups.header_group.height + De), u(i, "viewBox", _ = [
@@ -38178,63 +38228,63 @@ function K1(t) {
       t[4].viewBox.join(" ")), u(h, "class", "count-histogram-main svelte-x1kk7w"), u(e, "id", q = /*id*/
       t[1] + "-wrapper"), u(e, "class", "count-histogram-wrapper svelte-x1kk7w"), At(e, "position", "relative"), At(e, "width", "100%"), At(e, "overflow-x", "scroll"), At(e, "overflow-y", "hidden");
     },
-    m(C, z) {
-      M(C, e, z), f(e, l), f(l, i), f(i, n), f(n, a), j && j.m(i, null), f(e, d), f(e, h), f(h, p), f(p, b), f(b, g), O && O.m(p, null), f(p, k), A && A.m(p, null), $ = !0;
+    m(M, z) {
+      S(M, e, z), f(e, l), f(l, i), f(i, n), f(n, a), j && j.m(i, null), f(e, d), f(e, h), f(h, p), f(p, g), f(g, b), I && I.m(p, null), f(p, k), A && A.m(p, null), $ = !0;
     },
-    p(C, z) {
+    p(M, z) {
       /*$drawPlan*/
-      C[4].groups.header_group ? j ? (j.p(C, z), z & /*$drawPlan*/
-      16 && T(j, 1)) : (j = U1(C), j.c(), T(j, 1), j.m(i, null)) : j && (be(), D(j, 1, 1, () => {
+      M[4].groups.header_group ? j ? (j.p(M, z), z & /*$drawPlan*/
+      16 && T(j, 1)) : (j = U1(M), j.c(), T(j, 1), j.m(i, null)) : j && (be(), D(j, 1, 1, () => {
         j = null;
       }), ke()), (!$ || z & /*id*/
       2 && r !== (r = /*id*/
-      C[1] + "-sticky")) && u(i, "id", r), (!$ || z & /*$drawPlan*/
+      M[1] + "-sticky")) && u(i, "id", r), (!$ || z & /*$drawPlan*/
       16 && s !== (s = /*$drawPlan*/
-      C[4].width + De * 2)) && u(i, "width", s), (!$ || z & /*$drawPlan*/
+      M[4].width + De * 2)) && u(i, "width", s), (!$ || z & /*$drawPlan*/
       16 && o !== (o = /*$drawPlan*/
-      C[4].groups.header_group.height + De)) && u(i, "height", o), (!$ || z & /*$drawPlan*/
+      M[4].groups.header_group.height + De)) && u(i, "height", o), (!$ || z & /*$drawPlan*/
       16 && _ !== (_ = [
         0,
         0,
         /*$drawPlan*/
-        C[4].width + De * 2,
+        M[4].width + De * 2,
         /*$drawPlan*/
-        C[4].groups.header_group.height + De
+        M[4].groups.header_group.height + De
       ].join(" "))) && u(i, "viewBox", _), (!$ || z & /*$drawPlan*/
       16 && c !== (c = `width: ${/*$drawPlan*/
-      C[4].width + De * 2}px; height:${/*$drawPlan*/
-      C[4].groups.header_group.height + De}px;`)) && u(l, "style", c), /*$drawPlan*/
-      C[4].groups.header_group ? O ? (O.p(C, z), z & /*$drawPlan*/
-      16 && T(O, 1)) : (O = W1(C), O.c(), T(O, 1), O.m(p, k)) : O && (be(), D(O, 1, 1, () => {
-        O = null;
+      M[4].width + De * 2}px; height:${/*$drawPlan*/
+      M[4].groups.header_group.height + De}px;`)) && u(l, "style", c), /*$drawPlan*/
+      M[4].groups.header_group ? I ? (I.p(M, z), z & /*$drawPlan*/
+      16 && T(I, 1)) : (I = W1(M), I.c(), T(I, 1), I.m(p, k)) : I && (be(), D(I, 1, 1, () => {
+        I = null;
       }), ke()), /*$drawPlan*/
-      C[4].groups.item_group ? A ? (A.p(C, z), z & /*$drawPlan*/
-      16 && T(A, 1)) : (A = J1(C), A.c(), T(A, 1), A.m(p, null)) : A && (be(), D(A, 1, 1, () => {
+      M[4].groups.item_group ? A ? (A.p(M, z), z & /*$drawPlan*/
+      16 && T(A, 1)) : (A = J1(M), A.c(), T(A, 1), A.m(p, null)) : A && (be(), D(A, 1, 1, () => {
         A = null;
       }), ke()), (!$ || z & /*id*/
       2) && u(
         p,
         "id",
         /*id*/
-        C[1]
+        M[1]
       ), (!$ || z & /*$drawPlan*/
       16 && y !== (y = /*$drawPlan*/
-      C[4].width)) && u(p, "width", y), (!$ || z & /*$drawPlan*/
+      M[4].width)) && u(p, "width", y), (!$ || z & /*$drawPlan*/
       16 && v !== (v = /*$drawPlan*/
-      C[4].height)) && u(p, "height", v), (!$ || z & /*$drawPlan*/
+      M[4].height)) && u(p, "height", v), (!$ || z & /*$drawPlan*/
       16 && w !== (w = /*$drawPlan*/
-      C[4].viewBox.join(" "))) && u(p, "viewBox", w), (!$ || z & /*id*/
+      M[4].viewBox.join(" "))) && u(p, "viewBox", w), (!$ || z & /*id*/
       2 && q !== (q = /*id*/
-      C[1] + "-wrapper")) && u(e, "id", q);
+      M[1] + "-wrapper")) && u(e, "id", q);
     },
-    i(C) {
-      $ || (T(j), T(O), T(A), $ = !0);
+    i(M) {
+      $ || (T(j), T(I), T(A), $ = !0);
     },
-    o(C) {
-      D(j), D(O), D(A), $ = !1;
+    o(M) {
+      D(j), D(I), D(A), $ = !1;
     },
-    d(C) {
-      C && S(e), j && j.d(), O && O.d(), A && A.d();
+    d(M) {
+      M && C(e), j && j.d(), I && I.d(), A && A.d();
     }
   };
 }
@@ -38349,29 +38399,29 @@ function J1(t) {
     }
   };
 }
-function C6(t) {
+function M6(t) {
   let e;
   return {
     c() {
       e = m("div"), e.textContent = "Hover or click an item to see details", u(e, "class", "g-tooltip deactive svelte-x1kk7w");
     },
     m(l, i) {
-      M(l, e, i);
+      S(l, e, i);
     },
-    p: ae,
+    p: ne,
     d(l) {
-      l && S(e);
+      l && C(e);
     }
   };
 }
-function S6(t) {
+function z6(t) {
   let e;
   return {
     c() {
       e = m("div"), u(e, "class", "g-tooltip svelte-x1kk7w");
     },
     m(l, i) {
-      M(l, e, i), e.innerHTML = /*tootlip_content*/
+      S(l, e, i), e.innerHTML = /*tootlip_content*/
       t[3];
     },
     p(l, i) {
@@ -38380,11 +38430,11 @@ function S6(t) {
       l[3]);
     },
     d(l) {
-      l && S(e);
+      l && C(e);
     }
   };
 }
-function M6(t) {
+function N6(t) {
   var _;
   let e, l, i, n, a = (
     /*$drawPlan*/
@@ -38393,7 +38443,7 @@ function M6(t) {
   function r(c, d) {
     return (
       /*showTooltip*/
-      c[2] ? S6 : C6
+      c[2] ? z6 : M6
     );
   }
   let s = r(t), o = s(t);
@@ -38402,7 +38452,7 @@ function M6(t) {
       e = m("div"), a && a.c(), l = N(), i = m("div"), o.c(), u(e, "class", "content-wrap svelte-x1kk7w"), u(i, "class", "tooltip-space svelte-x1kk7w");
     },
     m(c, d) {
-      M(c, e, d), a && a.m(e, null), M(c, l, d), M(c, i, d), o.m(i, null), n = !0;
+      S(c, e, d), a && a.m(e, null), S(c, l, d), S(c, i, d), o.m(i, null), n = !0;
     },
     p(c, [d]) {
       var h;
@@ -38419,27 +38469,27 @@ function M6(t) {
       D(a), n = !1;
     },
     d(c) {
-      c && (S(e), S(l), S(i)), a && a.d(), o.d();
+      c && (C(e), C(l), C(i)), a && a.d(), o.d();
     }
   };
 }
-function z6(t, e, l) {
-  let i, n = ae, a = () => (n(), n = st(r, (g) => l(4, i = g)), r);
+function A6(t, e, l) {
+  let i, n = ne, a = () => (n(), n = st(r, (b) => l(4, i = b)), r);
   t.$$.on_destroy.push(() => n());
   let { drawPlan: r = Oe(), id: s = "natural-number-view" } = e;
   a();
   let o = !1, _, c = !1, d = 999;
-  function h(g, k, y, v) {
-    c && !y || d < v || (l(2, o = !0), g.clientX + 5, g.clientY + 5, l(3, _ = k), c = y, d = v || 0);
+  function h(b, k, y, v) {
+    c && !y || d < v || (l(2, o = !0), b.clientX + 5, b.clientY + 5, l(3, _ = k), c = y, d = v || 0);
   }
-  function p(g) {
-    o && (g.clientX + 5, g.clientY + 5);
+  function p(b) {
+    o && (b.clientX + 5, b.clientY + 5);
   }
-  function b(g) {
-    c || l(2, o = !1), g && (l(2, o = !1), d = 999);
+  function g(b) {
+    c || l(2, o = !1), b && (l(2, o = !1), d = 999);
   }
-  return t.$$set = (g) => {
-    "drawPlan" in g && a(l(0, r = g.drawPlan)), "id" in g && l(1, s = g.id);
+  return t.$$set = (b) => {
+    "drawPlan" in b && a(l(0, r = b.drawPlan)), "id" in b && l(1, s = b.id);
   }, [
     r,
     s,
@@ -38448,12 +38498,12 @@ function z6(t, e, l) {
     i,
     h,
     p,
-    b
+    g
   ];
 }
-class N6 extends Ve {
+class B6 extends Ve {
   constructor(e) {
-    super(), Qe(this, e, z6, M6, Fe, { drawPlan: 0, id: 1 });
+    super(), Qe(this, e, A6, N6, Fe, { drawPlan: 0, id: 1 });
   }
 }
 function Z1(t, e, l) {
@@ -38477,7 +38527,7 @@ function lp(t, e, l) {
   return i[21] = e[l], i[23] = l, i;
 }
 function ip(t) {
-  let e, l, i, n, a, r, s, o, _, c, d, h, p, b, g, k, y, v, w, q, $, j, O, A, C, z, H, B, R, P, E, F, L, X = $e(
+  let e, l, i, n, a, r, s, o, _, c, d, h, p, g, b, k, y, v, w, q, $, j, I, A, M, z, H, B, R, P, O, F, L, X = $e(
     /*$clbits*/
     t[4]
   ), V = [];
@@ -38489,12 +38539,12 @@ function ip(t) {
   ), Z = [];
   for (let W = 0; W < Q.length; W += 1)
     Z[W] = ap(tp(t, Q, W));
-  let ne = $e(
+  let ae = $e(
     /*$data_to_show*/
     t[3]
   ), se = [];
-  for (let W = 0; W < ne.length; W += 1)
-    se[W] = sp(x1(t, ne, W));
+  for (let W = 0; W < ae.length; W += 1)
+    se[W] = sp(x1(t, ae, W));
   let K = $e(
     /*$sub_totals*/
     t[7]
@@ -38506,30 +38556,30 @@ function ip(t) {
       e = m("div"), l = m("h5"), l.textContent = "Pivot by states", i = N(), n = m("div");
       for (let W = 0; W < V.length; W += 1)
         V[W].c();
-      a = N(), r = m("div"), s = m("button"), s.textContent = "Clear all", o = N(), _ = m("div"), c = m("div"), d = m("h5"), d.textContent = "Counts", h = N(), p = m("table"), b = m("thead"), g = m("tr"), k = m("th"), k.textContent = "State", y = N();
+      a = N(), r = m("div"), s = m("button"), s.textContent = "Clear all", o = N(), _ = m("div"), c = m("div"), d = m("h5"), d.textContent = "Counts", h = N(), p = m("table"), g = m("thead"), b = m("tr"), k = m("th"), k.textContent = "State", y = N();
       for (let W = 0; W < Z.length; W += 1)
         Z[W].c();
       v = N(), w = m("th"), w.textContent = "Count", q = N(), $ = m("tbody");
       for (let W = 0; W < se.length; W += 1)
         se[W].c();
-      O = N(), A = m("div"), C = m("h5"), C.textContent = "Subtotals", z = N(), H = m("table"), B = m("thead"), B.innerHTML = '<tr><th class="svelte-2hdyso">Bit</th> <th class="svelte-2hdyso">0</th> <th class="svelte-2hdyso">1</th> <th class="svelte-2hdyso">Total</th></tr>', R = N(), P = m("tbody");
+      I = N(), A = m("div"), M = m("h5"), M.textContent = "Subtotals", z = N(), H = m("table"), B = m("thead"), B.innerHTML = '<tr><th class="svelte-2hdyso">Bit</th> <th class="svelte-2hdyso">0</th> <th class="svelte-2hdyso">1</th> <th class="svelte-2hdyso">Total</th></tr>', R = N(), P = m("tbody");
       for (let W = 0; W < Y.length; W += 1)
         Y[W].c();
-      u(l, "class", "svelte-2hdyso"), u(s, "class", "svelte-2hdyso"), u(n, "class", "pivot-wrap svelte-2hdyso"), u(d, "class", "svelte-2hdyso"), u(k, "class", "svelte-2hdyso"), u(w, "class", "svelte-2hdyso"), u(b, "class", "svelte-2hdyso"), u(p, "class", "svelte-2hdyso"), u(c, "id", j = /*id*/
-      t[1] + "-wrapper"), u(c, "class", "pivot-table-wrapper svelte-2hdyso"), u(C, "class", "svelte-2hdyso"), u(B, "class", "svelte-2hdyso"), u(H, "class", "svelte-2hdyso"), u(A, "id", E = /*id*/
+      u(l, "class", "svelte-2hdyso"), u(s, "class", "svelte-2hdyso"), u(n, "class", "pivot-wrap svelte-2hdyso"), u(d, "class", "svelte-2hdyso"), u(k, "class", "svelte-2hdyso"), u(w, "class", "svelte-2hdyso"), u(g, "class", "svelte-2hdyso"), u(p, "class", "svelte-2hdyso"), u(c, "id", j = /*id*/
+      t[1] + "-wrapper"), u(c, "class", "pivot-table-wrapper svelte-2hdyso"), u(M, "class", "svelte-2hdyso"), u(B, "class", "svelte-2hdyso"), u(H, "class", "svelte-2hdyso"), u(A, "id", O = /*id*/
       t[1] + "-sub-total"), u(A, "class", "pivot-table-wrapper svelte-2hdyso"), u(_, "class", "tables svelte-2hdyso");
     },
     m(W, J) {
-      M(W, e, J), f(e, l), f(e, i), f(e, n);
+      S(W, e, J), f(e, l), f(e, i), f(e, n);
       for (let ee = 0; ee < V.length; ee += 1)
         V[ee] && V[ee].m(n, null);
-      f(n, a), f(n, r), f(r, s), M(W, o, J), M(W, _, J), f(_, c), f(c, d), f(c, h), f(c, p), f(p, b), f(b, g), f(g, k), f(g, y);
+      f(n, a), f(n, r), f(r, s), S(W, o, J), S(W, _, J), f(_, c), f(c, d), f(c, h), f(c, p), f(p, g), f(g, b), f(b, k), f(b, y);
       for (let ee = 0; ee < Z.length; ee += 1)
-        Z[ee] && Z[ee].m(g, null);
-      f(g, v), f(g, w), f(p, q), f(p, $);
+        Z[ee] && Z[ee].m(b, null);
+      f(b, v), f(b, w), f(p, q), f(p, $);
       for (let ee = 0; ee < se.length; ee += 1)
         se[ee] && se[ee].m($, null);
-      f(_, O), f(_, A), f(A, C), f(A, z), f(A, H), f(H, B), f(H, R), f(H, P);
+      f(_, I), f(_, A), f(A, M), f(A, z), f(A, H), f(H, B), f(H, R), f(H, P);
       for (let ee = 0; ee < Y.length; ee += 1)
         Y[ee] && Y[ee].m(P, null);
       F || (L = te(
@@ -38564,7 +38614,7 @@ function ip(t) {
         let ee;
         for (ee = 0; ee < Q.length; ee += 1) {
           const we = tp(W, Q, ee);
-          Z[ee] ? Z[ee].p(we, J) : (Z[ee] = ap(we), Z[ee].c(), Z[ee].m(g, v));
+          Z[ee] ? Z[ee].p(we, J) : (Z[ee] = ap(we), Z[ee].c(), Z[ee].m(b, v));
         }
         for (; ee < Z.length; ee += 1)
           Z[ee].d(1);
@@ -38572,18 +38622,18 @@ function ip(t) {
       }
       if (J & /*$data_to_show, $clbits, $pivot_set*/
       88) {
-        ne = $e(
+        ae = $e(
           /*$data_to_show*/
           W[3]
         );
         let ee;
-        for (ee = 0; ee < ne.length; ee += 1) {
-          const we = x1(W, ne, ee);
+        for (ee = 0; ee < ae.length; ee += 1) {
+          const we = x1(W, ae, ee);
           se[ee] ? se[ee].p(we, J) : (se[ee] = sp(we), se[ee].c(), se[ee].m($, null));
         }
         for (; ee < se.length; ee += 1)
           se[ee].d(1);
-        se.length = ne.length;
+        se.length = ae.length;
       }
       if (J & /*id*/
       2 && j !== (j = /*id*/
@@ -38603,11 +38653,11 @@ function ip(t) {
         Y.length = K.length;
       }
       J & /*id*/
-      2 && E !== (E = /*id*/
-      W[1] + "-sub-total") && u(A, "id", E);
+      2 && O !== (O = /*id*/
+      W[1] + "-sub-total") && u(A, "id", O);
     },
     d(W) {
-      W && (S(e), S(o), S(_)), Ye(V, W), Ye(Z, W), Ye(se, W), Ye(Y, W), F = !1, L();
+      W && (C(e), C(o), C(_)), Ye(V, W), Ye(Z, W), Ye(se, W), Ye(Y, W), F = !1, L();
     }
   };
 }
@@ -38628,7 +38678,7 @@ function np(t) {
   }
   return {
     c() {
-      e = m("div"), l = m("input"), a = N(), r = m("label"), o = I(s), u(l, "id", i = "pivot-by-" + /*bit*/
+      e = m("div"), l = m("input"), a = N(), r = m("label"), o = E(s), u(l, "id", i = "pivot-by-" + /*bit*/
       t[21]), u(l, "type", "checkbox"), l.checked = n = /*$pivot*/
       t[5][
         /*bit*/
@@ -38636,25 +38686,25 @@ function np(t) {
       ], u(r, "for", _ = "pivot-by-" + /*bit*/
       t[21]), u(r, "class", "svelte-2hdyso"), u(e, "class", "input-wrap svelte-2hdyso");
     },
-    m(p, b) {
-      M(p, e, b), f(e, l), f(e, a), f(e, r), f(r, o), c || (d = te(l, "change", h), c = !0);
+    m(p, g) {
+      S(p, e, g), f(e, l), f(e, a), f(e, r), f(r, o), c || (d = te(l, "change", h), c = !0);
     },
-    p(p, b) {
-      t = p, b & /*$clbits*/
+    p(p, g) {
+      t = p, g & /*$clbits*/
       16 && i !== (i = "pivot-by-" + /*bit*/
-      t[21]) && u(l, "id", i), b & /*$pivot, $clbits*/
+      t[21]) && u(l, "id", i), g & /*$pivot, $clbits*/
       48 && n !== (n = /*$pivot*/
       t[5][
         /*bit*/
         t[21]
-      ]) && (l.checked = n), b & /*$clbits*/
+      ]) && (l.checked = n), g & /*$clbits*/
       16 && s !== (s = /*bit*/
-      t[21] + "") && U(o, s), b & /*$clbits*/
+      t[21] + "") && U(o, s), g & /*$clbits*/
       16 && _ !== (_ = "pivot-by-" + /*bit*/
       t[21]) && u(r, "for", _);
     },
     d(p) {
-      p && S(e), c = !1, d();
+      p && C(e), c = !1, d();
     }
   };
 }
@@ -38665,10 +38715,10 @@ function ap(t) {
   ), i;
   return {
     c() {
-      e = m("th"), i = I(l), u(e, "class", "svelte-2hdyso");
+      e = m("th"), i = E(l), u(e, "class", "svelte-2hdyso");
     },
     m(n, a) {
-      M(n, e, a), f(e, i);
+      S(n, e, a), f(e, i);
     },
     p(n, a) {
       a & /*$clbits*/
@@ -38676,21 +38726,21 @@ function ap(t) {
       n[21] + "") && U(i, l);
     },
     d(n) {
-      n && S(e);
+      n && C(e);
     }
   };
 }
-function A6(t) {
+function P6(t) {
   let e = (
     /*row*/
     t[17].state + ""
   ), l;
   return {
     c() {
-      l = I(e);
+      l = E(e);
     },
     m(i, n) {
-      M(i, l, n);
+      S(i, l, n);
     },
     p(i, n) {
       n & /*$data_to_show*/
@@ -38698,69 +38748,41 @@ function A6(t) {
       i[17].state + "") && U(l, e);
     },
     d(i) {
-      i && S(l);
-    }
-  };
-}
-function B6(t) {
-  let e;
-  return {
-    c() {
-      e = I("-");
-    },
-    m(l, i) {
-      M(l, e, i);
-    },
-    p: ae,
-    d(l) {
-      l && S(e);
-    }
-  };
-}
-function P6(t) {
-  let e;
-  return {
-    c() {
-      e = I("-");
-    },
-    m(l, i) {
-      M(l, e, i);
-    },
-    p: ae,
-    d(l) {
-      l && S(e);
+      i && C(l);
     }
   };
 }
 function O6(t) {
-  let e = (
-    /*row*/
-    t[17][
-      /*bit*/
-      t[21]
-    ] + ""
-  ), l;
+  let e;
   return {
     c() {
-      l = I(e);
+      e = E("-");
     },
-    m(i, n) {
-      M(i, l, n);
+    m(l, i) {
+      S(l, e, i);
     },
-    p(i, n) {
-      n & /*$data_to_show, $clbits*/
-      24 && e !== (e = /*row*/
-      i[17][
-        /*bit*/
-        i[21]
-      ] + "") && U(l, e);
-    },
-    d(i) {
-      i && S(l);
+    p: ne,
+    d(l) {
+      l && C(e);
     }
   };
 }
 function E6(t) {
+  let e;
+  return {
+    c() {
+      e = E("-");
+    },
+    m(l, i) {
+      S(l, e, i);
+    },
+    p: ne,
+    d(l) {
+      l && C(e);
+    }
+  };
+}
+function I6(t) {
   let e = (
     /*row*/
     t[17][
@@ -38770,10 +38792,10 @@ function E6(t) {
   ), l;
   return {
     c() {
-      l = I(e);
+      l = E(e);
     },
     m(i, n) {
-      M(i, l, n);
+      S(i, l, n);
     },
     p(i, n) {
       n & /*$data_to_show, $clbits*/
@@ -38784,7 +38806,35 @@ function E6(t) {
       ] + "") && U(l, e);
     },
     d(i) {
-      i && S(l);
+      i && C(l);
+    }
+  };
+}
+function D6(t) {
+  let e = (
+    /*row*/
+    t[17][
+      /*bit*/
+      t[21]
+    ] + ""
+  ), l;
+  return {
+    c() {
+      l = E(e);
+    },
+    m(i, n) {
+      S(i, l, n);
+    },
+    p(i, n) {
+      n & /*$data_to_show, $clbits*/
+      24 && e !== (e = /*row*/
+      i[17][
+        /*bit*/
+        i[21]
+      ] + "") && U(l, e);
+    },
+    d(i) {
+      i && C(l);
     }
   };
 }
@@ -38798,9 +38848,9 @@ function rp(t) {
     r[6].includes(
       /*bit*/
       r[21]
-    ))), l ? E6 : (
+    ))), l ? D6 : (
       /*$pivot_set*/
-      ((_ = r[6]) == null ? void 0 : _.length) == 0 ? O6 : P6
+      ((_ = r[6]) == null ? void 0 : _.length) == 0 ? I6 : E6
     );
   }
   let n = i(t, -1), a = n(t);
@@ -38809,13 +38859,13 @@ function rp(t) {
       e = m("td"), a.c(), u(e, "class", "svelte-2hdyso");
     },
     m(r, s) {
-      M(r, e, s), a.m(e, null);
+      S(r, e, s), a.m(e, null);
     },
     p(r, s) {
       n === (n = i(r, s)) && a ? a.p(r, s) : (a.d(1), a = n(r), a && (a.c(), a.m(e, null)));
     },
     d(r) {
-      r && S(e), a.d();
+      r && C(e), a.d();
     }
   };
 }
@@ -38824,54 +38874,54 @@ function sp(t) {
     /*row*/
     t[17].count + ""
   ), s, o;
-  function _(b, g) {
+  function _(g, b) {
     var k;
     return (
       /*$pivot_set*/
-      ((k = b[6]) == null ? void 0 : k.length) > 0 ? B6 : A6
+      ((k = g[6]) == null ? void 0 : k.length) > 0 ? O6 : P6
     );
   }
   let c = _(t), d = c(t), h = $e(
     /*$clbits*/
     t[4]
   ), p = [];
-  for (let b = 0; b < h.length; b += 1)
-    p[b] = rp(ep(t, h, b));
+  for (let g = 0; g < h.length; g += 1)
+    p[g] = rp(ep(t, h, g));
   return {
     c() {
       e = m("tr"), l = m("th"), d.c(), i = N();
-      for (let b = 0; b < p.length; b += 1)
-        p[b].c();
-      n = N(), a = m("td"), s = I(r), o = N(), u(l, "class", "svelte-2hdyso"), u(a, "class", "svelte-2hdyso");
+      for (let g = 0; g < p.length; g += 1)
+        p[g].c();
+      n = N(), a = m("td"), s = E(r), o = N(), u(l, "class", "svelte-2hdyso"), u(a, "class", "svelte-2hdyso");
     },
-    m(b, g) {
-      M(b, e, g), f(e, l), d.m(l, null), f(e, i);
+    m(g, b) {
+      S(g, e, b), f(e, l), d.m(l, null), f(e, i);
       for (let k = 0; k < p.length; k += 1)
         p[k] && p[k].m(e, null);
       f(e, n), f(e, a), f(a, s), f(e, o);
     },
-    p(b, g) {
-      if (c === (c = _(b)) && d ? d.p(b, g) : (d.d(1), d = c(b), d && (d.c(), d.m(l, null))), g & /*$data_to_show, $clbits, $pivot_set*/
+    p(g, b) {
+      if (c === (c = _(g)) && d ? d.p(g, b) : (d.d(1), d = c(g), d && (d.c(), d.m(l, null))), b & /*$data_to_show, $clbits, $pivot_set*/
       88) {
         h = $e(
           /*$clbits*/
-          b[4]
+          g[4]
         );
         let k;
         for (k = 0; k < h.length; k += 1) {
-          const y = ep(b, h, k);
-          p[k] ? p[k].p(y, g) : (p[k] = rp(y), p[k].c(), p[k].m(e, n));
+          const y = ep(g, h, k);
+          p[k] ? p[k].p(y, b) : (p[k] = rp(y), p[k].c(), p[k].m(e, n));
         }
         for (; k < p.length; k += 1)
           p[k].d(1);
         p.length = h.length;
       }
-      g & /*$data_to_show*/
+      b & /*$data_to_show*/
       8 && r !== (r = /*row*/
-      b[17].count + "") && U(s, r);
+      g[17].count + "") && U(s, r);
     },
-    d(b) {
-      b && S(e), d.d(), Ye(p, b);
+    d(g) {
+      g && C(e), d.d(), Ye(p, g);
     }
   };
 }
@@ -38885,17 +38935,17 @@ function op(t) {
   ), o, _, c, d = (
     /*row*/
     t[17][1] + ""
-  ), h, p, b, g = (
+  ), h, p, g, b = (
     /*row*/
     t[17][0] + /*row*/
     t[17][1] + ""
   ), k, y;
   return {
     c() {
-      e = m("tr"), l = m("th"), n = I(i), a = N(), r = m("td"), o = I(s), _ = N(), c = m("td"), h = I(d), p = N(), b = m("td"), k = I(g), y = N(), u(l, "class", "svelte-2hdyso"), u(r, "class", "svelte-2hdyso"), u(c, "class", "svelte-2hdyso"), u(b, "class", "svelte-2hdyso");
+      e = m("tr"), l = m("th"), n = E(i), a = N(), r = m("td"), o = E(s), _ = N(), c = m("td"), h = E(d), p = N(), g = m("td"), k = E(b), y = N(), u(l, "class", "svelte-2hdyso"), u(r, "class", "svelte-2hdyso"), u(c, "class", "svelte-2hdyso"), u(g, "class", "svelte-2hdyso");
     },
     m(v, w) {
-      M(v, e, w), f(e, l), f(l, n), f(e, a), f(e, r), f(r, o), f(e, _), f(e, c), f(c, h), f(e, p), f(e, b), f(b, k), f(e, y);
+      S(v, e, w), f(e, l), f(l, n), f(e, a), f(e, r), f(r, o), f(e, _), f(e, c), f(c, h), f(e, p), f(e, g), f(g, k), f(e, y);
     },
     p(v, w) {
       w & /*$sub_totals*/
@@ -38905,16 +38955,16 @@ function op(t) {
       v[17][0] + "") && U(o, s), w & /*$sub_totals*/
       128 && d !== (d = /*row*/
       v[17][1] + "") && U(h, d), w & /*$sub_totals*/
-      128 && g !== (g = /*row*/
+      128 && b !== (b = /*row*/
       v[17][0] + /*row*/
-      v[17][1] + "") && U(k, g);
+      v[17][1] + "") && U(k, b);
     },
     d(v) {
-      v && S(e);
+      v && C(e);
     }
   };
 }
-function I6(t) {
+function R6(t) {
   let e, l = (
     /*$data_to_show*/
     t[3] && ip(t)
@@ -38924,53 +38974,53 @@ function I6(t) {
       l && l.c(), e = Ae();
     },
     m(i, n) {
-      l && l.m(i, n), M(i, e, n);
+      l && l.m(i, n), S(i, e, n);
     },
     p(i, [n]) {
       /*$data_to_show*/
       i[3] ? l ? l.p(i, n) : (l = ip(i), l.c(), l.m(e.parentNode, e)) : l && (l.d(1), l = null);
     },
-    i: ae,
-    o: ae,
+    i: ne,
+    o: ne,
     d(i) {
-      i && S(e), l && l.d(i);
+      i && C(e), l && l.d(i);
     }
   };
 }
-function D6(t, e, l) {
-  let i, n = ae, a = () => (n(), n = st(b, (A) => l(15, i = A)), b), r, s = ae, o = () => (s(), s = st(k, (A) => l(16, r = A)), k), _, c, d, h, p;
+function H6(t, e, l) {
+  let i, n = ne, a = () => (n(), n = st(g, (A) => l(15, i = A)), g), r, s = ne, o = () => (s(), s = st(k, (A) => l(16, r = A)), k), _, c, d, h, p;
   t.$$.on_destroy.push(() => n()), t.$$.on_destroy.push(() => s());
-  let { drawPlan: b = Oe(), id: g = "pivot-table-view", problem_type: k = Oe() } = e;
+  let { drawPlan: g = Oe(), id: b = "pivot-table-view", problem_type: k = Oe() } = e;
   a(), o();
   let y = Oe(), v = Oe({}), w = Oe([]), q = Oe([]), $ = Oe([]);
   at(t, y, (A) => l(3, _ = A)), at(t, v, (A) => l(5, d = A)), at(t, w, (A) => l(6, h = A)), at(t, q, (A) => l(4, c = A)), at(t, $, (A) => l(7, p = A)), Tt(() => {
-    b.subscribe((A) => {
+    g.subscribe((A) => {
       if (r === "pivot_table") {
         y.set(A), $.set(Pr(A));
-        let C = {};
+        let M = {};
         Object.keys(A[0]).filter((z) => !isNaN(parseInt(z))).forEach((z) => {
-          C[z] = !1;
-        }), v.set(C), q.set(Object.keys(C));
+          M[z] = !1;
+        }), v.set(M), q.set(Object.keys(M));
       }
     }), w.subscribe((A) => {
       if (r === "pivot_table") {
-        let { data: C, sub_total: z } = k6(i, A);
-        y.set(C), $.set(z);
+        let { data: M, sub_total: z } = y6(i, A);
+        y.set(M), $.set(z);
       }
     });
   });
-  const j = (A, C) => {
-    v.update((z) => (z[A] = C.target.checked, z)), w.update((z) => (C.target.checked ? z.includes(A) || z.push(A) : z.includes(A) && z.splice(z.indexOf(A), 1), z));
-  }, O = (A) => {
-    w.set([]), v.update((C) => (Object.keys(C).forEach((z) => {
-      C[z] = !1;
-    }), C));
+  const j = (A, M) => {
+    v.update((z) => (z[A] = M.target.checked, z)), w.update((z) => (M.target.checked ? z.includes(A) || z.push(A) : z.includes(A) && z.splice(z.indexOf(A), 1), z));
+  }, I = (A) => {
+    w.set([]), v.update((M) => (Object.keys(M).forEach((z) => {
+      M[z] = !1;
+    }), M));
   };
   return t.$$set = (A) => {
-    "drawPlan" in A && a(l(0, b = A.drawPlan)), "id" in A && l(1, g = A.id), "problem_type" in A && o(l(2, k = A.problem_type));
+    "drawPlan" in A && a(l(0, g = A.drawPlan)), "id" in A && l(1, b = A.id), "problem_type" in A && o(l(2, k = A.problem_type));
   }, [
-    b,
     g,
+    b,
     k,
     _,
     c,
@@ -38983,12 +39033,12 @@ function D6(t, e, l) {
     q,
     $,
     j,
-    O
+    I
   ];
 }
-class R6 extends Ve {
+class L6 extends Ve {
   constructor(e) {
-    super(), Qe(this, e, D6, I6, Fe, { drawPlan: 0, id: 1, problem_type: 2 });
+    super(), Qe(this, e, H6, R6, Fe, { drawPlan: 0, id: 1, problem_type: 2 });
   }
 }
 function up(t) {
@@ -38998,7 +39048,7 @@ function up(t) {
   );
   return {
     c() {
-      e = m("div"), l = m("div"), i = Ge("svg"), n = Ge("style"), a = I(`g {
+      e = m("div"), l = m("div"), i = Ge("svg"), n = Ge("style"), a = E(`g {
               font-family: Iosevka;
               font-size: 14px;
             }
@@ -39014,7 +39064,7 @@ function up(t) {
       t[1] + "-wrapper"), u(e, "class", "image-view-wrapper"), At(e, "position", "relative"), At(e, "width", "100%"), At(e, "overflow-x", "scroll"), At(e, "overflow-y", "hidden");
     },
     m(h, p) {
-      M(h, e, p), f(e, l), f(l, i), f(i, n), f(n, a), d && d.m(i, null), c = !0;
+      S(h, e, p), f(e, l), f(l, i), f(i, n), f(n, a), d && d.m(i, null), c = !0;
     },
     p(h, p) {
       /*$drawPlan*/
@@ -39044,7 +39094,7 @@ function up(t) {
       D(d), c = !1;
     },
     d(h) {
-      h && S(e), d && d.d();
+      h && C(e), d && d.d();
     }
   };
 }
@@ -39081,7 +39131,7 @@ function fp(t) {
     }
   };
 }
-function H6(t) {
+function F6(t) {
   var n;
   let e, l, i = (
     /*$drawPlan*/
@@ -39092,7 +39142,7 @@ function H6(t) {
       e = m("div"), i && i.c(), u(e, "class", "content-wrap");
     },
     m(a, r) {
-      M(a, e, r), i && i.m(e, null), l = !0;
+      S(a, e, r), i && i.m(e, null), l = !0;
     },
     p(a, [r]) {
       var s;
@@ -39109,12 +39159,12 @@ function H6(t) {
       D(i), l = !1;
     },
     d(a) {
-      a && S(e), i && i.d();
+      a && C(e), i && i.d();
     }
   };
 }
-function L6(t, e, l) {
-  let i, n = ae, a = () => (n(), n = st(r, (_) => l(2, i = _)), r);
+function Q6(t, e, l) {
+  let i, n = ne, a = () => (n(), n = st(r, (_) => l(2, i = _)), r);
   t.$$.on_destroy.push(() => n());
   let { drawPlan: r = Oe(), id: s = "image-view", problem_type: o = Oe() } = e;
   return a(), Tt(() => {
@@ -39123,9 +39173,9 @@ function L6(t, e, l) {
     "drawPlan" in _ && a(l(0, r = _.drawPlan)), "id" in _ && l(1, s = _.id), "problem_type" in _ && l(3, o = _.problem_type);
   }, [r, s, i, o];
 }
-class F6 extends Ve {
+class V6 extends Ve {
   constructor(e) {
-    super(), Qe(this, e, L6, H6, Fe, { drawPlan: 0, id: 1, problem_type: 3 });
+    super(), Qe(this, e, Q6, F6, Fe, { drawPlan: 0, id: 1, problem_type: 3 });
   }
 }
 function _p(t, e, l) {
@@ -39136,19 +39186,19 @@ function cp(t) {
   let e, l, i, n, a = (
     /*$hide1*/
     t[7] ? "Show" : "Hide"
-  ), r, s, o, _, c, d, h, p, b, g = (
+  ), r, s, o, _, c, d, h, p, g, b = (
     /*images*/
     t[3]["problem-number"] && dp(t)
   ), k = !/*$hide1*/
   t[7] && hp(t);
   return {
     c() {
-      e = m("article"), l = m("h4"), i = I(`Problem-specific results view
+      e = m("article"), l = m("h4"), i = E(`Problem-specific results view
 
-      `), n = m("button"), r = I(a), s = N(), o = m("button"), o.textContent = "Image", _ = N(), g && g.c(), c = N(), d = m("div"), k && k.c(), u(o, "class", "save-make svelte-18o3ak5"), u(d, "class", "content-wrap"), u(e, "class", "panel svelte-18o3ak5");
+      `), n = m("button"), r = E(a), s = N(), o = m("button"), o.textContent = "Image", _ = N(), b && b.c(), c = N(), d = m("div"), k && k.c(), u(o, "class", "save-make svelte-18o3ak5"), u(d, "class", "content-wrap"), u(e, "class", "panel svelte-18o3ak5");
     },
     m(y, v) {
-      M(y, e, v), f(e, l), f(l, i), f(l, n), f(n, r), f(l, s), f(l, o), f(l, _), g && g.m(l, null), f(e, c), f(e, d), k && k.m(d, null), h = !0, p || (b = [
+      S(y, e, v), f(e, l), f(l, i), f(l, n), f(n, r), f(l, s), f(l, o), f(l, _), b && b.m(l, null), f(e, c), f(e, d), k && k.m(d, null), h = !0, p || (g = [
         te(
           n,
           "click",
@@ -39167,7 +39217,7 @@ function cp(t) {
       (!h || v[0] & /*$hide1*/
       128) && a !== (a = /*$hide1*/
       y[7] ? "Show" : "Hide") && U(r, a), /*images*/
-      y[3]["problem-number"] ? g ? g.p(y, v) : (g = dp(y), g.c(), g.m(l, null)) : g && (g.d(1), g = null), /*$hide1*/
+      y[3]["problem-number"] ? b ? b.p(y, v) : (b = dp(y), b.c(), b.m(l, null)) : b && (b.d(1), b = null), /*$hide1*/
       y[7] ? k && (be(), D(k, 1, 1, () => {
         k = null;
       }), ke()) : k ? (k.p(y, v), v[0] & /*$hide1*/
@@ -39180,7 +39230,7 @@ function cp(t) {
       D(k), h = !1;
     },
     d(y) {
-      y && S(e), g && g.d(), k && k.d(), p = !1, wt(b);
+      y && C(e), b && b.d(), k && k.d(), p = !1, wt(g);
     }
   };
 }
@@ -39188,12 +39238,12 @@ function dp(t) {
   let e, l, i, n, a, r, s;
   return {
     c() {
-      e = m("a"), l = I("PNG"), n = N(), a = m("a"), r = I("SVG"), u(e, "class", "save-download svelte-18o3ak5"), u(e, "href", i = /*images*/
+      e = m("a"), l = E("PNG"), n = N(), a = m("a"), r = E("SVG"), u(e, "class", "save-download svelte-18o3ak5"), u(e, "href", i = /*images*/
       t[3]["problem-number"].png), u(e, "download", ""), u(a, "class", "save-download svelte-18o3ak5"), u(a, "href", s = /*images*/
       t[3]["problem-number"].svg), u(a, "download", "");
     },
     m(o, _) {
-      M(o, e, _), f(e, l), M(o, n, _), M(o, a, _), f(a, r);
+      S(o, e, _), f(e, l), S(o, n, _), S(o, a, _), f(a, r);
     },
     p(o, _) {
       _[0] & /*images*/
@@ -39203,7 +39253,7 @@ function dp(t) {
       o[3]["problem-number"].svg) && u(a, "href", s);
     },
     d(o) {
-      o && (S(e), S(n), S(a));
+      o && (C(e), C(n), C(a));
     }
   };
 }
@@ -39211,20 +39261,20 @@ function hp(t) {
   let e, l, i, n, a, r, s, o, _, c, d, h = $e(D1), p = [];
   for (let v = 0; v < h.length; v += 1)
     p[v] = pp(_p(t, h, v));
-  function b(v, w) {
+  function g(v, w) {
     if (
       /*$problem_type*/
       v[5] === "truth_table"
     )
-      return V6;
+      return G6;
     if (
       /*$problem_type*/
       v[5] === "image_1d" || /*$problem_type*/
       v[5] === "image_3d"
     )
-      return Q6;
+      return X6;
   }
-  let g = b(t), k = g && g(t), y = (
+  let b = g(t), k = b && b(t), y = (
     /*$drawPlan*/
     t[8] && gp(t)
   );
@@ -39236,10 +39286,10 @@ function hp(t) {
       r = N(), k && k.c(), s = N(), o = m("div"), y && y.c(), u(l, "for", "problem-type"), u(l, "class", "svelte-18o3ak5"), a.__value = null, pt(a, a.__value), u(n, "id", "problem-type"), u(n, "class", "svelte-18o3ak5"), u(e, "class", "input-wrap svelte-18o3ak5"), u(o, "class", "vis-wrap");
     },
     m(v, w) {
-      M(v, e, w), f(e, l), f(e, i), f(e, n), f(n, a);
+      S(v, e, w), f(e, l), f(e, i), f(e, n), f(n, a);
       for (let q = 0; q < p.length; q += 1)
         p[q] && p[q].m(n, null);
-      M(v, r, w), k && k.m(v, w), M(v, s, w), M(v, o, w), y && y.m(o, null), _ = !0, c || (d = te(
+      S(v, r, w), k && k.m(v, w), S(v, s, w), S(v, o, w), y && y.m(o, null), _ = !0, c || (d = te(
         n,
         "change",
         /*change_handler*/
@@ -39259,7 +39309,7 @@ function hp(t) {
           p[q].d(1);
         p.length = h.length;
       }
-      g === (g = b(v)) && k ? k.p(v, w) : (k && k.d(1), k = g && g(v), k && (k.c(), k.m(s.parentNode, s))), /*$drawPlan*/
+      b === (b = g(v)) && k ? k.p(v, w) : (k && k.d(1), k = b && b(v), k && (k.c(), k.m(s.parentNode, s))), /*$drawPlan*/
       v[8] ? y ? (y.p(v, w), w[0] & /*$drawPlan*/
       256 && T(y, 1)) : (y = gp(v), y.c(), T(y, 1), y.m(o, null)) : y && (be(), D(y, 1, 1, () => {
         y = null;
@@ -39272,7 +39322,7 @@ function hp(t) {
       D(y), _ = !1;
     },
     d(v) {
-      v && (S(e), S(r), S(s), S(o)), Ye(p, v), k && k.d(v), y && y.d(), c = !1, d();
+      v && (C(e), C(r), C(s), C(o)), Ye(p, v), k && k.d(v), y && y.d(), c = !1, d();
     }
   };
 }
@@ -39283,13 +39333,13 @@ function pp(t) {
   ), i, n;
   return {
     c() {
-      e = m("option"), i = I(l), e.__value = /*t*/
+      e = m("option"), i = E(l), e.__value = /*t*/
       t[30].key, pt(e, e.__value), e.selected = n = /*t*/
       t[30].key === /*$problem_type*/
       t[5];
     },
     m(a, r) {
-      M(a, e, r), f(e, i);
+      S(a, e, r), f(e, i);
     },
     p(a, r) {
       r[0] & /*$problem_type*/
@@ -39298,27 +39348,27 @@ function pp(t) {
       a[5]) && (e.selected = n);
     },
     d(a) {
-      a && S(e);
+      a && C(e);
     }
   };
 }
-function Q6(t) {
-  let e, l, i, n, a, r, s, o, _, c, d, h, p, b, g, k, y, v, w, q, $, j, O, A, C, z, H, B = (
+function X6(t) {
+  let e, l, i, n, a, r, s, o, _, c, d, h, p, g, b, k, y, v, w, q, $, j, I, A, M, z, H, B = (
     /*$problem_type*/
     (t[5] === "image_3d" || /*$problem_type*/
     t[5] === "image_1d") && mp(t)
   );
   return {
     c() {
-      var R, P, E, F;
-      e = m("div"), l = m("div"), i = m("label"), i.textContent = "Image width (px):", n = N(), a = m("input"), s = N(), o = m("div"), _ = m("label"), _.textContent = "Image height (px):", c = N(), d = m("input"), p = N(), B && B.c(), b = N(), g = m("div"), k = m("label"), k.textContent = "Magnitude:", y = N(), v = m("input"), q = N(), $ = m("div"), j = m("label"), j.textContent = "Zoom by:", O = N(), A = m("input"), u(i, "for", "image_width"), u(i, "class", "svelte-18o3ak5"), u(a, "id", "image_width"), u(a, "type", "number"), a.value = r = /*$config*/
+      var R, P, O, F;
+      e = m("div"), l = m("div"), i = m("label"), i.textContent = "Image width (px):", n = N(), a = m("input"), s = N(), o = m("div"), _ = m("label"), _.textContent = "Image height (px):", c = N(), d = m("input"), p = N(), B && B.c(), g = N(), b = m("div"), k = m("label"), k.textContent = "Magnitude:", y = N(), v = m("input"), q = N(), $ = m("div"), j = m("label"), j.textContent = "Zoom by:", I = N(), A = m("input"), u(i, "for", "image_width"), u(i, "class", "svelte-18o3ak5"), u(a, "id", "image_width"), u(a, "type", "number"), a.value = r = /*$config*/
       (R = t[4]) == null ? void 0 : R.image_width, u(l, "class", "input-wrap svelte-18o3ak5"), u(_, "for", "image_height"), u(_, "class", "svelte-18o3ak5"), u(d, "id", "image_height"), u(d, "type", "number"), d.value = h = /*$config*/
       (P = t[4]) == null ? void 0 : P.image_height, u(o, "class", "input-wrap svelte-18o3ak5"), u(k, "for", "magnitude"), u(k, "class", "svelte-18o3ak5"), u(v, "id", "magnitude"), u(v, "type", "number"), v.value = w = /*$config*/
-      (E = t[4]) == null ? void 0 : E.magnitude, u(g, "class", "input-wrap svelte-18o3ak5"), u(j, "for", "resolution"), u(j, "class", "svelte-18o3ak5"), u(A, "id", "resolution"), u(A, "type", "number"), A.value = C = /*$config*/
+      (O = t[4]) == null ? void 0 : O.magnitude, u(b, "class", "input-wrap svelte-18o3ak5"), u(j, "for", "resolution"), u(j, "class", "svelte-18o3ak5"), u(A, "id", "resolution"), u(A, "type", "number"), A.value = M = /*$config*/
       (F = t[4]) == null ? void 0 : F.resolution, u($, "class", "input-wrap svelte-18o3ak5"), u(e, "class", "input-group svelte-18o3ak5");
     },
     m(R, P) {
-      M(R, e, P), f(e, l), f(l, i), f(l, n), f(l, a), f(e, s), f(e, o), f(o, _), f(o, c), f(o, d), f(e, p), B && B.m(e, null), f(e, b), f(e, g), f(g, k), f(g, y), f(g, v), f(e, q), f(e, $), f($, j), f($, O), f($, A), z || (H = [
+      S(R, e, P), f(e, l), f(l, i), f(l, n), f(l, a), f(e, s), f(e, o), f(o, _), f(o, c), f(o, d), f(e, p), B && B.m(e, null), f(e, g), f(e, b), f(b, k), f(b, y), f(b, v), f(e, q), f(e, $), f($, j), f($, I), f($, A), z || (H = [
         te(
           a,
           "change",
@@ -39346,31 +39396,31 @@ function Q6(t) {
       ], z = !0);
     },
     p(R, P) {
-      var E, F, L, X;
+      var O, F, L, X;
       P[0] & /*$config*/
       16 && r !== (r = /*$config*/
-      (E = R[4]) == null ? void 0 : E.image_width) && a.value !== r && (a.value = r), P[0] & /*$config*/
+      (O = R[4]) == null ? void 0 : O.image_width) && a.value !== r && (a.value = r), P[0] & /*$config*/
       16 && h !== (h = /*$config*/
       (F = R[4]) == null ? void 0 : F.image_height) && d.value !== h && (d.value = h), /*$problem_type*/
       R[5] === "image_3d" || /*$problem_type*/
-      R[5] === "image_1d" ? B ? B.p(R, P) : (B = mp(R), B.c(), B.m(e, b)) : B && (B.d(1), B = null), P[0] & /*$config*/
+      R[5] === "image_1d" ? B ? B.p(R, P) : (B = mp(R), B.c(), B.m(e, g)) : B && (B.d(1), B = null), P[0] & /*$config*/
       16 && w !== (w = /*$config*/
       (L = R[4]) == null ? void 0 : L.magnitude) && v.value !== w && (v.value = w), P[0] & /*$config*/
-      16 && C !== (C = /*$config*/
-      (X = R[4]) == null ? void 0 : X.resolution) && A.value !== C && (A.value = C);
+      16 && M !== (M = /*$config*/
+      (X = R[4]) == null ? void 0 : X.resolution) && A.value !== M && (A.value = M);
     },
     d(R) {
-      R && S(e), B && B.d(), z = !1, wt(H);
+      R && C(e), B && B.d(), z = !1, wt(H);
     }
   };
 }
-function V6(t) {
+function G6(t) {
   let e, l, i, n, a, r, s;
   function o(d, h) {
     var p;
     return (
       /*$config*/
-      (p = d[4]) != null && p.filter_true ? G6 : X6
+      (p = d[4]) != null && p.filter_true ? K6 : Y6
     );
   }
   let _ = o(t), c = _(t);
@@ -39381,7 +39431,7 @@ function V6(t) {
       (d = t[4]) == null ? void 0 : d.filter_true, u(a, "for", "config-truth"), u(a, "class", "svelte-18o3ak5"), u(e, "class", "input-wrap svelte-18o3ak5");
     },
     m(d, h) {
-      M(d, e, h), f(e, l), f(e, n), f(e, a), c.m(a, null), r || (s = te(
+      S(d, e, h), f(e, l), f(e, n), f(e, a), c.m(a, null), r || (s = te(
         l,
         "change",
         /*change_handler_1*/
@@ -39395,7 +39445,7 @@ function V6(t) {
       (p = d[4]) == null ? void 0 : p.filter_true) && (l.checked = i), _ !== (_ = o(d)) && (c.d(1), c = _(d), c && (c.c(), c.m(a, null)));
     },
     d(d) {
-      d && S(e), c.d(), r = !1, s();
+      d && C(e), c.d(), r = !1, s();
     }
   };
 }
@@ -39407,7 +39457,7 @@ function mp(t) {
     },
     m(c, d) {
       var h;
-      M(c, e, d), f(e, l), f(e, i), f(e, n), f(n, a), f(n, r), fl(
+      S(c, e, d), f(e, l), f(e, i), f(e, n), f(n, a), f(n, r), fl(
         n,
         /*$config*/
         (h = t[4]) == null ? void 0 : h.dir
@@ -39429,41 +39479,41 @@ function mp(t) {
       );
     },
     d(c) {
-      c && S(e), o = !1, _();
+      c && C(e), o = !1, _();
     }
   };
 }
-function X6(t) {
+function Y6(t) {
   let e;
   return {
     c() {
-      e = I("Show all outcomes.");
+      e = E("Show all outcomes.");
     },
     m(l, i) {
-      M(l, e, i);
+      S(l, e, i);
     },
     d(l) {
-      l && S(e);
+      l && C(e);
     }
   };
 }
-function G6(t) {
+function K6(t) {
   let e;
   return {
     c() {
-      e = I("Show only true outcomes.");
+      e = E("Show only true outcomes.");
     },
     m(l, i) {
-      M(l, e, i);
+      S(l, e, i);
     },
     d(l) {
-      l && S(e);
+      l && C(e);
     }
   };
 }
 function gp(t) {
   let e, l, i, n;
-  const a = [W6, U6, K6, Y6], r = [];
+  const a = [Z6, J6, W6, U6], r = [];
   function s(o, _) {
     return (
       /*$problem_type*/
@@ -39485,7 +39535,7 @@ function gp(t) {
       l && l.c(), i = Ae();
     },
     m(o, _) {
-      ~e && r[e].m(o, _), M(o, i, _), n = !0;
+      ~e && r[e].m(o, _), S(o, i, _), n = !0;
     },
     p(o, _) {
       let c = e;
@@ -39500,95 +39550,13 @@ function gp(t) {
       D(l), n = !1;
     },
     d(o) {
-      o && S(i), ~e && r[e].d(o);
-    }
-  };
-}
-function Y6(t) {
-  let e, l;
-  return e = new F6({
-    props: {
-      drawPlan: (
-        /*drawPlan*/
-        t[10]
-      ),
-      id: (
-        /*id*/
-        t[2]
-      ),
-      problem_type: (
-        /*problem_type*/
-        t[11]
-      )
-    }
-  }), {
-    c() {
-      pe(e.$$.fragment);
-    },
-    m(i, n) {
-      de(e, i, n), l = !0;
-    },
-    p(i, n) {
-      const a = {};
-      n[0] & /*id*/
-      4 && (a.id = /*id*/
-      i[2]), e.$set(a);
-    },
-    i(i) {
-      l || (T(e.$$.fragment, i), l = !0);
-    },
-    o(i) {
-      D(e.$$.fragment, i), l = !1;
-    },
-    d(i) {
-      he(e, i);
-    }
-  };
-}
-function K6(t) {
-  let e, l;
-  return e = new R6({
-    props: {
-      drawPlan: (
-        /*drawPlan*/
-        t[10]
-      ),
-      id: (
-        /*id*/
-        t[2]
-      ),
-      problem_type: (
-        /*problem_type*/
-        t[11]
-      )
-    }
-  }), {
-    c() {
-      pe(e.$$.fragment);
-    },
-    m(i, n) {
-      de(e, i, n), l = !0;
-    },
-    p(i, n) {
-      const a = {};
-      n[0] & /*id*/
-      4 && (a.id = /*id*/
-      i[2]), e.$set(a);
-    },
-    i(i) {
-      l || (T(e.$$.fragment, i), l = !0);
-    },
-    o(i) {
-      D(e.$$.fragment, i), l = !1;
-    },
-    d(i) {
-      he(e, i);
+      o && C(i), ~e && r[e].d(o);
     }
   };
 }
 function U6(t) {
   let e, l;
-  return e = new N6({
+  return e = new V6({
     props: {
       drawPlan: (
         /*drawPlan*/
@@ -39629,7 +39597,7 @@ function U6(t) {
 }
 function W6(t) {
   let e, l;
-  return e = new T6({
+  return e = new L6({
     props: {
       drawPlan: (
         /*drawPlan*/
@@ -39669,6 +39637,88 @@ function W6(t) {
   };
 }
 function J6(t) {
+  let e, l;
+  return e = new B6({
+    props: {
+      drawPlan: (
+        /*drawPlan*/
+        t[10]
+      ),
+      id: (
+        /*id*/
+        t[2]
+      ),
+      problem_type: (
+        /*problem_type*/
+        t[11]
+      )
+    }
+  }), {
+    c() {
+      pe(e.$$.fragment);
+    },
+    m(i, n) {
+      de(e, i, n), l = !0;
+    },
+    p(i, n) {
+      const a = {};
+      n[0] & /*id*/
+      4 && (a.id = /*id*/
+      i[2]), e.$set(a);
+    },
+    i(i) {
+      l || (T(e.$$.fragment, i), l = !0);
+    },
+    o(i) {
+      D(e.$$.fragment, i), l = !1;
+    },
+    d(i) {
+      he(e, i);
+    }
+  };
+}
+function Z6(t) {
+  let e, l;
+  return e = new S6({
+    props: {
+      drawPlan: (
+        /*drawPlan*/
+        t[10]
+      ),
+      id: (
+        /*id*/
+        t[2]
+      ),
+      problem_type: (
+        /*problem_type*/
+        t[11]
+      )
+    }
+  }), {
+    c() {
+      pe(e.$$.fragment);
+    },
+    m(i, n) {
+      de(e, i, n), l = !0;
+    },
+    p(i, n) {
+      const a = {};
+      n[0] & /*id*/
+      4 && (a.id = /*id*/
+      i[2]), e.$set(a);
+    },
+    i(i) {
+      l || (T(e.$$.fragment, i), l = !0);
+    },
+    o(i) {
+      D(e.$$.fragment, i), l = !1;
+    },
+    d(i) {
+      he(e, i);
+    }
+  };
+}
+function x6(t) {
   let e, l, i = (
     /*$data*/
     t[6] && cp(t)
@@ -39678,7 +39728,7 @@ function J6(t) {
       i && i.c(), e = Ae();
     },
     m(n, a) {
-      i && i.m(n, a), M(n, e, a), l = !0;
+      i && i.m(n, a), S(n, e, a), l = !0;
     },
     p(n, a) {
       /*$data*/
@@ -39694,23 +39744,23 @@ function J6(t) {
       D(i), l = !1;
     },
     d(n) {
-      n && S(e), i && i.d(n);
+      n && C(e), i && i.d(n);
     }
   };
 }
-function Z6(t, e, l) {
-  let i, n = ae, a = () => (n(), n = st(p, (P) => l(4, i = P)), p), r, s, o = ae, _ = () => (o(), o = st(h, (P) => l(6, s = P)), h), c, d;
+function e8(t, e, l) {
+  let i, n = ne, a = () => (n(), n = st(p, (P) => l(4, i = P)), p), r, s, o = ne, _ = () => (o(), o = st(h, (P) => l(6, s = P)), h), c, d;
   t.$$.on_destroy.push(() => n()), t.$$.on_destroy.push(() => o());
-  let { data: h = Oe(), config: p = Oe({}), id: b = "problem-view" } = e;
+  let { data: h = Oe(), config: p = Oe({}), id: g = "problem-view" } = e;
   _(), a();
-  let g = Oe(!0);
-  at(t, g, (P) => l(7, c = P));
+  let b = Oe(!0);
+  at(t, b, (P) => l(7, c = P));
   let k = Oe();
   at(t, k, (P) => l(8, d = P));
   let y = Oe("image_1d");
   at(t, y, (P) => l(5, r = P));
-  function v(P, E, F) {
-    delete w[b], E === "natural_number" ? k.set(f6(P)) : E === "truth_table" ? k.set(h6(P, F)) : E === "pivot_table" ? k.set(b6(P)) : E === "image_1d" ? k.set(v6(P, F)) : E === "image_3d" && k.set(y6(P, F));
+  function v(P, O, F) {
+    delete w[g], O === "natural_number" ? k.set(c6(P)) : O === "truth_table" ? k.set(m6(P, F)) : O === "pivot_table" ? k.set(v6(P)) : O === "image_1d" ? k.set(w6(P, F)) : O === "image_3d" && k.set($6(P, F));
   }
   Tt(() => {
     s.n_shots && p.update((P) => (P.n_shots = s.n_shots, P)), y.subscribe((P) => {
@@ -39725,53 +39775,53 @@ function Z6(t, e, l) {
   q.subscribe((P) => {
     P && l(3, w[P.id] = P, w);
   });
-  const $ = (P) => g.set(!c), j = (P) => {
+  const $ = (P) => b.set(!c), j = (P) => {
     Ii("problem-number", q);
-  }, O = (P) => {
+  }, I = (P) => {
     console.log(P.target.value), P.target.value ? y.set(P.target.value) : y.set(void 0);
   }, A = (P) => {
-    p.update((E) => (E.filter_true = P.target.checked, E));
-  }, C = (P) => {
-    p.update((E) => (E.image_width = parseInt(P.target.value), E));
+    p.update((O) => (O.filter_true = P.target.checked, O));
+  }, M = (P) => {
+    p.update((O) => (O.image_width = parseInt(P.target.value), O));
   }, z = (P) => {
-    p.update((E) => (E.image_height = parseInt(P.target.value), E));
+    p.update((O) => (O.image_height = parseInt(P.target.value), O));
   }, H = (P) => {
-    p.update((E) => (E.dir = P.target.value, E));
+    p.update((O) => (O.dir = P.target.value, O));
   }, B = (P) => {
-    p.update((E) => (E.magnitude = parseFloat(P.target.value), E));
+    p.update((O) => (O.magnitude = parseFloat(P.target.value), O));
   }, R = (P) => {
-    p.update((E) => (E.resolution = parseFloat(P.target.value), E));
+    p.update((O) => (O.resolution = parseFloat(P.target.value), O));
   };
   return t.$$set = (P) => {
-    "data" in P && _(l(0, h = P.data)), "config" in P && a(l(1, p = P.config)), "id" in P && l(2, b = P.id);
+    "data" in P && _(l(0, h = P.data)), "config" in P && a(l(1, p = P.config)), "id" in P && l(2, g = P.id);
   }, [
     h,
     p,
-    b,
+    g,
     w,
     i,
     r,
     s,
     c,
     d,
-    g,
+    b,
     k,
     y,
     q,
     $,
     j,
-    O,
+    I,
     A,
-    C,
+    M,
     z,
     H,
     B,
     R
   ];
 }
-class x6 extends Ve {
+class t8 extends Ve {
   constructor(e) {
-    super(), Qe(this, e, Z6, J6, Fe, { data: 0, config: 1, id: 2 }, null, [-1, -1]);
+    super(), Qe(this, e, e8, x6, Fe, { data: 0, config: 1, id: 2 }, null, [-1, -1]);
   }
 }
 function bp(t, e, l) {
@@ -39787,26 +39837,26 @@ function kp(t) {
   t[3] && yp(t);
   return {
     c() {
-      e = m("article"), l = m("h4"), i = I(`Physical qubit properties
-      `), n = m("button"), r = I(a), s = N(), h && h.c(), o = N(), _ = m("div"), p && p.c(), u(n, "class", "svelte-1i1pekd"), u(_, "class", "content-wrap svelte-1i1pekd"), u(e, "class", "panel qubits svelte-1i1pekd");
+      e = m("article"), l = m("h4"), i = E(`Physical qubit properties
+      `), n = m("button"), r = E(a), s = N(), h && h.c(), o = N(), _ = m("div"), p && p.c(), u(n, "class", "svelte-1i1pekd"), u(_, "class", "content-wrap svelte-1i1pekd"), u(e, "class", "panel qubits svelte-1i1pekd");
     },
-    m(b, g) {
-      M(b, e, g), f(e, l), f(l, i), f(l, n), f(n, r), f(e, s), h && h.m(e, null), f(e, o), f(e, _), p && p.m(_, null), c || (d = te(
+    m(g, b) {
+      S(g, e, b), f(e, l), f(l, i), f(l, n), f(n, r), f(e, s), h && h.m(e, null), f(e, o), f(e, _), p && p.m(_, null), c || (d = te(
         n,
         "click",
         /*click_handler*/
         t[9]
       ), c = !0);
     },
-    p(b, g) {
-      g[0] & /*$hide1*/
+    p(g, b) {
+      b[0] & /*$hide1*/
       8 && a !== (a = /*$hide1*/
-      b[3] ? "Show" : "Hide") && U(r, a), /*$hide1*/
-      b[3] ? h && (h.d(1), h = null) : h ? h.p(b, g) : (h = vp(b), h.c(), h.m(e, o)), /*$hide1*/
-      b[3] ? p && (p.d(1), p = null) : p ? p.p(b, g) : (p = yp(b), p.c(), p.m(_, null));
+      g[3] ? "Show" : "Hide") && U(r, a), /*$hide1*/
+      g[3] ? h && (h.d(1), h = null) : h ? h.p(g, b) : (h = vp(g), h.c(), h.m(e, o)), /*$hide1*/
+      g[3] ? p && (p.d(1), p = null) : p ? p.p(g, b) : (p = yp(g), p.c(), p.m(_, null));
     },
-    d(b) {
-      b && S(e), h && h.d(), p && p.d(), c = !1, d();
+    d(g) {
+      g && C(e), h && h.d(), p && p.d(), c = !1, d();
     }
   };
 }
@@ -39816,7 +39866,7 @@ function vp(t) {
     var p;
     return (
       /*$config*/
-      (p = d[4]) != null && p.filter_used ? t8 : e8
+      (p = d[4]) != null && p.filter_used ? i8 : l8
     );
   }
   let _ = o(t), c = _(t);
@@ -39827,7 +39877,7 @@ function vp(t) {
       (d = t[4]) == null ? void 0 : d.filter_used, u(a, "for", "config"), u(a, "class", "svelte-1i1pekd"), u(e, "class", "input-wrap svelte-1i1pekd");
     },
     m(d, h) {
-      M(d, e, h), f(e, l), f(e, n), f(e, a), c.m(a, null), r || (s = te(
+      S(d, e, h), f(e, l), f(e, n), f(e, a), c.m(a, null), r || (s = te(
         l,
         "change",
         /*change_handler*/
@@ -39841,35 +39891,35 @@ function vp(t) {
       (p = d[4]) == null ? void 0 : p.filter_used) && (l.checked = i), _ !== (_ = o(d)) && (c.d(1), c = _(d), c && (c.c(), c.m(a, null)));
     },
     d(d) {
-      d && S(e), c.d(), r = !1, s();
+      d && C(e), c.d(), r = !1, s();
     }
   };
 }
-function e8(t) {
+function l8(t) {
   let e;
   return {
     c() {
-      e = I("Show all qubits.");
+      e = E("Show all qubits.");
     },
     m(l, i) {
-      M(l, e, i);
+      S(l, e, i);
     },
     d(l) {
-      l && S(e);
+      l && C(e);
     }
   };
 }
-function t8(t) {
+function i8(t) {
   let e;
   return {
     c() {
-      e = I("Show only the qubits used in the circuit.");
+      e = E("Show only the qubits used in the circuit.");
     },
     m(l, i) {
-      M(l, e, i);
+      S(l, e, i);
     },
     d(l) {
-      l && S(e);
+      l && C(e);
     }
   };
 }
@@ -39884,7 +39934,7 @@ function yp(t) {
       l && l.c(), e = Ae();
     },
     m(n, a) {
-      l && l.m(n, a), M(n, e, a);
+      l && l.m(n, a), S(n, e, a);
     },
     p(n, a) {
       var r;
@@ -39892,128 +39942,128 @@ function yp(t) {
       (r = n[2].backend_properties) != null && r.qubits ? l ? l.p(n, a) : (l = wp(n), l.c(), l.m(e.parentNode, e)) : l && (l.d(1), l = null);
     },
     d(n) {
-      n && S(e), l && l.d(n);
+      n && C(e), l && l.d(n);
     }
   };
 }
 function wp(t) {
-  let e, l, i, n, a, r, s, o, _, c, d, h, p, b, g, k, y, v, w, q, $, j, O, A, C, z, H, B, R, P, E, F, L, X, V, Q, Z, ne, se;
+  let e, l, i, n, a, r, s, o, _, c, d, h, p, g, b, k, y, v, w, q, $, j, I, A, M, z, H, B, R, P, O, F, L, X, V, Q, Z, ae, se;
   function K(ze, lt) {
     return (
       /*sort_reg*/
-      ze[1].index !== "a" ? i8 : l8
+      ze[1].index !== "a" ? a8 : n8
     );
   }
   let Y = K(t), W = Y(t);
   function J(ze, lt) {
     return (
       /*sort_reg*/
-      ze[1].T1 !== "a" ? a8 : n8
+      ze[1].T1 !== "a" ? s8 : r8
     );
   }
   let ee = J(t), we = ee(t);
   function Re(ze, lt) {
     return (
       /*sort_reg*/
-      ze[1].T1d !== "a" ? s8 : r8
+      ze[1].T1d !== "a" ? u8 : o8
     );
   }
   let ve = Re(t), me = ve(t);
   function fe(ze, lt) {
     return (
       /*sort_reg*/
-      ze[1].T2 !== "a" ? u8 : o8
+      ze[1].T2 !== "a" ? _8 : f8
     );
   }
   let G = fe(t), ye = G(t);
   function ue(ze, lt) {
     return (
       /*sort_reg*/
-      ze[1].T2d !== "a" ? _8 : f8
+      ze[1].T2d !== "a" ? d8 : c8
     );
   }
   let le = ue(t), oe = le(t);
   function x(ze, lt) {
     return (
       /*sort_reg*/
-      ze[1].anharmonicity !== "a" ? d8 : c8
+      ze[1].anharmonicity !== "a" ? p8 : h8
     );
   }
   let ge = x(t), re = ge(t);
   function Ie(ze, lt) {
     return (
       /*sort_reg*/
-      ze[1].anharmonicityd !== "a" ? p8 : h8
+      ze[1].anharmonicityd !== "a" ? g8 : m8
     );
   }
   let je = Ie(t), _e = je(t);
   function Ee(ze, lt) {
     return (
       /*sort_reg*/
-      ze[1].frequency !== "a" ? g8 : m8
+      ze[1].frequency !== "a" ? k8 : b8
     );
   }
   let ie = Ee(t), Te = ie(t);
   function Ue(ze, lt) {
     return (
       /*sort_reg*/
-      ze[1].frequencyd !== "a" ? k8 : b8
+      ze[1].frequencyd !== "a" ? y8 : v8
     );
   }
   let Ke = Ue(t), We = Ke(t);
   function vt(ze, lt) {
     return (
       /*sort_reg*/
-      ze[1].prob_meas0_prep1 !== "a" ? y8 : v8
+      ze[1].prob_meas0_prep1 !== "a" ? $8 : w8
     );
   }
   let qt = vt(t), rt = qt(t);
   function mt(ze, lt) {
     return (
       /*sort_reg*/
-      ze[1].prob_meas0_prep1d !== "a" ? $8 : w8
+      ze[1].prob_meas0_prep1d !== "a" ? j8 : q8
     );
   }
   let Rt = mt(t), ot = Rt(t);
   function ut(ze, lt) {
     return (
       /*sort_reg*/
-      ze[1].prob_meas1_prep0 !== "a" ? j8 : q8
+      ze[1].prob_meas1_prep0 !== "a" ? C8 : T8
     );
   }
   let Ce = ut(t), ce = Ce(t);
   function Be(ze, lt) {
     return (
       /*sort_reg*/
-      ze[1].prob_meas1_prep0d !== "a" ? C8 : T8
+      ze[1].prob_meas1_prep0d !== "a" ? M8 : S8
     );
   }
   let Le = Be(t), Pe = Le(t);
   function Je(ze, lt) {
     return (
       /*sort_reg*/
-      ze[1].readout_error !== "a" ? M8 : S8
+      ze[1].readout_error !== "a" ? N8 : z8
     );
   }
   let Xe = Je(t), He = Xe(t);
   function Ze(ze, lt) {
     return (
       /*sort_reg*/
-      ze[1].readout_errord !== "a" ? N8 : z8
+      ze[1].readout_errord !== "a" ? B8 : A8
     );
   }
   let _t = Ze(t), Ct = _t(t);
   function tl(ze, lt) {
     return (
       /*sort_reg*/
-      ze[1].readout_length !== "a" ? B8 : A8
+      ze[1].readout_length !== "a" ? O8 : P8
     );
   }
   let jt = tl(t), ft = jt(t);
   function Lt(ze, lt) {
     return (
       /*sort_reg*/
-      ze[1].readout_lengthd !== "a" ? O8 : P8
+      ze[1].readout_lengthd !== "a" ? I8 : E8
     );
   }
   let It = Lt(t), gt = It(t), Dt = $e(
@@ -40024,18 +40074,18 @@ function wp(t) {
     yt[ze] = qp(bp(t, Dt, ze));
   return {
     c() {
-      e = m("table"), l = m("thead"), i = m("tr"), n = m("th"), a = I("I "), W.c(), r = N(), s = m("th"), o = I("T1 "), we.c(), _ = Ae(), me.c(), c = N(), d = m("th"), h = I("T2 "), ye.c(), p = Ae(), oe.c(), b = N(), g = m("th"), k = I("Anharmonic. "), re.c(), y = Ae(), _e.c(), v = N(), w = m("th"), q = I("Frequency "), Te.c(), $ = Ae(), We.c(), j = N(), O = m("th"), A = I("Meas0Prob1 "), rt.c(), C = Ae(), ot.c(), z = N(), H = m("th"), B = I("Meas1Prob0 "), ce.c(), R = Ae(), Pe.c(), P = N(), E = m("th"), F = I("Readout Error "), He.c(), L = Ae(), Ct.c(), X = N(), V = m("th"), Q = I("Readout Length "), ft.c(), Z = Ae(), gt.c(), ne = N(), se = m("tbody");
+      e = m("table"), l = m("thead"), i = m("tr"), n = m("th"), a = E("I "), W.c(), r = N(), s = m("th"), o = E("T1 "), we.c(), _ = Ae(), me.c(), c = N(), d = m("th"), h = E("T2 "), ye.c(), p = Ae(), oe.c(), g = N(), b = m("th"), k = E("Anharmonic. "), re.c(), y = Ae(), _e.c(), v = N(), w = m("th"), q = E("Frequency "), Te.c(), $ = Ae(), We.c(), j = N(), I = m("th"), A = E("Meas0Prob1 "), rt.c(), M = Ae(), ot.c(), z = N(), H = m("th"), B = E("Meas1Prob0 "), ce.c(), R = Ae(), Pe.c(), P = N(), O = m("th"), F = E("Readout Error "), He.c(), L = Ae(), Ct.c(), X = N(), V = m("th"), Q = E("Readout Length "), ft.c(), Z = Ae(), gt.c(), ae = N(), se = m("tbody");
       for (let ze = 0; ze < yt.length; ze += 1)
         yt[ze].c();
-      u(n, "class", "svelte-1i1pekd"), u(s, "class", "svelte-1i1pekd"), u(d, "class", "svelte-1i1pekd"), u(g, "class", "svelte-1i1pekd"), u(w, "class", "svelte-1i1pekd"), u(O, "class", "svelte-1i1pekd"), u(H, "class", "svelte-1i1pekd"), u(E, "class", "svelte-1i1pekd"), u(V, "class", "svelte-1i1pekd"), u(l, "class", "svelte-1i1pekd"), u(e, "class", "svelte-1i1pekd");
+      u(n, "class", "svelte-1i1pekd"), u(s, "class", "svelte-1i1pekd"), u(d, "class", "svelte-1i1pekd"), u(b, "class", "svelte-1i1pekd"), u(w, "class", "svelte-1i1pekd"), u(I, "class", "svelte-1i1pekd"), u(H, "class", "svelte-1i1pekd"), u(O, "class", "svelte-1i1pekd"), u(V, "class", "svelte-1i1pekd"), u(l, "class", "svelte-1i1pekd"), u(e, "class", "svelte-1i1pekd");
     },
     m(ze, lt) {
-      M(ze, e, lt), f(e, l), f(l, i), f(i, n), f(n, a), W.m(n, null), f(i, r), f(i, s), f(s, o), we.m(s, null), f(s, _), me.m(s, null), f(i, c), f(i, d), f(d, h), ye.m(d, null), f(d, p), oe.m(d, null), f(i, b), f(i, g), f(g, k), re.m(g, null), f(g, y), _e.m(g, null), f(i, v), f(i, w), f(w, q), Te.m(w, null), f(w, $), We.m(w, null), f(i, j), f(i, O), f(O, A), rt.m(O, null), f(O, C), ot.m(O, null), f(i, z), f(i, H), f(H, B), ce.m(H, null), f(H, R), Pe.m(H, null), f(i, P), f(i, E), f(E, F), He.m(E, null), f(E, L), Ct.m(E, null), f(i, X), f(i, V), f(V, Q), ft.m(V, null), f(V, Z), gt.m(V, null), f(e, ne), f(e, se);
+      S(ze, e, lt), f(e, l), f(l, i), f(i, n), f(n, a), W.m(n, null), f(i, r), f(i, s), f(s, o), we.m(s, null), f(s, _), me.m(s, null), f(i, c), f(i, d), f(d, h), ye.m(d, null), f(d, p), oe.m(d, null), f(i, g), f(i, b), f(b, k), re.m(b, null), f(b, y), _e.m(b, null), f(i, v), f(i, w), f(w, q), Te.m(w, null), f(w, $), We.m(w, null), f(i, j), f(i, I), f(I, A), rt.m(I, null), f(I, M), ot.m(I, null), f(i, z), f(i, H), f(H, B), ce.m(H, null), f(H, R), Pe.m(H, null), f(i, P), f(i, O), f(O, F), He.m(O, null), f(O, L), Ct.m(O, null), f(i, X), f(i, V), f(V, Q), ft.m(V, null), f(V, Z), gt.m(V, null), f(e, ae), f(e, se);
       for (let dt = 0; dt < yt.length; dt += 1)
         yt[dt] && yt[dt].m(se, null);
     },
     p(ze, lt) {
-      if (Y === (Y = K(ze)) && W ? W.p(ze, lt) : (W.d(1), W = Y(ze), W && (W.c(), W.m(n, null))), ee === (ee = J(ze)) && we ? we.p(ze, lt) : (we.d(1), we = ee(ze), we && (we.c(), we.m(s, _))), ve === (ve = Re(ze)) && me ? me.p(ze, lt) : (me.d(1), me = ve(ze), me && (me.c(), me.m(s, null))), G === (G = fe(ze)) && ye ? ye.p(ze, lt) : (ye.d(1), ye = G(ze), ye && (ye.c(), ye.m(d, p))), le === (le = ue(ze)) && oe ? oe.p(ze, lt) : (oe.d(1), oe = le(ze), oe && (oe.c(), oe.m(d, null))), ge === (ge = x(ze)) && re ? re.p(ze, lt) : (re.d(1), re = ge(ze), re && (re.c(), re.m(g, y))), je === (je = Ie(ze)) && _e ? _e.p(ze, lt) : (_e.d(1), _e = je(ze), _e && (_e.c(), _e.m(g, null))), ie === (ie = Ee(ze)) && Te ? Te.p(ze, lt) : (Te.d(1), Te = ie(ze), Te && (Te.c(), Te.m(w, $))), Ke === (Ke = Ue(ze)) && We ? We.p(ze, lt) : (We.d(1), We = Ke(ze), We && (We.c(), We.m(w, null))), qt === (qt = vt(ze)) && rt ? rt.p(ze, lt) : (rt.d(1), rt = qt(ze), rt && (rt.c(), rt.m(O, C))), Rt === (Rt = mt(ze)) && ot ? ot.p(ze, lt) : (ot.d(1), ot = Rt(ze), ot && (ot.c(), ot.m(O, null))), Ce === (Ce = ut(ze)) && ce ? ce.p(ze, lt) : (ce.d(1), ce = Ce(ze), ce && (ce.c(), ce.m(H, R))), Le === (Le = Be(ze)) && Pe ? Pe.p(ze, lt) : (Pe.d(1), Pe = Le(ze), Pe && (Pe.c(), Pe.m(H, null))), Xe === (Xe = Je(ze)) && He ? He.p(ze, lt) : (He.d(1), He = Xe(ze), He && (He.c(), He.m(E, L))), _t === (_t = Ze(ze)) && Ct ? Ct.p(ze, lt) : (Ct.d(1), Ct = _t(ze), Ct && (Ct.c(), Ct.m(E, null))), jt === (jt = tl(ze)) && ft ? ft.p(ze, lt) : (ft.d(1), ft = jt(ze), ft && (ft.c(), ft.m(V, Z))), It === (It = Lt(ze)) && gt ? gt.p(ze, lt) : (gt.d(1), gt = It(ze), gt && (gt.c(), gt.m(V, null))), lt[0] & /*$data, $config*/
+      if (Y === (Y = K(ze)) && W ? W.p(ze, lt) : (W.d(1), W = Y(ze), W && (W.c(), W.m(n, null))), ee === (ee = J(ze)) && we ? we.p(ze, lt) : (we.d(1), we = ee(ze), we && (we.c(), we.m(s, _))), ve === (ve = Re(ze)) && me ? me.p(ze, lt) : (me.d(1), me = ve(ze), me && (me.c(), me.m(s, null))), G === (G = fe(ze)) && ye ? ye.p(ze, lt) : (ye.d(1), ye = G(ze), ye && (ye.c(), ye.m(d, p))), le === (le = ue(ze)) && oe ? oe.p(ze, lt) : (oe.d(1), oe = le(ze), oe && (oe.c(), oe.m(d, null))), ge === (ge = x(ze)) && re ? re.p(ze, lt) : (re.d(1), re = ge(ze), re && (re.c(), re.m(b, y))), je === (je = Ie(ze)) && _e ? _e.p(ze, lt) : (_e.d(1), _e = je(ze), _e && (_e.c(), _e.m(b, null))), ie === (ie = Ee(ze)) && Te ? Te.p(ze, lt) : (Te.d(1), Te = ie(ze), Te && (Te.c(), Te.m(w, $))), Ke === (Ke = Ue(ze)) && We ? We.p(ze, lt) : (We.d(1), We = Ke(ze), We && (We.c(), We.m(w, null))), qt === (qt = vt(ze)) && rt ? rt.p(ze, lt) : (rt.d(1), rt = qt(ze), rt && (rt.c(), rt.m(I, M))), Rt === (Rt = mt(ze)) && ot ? ot.p(ze, lt) : (ot.d(1), ot = Rt(ze), ot && (ot.c(), ot.m(I, null))), Ce === (Ce = ut(ze)) && ce ? ce.p(ze, lt) : (ce.d(1), ce = Ce(ze), ce && (ce.c(), ce.m(H, R))), Le === (Le = Be(ze)) && Pe ? Pe.p(ze, lt) : (Pe.d(1), Pe = Le(ze), Pe && (Pe.c(), Pe.m(H, null))), Xe === (Xe = Je(ze)) && He ? He.p(ze, lt) : (He.d(1), He = Xe(ze), He && (He.c(), He.m(O, L))), _t === (_t = Ze(ze)) && Ct ? Ct.p(ze, lt) : (Ct.d(1), Ct = _t(ze), Ct && (Ct.c(), Ct.m(O, null))), jt === (jt = tl(ze)) && ft ? ft.p(ze, lt) : (ft.d(1), ft = jt(ze), ft && (ft.c(), ft.m(V, Z))), It === (It = Lt(ze)) && gt ? gt.p(ze, lt) : (gt.d(1), gt = It(ze), gt && (gt.c(), gt.m(V, null))), lt[0] & /*$data, $config*/
       20) {
         Dt = $e(
           /*$data*/
@@ -40052,47 +40102,7 @@ function wp(t) {
       }
     },
     d(ze) {
-      ze && S(e), W.d(), we.d(), me.d(), ye.d(), oe.d(), re.d(), _e.d(), Te.d(), We.d(), rt.d(), ot.d(), ce.d(), Pe.d(), He.d(), Ct.d(), ft.d(), gt.d(), Ye(yt, ze);
-    }
-  };
-}
-function l8(t) {
-  let e, l, i;
-  return {
-    c() {
-      e = m("button"), e.textContent = "↓", u(e, "class", "svelte-1i1pekd");
-    },
-    m(n, a) {
-      M(n, e, a), l || (i = te(
-        e,
-        "click",
-        /*click_handler_2*/
-        t[12]
-      ), l = !0);
-    },
-    p: ae,
-    d(n) {
-      n && S(e), l = !1, i();
-    }
-  };
-}
-function i8(t) {
-  let e, l, i;
-  return {
-    c() {
-      e = m("button"), e.textContent = "↑", u(e, "class", "svelte-1i1pekd");
-    },
-    m(n, a) {
-      M(n, e, a), l || (i = te(
-        e,
-        "click",
-        /*click_handler_1*/
-        t[11]
-      ), l = !0);
-    },
-    p: ae,
-    d(n) {
-      n && S(e), l = !1, i();
+      ze && C(e), W.d(), we.d(), me.d(), ye.d(), oe.d(), re.d(), _e.d(), Te.d(), We.d(), rt.d(), ot.d(), ce.d(), Pe.d(), He.d(), Ct.d(), ft.d(), gt.d(), Ye(yt, ze);
     }
   };
 }
@@ -40100,19 +40110,19 @@ function n8(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↓V", u(e, "class", "svelte-1i1pekd");
+      e = m("button"), e.textContent = "↓", u(e, "class", "svelte-1i1pekd");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_4*/
-        t[14]
+        /*click_handler_2*/
+        t[12]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -40120,19 +40130,19 @@ function a8(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↑V", u(e, "class", "svelte-1i1pekd");
+      e = m("button"), e.textContent = "↑", u(e, "class", "svelte-1i1pekd");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_3*/
-        t[13]
+        /*click_handler_1*/
+        t[11]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -40140,19 +40150,19 @@ function r8(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↓D", u(e, "class", "svelte-1i1pekd");
+      e = m("button"), e.textContent = "↓V", u(e, "class", "svelte-1i1pekd");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_6*/
-        t[16]
+        /*click_handler_4*/
+        t[14]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -40160,19 +40170,19 @@ function s8(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↑D", u(e, "class", "svelte-1i1pekd");
+      e = m("button"), e.textContent = "↑V", u(e, "class", "svelte-1i1pekd");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_5*/
-        t[15]
+        /*click_handler_3*/
+        t[13]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -40180,19 +40190,19 @@ function o8(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↓V", u(e, "class", "svelte-1i1pekd");
+      e = m("button"), e.textContent = "↓D", u(e, "class", "svelte-1i1pekd");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_8*/
-        t[18]
+        /*click_handler_6*/
+        t[16]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -40200,19 +40210,19 @@ function u8(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↑V", u(e, "class", "svelte-1i1pekd");
+      e = m("button"), e.textContent = "↑D", u(e, "class", "svelte-1i1pekd");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_7*/
-        t[17]
+        /*click_handler_5*/
+        t[15]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -40220,19 +40230,19 @@ function f8(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↓D", u(e, "class", "svelte-1i1pekd");
+      e = m("button"), e.textContent = "↓V", u(e, "class", "svelte-1i1pekd");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_10*/
-        t[20]
+        /*click_handler_8*/
+        t[18]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -40240,19 +40250,19 @@ function _8(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↑D", u(e, "class", "svelte-1i1pekd");
+      e = m("button"), e.textContent = "↑V", u(e, "class", "svelte-1i1pekd");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_9*/
-        t[19]
+        /*click_handler_7*/
+        t[17]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -40260,19 +40270,19 @@ function c8(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↓V", u(e, "class", "svelte-1i1pekd");
+      e = m("button"), e.textContent = "↓D", u(e, "class", "svelte-1i1pekd");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_12*/
-        t[22]
+        /*click_handler_10*/
+        t[20]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -40280,19 +40290,19 @@ function d8(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↑V", u(e, "class", "svelte-1i1pekd");
+      e = m("button"), e.textContent = "↑D", u(e, "class", "svelte-1i1pekd");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_11*/
-        t[21]
+        /*click_handler_9*/
+        t[19]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -40300,19 +40310,19 @@ function h8(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↓D", u(e, "class", "svelte-1i1pekd");
+      e = m("button"), e.textContent = "↓V", u(e, "class", "svelte-1i1pekd");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_14*/
-        t[24]
+        /*click_handler_12*/
+        t[22]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -40320,19 +40330,19 @@ function p8(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↑D", u(e, "class", "svelte-1i1pekd");
+      e = m("button"), e.textContent = "↑V", u(e, "class", "svelte-1i1pekd");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_13*/
-        t[23]
+        /*click_handler_11*/
+        t[21]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -40340,19 +40350,19 @@ function m8(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↓V", u(e, "class", "svelte-1i1pekd");
+      e = m("button"), e.textContent = "↓D", u(e, "class", "svelte-1i1pekd");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_16*/
-        t[26]
+        /*click_handler_14*/
+        t[24]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -40360,19 +40370,19 @@ function g8(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↑V", u(e, "class", "svelte-1i1pekd");
+      e = m("button"), e.textContent = "↑D", u(e, "class", "svelte-1i1pekd");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_15*/
-        t[25]
+        /*click_handler_13*/
+        t[23]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -40380,19 +40390,19 @@ function b8(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↓D", u(e, "class", "svelte-1i1pekd");
+      e = m("button"), e.textContent = "↓V", u(e, "class", "svelte-1i1pekd");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_18*/
-        t[28]
+        /*click_handler_16*/
+        t[26]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -40400,19 +40410,19 @@ function k8(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↑D", u(e, "class", "svelte-1i1pekd");
+      e = m("button"), e.textContent = "↑V", u(e, "class", "svelte-1i1pekd");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_17*/
-        t[27]
+        /*click_handler_15*/
+        t[25]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -40420,19 +40430,19 @@ function v8(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↓V", u(e, "class", "svelte-1i1pekd");
+      e = m("button"), e.textContent = "↓D", u(e, "class", "svelte-1i1pekd");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_20*/
-        t[30]
+        /*click_handler_18*/
+        t[28]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -40440,19 +40450,19 @@ function y8(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↑V", u(e, "class", "svelte-1i1pekd");
+      e = m("button"), e.textContent = "↑D", u(e, "class", "svelte-1i1pekd");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_19*/
-        t[29]
+        /*click_handler_17*/
+        t[27]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -40460,19 +40470,19 @@ function w8(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↓D", u(e, "class", "svelte-1i1pekd");
+      e = m("button"), e.textContent = "↓V", u(e, "class", "svelte-1i1pekd");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_22*/
-        t[32]
+        /*click_handler_20*/
+        t[30]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -40480,19 +40490,19 @@ function $8(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↑D", u(e, "class", "svelte-1i1pekd");
+      e = m("button"), e.textContent = "↑V", u(e, "class", "svelte-1i1pekd");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_21*/
-        t[31]
+        /*click_handler_19*/
+        t[29]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -40500,19 +40510,19 @@ function q8(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↓V", u(e, "class", "svelte-1i1pekd");
+      e = m("button"), e.textContent = "↓D", u(e, "class", "svelte-1i1pekd");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_24*/
-        t[34]
+        /*click_handler_22*/
+        t[32]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -40520,19 +40530,19 @@ function j8(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↑V", u(e, "class", "svelte-1i1pekd");
+      e = m("button"), e.textContent = "↑D", u(e, "class", "svelte-1i1pekd");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_23*/
-        t[33]
+        /*click_handler_21*/
+        t[31]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -40540,19 +40550,19 @@ function T8(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↓D", u(e, "class", "svelte-1i1pekd");
+      e = m("button"), e.textContent = "↓V", u(e, "class", "svelte-1i1pekd");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_26*/
-        t[36]
+        /*click_handler_24*/
+        t[34]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -40560,19 +40570,19 @@ function C8(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↑D", u(e, "class", "svelte-1i1pekd");
+      e = m("button"), e.textContent = "↑V", u(e, "class", "svelte-1i1pekd");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_25*/
-        t[35]
+        /*click_handler_23*/
+        t[33]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -40580,19 +40590,19 @@ function S8(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↓V", u(e, "class", "svelte-1i1pekd");
+      e = m("button"), e.textContent = "↓D", u(e, "class", "svelte-1i1pekd");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_28*/
-        t[38]
+        /*click_handler_26*/
+        t[36]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -40600,19 +40610,19 @@ function M8(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↑V", u(e, "class", "svelte-1i1pekd");
+      e = m("button"), e.textContent = "↑D", u(e, "class", "svelte-1i1pekd");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_27*/
-        t[37]
+        /*click_handler_25*/
+        t[35]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -40620,19 +40630,19 @@ function z8(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↓D", u(e, "class", "svelte-1i1pekd");
+      e = m("button"), e.textContent = "↓V", u(e, "class", "svelte-1i1pekd");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_30*/
-        t[40]
+        /*click_handler_28*/
+        t[38]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -40640,19 +40650,19 @@ function N8(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↑D", u(e, "class", "svelte-1i1pekd");
+      e = m("button"), e.textContent = "↑V", u(e, "class", "svelte-1i1pekd");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_29*/
-        t[39]
+        /*click_handler_27*/
+        t[37]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -40660,19 +40670,19 @@ function A8(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↓V", u(e, "class", "svelte-1i1pekd");
+      e = m("button"), e.textContent = "↓D", u(e, "class", "svelte-1i1pekd");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_32*/
-        t[42]
+        /*click_handler_30*/
+        t[40]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -40680,19 +40690,19 @@ function B8(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↑V", u(e, "class", "svelte-1i1pekd");
+      e = m("button"), e.textContent = "↑D", u(e, "class", "svelte-1i1pekd");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_31*/
-        t[41]
+        /*click_handler_29*/
+        t[39]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -40700,19 +40710,19 @@ function P8(t) {
   let e, l, i;
   return {
     c() {
-      e = m("button"), e.textContent = "↓D", u(e, "class", "svelte-1i1pekd");
+      e = m("button"), e.textContent = "↓V", u(e, "class", "svelte-1i1pekd");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
-        /*click_handler_34*/
-        t[44]
+        /*click_handler_32*/
+        t[42]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -40720,19 +40730,59 @@ function O8(t) {
   let e, l, i;
   return {
     c() {
+      e = m("button"), e.textContent = "↑V", u(e, "class", "svelte-1i1pekd");
+    },
+    m(n, a) {
+      S(n, e, a), l || (i = te(
+        e,
+        "click",
+        /*click_handler_31*/
+        t[41]
+      ), l = !0);
+    },
+    p: ne,
+    d(n) {
+      n && C(e), l = !1, i();
+    }
+  };
+}
+function E8(t) {
+  let e, l, i;
+  return {
+    c() {
+      e = m("button"), e.textContent = "↓D", u(e, "class", "svelte-1i1pekd");
+    },
+    m(n, a) {
+      S(n, e, a), l || (i = te(
+        e,
+        "click",
+        /*click_handler_34*/
+        t[44]
+      ), l = !0);
+    },
+    p: ne,
+    d(n) {
+      n && C(e), l = !1, i();
+    }
+  };
+}
+function I8(t) {
+  let e, l, i;
+  return {
+    c() {
       e = m("button"), e.textContent = "↑D", u(e, "class", "svelte-1i1pekd");
     },
     m(n, a) {
-      M(n, e, a), l || (i = te(
+      S(n, e, a), l || (i = te(
         e,
         "click",
         /*click_handler_33*/
         t[43]
       ), l = !0);
     },
-    p: ae,
+    p: ne,
     d(n) {
-      n && S(e), l = !1, i();
+      n && C(e), l = !1, i();
     }
   };
 }
@@ -40746,22 +40796,22 @@ function $p(t) {
   ), o, _, c, d, h = (
     /*qubit*/
     t[45].T1.asof + ""
-  ), p, b, g, k, y = (
+  ), p, g, b, k, y = (
     /*qubit*/
     t[45].T2.value + ""
   ), v, w, q, $, j = (
     /*qubit*/
     t[45].T2.asof + ""
-  ), O, A, C, z, H = (
+  ), I, A, M, z, H = (
     /*qubit*/
     t[45].anharmonicity.value + ""
-  ), B, R, P, E, F = (
+  ), B, R, P, O, F = (
     /*qubit*/
     t[45].anharmonicity.asof + ""
   ), L, X, V, Q, Z = (
     /*qubit*/
     t[45].frequency.value + ""
-  ), ne, se, K, Y, W = (
+  ), ae, se, K, Y, W = (
     /*qubit*/
     t[45].frequency.asof + ""
   ), J, ee, we, Re, ve = (
@@ -40791,10 +40841,10 @@ function $p(t) {
   ), _t, Ct, tl;
   return {
     c() {
-      e = m("tr"), l = m("th"), n = I(i), a = N(), r = m("td"), o = I(s), _ = m("br"), c = m("span"), d = I("("), p = I(h), b = I(")"), g = N(), k = m("td"), v = I(y), w = m("br"), q = m("span"), $ = I("("), O = I(j), A = I(")"), C = N(), z = m("td"), B = I(H), R = m("br"), P = m("span"), E = I("("), L = I(F), X = I(")"), V = N(), Q = m("td"), ne = I(Z), se = m("br"), K = m("span"), Y = I("("), J = I(W), ee = I(")"), we = N(), Re = m("td"), me = I(ve), fe = m("br"), G = m("span"), ye = I("("), le = I(ue), oe = I(")"), x = N(), ge = m("td"), Ie = I(re), je = m("br"), _e = m("span"), Ee = I("("), Te = I(ie), Ue = I(")"), Ke = N(), We = m("td"), qt = I(vt), rt = m("br"), mt = m("span"), Rt = I("("), ut = I(ot), Ce = I(")"), ce = N(), Be = m("td"), Pe = I(Le), Je = m("br"), Xe = m("span"), He = I("("), _t = I(Ze), Ct = I(")"), tl = N(), u(l, "class", "svelte-1i1pekd"), u(c, "class", "asof svelte-1i1pekd"), u(r, "class", "svelte-1i1pekd"), u(q, "class", "asof svelte-1i1pekd"), u(k, "class", "svelte-1i1pekd"), u(P, "class", "asof svelte-1i1pekd"), u(z, "class", "svelte-1i1pekd"), u(K, "class", "asof svelte-1i1pekd"), u(Q, "class", "svelte-1i1pekd"), u(G, "class", "asof svelte-1i1pekd"), u(Re, "class", "svelte-1i1pekd"), u(_e, "class", "asof svelte-1i1pekd"), u(ge, "class", "svelte-1i1pekd"), u(mt, "class", "asof svelte-1i1pekd"), u(We, "class", "svelte-1i1pekd"), u(Xe, "class", "asof svelte-1i1pekd"), u(Be, "class", "svelte-1i1pekd");
+      e = m("tr"), l = m("th"), n = E(i), a = N(), r = m("td"), o = E(s), _ = m("br"), c = m("span"), d = E("("), p = E(h), g = E(")"), b = N(), k = m("td"), v = E(y), w = m("br"), q = m("span"), $ = E("("), I = E(j), A = E(")"), M = N(), z = m("td"), B = E(H), R = m("br"), P = m("span"), O = E("("), L = E(F), X = E(")"), V = N(), Q = m("td"), ae = E(Z), se = m("br"), K = m("span"), Y = E("("), J = E(W), ee = E(")"), we = N(), Re = m("td"), me = E(ve), fe = m("br"), G = m("span"), ye = E("("), le = E(ue), oe = E(")"), x = N(), ge = m("td"), Ie = E(re), je = m("br"), _e = m("span"), Ee = E("("), Te = E(ie), Ue = E(")"), Ke = N(), We = m("td"), qt = E(vt), rt = m("br"), mt = m("span"), Rt = E("("), ut = E(ot), Ce = E(")"), ce = N(), Be = m("td"), Pe = E(Le), Je = m("br"), Xe = m("span"), He = E("("), _t = E(Ze), Ct = E(")"), tl = N(), u(l, "class", "svelte-1i1pekd"), u(c, "class", "asof svelte-1i1pekd"), u(r, "class", "svelte-1i1pekd"), u(q, "class", "asof svelte-1i1pekd"), u(k, "class", "svelte-1i1pekd"), u(P, "class", "asof svelte-1i1pekd"), u(z, "class", "svelte-1i1pekd"), u(K, "class", "asof svelte-1i1pekd"), u(Q, "class", "svelte-1i1pekd"), u(G, "class", "asof svelte-1i1pekd"), u(Re, "class", "svelte-1i1pekd"), u(_e, "class", "asof svelte-1i1pekd"), u(ge, "class", "svelte-1i1pekd"), u(mt, "class", "asof svelte-1i1pekd"), u(We, "class", "svelte-1i1pekd"), u(Xe, "class", "asof svelte-1i1pekd"), u(Be, "class", "svelte-1i1pekd");
     },
     m(jt, ft) {
-      M(jt, e, ft), f(e, l), f(l, n), f(e, a), f(e, r), f(r, o), f(r, _), f(r, c), f(c, d), f(c, p), f(c, b), f(e, g), f(e, k), f(k, v), f(k, w), f(k, q), f(q, $), f(q, O), f(q, A), f(e, C), f(e, z), f(z, B), f(z, R), f(z, P), f(P, E), f(P, L), f(P, X), f(e, V), f(e, Q), f(Q, ne), f(Q, se), f(Q, K), f(K, Y), f(K, J), f(K, ee), f(e, we), f(e, Re), f(Re, me), f(Re, fe), f(Re, G), f(G, ye), f(G, le), f(G, oe), f(e, x), f(e, ge), f(ge, Ie), f(ge, je), f(ge, _e), f(_e, Ee), f(_e, Te), f(_e, Ue), f(e, Ke), f(e, We), f(We, qt), f(We, rt), f(We, mt), f(mt, Rt), f(mt, ut), f(mt, Ce), f(e, ce), f(e, Be), f(Be, Pe), f(Be, Je), f(Be, Xe), f(Xe, He), f(Xe, _t), f(Xe, Ct), f(e, tl);
+      S(jt, e, ft), f(e, l), f(l, n), f(e, a), f(e, r), f(r, o), f(r, _), f(r, c), f(c, d), f(c, p), f(c, g), f(e, b), f(e, k), f(k, v), f(k, w), f(k, q), f(q, $), f(q, I), f(q, A), f(e, M), f(e, z), f(z, B), f(z, R), f(z, P), f(P, O), f(P, L), f(P, X), f(e, V), f(e, Q), f(Q, ae), f(Q, se), f(Q, K), f(K, Y), f(K, J), f(K, ee), f(e, we), f(e, Re), f(Re, me), f(Re, fe), f(Re, G), f(G, ye), f(G, le), f(G, oe), f(e, x), f(e, ge), f(ge, Ie), f(ge, je), f(ge, _e), f(_e, Ee), f(_e, Te), f(_e, Ue), f(e, Ke), f(e, We), f(We, qt), f(We, rt), f(We, mt), f(mt, Rt), f(mt, ut), f(mt, Ce), f(e, ce), f(e, Be), f(Be, Pe), f(Be, Je), f(Be, Xe), f(Xe, He), f(Xe, _t), f(Xe, Ct), f(e, tl);
     },
     p(jt, ft) {
       ft[0] & /*$data*/
@@ -40807,13 +40857,13 @@ function $p(t) {
       4 && y !== (y = /*qubit*/
       jt[45].T2.value + "") && U(v, y), ft[0] & /*$data*/
       4 && j !== (j = /*qubit*/
-      jt[45].T2.asof + "") && U(O, j), ft[0] & /*$data*/
+      jt[45].T2.asof + "") && U(I, j), ft[0] & /*$data*/
       4 && H !== (H = /*qubit*/
       jt[45].anharmonicity.value + "") && U(B, H), ft[0] & /*$data*/
       4 && F !== (F = /*qubit*/
       jt[45].anharmonicity.asof + "") && U(L, F), ft[0] & /*$data*/
       4 && Z !== (Z = /*qubit*/
-      jt[45].frequency.value + "") && U(ne, Z), ft[0] & /*$data*/
+      jt[45].frequency.value + "") && U(ae, Z), ft[0] & /*$data*/
       4 && W !== (W = /*qubit*/
       jt[45].frequency.asof + "") && U(J, W), ft[0] & /*$data*/
       4 && ve !== (ve = /*qubit*/
@@ -40834,7 +40884,7 @@ function $p(t) {
       jt[45].readout_length.asof + "") && U(_t, Ze);
     },
     d(jt) {
-      jt && S(e);
+      jt && C(e);
     }
   };
 }
@@ -40851,7 +40901,7 @@ function qp(t) {
       i && i.c(), l = Ae();
     },
     m(n, a) {
-      i && i.m(n, a), M(n, l, a);
+      i && i.m(n, a), S(n, l, a);
     },
     p(n, a) {
       a[0] & /*$config, $data*/
@@ -40864,11 +40914,11 @@ function qp(t) {
       )), e ? i ? i.p(n, a) : (i = $p(n), i.c(), i.m(l.parentNode, l)) : i && (i.d(1), i = null);
     },
     d(n) {
-      n && S(l), i && i.d(n);
+      n && C(l), i && i.d(n);
     }
   };
 }
-function E8(t) {
+function D8(t) {
   let e, l = (
     /*$data*/
     t[2] && kp(t)
@@ -40878,21 +40928,21 @@ function E8(t) {
       l && l.c(), e = Ae();
     },
     m(i, n) {
-      l && l.m(i, n), M(i, e, n);
+      l && l.m(i, n), S(i, e, n);
     },
     p(i, n) {
       /*$data*/
       i[2] ? l ? l.p(i, n) : (l = kp(i), l.c(), l.m(e.parentNode, e)) : l && (l.d(1), l = null);
     },
-    i: ae,
-    o: ae,
+    i: ne,
+    o: ne,
     d(i) {
-      i && S(e), l && l.d(i);
+      i && C(e), l && l.d(i);
     }
   };
 }
-function I8(t, e, l) {
-  let i, n = ae, a = () => (n(), n = st(o, (G) => l(2, i = G)), o), r, s;
+function R8(t, e, l) {
+  let i, n = ne, a = () => (n(), n = st(o, (G) => l(2, i = G)), o), r, s;
   t.$$.on_destroy.push(() => n());
   let { data: o = Oe() } = e;
   a();
@@ -40918,7 +40968,7 @@ function I8(t, e, l) {
       return new Date((x = oe[ye]) == null ? void 0 : x.asof) - new Date((ge = le[ye]) == null ? void 0 : ge.asof);
     }), l(1, _[ye + "d"] = "d", _)), G;
   }
-  const b = (G) => d.set(!r), g = (G) => {
+  const g = (G) => d.set(!r), b = (G) => {
     c.update((ye) => (ye.filter_used = G.target.checked, ye));
   }, k = () => {
     o.update((G) => (G.backend_properties.qubits = h(G.backend_properties.qubits, "index", "a"), G));
@@ -40934,11 +40984,11 @@ function I8(t, e, l) {
     o.update((G) => (G.backend_properties.qubits = p(G.backend_properties.qubits, "T1", "d"), G));
   }, j = () => {
     o.update((G) => (G.backend_properties.qubits = h(G.backend_properties.qubits, "T2", "a"), G));
-  }, O = () => {
+  }, I = () => {
     o.update((G) => (G.backend_properties.qubits = h(G.backend_properties.qubits, "T2", "d"), G));
   }, A = () => {
     o.update((G) => (G.backend_properties.qubits = p(G.backend_properties.qubits, "T2", "a"), G));
-  }, C = () => {
+  }, M = () => {
     o.update((G) => (G.backend_properties.qubits = p(G.backend_properties.qubits, "T2", "d"), G));
   }, z = () => {
     o.update((G) => (G.backend_properties.qubits = h(G.backend_properties.qubits, "anharmonicity", "a"), G));
@@ -40950,7 +41000,7 @@ function I8(t, e, l) {
     o.update((G) => (G.backend_properties.qubits = p(G.backend_properties.qubits, "anharmonicity", "d"), G));
   }, P = () => {
     o.update((G) => (G.backend_properties.qubits = h(G.backend_properties.qubits, "frequency", "a"), G));
-  }, E = () => {
+  }, O = () => {
     o.update((G) => (G.backend_properties.qubits = h(G.backend_properties.qubits, "frequency", "d"), G));
   }, F = () => {
     o.update((G) => (G.backend_properties.qubits = p(G.backend_properties.qubits, "frequency", "a"), G));
@@ -40964,7 +41014,7 @@ function I8(t, e, l) {
     o.update((G) => (G.backend_properties.qubits = p(G.backend_properties.qubits, "prob_meas0_prep1", "a"), G));
   }, Z = () => {
     o.update((G) => (G.backend_properties.qubits = p(G.backend_properties.qubits, "prob_meas0_prep1", "d"), G));
-  }, ne = () => {
+  }, ae = () => {
     o.update((G) => (G.backend_properties.qubits = h(G.backend_properties.qubits, "prob_meas1_prep0", "a"), G));
   }, se = () => {
     o.update((G) => (G.backend_properties.qubits = h(G.backend_properties.qubits, "prob_meas1_prep0", "d"), G));
@@ -41001,8 +41051,8 @@ function I8(t, e, l) {
     d,
     h,
     p,
-    b,
     g,
+    b,
     k,
     y,
     v,
@@ -41010,22 +41060,22 @@ function I8(t, e, l) {
     q,
     $,
     j,
-    O,
+    I,
     A,
-    C,
+    M,
     z,
     H,
     B,
     R,
     P,
-    E,
+    O,
     F,
     L,
     X,
     V,
     Q,
     Z,
-    ne,
+    ae,
     se,
     K,
     Y,
@@ -41039,9 +41089,9 @@ function I8(t, e, l) {
     fe
   ];
 }
-class D8 extends Ve {
+class H8 extends Ve {
   constructor(e) {
-    super(), Qe(this, e, I8, E8, Fe, { data: 0 }, null, [-1, -1]);
+    super(), Qe(this, e, R8, D8, Fe, { data: 0 }, null, [-1, -1]);
   }
 }
 function jp(t, e, l) {
@@ -41061,14 +41111,14 @@ function Sp(t) {
     /*$hide1*/
     t[4] ? "Show" : "Hide"
   ), r, s, o, _, c, d = !/*hide1*/
-  t[7] && R8(t);
+  t[7] && L8(t);
   return {
     c() {
-      e = m("article"), l = m("h4"), i = I(`Physical qubit properties
-      `), n = m("button"), r = I(a), s = N(), o = m("div"), d && d.c(), u(n, "class", "svelte-hp4j9k"), u(o, "class", "content-wrap svelte-hp4j9k"), u(e, "class", "panel qubits svelte-hp4j9k");
+      e = m("article"), l = m("h4"), i = E(`Physical qubit properties
+      `), n = m("button"), r = E(a), s = N(), o = m("div"), d && d.c(), u(n, "class", "svelte-hp4j9k"), u(o, "class", "content-wrap svelte-hp4j9k"), u(e, "class", "panel qubits svelte-hp4j9k");
     },
     m(h, p) {
-      M(h, e, p), f(e, l), f(l, i), f(l, n), f(n, r), f(e, s), f(e, o), d && d.m(o, null), _ || (c = te(
+      S(h, e, p), f(e, l), f(l, i), f(l, n), f(n, r), f(e, s), f(e, o), d && d.m(o, null), _ || (c = te(
         n,
         "click",
         /*click_handler*/
@@ -41082,24 +41132,24 @@ function Sp(t) {
       h[7] || d.p(h, p);
     },
     d(h) {
-      h && S(e), d && d.d(), _ = !1, c();
+      h && C(e), d && d.d(), _ = !1, c();
     }
   };
 }
-function R8(t) {
+function L8(t) {
   var P;
-  let e, l, i, n, a, r, s, o, _, c, d, h, p, b, g, k, y, v, w, q, $, j, O, A, C = $e(
+  let e, l, i, n, a, r, s, o, _, c, d, h, p, g, b, k, y, v, w, q, $, j, I, A, M = $e(
     /*gates*/
     t[1]
   ), z = [];
-  for (let E = 0; E < C.length; E += 1)
-    z[E] = Mp(Cp(t, C, E));
+  for (let O = 0; O < M.length; O += 1)
+    z[O] = Mp(Cp(t, M, O));
   let H = $e(
     /*qubits*/
     t[2]
   ), B = [];
-  for (let E = 0; E < H.length; E += 1)
-    B[E] = zp(Tp(t, H, E));
+  for (let O = 0; O < H.length; O += 1)
+    B[O] = zp(Tp(t, H, O));
   let R = (
     /*$data*/
     ((P = t[3].backend_properties) == null ? void 0 : P.gates) && Np(t)
@@ -41107,22 +41157,22 @@ function R8(t) {
   return {
     c() {
       e = m("div"), l = m("div"), i = m("label"), i.textContent = "Used qubits", n = N(), a = m("input"), s = N(), o = m("div"), _ = m("label"), _.textContent = "Gates", c = N(), d = m("button"), d.textContent = "×", h = N(), p = m("select");
-      for (let E = 0; E < z.length; E += 1)
-        z[E].c();
-      b = N(), g = m("div"), k = m("label"), k.textContent = "Qubits", y = N(), v = m("button"), v.textContent = "×", w = N(), q = m("select");
-      for (let E = 0; E < B.length; E += 1)
-        B[E].c();
+      for (let O = 0; O < z.length; O += 1)
+        z[O].c();
+      g = N(), b = m("div"), k = m("label"), k.textContent = "Qubits", y = N(), v = m("button"), v.textContent = "×", w = N(), q = m("select");
+      for (let O = 0; O < B.length; O += 1)
+        B[O].c();
       $ = N(), j = m("div"), R && R.c(), u(i, "for", "used"), u(i, "class", "svelte-hp4j9k"), u(a, "type", "checkbox"), a.checked = r = /*$filter*/
-      t[5].only_used, u(l, "class", "svelte-hp4j9k"), u(_, "for", "gates"), u(_, "class", "svelte-hp4j9k"), u(d, "class", "svelte-hp4j9k"), u(p, "class", "filter svelte-hp4j9k"), u(p, "name", "gates"), u(p, "id", "gates"), p.multiple = !0, u(o, "class", "svelte-hp4j9k"), u(k, "for", "qubits"), u(k, "class", "svelte-hp4j9k"), u(v, "class", "svelte-hp4j9k"), u(q, "class", "filter svelte-hp4j9k"), u(q, "name", "qubits"), u(q, "id", "qubits"), q.multiple = !0, u(g, "class", "svelte-hp4j9k"), u(e, "class", "filter-wrap svelte-hp4j9k"), u(j, "class", "value");
+      t[5].only_used, u(l, "class", "svelte-hp4j9k"), u(_, "for", "gates"), u(_, "class", "svelte-hp4j9k"), u(d, "class", "svelte-hp4j9k"), u(p, "class", "filter svelte-hp4j9k"), u(p, "name", "gates"), u(p, "id", "gates"), p.multiple = !0, u(o, "class", "svelte-hp4j9k"), u(k, "for", "qubits"), u(k, "class", "svelte-hp4j9k"), u(v, "class", "svelte-hp4j9k"), u(q, "class", "filter svelte-hp4j9k"), u(q, "name", "qubits"), u(q, "id", "qubits"), q.multiple = !0, u(b, "class", "svelte-hp4j9k"), u(e, "class", "filter-wrap svelte-hp4j9k"), u(j, "class", "value");
     },
-    m(E, F) {
-      M(E, e, F), f(e, l), f(l, i), f(l, n), f(l, a), f(e, s), f(e, o), f(o, _), f(o, c), f(o, d), f(o, h), f(o, p);
+    m(O, F) {
+      S(O, e, F), f(e, l), f(l, i), f(l, n), f(l, a), f(e, s), f(e, o), f(o, _), f(o, c), f(o, d), f(o, h), f(o, p);
       for (let L = 0; L < z.length; L += 1)
         z[L] && z[L].m(p, null);
-      f(e, b), f(e, g), f(g, k), f(g, y), f(g, v), f(g, w), f(g, q);
+      f(e, g), f(e, b), f(b, k), f(b, y), f(b, v), f(b, w), f(b, q);
       for (let L = 0; L < B.length; L += 1)
         B[L] && B[L].m(q, null);
-      M(E, $, F), M(E, j, F), R && R.m(j, null), O || (A = [
+      S(O, $, F), S(O, j, F), R && R.m(j, null), I || (A = [
         te(
           a,
           "change",
@@ -41153,36 +41203,36 @@ function R8(t) {
           /*change_handler_2*/
           t[15]
         )
-      ], O = !0);
+      ], I = !0);
     },
-    p(E, F) {
+    p(O, F) {
       var L;
       if (F & /*$filter*/
       32 && r !== (r = /*$filter*/
-      E[5].only_used) && (a.checked = r), F & /*gates, $filter*/
+      O[5].only_used) && (a.checked = r), F & /*gates, $filter*/
       34) {
-        C = $e(
+        M = $e(
           /*gates*/
-          E[1]
+          O[1]
         );
         let X;
-        for (X = 0; X < C.length; X += 1) {
-          const V = Cp(E, C, X);
+        for (X = 0; X < M.length; X += 1) {
+          const V = Cp(O, M, X);
           z[X] ? z[X].p(V, F) : (z[X] = Mp(V), z[X].c(), z[X].m(p, null));
         }
         for (; X < z.length; X += 1)
           z[X].d(1);
-        z.length = C.length;
+        z.length = M.length;
       }
       if (F & /*qubits, $filter*/
       36) {
         H = $e(
           /*qubits*/
-          E[2]
+          O[2]
         );
         let X;
         for (X = 0; X < H.length; X += 1) {
-          const V = Tp(E, H, X);
+          const V = Tp(O, H, X);
           B[X] ? B[X].p(V, F) : (B[X] = zp(V), B[X].c(), B[X].m(q, null));
         }
         for (; X < B.length; X += 1)
@@ -41190,10 +41240,10 @@ function R8(t) {
         B.length = H.length;
       }
       /*$data*/
-      (L = E[3].backend_properties) != null && L.gates ? R ? R.p(E, F) : (R = Np(E), R.c(), R.m(j, null)) : R && (R.d(1), R = null);
+      (L = O[3].backend_properties) != null && L.gates ? R ? R.p(O, F) : (R = Np(O), R.c(), R.m(j, null)) : R && (R.d(1), R = null);
     },
-    d(E) {
-      E && (S(e), S($), S(j)), Ye(z, E), Ye(B, E), R && R.d(), O = !1, wt(A);
+    d(O) {
+      O && (C(e), C($), C(j)), Ye(z, O), Ye(B, O), R && R.d(), I = !1, wt(A);
     }
   };
 }
@@ -41204,7 +41254,7 @@ function Mp(t) {
   ), i, n, a;
   return {
     c() {
-      e = m("option"), i = I(l), e.__value = n = /*g*/
+      e = m("option"), i = E(l), e.__value = n = /*g*/
       t[19], pt(e, e.__value), e.selected = a = /*$filter*/
       t[5].gates.includes(
         /*g*/
@@ -41212,7 +41262,7 @@ function Mp(t) {
       );
     },
     m(r, s) {
-      M(r, e, s), f(e, i);
+      S(r, e, s), f(e, i);
     },
     p(r, s) {
       s & /*gates*/
@@ -41227,7 +41277,7 @@ function Mp(t) {
       )) && (e.selected = a);
     },
     d(r) {
-      r && S(e);
+      r && C(e);
     }
   };
 }
@@ -41238,7 +41288,7 @@ function zp(t) {
   ), i, n, a;
   return {
     c() {
-      e = m("option"), i = I(l), e.__value = n = /*g*/
+      e = m("option"), i = E(l), e.__value = n = /*g*/
       t[19], pt(e, e.__value), e.selected = a = /*$filter*/
       t[5].qubits.includes(
         /*g*/
@@ -41246,7 +41296,7 @@ function zp(t) {
       );
     },
     m(r, s) {
-      M(r, e, s), f(e, i);
+      S(r, e, s), f(e, i);
     },
     p(r, s) {
       s & /*qubits*/
@@ -41261,7 +41311,7 @@ function zp(t) {
       )) && (e.selected = a);
     },
     d(r) {
-      r && S(e);
+      r && C(e);
     }
   };
 }
@@ -41280,7 +41330,7 @@ function Np(t) {
       u(l, "class", "svelte-hp4j9k"), u(e, "class", "svelte-hp4j9k");
     },
     m(s, o) {
-      M(s, e, o), f(e, l), f(e, i), f(e, n);
+      S(s, e, o), f(e, l), f(e, i), f(e, n);
       for (let _ = 0; _ < r.length; _ += 1)
         r[_] && r[_].m(n, null);
     },
@@ -41302,7 +41352,7 @@ function Np(t) {
       }
     },
     d(s) {
-      s && S(e), Ye(r, s);
+      s && C(e), Ye(r, s);
     }
   };
 }
@@ -41317,46 +41367,46 @@ function Ap(t) {
   ), o, _, c, d = (
     /*gate*/
     ((F = t[16].parameters.gate_error) == null ? void 0 : F.value) + ""
-  ), h, p, b, g, k = (
+  ), h, p, g, b, k = (
     /*gate*/
     ((L = t[16].parameters.gate_error) == null ? void 0 : L.asof) + ""
   ), y, v, w, q = (
     /*gate*/
     ((X = t[16].parameters.gate_length) == null ? void 0 : X.value) + ""
-  ), $, j, O = (
+  ), $, j, I = (
     /*gate*/
     t[16].parameters.gate_length.unit + ""
-  ), A, C, z, H, B, R = (
+  ), A, M, z, H, B, R = (
     /*gate*/
     ((V = t[16].parameters.gate_length) == null ? void 0 : V.asof) + ""
-  ), P, E;
+  ), P, O;
   return {
     c() {
-      e = m("tr"), l = m("th"), n = I(i), a = N(), r = m("td"), o = I(s), _ = N(), c = m("td"), h = I(d), p = m("br"), b = N(), g = m("span"), y = I(k), v = N(), w = m("td"), $ = I(q), j = I(" ("), A = I(O), C = I(")"), z = m("br"), H = N(), B = m("span"), P = I(R), E = N(), u(l, "class", "svelte-hp4j9k"), u(r, "class", "svelte-hp4j9k"), u(g, "class", "asof svelte-hp4j9k"), u(c, "class", "svelte-hp4j9k"), u(B, "class", "asof svelte-hp4j9k"), u(w, "class", "svelte-hp4j9k");
+      e = m("tr"), l = m("th"), n = E(i), a = N(), r = m("td"), o = E(s), _ = N(), c = m("td"), h = E(d), p = m("br"), g = N(), b = m("span"), y = E(k), v = N(), w = m("td"), $ = E(q), j = E(" ("), A = E(I), M = E(")"), z = m("br"), H = N(), B = m("span"), P = E(R), O = N(), u(l, "class", "svelte-hp4j9k"), u(r, "class", "svelte-hp4j9k"), u(b, "class", "asof svelte-hp4j9k"), u(c, "class", "svelte-hp4j9k"), u(B, "class", "asof svelte-hp4j9k"), u(w, "class", "svelte-hp4j9k");
     },
     m(Q, Z) {
-      M(Q, e, Z), f(e, l), f(l, n), f(e, a), f(e, r), f(r, o), f(e, _), f(e, c), f(c, h), f(c, p), f(c, b), f(c, g), f(g, y), f(e, v), f(e, w), f(w, $), f(w, j), f(w, A), f(w, C), f(w, z), f(w, H), f(w, B), f(B, P), f(e, E);
+      S(Q, e, Z), f(e, l), f(l, n), f(e, a), f(e, r), f(r, o), f(e, _), f(e, c), f(c, h), f(c, p), f(c, g), f(c, b), f(b, y), f(e, v), f(e, w), f(w, $), f(w, j), f(w, A), f(w, M), f(w, z), f(w, H), f(w, B), f(B, P), f(e, O);
     },
     p(Q, Z) {
-      var ne, se, K, Y;
+      var ae, se, K, Y;
       Z & /*$data*/
       8 && i !== (i = /*gate*/
       Q[16].gate + "") && U(n, i), Z & /*$data*/
       8 && s !== (s = /*gate*/
       Q[16].qubits.join(",") + "") && U(o, s), Z & /*$data*/
       8 && d !== (d = /*gate*/
-      ((ne = Q[16].parameters.gate_error) == null ? void 0 : ne.value) + "") && U(h, d), Z & /*$data*/
+      ((ae = Q[16].parameters.gate_error) == null ? void 0 : ae.value) + "") && U(h, d), Z & /*$data*/
       8 && k !== (k = /*gate*/
       ((se = Q[16].parameters.gate_error) == null ? void 0 : se.asof) + "") && U(y, k), Z & /*$data*/
       8 && q !== (q = /*gate*/
       ((K = Q[16].parameters.gate_length) == null ? void 0 : K.value) + "") && U($, q), Z & /*$data*/
-      8 && O !== (O = /*gate*/
-      Q[16].parameters.gate_length.unit + "") && U(A, O), Z & /*$data*/
+      8 && I !== (I = /*gate*/
+      Q[16].parameters.gate_length.unit + "") && U(A, I), Z & /*$data*/
       8 && R !== (R = /*gate*/
       ((Y = Q[16].parameters.gate_length) == null ? void 0 : Y.asof) + "") && U(P, R);
     },
     d(Q) {
-      Q && S(e);
+      Q && C(e);
     }
   };
 }
@@ -41396,7 +41446,7 @@ function Bp(t) {
       n && n.c(), l = Ae();
     },
     m(s, o) {
-      n && n.m(s, o), M(s, l, o);
+      n && n.m(s, o), S(s, l, o);
     },
     p(s, o) {
       var _, c;
@@ -41421,11 +41471,11 @@ function Bp(t) {
       t[3].physical_gates.some(i))), e ? n ? n.p(t, o) : (n = Ap(t), n.c(), n.m(l.parentNode, l)) : n && (n.d(1), n = null);
     },
     d(s) {
-      s && S(l), n && n.d(s);
+      s && C(l), n && n.d(s);
     }
   };
 }
-function H8(t) {
+function F8(t) {
   let e, l = (
     /*$data*/
     t[3] && Sp(t)
@@ -41435,21 +41485,21 @@ function H8(t) {
       l && l.c(), e = Ae();
     },
     m(i, n) {
-      l && l.m(i, n), M(i, e, n);
+      l && l.m(i, n), S(i, e, n);
     },
     p(i, [n]) {
       /*$data*/
       i[3] ? l ? l.p(i, n) : (l = Sp(i), l.c(), l.m(e.parentNode, e)) : l && (l.d(1), l = null);
     },
-    i: ae,
-    o: ae,
+    i: ne,
+    o: ne,
     d(i) {
-      i && S(e), l && l.d(i);
+      i && C(e), l && l.d(i);
     }
   };
 }
-function L8(t, e, l) {
-  let i, n = ae, a = () => (n(), n = st(o, ($) => l(3, i = $)), o), r, s;
+function Q8(t, e, l) {
+  let i, n = ne, a = () => (n(), n = st(o, ($) => l(3, i = $)), o), r, s;
   t.$$.on_destroy.push(() => n());
   let { data: o = Oe() } = e;
   a();
@@ -41460,16 +41510,16 @@ function L8(t, e, l) {
     var $;
     ($ = i == null ? void 0 : i.backend_properties) != null && $.gates && (l(1, c = Array.from(new Set(i.backend_properties.gates.map((j) => j.gate)))), l(2, d = Array.from(new Set(i.backend_properties.gates.map((j) => j.qubits).flat()))));
   });
-  const p = ($) => _.qubits.includes($), b = ($, j) => j.gate === $.gate && j.qubits.join("-") === $.qubits.join("-"), g = ($) => h.set(!r), k = ($) => {
+  const p = ($) => _.qubits.includes($), g = ($, j) => j.gate === $.gate && j.qubits.join("-") === $.qubits.join("-"), b = ($) => h.set(!r), k = ($) => {
     _.update((j) => (j.only_used = $.target.checked, j));
   }, y = ($) => {
     _.update((j) => (j.gates = [], j));
   }, v = ($) => {
-    _.update((j) => (j.gates = Array.from($.target.selectedOptions).map((O) => O.value), j));
+    _.update((j) => (j.gates = Array.from($.target.selectedOptions).map((I) => I.value), j));
   }, w = ($) => {
     _.update((j) => (j.qubits = [], j));
   }, q = ($) => {
-    _.update((j) => (j.qubits = Array.from($.target.selectedOptions).map((O) => parseInt(O.value)), j));
+    _.update((j) => (j.qubits = Array.from($.target.selectedOptions).map((I) => parseInt(I.value)), j));
   };
   return t.$$set = ($) => {
     "data" in $ && a(l(0, o = $.data));
@@ -41483,8 +41533,8 @@ function L8(t, e, l) {
     _,
     h,
     p,
-    b,
     g,
+    b,
     k,
     y,
     v,
@@ -41492,9 +41542,9 @@ function L8(t, e, l) {
     q
   ];
 }
-class F8 extends Ve {
+class V8 extends Ve {
   constructor(e) {
-    super(), Qe(this, e, L8, H8, Fe, { data: 0 });
+    super(), Qe(this, e, Q8, F8, Fe, { data: 0 });
   }
 }
 function Pp(t) {
@@ -41505,11 +41555,11 @@ function Pp(t) {
   t[2] && Op(t);
   return {
     c() {
-      e = m("article"), l = m("h4"), i = I(`Faulty gates and qubits
-      `), n = m("button"), r = I(a), s = N(), o = m("div"), d && d.c(), u(n, "class", "svelte-14lfkj4"), u(o, "class", "content-wrap svelte-14lfkj4"), u(e, "class", "panel qubits svelte-14lfkj4");
+      e = m("article"), l = m("h4"), i = E(`Faulty gates and qubits
+      `), n = m("button"), r = E(a), s = N(), o = m("div"), d && d.c(), u(n, "class", "svelte-14lfkj4"), u(o, "class", "content-wrap svelte-14lfkj4"), u(e, "class", "panel qubits svelte-14lfkj4");
     },
     m(h, p) {
-      M(h, e, p), f(e, l), f(l, i), f(l, n), f(n, r), f(e, s), f(e, o), d && d.m(o, null), _ || (c = te(
+      S(h, e, p), f(e, l), f(l, i), f(l, n), f(n, r), f(e, s), f(e, o), d && d.m(o, null), _ || (c = te(
         n,
         "click",
         /*click_handler*/
@@ -41523,7 +41573,7 @@ function Pp(t) {
       h[2] ? d && (d.d(1), d = null) : d ? d.p(h, p) : (d = Op(h), d.c(), d.m(o, null));
     },
     d(h) {
-      h && S(e), d && d.d(), _ = !1, c();
+      h && C(e), d && d.d(), _ = !1, c();
     }
   };
 }
@@ -41541,7 +41591,7 @@ function Op(t) {
       i && i.c(), e = N(), n && n.c(), l = Ae();
     },
     m(s, o) {
-      i && i.m(s, o), M(s, e, o), n && n.m(s, o), M(s, l, o);
+      i && i.m(s, o), S(s, e, o), n && n.m(s, o), S(s, l, o);
     },
     p(s, o) {
       var _, c;
@@ -41550,7 +41600,7 @@ function Op(t) {
       (c = s[1].backend_properties) != null && c.faulty_qubits ? n ? n.p(s, o) : (n = Ip(s), n.c(), n.m(l.parentNode, l)) : n && (n.d(1), n = null);
     },
     d(s) {
-      s && (S(e), S(l)), i && i.d(s), n && n.d(s);
+      s && (C(e), C(l)), i && i.d(s), n && n.d(s);
     }
   };
 }
@@ -41560,7 +41610,7 @@ function Ep(t) {
     var _;
     return (
       /*$data*/
-      ((_ = s[1].backend_properties.faulty_gates) == null ? void 0 : _.length) == 0 ? V8 : Q8
+      ((_ = s[1].backend_properties.faulty_gates) == null ? void 0 : _.length) == 0 ? G8 : X8
     );
   }
   let a = n(t), r = a(t);
@@ -41569,27 +41619,27 @@ function Ep(t) {
       e = m("h5"), e.textContent = "Faulty gates", l = N(), i = m("div"), r.c(), u(e, "class", "svelte-14lfkj4"), u(i, "class", "list svelte-14lfkj4");
     },
     m(s, o) {
-      M(s, e, o), M(s, l, o), M(s, i, o), r.m(i, null);
+      S(s, e, o), S(s, l, o), S(s, i, o), r.m(i, null);
     },
     p(s, o) {
       a === (a = n(s)) && r ? r.p(s, o) : (r.d(1), r = a(s), r && (r.c(), r.m(i, null)));
     },
     d(s) {
-      s && (S(e), S(l), S(i)), r.d();
+      s && (C(e), C(l), C(i)), r.d();
     }
   };
 }
-function Q8(t) {
+function X8(t) {
   let e = (
     /*$data*/
     t[1].backend_properties.faulty_gates.map(Dp).join(", ") + ""
   ), l;
   return {
     c() {
-      l = I(e);
+      l = E(e);
     },
     m(i, n) {
-      M(i, l, n);
+      S(i, l, n);
     },
     p(i, n) {
       n & /*$data*/
@@ -41597,22 +41647,22 @@ function Q8(t) {
       i[1].backend_properties.faulty_gates.map(Dp).join(", ") + "") && U(l, e);
     },
     d(i) {
-      i && S(l);
+      i && C(l);
     }
   };
 }
-function V8(t) {
+function G8(t) {
   let e;
   return {
     c() {
-      e = I("None");
+      e = E("None");
     },
     m(l, i) {
-      M(l, e, i);
+      S(l, e, i);
     },
-    p: ae,
+    p: ne,
     d(l) {
-      l && S(e);
+      l && C(e);
     }
   };
 }
@@ -41622,7 +41672,7 @@ function Ip(t) {
     var _;
     return (
       /*$data*/
-      ((_ = s[1].backend_properties.faulty_qubits) == null ? void 0 : _.length) == 0 ? G8 : X8
+      ((_ = s[1].backend_properties.faulty_qubits) == null ? void 0 : _.length) == 0 ? K8 : Y8
     );
   }
   let a = n(t), r = a(t);
@@ -41631,27 +41681,27 @@ function Ip(t) {
       e = m("h5"), e.textContent = "Faulty qubits", l = N(), i = m("div"), r.c(), u(e, "class", "svelte-14lfkj4"), u(i, "class", "list svelte-14lfkj4");
     },
     m(s, o) {
-      M(s, e, o), M(s, l, o), M(s, i, o), r.m(i, null);
+      S(s, e, o), S(s, l, o), S(s, i, o), r.m(i, null);
     },
     p(s, o) {
       a === (a = n(s)) && r ? r.p(s, o) : (r.d(1), r = a(s), r && (r.c(), r.m(i, null)));
     },
     d(s) {
-      s && (S(e), S(l), S(i)), r.d();
+      s && (C(e), C(l), C(i)), r.d();
     }
   };
 }
-function X8(t) {
+function Y8(t) {
   let e = (
     /*$data*/
     t[1].backend_properties.faulty_qubits.join(", ") + ""
   ), l;
   return {
     c() {
-      l = I(e);
+      l = E(e);
     },
     m(i, n) {
-      M(i, l, n);
+      S(i, l, n);
     },
     p(i, n) {
       n & /*$data*/
@@ -41659,26 +41709,26 @@ function X8(t) {
       i[1].backend_properties.faulty_qubits.join(", ") + "") && U(l, e);
     },
     d(i) {
-      i && S(l);
+      i && C(l);
     }
   };
 }
-function G8(t) {
+function K8(t) {
   let e;
   return {
     c() {
-      e = I("None");
+      e = E("None");
     },
     m(l, i) {
-      M(l, e, i);
+      S(l, e, i);
     },
-    p: ae,
+    p: ne,
     d(l) {
-      l && S(e);
+      l && C(e);
     }
   };
 }
-function Y8(t) {
+function U8(t) {
   let e, l = (
     /*$data*/
     t[1] && Pp(t)
@@ -41688,22 +41738,22 @@ function Y8(t) {
       l && l.c(), e = Ae();
     },
     m(i, n) {
-      l && l.m(i, n), M(i, e, n);
+      l && l.m(i, n), S(i, e, n);
     },
     p(i, [n]) {
       /*$data*/
       i[1] ? l ? l.p(i, n) : (l = Pp(i), l.c(), l.m(e.parentNode, e)) : l && (l.d(1), l = null);
     },
-    i: ae,
-    o: ae,
+    i: ne,
+    o: ne,
     d(i) {
-      i && S(e), l && l.d(i);
+      i && C(e), l && l.d(i);
     }
   };
 }
 const Dp = (t) => t.gate + " (" + t.qubits.join(", ") + ")";
-function K8(t, e, l) {
-  let i, n = ae, a = () => (n(), n = st(s, (c) => l(1, i = c)), s), r;
+function W8(t, e, l) {
+  let i, n = ne, a = () => (n(), n = st(s, (c) => l(1, i = c)), s), r;
   t.$$.on_destroy.push(() => n());
   let { data: s = Oe() } = e;
   a();
@@ -41715,9 +41765,9 @@ function K8(t, e, l) {
     "data" in c && a(l(0, s = c.data));
   }, [s, i, r, o, _];
 }
-class U8 extends Ve {
+class J8 extends Ve {
   constructor(e) {
-    super(), Qe(this, e, K8, Y8, Fe, { data: 0 });
+    super(), Qe(this, e, W8, U8, Fe, { data: 0 });
   }
 }
 function Rp(t, e, l) {
@@ -41744,24 +41794,24 @@ function Qp(t) {
   t[17] && Vp(t);
   return {
     c() {
-      e = m("article"), l = m("h4"), i = I(`Machine view
-      `), n = m("button"), r = I(a), s = N(), o = m("div"), h && h.c(), u(o, "class", "content-wrap svelte-nl4zlu"), At(o, "padding-bottom", "3.5rem"), At(o, "overflow-y", "hidden"), u(e, "class", "panel svelte-nl4zlu");
+      e = m("article"), l = m("h4"), i = E(`Machine view
+      `), n = m("button"), r = E(a), s = N(), o = m("div"), h && h.c(), u(o, "class", "content-wrap svelte-nl4zlu"), At(o, "padding-bottom", "3.5rem"), At(o, "overflow-y", "hidden"), u(e, "class", "panel svelte-nl4zlu");
     },
-    m(p, b) {
-      M(p, e, b), f(e, l), f(l, i), f(l, n), f(n, r), f(e, s), f(e, o), h && h.m(o, null), _ = !0, c || (d = te(
+    m(p, g) {
+      S(p, e, g), f(e, l), f(l, i), f(l, n), f(n, r), f(e, s), f(e, o), h && h.m(o, null), _ = !0, c || (d = te(
         n,
         "click",
         /*click_handler*/
         t[26]
       ), c = !0);
     },
-    p(p, b) {
-      (!_ || b[0] & /*$hide1*/
+    p(p, g) {
+      (!_ || g[0] & /*$hide1*/
       131072) && a !== (a = /*$hide1*/
       p[17] ? "Show" : "Hide") && U(r, a), /*$hide1*/
       p[17] ? h && (be(), D(h, 1, 1, () => {
         h = null;
-      }), ke()) : h ? (h.p(p, b), b[0] & /*$hide1*/
+      }), ke()) : h ? (h.p(p, g), g[0] & /*$hide1*/
       131072 && T(h, 1)) : (h = Vp(p), h.c(), T(h, 1), h.m(o, null));
     },
     i(p) {
@@ -41771,17 +41821,17 @@ function Qp(t) {
       D(h), _ = !1;
     },
     d(p) {
-      p && S(e), h && h.d(), c = !1, d();
+      p && C(e), h && h.d(), c = !1, d();
     }
   };
 }
 function Vp(t) {
-  let e, l, i, n, a, r, s, o, _, c, d, h, p, b, g, k, y, v, w, q, $, j, O, A, C = $e(
+  let e, l, i, n, a, r, s, o, _, c, d, h, p, g, b, k, y, v, w, q, $, j, I, A, M = $e(
     /*qubit_info_list*/
     t[8]
   ), z = [];
-  for (let L = 0; L < C.length; L += 1)
-    z[L] = Xp(Fp(t, C, L));
+  for (let L = 0; L < M.length; L += 1)
+    z[L] = Xp(Fp(t, M, L));
   let H = (
     /*qubit_stats*/
     t[12] && /*colorScale*/
@@ -41796,7 +41846,7 @@ function Vp(t) {
     /*edge_stats*/
     t[13] && /*edgeColorScale*/
     t[4] && Kp(t)
-  ), E = (
+  ), O = (
     /*qubit_edges*/
     t[1] && /*node_map*/
     t[5] && Up(t)
@@ -41812,18 +41862,18 @@ function Vp(t) {
       r = N(), s = m("div"), H && H.c(), o = N(), _ = m("div"), c = m("label"), c.textContent = "For Edges:", d = N(), h = m("select");
       for (let L = 0; L < R.length; L += 1)
         R[L].c();
-      p = N(), b = m("div"), P && P.c(), g = N(), k = m("div"), y = N(), v = m("div"), E && E.c(), q = N(), F && F.c(), $ = Ae(), u(i, "for", "qubit_rep"), u(i, "class", "svelte-nl4zlu"), u(a, "name", "qubit_rep"), u(a, "id", "qubit_rep"), u(a, "class", "svelte-nl4zlu"), u(s, "class", "stats svelte-nl4zlu"), u(c, "for", "edge_rep"), u(c, "class", "svelte-nl4zlu"), u(h, "name", "edge_rep"), u(h, "id", "edge_rep"), u(h, "class", "svelte-nl4zlu"), u(b, "class", "stats svelte-nl4zlu"), u(e, "class", "controls svelte-nl4zlu"), u(k, "class", "circuit-background-map svelte-nl4zlu"), u(k, "style", "width: 100%; height:100%; padding-bottom: 3rem;"), u(v, "class", "circuit svelte-nl4zlu"), u(v, "style", w = `width: ${/*width*/
+      p = N(), g = m("div"), P && P.c(), b = N(), k = m("div"), y = N(), v = m("div"), O && O.c(), q = N(), F && F.c(), $ = Ae(), u(i, "for", "qubit_rep"), u(i, "class", "svelte-nl4zlu"), u(a, "name", "qubit_rep"), u(a, "id", "qubit_rep"), u(a, "class", "svelte-nl4zlu"), u(s, "class", "stats svelte-nl4zlu"), u(c, "for", "edge_rep"), u(c, "class", "svelte-nl4zlu"), u(h, "name", "edge_rep"), u(h, "id", "edge_rep"), u(h, "class", "svelte-nl4zlu"), u(g, "class", "stats svelte-nl4zlu"), u(e, "class", "controls svelte-nl4zlu"), u(k, "class", "circuit-background-map svelte-nl4zlu"), u(k, "style", "width: 100%; height:100%; padding-bottom: 3rem;"), u(v, "class", "circuit svelte-nl4zlu"), u(v, "style", w = `width: ${/*width*/
       t[6]}px; height: ${/*height*/
       t[7]}px; padding: ${Gi}px; padding-bottom: 3rem;`);
     },
     m(L, X) {
-      M(L, e, X), f(e, l), f(l, i), f(l, n), f(l, a);
+      S(L, e, X), f(e, l), f(l, i), f(l, n), f(l, a);
       for (let V = 0; V < z.length; V += 1)
         z[V] && z[V].m(a, null);
       f(l, r), f(l, s), H && H.m(s, null), f(e, o), f(e, _), f(_, c), f(_, d), f(_, h);
       for (let V = 0; V < R.length; V += 1)
         R[V] && R[V].m(h, null);
-      f(_, p), f(_, b), P && P.m(b, null), M(L, g, X), M(L, k, X), M(L, y, X), M(L, v, X), E && E.m(v, null), M(L, q, X), F && F.m(L, X), M(L, $, X), j = !0, O || (A = [
+      f(_, p), f(_, g), P && P.m(g, null), S(L, b, X), S(L, k, X), S(L, y, X), S(L, v, X), O && O.m(v, null), S(L, q, X), F && F.m(L, X), S(L, $, X), j = !0, I || (A = [
         te(
           a,
           "change",
@@ -41842,23 +41892,23 @@ function Vp(t) {
           /*click_handler_1*/
           t[29]
         )
-      ], O = !0);
+      ], I = !0);
     },
     p(L, X) {
       if (X[0] & /*qubit_info_list*/
       256) {
-        C = $e(
+        M = $e(
           /*qubit_info_list*/
           L[8]
         );
         let V;
-        for (V = 0; V < C.length; V += 1) {
-          const Q = Fp(L, C, V);
+        for (V = 0; V < M.length; V += 1) {
+          const Q = Fp(L, M, V);
           z[V] ? z[V].p(Q, X) : (z[V] = Xp(Q), z[V].c(), z[V].m(a, null));
         }
         for (; V < z.length; V += 1)
           z[V].d(1);
-        z.length = C.length;
+        z.length = M.length;
       }
       if (/*qubit_stats*/
       L[12] && /*colorScale*/
@@ -41883,13 +41933,13 @@ function Vp(t) {
       /*edge_stats*/
       L[13] && /*edgeColorScale*/
       L[4] ? P ? (P.p(L, X), X[0] & /*edge_stats, edgeColorScale*/
-      8208 && T(P, 1)) : (P = Kp(L), P.c(), T(P, 1), P.m(b, null)) : P && (be(), D(P, 1, 1, () => {
+      8208 && T(P, 1)) : (P = Kp(L), P.c(), T(P, 1), P.m(g, null)) : P && (be(), D(P, 1, 1, () => {
         P = null;
       }), ke()), /*qubit_edges*/
       L[1] && /*node_map*/
-      L[5] ? E ? (E.p(L, X), X[0] & /*qubit_edges, node_map*/
-      34 && T(E, 1)) : (E = Up(L), E.c(), T(E, 1), E.m(v, null)) : E && (be(), D(E, 1, 1, () => {
-        E = null;
+      L[5] ? O ? (O.p(L, X), X[0] & /*qubit_edges, node_map*/
+      34 && T(O, 1)) : (O = Up(L), O.c(), T(O, 1), O.m(v, null)) : O && (be(), D(O, 1, 1, () => {
+        O = null;
       }), ke()), (!j || X[0] & /*width, height*/
       192 && w !== (w = `width: ${/*width*/
       L[6]}px; height: ${/*height*/
@@ -41897,13 +41947,13 @@ function Vp(t) {
       L[14] ? F ? F.p(L, X) : (F = Zp(L), F.c(), F.m($.parentNode, $)) : F && (F.d(1), F = null);
     },
     i(L) {
-      j || (T(H), T(P), T(E), j = !0);
+      j || (T(H), T(P), T(O), j = !0);
     },
     o(L) {
-      D(H), D(P), D(E), j = !1;
+      D(H), D(P), D(O), j = !1;
     },
     d(L) {
-      L && (S(e), S(g), S(k), S(y), S(v), S(q), S($)), Ye(z, L), H && H.d(), Ye(R, L), P && P.d(), E && E.d(), F && F.d(L), O = !1, wt(A);
+      L && (C(e), C(b), C(k), C(y), C(v), C(q), C($)), Ye(z, L), H && H.d(), Ye(R, L), P && P.d(), O && O.d(), F && F.d(L), I = !1, wt(A);
     }
   };
 }
@@ -41919,13 +41969,13 @@ function Xp(t) {
   ), r, s;
   return {
     c() {
-      e = m("option"), i = I(l), n = N(), r = I(a), e.__value = s = JSON.stringify(
+      e = m("option"), i = E(l), n = N(), r = E(a), e.__value = s = JSON.stringify(
         /*item*/
         t[49]
       ), pt(e, e.__value);
     },
     m(o, _) {
-      M(o, e, _), f(e, i), f(e, n), f(e, r);
+      S(o, e, _), f(e, i), f(e, n), f(e, r);
     },
     p(o, _) {
       _[0] & /*qubit_info_list*/
@@ -41941,7 +41991,7 @@ function Xp(t) {
       )) && (e.__value = s, pt(e, e.__value));
     },
     d(o) {
-      o && S(e);
+      o && C(e);
     }
   };
 }
@@ -41996,13 +42046,13 @@ function Yp(t) {
   ), r, s;
   return {
     c() {
-      e = m("option"), i = I(l), n = N(), r = I(a), e.__value = s = JSON.stringify(
+      e = m("option"), i = E(l), n = N(), r = E(a), e.__value = s = JSON.stringify(
         /*item*/
         t[49]
       ), pt(e, e.__value);
     },
     m(o, _) {
-      M(o, e, _), f(e, i), f(e, n), f(e, r);
+      S(o, e, _), f(e, i), f(e, n), f(e, r);
     },
     p(o, _) {
       _[0] & /*edge_info_list*/
@@ -42018,7 +42068,7 @@ function Yp(t) {
       )) && (e.__value = s, pt(e, e.__value));
     },
     d(o) {
-      o && S(e);
+      o && C(e);
     }
   };
 }
@@ -42092,10 +42142,10 @@ function Up(t) {
     m(c, d) {
       for (let h = 0; h < a.length; h += 1)
         a[h] && a[h].m(c, d);
-      M(c, e, d);
+      S(c, e, d);
       for (let h = 0; h < o.length; h += 1)
         o[h] && o[h].m(c, d);
-      M(c, l, d), i = !0;
+      S(c, l, d), i = !0;
     },
     p(c, d) {
       if (d[0] & /*qubit_edges, node_map, edge_info_values, $edge_info_selected, edgeColorScale, openTooltip, hideTooltip, moveTooltip*/
@@ -42148,14 +42198,14 @@ function Up(t) {
       i = !1;
     },
     d(c) {
-      c && (S(e), S(l)), Ye(a, c), Ye(o, c);
+      c && (C(e), C(l)), Ye(a, c), Ye(o, c);
     }
   };
 }
 function Wp(t) {
   var i, n;
   let e, l;
-  return e = new og({
+  return e = new o0({
     props: {
       edge: (
         /*edge*/
@@ -42169,7 +42219,7 @@ function Wp(t) {
         )
       ),
       qubit_gap: Ha,
-      edge_width: hg,
+      edge_width: h0,
       padding: Gi,
       edge_info_value: (
         /*edge_info_values*/
@@ -42258,7 +42308,7 @@ function Wp(t) {
 }
 function Jp(t) {
   let e, l;
-  return e = new ug({
+  return e = new u0({
     props: {
       qubit: (
         /*qi*/
@@ -42272,7 +42322,7 @@ function Jp(t) {
         ]
       ),
       qubit_gap: Ha,
-      edge_width: hg,
+      edge_width: h0,
       padding: Gi,
       qubit_info_value: (
         /*$qubit_info_selected*/
@@ -42380,48 +42430,48 @@ function Zp(t) {
       /*tooltipInfo*/
       t[15].key.type
     ) : "") + ""
-  ), c, d, h, p, b, g, k = (
+  ), c, d, h, p, g, b, k = (
     /*tooltipInfo*/
     t[15].value.value + ""
   ), y, v, w, q, $, j = (
     /*tooltipInfo*/
     t[15].value.asof + ""
-  ), O, A, C, z, H, B, R, P = (
+  ), I, A, M, z, H, B, R, P = (
     /*tooltipInfo*/
     t[15].value.unit && xp(t)
   );
   return {
     c() {
-      e = m("div"), l = m("h5"), n = I(i), a = I("–"), s = I(r), o = N(), c = I(_), d = N(), h = m("table"), p = m("tr"), b = m("th"), b.textContent = "Value", g = m("td"), y = I(k), v = N(), w = m("tr"), q = m("th"), q.textContent = "Date", $ = m("td"), O = I(j), A = N(), P && P.c(), C = N(), z = m("div"), H = m("button"), H.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"></path></svg>', u(l, "class", "svelte-nl4zlu"), u(b, "class", "svelte-nl4zlu"), u(g, "class", "svelte-nl4zlu"), u(q, "class", "svelte-nl4zlu"), u($, "class", "svelte-nl4zlu"), u(h, "class", "svelte-nl4zlu"), u(H, "class", "close svelte-nl4zlu"), At(z, "text-align", "right"), u(e, "class", "tooltip svelte-nl4zlu");
+      e = m("div"), l = m("h5"), n = E(i), a = E("–"), s = E(r), o = N(), c = E(_), d = N(), h = m("table"), p = m("tr"), g = m("th"), g.textContent = "Value", b = m("td"), y = E(k), v = N(), w = m("tr"), q = m("th"), q.textContent = "Date", $ = m("td"), I = E(j), A = N(), P && P.c(), M = N(), z = m("div"), H = m("button"), H.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"></path></svg>', u(l, "class", "svelte-nl4zlu"), u(g, "class", "svelte-nl4zlu"), u(b, "class", "svelte-nl4zlu"), u(q, "class", "svelte-nl4zlu"), u($, "class", "svelte-nl4zlu"), u(h, "class", "svelte-nl4zlu"), u(H, "class", "close svelte-nl4zlu"), At(z, "text-align", "right"), u(e, "class", "tooltip svelte-nl4zlu");
     },
-    m(E, F) {
-      M(E, e, F), f(e, l), f(l, n), f(l, a), f(l, s), f(l, o), f(l, c), f(e, d), f(e, h), f(h, p), f(p, b), f(p, g), f(g, y), f(h, v), f(h, w), f(w, q), f(w, $), f($, O), f(h, A), P && P.m(h, null), f(e, C), f(e, z), f(z, H), B || (R = te(
+    m(O, F) {
+      S(O, e, F), f(e, l), f(l, n), f(l, a), f(l, s), f(l, o), f(l, c), f(e, d), f(e, h), f(h, p), f(p, g), f(p, b), f(b, y), f(h, v), f(h, w), f(w, q), f(w, $), f($, I), f(h, A), P && P.m(h, null), f(e, M), f(e, z), f(z, H), B || (R = te(
         H,
         "click",
         /*click_handler_2*/
         t[31]
       ), B = !0);
     },
-    p(E, F) {
+    p(O, F) {
       F[0] & /*tooltipInfo*/
       32768 && i !== (i = /*tooltipInfo*/
-      E[15].item + "") && U(n, i), F[0] & /*tooltipInfo*/
+      O[15].item + "") && U(n, i), F[0] & /*tooltipInfo*/
       32768 && r !== (r = /*tooltipInfo*/
-      (E[15].key.gate || /*tooltipInfo*/
-      E[15].key.feature) + "") && U(s, r), F[0] & /*tooltipInfo*/
+      (O[15].key.gate || /*tooltipInfo*/
+      O[15].key.feature) + "") && U(s, r), F[0] & /*tooltipInfo*/
       32768 && _ !== (_ = /*tooltipInfo*/
-      (E[15].key.type ? (
+      (O[15].key.type ? (
         /*tooltipInfo*/
-        E[15].key.type
+        O[15].key.type
       ) : "") + "") && U(c, _), F[0] & /*tooltipInfo*/
       32768 && k !== (k = /*tooltipInfo*/
-      E[15].value.value + "") && U(y, k), F[0] & /*tooltipInfo*/
+      O[15].value.value + "") && U(y, k), F[0] & /*tooltipInfo*/
       32768 && j !== (j = /*tooltipInfo*/
-      E[15].value.asof + "") && U(O, j), /*tooltipInfo*/
-      E[15].value.unit ? P ? P.p(E, F) : (P = xp(E), P.c(), P.m(h, null)) : P && (P.d(1), P = null);
+      O[15].value.asof + "") && U(I, j), /*tooltipInfo*/
+      O[15].value.unit ? P ? P.p(O, F) : (P = xp(O), P.c(), P.m(h, null)) : P && (P.d(1), P = null);
     },
-    d(E) {
-      E && S(e), P && P.d(), B = !1, R();
+    d(O) {
+      O && C(e), P && P.d(), B = !1, R();
     }
   };
 }
@@ -42432,10 +42482,10 @@ function xp(t) {
   ), a;
   return {
     c() {
-      e = m("tr"), l = m("th"), l.textContent = "Unit", i = m("td"), a = I(n), u(l, "class", "svelte-nl4zlu"), u(i, "class", "svelte-nl4zlu");
+      e = m("tr"), l = m("th"), l.textContent = "Unit", i = m("td"), a = E(n), u(l, "class", "svelte-nl4zlu"), u(i, "class", "svelte-nl4zlu");
     },
     m(r, s) {
-      M(r, e, s), f(e, l), f(e, i), f(i, a);
+      S(r, e, s), f(e, l), f(e, i), f(i, a);
     },
     p(r, s) {
       s[0] & /*tooltipInfo*/
@@ -42443,11 +42493,11 @@ function xp(t) {
       r[15].value.unit + "") && U(a, n);
     },
     d(r) {
-      r && S(e);
+      r && C(e);
     }
   };
 }
-function W8(t) {
+function Z8(t) {
   let e, l, i = (
     /*$data*/
     t[16] && Qp(t)
@@ -42457,7 +42507,7 @@ function W8(t) {
       i && i.c(), e = Ae();
     },
     m(n, a) {
-      i && i.m(n, a), M(n, e, a), l = !0;
+      i && i.m(n, a), S(n, e, a), l = !0;
     },
     p(n, a) {
       /*$data*/
@@ -42473,34 +42523,34 @@ function W8(t) {
       D(i), l = !1;
     },
     d(n) {
-      n && S(e), i && i.d(n);
+      n && C(e), i && i.d(n);
     }
   };
 }
-let Ha = 45, hg = 15, Gi = 20;
+let Ha = 45, h0 = 15, Gi = 20;
 const em = (t, e) => t - e;
-function J8(t, e, l) {
-  let i, n = ae, a = () => (n(), n = st(_, (ve) => l(16, i = ve)), _), r, s, o;
+function x8(t, e, l) {
+  let i, n = ne, a = () => (n(), n = st(_, (ve) => l(16, i = ve)), _), r, s, o;
   t.$$.on_destroy.push(() => n());
   let { data: _ = Oe() } = e;
   a();
-  let c, d, h, p, b;
-  const g = ["id", "rz", "sx", "x"], k = ["cx", "ecr"];
+  let c, d, h, p, g;
+  const b = ["id", "rz", "sx", "x"], k = ["cx", "ecr"];
   let y = Oe(!0);
   at(t, y, (ve) => l(17, r = ve));
-  let v, w, q, $ = 0, j = 0, O = 0, A = 0, C = [], z = [], H = Oe(), B = Oe();
+  let v, w, q, $ = 0, j = 0, I = 0, A = 0, M = [], z = [], H = Oe(), B = Oe();
   at(t, H, (ve) => l(19, o = ve)), at(t, B, (ve) => l(18, s = ve));
   function R(ve) {
-    $ = Math.max(...ve.map((G) => G.y)) + 1, j = Math.max(...ve.map((G) => G.x)) + 1, l(6, O = (j - 1) * Ha + Gi * 2), l(7, A = $ * Ha + Gi * 2), l(5, q = {});
+    $ = Math.max(...ve.map((G) => G.y)) + 1, j = Math.max(...ve.map((G) => G.x)) + 1, l(6, I = (j - 1) * Ha + Gi * 2), l(7, A = $ * Ha + Gi * 2), l(5, q = {});
     for (const G of ve)
       l(5, q[G.index] = G, q);
-    p && l(8, C = Object.keys(p[0]).filter((G) => G !== "index").map((G) => ({ feature: G })));
+    p && l(8, M = Object.keys(p[0]).filter((G) => G !== "index").map((G) => ({ feature: G })));
     let me = [], fe = [];
-    l(9, z = []), b.forEach((G) => {
-      k.includes(G.gate) && !fe.includes(G.gate) && (z.push({ gate: G.gate, type: "error" }), z.push({ gate: G.gate, type: "length" }), fe.push(G.gate)), g.includes(G.gate) && !me.includes(G.gate) && (C.push({ gate: G.gate, type: "error" }), C.push({ gate: G.gate, type: "length" }), me.push(G.gate));
-    }), H.set(C[0]), B.set(z[0]);
+    l(9, z = []), g.forEach((G) => {
+      k.includes(G.gate) && !fe.includes(G.gate) && (z.push({ gate: G.gate, type: "error" }), z.push({ gate: G.gate, type: "length" }), fe.push(G.gate)), b.includes(G.gate) && !me.includes(G.gate) && (M.push({ gate: G.gate, type: "error" }), M.push({ gate: G.gate, type: "length" }), me.push(G.gate));
+    }), H.set(M[0]), B.set(z[0]);
   }
-  let P = [], E = {}, F, L;
+  let P = [], O = {}, F, L;
   H.subscribe((ve) => {
     if (l(10, P = []), ve != null && ve.feature) {
       l(10, P = p.map((ye) => ye[ve.feature]));
@@ -42513,7 +42563,7 @@ function J8(t, e, l) {
         values: me
       }), ["frequency", "readout_error"].includes(ve.feature) ? l(3, v = kl(Ol).domain([G, fe])) : l(3, v = kl(Ol).domain([fe, G]));
     } else if (ve != null && ve.gate) {
-      l(10, P = b.filter((ye) => ye.gate === ve.gate).map((ye) => (ye.qubit = ye.qubits[0], ye)).toSorted((ye, ue) => ye.qubit - ue.qubit));
+      l(10, P = g.filter((ye) => ye.gate === ve.gate).map((ye) => (ye.qubit = ye.qubits[0], ye)).toSorted((ye, ue) => ye.qubit - ue.qubit));
       let me = P.map((ye) => ye.parameters["gate_" + ve.type].value), [fe, G] = [Math.min(...me), Math.max(...me)];
       l(12, F = {
         min: fe,
@@ -42524,13 +42574,13 @@ function J8(t, e, l) {
       }), l(3, v = kl(Ol).domain([G, fe]));
     }
   }), B.subscribe((ve) => {
-    if (l(11, E = {}), ve != null && ve.gate) {
-      b.filter((ue) => ue.gate === ve.gate).forEach((ue) => {
-        l(11, E[ue.qubits.join("-")] = ue, E);
+    if (l(11, O = {}), ve != null && ve.gate) {
+      g.filter((ue) => ue.gate === ve.gate).forEach((ue) => {
+        l(11, O[ue.qubits.join("-")] = ue, O);
       });
-      let fe = Object.keys(E).map((ue) => {
+      let fe = Object.keys(O).map((ue) => {
         var le;
-        return (le = E[ue].parameters["gate_" + ve.type]) == null ? void 0 : le.value;
+        return (le = O[ue].parameters["gate_" + ve.type]) == null ? void 0 : le.value;
       }), [G, ye] = [Math.min(...fe), Math.max(...fe)];
       l(13, L = {
         min: G,
@@ -42547,7 +42597,7 @@ function J8(t, e, l) {
       oe.style.outline = null;
     }), document.querySelector("#" + ye) && (document.querySelector("#" + ye).style.outline = "2px solid black"));
   }
-  function ne(ve) {
+  function ae(ve) {
     X && (tooltipX = ve.screenX - mouse_adj.x, tooltipY = ve.screenY - mouse_adj.y);
   }
   function se(ve) {
@@ -42557,7 +42607,7 @@ function J8(t, e, l) {
   }
   function K(ve) {
     var me, fe, G, ye, ue;
-    d = (me = ve.machine_design) == null ? void 0 : me.nodes, l(1, c = (fe = ve.machine_design) == null ? void 0 : fe.edges), l(2, h = (G = ve.machine_design) == null ? void 0 : G.index), p = (ye = ve.backend_properties) == null ? void 0 : ye.qubits, b = (ue = ve.backend_properties) == null ? void 0 : ue.gates;
+    d = (me = ve.machine_design) == null ? void 0 : me.nodes, l(1, c = (fe = ve.machine_design) == null ? void 0 : fe.edges), l(2, h = (G = ve.machine_design) == null ? void 0 : G.index), p = (ye = ve.backend_properties) == null ? void 0 : ye.qubits, g = (ue = ve.backend_properties) == null ? void 0 : ue.gates;
   }
   Tt(() => {
     _.subscribe((ve) => {
@@ -42582,12 +42632,12 @@ function J8(t, e, l) {
     v,
     w,
     q,
-    O,
+    I,
     A,
-    C,
+    M,
     z,
     P,
-    E,
+    O,
     F,
     L,
     X,
@@ -42600,7 +42650,7 @@ function J8(t, e, l) {
     H,
     B,
     Z,
-    ne,
+    ae,
     se,
     Y,
     W,
@@ -42610,20 +42660,20 @@ function J8(t, e, l) {
     Re
   ];
 }
-class Z8 extends Ve {
+class e7 extends Ve {
   constructor(e) {
-    super(), Qe(this, e, J8, W8, Fe, { data: 0 }, null, [-1, -1]);
+    super(), Qe(this, e, x8, Z8, Fe, { data: 0 }, null, [-1, -1]);
   }
 }
 function tm(t) {
-  let e, l, i, n, a, r, s, o, _, c, d, h, p, b, g, k, y, v, w, q, $, j, O, A;
-  return a = new F$({ props: { data: (
+  let e, l, i, n, a, r, s, o, _, c, d, h, p, g, b, k, y, v, w, q, $, j, I, A;
+  return a = new V$({ props: { data: (
     /*data*/
     t[1]
-  ) } }), s = new t6({ props: { data: (
+  ) } }), s = new i6({ props: { data: (
     /*data*/
     t[1]
-  ) } }), _ = new x6({ props: { data: (
+  ) } }), _ = new t8({ props: { data: (
     /*data*/
     t[1]
   ) } }), d = new $1({
@@ -42703,61 +42753,61 @@ function tm(t) {
         )
       }
     }
-  }), g = new Z8({ props: { data: (
+  }), b = new e7({ props: { data: (
     /*data*/
     t[1]
-  ) } }), y = new o6({ props: { data: (
+  ) } }), y = new f6({ props: { data: (
     /*data*/
     t[1]
-  ) } }), w = new D8({ props: { data: (
+  ) } }), w = new H8({ props: { data: (
     /*data*/
     t[1]
-  ) } }), $ = new F8({ props: { data: (
+  ) } }), $ = new V8({ props: { data: (
     /*data*/
     t[1]
-  ) } }), O = new U8({ props: { data: (
+  ) } }), I = new J8({ props: { data: (
     /*data*/
     t[1]
   ) } }), {
     c() {
-      e = m("div"), l = m("h3"), l.textContent = "Quantum Job Viewer", i = N(), n = m("div"), pe(a.$$.fragment), r = N(), pe(s.$$.fragment), o = N(), pe(_.$$.fragment), c = N(), pe(d.$$.fragment), h = N(), pe(p.$$.fragment), b = N(), pe(g.$$.fragment), k = N(), pe(y.$$.fragment), v = N(), pe(w.$$.fragment), q = N(), pe($.$$.fragment), j = N(), pe(O.$$.fragment), u(l, "class", "svelte-1147w99"), u(n, "class", "panel-wrapper svelte-1147w99"), u(e, "class", "wrap svelte-1147w99");
+      e = m("div"), l = m("h3"), l.textContent = "Quantum Job Viewer", i = N(), n = m("div"), pe(a.$$.fragment), r = N(), pe(s.$$.fragment), o = N(), pe(_.$$.fragment), c = N(), pe(d.$$.fragment), h = N(), pe(p.$$.fragment), g = N(), pe(b.$$.fragment), k = N(), pe(y.$$.fragment), v = N(), pe(w.$$.fragment), q = N(), pe($.$$.fragment), j = N(), pe(I.$$.fragment), u(l, "class", "svelte-1147w99"), u(n, "class", "panel-wrapper svelte-1147w99"), u(e, "class", "wrap svelte-1147w99");
     },
-    m(C, z) {
-      M(C, e, z), f(e, l), f(e, i), f(e, n), de(a, n, null), f(n, r), de(s, n, null), f(n, o), de(_, n, null), f(n, c), de(d, n, null), f(n, h), de(p, n, null), f(n, b), de(g, n, null), f(n, k), de(y, n, null), f(n, v), de(w, n, null), f(n, q), de($, n, null), f(n, j), de(O, n, null), A = !0;
+    m(M, z) {
+      S(M, e, z), f(e, l), f(e, i), f(e, n), de(a, n, null), f(n, r), de(s, n, null), f(n, o), de(_, n, null), f(n, c), de(d, n, null), f(n, h), de(p, n, null), f(n, g), de(b, n, null), f(n, k), de(y, n, null), f(n, v), de(w, n, null), f(n, q), de($, n, null), f(n, j), de(I, n, null), A = !0;
     },
-    p(C, z) {
+    p(M, z) {
       const H = {};
       z & /*$data*/
       1 && (H.circuit_data = {
         layers: (
           /*$data*/
-          C[0].original_circuit_layout
+          M[0].original_circuit_layout
         ),
         qubits: [],
         qubits: [],
         global_phase: (
           /*$data*/
-          C[0].original_circuit_global_phase
+          M[0].original_circuit_global_phase
         ),
         layer_index: (
           /*$data*/
-          C[0].original_circuit_layout_index
+          M[0].original_circuit_layout_index
         )
       }), z & /*$data*/
       1 && (H.bit_match = /*$data*/
-      C[0].bit_match), z & /*$data*/
+      M[0].bit_match), z & /*$data*/
       1 && (H.pagination = {
         page: (
           /*$data*/
-          C[0].original_circuit_page
+          M[0].original_circuit_page
         ),
         range: (
           /*$data*/
-          C[0].original_circuit_page_range
+          M[0].original_circuit_page_range
         ),
         total_page: (
           /*$data*/
-          C[0].original_circuit_total_page
+          M[0].original_circuit_total_page
         )
       }), d.$set(H);
       const B = {};
@@ -42765,47 +42815,47 @@ function tm(t) {
       1 && (B.circuit_data = {
         layers: (
           /*$data*/
-          C[0].transpiled_circuit_layout
+          M[0].transpiled_circuit_layout
         ),
         qubits: [],
         global_phase: (
           /*$data*/
-          C[0].transpiled_circuit_global_phase
+          M[0].transpiled_circuit_global_phase
         ),
         layer_index: (
           /*$data*/
-          C[0].transpiled_circuit_layout_index
+          M[0].transpiled_circuit_layout_index
         )
       }), z & /*$data*/
       1 && (B.bit_match = /*$data*/
-      C[0].bit_match), z & /*$data*/
+      M[0].bit_match), z & /*$data*/
       1 && (B.pagination = {
         page: (
           /*$data*/
-          C[0].transpiled_circuit_page
+          M[0].transpiled_circuit_page
         ),
         range: (
           /*$data*/
-          C[0].transpiled_circuit_page_range
+          M[0].transpiled_circuit_page_range
         ),
         total_page: (
           /*$data*/
-          C[0].transpiled_circuit_total_page
+          M[0].transpiled_circuit_total_page
         )
       }), p.$set(B);
     },
-    i(C) {
-      A || (T(a.$$.fragment, C), T(s.$$.fragment, C), T(_.$$.fragment, C), T(d.$$.fragment, C), T(p.$$.fragment, C), T(g.$$.fragment, C), T(y.$$.fragment, C), T(w.$$.fragment, C), T($.$$.fragment, C), T(O.$$.fragment, C), A = !0);
+    i(M) {
+      A || (T(a.$$.fragment, M), T(s.$$.fragment, M), T(_.$$.fragment, M), T(d.$$.fragment, M), T(p.$$.fragment, M), T(b.$$.fragment, M), T(y.$$.fragment, M), T(w.$$.fragment, M), T($.$$.fragment, M), T(I.$$.fragment, M), A = !0);
     },
-    o(C) {
-      D(a.$$.fragment, C), D(s.$$.fragment, C), D(_.$$.fragment, C), D(d.$$.fragment, C), D(p.$$.fragment, C), D(g.$$.fragment, C), D(y.$$.fragment, C), D(w.$$.fragment, C), D($.$$.fragment, C), D(O.$$.fragment, C), A = !1;
+    o(M) {
+      D(a.$$.fragment, M), D(s.$$.fragment, M), D(_.$$.fragment, M), D(d.$$.fragment, M), D(p.$$.fragment, M), D(b.$$.fragment, M), D(y.$$.fragment, M), D(w.$$.fragment, M), D($.$$.fragment, M), D(I.$$.fragment, M), A = !1;
     },
-    d(C) {
-      C && S(e), he(a), he(s), he(_), he(d), he(p), he(g), he(y), he(w), he($), he(O);
+    d(M) {
+      M && C(e), he(a), he(s), he(_), he(d), he(p), he(b), he(y), he(w), he($), he(I);
     }
   };
 }
-function x8(t) {
+function t7(t) {
   let e, l, i = (
     /*$data*/
     t[0] && tm(t)
@@ -42815,7 +42865,7 @@ function x8(t) {
       i && i.c(), e = Ae();
     },
     m(n, a) {
-      i && i.m(n, a), M(n, e, a), l = !0;
+      i && i.m(n, a), S(n, e, a), l = !0;
     },
     p(n, [a]) {
       /*$data*/
@@ -42831,11 +42881,11 @@ function x8(t) {
       D(i), l = !1;
     },
     d(n) {
-      n && S(e), i && i.d(n);
+      n && C(e), i && i.d(n);
     }
   };
 }
-function e7(t, e, l) {
+function l7(t, e, l) {
   let i, { model: n } = e, { key_data: a = "data", key_update: r = "data_update" } = e, s = JSON.parse(n.get(a)), o = `change:${r}`, _ = () => {
     let d = JSON.parse(n.get(r));
     console.log(d), c.update((h) => (d.set && Object.keys(d.set).forEach((p) => {
@@ -42846,15 +42896,15 @@ function e7(t, e, l) {
       else if (h[p].constructor.name === "String")
         h[p] = h[p] + d.append[p];
       else if (h[p].constructor.name === "Object")
-        for (let b in d.append[p])
-          h[p][b] = d.append[p][b];
+        for (let g in d.append[p])
+          h[p][g] = d.append[p][g];
     }), h)), console.log(i);
   }, c = Oe();
   return at(t, c, (d) => l(0, i = d)), Tt(() => {
     c.subscribe((d) => {
       var h;
-      d && !d.physical_qubits && (d.physical_qubits = [], d.bit_match && (d.physical_qubits = d.bit_match.filter((p) => !p.is_ancilla).map((p) => p.to))), (h = d == null ? void 0 : d.backend_properties) != null && h.qubits && d.backend_properties.qubits.forEach((p, b) => {
-        p.index = { value: b };
+      d && !d.physical_qubits && (d.physical_qubits = [], d.bit_match && (d.physical_qubits = d.bit_match.filter((p) => !p.is_ancilla).map((p) => p.to))), (h = d == null ? void 0 : d.backend_properties) != null && h.qubits && d.backend_properties.qubits.forEach((p, g) => {
+        p.index = { value: g };
       });
     }), c.set(s), console.log(i), n.on(o, _);
   }), ri(() => {
@@ -42863,29 +42913,29 @@ function e7(t, e, l) {
     "model" in d && l(2, n = d.model), "key_data" in d && l(3, a = d.key_data), "key_update" in d && l(4, r = d.key_update);
   }, [i, c, n, a, r];
 }
-class t7 extends Ve {
+class i7 extends Ve {
   constructor(e) {
-    super(), Qe(this, e, e7, x8, Fe, { model: 2, key_data: 3, key_update: 4 });
+    super(), Qe(this, e, l7, t7, Fe, { model: 2, key_data: 3, key_update: 4 });
   }
 }
-function a7({ model: t, el: e }) {
+function s7({ model: t, el: e }) {
   if (t.get("mode") === "view") {
     let l = new kw({ target: e, props: { model: t } });
     return () => l.$destroy();
   } else if (t.get("mode") === "write") {
-    let l = new p3({ target: e, props: { model: t } });
+    let l = new g3({ target: e, props: { model: t } });
     return () => l.$destroy();
   } else if (t.get("mode") === "machine") {
-    let l = new Z5({ target: e, props: { model: t } });
+    let l = new e$({ target: e, props: { model: t } });
     return () => l.$destroy();
   } else if (t.get("mode") === "result") {
-    let l = new t7({ target: e, props: { model: t } });
+    let l = new i7({ target: e, props: { model: t } });
     return () => l.$destroy();
   } else if (t.get("mode") === "uncertainty") {
-    let l = new R$({ target: e, props: { model: t } });
+    let l = new L$({ target: e, props: { model: t } });
     return () => l.$destroy();
   }
 }
 export {
-  a7 as render
+  s7 as render
 };
