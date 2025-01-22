@@ -4,6 +4,10 @@ Patoka is a collection of Jupyter Lab widgets for IBM Qiskit
 
 ## User-side installation
 
+From TestPyPi:
+`python -m pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple patoka`
+
+From Main branch PyPi (not yet):
 `pip install patoka`
 
 ## Usage
