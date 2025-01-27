@@ -38,7 +38,7 @@
         </div>
         <div class="description">
           <p>Write a quantum circuit conceptually.</p>
-          <p><a href="./previews/?widget=viewer">→ Try demo</a></p>
+          <p><a href="./previews/?widget=writer">→ Try demo</a></p>
         </div>
       </div>
 
@@ -49,7 +49,7 @@
         </div>
         <div class="description">
           <p>Inspect your circuit and its optimization.</p>
-          <p><a href="./previews/?widget=writer">→ Try demo</a></p>
+          <p><a href="./previews/?widget=viewer">→ Try demo</a></p>
         </div>
       </div>
 
