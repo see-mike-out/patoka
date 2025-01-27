@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+
+:root {
+  --sanserif: 'Roboto Flex', sans-serif;
+  --monospace: 'Iosevka Web', monospace;
+  font-family: var(--sanserif);
+  font-size: 1rem;
+}
+
+* {
+  font-family: var(--sanserif);
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:active,
+a:hover,
+button:focus,
+button:hover,
+input:focus {
+  outline: 2px solid #ffcc00;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
+pre {
+  font-family: var(--font-mono);
+}
+
+@media screen and (min-width: 1140px) {
+  .container {
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and (max-width: 1139px) {
+  .container {
+    width: calc(100% - 2rem);
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}
+
+.container-max {
+  width: calc(100% - 2rem);
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
