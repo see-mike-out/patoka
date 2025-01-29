@@ -3,6 +3,13 @@
   import thumb_machine from "$lib/images/thumb-machine.png";
   import thumb_view from "$lib/images/thumb-view.png";
   import thumb_write from "$lib/images/thumb-write.png";
+  const bibtex = `@inproceedings{kim:patoka2025,
+  title        = {Toward Human-Quantum Computer Interaction: Interface Techniques for Usable Quantum Computing},
+  author       = {Kim, Hyeok and Jeng, Mingyoung J. and Smith, Kaitlin N.},
+  year         = 2025,
+  booktitle    = {ACM Proc. CHI},
+  doi          = {10.1145/3706598.3713370}
+}`;
 </script>
 
 <main class="container">
@@ -15,7 +22,7 @@
       </p>
     </div>
     <div class="install">
-      <h3><span style="color: orangered;">🞲</span> Install&nbsp;</h3>
+      <h3>📦 Install&nbsp;</h3>
       <div class="code-display">
         <pre>&gt; pip install patoka</pre>
       </div>
@@ -77,6 +84,21 @@
           <p><a href="./previews/?widget=job">→ Try demo</a></p>
         </div>
       </div>
+    </div>
+  </section>
+  <section id="paper">
+    <h3>Citation</h3>
+    <p>
+      This work is going to be introduced at ACM CHI 2025 conference. To cite this package, please use the following BibTex entry or plain citation.
+    </p>
+    <div class="citation-box">
+      <code>
+        <pre>{bibtex}</pre>
+      </code>
+    </div>
+    <div class="citation-box">
+      Kim, H., Jeng, M. J., Smith, K. N. (2025). Toward Human-Quantum Computer Interaction: Interface Techniques for Usable Quantum Computing. <em>ACM Proc. CHI</em>. 
+      https://doi.org/10.1145/3706598.3713370.
     </div>
   </section>
 </main>
@@ -199,6 +221,31 @@
   }
   .highlight-block .description a {
     color: orangered;
+  }
+
+  #paper {
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+  }
+
+  #paper h3 {
+    display: inline-block;
+    margin: 0;
+  }
+
+  .citation-box {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    overflow-x: scroll;
+    background-color: #f9f9f9;
+    border-radius: 0.5rem;
+    border: 1px solid #ddd;
+    color: #333;
+    font-size: 0.85rem;
+  }
+  .citation-box code pre {
+    margin: 0;
+    padding: 0;
   }
 
   @media screen and (max-width: 700px) {

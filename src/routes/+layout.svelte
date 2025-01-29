@@ -146,6 +146,9 @@
 		border-image: linear-gradient(to right, #53b28d, #0199fa, #b439ea, #b439ea)
 			1;
 	}
+	footer {
+		margin-bottom: 3rem;
+	}
 	footer div {
 		width: 100%;
 		text-align: center;
