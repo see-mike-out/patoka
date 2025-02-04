@@ -74,6 +74,57 @@ export const JobOutputData = {
     `with open("job_data_sample.json", "w") as f:`,
     "    f.write(job_data.toJSON())"
   ]
+}, ProcessSimJobData = {
+  type: "Function",
+  key: "process_job_data_processSimJobData",
+  title: "patoka.processSimJobData",
+  def: {
+    function: "patoka.processSimJobData",
+    arguments: [{
+      name: "job",
+      type: "Job",
+      optional: false,
+      description: "A job output instance from an Aer Simulator."
+    }, {
+      name: "backend",
+      type: "qiskit_aer.AerSimulator",
+      optional: false,
+      description: "A Qiskit Aer Simulator."
+    }, {
+      name: "original_circuit",
+      type: "qiskit.QuantumCircuit",
+      optional: false,
+      description: "A logical circuit for the job"
+    }, {
+      name: "transpiled_circuit",
+      type: "qiskit.QuantumCircuit",
+      optional: false,
+      description: "The transpiled circuit for the job"
+    }],
+    _return: [
+      {
+        name: "job_data",
+        type: "JobOuputData",
+        description: "job output data."
+      }
+    ]
+  },
+  description: "Converts a job output data (from Aer Simulator) to a <code>JobOutputData</code> instance for sharing and viewing.",
+  example: [
+    "import os",
+    "from qiskit_aer import QiskitRuntimeService",
+    "from patoka import processSimJobData",
+    "from qiskit.transpiler.preset_passmanagers import generate_preset_pass_manager",
+    "",
+    `backend = qiskit_aer.AerSimulator()`,
+    "pass_manager = generate_preset_pass_manager(backend=backend, optimization_level=2)",
+    `circuit  = ...`,
+    "transpiled = pass_manager.run(circuit)",
+    "",
+    "job_data = processSimJobData(job, backend, circuit, transpiled)",
+    `with open("job_data_sample_sim.json", "w") as f:`,
+    "    f.write(job_data.toJSON())"
+  ]
 }, RetrieveJobData = {
   type: "Function",
   key: "retrieve_job_data_retrieveJobData",
