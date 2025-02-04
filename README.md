@@ -2,6 +2,8 @@
 
 Patoka is a collection of Jupyter Lab widgets for IBM Qiskit
 
+[Website](https://see-mike-out.github.io/patoka/)
+
 ## User-side installation
 
 From TestPyPi:
@@ -39,6 +41,8 @@ Then, import the loader functions from `patoka.widgets_dev` (e.g., `from patoka.
 Please use issues. Because the production version cannot attribute to Javascript source files, please run with the dev version.
 
 ## Citation
+
+[Preprint](https://arxiv.org/abs/2502.00202)
 
 ```latex
 @inproceedings{kim:patoka2025,
