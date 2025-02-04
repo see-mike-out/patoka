@@ -1,3 +1,4 @@
+# for easier importing
 from patoka.widgets import getCircuitViewer, getCircuitWriter, getResultViewer, getMachineViewer
 from patoka.widget_classes import CircuitWriter, CircuitViewer, MachineViewer, ResultViewer
 from patoka.job_output_data import JobOutputData
