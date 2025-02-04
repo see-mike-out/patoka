@@ -1,9 +1,9 @@
 export const GetCircuitViewer = {
   type: "Function",
   key: "widgets_getCircuitViewer",
-  title: "widgets.getCircuitViewer",
+  title: "patoka.getCircuitViewer",
   def: {
-    function: "widgets.getCircuitViewer",
+    function: "patoka.getCircuitViewer",
     arguments: [
       {
         name: "circuit",
@@ -33,8 +33,8 @@ export const GetCircuitViewer = {
   },
   description: "Calls a <code>CircuitViewer</code> instance.",
   example: [
-    "from patoka.widgets import getCircuitViewer",
-    "from patoka.transpile_params import TranspileParam",
+    "from patoka import getCircuitViewer",
+    "from patoka import TranspileParam",
     "from qiskit_ibm_runtime.fake_provider import FakeVigoV2",
     "from qiskit import QuantumCircuit",
     "qc = QuantumCircuit(3,3)",
@@ -49,9 +49,9 @@ export const GetCircuitViewer = {
 export const CircuitViewer = {
   type: "Class",
   key: "widget_classes_CircuitViewer",
-  title: "widgets_classes.CircuitViewer",
+  title: "patoka.CircuitViewer",
   def: {
-    _class: "widgets_classes.CircuitViewer",
+    _class: "patoka.CircuitViewer",
   },
   anywidget_attributes: [{
     key: "circ",
@@ -62,9 +62,9 @@ export const CircuitViewer = {
 
 export const TransplieParam = {
   key: "transpile_params_TranspileParam",
-  title: "transpile_params.TranspileParam",
+  title: "patoka.TranspileParam",
   def: {
-    _class: "transpile_params.TranspileParam"
+    _class: "patoka.TranspileParam"
   },
   description: `A wrapper class for transpilation parameters (mainly to prevent errors). For more details, refer to <a href="https://docs.quantum.ibm.com/api/qiskit/qiskit.transpiler.PassManagerConfig" target="_blank">the Qiskit documentation.</a>`,
   example: [

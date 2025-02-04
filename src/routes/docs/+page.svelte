@@ -29,6 +29,8 @@
               curr_item.set(d.key);
             }}
           >
+            {#if d.type}<span class={"item_type " + d.type}>{d.type[0]}</span
+              >{/if}
             {d.title}</a
           >
         </li>
@@ -149,12 +151,29 @@
   }
   .docs-items ul li {
     width: 100%;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     margin-top: 0.5rem;
   }
   .docs-items ul li a {
     color: #222;
     font-family: var(--monospace);
+    line-break: anywhere;
+  }
+  .docs-items .item_type {
+    display: inline-block;
+    border-width: 1px;
+    border-style: solid;
+    padding: 0.1rem;
+    font-size: 0.8rem;
+    width: 1.1rem;
+    text-align: center;
+    border-radius: 0.25rem;
+  }
+  .docs-items .item_type.Function {
+    color: purple;
+  }
+  .docs-items .item_type.Class {
+    color: green;
   }
   .docs-items ul li a:hover,
   .docs-items ul li a.active {

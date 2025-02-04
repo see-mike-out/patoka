@@ -1,9 +1,9 @@
 export const GetCircuitWriter = {
   type: "Function",
   key: "widgets_getCircuitWriter",
-  title: "widgets.getCircuitWriter",
+  title: "patoka.getCircuitWriter",
   def: {
-    function: "widgets.getCircuitWriter",
+    function: "patoka.getCircuitWriter",
     arguments: [{
       name: "backend",
       type: "BackendV2Type or AerSimulator",
@@ -21,7 +21,7 @@ export const GetCircuitWriter = {
   },
   description: "Calls a <code>CircuitWriter</code> instance.",
   example: [
-    "from patoka.widgets import getCircuitWriter",
+    "from patoka import getCircuitWriter",
     "from qiskit_aer import AerSimulator",
     "writer = getCircuitWriter(backend=AerSimulator())",
     "writer"
@@ -31,9 +31,9 @@ export const GetCircuitWriter = {
 export const CircuitWriter = {
   type: "Class",
   key: "widget_classes_CircuitWriter",
-  title: "widgets_classes.CircuitWriter",
+  title: "patoka.CircuitWriter",
   def: {
-    _class: "widgets_classes.CircuitWriter",
+    _class: "patoka.CircuitWriter",
   },
   anywidget_attributes: [{
     key: "machine",

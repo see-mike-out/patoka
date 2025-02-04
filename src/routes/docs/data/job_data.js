@@ -1,9 +1,9 @@
 export const JobOutputData = {
   type: "Class",
   key: "job_output_data_JobOutputData",
-  title: "job_output_data.JobOutputData",
+  title: "patoka.JobOutputData",
   def: {
-    _class: "job_output_data.JobOutputData",
+    _class: "patoka.JobOutputData",
   },
   methods: [
     {
@@ -32,9 +32,9 @@ export const JobOutputData = {
 }, ProcessJobData = {
   type: "Function",
   key: "process_job_data_processJobData",
-  title: "process_job_data.processJobData",
+  title: "patoka.processJobData",
   def: {
-    function: "process_job_data.processJobData",
+    function: "patoka.processJobData",
     arguments: [{
       name: "service",
       type: "QiskitRuntimeService",
@@ -63,7 +63,7 @@ export const JobOutputData = {
   example: [
     "import os",
     "from qiskit_ibm_runtime import QiskitRuntimeService",
-    "from patoka.process_job_data import processJobData",
+    "from patoka import processJobData",
     "",
     `token = os.environ["ibm_token"]`,
     `QiskitRuntimeService.save_account(channel="ibm_quantum", token=token, overwrite=True)`,
@@ -77,9 +77,9 @@ export const JobOutputData = {
 }, RetrieveJobData = {
   type: "Function",
   key: "retrieve_job_data_retrieveJobData",
-  title: "retrieve_job_data.retrieveJobData",
+  title: "patoka.retrieveJobData",
   def: {
-    function: "retrieve_job_data.retrieveJobData",
+    function: "patoka.retrieveJobData",
     arguments: [{
       name: "job_data",
       type: "JSON",
@@ -97,7 +97,7 @@ export const JobOutputData = {
   description: "Converts a JSON data to JobOitputData.",
   example: [
     "import json",
-    "from patoka.retrieve_job_data import retrieveJobData",
+    "from patoka import retrieveJobData",
     "",
     `with open("job_data_sample.json", "r") as f:`,
     "    job_data = json.load(f)",

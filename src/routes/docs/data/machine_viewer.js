@@ -1,9 +1,9 @@
 export const GetMachineViewer = {
   type: "Function",
   key: "widgets_getMachineViewer",
-  title: "widgets.getMachineViewer",
+  title: "patoka.getMachineViewer",
   def: {
-    function: "widgets.getMachineViewer",
+    function: "patoka.getMachineViewer",
     arguments: [{
       name: "backend",
       type: "[BackendV2Type]",
@@ -26,7 +26,7 @@ export const GetMachineViewer = {
   },
   description: "Calls a <code>MachineViewer</code> instance. To use this, a Qiskit access token must be provided.",
   example: [
-    "from patoka.widgets import getMachineViewer",
+    "from patoka import getMachineViewer",
     "from qiskit_ibm_runtime import QiskitRuntimeService",
     "import os",
     "from datetime import datetime as dt",
@@ -45,9 +45,9 @@ export const GetMachineViewer = {
 export const MachineViewer = {
   type: "Class",
   key: "widget_classes_MachineViewer",
-  title: "widgets_classes.MachineViewer",
+  title: "patoka.MachineViewer",
   def: {
-    _class: "widgets_classes.MachineViewer",
+    _class: "patoka.MachineViewer",
   },
   anywidget_attributes: [{
     key: "machine_data",
