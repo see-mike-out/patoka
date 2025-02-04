@@ -1,4 +1,5 @@
 export const JobOutputData = {
+  type: "Class",
   key: "job_output_data_JobOutputData",
   title: "job_output_data.JobOutputData",
   def: {
@@ -29,10 +30,11 @@ export const JobOutputData = {
     }
   ],
 }, ProcessJobData = {
+  type: "Function",
   key: "process_job_data_processJobData",
   title: "process_job_data.processJobData",
   def: {
-    function: "widgets.processJobData",
+    function: "process_job_data.processJobData",
     arguments: [{
       name: "service",
       type: "QiskitRuntimeService",
@@ -73,10 +75,11 @@ export const JobOutputData = {
     "    f.write(job_data.toJSON())"
   ]
 }, RetrieveJobData = {
+  type: "Function",
   key: "retrieve_job_data_retrieveJobData",
   title: "retrieve_job_data.retrieveJobData",
   def: {
-    function: "widgets.retrieveJobData",
+    function: "retrieve_job_data.retrieveJobData",
     arguments: [{
       name: "job_data",
       type: "JSON",

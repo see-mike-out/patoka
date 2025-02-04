@@ -1,4 +1,5 @@
 export const GetResultViewer = {
+  type: "Function",
   key: "widgets_getResultViewer",
   title: "widgets.getResultViewer",
   def: {
@@ -28,6 +29,7 @@ export const GetResultViewer = {
 };
 
 export const ResultViewer = {
+  type: "Class",
   key: "widget_classes_ResultViewer",
   title: "widgets_classes.ResultViewer",
   def: {

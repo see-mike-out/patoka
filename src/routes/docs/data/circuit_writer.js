@@ -1,4 +1,5 @@
 export const GetCircuitWriter = {
+  type: "Function",
   key: "widgets_getCircuitWriter",
   title: "widgets.getCircuitWriter",
   def: {
@@ -28,6 +29,7 @@ export const GetCircuitWriter = {
 };
 
 export const CircuitWriter = {
+  type: "Class",
   key: "widget_classes_CircuitWriter",
   title: "widgets_classes.CircuitWriter",
   def: {

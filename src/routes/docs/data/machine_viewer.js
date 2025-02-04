@@ -1,4 +1,5 @@
 export const GetMachineViewer = {
+  type: "Function",
   key: "widgets_getMachineViewer",
   title: "widgets.getMachineViewer",
   def: {
@@ -42,6 +43,7 @@ export const GetMachineViewer = {
 };
 
 export const MachineViewer = {
+  type: "Class",
   key: "widget_classes_MachineViewer",
   title: "widgets_classes.MachineViewer",
   def: {

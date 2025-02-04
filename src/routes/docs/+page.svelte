@@ -40,6 +40,7 @@
     {#each docs_data as d}
       <article class={d.key === $curr_item ? "active" : ""} id={d.key}>
         <h3>
+          <span class="_type">{d.type}</span>
           {#if d.def?.function}
             <Function function_def={d.def}></Function>
           {:else if d.def?._class}
@@ -222,6 +223,10 @@
   }
   :global(.docs-contents article a) {
     text-decoration: underline;
+  }
+  h3 ._type {
+    font-size: 0.9rem;
+    color: #999;
   }
   @media screen and (max-width: 600px) {
     .docs {

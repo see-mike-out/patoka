@@ -1,4 +1,5 @@
 export const DevNote = {
+  type: "Note",
   key: "for_developers",
   title: "For developers",
   note: "For developers",

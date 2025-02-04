@@ -1,4 +1,5 @@
 export const GetCircuitViewer = {
+  type: "Function",
   key: "widgets_getCircuitViewer",
   title: "widgets.getCircuitViewer",
   def: {
@@ -46,6 +47,7 @@ export const GetCircuitViewer = {
 };
 
 export const CircuitViewer = {
+  type: "Class",
   key: "widget_classes_CircuitViewer",
   title: "widgets_classes.CircuitViewer",
   def: {
