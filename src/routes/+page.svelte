@@ -33,7 +33,7 @@
   </section>
 
   <section id="highlights">
-    <h3>Feature highlights</h3>
+    <h3>💡 Feature highlights</h3>
     <div class="hilight-list">
       <div class="highlight-block">
         <h4>Circuit Writer</h4>
@@ -87,10 +87,15 @@
     </div>
   </section>
   <section id="paper">
-    <h3>Citation</h3>
+    <h3>📑 Paper</h3>
     <p>
       This work is going to be introduced at ACM CHI 2025 conference. To cite this package, please use the following BibTex entry or plain citation.
     </p>
+    <div>
+      <p>
+        <a href="https://arxiv.org/abs/2502.00202" target="_blank">Preprint</a>
+      </p>
+    </div>
     <div class="citation-box">
       <code>
         <pre>{bibtex}</pre>
@@ -231,6 +236,10 @@
   #paper h3 {
     display: inline-block;
     margin: 0;
+  }
+
+  #paper a {
+    color: orangered;
   }
 
   .citation-box {
