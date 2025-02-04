@@ -61,6 +61,7 @@ export const CircuitViewer = {
 };
 
 export const TransplieParam = {
+  type: "Class",
   key: "transpile_params_TranspileParam",
   title: "patoka.TranspileParam",
   def: {
