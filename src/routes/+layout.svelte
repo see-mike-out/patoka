@@ -24,6 +24,10 @@
 	});
 </script>
 
+<svelte:head>
+	<title>Patoka: Jupyter Notebook widgets for Qiskit</title>
+</svelte:head>
+
 <header class="container">
 	<nav>
 		<h1>
