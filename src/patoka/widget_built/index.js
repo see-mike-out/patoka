@@ -37111,13 +37111,13 @@ function c6(t) {
   for (const y of Object.keys(t))
     e.push({
       original_state_vector: y,
-      number: parseInt(d6(y), 2),
+      number: parseInt(y, 2),
       count: t[y]
     });
   e.sort((y, v) => y.number - v.number);
   let n = 0, a = Ut + R1, r, s, o, _, c = (e == null ? void 0 : e.length) * cl;
   n = c + ol;
-  let d = Math.max(...e.map((y) => y.count)), h = El().domain([0, d]).range([0, Ut]).nice(), p = h.invert(Ut), g = p6(p);
+  let d = Math.max(...e.map((y) => y.count)), h = El().domain([0, d]).range([0, Ut]).nice(), p = h.invert(Ut), g = h6(p);
   s = {
     type: "g",
     id: "natural-number-view-y-axis",
@@ -37302,26 +37302,23 @@ function c6(t) {
     }
   };
 }
-function d6(t) {
-  return t.split("").reverse().join("");
-}
-let h6 = [100, 50, 25, 10, 5, 1];
-function p6(t) {
-  for (let e of h6)
+let d6 = [100, 50, 25, 10, 5, 1];
+function h6(t) {
+  for (let e of d6)
     if (t % e == 0 && t / e > 1)
       return e;
 }
 const Bt = 25, Xt = 25, bl = 50, mr = 200, L1 = 15;
-function m6(t, e) {
+function p6(t, e) {
   var g;
   if (!t)
     return null;
   let l = [], i = (e == null ? void 0 : e.filter_true) !== void 0 ? e == null ? void 0 : e.filter_true : !1;
   for (const b of Object.keys(t)) {
-    let k = b6(b);
+    let k = g6(b);
     i && !k.truth || l.push({
       original_state_vector: b,
-      reversed_state_vector: k6(b),
+      reversed_state_vector: b6(b),
       truth_state: k,
       count: t[b]
     });
@@ -37598,9 +37595,9 @@ function m6(t, e) {
     }
   };
 }
-let g6 = "abcdefghijklmnopqrstiuvxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-function b6(t) {
-  let e = t.split(""), l = e[0] === "1", i = e.slice(1).reverse().map((a, r) => [g6[r], a == "1"]), n = {};
+let m6 = "abcdefghijklmnopqrstiuvxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+function g6(t) {
+  let e = t.split(""), l = e[0] === "1", i = e.slice(1).reverse().map((a, r) => [m6[r], a == "1"]), n = {};
   for (const a of i)
     n[a[0]] = a[1];
   return {
@@ -37608,10 +37605,10 @@ function b6(t) {
     symbols: n
   };
 }
-function k6(t) {
+function b6(t) {
   return t.split("").reverse().join("");
 }
-function v6(t, e) {
+function k6(t, e) {
   let l = [];
   for (const i of Object.keys(t)) {
     let n = i.split(""), a = i == null ? void 0 : i.length, s = { count: t[i], state: i };
@@ -37621,7 +37618,7 @@ function v6(t, e) {
   }
   return l;
 }
-function y6(t, e) {
+function v6(t, e) {
   let l = [], i = {};
   if ((e == null ? void 0 : e.length) == 0)
     return {
@@ -37707,7 +37704,7 @@ function c0(t, e) {
     }
   };
 }
-function w6(t, e) {
+function y6(t, e) {
   var y;
   if (!t)
     return;
@@ -37735,7 +37732,7 @@ function w6(t, e) {
   }, k = c0(b, e);
   return k.data = b, k;
 }
-function $6(t, e) {
+function w6(t, e) {
   var v;
   if (!t)
     return;
@@ -38075,7 +38072,7 @@ function Y1(t) {
     }
   };
 }
-function q6(t) {
+function $6(t) {
   let e;
   return {
     c() {
@@ -38090,7 +38087,7 @@ function q6(t) {
     }
   };
 }
-function j6(t) {
+function q6(t) {
   let e;
   return {
     c() {
@@ -38110,7 +38107,7 @@ function j6(t) {
     }
   };
 }
-function T6(t) {
+function j6(t) {
   var _;
   let e, l, i, n, a = (
     /*$drawPlan*/
@@ -38119,7 +38116,7 @@ function T6(t) {
   function r(c, d) {
     return (
       /*showTooltip*/
-      c[2] ? j6 : q6
+      c[2] ? q6 : $6
     );
   }
   let s = r(t), o = s(t);
@@ -38149,7 +38146,7 @@ function T6(t) {
     }
   };
 }
-function C6(t, e, l) {
+function T6(t, e, l) {
   let i, n = ne, a = () => (n(), n = st(r, (k) => l(4, i = k)), r);
   t.$$.on_destroy.push(() => n());
   let { drawPlan: r = Oe(), id: s = "natural-number-view" } = e;
@@ -38179,9 +38176,9 @@ function C6(t, e, l) {
     b
   ];
 }
-class S6 extends Ve {
+class C6 extends Ve {
   constructor(e) {
-    super(), Qe(this, e, C6, T6, Fe, { drawPlan: 0, id: 1 });
+    super(), Qe(this, e, T6, j6, Fe, { drawPlan: 0, id: 1 });
   }
 }
 function K1(t) {
@@ -38399,7 +38396,7 @@ function J1(t) {
     }
   };
 }
-function M6(t) {
+function S6(t) {
   let e;
   return {
     c() {
@@ -38414,7 +38411,7 @@ function M6(t) {
     }
   };
 }
-function z6(t) {
+function M6(t) {
   let e;
   return {
     c() {
@@ -38434,7 +38431,7 @@ function z6(t) {
     }
   };
 }
-function N6(t) {
+function z6(t) {
   var _;
   let e, l, i, n, a = (
     /*$drawPlan*/
@@ -38443,7 +38440,7 @@ function N6(t) {
   function r(c, d) {
     return (
       /*showTooltip*/
-      c[2] ? z6 : M6
+      c[2] ? M6 : S6
     );
   }
   let s = r(t), o = s(t);
@@ -38473,7 +38470,7 @@ function N6(t) {
     }
   };
 }
-function A6(t, e, l) {
+function N6(t, e, l) {
   let i, n = ne, a = () => (n(), n = st(r, (b) => l(4, i = b)), r);
   t.$$.on_destroy.push(() => n());
   let { drawPlan: r = Oe(), id: s = "natural-number-view" } = e;
@@ -38501,9 +38498,9 @@ function A6(t, e, l) {
     g
   ];
 }
-class B6 extends Ve {
+class A6 extends Ve {
   constructor(e) {
-    super(), Qe(this, e, A6, N6, Fe, { drawPlan: 0, id: 1 });
+    super(), Qe(this, e, N6, z6, Fe, { drawPlan: 0, id: 1 });
   }
 }
 function Z1(t, e, l) {
@@ -38730,7 +38727,7 @@ function ap(t) {
     }
   };
 }
-function P6(t) {
+function B6(t) {
   let e = (
     /*row*/
     t[17].state + ""
@@ -38752,6 +38749,21 @@ function P6(t) {
     }
   };
 }
+function P6(t) {
+  let e;
+  return {
+    c() {
+      e = E("-");
+    },
+    m(l, i) {
+      S(l, e, i);
+    },
+    p: ne,
+    d(l) {
+      l && C(e);
+    }
+  };
+}
 function O6(t) {
   let e;
   return {
@@ -38768,21 +38780,6 @@ function O6(t) {
   };
 }
 function E6(t) {
-  let e;
-  return {
-    c() {
-      e = E("-");
-    },
-    m(l, i) {
-      S(l, e, i);
-    },
-    p: ne,
-    d(l) {
-      l && C(e);
-    }
-  };
-}
-function I6(t) {
   let e = (
     /*row*/
     t[17][
@@ -38810,7 +38807,7 @@ function I6(t) {
     }
   };
 }
-function D6(t) {
+function I6(t) {
   let e = (
     /*row*/
     t[17][
@@ -38848,9 +38845,9 @@ function rp(t) {
     r[6].includes(
       /*bit*/
       r[21]
-    ))), l ? D6 : (
+    ))), l ? I6 : (
       /*$pivot_set*/
-      ((_ = r[6]) == null ? void 0 : _.length) == 0 ? I6 : E6
+      ((_ = r[6]) == null ? void 0 : _.length) == 0 ? E6 : O6
     );
   }
   let n = i(t, -1), a = n(t);
@@ -38878,7 +38875,7 @@ function sp(t) {
     var k;
     return (
       /*$pivot_set*/
-      ((k = g[6]) == null ? void 0 : k.length) > 0 ? O6 : P6
+      ((k = g[6]) == null ? void 0 : k.length) > 0 ? P6 : B6
     );
   }
   let c = _(t), d = c(t), h = $e(
@@ -38964,7 +38961,7 @@ function op(t) {
     }
   };
 }
-function R6(t) {
+function D6(t) {
   let e, l = (
     /*$data_to_show*/
     t[3] && ip(t)
@@ -38987,7 +38984,7 @@ function R6(t) {
     }
   };
 }
-function H6(t, e, l) {
+function R6(t, e, l) {
   let i, n = ne, a = () => (n(), n = st(g, (A) => l(15, i = A)), g), r, s = ne, o = () => (s(), s = st(k, (A) => l(16, r = A)), k), _, c, d, h, p;
   t.$$.on_destroy.push(() => n()), t.$$.on_destroy.push(() => s());
   let { drawPlan: g = Oe(), id: b = "pivot-table-view", problem_type: k = Oe() } = e;
@@ -39004,7 +39001,7 @@ function H6(t, e, l) {
       }
     }), w.subscribe((A) => {
       if (r === "pivot_table") {
-        let { data: M, sub_total: z } = y6(i, A);
+        let { data: M, sub_total: z } = v6(i, A);
         y.set(M), $.set(z);
       }
     });
@@ -39036,9 +39033,9 @@ function H6(t, e, l) {
     I
   ];
 }
-class L6 extends Ve {
+class H6 extends Ve {
   constructor(e) {
-    super(), Qe(this, e, H6, R6, Fe, { drawPlan: 0, id: 1, problem_type: 2 });
+    super(), Qe(this, e, R6, D6, Fe, { drawPlan: 0, id: 1, problem_type: 2 });
   }
 }
 function up(t) {
@@ -39131,7 +39128,7 @@ function fp(t) {
     }
   };
 }
-function F6(t) {
+function L6(t) {
   var n;
   let e, l, i = (
     /*$drawPlan*/
@@ -39163,7 +39160,7 @@ function F6(t) {
     }
   };
 }
-function Q6(t, e, l) {
+function F6(t, e, l) {
   let i, n = ne, a = () => (n(), n = st(r, (_) => l(2, i = _)), r);
   t.$$.on_destroy.push(() => n());
   let { drawPlan: r = Oe(), id: s = "image-view", problem_type: o = Oe() } = e;
@@ -39173,9 +39170,9 @@ function Q6(t, e, l) {
     "drawPlan" in _ && a(l(0, r = _.drawPlan)), "id" in _ && l(1, s = _.id), "problem_type" in _ && l(3, o = _.problem_type);
   }, [r, s, i, o];
 }
-class V6 extends Ve {
+class Q6 extends Ve {
   constructor(e) {
-    super(), Qe(this, e, Q6, F6, Fe, { drawPlan: 0, id: 1, problem_type: 3 });
+    super(), Qe(this, e, F6, L6, Fe, { drawPlan: 0, id: 1, problem_type: 3 });
   }
 }
 function _p(t, e, l) {
@@ -39266,13 +39263,13 @@ function hp(t) {
       /*$problem_type*/
       v[5] === "truth_table"
     )
-      return G6;
+      return X6;
     if (
       /*$problem_type*/
       v[5] === "image_1d" || /*$problem_type*/
       v[5] === "image_3d"
     )
-      return X6;
+      return V6;
   }
   let b = g(t), k = b && b(t), y = (
     /*$drawPlan*/
@@ -39352,7 +39349,7 @@ function pp(t) {
     }
   };
 }
-function X6(t) {
+function V6(t) {
   let e, l, i, n, a, r, s, o, _, c, d, h, p, g, b, k, y, v, w, q, $, j, I, A, M, z, H, B = (
     /*$problem_type*/
     (t[5] === "image_3d" || /*$problem_type*/
@@ -39414,13 +39411,13 @@ function X6(t) {
     }
   };
 }
-function G6(t) {
+function X6(t) {
   let e, l, i, n, a, r, s;
   function o(d, h) {
     var p;
     return (
       /*$config*/
-      (p = d[4]) != null && p.filter_true ? K6 : Y6
+      (p = d[4]) != null && p.filter_true ? Y6 : G6
     );
   }
   let _ = o(t), c = _(t);
@@ -39483,7 +39480,7 @@ function mp(t) {
     }
   };
 }
-function Y6(t) {
+function G6(t) {
   let e;
   return {
     c() {
@@ -39497,7 +39494,7 @@ function Y6(t) {
     }
   };
 }
-function K6(t) {
+function Y6(t) {
   let e;
   return {
     c() {
@@ -39513,7 +39510,7 @@ function K6(t) {
 }
 function gp(t) {
   let e, l, i, n;
-  const a = [Z6, J6, W6, U6], r = [];
+  const a = [J6, W6, U6, K6], r = [];
   function s(o, _) {
     return (
       /*$problem_type*/
@@ -39554,9 +39551,50 @@ function gp(t) {
     }
   };
 }
+function K6(t) {
+  let e, l;
+  return e = new Q6({
+    props: {
+      drawPlan: (
+        /*drawPlan*/
+        t[10]
+      ),
+      id: (
+        /*id*/
+        t[2]
+      ),
+      problem_type: (
+        /*problem_type*/
+        t[11]
+      )
+    }
+  }), {
+    c() {
+      pe(e.$$.fragment);
+    },
+    m(i, n) {
+      de(e, i, n), l = !0;
+    },
+    p(i, n) {
+      const a = {};
+      n[0] & /*id*/
+      4 && (a.id = /*id*/
+      i[2]), e.$set(a);
+    },
+    i(i) {
+      l || (T(e.$$.fragment, i), l = !0);
+    },
+    o(i) {
+      D(e.$$.fragment, i), l = !1;
+    },
+    d(i) {
+      he(e, i);
+    }
+  };
+}
 function U6(t) {
   let e, l;
-  return e = new V6({
+  return e = new H6({
     props: {
       drawPlan: (
         /*drawPlan*/
@@ -39597,7 +39635,7 @@ function U6(t) {
 }
 function W6(t) {
   let e, l;
-  return e = new L6({
+  return e = new A6({
     props: {
       drawPlan: (
         /*drawPlan*/
@@ -39638,7 +39676,7 @@ function W6(t) {
 }
 function J6(t) {
   let e, l;
-  return e = new B6({
+  return e = new C6({
     props: {
       drawPlan: (
         /*drawPlan*/
@@ -39678,47 +39716,6 @@ function J6(t) {
   };
 }
 function Z6(t) {
-  let e, l;
-  return e = new S6({
-    props: {
-      drawPlan: (
-        /*drawPlan*/
-        t[10]
-      ),
-      id: (
-        /*id*/
-        t[2]
-      ),
-      problem_type: (
-        /*problem_type*/
-        t[11]
-      )
-    }
-  }), {
-    c() {
-      pe(e.$$.fragment);
-    },
-    m(i, n) {
-      de(e, i, n), l = !0;
-    },
-    p(i, n) {
-      const a = {};
-      n[0] & /*id*/
-      4 && (a.id = /*id*/
-      i[2]), e.$set(a);
-    },
-    i(i) {
-      l || (T(e.$$.fragment, i), l = !0);
-    },
-    o(i) {
-      D(e.$$.fragment, i), l = !1;
-    },
-    d(i) {
-      he(e, i);
-    }
-  };
-}
-function x6(t) {
   let e, l, i = (
     /*$data*/
     t[6] && cp(t)
@@ -39748,7 +39745,7 @@ function x6(t) {
     }
   };
 }
-function e8(t, e, l) {
+function x6(t, e, l) {
   let i, n = ne, a = () => (n(), n = st(p, (P) => l(4, i = P)), p), r, s, o = ne, _ = () => (o(), o = st(h, (P) => l(6, s = P)), h), c, d;
   t.$$.on_destroy.push(() => n()), t.$$.on_destroy.push(() => o());
   let { data: h = Oe(), config: p = Oe({}), id: g = "problem-view" } = e;
@@ -39760,7 +39757,7 @@ function e8(t, e, l) {
   let y = Oe("image_1d");
   at(t, y, (P) => l(5, r = P));
   function v(P, O, F) {
-    delete w[g], O === "natural_number" ? k.set(c6(P)) : O === "truth_table" ? k.set(m6(P, F)) : O === "pivot_table" ? k.set(v6(P)) : O === "image_1d" ? k.set(w6(P, F)) : O === "image_3d" && k.set($6(P, F));
+    delete w[g], O === "natural_number" ? k.set(c6(P)) : O === "truth_table" ? k.set(p6(P, F)) : O === "pivot_table" ? k.set(k6(P)) : O === "image_1d" ? k.set(y6(P, F)) : O === "image_3d" && k.set(w6(P, F));
   }
   Tt(() => {
     s.n_shots && p.update((P) => (P.n_shots = s.n_shots, P)), y.subscribe((P) => {
@@ -39819,9 +39816,9 @@ function e8(t, e, l) {
     R
   ];
 }
-class t8 extends Ve {
+class e8 extends Ve {
   constructor(e) {
-    super(), Qe(this, e, e8, x6, Fe, { data: 0, config: 1, id: 2 }, null, [-1, -1]);
+    super(), Qe(this, e, x6, Z6, Fe, { data: 0, config: 1, id: 2 }, null, [-1, -1]);
   }
 }
 function bp(t, e, l) {
@@ -39866,7 +39863,7 @@ function vp(t) {
     var p;
     return (
       /*$config*/
-      (p = d[4]) != null && p.filter_used ? i8 : l8
+      (p = d[4]) != null && p.filter_used ? l8 : t8
     );
   }
   let _ = o(t), c = _(t);
@@ -39895,7 +39892,7 @@ function vp(t) {
     }
   };
 }
-function l8(t) {
+function t8(t) {
   let e;
   return {
     c() {
@@ -39909,7 +39906,7 @@ function l8(t) {
     }
   };
 }
-function i8(t) {
+function l8(t) {
   let e;
   return {
     c() {
@@ -39951,119 +39948,119 @@ function wp(t) {
   function K(ze, lt) {
     return (
       /*sort_reg*/
-      ze[1].index !== "a" ? a8 : n8
+      ze[1].index !== "a" ? n8 : i8
     );
   }
   let Y = K(t), W = Y(t);
   function J(ze, lt) {
     return (
       /*sort_reg*/
-      ze[1].T1 !== "a" ? s8 : r8
+      ze[1].T1 !== "a" ? r8 : a8
     );
   }
   let ee = J(t), we = ee(t);
   function Re(ze, lt) {
     return (
       /*sort_reg*/
-      ze[1].T1d !== "a" ? u8 : o8
+      ze[1].T1d !== "a" ? o8 : s8
     );
   }
   let ve = Re(t), me = ve(t);
   function fe(ze, lt) {
     return (
       /*sort_reg*/
-      ze[1].T2 !== "a" ? _8 : f8
+      ze[1].T2 !== "a" ? f8 : u8
     );
   }
   let G = fe(t), ye = G(t);
   function ue(ze, lt) {
     return (
       /*sort_reg*/
-      ze[1].T2d !== "a" ? d8 : c8
+      ze[1].T2d !== "a" ? c8 : _8
     );
   }
   let le = ue(t), oe = le(t);
   function x(ze, lt) {
     return (
       /*sort_reg*/
-      ze[1].anharmonicity !== "a" ? p8 : h8
+      ze[1].anharmonicity !== "a" ? h8 : d8
     );
   }
   let ge = x(t), re = ge(t);
   function Ie(ze, lt) {
     return (
       /*sort_reg*/
-      ze[1].anharmonicityd !== "a" ? g8 : m8
+      ze[1].anharmonicityd !== "a" ? m8 : p8
     );
   }
   let je = Ie(t), _e = je(t);
   function Ee(ze, lt) {
     return (
       /*sort_reg*/
-      ze[1].frequency !== "a" ? k8 : b8
+      ze[1].frequency !== "a" ? b8 : g8
     );
   }
   let ie = Ee(t), Te = ie(t);
   function Ue(ze, lt) {
     return (
       /*sort_reg*/
-      ze[1].frequencyd !== "a" ? y8 : v8
+      ze[1].frequencyd !== "a" ? v8 : k8
     );
   }
   let Ke = Ue(t), We = Ke(t);
   function vt(ze, lt) {
     return (
       /*sort_reg*/
-      ze[1].prob_meas0_prep1 !== "a" ? $8 : w8
+      ze[1].prob_meas0_prep1 !== "a" ? w8 : y8
     );
   }
   let qt = vt(t), rt = qt(t);
   function mt(ze, lt) {
     return (
       /*sort_reg*/
-      ze[1].prob_meas0_prep1d !== "a" ? j8 : q8
+      ze[1].prob_meas0_prep1d !== "a" ? q8 : $8
     );
   }
   let Rt = mt(t), ot = Rt(t);
   function ut(ze, lt) {
     return (
       /*sort_reg*/
-      ze[1].prob_meas1_prep0 !== "a" ? C8 : T8
+      ze[1].prob_meas1_prep0 !== "a" ? T8 : j8
     );
   }
   let Ce = ut(t), ce = Ce(t);
   function Be(ze, lt) {
     return (
       /*sort_reg*/
-      ze[1].prob_meas1_prep0d !== "a" ? M8 : S8
+      ze[1].prob_meas1_prep0d !== "a" ? S8 : C8
     );
   }
   let Le = Be(t), Pe = Le(t);
   function Je(ze, lt) {
     return (
       /*sort_reg*/
-      ze[1].readout_error !== "a" ? N8 : z8
+      ze[1].readout_error !== "a" ? z8 : M8
     );
   }
   let Xe = Je(t), He = Xe(t);
   function Ze(ze, lt) {
     return (
       /*sort_reg*/
-      ze[1].readout_errord !== "a" ? B8 : A8
+      ze[1].readout_errord !== "a" ? A8 : N8
     );
   }
   let _t = Ze(t), Ct = _t(t);
   function tl(ze, lt) {
     return (
       /*sort_reg*/
-      ze[1].readout_length !== "a" ? O8 : P8
+      ze[1].readout_length !== "a" ? P8 : B8
     );
   }
   let jt = tl(t), ft = jt(t);
   function Lt(ze, lt) {
     return (
       /*sort_reg*/
-      ze[1].readout_lengthd !== "a" ? I8 : E8
+      ze[1].readout_lengthd !== "a" ? E8 : O8
     );
   }
   let It = Lt(t), gt = It(t), Dt = $e(
@@ -40106,7 +40103,7 @@ function wp(t) {
     }
   };
 }
-function n8(t) {
+function i8(t) {
   let e, l, i;
   return {
     c() {
@@ -40126,7 +40123,7 @@ function n8(t) {
     }
   };
 }
-function a8(t) {
+function n8(t) {
   let e, l, i;
   return {
     c() {
@@ -40146,7 +40143,7 @@ function a8(t) {
     }
   };
 }
-function r8(t) {
+function a8(t) {
   let e, l, i;
   return {
     c() {
@@ -40166,7 +40163,7 @@ function r8(t) {
     }
   };
 }
-function s8(t) {
+function r8(t) {
   let e, l, i;
   return {
     c() {
@@ -40186,7 +40183,7 @@ function s8(t) {
     }
   };
 }
-function o8(t) {
+function s8(t) {
   let e, l, i;
   return {
     c() {
@@ -40206,7 +40203,7 @@ function o8(t) {
     }
   };
 }
-function u8(t) {
+function o8(t) {
   let e, l, i;
   return {
     c() {
@@ -40226,7 +40223,7 @@ function u8(t) {
     }
   };
 }
-function f8(t) {
+function u8(t) {
   let e, l, i;
   return {
     c() {
@@ -40246,7 +40243,7 @@ function f8(t) {
     }
   };
 }
-function _8(t) {
+function f8(t) {
   let e, l, i;
   return {
     c() {
@@ -40266,7 +40263,7 @@ function _8(t) {
     }
   };
 }
-function c8(t) {
+function _8(t) {
   let e, l, i;
   return {
     c() {
@@ -40286,7 +40283,7 @@ function c8(t) {
     }
   };
 }
-function d8(t) {
+function c8(t) {
   let e, l, i;
   return {
     c() {
@@ -40306,7 +40303,7 @@ function d8(t) {
     }
   };
 }
-function h8(t) {
+function d8(t) {
   let e, l, i;
   return {
     c() {
@@ -40326,7 +40323,7 @@ function h8(t) {
     }
   };
 }
-function p8(t) {
+function h8(t) {
   let e, l, i;
   return {
     c() {
@@ -40346,7 +40343,7 @@ function p8(t) {
     }
   };
 }
-function m8(t) {
+function p8(t) {
   let e, l, i;
   return {
     c() {
@@ -40366,7 +40363,7 @@ function m8(t) {
     }
   };
 }
-function g8(t) {
+function m8(t) {
   let e, l, i;
   return {
     c() {
@@ -40386,7 +40383,7 @@ function g8(t) {
     }
   };
 }
-function b8(t) {
+function g8(t) {
   let e, l, i;
   return {
     c() {
@@ -40406,7 +40403,7 @@ function b8(t) {
     }
   };
 }
-function k8(t) {
+function b8(t) {
   let e, l, i;
   return {
     c() {
@@ -40426,7 +40423,7 @@ function k8(t) {
     }
   };
 }
-function v8(t) {
+function k8(t) {
   let e, l, i;
   return {
     c() {
@@ -40446,7 +40443,7 @@ function v8(t) {
     }
   };
 }
-function y8(t) {
+function v8(t) {
   let e, l, i;
   return {
     c() {
@@ -40466,7 +40463,7 @@ function y8(t) {
     }
   };
 }
-function w8(t) {
+function y8(t) {
   let e, l, i;
   return {
     c() {
@@ -40486,7 +40483,7 @@ function w8(t) {
     }
   };
 }
-function $8(t) {
+function w8(t) {
   let e, l, i;
   return {
     c() {
@@ -40506,7 +40503,7 @@ function $8(t) {
     }
   };
 }
-function q8(t) {
+function $8(t) {
   let e, l, i;
   return {
     c() {
@@ -40526,7 +40523,7 @@ function q8(t) {
     }
   };
 }
-function j8(t) {
+function q8(t) {
   let e, l, i;
   return {
     c() {
@@ -40546,7 +40543,7 @@ function j8(t) {
     }
   };
 }
-function T8(t) {
+function j8(t) {
   let e, l, i;
   return {
     c() {
@@ -40566,7 +40563,7 @@ function T8(t) {
     }
   };
 }
-function C8(t) {
+function T8(t) {
   let e, l, i;
   return {
     c() {
@@ -40586,7 +40583,7 @@ function C8(t) {
     }
   };
 }
-function S8(t) {
+function C8(t) {
   let e, l, i;
   return {
     c() {
@@ -40606,7 +40603,7 @@ function S8(t) {
     }
   };
 }
-function M8(t) {
+function S8(t) {
   let e, l, i;
   return {
     c() {
@@ -40626,7 +40623,7 @@ function M8(t) {
     }
   };
 }
-function z8(t) {
+function M8(t) {
   let e, l, i;
   return {
     c() {
@@ -40646,7 +40643,7 @@ function z8(t) {
     }
   };
 }
-function N8(t) {
+function z8(t) {
   let e, l, i;
   return {
     c() {
@@ -40666,7 +40663,7 @@ function N8(t) {
     }
   };
 }
-function A8(t) {
+function N8(t) {
   let e, l, i;
   return {
     c() {
@@ -40686,7 +40683,7 @@ function A8(t) {
     }
   };
 }
-function B8(t) {
+function A8(t) {
   let e, l, i;
   return {
     c() {
@@ -40706,7 +40703,7 @@ function B8(t) {
     }
   };
 }
-function P8(t) {
+function B8(t) {
   let e, l, i;
   return {
     c() {
@@ -40726,7 +40723,7 @@ function P8(t) {
     }
   };
 }
-function O8(t) {
+function P8(t) {
   let e, l, i;
   return {
     c() {
@@ -40746,7 +40743,7 @@ function O8(t) {
     }
   };
 }
-function E8(t) {
+function O8(t) {
   let e, l, i;
   return {
     c() {
@@ -40766,7 +40763,7 @@ function E8(t) {
     }
   };
 }
-function I8(t) {
+function E8(t) {
   let e, l, i;
   return {
     c() {
@@ -40918,7 +40915,7 @@ function qp(t) {
     }
   };
 }
-function D8(t) {
+function I8(t) {
   let e, l = (
     /*$data*/
     t[2] && kp(t)
@@ -40941,7 +40938,7 @@ function D8(t) {
     }
   };
 }
-function R8(t, e, l) {
+function D8(t, e, l) {
   let i, n = ne, a = () => (n(), n = st(o, (G) => l(2, i = G)), o), r, s;
   t.$$.on_destroy.push(() => n());
   let { data: o = Oe() } = e;
@@ -41089,9 +41086,9 @@ function R8(t, e, l) {
     fe
   ];
 }
-class H8 extends Ve {
+class R8 extends Ve {
   constructor(e) {
-    super(), Qe(this, e, R8, D8, Fe, { data: 0 }, null, [-1, -1]);
+    super(), Qe(this, e, D8, I8, Fe, { data: 0 }, null, [-1, -1]);
   }
 }
 function jp(t, e, l) {
@@ -41111,7 +41108,7 @@ function Sp(t) {
     /*$hide1*/
     t[4] ? "Show" : "Hide"
   ), r, s, o, _, c, d = !/*hide1*/
-  t[7] && L8(t);
+  t[7] && H8(t);
   return {
     c() {
       e = m("article"), l = m("h4"), i = E(`Physical qubit properties
@@ -41136,7 +41133,7 @@ function Sp(t) {
     }
   };
 }
-function L8(t) {
+function H8(t) {
   var P;
   let e, l, i, n, a, r, s, o, _, c, d, h, p, g, b, k, y, v, w, q, $, j, I, A, M = $e(
     /*gates*/
@@ -41475,7 +41472,7 @@ function Bp(t) {
     }
   };
 }
-function F8(t) {
+function L8(t) {
   let e, l = (
     /*$data*/
     t[3] && Sp(t)
@@ -41498,7 +41495,7 @@ function F8(t) {
     }
   };
 }
-function Q8(t, e, l) {
+function F8(t, e, l) {
   let i, n = ne, a = () => (n(), n = st(o, ($) => l(3, i = $)), o), r, s;
   t.$$.on_destroy.push(() => n());
   let { data: o = Oe() } = e;
@@ -41542,9 +41539,9 @@ function Q8(t, e, l) {
     q
   ];
 }
-class V8 extends Ve {
+class Q8 extends Ve {
   constructor(e) {
-    super(), Qe(this, e, Q8, F8, Fe, { data: 0 });
+    super(), Qe(this, e, F8, L8, Fe, { data: 0 });
   }
 }
 function Pp(t) {
@@ -41610,7 +41607,7 @@ function Ep(t) {
     var _;
     return (
       /*$data*/
-      ((_ = s[1].backend_properties.faulty_gates) == null ? void 0 : _.length) == 0 ? G8 : X8
+      ((_ = s[1].backend_properties.faulty_gates) == null ? void 0 : _.length) == 0 ? X8 : V8
     );
   }
   let a = n(t), r = a(t);
@@ -41629,7 +41626,7 @@ function Ep(t) {
     }
   };
 }
-function X8(t) {
+function V8(t) {
   let e = (
     /*$data*/
     t[1].backend_properties.faulty_gates.map(Dp).join(", ") + ""
@@ -41651,7 +41648,7 @@ function X8(t) {
     }
   };
 }
-function G8(t) {
+function X8(t) {
   let e;
   return {
     c() {
@@ -41672,7 +41669,7 @@ function Ip(t) {
     var _;
     return (
       /*$data*/
-      ((_ = s[1].backend_properties.faulty_qubits) == null ? void 0 : _.length) == 0 ? K8 : Y8
+      ((_ = s[1].backend_properties.faulty_qubits) == null ? void 0 : _.length) == 0 ? Y8 : G8
     );
   }
   let a = n(t), r = a(t);
@@ -41691,7 +41688,7 @@ function Ip(t) {
     }
   };
 }
-function Y8(t) {
+function G8(t) {
   let e = (
     /*$data*/
     t[1].backend_properties.faulty_qubits.join(", ") + ""
@@ -41713,7 +41710,7 @@ function Y8(t) {
     }
   };
 }
-function K8(t) {
+function Y8(t) {
   let e;
   return {
     c() {
@@ -41728,7 +41725,7 @@ function K8(t) {
     }
   };
 }
-function U8(t) {
+function K8(t) {
   let e, l = (
     /*$data*/
     t[1] && Pp(t)
@@ -41752,7 +41749,7 @@ function U8(t) {
   };
 }
 const Dp = (t) => t.gate + " (" + t.qubits.join(", ") + ")";
-function W8(t, e, l) {
+function U8(t, e, l) {
   let i, n = ne, a = () => (n(), n = st(s, (c) => l(1, i = c)), s), r;
   t.$$.on_destroy.push(() => n());
   let { data: s = Oe() } = e;
@@ -41765,9 +41762,9 @@ function W8(t, e, l) {
     "data" in c && a(l(0, s = c.data));
   }, [s, i, r, o, _];
 }
-class J8 extends Ve {
+class W8 extends Ve {
   constructor(e) {
-    super(), Qe(this, e, W8, U8, Fe, { data: 0 });
+    super(), Qe(this, e, U8, K8, Fe, { data: 0 });
   }
 }
 function Rp(t, e, l) {
@@ -42497,7 +42494,7 @@ function xp(t) {
     }
   };
 }
-function Z8(t) {
+function J8(t) {
   let e, l, i = (
     /*$data*/
     t[16] && Qp(t)
@@ -42529,7 +42526,7 @@ function Z8(t) {
 }
 let Ha = 45, h0 = 15, Gi = 20;
 const em = (t, e) => t - e;
-function x8(t, e, l) {
+function Z8(t, e, l) {
   let i, n = ne, a = () => (n(), n = st(_, (ve) => l(16, i = ve)), _), r, s, o;
   t.$$.on_destroy.push(() => n());
   let { data: _ = Oe() } = e;
@@ -42660,9 +42657,9 @@ function x8(t, e, l) {
     Re
   ];
 }
-class e7 extends Ve {
+class x8 extends Ve {
   constructor(e) {
-    super(), Qe(this, e, x8, Z8, Fe, { data: 0 }, null, [-1, -1]);
+    super(), Qe(this, e, Z8, J8, Fe, { data: 0 }, null, [-1, -1]);
   }
 }
 function tm(t) {
@@ -42673,7 +42670,7 @@ function tm(t) {
   ) } }), s = new i6({ props: { data: (
     /*data*/
     t[1]
-  ) } }), _ = new t8({ props: { data: (
+  ) } }), _ = new e8({ props: { data: (
     /*data*/
     t[1]
   ) } }), d = new $1({
@@ -42753,19 +42750,19 @@ function tm(t) {
         )
       }
     }
-  }), b = new e7({ props: { data: (
+  }), b = new x8({ props: { data: (
     /*data*/
     t[1]
   ) } }), y = new f6({ props: { data: (
     /*data*/
     t[1]
-  ) } }), w = new H8({ props: { data: (
+  ) } }), w = new R8({ props: { data: (
     /*data*/
     t[1]
-  ) } }), $ = new V8({ props: { data: (
+  ) } }), $ = new Q8({ props: { data: (
     /*data*/
     t[1]
-  ) } }), I = new J8({ props: { data: (
+  ) } }), I = new W8({ props: { data: (
     /*data*/
     t[1]
   ) } }), {
@@ -42855,7 +42852,7 @@ function tm(t) {
     }
   };
 }
-function t7(t) {
+function e7(t) {
   let e, l, i = (
     /*$data*/
     t[0] && tm(t)
@@ -42885,7 +42882,7 @@ function t7(t) {
     }
   };
 }
-function l7(t, e, l) {
+function t7(t, e, l) {
   let i, { model: n } = e, { key_data: a = "data", key_update: r = "data_update" } = e, s = JSON.parse(n.get(a)), o = `change:${r}`, _ = () => {
     let d = JSON.parse(n.get(r));
     console.log(d), c.update((h) => (d.set && Object.keys(d.set).forEach((p) => {
@@ -42913,12 +42910,12 @@ function l7(t, e, l) {
     "model" in d && l(2, n = d.model), "key_data" in d && l(3, a = d.key_data), "key_update" in d && l(4, r = d.key_update);
   }, [i, c, n, a, r];
 }
-class i7 extends Ve {
+class l7 extends Ve {
   constructor(e) {
-    super(), Qe(this, e, l7, t7, Fe, { model: 2, key_data: 3, key_update: 4 });
+    super(), Qe(this, e, t7, e7, Fe, { model: 2, key_data: 3, key_update: 4 });
   }
 }
-function s7({ model: t, el: e }) {
+function r7({ model: t, el: e }) {
   if (t.get("mode") === "view") {
     let l = new kw({ target: e, props: { model: t } });
     return () => l.$destroy();
@@ -42929,7 +42926,7 @@ function s7({ model: t, el: e }) {
     let l = new e$({ target: e, props: { model: t } });
     return () => l.$destroy();
   } else if (t.get("mode") === "result") {
-    let l = new i7({ target: e, props: { model: t } });
+    let l = new l7({ target: e, props: { model: t } });
     return () => l.$destroy();
   } else if (t.get("mode") === "uncertainty") {
     let l = new L$({ target: e, props: { model: t } });
@@ -42937,5 +42934,5 @@ function s7({ model: t, el: e }) {
   }
 }
 export {
-  s7 as render
+  r7 as render
 };
