@@ -23,7 +23,7 @@ export function parseNaturalNumberProblem(counts) {
   for (const p of Object.keys(counts)) {
     new_counts.push({
       original_state_vector: p,
-      number: parseInt(reverse_string(p), 2),
+      number: parseInt(p, 2),
       count: counts[p]
     });
   }
