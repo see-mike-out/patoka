@@ -99,14 +99,14 @@
       <button
         class="save-make"
         on:click={(e) => {
-          getSVGimageLink("problem-number", images_loader);
+          getSVGimageLink(id, images_loader);
         }}>Image</button
       >
-      {#if images["problem-number"]}
-        <a class="save-download" href={images["problem-number"].png} download
+      {#if images[id]}
+        <a class="save-download" href={images[id].png} download
           >PNG</a
         >
-        <a class="save-download" href={images["problem-number"].svg} download
+        <a class="save-download" href={images[id].svg} download
           >SVG</a
         >
       {/if}
@@ -283,12 +283,6 @@
 
   :global(.g-tooltip .item) {
     display: block;
-  }
-
-  .note {
-    font-size: 0.8rem;
-    color: #999;
-    margin: 0.5rem;
   }
 
   .save-make,
