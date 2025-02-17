@@ -337,20 +337,23 @@
             </h5>
 
             <table>
-              <tr>
-                <th>Value</th><td> {tooltipInfo.value.value}</td>
-              </tr>
-              <tr>
-                <th>Date</th><td> {tooltipInfo.value.asof}</td>
-              </tr>
-              {#if tooltipInfo.value.unit}
+              <tbody>
                 <tr>
-                  <th>Unit</th><td> {tooltipInfo.value.unit}</td>
+                  <th>Value</th><td> {tooltipInfo.value.value}</td>
                 </tr>
-              {/if}
+                <tr>
+                  <th>Date</th><td> {tooltipInfo.value.asof}</td>
+                </tr>
+                {#if tooltipInfo.value.unit}
+                  <tr>
+                    <th>Unit</th><td> {tooltipInfo.value.unit}</td>
+                  </tr>
+                {/if}
+              </tbody>
             </table>
 
             <div style="text-align: right;">
+              <!-- svelte-ignore a11y_consider_explicit_label -->
               <button
                 class="close"
                 on:click={() => {
