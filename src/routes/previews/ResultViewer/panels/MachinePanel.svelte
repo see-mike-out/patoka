@@ -337,19 +337,17 @@
             </h5>
 
             <table>
-              <tbody>
+              <tr>
+                <th>Value</th><td> {tooltipInfo.value.value}</td>
+              </tr>
+              <tr>
+                <th>Date</th><td> {tooltipInfo.value.asof}</td>
+              </tr>
+              {#if tooltipInfo.value.unit}
                 <tr>
-                  <th>Value</th><td> {tooltipInfo.value.value}</td>
+                  <th>Unit</th><td> {tooltipInfo.value.unit}</td>
                 </tr>
-                <tr>
-                  <th>Date</th><td> {tooltipInfo.value.asof}</td>
-                </tr>
-                {#if tooltipInfo.value.unit}
-                  <tr>
-                    <th>Unit</th><td> {tooltipInfo.value.unit}</td>
-                  </tr>
-                {/if}
-              </tbody>
+              {/if}
             </table>
 
             <div style="text-align: right;">

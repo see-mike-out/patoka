@@ -22,7 +22,7 @@
 
   let hide1 = writable(true);
   let drawPlan = writable();
-  let problem_type = writable("natural_number");
+  let problem_type = writable("image_1d");
 
   function get_draw_plans(counts, ptype, c) {
     delete images[id];
