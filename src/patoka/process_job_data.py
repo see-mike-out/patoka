@@ -51,8 +51,16 @@ def processJobData(service, job_id, original_circuit):
 
     # 4: get the metrics
     metrics = job.metrics() #dict
-    est_start_time = metrics['estimated_start_time']
-    est_start_time_dt = dt.fromisoformat(est_start_time)
+    est_start_time = None
+    if 'estimated_start_time' in metrics:
+        est_start_time = metrics['estimated_start_time']
+    if est_start_time is None and 'timestamps' in metrics:
+        est_start_time = metrics['timestamps']['running']    
+    if est_start_time is not None:
+        est_start_time_dt = dt.fromisoformat(est_start_time)
+        
+    if 'timestamps' in metrics and metrics['timestamps']['finished'] is not None:
+        est_finished_time_dt = dt.fromisoformat(metrics['timestamps']['finished'])
     task_progress.update(1)
 
     # 5: get the properties
@@ -140,6 +148,7 @@ def processJobData(service, job_id, original_circuit):
         "backend_name": backend_name,
         "metrics": metrics,
         "est_start_time": timeToStr(est_start_time_dt),
+        "est_finished_time": timeToStr(est_finished_time_dt),
         "backend_properties": property_dict,
         "machine_data": machine_data,
         "counts": counts,

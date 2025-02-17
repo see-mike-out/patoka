@@ -47,7 +47,7 @@
     <h4>Backend general parameters <button on:click={(e) => hide2.set(!$hide2)}>{$hide2 ? 'Show' : 'Hide'}</button></h4>
     <div class="content-wrap">
       {#if !$hide2}
-        {#if data.backend_properties?.general}
+        {#if $data.backend_properties?.general}
           <table>
             <thead>
               <tr>

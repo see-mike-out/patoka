@@ -10,6 +10,7 @@
   import GatePanel from "./panels/GatePanel.svelte";
   import FaultyPanel from "./panels/FaultyPanel.svelte";
   import MachinePanel from "./panels/MachinePanel.svelte";
+  import { to_gate_code } from "./util";
 
   export let model;
   export let key_data = "data",
@@ -65,6 +66,15 @@
             .filter((e) => !e.is_ancilla)
             .map((e) => e.to);
         }
+        let physical_gates = new Set();
+        if (d.transpiled_circuit_layout) {
+          for (const l of d.transpiled_circuit_layout) {
+            for (const o of l.operations) {
+              physical_gates.add(to_gate_code(o, 1));
+            }
+          }
+        }
+        d.physical_gates = Array.from(physical_gates);
       }
 
       if (d?.backend_properties?.qubits) {
@@ -121,7 +131,7 @@
           layers: $data.transpiled_circuit_layout,
           qubits: [],
           global_phase: $data.transpiled_circuit_global_phase,
-          layer_index: $data.transpiled_circuit_layout_index
+          layer_index: $data.transpiled_circuit_layout_index,
         }}
         bit_match={$data.bit_match}
         pagination={{

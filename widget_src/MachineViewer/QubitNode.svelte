@@ -12,7 +12,8 @@
     openTooltip = () => {},
     hideTooltip = () => {},
     moveTooltip = () => {},
-    qubit_info_selected;
+    qubit_info_selected,
+    is_used = false;
 </script>
 
 {#if qubit !== undefined && qubit_node}
@@ -29,7 +30,8 @@
     font-size: ${qubit_radius * 0.55}px;
     padding-top: ${qubit_radius * 0.225}px;
     background-color: ${colorScale(qubit_info_value.value)};
-    color: ${decideBlackWhite(colorScale(qubit_info_value.value))}`}
+    color: ${decideBlackWhite(colorScale(qubit_info_value.value))};` +
+      (is_used ? "box-shadow: 0 0 5px purple;" : "")}
     on:mouseover={(e) => {
       e.preventDefault();
       openTooltip(
@@ -39,11 +41,11 @@
         qubit_info_value,
         "qubit-" + qubit,
         [qubit],
-        false
+        false,
       );
     }}
     on:focus={(e) => {
-        console.log("/")
+      console.log("/");
       e.preventDefault();
       openTooltip(
         e,
@@ -52,7 +54,7 @@
         qubit_info_value,
         "qubit-" + qubit,
         [qubit],
-        true
+        true,
       );
     }}
     on:click={(e) => {
@@ -64,7 +66,7 @@
         qubit_info_value,
         "qubit-" + qubit,
         [qubit],
-        true
+        true,
       );
     }}
     on:mouseout={(e) => {
@@ -72,7 +74,7 @@
       hideTooltip(false);
     }}
     on:blur={(e) => {
-        console.log("/")
+      console.log("/");
       e.preventDefault();
       hideTooltip(true);
     }}>{qubit}</qubit-node

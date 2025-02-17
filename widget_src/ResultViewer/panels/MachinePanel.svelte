@@ -298,6 +298,7 @@
                 {openTooltip}
                 {hideTooltip}
                 {moveTooltip}
+                is_used={edge.every((e) => $data.physical_qubits.includes(e))}
               ></QubitEdge>
             {/each}
             {#each qubit_index as qi}
@@ -318,6 +319,7 @@
                 {openTooltip}
                 {hideTooltip}
                 {moveTooltip}
+                is_used={$data.physical_qubits.includes(qi)}
               ></QubitNode>
             {/each}
           {/if}
@@ -327,7 +329,7 @@
           <!-- svelte-ignore a11y-no-static-element-interactions -->
           <!-- svelte-ignore a11y-mouse-events-have-key-events -->
           <!--  style={`right: 1rem; top: ${tooltipY}px;`} -->
-          <div class="tooltip">
+          <div class="tooltip" style={`right: calc(${width}px + 1rem)`}>
             <h5>
               {tooltipInfo.item}–{tooltipInfo.key.gate ||
                 tooltipInfo.key.feature}
@@ -429,7 +431,6 @@
   }
   .tooltip {
     position: absolute;
-    right: 1rem;
     top: 50%;
     padding: 0.85rem 0.85rem 0.5rem 0.85rem;
     border: 1px solid #333;

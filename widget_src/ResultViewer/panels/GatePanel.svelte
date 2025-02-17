@@ -1,6 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import { writable } from "svelte/store";
+  import { to_gate_code } from "../util";
 
   export let data = writable();
   let filter = writable({
@@ -33,7 +34,7 @@
     </h4>
     <!-- filter -->
     <div class="content-wrap">
-      {#if !hide1}
+      {#if !$hide1}
         <div class="filter-wrap">
           <!-- filter by gates -->
           <div>
@@ -126,7 +127,7 @@
               </thead>
               <tbody>
                 {#each $data.backend_properties.gates as gate, gi}
-                  {#if (!$filter.gates || $filter.gates?.length == 0 || ($filter.gates && $filter.gates.includes(gate.gate))) && (!$filter.qubits || $filter.qubits?.length == 0 || ($filter.qubits && gate.qubits.some( (q) => filter.qubits.includes(q), ))) && (!$filter.only_used || ($filter.only_used && $data.physical_gates.some((g) => g.gate === gate.gate && g.qubits.join("-") === gate.qubits.join("-"))))}
+                  {#if (!$filter.gates || $filter.gates?.length == 0 || ($filter.gates && $filter.gates.includes(gate.gate))) && (!$filter.qubits || $filter.qubits?.length == 0 || ($filter.qubits && gate.qubits.some( (q) => filter.qubits.includes(q), ))) && (!$filter.only_used || ($filter.only_used && $data.physical_gates.includes(to_gate_code(gate, 2))))}
                     <tr>
                       <th>{gate.gate}</th>
                       <td>{gate.qubits.join(",")}</td>

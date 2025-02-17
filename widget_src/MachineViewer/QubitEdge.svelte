@@ -10,7 +10,8 @@
     openTooltip = () => {},
     hideTooltip = () => {},
     moveTooltip = () => {},
-    edge_info_selected;
+    edge_info_selected,
+    is_used = false;
 </script>
 
 {#if edge && edge_nodes}
@@ -25,7 +26,8 @@
       width: ${edge_width}px; 
       height: ${Math.abs(edge_nodes[0]?.y - edge_nodes[1]?.y) * qubit_gap}px;
       left: ${padding * 2 + edge_nodes[0]?.x * qubit_gap - edge_width / 2}px;
-      background-color: ${colorScale(edge_info_value?.value)};`}
+      background-color: ${colorScale(edge_info_value?.value)};` +
+        (is_used ? "box-shadow: 0 0 5px purple;" : "")}
       on:mouseover={(e) => {
         openTooltip(
           e,
@@ -77,7 +79,8 @@
       height: ${edge_width}px;
       width: ${Math.abs(edge_nodes[0]?.x - edge_nodes[1]?.x) * qubit_gap}px; 
       left: ${padding * 2 + edge_nodes[0]?.x * qubit_gap}px;
-      background-color: ${colorScale(edge_info_value?.value)};`}
+      background-color: ${colorScale(edge_info_value?.value)};` +
+        (is_used ? "box-shadow: 0 0 5px purple;" : "")}
       on:mouseover={(e) => {
         openTooltip(
           e,
