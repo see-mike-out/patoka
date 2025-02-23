@@ -484,44 +484,50 @@
                   <tr>
                     <th>{qubit.index.value}</th>
                     <td
-                      >{qubit.T1.value}<br /><span class="asof"
-                        >({qubit.T1.asof})</span
-                      >
+                      >{#if qubit.T1 !== undefined}{qubit.T1.value}<br /><span
+                          class="asof">({qubit.T1.asof})</span
+                        >{:else}-<br /><span class="asof">(-)</span>{/if}
                     </td>
                     <td
-                      >{qubit.T2.value}<br /><span class="asof"
-                        >({qubit.T2.asof})</span
-                      >
+                      >{#if qubit.T2 !== undefined}{qubit.T2.value}<br /><span
+                          class="asof">({qubit.T2.asof})</span
+                        >{:else}-<br /><span class="asof">(-)</span>{/if}
                     </td>
                     <td
-                      >{qubit.anharmonicity.value}<br /><span class="asof"
-                        >({qubit.anharmonicity.asof})</span
-                      >
+                      >{#if qubit.anharmonicity !== undefined}{qubit
+                          .anharmonicity.value}<br /><span class="asof"
+                          >({qubit.anharmonicity.asof})</span
+                        >{:else}-<br /><span class="asof">(-)</span>{/if}
                     </td>
                     <td
-                      >{qubit.frequency.value}<br /><span class="asof"
-                        >({qubit.frequency.asof})</span
-                      >
+                      >{#if qubit.frequency !== undefined}{qubit.frequency
+                          .value}<br /><span class="asof"
+                          >({qubit.frequency.asof})</span
+                        >{:else}-<br /><span class="asof">(-)</span>{/if}
                     </td>
                     <td
-                      >{qubit.prob_meas0_prep1.value}<br /><span class="asof"
-                        >({qubit.prob_meas0_prep1.asof})</span
-                      >
+                      >{#if qubit.prob_meas0_prep1 !== undefined}{qubit
+                          .prob_meas0_prep1.value}<br /><span class="asof"
+                          >({qubit.prob_meas0_prep1.asof})</span
+                        >{:else}-<br /><span class="asof">(-)</span>{/if}
                     </td>
                     <td
-                      >{qubit.prob_meas1_prep0.value}<br /><span class="asof"
-                        >({qubit.prob_meas1_prep0.asof})</span
-                      >
+                      >{#if qubit.prob_meas1_prep0 !== undefined}{qubit
+                          .prob_meas1_prep0.value}<br /><span class="asof"
+                          >({qubit.prob_meas1_prep0.asof})</span
+                        >{:else}-<br /><span class="asof">(-)</span>{/if}
                     </td>
                     <td
-                      >{qubit.readout_error.value}<br /><span class="asof"
-                        >({qubit.readout_error.asof})</span
-                      >
+                      >{#if qubit.readout_error !== undefined}{qubit
+                          .readout_error.value}<br /><span class="asof"
+                          >({qubit.readout_error.asof})</span
+                        >{:else}-<br /><span class="asof">(-)</span>{/if}
                     </td>
                     <td
-                      >{qubit.readout_length.value}<br /><span class="asof"
-                        >({qubit.readout_length.asof})</span
-                      >
+                      >{#if qubit.readout_length !== undefined}{qubit
+                          .readout_length.value}<br /><span class="asof"
+                          >({qubit.readout_length.asof})</span
+                        >{:else}-<br /><span class="asof">(-)</span>{/if}
                     </td>
                   </tr>
                 {/if}
@@ -599,16 +605,6 @@
   .input-wrap {
     margin: 0;
     padding: 0.5rem 0.5rem 0.25rem 0.5rem;
-  }
-  .input-wrap select {
-    font-family: iosevka;
-    padding: 0.25rem 0.5rem;
-    font-size: 0.9rem;
-    appearance: none;
-    line-height: 100%;
-    border: 1px solid #aaa;
-    background-color: white;
-    border-radius: 0.25rem;
   }
   .input-wrap label {
     font-family: iosevka;

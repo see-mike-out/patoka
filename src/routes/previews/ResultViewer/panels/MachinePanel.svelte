@@ -353,7 +353,6 @@
             </table>
 
             <div style="text-align: right;">
-              <!-- svelte-ignore a11y_consider_explicit_label -->
               <button
                 class="close"
                 on:click={() => {

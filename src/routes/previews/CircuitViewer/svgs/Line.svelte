@@ -18,6 +18,7 @@
     stroke-opacity={data["stroke-opacity"] !== undefined
       ? data["stroke-opacity"]
       : 1}
+    stroke-dasharray={data["stroke-dasharray"] ?? ""}
   >
   </line>
 {/if}
