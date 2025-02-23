@@ -46,7 +46,20 @@
         {#if info.operation.params}
           {#each info.operation.params as param, pi}
             <tr>
-              <th>Parameter {pi + 1}</th><td>{get_radian_names(param, true)}</td>
+              <th>Parameter {pi + 1}</th>
+              {#if typeof param === "number"}
+                <td>{get_radian_names(param, true)}</td>
+              {:else if typeof param === "string"}
+                <td>{param}</td>
+              {:else if param instanceof Object}
+                <td>
+                  {#if param.expr !== undefined}
+                    {param.expr}
+                  {:else if param.vector !== undefined && param.index !== undefined}
+                    {param.vector}[{param.index}]
+                  {/if}
+                </td>
+              {/if}
             </tr>
           {/each}
         {/if}

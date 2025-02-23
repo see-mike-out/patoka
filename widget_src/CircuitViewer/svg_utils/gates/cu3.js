@@ -1,6 +1,6 @@
 import { bitWidthUnit, circuit_line_height, default_fill, defualt_color } from "../constants";
 import { getIpos, getYH } from "../sizing";
-import { get_radian_names } from "../util";
+import { format_parameter } from "../util";
 
 let gate_width = bitWidthUnit * 3;
 let gate_name = "cu3";
@@ -73,7 +73,7 @@ export let CU3 = {
       y: target_y + circuit_line_height / 2,
       "text-anchor": "middle",
       "alignment-baseline": "middle",
-      text: `U3(${get_radian_names(op.params[0])},${get_radian_names(op.params[1])},${get_radian_names(op.params[2])})`
+      text: `U3(${format_parameter(op.params[0])},${format_parameter(op.params[1])},${format_parameter(op.params[2])})`
     };
     plan.elem.push(marker);
 

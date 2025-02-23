@@ -6,11 +6,13 @@ import json
 import numpy as np
 import time
 
+
 def json_type_parser(comp):
     if isinstance(comp, complex):
         return str(comp.real) + ("+" if comp.imag >= 0 else "-") + str(comp.imag) + "j"
     else:
         return comp
+
 
 circuit_units = 1000
 
@@ -53,11 +55,12 @@ class JobOutputData:
         self.physical_qubits = data["physical_qubits"] if "physical_qubits" in data else None
         self.physical_gates = data["physical_gates"] if "physical_gates" in data else None
         self.machine_design = data["machine_design"] if "machine_design" in data else None
+        self.additionals = data["additionals"] if "additionals" in data else {}
 
         self.setUsedQG()
         self.getFakeBackend()
         self.getMachineDesign()
-        
+
         self.pagination_unit = 50
 
     def setUsedQG(self):
@@ -84,27 +87,27 @@ class JobOutputData:
                 self.physical_qubits = temp_qubits
             if temp_gates is not None:
                 self.physical_gates = [
-                    { "gate": g.split("__")[0], 
-                     "qubits": g.split("__")[1].split("_") }
+                    {"gate": g.split("__")[0],
+                     "qubits": g.split("__")[1].split("_")}
                     for g in temp_gates
                 ]
 
     def getFakeBackend(self, use_aer=True):
         if self.backend is None:
             self.backend = create_fake_backend(self.backend_name, use_aer)
-            
+
     def getMachineDesign(self):
         if self.machine_design is None and self.backend_name is not None and self.backend_name != "aer_simulator":
             self.machine_design = {"nodes": None, "index": None, "edges": None}
             bname = self.backend_name
             self.machine_design["nodes"] = get_backend_circuit_nodes(bname.replace("ibm_", ""))
-            if self.machine_design["nodes"]  is not None:
+            if self.machine_design["nodes"] is not None:
                 self.machine_design["index"] = [q["index"] for q in self.machine_design["nodes"]]
             if self.backend is not None:
                 self.machine_design["edges"] = list(self.backend.coupling_map.get_edges())
         elif self.backend_name == "aer_simulator":
             self.machine_design = {"nodes": None, "index": None, "edges": None}
-                
+
     def toJSON(self):
         return json.dumps({
             "job_id": self.job_id,
@@ -138,7 +141,8 @@ class JobOutputData:
             "uncertainty_data": self.uncertainty_data,
             "physical_qubits": self.physical_qubits,
             "physical_gates": self.physical_gates,
-            "machine_design": self.machine_design
+            "machine_design": self.machine_design,
+            "additionals": self.additionals
         }, default=json_type_parser)
 
     def toCountsJSON(self):
@@ -147,8 +151,8 @@ class JobOutputData:
     def streamNextCircuit(self, view, mode):
         if mode is None:
             return None
-        elif mode == "original": 
-            view.data_update = json.dumps({"set": { "original_circuit_layout": [] } })
+        elif mode == "original":
+            view.data_update = json.dumps({"set": {"original_circuit_layout": []}})
             last_index = self.last_original_layer_streamed
             if last_index is None:
                 last_index = 0
@@ -157,19 +161,19 @@ class JobOutputData:
             n_o_layers = min(len(self.original_circuit_layout),  last_index + 5 * circuit_units)
             o_layer_cnt = last_index
             while o_layer_cnt < n_o_layers:
-                next_cnt =  min(o_layer_cnt + circuit_units, n_o_layers)
+                next_cnt = min(o_layer_cnt + circuit_units, n_o_layers)
                 layers_to_extract = self.original_circuit_layout[o_layer_cnt:next_cnt]
-                view.data_update = json.dumps({"append": { "original_circuit_layout": layers_to_extract } })
+                view.data_update = json.dumps({"append": {"original_circuit_layout": layers_to_extract}})
                 print("passing original circuit layout data " + str(o_layer_cnt) + "~")
                 time.sleep(0.5)
                 o_layer_cnt = next_cnt
-            view.data_update = json.dumps({"set": {"original_circuit_layout_index": [self.last_original_layer_streamed, o_layer_cnt] }})
-            time.sleep(0.2)            
+            view.data_update = json.dumps({"set": {"original_circuit_layout_index": [self.last_original_layer_streamed, o_layer_cnt]}})
+            time.sleep(0.2)
             print("Complete passing original circuit layout upto " + str(o_layer_cnt))
             self.last_original_layer_streamed = o_layer_cnt
-            
-        elif mode == "transpiled": 
-            view.data_update = json.dumps({"set": { "transpiled_circuit_layout": [] } })
+
+        elif mode == "transpiled":
+            view.data_update = json.dumps({"set": {"transpiled_circuit_layout": []}})
             last_index = self.last_transpiled_layer_streamed
             if last_index is None:
                 last_index = 0
@@ -178,22 +182,22 @@ class JobOutputData:
             n_t_layers = min(len(self.transpiled_circuit_layout),  last_index + 5 * circuit_units)
             t_layer_cnt = last_index
             while t_layer_cnt < n_t_layers:
-                next_cnt =  min(t_layer_cnt + circuit_units, n_t_layers)
+                next_cnt = min(t_layer_cnt + circuit_units, n_t_layers)
                 layers_to_extract = self.transpiled_circuit_layout[t_layer_cnt:next_cnt]
-                view.data_update = json.dumps({"append": { "transpiled_circuit_layout": layers_to_extract } })
+                view.data_update = json.dumps({"append": {"transpiled_circuit_layout": layers_to_extract}})
                 print("passing transpiled circuit layout data " + str(t_layer_cnt) + "~")
                 time.sleep(0.5)
                 t_layer_cnt = next_cnt
-            view.data_update = json.dumps({"set": {"transpiled_circuit_layout_index": [self.last_transpiled_layer_streamed, t_layer_cnt] }})
+            view.data_update = json.dumps({"set": {"transpiled_circuit_layout_index": [self.last_transpiled_layer_streamed, t_layer_cnt]}})
             time.sleep(0.2)
             print("Complete passing transpiled circuit layout upto " + str(t_layer_cnt))
             self.last_transpiled_layer_streamed = t_layer_cnt
-           
+
     def streamPrevCircuit(self, view, mode):
         if mode is None:
             return None
-        elif mode == "original": 
-            view.data_update = json.dumps({"set": { "original_circuit_layout": [] } })
+        elif mode == "original":
+            view.data_update = json.dumps({"set": {"original_circuit_layout": []}})
             last_index = self.last_original_layer_streamed
             if last_index is None:
                 last_index = 0
@@ -205,19 +209,19 @@ class JobOutputData:
             o_layer_cnt = max(last_index - 10 * circuit_units, 0)
             start_index = o_layer_cnt
             while o_layer_cnt < n_o_layers:
-                next_cnt =  min(o_layer_cnt + circuit_units, n_o_layers)
+                next_cnt = min(o_layer_cnt + circuit_units, n_o_layers)
                 layers_to_extract = self.original_circuit_layout[o_layer_cnt:next_cnt]
-                view.data_update = json.dumps({"append": { "original_circuit_layout": layers_to_extract } })
+                view.data_update = json.dumps({"append": {"original_circuit_layout": layers_to_extract}})
                 print("passing original circuit layout data " + str(o_layer_cnt) + "~")
                 time.sleep(0.5)
                 o_layer_cnt = next_cnt
-            view.data_update = json.dumps({"set": {"original_circuit_layout_index": [start_index, t_layer_cnt] }})
-            time.sleep(0.2)            
+            view.data_update = json.dumps({"set": {"original_circuit_layout_index": [start_index, t_layer_cnt]}})
+            time.sleep(0.2)
             print("Complete passing original circuit layout upto " + str(o_layer_cnt))
             self.last_original_layer_streamed = o_layer_cnt
-            
-        elif mode == "transpiled": 
-            view.data_update = json.dumps({"set": { "transpiled_circuit_layout": [] } })
+
+        elif mode == "transpiled":
+            view.data_update = json.dumps({"set": {"transpiled_circuit_layout": []}})
             last_index = self.last_transpiled_layer_streamed
             if last_index is None:
                 last_index = 0
@@ -229,17 +233,17 @@ class JobOutputData:
             t_layer_cnt = max(last_index - 10 * circuit_units, 0)
             start_index = t_layer_cnt
             while t_layer_cnt < n_t_layers:
-                next_cnt =  min(t_layer_cnt + circuit_units, n_t_layers)
+                next_cnt = min(t_layer_cnt + circuit_units, n_t_layers)
                 layers_to_extract = self.transpiled_circuit_layout[t_layer_cnt:next_cnt]
-                view.data_update = json.dumps({"append": { "transpiled_circuit_layout": layers_to_extract } })
+                view.data_update = json.dumps({"append": {"transpiled_circuit_layout": layers_to_extract}})
                 print("passing transpiled circuit layout data " + str(t_layer_cnt) + "~")
                 time.sleep(0.5)
                 t_layer_cnt = next_cnt
-            view.data_update = json.dumps({"set": {"transpiled_circuit_layout_index": [start_index, t_layer_cnt] }})
+            view.data_update = json.dumps({"set": {"transpiled_circuit_layout_index": [start_index, t_layer_cnt]}})
             time.sleep(0.2)
             print("Complete passing transpiled circuit layout upto " + str(t_layer_cnt))
             self.last_transpiled_layer_streamed = t_layer_cnt
-    
+
     def streamJSON(self, view):
         basic_data = {
             "job_id": self.job_id,
@@ -285,10 +289,10 @@ class JobOutputData:
         n_count_keys = len(count_keys)
         count_cnt = 0
         while count_cnt < n_count_keys:
-            next_cnt =  min(count_cnt + count_units, n_count_keys)
+            next_cnt = min(count_cnt + count_units, n_count_keys)
             counts_to_extract = count_keys[count_cnt:next_cnt]
             pass_counts = {key: self.counts[key] for key in counts_to_extract}
-            view.data_update = json.dumps({"append": { "counts": pass_counts } })
+            view.data_update = json.dumps({"append": {"counts": pass_counts}})
             print("passing counts data " + str(count_cnt) + "~")
             time.sleep(0.5)
             count_cnt = next_cnt
@@ -298,53 +302,58 @@ class JobOutputData:
         if self.uncertainty_data is not None:
             uncertainty_keys = list(self.uncertainty_data.keys())
             for key in uncertainty_keys:
-                view.data_update = json.dumps({"append": { "uncertainty_data": {key: self.uncertainty_data[key]} } })
+                view.data_update = json.dumps({"append": {"uncertainty_data": {key: self.uncertainty_data[key]}}})
                 print("passing uncertainty data " + key)
                 time.sleep(0.5)
             print("Complete passing uncertainty data")
-        
+
         # pass original circuits
-        n_o_layers = min(len(self.original_circuit_layout), 5 * circuit_units )
+        n_o_layers = min(len(self.original_circuit_layout), 5 * circuit_units)
         o_layer_cnt = 0
         while o_layer_cnt < n_o_layers:
-            next_cnt =  min(o_layer_cnt + circuit_units, n_o_layers)
+            next_cnt = min(o_layer_cnt + circuit_units, n_o_layers)
             layers_to_extract = self.original_circuit_layout[o_layer_cnt:next_cnt]
-            view.data_update = json.dumps({"append": { "original_circuit_layout": layers_to_extract } })
+            view.data_update = json.dumps({"append": {"original_circuit_layout": layers_to_extract}})
             print("passing original circuit layout data " + str(o_layer_cnt) + "~")
             time.sleep(0.5)
             o_layer_cnt = next_cnt
-        view.data_update = json.dumps({"set": {"original_circuit_layout_index": [0, o_layer_cnt] }})
+        view.data_update = json.dumps({"set": {"original_circuit_layout_index": [0, o_layer_cnt]}})
         time.sleep(0.2)
         print("Complete passing original circuit layout upto " + str(o_layer_cnt))
-        
+
         self.last_original_layer_streamed = o_layer_cnt
-        
-            
+
         # pass transplied circuits
         n_t_layers = min(len(self.transpiled_circuit_layout), 5 * circuit_units)
         t_layer_cnt = 0
         while t_layer_cnt < n_t_layers:
-            next_cnt =  min(t_layer_cnt + circuit_units, n_t_layers)
+            next_cnt = min(t_layer_cnt + circuit_units, n_t_layers)
             layers_to_extract = self.transpiled_circuit_layout[t_layer_cnt:next_cnt]
-            view.data_update = json.dumps({"append": { "transpiled_circuit_layout": layers_to_extract } })
+            view.data_update = json.dumps({"append": {"transpiled_circuit_layout": layers_to_extract}})
             print("passing transpiled circuit layout data " + str(t_layer_cnt) + "~")
             time.sleep(0.5)
             t_layer_cnt = next_cnt
-        view.data_update = json.dumps({"set": {"transpiled_circuit_layout_index": [0, t_layer_cnt] }})
+        view.data_update = json.dumps({"set": {"transpiled_circuit_layout_index": [0, t_layer_cnt]}})
         time.sleep(0.2)
         print("Complete passing transpiled circuit layout upto " + str(t_layer_cnt))
         self.last_transpiled_layer_streamed = t_layer_cnt
-            
+
+        # pass additionals
+        if len(self.additionals.keys()) > 0:
+            view.data_update = json.dumps({"set": {"additionals": self.additionals}})
+            time.sleep(0.2)
+            print("Complete passing additional data")
+
     def toJSON4Interface(self, transpiled_circuit_page=0, original_circuit_page=0, include_qasm=False):
         t_depth = len(self.transpiled_circuit_layout)
         o_depth = len(self.original_circuit_layout)
 
-        t_page_range = [self.pagination_unit * transpiled_circuit_page, 
+        t_page_range = [self.pagination_unit * transpiled_circuit_page,
                         min(self.pagination_unit * (transpiled_circuit_page + 1), t_depth - 1)]
 
         t_pages = math.ceil(t_depth / self.pagination_unit)
 
-        o_page_range = [self.pagination_unit * original_circuit_page, 
+        o_page_range = [self.pagination_unit * original_circuit_page,
                         min(self.pagination_unit * (original_circuit_page + 1), o_depth - 1)]
 
         o_pages = math.ceil(o_depth / self.pagination_unit)
@@ -355,7 +364,7 @@ class JobOutputData:
         self.original_circuit_page_range = o_page_range
         self.original_circuit_pages = o_pages
         self.original_circuit_page = original_circuit_page
-        
+
         return json.dumps({
             "job_id": self.job_id,
             "running": self.running,
@@ -393,14 +402,14 @@ class JobOutputData:
             "uncertainty_data": self.uncertainty_data,
             "physical_qubits": self.physical_qubits,
             "physical_gates": self.physical_gates,
-            "machine_design": self.machine_design
+            "machine_design": self.machine_design,
+            "additionals": self.additionals
         }, default=json_type_parser)
-        
-    
+
     def save(self, fn):
         with open(fn, "w") as f:
             f.write(self.toJSON())
-    
+
     def simulate(self, shots=None, use_aer=True):
         if self.transpiled_circuit is None or self.backend_name is None:
             print("simulation information not available")
@@ -429,11 +438,11 @@ class JobOutputData:
             g = self.backend_properties["gates"][i]
             k = g["gate"] + "__" + "_".join([str(q) for q in g["qubits"]])
             self.gate_propperty_map[k] = i
-            
+
     def generate_hea(self, sampling_counts=None, sample_size=None, ci_alpha=0.95, bootstrap=False, design={}):
         serialized_transpiled_circuit = serialize_circuit_layout(self.transpiled_circuit_layout)
         self.prepare_gate_props()
-        self.uncertainty_data = drawStateUncertainty(self.counts, 
+        self.uncertainty_data = drawStateUncertainty(self.counts,
                                                      self.backend_properties["qubits"],
                                                      self.backend_properties["gates"],
                                                      self.gate_propperty_map,
@@ -444,6 +453,8 @@ class JobOutputData:
                                                      bootstrap,
                                                      design).toDict()
 
+    def setAdditionalData(self, key, value):
+        self.additionals[key] = value
 
 
 def serialize_circuit_layout(layout):
@@ -462,5 +473,3 @@ def compress_count(counts):
             output[cnt] = []
         output[cnt].append(int(st[::-1], 2))
     return output
-
-

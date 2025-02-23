@@ -1,4 +1,5 @@
 from datetime import datetime as dt
+import dateutil
 import json
 import math
 
@@ -13,17 +14,20 @@ from .machine_data_processing import (
 from .qiskit_draw_utils import getCircuitLayout
 from .get_fake_backend import create_fake_backend, inject_properties
 from .job_output_data import JobOutputData
+from qiskit_ibm_runtime import RuntimeJobV2
 
 from qiskit import qasm2, qasm3
+from qiskit.primitives import PrimitiveResult
 
 from tqdm import tqdm
 
 n_tasks = 10
 
+
 def processJobData(service, job_id, original_circuit):
     # progress bar
     task_progress = tqdm(total=n_tasks)
-    
+
     # 1: get the job
     job = service.job(job_id)
     task_progress.update(1)
@@ -38,33 +42,37 @@ def processJobData(service, job_id, original_circuit):
             "runnig": True,
             "done": False
         })
-        
+
     # when the job is done
     # 2: get the result
     result = job.result()
     task_progress.update(1)
 
     # 3: get the backend
-    backend_name = result.backend_name
-    backend = service.backend(backend_name)
+    if type(job) is RuntimeJobV2:
+        backend = job.backend()
+        backend_name = backend.name
+    else:
+        backend_name = result.backend_name
+        backend = service.backend(backend_name)
     task_progress.update(1)
 
     # 4: get the metrics
-    metrics = job.metrics() #dict
+    metrics = job.metrics()  # dict
     est_start_time = None
     if 'estimated_start_time' in metrics:
         est_start_time = metrics['estimated_start_time']
     if est_start_time is None and 'timestamps' in metrics:
-        est_start_time = metrics['timestamps']['running']    
+        est_start_time = metrics['timestamps']['running']
     if est_start_time is not None:
-        est_start_time_dt = dt.fromisoformat(est_start_time)
-        
+        est_start_time_dt = dateutil.parser.parse(est_start_time)
+
     if 'timestamps' in metrics and metrics['timestamps']['finished'] is not None:
-        est_finished_time_dt = dt.fromisoformat(metrics['timestamps']['finished'])
+        est_finished_time_dt = dateutil.parser.parse(metrics['timestamps']['finished'])
     task_progress.update(1)
 
     # 5: get the properties
-    properties = job.properties() # backend properties
+    properties = job.properties()  # backend properties
     property_dict_0 = properties.to_dict()
     property_dict = {
         "last_update_date": timeToStr(property_dict_0["last_update_date"]),
@@ -89,28 +97,39 @@ def processJobData(service, job_id, original_circuit):
         "online_date": timeToStr(_machine_data["online_date"]) if "online_date" in property_dict_0 else "",
         "basis_gates": _machine_data["basis_gates"] if "basis_gates" in _machine_data else []
     }
-    
+
     # 6: get the counts and other meta info
-    counts = result.get_counts()
-    n_shots = result.results[0].shots
-    meas_level = result.results[0].meas_level # Measurement level
+    if type(result) is PrimitiveResult:
+        counts = result[0].data.meas.get_counts()
+        n_shots = result[0].data.meas.num_shots
+        meas_level = None
+    else:
+        counts = result.get_counts()
+        n_shots = result.results[0].shots
+        meas_level = result.results[0].meas_level  # Measurement level
     task_progress.update(1)
 
     # 7: other meta info
     session_id = job.session_id
-    program_id = job.program_id
+    program_id = job.program_id if type(job) is not RuntimeJobV2 else job.primitive_id
     creation_date = job.creation_date
     task_progress.update(1)
 
     # 8: transpiled circuit retrieval
-    init_qubits = job.inputs['init_qubits']
-    memory_use = job.inputs['memory']
-    meas_return = job.inputs['meas_return']
+    init_qubits = job.inputs['init_qubits'] if 'init_qubits' in job.inputs else None
+    memory_use = job.inputs['memory'] if 'memory' in job.inputs else None
+    meas_return = job.inputs['meas_return'] if 'meas_return' in job.inputs else None
     task_progress.update(1)
 
     # 9: get circuit
-    transpiled_circuit = job.inputs["circuits"][0]
-    transpiled_circuit_layout = getCircuitLayout(transpiled_circuit)
+    transpiled_circuit = None
+    if 'circuits' in job.inputs:
+        transpiled_circuit = job.inputs["circuits"][0]
+    elif 'pubs' in job.inputs:
+        transpiled_circuit = job.inputs["pubs"][0][0]
+    
+    if transpiled_circuit is not None:
+        transpiled_circuit_layout = getCircuitLayout(transpiled_circuit)
     transpiled_circuit_qasm2 = None
     try:
         transpiled_circuit_qasm2 = qasm2.dumps(transpiled_circuit)
@@ -123,7 +142,7 @@ def processJobData(service, job_id, original_circuit):
         transpiled_circuit_qasm3 = None
     task_progress.update(1)
 
-    #10: original circuit layout
+    # 10: original circuit layout
     original_circuit_layout = None
     original_circuit_qasm2 = None
     original_circuit_qasm3 = None
@@ -138,7 +157,7 @@ def processJobData(service, job_id, original_circuit):
         except:
             original_circuit_qasm3 = None
     task_progress.update(1)
-    
+
     return JobOutputData({
         "job": job,
         "job_id": job_id,
@@ -172,13 +191,12 @@ def processJobData(service, job_id, original_circuit):
         "original_circuit_qasm2": original_circuit_qasm2,
         "original_circuit_qasm3": original_circuit_qasm3,
     })
-    
 
 
 def processSimJobData(job, backend, original_circuit, transpiled_circuit):
     # progress bar
     task_progress = tqdm(total=n_tasks)
-    
+
     # 1: get the job
     job_id = job.job_id()
     task_progress.update(1)
@@ -193,7 +211,7 @@ def processSimJobData(job, backend, original_circuit, transpiled_circuit):
             "runnig": True,
             "done": False
         })
-        
+
     # when the job is done
     # 2: get the result
     result = job.result()
@@ -206,11 +224,11 @@ def processSimJobData(job, backend, original_circuit, transpiled_circuit):
     # 4: get the metrics
     metrics = {}
     est_start_time = result.date
-    est_start_time_dt = dt.fromisoformat(est_start_time)
+    est_start_time_dt = dateutil.parser.parse(est_start_time)
     task_progress.update(1)
 
     # 5: get the properties
-    properties = backend.properties() # backend properties
+    properties = backend.properties()  # backend properties
     if properties is not None:
         property_dict_0 = properties.to_dict()
         property_dict = {
@@ -235,7 +253,7 @@ def processSimJobData(job, backend, original_circuit, transpiled_circuit):
             "faulty_qubits": None,
             "faulty_gates": None
         }
-            
+
     task_progress.update(1)
 
     # 5-1: get the configurations
@@ -248,11 +266,11 @@ def processSimJobData(job, backend, original_circuit, transpiled_circuit):
         "online_date": timeToStr(_machine_data["online_date"]) if "online_date" in property_dict_0 else "",
         "basis_gates": _machine_data["basis_gates"] if "basis_gates" in _machine_data else []
     }
-    
+
     # 6: get the counts and other meta info
     counts = result.get_counts()
     n_shots = result.results[0].shots
-    meas_level = int(result.results[0].meas_level) # Measurement level
+    meas_level = int(result.results[0].meas_level)  # Measurement level
     task_progress.update(1)
 
     # 7: other meta info
@@ -281,7 +299,7 @@ def processSimJobData(job, backend, original_circuit, transpiled_circuit):
     #     transpiled_circuit_qasm3 = None
     task_progress.update(1)
 
-    #10: original circuit layout
+    # 10: original circuit layout
     original_circuit_layout = None
     original_circuit_qasm2 = None
     original_circuit_qasm3 = None
@@ -296,7 +314,7 @@ def processSimJobData(job, backend, original_circuit, transpiled_circuit):
     #     except:
     #         original_circuit_qasm3 = None
     task_progress.update(1)
-    
+
     return JobOutputData({
         "job": job,
         "job_id": job_id,
@@ -330,16 +348,17 @@ def processSimJobData(job, backend, original_circuit, transpiled_circuit):
         "original_circuit_qasm3": original_circuit_qasm3,
     })
 
+
 example_metrics = {'timestamps': {'created': '2024-08-17T22:12:01.968329Z',
-  'finished': '2024-08-17T22:14:25.079Z',
-  'running': '2024-08-17T22:12:03.249Z'},
- 'bss': {'seconds': 93},
- 'usage': {'quantum_seconds': 93, 'seconds': 93},
- 'executions': 4000,
- 'num_circuits': 1,
- 'num_qubits': [127],
- 'circuit_depths': [115439],
- 'qiskit_version': 'qiskit_ibm_runtime-0.23.0,qiskit-1.1.0*,qiskit_aer-0.14.2*,qiskit_machine_learning-0.7.2',
- 'estimated_start_time': '2024-08-17T22:12:02.577Z',
- 'estimated_completion_time': '2024-08-17T22:13:35.086Z',
- 'caller': 'qiskit'}
+                                  'finished': '2024-08-17T22:14:25.079Z',
+                                  'running': '2024-08-17T22:12:03.249Z'},
+                   'bss': {'seconds': 93},
+                   'usage': {'quantum_seconds': 93, 'seconds': 93},
+                   'executions': 4000,
+                   'num_circuits': 1,
+                   'num_qubits': [127],
+                   'circuit_depths': [115439],
+                   'qiskit_version': 'qiskit_ibm_runtime-0.23.0,qiskit-1.1.0*,qiskit_aer-0.14.2*,qiskit_machine_learning-0.7.2',
+                   'estimated_start_time': '2024-08-17T22:12:02.577Z',
+                   'estimated_completion_time': '2024-08-17T22:13:35.086Z',
+                   'caller': 'qiskit'}

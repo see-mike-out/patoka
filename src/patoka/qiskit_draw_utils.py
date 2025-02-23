@@ -1,4 +1,21 @@
 from qiskit.visualization.circuit._utils import _get_layered_instructions
+from qiskit.circuit.parametervector import ParameterVectorElement
+from qiskit.circuit.parameterexpression import ParameterExpression
+
+
+def serializeParams(params):
+    output = []
+    for param in params:
+        if isinstance(param, ParameterVectorElement):
+            output.append({"index": param.index, "vector": param.vector.name})
+        elif isinstance(param, ParameterExpression):
+            elements = [{"index": p.index, "vector": p.vector.name} for p in param.parameters]
+            expr = str(param._symbol_expr)
+            standalone = param._standalone_param
+            output.append({"elements": elements, "expr": expr, "standalone": standalone})
+        else:
+            output.append(param)
+    return output
 
 
 def getCircuitLayout(circuit):
@@ -16,7 +33,7 @@ def getCircuitLayout(circuit):
                 "gate": inst.op.name,
                 "num_qubits": inst.op.num_qubits,
                 "num_clbits": inst.op.num_clbits,
-                "params": inst.op.params,
+                "params": serializeParams(inst.op.params),
                 "qubits": [],
                 "clbits": []
             }

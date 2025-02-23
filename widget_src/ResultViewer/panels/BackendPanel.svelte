@@ -98,7 +98,7 @@
   .panel.generic-q {
     grid-column: span 2;
   }
-  .panel.generic .content-wrap {
+  .panel .content-wrap {
     max-height: 300px;
     overflow-y: scroll;
     font-size: 0.9rem;

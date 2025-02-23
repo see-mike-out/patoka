@@ -1,6 +1,6 @@
 import { bitWidthUnit, default_fill, defualt_color } from "../constants";
 import { getYH } from "../sizing";
-import { get_radian_names } from "../util";
+import { format_parameter } from "../util";
 
 let gate_width = bitWidthUnit * 2.3;
 let gate_name = "rz"
@@ -14,9 +14,10 @@ export let RZ = {
       x: 0,
       y: 0,
       width: gate_width,
-      height: 0,
+      height: gate_width,
       elem: []
     };
+    let text = `Rz(${format_parameter(op.params[0])})`;
     // 0. get x, y, h 
     let pos = getYH(op, qr);
     plan.y = pos.y;
@@ -43,7 +44,7 @@ export let RZ = {
       y: pos.height / 2,
       "text-anchor": "middle",
       "alignment-baseline": "middle",
-      text: `Rz(${get_radian_names(op.params[0])})`
+      text: text.length > 9 ? text.substring(0, 6) + "…" : text
     }
     plan.elem.push(marker);
 

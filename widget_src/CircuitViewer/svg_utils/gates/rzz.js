@@ -1,6 +1,6 @@
 import { bitWidthUnit, circuit_line_height, default_fill, defualt_color } from "../constants";
 import { getIpos, getYH } from "../sizing";
-import { get_radian_names } from "../util";
+import { format_parameter } from "../util";
 
 let gate_width = bitWidthUnit * 2.7;
 let gate_name = "rzz";
@@ -69,7 +69,7 @@ export let RZZ = {
       y: mid_point,
       "text-anchor": "start",
       "alignment-baseline": "middle",
-      text: `ZZ(${get_radian_names(op.params[0])})`
+      text: `ZZ(${format_parameter(op.params[0])})`
     }
     plan.elem.push(param_text);
 

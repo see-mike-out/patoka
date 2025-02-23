@@ -10,19 +10,20 @@
     parse1DImageProblem,
     parse3DImageProblem,
   } from "../problem_parse/image";
+  import { parseMaxCutProblem } from "../problem_parse/max_cut";
   import NaturalNumberView from "./NaturalNumberView.svelte";
   import TruthTableView from "./TruthTableView.svelte";
   import PivotTableView from "./PivotTableView.svelte";
   import ImageView from "./ImageView.svelte";
+  import MaxCutView from "./MaxCutView.svelte";
 
   export let data = writable(),
-    config = writable({
-    }),
+    config = writable({}),
     id = "problem-view";
 
   let hide1 = writable(true);
   let drawPlan = writable();
-  let problem_type = writable("image_1d");
+  let problem_type = writable("natural_number");
 
   function get_draw_plans(counts, ptype, c) {
     delete images[id];
@@ -36,6 +37,8 @@
       drawPlan.set(parse1DImageProblem(counts, c));
     } else if (ptype === "image_3d") {
       drawPlan.set(parse3DImageProblem(counts, c));
+    } else if (ptype === "max_cut") {
+      drawPlan.set(parseMaxCutProblem(counts, c, $data.additionals));
     }
   }
   onMount(() => {
@@ -103,12 +106,8 @@
         }}>Image</button
       >
       {#if images[id]}
-        <a class="save-download" href={images[id].png} download
-          >PNG</a
-        >
-        <a class="save-download" href={images[id].svg} download
-          >SVG</a
-        >
+        <a class="save-download" href={images[id].png} download>PNG</a>
+        <a class="save-download" href={images[id].svg} download>SVG</a>
       {/if}
     </h4>
     <div class="content-wrap">
@@ -245,6 +244,8 @@
               <PivotTableView {drawPlan} {id} {problem_type}></PivotTableView>
             {:else if $problem_type === "image_1d" || $problem_type === "image_3d"}
               <ImageView {drawPlan} {id} {problem_type}></ImageView>
+            {:else if $problem_type == "max_cut"}
+              <MaxCutView {drawPlan} {id}></MaxCutView>
             {/if}
           {/if}
         </div>

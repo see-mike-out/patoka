@@ -66,7 +66,7 @@ export function plan_count_histogram(counts, uncertainty_data, config = {}) {
   if (has_uncertainty && is_bootstrap) {
     max_count = Math.max(...count_data.map((d) => Math.max(...d.unceratinty_probs)));
   } else if (has_uncertainty && !is_bootstrap) {
-    max_count = Math.max(...count_data.map((d) => Math.max(...d.unceratinty_counts)));
+    max_count = Math.max(...count_data.map((d) => Math.max(...d.unceratinty_counts, d.count)));
   } else {
     max_count = Math.max(...count_data.map((d) => d.count));
   }

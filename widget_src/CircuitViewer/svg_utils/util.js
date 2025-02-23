@@ -125,3 +125,22 @@ export function round(n, d) {
   let e = Math.pow(10, d);
   return Math.round(n * e) / e;
 }
+
+export function format_parameter(param) {
+  if (typeof param == 'number') {
+    return get_radian_names(param)
+  } else if (typeof param == 'string') {
+    return param;
+  } else if (param instanceof Object) {
+    if (param.expr !== undefined) {
+      if (param.expr.match(/^\-?[0-9]+(\.[0-9]+)?$/gi)) {
+        return get_radian_names(parseFloat(param.expr))
+      }
+      else {
+        return param.expr
+      }
+    } else if (param.vector !== undefined && param.index !== undefined) {
+      return `${param.vector}[${param.index}]`;
+    }
+  }
+}

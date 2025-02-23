@@ -1,6 +1,6 @@
 import { bitWidthUnit, circuit_h_gap, circuit_line_height, default_fill, defualt_color } from "../constants";
 import { getYH } from "../sizing";
-import { get_radian_names } from "../util";
+import { format_parameter } from "../util";
 
 let gate_width = bitWidthUnit * 2.6;
 let gate_name = "ryy"
@@ -65,7 +65,7 @@ export let RYY = {
       y: pos.height / 2,
       "text-anchor": "end",
       "alignment-baseline": "middle",
-      text: `Ryy(${get_radian_names(op.params[0])})`
+      text: `Ryy(${format_parameter(op.params[0])})`
     }
     plan.elem.push(marker);
 

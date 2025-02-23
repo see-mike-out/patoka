@@ -64,7 +64,7 @@ export let XXPYY = {
       y: pos.height / 2,
       "text-anchor": "end",
       "alignment-baseline": "middle",
-      text: `(XX+YY)(${get_radian_names(op.params[0])},${get_radian_names(op.params[1])})`
+      text: `(XX+YY)(${format_parameter(op.params[0])},${format_parameter(op.params[1])})`
     }
     plan.elem.push(marker);
 

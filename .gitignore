@@ -306,3 +306,5 @@ cython_debug/
 
 test/
 raw/
+
+*.conf.txt

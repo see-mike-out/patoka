@@ -236,7 +236,6 @@ def count_adjustment(counts):
         else:
             not_done = False
 
-    print(updated_count_keys)
     for i in range(len(count_keys)):
         old_count_key = count_keys[i]
         new_count_key = updated_count_keys[i]

@@ -1,6 +1,6 @@
 import { bitWidthUnit, default_fill, defualt_color } from "../constants";
 import { getYH } from "../sizing";
-import { get_radian_names } from "../util";
+import { format_parameter } from "../util";
 
 let gate_width = bitWidthUnit * 2.25;
 let gate_name = "p"
@@ -43,7 +43,7 @@ export let P = {
       y: pos.height / 2,
       "text-anchor": "middle",
       "alignment-baseline": "middle",
-      text: `P(${get_radian_names(op.params[0])})`
+      text: `P(${format_parameter(op.params[0])})`
     }
     plan.elem.push(marker);
 
