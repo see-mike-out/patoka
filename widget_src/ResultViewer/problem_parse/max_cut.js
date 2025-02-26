@@ -117,7 +117,7 @@ export function parseMaxCutProblem(counts, config, additionals) {
   }
   let plan = min_solution.map((meta, si) => {
     let layout = JSON.parse(JSON.stringify(graph_layout));
-
+    let n_cuts = 0;
     layout.groups.edge_group.id = `max-cut-edge-group-${si}`;
     layout.groups.edge_group.elem.forEach((edge_item) => {
       if (in_same_cut(edge_item.data.source, edge_item.data.target, meta.cut) !== null) {
@@ -126,6 +126,7 @@ export function parseMaxCutProblem(counts, config, additionals) {
         edge_item['stroke-dasharray'] = '5,5';
         edge_item.stroke = '#FF9800';
         edge_item.data.cut_edge = true
+        n_cuts += 1;
       }
     });
 
@@ -136,6 +137,7 @@ export function parseMaxCutProblem(counts, config, additionals) {
       node_item.data.group = group;
       node_item.elem[0].fill = colors[group];
     })
+    meta.n_cuts = n_cuts;
     return { meta, layout };
   })
   return plan;
