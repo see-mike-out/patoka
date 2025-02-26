@@ -23,6 +23,9 @@
               Cost: {plan.meta.cost}
             </li>
             <li>
+              # Cuts: {plan.meta.n_cuts}
+            </li>
+            <li>
               Cuts: {plan.meta.cut.map((c) => `(${c.join(", ")})`).join(" / ")}
             </li>
           </ul>
