@@ -69,7 +69,7 @@
           />
         </div>
         <div class="description">
-          <p>Exploer machines and generate codes for future use.</p>
+          <p>Explore machines and generate codes for future use.</p>
           <p><a href="./previews/?widget=machine">→ Try demo</a></p>
         </div>
       </div>
