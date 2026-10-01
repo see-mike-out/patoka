@@ -5,7 +5,7 @@ from .process_pulse_data import extract_pulse_data
 from .esp import getESP
 from .transpile_params import TranspileParam
 from qiskit.circuit import CircuitInstruction
-from qiskit import transpile, qasm2, qasm3
+from qiskit import qasm2, qasm3
 from qiskit.transpiler.preset_passmanagers import generate_preset_pass_manager
 import json
 from tqdm import tqdm

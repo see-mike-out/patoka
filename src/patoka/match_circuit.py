@@ -5,6 +5,7 @@ from qiskit.circuit import QuantumCircuit
 import copy
 import re
 from qiskit.circuit.library import QFTGate
+import warnings
 
 def matchCircuitLayouts(origin, trans, pass_manager):
     # mapping by transpiling length
@@ -176,6 +177,7 @@ def get_qubit_indices(qubits):
     return [q["index"] for q in qubits]
 
 # get gate instructions
+# gate instructions are from Qiskit documentations
 def get_gate(gate_name, n_qubits, params):
     gate = None
     # C3XGate(*args[, _force_mutable])	The X gate controlled on 3 qubits.
@@ -348,4 +350,6 @@ def get_gate(gate_name, n_qubits, params):
         gate = QCR.Measure()
     elif gate_name == "barrier":
         gate = QCR.Barrier(n_qubits)
+    if gate is None:
+        warnings.warn(f"{gate_name} is not supported. Please report it via issues: https://github.com/see-mike-out/patoka/issues")
     return gate

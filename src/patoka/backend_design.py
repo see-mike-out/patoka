@@ -152,7 +152,7 @@ def get_backend_circuit_nodes(name):
     elif name in IBM_Nighthawks:
         return NODES_IMBQ_NIGHTHAWK
     else:
-        warnings.warn(f"Warning: {name} is not supported machine desing. Please report it via Issues. https://github.com/see-mike-out/qc-widget-prototypes-public/issues")
+        warnings.warn(f"Warning: {name} is not supported machine desing. Please report it via Issues. https://github.com/see-mike-out/patoka/issues")
         return None
 
 NODES_IMBQ_1Q = [
