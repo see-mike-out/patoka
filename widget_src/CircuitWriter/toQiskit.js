@@ -42,7 +42,7 @@ export function convertToQiskitCode(data, config) {
         let op = ProblemMap[op_def.operation_def];
         if (op?.key === "QFT") {
           if (!includes.includes("from qiskit.circuit.library import QFT")) {
-            includes.push("from qiskit.circuit.library import QFT")
+            includes.push("from qiskit.circuit.library import QFTGate")
           }
           code_lines.push("")
           code_lines.push("# Quantum Fourier Transform")
@@ -58,7 +58,7 @@ export function convertToQiskitCode(data, config) {
             }
           }
 
-          code_lines.push(`qft_${oi} = QFT(${qubits_to_apply.length}).to_gate()`);
+          code_lines.push(`qft_${oi} = QFTGate(${qubits_to_apply.length})`);
           code_lines.push(`circuit.append(qft_${oi}, [${qubits_to_apply.join(", ")}])`);
 
           if (auto_clbit) {

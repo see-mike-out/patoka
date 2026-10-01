@@ -8,7 +8,6 @@
   import { copyToClipboardHelper } from "./copy_helper";
   import TranspileDataView from "./TranspileDataView.svelte";
   import TranspileSummary from "./TranspileSummary.svelte";
-  import PulseView from "./PulseView.svelte";
   export let model;
   export let key_circ = "circ";
   let circ = model.get(key_circ);
@@ -49,7 +48,6 @@
     operation_schedules = $data?.transpiled?.map(() => writable([]));
     filter_unused_qubits = $data?.transpiled?.map(() => true);
     autoplays = $data?.transpiled?.map(() => writable(false));
-    console.log($data);
   });
 
   onDestroy(() => {
@@ -315,7 +313,8 @@
             ></MachineView>
           </div>
           <div class="circuit">
-            <PulseView
+            <p>Pulse data is no longer provided.</p>
+            <!-- <PulseView
               id={"pulse-view-" + ti}
               transpiled_circuit_id={"transpiled-circuit-" + ti}
               original_circuit_id="original-circuit"
@@ -327,7 +326,7 @@
               machine_dt_at={machine_dt_at[ti]}
               op_schedule={operation_schedules[ti]}
               autoplay={autoplays[ti]}
-            ></PulseView>
+            ></PulseView> -->
           </div>
         </section>
       </div>

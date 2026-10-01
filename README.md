@@ -14,9 +14,10 @@ Refer to notebooks in the `demos` directory.
 
 ## Developers
 
-### Vertual environment
+### Virtual environment
 
-Run `source bin/activate`
+Use your preferred virtual environment methods.
+We used `uv`.
 
 ### Install libraries
 

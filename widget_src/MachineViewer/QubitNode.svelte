@@ -45,7 +45,6 @@
       );
     }}
     on:focus={(e) => {
-      console.log("/");
       e.preventDefault();
       openTooltip(
         e,
@@ -74,7 +73,6 @@
       hideTooltip(false);
     }}
     on:blur={(e) => {
-      console.log("/");
       e.preventDefault();
       hideTooltip(true);
     }}>{qubit}</qubit-node

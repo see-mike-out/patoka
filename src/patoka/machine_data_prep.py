@@ -51,8 +51,6 @@ def getMachineInformation(backend, times=[]):
         output_time_resolution = None
     # Return the InstructionDurations object (todo)
     instruction_durations = backend.instruction_durations
-    # Return the InstructionScheduleMap for the instructions defined in this backend’s target (todo)
-    instruction_schedule_map = backend.instruction_schedule_map
     # A list of Instruction tuples on the backend of the form (instruction, (qubits) (todo)
     instructions = backend.instructions
     # The maximum number of circuits (or Pulse schedules) that can be run in a single job. If there is no limit this will return None.
@@ -81,8 +79,6 @@ def getMachineInformation(backend, times=[]):
 
     # Return the Provider responsible for the backend
     provider = backend.provider
-    # A qiskit.transpiler.Target object for the backend
-    target = backend.target
 
     # methods
     # Return the pulse defaults for the backend; None if the backend does not support pulse
@@ -160,8 +156,6 @@ def getMachineInformation(backend, times=[]):
             "instructions": process_instructions_data(
                 instructions, instruction_durations
             ),  # done #dumped
-            # "instruction_durations": instruction_durations, # with instructions
-            # "instruction_schedule_map": instruction_schedule_map, # skip
             "pulse_defaults": {
                 "qubit_freq_est": pulse_defaults.qubit_freq_est if pulse_defaults is not None else None,
                 "meas_freq_est": pulse_defaults.meas_freq_est if pulse_defaults is not None else None,

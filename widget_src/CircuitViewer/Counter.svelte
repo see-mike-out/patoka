@@ -6,7 +6,6 @@
 	let event = `change:${name}`
 	let callback = () => count = model.get(name);
 	onMount(() => {
-console.log("..");
 		model.on(event, callback);
 	});
 	onDestroy(() => {

@@ -66,8 +66,6 @@ def prepareData(circuit, backends, transpile_params):
         if transpile_param is None:
             transpile_param = TranspileParam()
 
-        min_match_score = float("inf")
-
         pass_manager = generate_preset_pass_manager(backend=backend, **transpile_param.to_dict_for_transpile())
 
         transpile_data = {}
@@ -115,7 +113,7 @@ def bitsToList(bits):
     return [
         {
             "index": bit._index,
-            "register": {"name": bit._register._name, "size": bit._register._size},
+            "register": {"name": bit._register.name, "size": bit._register.size},
         }
         for bit in bits
     ]

@@ -10,7 +10,6 @@ class TranspileParam:
                  routing_method=None, 
                  translation_method=None, 
                  scheduling_method=None, 
-                 instruction_durations=None,
                  approximation_degree=1.0, 
                  timing_constraints=None, 
                  seed_transpiler=None, 
@@ -34,7 +33,6 @@ class TranspileParam:
         self.routing_method = routing_method
         self.translation_method = translation_method
         self.scheduling_method = scheduling_method 
-        self.instruction_durations = instruction_durations
         self.approximation_degree = approximation_degree
         self.timing_constraints = timing_constraints 
         self.seed_transpiler = seed_transpiler
@@ -62,7 +60,6 @@ class TranspileParam:
             "routing_method": self.routing_method,
             "translation_method": self.translation_method,
             "scheduling_method": self.scheduling_method,
-            "instruction_durations": self.instruction_durations,
             "approximation_degree": self.approximation_degree,
             "timing_constraints": self.timing_constraints,
             "seed_transpiler": self.seed_transpiler,
@@ -80,18 +77,17 @@ class TranspileParam:
     
     def to_dict_for_transpile(self):
         return {
+            # "inst_map": self.inst_map,
+            # "backend_properties": self.backend_properties,
+            # "timing_constraints": self.timing_constraints,
             "basis_gates": self.basis_gates,
-            "inst_map": self.inst_map,
             "coupling_map": self.coupling_map,
-            "backend_properties": self.backend_properties,
             "initial_layout": self.initial_layout,
             "layout_method": self.layout_method,
             "routing_method": self.routing_method,
             "translation_method": self.translation_method,
             "scheduling_method": self.scheduling_method,
-            "instruction_durations": self.instruction_durations,
             "approximation_degree": self.approximation_degree,
-            "timing_constraints": self.timing_constraints,
             "seed_transpiler": self.seed_transpiler,
             "optimization_level": self.optimization_level,
             "unitary_synthesis_method": self.unitary_synthesis_method,

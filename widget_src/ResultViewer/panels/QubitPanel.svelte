@@ -195,100 +195,6 @@
                     >{/if}</th
                 >
                 <th
-                  >Anharmonic. {#if sort_reg.anharmonicity !== "a"}<button
-                      on:click={() => {
-                        data.update((d) => {
-                          d.backend_properties.qubits = sort(
-                            d.backend_properties.qubits,
-                            "anharmonicity",
-                            "a",
-                          );
-                          return d;
-                        });
-                      }}>↑V</button
-                    >{:else}<button
-                      on:click={() => {
-                        data.update((d) => {
-                          d.backend_properties.qubits = sort(
-                            d.backend_properties.qubits,
-                            "anharmonicity",
-                            "d",
-                          );
-                          return d;
-                        });
-                      }}>↓V</button
-                    >{/if}{#if sort_reg.anharmonicityd !== "a"}<button
-                      on:click={() => {
-                        data.update((d) => {
-                          d.backend_properties.qubits = dsort(
-                            d.backend_properties.qubits,
-                            "anharmonicity",
-                            "a",
-                          );
-                          return d;
-                        });
-                      }}>↑D</button
-                    >{:else}<button
-                      on:click={() => {
-                        data.update((d) => {
-                          d.backend_properties.qubits = dsort(
-                            d.backend_properties.qubits,
-                            "anharmonicity",
-                            "d",
-                          );
-                          return d;
-                        });
-                      }}>↓D</button
-                    >{/if}</th
-                >
-                <th
-                  >Frequency {#if sort_reg.frequency !== "a"}<button
-                      on:click={() => {
-                        data.update((d) => {
-                          d.backend_properties.qubits = sort(
-                            d.backend_properties.qubits,
-                            "frequency",
-                            "a",
-                          );
-                          return d;
-                        });
-                      }}>↑V</button
-                    >{:else}<button
-                      on:click={() => {
-                        data.update((d) => {
-                          d.backend_properties.qubits = sort(
-                            d.backend_properties.qubits,
-                            "frequency",
-                            "d",
-                          );
-                          return d;
-                        });
-                      }}>↓V</button
-                    >{/if}{#if sort_reg.frequencyd !== "a"}<button
-                      on:click={() => {
-                        data.update((d) => {
-                          d.backend_properties.qubits = dsort(
-                            d.backend_properties.qubits,
-                            "frequency",
-                            "a",
-                          );
-                          return d;
-                        });
-                      }}>↑D</button
-                    >{:else}<button
-                      on:click={() => {
-                        data.update((d) => {
-                          d.backend_properties.qubits = dsort(
-                            d.backend_properties.qubits,
-                            "frequency",
-                            "d",
-                          );
-                          return d;
-                        });
-                      }}>↓D</button
-                    >{/if}</th
-                >
-                <th
                   >Meas0Prob1 {#if sort_reg.prob_meas0_prep1 !== "a"}<button
                       on:click={() => {
                         data.update((d) => {
@@ -491,18 +397,6 @@
                     <td
                       >{#if qubit.T2 !== undefined}{qubit.T2.value}<br /><span
                           class="asof">({qubit.T2.asof})</span
-                        >{:else}-<br /><span class="asof">(-)</span>{/if}
-                    </td>
-                    <td
-                      >{#if qubit.anharmonicity !== undefined}{qubit
-                          .anharmonicity.value}<br /><span class="asof"
-                          >({qubit.anharmonicity.asof})</span
-                        >{:else}-<br /><span class="asof">(-)</span>{/if}
-                    </td>
-                    <td
-                      >{#if qubit.frequency !== undefined}{qubit.frequency
-                          .value}<br /><span class="asof"
-                          >({qubit.frequency.asof})</span
                         >{:else}-<br /><span class="asof">(-)</span>{/if}
                     </td>
                     <td

@@ -117,7 +117,6 @@
           <select
             id="problem-type"
             on:change={(e) => {
-              console.log(e.target.value);
               if (!e.target.value) {
                 problem_type.set(undefined);
               } else {

@@ -23,7 +23,7 @@ export function planMachineView(data, operation_data, config) {
     filter_unused_qubits = false;
   }
 
-  let node_position = data?.design?.nodes.map((d) => ({ index: d.index, x: d.x, y: d.y })), qubit_pos_map = {}, qubit_rel_map = {};
+  let node_position = data?.design?.nodes?.map((d) => ({ index: d.index, x: d.x, y: d.y })), qubit_pos_map = {}, qubit_rel_map = {};
   if (n_qubits_to_draw < data?.design?.nodes.length) {
     node_position = node_position.filter(d => qubits_to_draw.includes(d.index))
   }

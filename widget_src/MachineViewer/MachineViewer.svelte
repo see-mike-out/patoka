@@ -36,7 +36,6 @@
       model.set(output_key, code);
       model.save_changes();
     });
-console.log($data)
   });
 
   onDestroy(() => {
@@ -172,14 +171,14 @@ console.log($data)
       section_meta={sections[6]}
       hide={true}
     ></Section>
-    <Section
+    <!-- <Section
       {data}
       {addToBasket}
       {basket}
       {openTimeMachine}
       section_meta={sections[7]}
       hide={true}
-    ></Section>
+    ></Section> -->
     <Section
       {data}
       {addToBasket}

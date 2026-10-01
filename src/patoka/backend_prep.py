@@ -2,7 +2,6 @@ from qiskit_ibm_runtime.fake_provider import fake_backend
 from qiskit_aer import AerSimulator
 
 from .backend_design import get_backend_circuit_nodes
-import json
 import re
 
 aer_sim_name_re = re.compile("aer_simulator_from\\(fake_([a-zA-Z]+)\\)")
@@ -13,6 +12,7 @@ def getBackendData(backend):
 
     if isinstance(backend, fake_backend.FakeBackendV2):
         # V2 backends
+        # might require fixes in the future
         backend_name = backend.backend_name
         backend_name = backend_name.replace("fake_", "")
         data["name"] = backend_name

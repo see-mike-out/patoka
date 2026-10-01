@@ -20,7 +20,6 @@
   let event = `change:${key_update}`;
   let callback = () => {
     let updates = JSON.parse(model.get(key_update));
-    console.log(updates);
     data.update((d) => {
       if (updates.set) {
         Object.keys(updates.set).forEach((key) => {
@@ -52,7 +51,6 @@
       }
       return d;
     });
-    console.log($data);
   };
 
   let data = writable();
@@ -84,9 +82,6 @@
       }
     });
     data.set(_data);
-    // data.set({});
-
-    console.log($data);
     model.on(event, callback);
   });
 

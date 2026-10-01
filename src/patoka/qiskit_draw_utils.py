@@ -39,13 +39,13 @@ def getCircuitLayout(circuit):
             }
             for qubit in inst.qargs:
                 op["qubits"].append({
-                    "register": {"name": qubit._register._name, "size": qubit._register._size},
+                    "register": {"name": qubit._register.name, "size": qubit._register.size},
                     "index": qubit._index
                 })
             op["qubits"] = tuple(op["qubits"])
             for clbit in inst.cargs:
                 op["clbits"].append({
-                    "register": {"name": qubit._register._name, "size": qubit._register._size},
+                    "register": {"name": qubit._register.name, "size": qubit._register.size},
                     "index": qubit._index
                 })
             op["clbits"] = tuple(op["clbits"])

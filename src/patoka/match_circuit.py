@@ -2,9 +2,9 @@ from .qiskit_draw_utils import getCircuitLayout
 import qiskit.circuit.library as gates
 import qiskit.circuit as QCR
 from qiskit.circuit import QuantumCircuit
-import numpy as np
 import copy
 import re
+from qiskit.circuit.library import QFTGate
 
 def matchCircuitLayouts(origin, trans, pass_manager):
     # mapping by transpiling length
@@ -343,7 +343,7 @@ def get_gate(gate_name, n_qubits, params):
     elif gate_name == "global_phase":
         gate = gates.GlobalPhaseGate()
     elif gate_name == "QFT":
-        gate = gates.QFT(n_qubits).to_gate()
+        gate = QFTGate(n_qubits)
     elif gate_name == "measure":
         gate = QCR.Measure()
     elif gate_name == "barrier":

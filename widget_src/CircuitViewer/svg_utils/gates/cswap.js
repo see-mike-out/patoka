@@ -41,7 +41,6 @@ export let CSWAP = {
     // 2. dot for control
     let ci = 0;
     for (let control in controls) {
-      console.log(ci, ci < 1)
       if (ci < 1) {
         let marker = {
           id: `layer-${li}--${gate_name}--swap-${ci}-control-marker`,

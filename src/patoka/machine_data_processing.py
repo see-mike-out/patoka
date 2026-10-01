@@ -56,9 +56,7 @@ def process_operations_data(data):
                 "name": op.name, 
                 "num_qubits": op.num_qubits,
                 "num_clbits": op.num_clbits,
-                "condition_bits": op.condition_bits,
                 "params": [p.name for p in op.params],
-                "unit": op.unit,
                 "mutable": op.mutable
             })
     return output
@@ -87,9 +85,7 @@ def process_instructions_data(data, duration):
                 "name": op.name, 
                 "num_qubits": op.num_qubits,
                 "num_clbits": op.num_clbits,
-                "condition_bits": op.condition_bits,
                 "params": [p.name for p in op.params],
-                "unit": op.unit,
                 "mutable": op.mutable,
                 "qubits": qubits,
                 "duration": dur

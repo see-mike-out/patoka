@@ -138,44 +138,6 @@
               >{/if}</th
           >
           <th
-            >Anharmonic. {#if sort_reg.anharmonicity !== "a"}<button
-                on:click={() => {
-                  sort("anharmonicity", "a");
-                }}>↑V</button
-              >{:else}<button
-                on:click={() => {
-                  sort("anharmonicity", "d");
-                }}>↓V</button
-              >{/if}{#if sort_reg.anharmonicityd !== "a"}<button
-                on:click={() => {
-                  dsort("anharmonicity", "a");
-                }}>↑D</button
-              >{:else}<button
-                on:click={() => {
-                  dsort("anharmonicity", "d");
-                }}>↓D</button
-              >{/if}</th
-          >
-          <th
-            >Frequency {#if sort_reg.frequency !== "a"}<button
-                on:click={() => {
-                  sort("frequency", "a");
-                }}>↑V</button
-              >{:else}<button
-                on:click={() => {
-                  sort("frequency", "d");
-                }}>↓V</button
-              >{/if}{#if sort_reg.frequencyd !== "a"}<button
-                on:click={() => {
-                  dsort("frequency", "a");
-                }}>↑D</button
-              >{:else}<button
-                on:click={() => {
-                  dsort("frequency", "d");
-                }}>↓D</button
-              >{/if}</th
-          >
-          <th
             >Meas0Prob1 {#if sort_reg.prob_meas0_prep1 !== "a"}<button
                 on:click={() => {
                   sort("prob_meas0_prep1", "a");
@@ -258,179 +220,102 @@
         {#each $value_react as qubit, qi}
           <tr>
             <th>{qubit.index.value}</th>
-            <td
-              >{qubit.T1.value}<br /><span class="asof">({qubit.T1.asof})</span>
-              {#if addToBasket}
-                <button
-                  class="basket"
-                  on:click={() => {
-                    addToBasket(
-                      `qubit_${key}_${qi}_T1 = ${code_header}${qi}, name="T1"${code_footer}`,
-                    );
-                  }}
+            <td>
+              {#if qubit.T1}
+                {qubit.T1.value}<br /><span class="asof">({qubit.T1.asof})</span
                 >
-                  <Cart
-                    on={$basket.includes(
-                      `qubit_${key}_${qi}_T1 = ${code_header}${qi}, name="T1"${code_footer}`,
-                    )}
-                  ></Cart>
-                </button>
-              {/if}
+                {#if addToBasket}
+                  <button
+                    class="basket"
+                    on:click={() => {
+                      addToBasket(
+                        `qubit_${key}_${qi}_T1 = ${code_header}${qi}, name="T1"${code_footer}`,
+                      );
+                    }}
+                  >
+                    <Cart
+                      on={$basket.includes(
+                        `qubit_${key}_${qi}_T1 = ${code_header}${qi}, name="T1"${code_footer}`,
+                      )}
+                    ></Cart>
+                  </button>
+                {/if}
 
-              {#if topLevelKey === "properties" && openTimeMachine}
-                <button
-                  class="basket"
-                  on:click={() => {
-                    openTimeMachine({
-                      datatype: "nudv-map",
-                      subtype: "qubit-property",
-                      key: `qubit_${qi}_T1`,
-                      title_key: `qubit[${qi}].T1`,
-                      qubit_index: qi,
-                      property: `T1`,
-                      parentKey,
-                      topLevelKey,
-                      data: qubit.T1,
-                      code_header: `${code_header}${qi}, name="T1"`,
-                      code_footer,
-                      code_key: "",
-                    });
-                  }}
-                >
-                  <Clock></Clock>
-                </button>
+                {#if topLevelKey === "properties" && openTimeMachine}
+                  <button
+                    class="basket"
+                    on:click={() => {
+                      openTimeMachine({
+                        datatype: "nudv-map",
+                        subtype: "qubit-property",
+                        key: `qubit_${qi}_T1`,
+                        title_key: `qubit[${qi}].T1`,
+                        qubit_index: qi,
+                        property: `T1`,
+                        parentKey,
+                        topLevelKey,
+                        data: qubit.T1,
+                        code_header: `${code_header}${qi}, name="T1"`,
+                        code_footer,
+                        code_key: "",
+                      });
+                    }}
+                  >
+                    <Clock></Clock>
+                  </button>
+                {/if}
+              {:else}
+                -<br />
+                <span class="asof">(-)</span>
               {/if}
             </td>
-            <td
-              >{qubit.T2.value}<br /><span class="asof">({qubit.T2.asof})</span>
-              {#if addToBasket}
-                <button
-                  class="basket"
-                  on:click={() => {
-                    addToBasket(
-                      `qubit_${key}_${qi}_T2 = ${code_header}${qi}, name="T2"${code_footer}`,
-                    );
-                  }}
+            <td>
+              {#if qubit.T2}
+                {qubit.T2.value}<br /><span class="asof">({qubit.T2.asof})</span
                 >
-                  <Cart
-                    on={$basket.includes(
-                      `qubit_${key}_${qi}_T2 = ${code_header}${qi}, name="T2"${code_footer}`,
-                    )}
-                  ></Cart>
-                </button>
-              {/if}
+                {#if addToBasket}
+                  <button
+                    class="basket"
+                    on:click={() => {
+                      addToBasket(
+                        `qubit_${key}_${qi}_T2 = ${code_header}${qi}, name="T2"${code_footer}`,
+                      );
+                    }}
+                  >
+                    <Cart
+                      on={$basket.includes(
+                        `qubit_${key}_${qi}_T2 = ${code_header}${qi}, name="T2"${code_footer}`,
+                      )}
+                    ></Cart>
+                  </button>
+                {/if}
 
-              {#if topLevelKey === "properties" && openTimeMachine}
-                <button
-                  class="basket"
-                  on:click={() => {
-                    openTimeMachine({
-                      datatype: "nudv-map",
-                      subtype: "qubit-property",
-                      key: `qubit_${qi}_T2`,
-                      title_key: `qubit[${qi}].T2`,
-                      qubit_index: qi,
-                      property: `T2`,
-                      parentKey,
-                      topLevelKey,
-                      data: qubit.T2,
-                      code_header: `${code_header}${qi}, name="T2"`,
-                      code_footer,
-                      code_key: "",
-                    });
-                  }}
-                >
-                  <Clock></Clock>
-                </button>
-              {/if}
-            </td>
-            <td
-              >{qubit.anharmonicity.value}<br /><span class="asof"
-                >({qubit.anharmonicity.asof})</span
-              >
-              {#if addToBasket}
-                <button
-                  class="basket"
-                  on:click={() => {
-                    addToBasket(
-                      `qubit_${key}_${qi}_anharmonicity = ${code_header}${qi}, name="anharmonicity"${code_footer}`,
-                    );
-                  }}
-                >
-                  <Cart
-                    on={$basket.includes(
-                      `qubit_${key}_${qi}_anharmonicity = ${code_header}${qi}, name="anharmonicity"${code_footer}`,
-                    )}
-                  ></Cart>
-                </button>
-              {/if}
-
-              {#if topLevelKey === "properties" && openTimeMachine}
-                <button
-                  class="basket"
-                  on:click={() => {
-                    openTimeMachine({
-                      datatype: "nudv-map",
-                      subtype: "qubit-property",
-                      key: `qubit_${qi}_anharmonicity`,
-                      title_key: `qubit[${qi}].anharmonicity`,
-                      qubit_index: qi,
-                      property: `anharmonicity`,
-                      parentKey,
-                      topLevelKey,
-                      data: qubit.anharmonicity,
-                      code_header: `${code_header}${qi}, name="anharmonicity"`,
-                      code_footer,
-                      code_key: "",
-                    });
-                  }}
-                >
-                  <Clock></Clock>
-                </button>
-              {/if}
-            </td>
-            <td
-              >{qubit.frequency.value}<br /><span class="asof"
-                >({qubit.frequency.asof})</span
-              >
-              {#if addToBasket}
-                <button
-                  class="basket"
-                  on:click={() => {
-                    addToBasket(
-                      `qubit_${key}_${qi}_frequency = ${code_header}${qi}, name="frequency"${code_footer}`,
-                    );
-                  }}
-                >
-                  <Cart
-                    on={$basket.includes(
-                      `qubit_${key}_${qi}_frequency = ${code_header}${qi}, name="frequency"${code_footer}`,
-                    )}
-                  ></Cart>
-                </button>
-              {/if}
-              {#if topLevelKey === "properties" && openTimeMachine}
-                <button
-                  class="basket"
-                  on:click={() => {
-                    openTimeMachine({
-                      datatype: "nudv-map",
-                      subtype: "qubit-property",
-                      key: `qubit_${qi}_frequency`,
-                      title_key: `qubit[${qi}].frequency`,
-                      qubit_index: qi,
-                      property: `frequency`,
-                      parentKey,
-                      topLevelKey,
-                      data: qubit.frequency,
-                      code_header: `${code_header}${qi}, name="frequency"`,
-                      code_footer,
-                      code_key: "",
-                    });
-                  }}
-                >
-                  <Clock></Clock>
-                </button>
+                {#if topLevelKey === "properties" && openTimeMachine}
+                  <button
+                    class="basket"
+                    on:click={() => {
+                      openTimeMachine({
+                        datatype: "nudv-map",
+                        subtype: "qubit-property",
+                        key: `qubit_${qi}_T2`,
+                        title_key: `qubit[${qi}].T2`,
+                        qubit_index: qi,
+                        property: `T2`,
+                        parentKey,
+                        topLevelKey,
+                        data: qubit.T2,
+                        code_header: `${code_header}${qi}, name="T2"`,
+                        code_footer,
+                        code_key: "",
+                      });
+                    }}
+                  >
+                    <Clock></Clock>
+                  </button>
+                {/if}
+              {:else}
+                -<br />
+                <span class="asof">(-)</span>
               {/if}
             </td>
             <td>
@@ -531,94 +416,104 @@
                 <span class="asof">(-)</span>
               {/if}
             </td>
-            <td
-              >{qubit.readout_error.value}<br /><span class="asof"
-                >({qubit.readout_error.asof})</span
-              >
+            <td>
+              {#if qubit.readout_error}
+                {qubit.readout_error.value}<br /><span class="asof"
+                  >({qubit.readout_error.asof})</span
+                >
 
-              {#if addToBasket}
-                <button
-                  class="basket"
-                  on:click={() => {
-                    addToBasket(
-                      `qubit_${key}_${qi}_readout_error = ${code_header}${qi}, name="readout_error"${code_footer}`,
-                    );
-                  }}
-                >
-                  <Cart
-                    on={$basket.includes(
-                      `qubit_${key}_${qi}_readout_error = ${code_header}${qi}, name="readout_error"${code_footer}`,
-                    )}
-                  ></Cart>
-                </button>
-              {/if}
-              {#if topLevelKey === "properties" && openTimeMachine}
-                <button
-                  class="basket"
-                  on:click={() => {
-                    openTimeMachine({
-                      datatype: "nudv-map",
-                      subtype: "qubit-property",
-                      key: `qubit_${qi}_readout_error`,
-                      title_key: `qubit[${qi}].readout_error`,
-                      qubit_index: qi,
-                      property: `readout_error`,
-                      parentKey,
-                      topLevelKey,
-                      data: qubit.readout_error,
-                      code_header: `${code_header}${qi}, name="readout_error"`,
-                      code_footer,
-                      code_key: "",
-                    });
-                  }}
-                >
-                  <Clock></Clock>
-                </button>
+                {#if addToBasket}
+                  <button
+                    class="basket"
+                    on:click={() => {
+                      addToBasket(
+                        `qubit_${key}_${qi}_readout_error = ${code_header}${qi}, name="readout_error"${code_footer}`,
+                      );
+                    }}
+                  >
+                    <Cart
+                      on={$basket.includes(
+                        `qubit_${key}_${qi}_readout_error = ${code_header}${qi}, name="readout_error"${code_footer}`,
+                      )}
+                    ></Cart>
+                  </button>
+                {/if}
+                {#if topLevelKey === "properties" && openTimeMachine}
+                  <button
+                    class="basket"
+                    on:click={() => {
+                      openTimeMachine({
+                        datatype: "nudv-map",
+                        subtype: "qubit-property",
+                        key: `qubit_${qi}_readout_error`,
+                        title_key: `qubit[${qi}].readout_error`,
+                        qubit_index: qi,
+                        property: `readout_error`,
+                        parentKey,
+                        topLevelKey,
+                        data: qubit.readout_error,
+                        code_header: `${code_header}${qi}, name="readout_error"`,
+                        code_footer,
+                        code_key: "",
+                      });
+                    }}
+                  >
+                    <Clock></Clock>
+                  </button>
+                {/if}
+              {:else}
+                -<br />
+                <span class="asof">(-)</span>
               {/if}
             </td>
-            <td
-              >{qubit.readout_length.value}<br /><span class="asof"
-                >({qubit.readout_length.asof})</span
-              >
+            <td>
+              {#if qubit.readout_length}
+                {qubit.readout_length.value}<br /><span class="asof"
+                  >({qubit.readout_length.asof})</span
+                >
 
-              {#if addToBasket}
-                <button
-                  class="basket"
-                  on:click={() => {
-                    addToBasket(
-                      `qubit_${key}_${qi}_readout_length = ${code_header}${qi}, name="readout_length"${code_footer}`,
-                    );
-                  }}
-                >
-                  <Cart
-                    on={$basket.includes(
-                      `qubit_${key}_${qi}_readout_length = ${code_header}${qi}, name="readout_length"${code_footer}`,
-                    )}
-                  ></Cart>
-                </button>
-              {/if}
-              {#if topLevelKey === "properties" && openTimeMachine}
-                <button
-                  class="basket"
-                  on:click={() => {
-                    openTimeMachine({
-                      datatype: "nudv-map",
-                      subtype: "qubit-property",
-                      key: `qubit_${qi}_readout_length`,
-                      title_key: `qubit[${qi}].readout_length`,
-                      qubit_index: qi,
-                      property: `readout_length`,
-                      parentKey,
-                      topLevelKey,
-                      data: qubit.readout_length,
-                      code_header: `${code_header}${qi}, name="readout_length"`,
-                      code_footer,
-                      code_key: "",
-                    });
-                  }}
-                >
-                  <Clock></Clock>
-                </button>
+                {#if addToBasket}
+                  <button
+                    class="basket"
+                    on:click={() => {
+                      addToBasket(
+                        `qubit_${key}_${qi}_readout_length = ${code_header}${qi}, name="readout_length"${code_footer}`,
+                      );
+                    }}
+                  >
+                    <Cart
+                      on={$basket.includes(
+                        `qubit_${key}_${qi}_readout_length = ${code_header}${qi}, name="readout_length"${code_footer}`,
+                      )}
+                    ></Cart>
+                  </button>
+                {/if}
+                {#if topLevelKey === "properties" && openTimeMachine}
+                  <button
+                    class="basket"
+                    on:click={() => {
+                      openTimeMachine({
+                        datatype: "nudv-map",
+                        subtype: "qubit-property",
+                        key: `qubit_${qi}_readout_length`,
+                        title_key: `qubit[${qi}].readout_length`,
+                        qubit_index: qi,
+                        property: `readout_length`,
+                        parentKey,
+                        topLevelKey,
+                        data: qubit.readout_length,
+                        code_header: `${code_header}${qi}, name="readout_length"`,
+                        code_footer,
+                        code_key: "",
+                      });
+                    }}
+                  >
+                    <Clock></Clock>
+                  </button>
+                {/if}
+              {:else}
+                -<br />
+                <span class="asof">(-)</span>
               {/if}
             </td>
             <td>

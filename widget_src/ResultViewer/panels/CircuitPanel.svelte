@@ -89,10 +89,7 @@
       range: [0, Math.min(pagination_unit, total_layers)],
     });
   }
-  // $: {
-  //   prepare(circuit_data, $pagination);
-  // }
-
+  
   function goToPage(pageNo) {
     pagination.update((p) => {
       p.page = Math.min(p.total_page, Math.max(1, pageNo));
@@ -103,7 +100,6 @@
         ),
         Math.min(p.total_layers - 1, Math.max(0, pageNo * pagination_unit)),
       ];
-      console.log(p);
       return p;
     });
   }

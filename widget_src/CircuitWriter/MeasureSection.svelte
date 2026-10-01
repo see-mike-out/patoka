@@ -13,7 +13,7 @@
       <div class="input-form">
         <label>Qubits to measure</label>
         <div class="checkbox-group">
-          {#if $data.clbits === "auto"}
+          {#if $data.clbits !== "auto"}
             <QubitSelect
               id={`measure-reset`}
               checked={false}

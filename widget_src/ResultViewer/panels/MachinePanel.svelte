@@ -294,7 +294,7 @@
                 )?.parameters["gate_" + $edge_info_selected.type]}
                 colorScale={edgeColorScale}
                 edge_info_selected={$edge_info_selected}
-                info_type={$edge_info_selected.type}
+                info_type={$edge_info_selected?.type}
                 {openTooltip}
                 {hideTooltip}
                 {moveTooltip}
@@ -313,7 +313,7 @@
                   : qubit_info_values[qi].parameters[
                       "gate_" + $qubit_info_selected.type
                     ]}
-                info_type={$qubit_info_selected.type}
+                info_type={$qubit_info_selected?.type}
                 {colorScale}
                 qubit_info_selected={$qubit_info_selected}
                 {openTooltip}

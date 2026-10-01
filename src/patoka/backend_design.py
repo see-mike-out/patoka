@@ -1,3 +1,5 @@
+import warnings
+
 IBM_127Qs = [
     "sherbrooke",
     "brisbane",
@@ -101,6 +103,21 @@ IBM_65Qs = [
     "manhattan"
 ]
 
+IBM_Herons = [
+    "kingston",
+    "fez",
+    "marrakesh",
+    "boston",
+    "pittsburgh",
+    "aachen"
+]
+
+IBM_Nighthawks = [
+    "phoenix",
+    "miami",
+    "berlin"   
+]
+
 def get_backend_circuit_nodes(name):
     if name in IBM_1Qs:
         return NODES_IMBQ_1Q
@@ -130,9 +147,12 @@ def get_backend_circuit_nodes(name):
         return NODES_IMBQ_BRISBANE
     elif name == "torino":
         return NODES_IMBQ_TORINO
-    elif name == "fez":
-        return NODES_IMBQ_FEZ
+    elif name in IBM_Herons:
+        return NODES_IMBQ_HERON
+    elif name in IBM_Nighthawks:
+        return NODES_IMBQ_NIGHTHAWK
     else:
+        warnings.warn(f"Warning: {name} is not supported machine desing. Please report it via Issues. https://github.com/see-mike-out/qc-widget-prototypes-public/issues")
         return None
 
 NODES_IMBQ_1Q = [
@@ -759,7 +779,7 @@ NODES_IMBQ_TORINO = [
 ]
 
 
-NODES_IMBQ_FEZ = [
+NODES_IMBQ_HERON = [
     # row 1
     {"index": 0, "x": 0, "y": 0},
     {"index": 1, "x": 1, "y": 0},
@@ -931,4 +951,139 @@ NODES_IMBQ_FEZ = [
     {"index": 153, "x": 13, "y": 14},
     {"index": 154, "x": 14, "y": 14},
     {"index": 155, "x": 15, "y": 14}
+]
+
+NODES_IMBQ_NIGHTHAWK = [
+    # row 1
+    {"index": 0, "x": 0, "y": 0},
+    {"index": 1, "x": 1, "y": 0},
+    {"index": 2, "x": 2, "y": 0},
+    {"index": 3, "x": 3, "y": 0},
+    {"index": 4, "x": 4, "y": 0},
+    {"index": 5, "x": 5, "y": 0},
+    {"index": 6, "x": 6, "y": 0},
+    {"index": 7, "x": 7, "y": 0},
+    {"index": 8, "x": 8, "y": 0},
+    {"index": 9, "x": 9, "y": 0},
+    # row 2
+    {"index": 10, "x": 0, "y": 1},
+    {"index": 11, "x": 1, "y": 1},
+    {"index": 12, "x": 2, "y": 1},
+    {"index": 13, "x": 3, "y": 1},
+    {"index": 14, "x": 4, "y": 1},
+    {"index": 15, "x": 5, "y": 1},
+    {"index": 16, "x": 6, "y": 1},
+    {"index": 17, "x": 7, "y": 1},
+    {"index": 18, "x": 8, "y": 1},
+    {"index": 19, "x": 9, "y": 1},
+    # row 3
+    {"index": 20, "x": 0, "y": 2},
+    {"index": 21, "x": 1, "y": 2},
+    {"index": 22, "x": 2, "y": 2},
+    {"index": 23, "x": 3, "y": 2},
+    {"index": 24, "x": 4, "y": 2},
+    {"index": 25, "x": 5, "y": 2},
+    {"index": 26, "x": 6, "y": 2},
+    {"index": 27, "x": 7, "y": 2},
+    {"index": 28, "x": 8, "y": 2},
+    {"index": 29, "x": 9, "y": 2},
+    # row 4
+    {"index": 30, "x": 0, "y": 3},
+    {"index": 31, "x": 1, "y": 3},
+    {"index": 32, "x": 2, "y": 3},
+    {"index": 33, "x": 3, "y": 3},
+    {"index": 34, "x": 4, "y": 3},
+    {"index": 35, "x": 5, "y": 3},
+    {"index": 36, "x": 6, "y": 3},
+    {"index": 37, "x": 7, "y": 3},
+    {"index": 38, "x": 8, "y": 3},
+    {"index": 39, "x": 9, "y": 3},
+    # row 5
+    {"index": 40, "x": 0, "y": 4},
+    {"index": 41, "x": 1, "y": 4},
+    {"index": 42, "x": 2, "y": 4},
+    {"index": 43, "x": 3, "y": 4},
+    {"index": 44, "x": 4, "y": 4},
+    {"index": 45, "x": 5, "y": 4},
+    {"index": 46, "x": 6, "y": 4},
+    {"index": 47, "x": 7, "y": 4},
+    {"index": 48, "x": 8, "y": 4},
+    {"index": 49, "x": 9, "y": 4},
+    # row 6
+    {"index": 50, "x": 0, "y": 5},
+    {"index": 51, "x": 1, "y": 5},
+    {"index": 52, "x": 2, "y": 5},
+    {"index": 53, "x": 3, "y": 5},
+    {"index": 54, "x": 4, "y": 5},
+    {"index": 55, "x": 5, "y": 5},
+    {"index": 56, "x": 6, "y": 5},
+    {"index": 57, "x": 7, "y": 5},
+    {"index": 58, "x": 8, "y": 5},
+    {"index": 59, "x": 9, "y": 5},
+    # row 7
+    {"index": 60, "x": 0, "y": 6},
+    {"index": 61, "x": 1, "y": 6},
+    {"index": 62, "x": 2, "y": 6},
+    {"index": 63, "x": 3, "y": 6},
+    {"index": 64, "x": 4, "y": 6},
+    {"index": 65, "x": 5, "y": 6},
+    {"index": 66, "x": 6, "y": 6},
+    {"index": 67, "x": 7, "y": 6},
+    {"index": 68, "x": 8, "y": 6},
+    {"index": 69, "x": 9, "y": 6},
+    # row 8
+    {"index": 70, "x": 0, "y": 7},
+    {"index": 71, "x": 1, "y": 7},
+    {"index": 72, "x": 2, "y": 7},
+    {"index": 73, "x": 3, "y": 7},
+    {"index": 74, "x": 4, "y": 7},
+    {"index": 75, "x": 5, "y": 7},
+    {"index": 76, "x": 6, "y": 7},
+    {"index": 77, "x": 7, "y": 7},
+    {"index": 78, "x": 8, "y": 7},
+    {"index": 79, "x": 9, "y": 7},
+    # row 9
+    {"index": 80, "x": 0, "y": 8},
+    {"index": 81, "x": 1, "y": 8},
+    {"index": 82, "x": 2, "y": 8},
+    {"index": 83, "x": 3, "y": 8},
+    {"index": 84, "x": 4, "y": 8},
+    {"index": 85, "x": 5, "y": 8},
+    {"index": 86, "x": 6, "y": 8},
+    {"index": 87, "x": 7, "y": 8},
+    {"index": 88, "x": 8, "y": 8},
+    {"index": 89, "x": 9, "y": 8},
+    # row 10
+    {"index": 90, "x": 0, "y": 9},
+    {"index": 91, "x": 1, "y": 9},
+    {"index": 92, "x": 2, "y": 9},
+    {"index": 93, "x": 3, "y": 9},
+    {"index": 94, "x": 4, "y": 9},
+    {"index": 95, "x": 5, "y": 9},
+    {"index": 96, "x": 6, "y": 9},
+    {"index": 97, "x": 7, "y": 9},
+    {"index": 98, "x": 8, "y": 9},
+    {"index": 99, "x": 9, "y": 9},
+    # row 11
+    {"index": 100, "x": 0, "y": 10},
+    {"index": 101, "x": 1, "y": 10},
+    {"index": 102, "x": 2, "y": 10},
+    {"index": 103, "x": 3, "y": 10},
+    {"index": 104, "x": 4, "y": 10},
+    {"index": 105, "x": 5, "y": 10},
+    {"index": 106, "x": 6, "y": 10},
+    {"index": 107, "x": 7, "y": 10},
+    {"index": 108, "x": 8, "y": 10},
+    {"index": 109, "x": 9, "y": 10},
+    # row 12
+    {"index": 110, "x": 0, "y": 11},
+    {"index": 111, "x": 1, "y": 11},
+    {"index": 112, "x": 2, "y": 11},
+    {"index": 113, "x": 3, "y": 11},
+    {"index": 114, "x": 4, "y": 11},
+    {"index": 115, "x": 5, "y": 11},
+    {"index": 116, "x": 6, "y": 11},
+    {"index": 117, "x": 7, "y": 11},
+    {"index": 118, "x": 8, "y": 11},
+    {"index": 119, "x": 9, "y": 11},
 ]

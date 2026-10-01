@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "patoka"
-version = "0.2.16"
+version = "0.2.17"
 authors = [
   { name="Hyeok Kim" },
   { name="Mingyoung J. Jeng" },
@@ -12,21 +12,22 @@ authors = [
 ]
 description = "A collection of Jupyter Lab widgets for IBM Qiskit"
 readme = { file = "README.md", content-type = "text/markdown" }
-requires-python = ">=3.9"
+requires-python = ">=3.14"
 dependencies = [
-    "qiskit>=1.3",
-    "qiskit-aer>=0.16",
-    "qiskit_ibm_runtime>=0.34",
-    "qiskit_algorithms>=0.3",
-    "qiskit_machine_learning>=0.8",
-    "numpy>=2.0",
-    "pandas>=2.2",
-    "altair>=5.5",
-    "scipy>=1.13",
-    "tqdm>=4.67",
+    "qiskit>=2.5",
+    "qiskit-aer>=0.17",
+    "qiskit_ibm_runtime>=0.50",
+    "qiskit_algorithms>=0.4",
+    "qiskit_machine_learning>=0.9",
+    "numpy>=2.5",
+    "pandas>=2.3",
+    "altair>=6.3",
+    "scipy>=1.18",
+    "tqdm>=4.70",
     "jupyter>=1.1",
-    "anywidget>=0.9",
-    "matplotlib>=3.9"
+    "anywidget>=0.11",
+    "matplotlib>=3.11",
+    "python-dotenv"
 ]
 
 [project.urls]

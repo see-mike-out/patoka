@@ -1,15 +1,10 @@
 <script>
   import { writable } from "svelte/store";
-  import { onMount } from "svelte";
   import SvgWrap from "../../CircuitViewer/svgs/SVGWrap.svelte";
 
   export let drawPlan = writable(),
     id = "image-view",
     problem_type = writable();
-
-  onMount(() => {
-    console.log($drawPlan);
-  });
 </script>
 
 <div class="content-wrap">

@@ -18,9 +18,6 @@
     qubit_info,
     gate_info;
 
-  const singleton_gates = ["id", "rz", "sx"];
-  const dobule_gates = ["cx", "ecr"];
-
   let colorScale;
   let edgeColorScale;
 
@@ -60,12 +57,12 @@
       eincl = [];
     edge_info_list = [];
     gate_info.forEach((a) => {
-      if (dobule_gates.includes(a.gate) && !eincl.includes(a.gate)) {
+      if (a.qubits.length == 2 && !eincl.includes(a.gate)) {
         edge_info_list.push({ gate: a.gate, type: "error" });
         edge_info_list.push({ gate: a.gate, type: "length" });
         eincl.push(a.gate);
       }
-      if (singleton_gates.includes(a.gate) && !qincl.includes(a.gate)) {
+      if (a.qubits.length == 1 && !qincl.includes(a.gate)) {
         qubit_info_list.push({ gate: a.gate, type: "error" });
         qubit_info_list.push({ gate: a.gate, type: "length" });
         qincl.push(a.gate);
@@ -167,33 +164,34 @@
       document.querySelector("#" + id).style.outline = "2px solid black";
     }
 
-    if (key.feature === "T1") {
-      circuitElemCartKeyHead = "backend.properties().t1(";
-      circuitElemCartKeyFoot = ")";
-    } else if (key.feature === "T2") {
-      circuitElemCartKeyHead = "backend.properties().t2(";
-      circuitElemCartKeyFoot = ")";
-    } else if (key.feature === "frequency") {
-      circuitElemCartKeyHead = "backend.properties().frequency(";
-      circuitElemCartKeyFoot = ")";
-    } else if (key.feature === "readout_error") {
-      circuitElemCartKeyHead = "backend.properties().readout_error(";
-      circuitElemCartKeyFoot = ")";
-    } else if (key.feature === "readout_length") {
-      circuitElemCartKeyHead = "backend.properties().readout_length(";
-      circuitElemCartKeyFoot = ")";
-    } else if (key.feature === "prob_meas0_prep1") {
-      circuitElemCartKeyHead = "backend.properties().qubit_property(";
-      circuitElemCartKeyFoot = `, "prob_meas0_prep1")`;
-    } else if (key.feature === "prob_meas1_prep0") {
-      circuitElemCartKeyHead = "backend.properties().qubit_property(";
-      circuitElemCartKeyFoot = `, "prob_meas1_prep0")`;
-    } else if (key.gate) {
-      circuitElemCartKeyHead = `backend.properties().gate_${key.type}(${key.gate}, [`;
-      circuitElemCartKeyFoot = "])";
+    if (key) {
+      if (key.feature === "T1") {
+        circuitElemCartKeyHead = "backend.properties().t1(";
+        circuitElemCartKeyFoot = ")";
+      } else if (key.feature === "T2") {
+        circuitElemCartKeyHead = "backend.properties().t2(";
+        circuitElemCartKeyFoot = ")";
+      } else if (key.feature === "frequency") {
+        circuitElemCartKeyHead = "backend.properties().frequency(";
+        circuitElemCartKeyFoot = ")";
+      } else if (key.feature === "readout_error") {
+        circuitElemCartKeyHead = "backend.properties().readout_error(";
+        circuitElemCartKeyFoot = ")";
+      } else if (key.feature === "readout_length") {
+        circuitElemCartKeyHead = "backend.properties().readout_length(";
+        circuitElemCartKeyFoot = ")";
+      } else if (key.feature === "prob_meas0_prep1") {
+        circuitElemCartKeyHead = "backend.properties().qubit_property(";
+        circuitElemCartKeyFoot = `, "prob_meas0_prep1")`;
+      } else if (key.feature === "prob_meas1_prep0") {
+        circuitElemCartKeyHead = "backend.properties().qubit_property(";
+        circuitElemCartKeyFoot = `, "prob_meas1_prep0")`;
+      } else if (key.gate) {
+        circuitElemCartKeyHead = `backend.properties().gate_${key.type}(${key.gate}, [`;
+        circuitElemCartKeyFoot = "])";
+      }
+      circuitElemCartKey = `circuit_${key.gate ? key.gate + "_" + key.type : key.feature}_${qubits.join("_")} = ${circuitElemCartKeyHead}${qubits.join(",")}${circuitElemCartKeyFoot}`;
     }
-
-    circuitElemCartKey = `circuit_${key.gate ? key.gate + "_" + key.type : key.feature}_${qubits.join("_")} = ${circuitElemCartKeyHead}${qubits.join(",")}${circuitElemCartKeyFoot}`;
   }
   function moveTooltip(e) {
     if (showTooltip) {
@@ -246,7 +244,7 @@
         id="qubit_rep"
         on:change={(e) => {
           qubit_info_selected.set(JSON.parse(e.target.value));
-        }}
+        }}  
       >
         {#each qubit_info_list as item}
           <option value={JSON.stringify(item)}
@@ -310,7 +308,7 @@
           )?.parameters["gate_" + $edge_info_selected.type]}
           colorScale={edgeColorScale}
           edge_info_selected={$edge_info_selected}
-          info_type={$edge_info_selected.type}
+          info_type={$edge_info_selected?.type}
           {openTooltip}
           {hideTooltip}
           {moveTooltip}
@@ -328,7 +326,7 @@
             : qubit_info_values[qi].parameters[
                 "gate_" + $qubit_info_selected.type
               ]}
-          info_type={$qubit_info_selected.type}
+          info_type={$qubit_info_selected?.type}
           {colorScale}
           qubit_info_selected={$qubit_info_selected}
           {openTooltip}
@@ -347,23 +345,26 @@
     <!-- svelte-ignore a11y-mouse-events-have-key-events -->
     <div class="tooltip" style={`right: 1rem; top: ${tooltipY}px;`}>
       <h5>
-        {tooltipInfo.item}–{tooltipInfo.key.gate || tooltipInfo.key.feature}
-        {tooltipInfo.key.type ? tooltipInfo.key.type : ""}
+        {tooltipInfo.item}{#if tooltipInfo.key}–{tooltipInfo.key.gate ||
+            tooltipInfo.key.feature}
+          {tooltipInfo.key.type ? tooltipInfo.key.type : ""}{/if}
       </h5>
 
-      <table>
-        <tr>
-          <th>Value</th><td> {tooltipInfo.value.value}</td>
-        </tr>
-        <tr>
-          <th>Date</th><td> {tooltipInfo.value.asof}</td>
-        </tr>
-        {#if tooltipInfo.value.unit}
+      {#if tooltipInfo.value}
+        <table>
           <tr>
-            <th>Unit</th><td> {tooltipInfo.value.unit}</td>
+            <th>Value</th><td> {tooltipInfo.value.value}</td>
           </tr>
-        {/if}
-      </table>
+          <tr>
+            <th>Date</th><td> {tooltipInfo.value.asof}</td>
+          </tr>
+          {#if tooltipInfo.value.unit}
+            <tr>
+              <th>Unit</th><td> {tooltipInfo.value.unit}</td>
+            </tr>
+          {/if}
+        </table>
+      {/if}
 
       <div style="text-align: right;">
         {#if addToBasket}
@@ -451,6 +452,10 @@
     display: flex;
     column-gap: 1rem;
     padding: 0 2rem;
+    z-index: 3;
+  }
+  .controls * {
+    z-index: inherit;
   }
   .controls > div {
     width: 330px;
