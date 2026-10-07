@@ -13,9 +13,6 @@
     qubit_info,
     gate_info;
 
-  const singleton_gates = ["id", "rz", "sx", "x"];
-  const dobule_gates = ["cx", "ecr"];
-
   let hide1 = writable(true);
   let colorScale;
   let edgeColorScale;
@@ -54,12 +51,12 @@
       eincl = [];
     edge_info_list = [];
     gate_info.forEach((a) => {
-      if (dobule_gates.includes(a.gate) && !eincl.includes(a.gate)) {
+      if (a.qubits.length == 2 && !eincl.includes(a.gate)) {
         edge_info_list.push({ gate: a.gate, type: "error" });
         edge_info_list.push({ gate: a.gate, type: "length" });
         eincl.push(a.gate);
       }
-      if (singleton_gates.includes(a.gate) && !qincl.includes(a.gate)) {
+      if (a.qubits.length == 1 && !qincl.includes(a.gate)) {
         qubit_info_list.push({ gate: a.gate, type: "error" });
         qubit_info_list.push({ gate: a.gate, type: "length" });
         qincl.push(a.gate);
@@ -77,7 +74,7 @@
     qubit_info_values = [];
     if (s?.feature) {
       qubit_info_values = qubit_info.map((d) => d[s.feature]);
-      let vs = qubit_info_values.map((d) => d.value);
+      let vs = qubit_info_values.map((d) => d?.value ?? null);
       let [min, max] = [Math.min(...vs), Math.max(...vs)];
       qubit_stats = {
         min,
@@ -87,9 +84,15 @@
         values: vs,
       };
       if (["frequency", "readout_error"].includes(s.feature)) {
-        colorScale = scaleSequential(interpolateMagma).domain([max, min]);
+        let __colorScale = scaleSequential(interpolateMagma).domain([max, min]);
+        colorScale = (d) => {
+          return d !== undefined ? __colorScale(d) : "#dddddd";
+        };
       } else {
-        colorScale = scaleSequential(interpolateMagma).domain([min, max]);
+        let __colorScale = scaleSequential(interpolateMagma).domain([min, max]);
+        colorScale = (d) => {
+          return d !== undefined ? __colorScale(d) : "#dddddd";
+        };
       }
     } else if (s?.gate) {
       qubit_info_values = gate_info
@@ -100,7 +103,7 @@
         })
         .toSorted((a, b) => a.qubit - b.qubit);
       let vs = qubit_info_values.map(
-        (d) => d.parameters["gate_" + s.type].value,
+        (d) => d?.parameters["gate_" + s.type]?.value ?? null,
       );
       let [min, max] = [Math.min(...vs), Math.max(...vs)];
       qubit_stats = {
@@ -110,7 +113,10 @@
         median: median(vs),
         values: vs,
       };
-      colorScale = scaleSequential(interpolateMagma).domain([max, min]);
+      let __colorScale = scaleSequential(interpolateMagma).domain([max, min]);
+      colorScale = (d) => {
+        return d !== undefined ? __colorScale(d) : "#dddddd";
+      };
     }
   });
   edge_info_selected.subscribe((s) => {
@@ -122,7 +128,7 @@
       });
 
       let vs = Object.keys(edge_info_values).map(
-        (d) => edge_info_values[d].parameters["gate_" + s.type]?.value,
+        (d) => edge_info_values[d]?.parameters["gate_" + s.type]?.value ?? null,
       );
 
       let [min, max] = [Math.min(...vs), Math.max(...vs)];
@@ -133,7 +139,13 @@
         median: median(vs),
         values: vs,
       };
-      edgeColorScale = scaleSequential(interpolateMagma).domain([max, min]);
+      let __edgeColorScale = scaleSequential(interpolateMagma).domain([
+        max,
+        min,
+      ]);
+      edgeColorScale = (d) => {
+        return d !== undefined ? __edgeColorScale(d) : "#dddddd";
+      };
     }
   });
 
@@ -328,22 +340,22 @@
         {#if showTooltip}
           <!-- svelte-ignore a11y-no-static-element-interactions -->
           <!-- svelte-ignore a11y-mouse-events-have-key-events -->
-          <!--  style={`right: 1rem; top: ${tooltipY}px;`} -->
-          <div class="tooltip" style={`right: calc(${width}px + 1rem)`}>
+          <div class="tooltip">
             <h5>
-              {tooltipInfo.item}–{tooltipInfo.key.gate ||
-                tooltipInfo.key.feature}
-              {tooltipInfo.key.type ? tooltipInfo.key.type : ""}
+              {tooltipInfo.item}–{(tooltipInfo.key?.gate ||
+                tooltipInfo.key.feature) ??
+                "-"}
+              {tooltipInfo.key.type ? tooltipInfo.key?.type : "-"}
             </h5>
 
             <table>
               <tr>
-                <th>Value</th><td> {tooltipInfo.value.value}</td>
+                <th>Value</th><td> {tooltipInfo.value?.value ?? "-"}</td>
               </tr>
               <tr>
-                <th>Date</th><td> {tooltipInfo.value.asof}</td>
+                <th>Date</th><td> {tooltipInfo.value?.asof ?? "-"}</td>
               </tr>
-              {#if tooltipInfo.value.unit}
+              {#if tooltipInfo.value?.unit}
                 <tr>
                   <th>Unit</th><td> {tooltipInfo.value.unit}</td>
                 </tr>
@@ -406,10 +418,15 @@
     display: flex;
     column-gap: 2rem;
     padding: 1rem;
+    z-index: 1;
+  }
+  .controls * {
+    z-index: inherit;
   }
   .controls label {
     font-size: 0.8rem;
     margin-right: 0.25rem;
+    z-index: inherit;
   }
   .controls select {
     font-size: 0.8rem;
@@ -417,6 +434,7 @@
     border: 1px solid #333;
     background-color: white;
     border-radius: 0.25rem;
+    z-index: inherit;
   }
   .stats {
     margin-top: 1rem;
@@ -430,8 +448,10 @@
     height: 100%;
   }
   .tooltip {
+    width: 15rem;
     position: absolute;
     top: 50%;
+    right: 2rem;
     padding: 0.85rem 0.85rem 0.5rem 0.85rem;
     border: 1px solid #333;
     background-color: white;

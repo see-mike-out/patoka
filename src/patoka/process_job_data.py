@@ -132,6 +132,8 @@ def processJobData(service, job_id, original_circuit):
         transpiled_circuit = job.inputs["circuits"][0]
     elif 'pubs' in job.inputs:
         transpiled_circuit = job.inputs["pubs"][0][0]
+    elif 'quantum_program' in job.inputs:
+        transpiled_circuit = job.inputs['quantum_program'].items[0].circuit
     
     if transpiled_circuit is not None:
         transpiled_circuit_layout = getCircuitLayout(transpiled_circuit)

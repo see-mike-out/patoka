@@ -170,7 +170,7 @@
           on:click={(e) => {
             goToPage($pagination.page + 1);
           }}
-          disabled={$pagination.page > $pagination.total_page}
+          disabled={$pagination.page >= $pagination.total_page}
         >
           Next &rightarrow;
         </button>

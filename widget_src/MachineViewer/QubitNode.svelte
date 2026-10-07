@@ -29,8 +29,8 @@
     border-radius: ${qubit_radius / 2}px;
     font-size: ${qubit_radius * 0.55}px;
     padding-top: ${qubit_radius * 0.225}px;
-    background-color: ${colorScale(qubit_info_value.value)};
-    color: ${decideBlackWhite(colorScale(qubit_info_value.value))};` +
+    background-color: ${colorScale(qubit_info_value?.value)};
+    color: ${decideBlackWhite(colorScale(qubit_info_value?.value))};` +
       (is_used ? "box-shadow: 0 0 5px purple;" : "")}
     on:mouseover={(e) => {
       e.preventDefault();
