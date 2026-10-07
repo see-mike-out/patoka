@@ -100,9 +100,14 @@ def processJobData(service, job_id, original_circuit):
 
     # 6: get the counts and other meta info
     if type(result) is PrimitiveResult:
-        counts = result[0].data.meas.get_counts()
-        n_shots = result[0].data.meas.num_shots
-        meas_level = None
+        if hasattr(result[0].data, "meas"):
+            counts = result[0].data.meas.get_counts()
+            n_shots = result[0].data.meas.num_shots
+            meas_level = None
+        else:
+            counts = result[0].data.c.get_counts()
+            n_shots = result[0].data.c.num_shots
+            meas_level = None
     else:
         counts = result.get_counts()
         n_shots = result.results[0].shots
